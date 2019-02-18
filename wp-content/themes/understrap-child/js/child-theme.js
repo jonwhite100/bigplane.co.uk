@@ -3977,6 +3977,13 @@
 	}
 })();
 
+// preloader JavaScript
+// Wait for window load
+jQuery(window).load(function() {
+	// Animate loader off screen
+	jQuery(".se-pre-con").fadeOut("slow");
+});
+
 // script to scroll to each section by id
 ( function( $ ) {
   $(document).on('click', 'a[href*="#"]:not([href="#"])', function(e) {
