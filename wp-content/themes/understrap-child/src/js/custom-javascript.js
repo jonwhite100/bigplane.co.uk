@@ -5,6 +5,19 @@ jQuery(window).load(function() {
 	jQuery(".se-pre-con").fadeOut("slow");
 });
 
+// script to shrink header
+jQuery(document).ready(function($) {
+	$(window).scroll(function () {
+		if ($(window).scrollTop() > 100) {
+			$('.navbar').addClass('shrink');
+		}
+
+		else{
+			$('.navbar').removeClass('shrink');
+		}
+	});
+});
+
 // script to scroll to each section by id
 ( function( $ ) {
   $(document).on('click', 'a[href*="#"]:not([href="#"])', function(e) {

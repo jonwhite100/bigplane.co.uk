@@ -11,7 +11,12 @@
 //
 
 $primary: #4ac4f3;
+$white: #fff !default;
+$black: #000 !default;
 
+// navbar
+$c_navbar_bg: $white;
+$c_navbar_border: darken($white, 50%);
 
 // font font-family
 $font-size-base:              1rem !default;

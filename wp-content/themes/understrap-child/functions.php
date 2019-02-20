@@ -33,6 +33,9 @@ function add_child_theme_textdomain() {
 }
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 
-// bpm added
+/**
+* BPM added
+**/
+
 // add an images directory
 define ( 'TEMPPATH', get_bloginfo ('stylesheet_directory')); define ( 'IMAGES', TEMPPATH . "/images");
