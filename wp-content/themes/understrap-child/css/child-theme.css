@@ -6,6 +6,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -306,25 +307,25 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: inherit;
-  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
   line-height: 1.2;
   color: inherit; }
 
 h1, .h1 {
-  font-size: 2.5rem; }
+  font-size: 2.25rem; }
 
 h2, .h2 {
-  font-size: 2rem; }
-
-h3, .h3 {
   font-size: 1.75rem; }
 
-h4, .h4 {
+h3, .h3 {
   font-size: 1.5rem; }
 
+h4, .h4 {
+  font-size: 1.1rem; }
+
 h5, .h5 {
-  font-size: 1.25rem; }
+  font-size: 1.1rem; }
 
 h6, .h6 {
   font-size: 1rem; }
@@ -10959,6 +10960,188 @@ if it's not present, don't show loader */
   z-index: 9999;
   background: url(images/preloader.gif) center no-repeat #fff; }
 
+.page-id-9 .entry-header {
+  display: none; }
+
+.home__jumbotron {
+  background-color: #d9f3fd;
+  height: 100%;
+  padding: 5rem; }
+  .home__jumbotron h1,
+  .home__jumbotron h2,
+  .home__jumbotron p {
+    text-align: center;
+    font-weight: 600; }
+  .home__jumbotron h1 {
+    text-transform: uppercase;
+    color: #4ac4f3;
+    margin-bottom: 2.25rem; }
+  .home__jumbotron h2 {
+    text-transform: capitalize;
+    margin-bottom: 1.5rem; }
+
+/*
+  Flaticon icon font: Flaticon
+  Creation date: 08/09/2018 00:19
+  */
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/Flaticon.eot");
+  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg"); } }
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+  font-family: Flaticon;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.flaticon-move:before {
+  content: "\f100"; }
+
+.flaticon-scroll:before {
+  content: "\f101"; }
+
+.flaticon-customer-support:before {
+  content: "\f102"; }
+
+.flaticon-feature:before {
+  content: "\f103"; }
+
+.flaticon-intersect:before {
+  content: "\f104"; }
+
+.flaticon-union:before {
+  content: "\f105"; }
+
+.flaticon-intersection:before {
+  content: "\f106"; }
+
+.flaticon-rgb:before {
+  content: "\f107"; }
+
+.flaticon-rgb-1:before {
+  content: "\f108"; }
+
+.flaticon-resolution:before {
+  content: "\f109"; }
+
+.flaticon-showcase:before {
+  content: "\f10a"; }
+
+.flaticon-tickets:before {
+  content: "\f10b"; }
+
+.flaticon-ticket:before {
+  content: "\f10c"; }
+
+.flaticon-conversation:before {
+  content: "\f10d"; }
+
+.flaticon-speech-bubble:before {
+  content: "\f10e"; }
+
+.flaticon-email:before {
+  content: "\f10f"; }
+
+.flaticon-contact:before {
+  content: "\f110"; }
+
+.flaticon-file:before {
+  content: "\f111"; }
+
+.flaticon-upload-information:before {
+  content: "\f112"; }
+
+/*
+
+CC 2.0 License Iatek LLC 2018
+Attribution required
+
+*/
+@media (min-width: 768px) {
+  /* show 3 items */
+  .carousel-inner .active,
+  .carousel-inner .active + .carousel-item,
+  .carousel-inner .active + .carousel-item + .carousel-item {
+    display: block; }
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+    -webkit-transition: none;
+    transition: none; }
+  .carousel-inner .carousel-item-next,
+  .carousel-inner .carousel-item-prev {
+    position: relative;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    position: absolute;
+    top: 0;
+    right: -33.3333%;
+    z-index: -1;
+    display: block;
+    visibility: visible; }
+  /* left or forward direction */
+  .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+  .carousel-item-next.carousel-item-left + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+    position: relative;
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    visibility: visible; }
+  /* farthest right hidden item must be abso position for animations */
+  .carousel-inner .carousel-item-prev.carousel-item-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    visibility: visible; }
+  /* right or prev direction */
+  .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+  .carousel-item-prev.carousel-item-right + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+    position: relative;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible; } }
+
+p {
+  font-size: 0.875rem;
+  line-height: 1.6; }
+
+.btn,
+.wpcf7 input[type=submit] {
+  padding: 1rem 4rem;
+  font-weight: 600; }
+  .btn.circle, .wpcf7 input.circle[type=submit] {
+    border-radius: 3rem; }
+  .btn-primary {
+    color: #fff;
+    font-size: 0.875rem;
+    text-transform: uppercase; }
+
+.container-fluid {
+  max-width: 1440px; }
+
 .homepage__block {
   background-color: #ccc;
   min-height: 400px; }
@@ -10980,5 +11163,170 @@ if it's not present, don't show loader */
   height: 100%;
   z-index: 9999;
   background: url(../images/preloader.gif) center no-repeat #fff; }
+
+.default-padding {
+  padding-top: 80px;
+  padding-bottom: 80px; }
+
+.about-area h2 {
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 20px; }
+
+.about-area h4 {
+  color: #4ac4f3;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.84375rem; }
+
+.about-area .col-lg-6 {
+  margin-bottom: 1.125rem; }
+
+.about-area .item i {
+  color: #4ac4f3;
+  display: inline-block;
+  font-size: 4rem;
+  margin-bottom: 1.125rem;
+  position: relative;
+  z-index: 1;
+  line-height: 1; }
+
+.about-area .bottom-info {
+  border-top: 1px solid #e7e7e7;
+  margin-top: 35px;
+  padding-top: 30px; }
+
+.about-area .bottom-info span {
+  display: table;
+  padding-top: 2px; }
+
+.about-area .default.info h3 {
+  font-weight: 600;
+  margin-bottom: 20px; }
+
+.about-area .default.info > a {
+  margin-top: 10px; }
+
+.about-area .bottom-info li {
+  color: #666666;
+  display: block;
+  font-family: "Poppins",sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  text-transform: capitalize; }
+
+.about-area .bottom-info li i {
+  background: #4ac4f3 none repeat scroll 0 0;
+  border-radius: 50%;
+  color: #ffffff;
+  float: left;
+  font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 15px;
+  margin-top: 5px;
+  position: relative;
+  text-align: center;
+  width: 20px;
+  z-index: 1; }
+
+.about-area .bottom-info li:last-child {
+  margin: 0; }
+
+.about-area .bottom-info li i::after {
+  background: #4ac4f3 none repeat scroll 0 0;
+  border-radius: 50%;
+  content: "";
+  height: 28px;
+  left: 0;
+  margin-left: -4px;
+  margin-top: -4px;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  width: 28px;
+  z-index: -1; }
+
+.about-area .services-info .item {
+  background: #ffffff none repeat scroll 0 0;
+  -webkit-box-shadow: 0 0 10px #cccccc;
+  -o-box-shadow: 0 0 10px #cccccc;
+  box-shadow: 0 0 10px #cccccc;
+  margin-top: 30px;
+  padding: 30px; }
+
+.about-area .services-info {
+  margin-top: -30px; }
+
+.about-area .services-info .item h4 {
+  font-weight: 600;
+  text-transform: capitalize; }
+
+.about-area .services-info .item p {
+  margin: 0; }
+
+.about-area .services-info .equal-height:nth-child(1) .item,
+.about-area .services-info .equal-height:nth-child(4) .item {
+  background: #4ac4f3 none repeat scroll 0 0; }
+
+.about-area .services-info .equal-height:nth-child(1) .item i,
+.about-area .services-info .equal-height:nth-child(4) .item i,
+.about-area .services-info .equal-height:nth-child(1) .item h4,
+.about-area .services-info .equal-height:nth-child(4) .item h4,
+.about-area .services-info .equal-height:nth-child(1) .item p,
+.about-area .services-info .equal-height:nth-child(4) .item p {
+  color: #fff; }
+
+.companies-area {
+  background-color: #d9f3fd; }
+
+.companies-area .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle; }
+
+.companies-area .clients-items img {
+  width: auto;
+  margin: auto;
+  padding: 5px; }
+
+.companies-area .clients-items .owl-nav {
+  margin: 0; }
+
+.companies-area .clients-items .owl-nav .owl-prev,
+.companies-area .clients-items .owl-nav .owl-next {
+  background: transparent none repeat scroll 0 0;
+  color: #4ac4f3;
+  font-size: 30px;
+  height: 35px;
+  left: 0;
+  line-height: 35px;
+  margin-top: -18px;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 35px; }
+
+.companies-area .clients-items .owl-nav .owl-next {
+  left: auto;
+  right: 0; }
+
+.companies-area .info h4 {
+  font-weight: 600;
+  text-transform: capitalize; }
+
+.companies-area .info p {
+  margin: 0; }
 
 /*# sourceMappingURL=child-theme.css.map */

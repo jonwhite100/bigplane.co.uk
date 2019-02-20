@@ -12,3 +12,10 @@ if it's not present, don't show loader */
 	z-index: 9999;
 	background: url(images/preloader.gif) center no-repeat #fff;
 }
+
+// hide title on home homepage
+.page-id-9 {
+	.entry-header {
+		display: none;
+	}
+}

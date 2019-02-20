@@ -1,0 +1,28 @@
+.home__jumbotron {
+    background-color: lighten($primary, 30%);
+    height: 100%;
+    padding: 5rem;
+
+    h1,
+    h2,
+    p {
+        text-align: center;
+        font-weight: 600;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        color: $primary;
+        margin-bottom: $s_lg;
+    }
+
+    h2 {
+        text-transform: capitalize;
+        margin-bottom: $s_md;
+    }
+}
+
+.banner-area,
+.banner-area div {
+
+}
