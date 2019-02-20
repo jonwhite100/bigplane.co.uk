@@ -11218,8 +11218,7 @@ footer.color-yellow .footer-bottom p a {
   color: #4ac4f3; }
 
 /* Paste this css to your style sheet file or under head tag */
-/* This only works with JavaScript,
-if it's not present, don't show loader */
+/* This only works with JavaScript, if it's not present, don't show loader */
 .no-js #loader {
   display: none; }
 
@@ -11240,6 +11239,30 @@ if it's not present, don't show loader */
 
 .page-id-9 .entry-header {
   display: none; }
+
+.navbar {
+  padding: 1rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(122, 120, 122, 0.33);
+          box-shadow: 0px 3px 6px 0px rgba(122, 120, 122, 0.33); }
+  .navbar.shrink {
+    top: 0 !important;
+    height: 70px !important;
+    padding: 0.5rem 1rem !important;
+    background-color: #fafafa !important;
+    -webkit-transition: all 0.33s ease-in-out;
+    transition: all 0.33s ease-in-out; }
+    .navbar.shrink .mob-standard-logo {
+      height: 70px !important;
+      -webkit-transition: all 0.33s ease-in-out;
+      transition: all 0.33s ease-in-out; }
+
+.navbar-expand-md .navbar-nav .nav-link {
+  padding-right: 1.125rem;
+  padding-left: 1.125rem; }
+
+#page-wrapper {
+  margin-top: 3.375rem; }
 
 .home__jumbotron {
   background-color: #d9f3fd;
