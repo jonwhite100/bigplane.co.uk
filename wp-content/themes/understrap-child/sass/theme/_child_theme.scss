@@ -5,13 +5,36 @@
 @import "components/flaticon";
 @import "components/multi-screen-carousel";
 
+// fonts / text
+.text-center {
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+}
+
 p {
     font-size: $font-size-sm;
     line-height: 1.6;
 }
 
+
+.site-heading {
+    margin-bottom: $s_xl;
+
+    h2 {
+        display: inline-block;
+        font-weight: 700;
+        padding-bottom: 20px;
+        position: relative;
+    }
+}
+
+
+// buttons
 .btn {
-    padding: 1rem 4rem;
+    padding: 10px 40px;
     font-weight: 600;
     &.circle {
         border-radius: 3rem;
@@ -21,6 +44,11 @@ p {
         color: $white;
         font-size: $font-size-sm;
         text-transform: uppercase;
+    }
+
+    &-sm {
+        padding: 10px 40px;
+        font-size: $font-size-base * 0.8;
     }
 }
 
