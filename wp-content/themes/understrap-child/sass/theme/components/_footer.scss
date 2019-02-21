@@ -16,23 +16,42 @@ footer {
             text-transform: capitalize;
             z-index: 1;
         }
+
+        .address {
+
+
+        }
+
+        a {
+            margin-top: $s_sm;
+        }
+    }
+
+    .address {
+        ul {
+            padding-left: 0;
+        }
+
+        .icon,
+        .info {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .info {
+            padding-left: $s_sm;
+        }
+
+        h5 {
+            font-weight: 600;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
     }
 }
 
 
-footer .f-item .address .icon,
-footer .f-item .address .info {
-  display: table-cell;
-  vertical-align: middle;
-}
 
-footer .f-item > a {
-  margin-top: 10px;
-}
-
-footer .f-item .address .info {
-  padding-left: 15px;
-}
 
 .footer-bottom .col-md-6:first-child {
   padding-left: 0;
@@ -42,12 +61,6 @@ footer .f-item .address .info {
   padding-right: 0;
 }
 
-footer .f-item .address .info h5 {
-  font-weight: 600;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  color: #232323;
-}
 
 footer .f-item .address li i {
   background: #edf5ff none repeat scroll 0 0;
@@ -124,51 +137,10 @@ footer.color-yellow .footer-bottom p a {
   color: #ff9800;
 }
 
-.footer-bottom h4 {
-  font-weight: 400;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.footer-bottom .link li {
-  display: inline-block;
-}
-
-.footer-bottom .link li a {
-  color: #999999;
-  display: inline-block;
-  font-weight: 500;
-  line-height: 40px;
-  margin-left: 10px;
-  padding-left: 15px;
-  position: relative;
-  text-transform: uppercase;
-  z-index: 1;
-}
-
-.footer-bottom .link li a::before {
-  background: #999999 none repeat scroll 0 0;
-  content: "";
-  height: 12px;
-  left: 0;
-  position: absolute;
-  top: 15px;
-  width: 1px;
-}
-
-.footer-bottom .link li:first-child a {
-  margin: 0;
-  padding: 0;
-}
-
-.footer-bottom .link li:first-child::before {
-  display: none;
-}
-
-.footer-bottom .link li:first-child a::before {
-  display: none;
-}
-
-.footer-bottom .link li a:hover {
-  color: #4ac4f3;
+.footer-menu {
+    text-align: right;
+    li {
+        display: inline-block;
+        margin-left: 1rem;
+    }
 }

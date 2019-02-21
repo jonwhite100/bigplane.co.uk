@@ -34,8 +34,14 @@ function add_child_theme_textdomain() {
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 
 /**
-* BPM added
+* BPM  add an images directory
 **/
-
-// add an images directory
 define ( 'TEMPPATH', get_bloginfo ('stylesheet_directory')); define ( 'IMAGES', TEMPPATH . "/images");
+
+/**
+* BPM Add an addition menu location
+**/
+function register_my_menu() {
+    register_nav_menu('footer-menu',__( 'Footer Menu' ));
+}
+add_action( 'init', 'register_my_menu' );
