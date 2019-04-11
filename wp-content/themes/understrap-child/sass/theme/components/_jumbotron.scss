@@ -1,6 +1,7 @@
 .home__jumbotron {
-    background-color: lighten($primary, 30%);
+    background-color: lighten($secondary, 35%);
     height: 100%;
+    margin-top: 4rem;
     padding: 5rem;
 
     h1,
@@ -11,18 +12,40 @@
     }
 
     h1 {
-        text-transform: uppercase;
-        color: $primary;
         margin-bottom: $s_lg;
+        color: $primary;
+        font-size: 4.75rem;
+        text-transform: uppercase;
     }
 
     h2 {
-        text-transform: capitalize;
         margin-bottom: $s_md;
+        color: $secondary;
+        font-size: 2.5rem;
+        text-transform: capitalize;
+    }
+
+    p {
+        width:74%;
+        color: $grey;
     }
 }
 
 .banner-area,
 .banner-area div {
+
+}
+
+.home__jumbotron  {
+    .wp-block-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wp-block-image {
+        max-width: 60%;
+    }
 
 }

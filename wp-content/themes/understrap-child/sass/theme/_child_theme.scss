@@ -2,6 +2,7 @@
 @import "components/footer";
 @import "components/header";
 @import "components/jumbotron";
+@import "components/pricing";
 @import "components/flaticon";
 @import "components/multi-screen-carousel";
 
@@ -109,8 +110,6 @@ p {
         }
     }
 }
-.about-area .services-info .item i {
-}
 
 .about-area .bottom-info {
   border-top: 1px solid #e7e7e7;
@@ -143,7 +142,7 @@ p {
 }
 
 .about-area .bottom-info li i {
-  background: #4ac4f3 none repeat scroll 0 0;
+  background: $primary none repeat scroll 0 0;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -165,7 +164,7 @@ p {
 }
 
 .about-area .bottom-info li i::after {
-  background: #4ac4f3 none repeat scroll 0 0;
+  background: $primary none repeat scroll 0 0;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -207,7 +206,7 @@ p {
 
 .about-area .services-info .equal-height:nth-child(1) .item,
 .about-area .services-info .equal-height:nth-child(4) .item {
-  background: #4ac4f3 none repeat scroll 0 0;
+  background: $primary none repeat scroll 0 0;
 }
 
 .about-area .services-info .equal-height:nth-child(1) .item i,
@@ -245,7 +244,7 @@ p {
 .companies-area .clients-items .owl-nav .owl-prev,
 .companies-area .clients-items .owl-nav .owl-next {
   background: transparent none repeat scroll 0 0;
-  color: #4ac4f3;
+  color: $primary;
   font-size: 30px;
   height: 35px;
   left: 0;
