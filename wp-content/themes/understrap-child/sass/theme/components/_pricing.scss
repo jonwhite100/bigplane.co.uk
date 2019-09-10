@@ -1,20 +1,39 @@
+// each card
+.card-pricing {
+  background: #ffffff none repeat scroll 0 0;
+  box-shadow: 0 0 10px #cccccc;
+  margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+}
+.card-title {
+  background: #edf5ff none repeat scroll 0 0;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 35px;
+  padding: 30px !important;  
+}
+
+
+
+
+
+
 .pricing {
     display: flex;
     width: 100%;
 }
 
 .pricing-item {
-  background: #ffffff none repeat scroll 0 0;
+  
   -moz-box-shadow: 0 0 10px #cccccc;
   -webkit-box-shadow: 0 0 10px #cccccc;
   -o-box-shadow: 0 0 10px #cccccc;
-  box-shadow: 0 0 10px #cccccc;
-  margin-bottom: 30px;
-  overflow: hidden;
-  position: relative;
+  
+  
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px;
+  
 
   ul {
       list-style-type: none;
