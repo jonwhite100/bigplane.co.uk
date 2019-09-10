@@ -29,27 +29,27 @@
             display: inline-flex;
 
             &.twitter a {
-                background-color: #00b6f1;
+                background-color: $c_twitter;
             }
 
             &.pinterest a {
-                background-color: #bd081c;
+                background-color: $c_pinterest;
             }
 
             &.facebook a {
-                background-color: #3b5998;
+                background-color: $c_facebook;
             }
 
             &.g-plus a {
-                background-color: #df4a32;
+                background-color: $c_g_plus;
             }
 
             &.vimeo a {
-                background-color: #1ab7ea;
+                background-color: $c_vimeo;
             }
 
             &.instagram a {
-                background-color: #cd486b;
+                background-color: $c_instagram;
             }
         }
 
@@ -57,13 +57,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-
             width: 40px;
             height: 40px;
             border-radius: 50%;
             color: $white;
             text-align: center;
-
         }
     }
 }
