@@ -3,19 +3,25 @@
 //
 
 // list-group-pricing is non BS4 class
-.list-group-pricing .list-group-item {
-    border: 0;
-}
+.list-group-pricing {
+    margin-bottom: 2rem;
 
-.list-group-pricing .list-group-item:first-child {
-    padding-top: 0;
-}
+    .list-group-item {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+        border: 0;
 
-.list-group-pricing .list-group-item i {
-    color: $c_list_group_item_icon;
-    margin-right: 5px;
-}
+        &:first-child {
+            padding-top: 0;
+        }
 
-.list-group-pricing .list-group-item i.fa-times {
-    color: $c_list_group_item_icon_cross; //#e22626
+        i {
+            margin-right: $s_xs / 2;
+            color: $c_list_group_item_icon;
+
+            &.fa-times {
+                color: $c_list_group_item_icon_cross; //#e22626
+            }
+        }
+    }
 }

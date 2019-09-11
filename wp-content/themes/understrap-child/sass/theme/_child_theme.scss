@@ -1,4 +1,5 @@
 @import "bootstrap/card";
+@import "bootstrap/list-group";
 
 @import "components/contact";
 @import "components/footer";
@@ -21,7 +22,6 @@ p {
     font-size: $font-size-sm;
     line-height: 1.6;
 }
-
 
 .site-heading {
     margin-bottom: $s_xl;

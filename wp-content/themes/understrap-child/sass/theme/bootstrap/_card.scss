@@ -1,41 +1,53 @@
 //
 // Override BS4
 //
+.card-pricing {
+  background-color: $white;
+  box-shadow: 0 0 10px gray("200");
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.3rem;
+}
 
 .card-body {
   padding: 0;
 }
 
+.card-title-container {
+  background-color: lighten($secondary, 35%);
+  border-bottom: 1px solid gray("200");
+}
+
 .card-title {
     font-weight: 600;
     text-transform: uppercase;
-    color: #232323;
+    color: gray("900");
 }
 
 .card-subtitle {
     margin-top: 0;
-    color: #232323;
-    font-size: 3.15rem;
+    color: gray("900");
+    font-size: $h1-font-size * 1.4;
     font-weight: 900;
     letter-spacing: -1px;
     line-height: 1;
-}
 
-.card-subtitle sup {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-right: 0;
-}
+    sup {
+        margin-right: 0;
+        font-size: $h3-font-size;
+        font-weight: 600;
+    }
 
-.card-subtitle sub {
-  font-size: 1.15rem;
-  font-weight: 400;
-  margin-left: -5px;
+    sub {
+        font-size: $h4-font-size;
+        font-weight: 400;
+        margin-left: -5px;
+    }
 }
 
 /// 1. the paragraph already has 1rem margin bottom (added together = 2rem)
 .card-text {
     padding-right: 2rem;
-    padding-bottom: 1rem; // 1
+    padding-bottom: 0.75rem; // 1
     padding-left: 2rem;
 }
