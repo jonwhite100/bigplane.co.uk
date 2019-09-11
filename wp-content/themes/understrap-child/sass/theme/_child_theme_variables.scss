@@ -9,7 +9,6 @@
 //
 // Color system
 //
-
 $secondary: #4A9BD3; //logo light blue. original theme #4ac4f3
 $primary: #126AB4; // logo darker blue
 $white: #fff !default;
@@ -17,6 +16,8 @@ $black: #000 !default;
 $grey-dark: #999 !default;
 $grey: #767676;
 $grey-lightest: #edf5ff;
+
+$brand-danger:          #e22626 !default;
 
 // non-site variables
 $c_twitter: #00b6f1 !default;
@@ -56,3 +57,7 @@ $s_xl: $s_lg * 1.5;
 
 // card
 $card-spacer-y: 0.5rem !default; // 8px
+
+// list group
+$c_list_group_item_icon: $secondary !default;
+$c_list_group_item_icon_cross: $brand-danger !default;

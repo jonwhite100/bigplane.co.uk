@@ -1,0 +1,21 @@
+//
+// Override BS4
+//
+
+// list-group-pricing is non BS4 class
+.list-group-pricing .list-group-item {
+    border: 0;
+}
+
+.list-group-pricing .list-group-item:first-child {
+    padding-top: 0;
+}
+
+.list-group-pricing .list-group-item i {
+    color: $c_list_group_item_icon;
+    margin-right: 5px;
+}
+
+.list-group-pricing .list-group-item i.fa-times {
+    color: $c_list_group_item_icon_cross; //#e22626
+}

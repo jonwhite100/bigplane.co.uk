@@ -33,11 +33,9 @@
   margin-left: -5px;
 }
 
+/// 1. the paragraph already has 1rem margin bottom (added together = 2rem)
 .card-text {
     padding-right: 2rem;
+    padding-bottom: 1rem; // 1
     padding-left: 2rem;
-}
-
-.list-group-pricing {
-
 }
