@@ -58,7 +58,7 @@ add_action( 'init', 'register_my_menu' );
 */
 function be_dps_current_class( $classes, $post ) {
 	if( is_singular() && $post->ID === get_queried_object_id() ) {
-		$classes[] = 'current-list-item';
+		$classes[] = 'current-list-item-jonso100';
 	}
 	return $classes;
 }
