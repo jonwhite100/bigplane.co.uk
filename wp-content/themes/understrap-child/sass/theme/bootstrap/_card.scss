@@ -16,17 +16,27 @@
 .card-title-container {
   background-color: lighten($secondary, 35%);
   border-bottom: 1px solid gray("200");
+
+  &.active {
+      background-color: $primary;
+  }
+}
+
+.card-title,
+.card-subtitle {
+    color: gray("900");
+
+    .active & {
+        color: $white;
+    }
 }
 
 .card-title {
     font-weight: 600;
-    text-transform: uppercase;
-    color: gray("900");
 }
 
 .card-subtitle {
     margin-top: 0;
-    color: gray("900");
     font-size: $h1-font-size * 1.4;
     font-weight: 900;
     letter-spacing: -1px;

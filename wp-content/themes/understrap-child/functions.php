@@ -45,3 +45,21 @@ function register_my_menu() {
     register_nav_menu('footer-menu',__( 'Footer Menu' ));
 }
 add_action( 'init', 'register_my_menu' );
+
+/**
+* BPM add from Display Posts plugin
+
+* Display Posts - current-list-item class
+* @see https://displayposts.com/2019/08/20/add-class-to-current-post-for-styling/
+*
+* @param array $classes
+* @param object $post
+* @return array $classes
+*/
+function be_dps_current_class( $classes, $post ) {
+	if( is_singular() && $post->ID === get_queried_object_id() ) {
+		$classes[] = 'current-list-item';
+	}
+	return $classes;
+}
+add_filter( 'display_posts_shortcode_post_class', 'be_dps_current_class', 10, 2 );

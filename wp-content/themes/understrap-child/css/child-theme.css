@@ -14027,15 +14027,21 @@ a.skip-link {
 .card-title-container {
   background-color: #daeaf6;
   border-bottom: 1px solid #e9ecef; }
+  .card-title-container.active {
+    background-color: #126AB4; }
+
+.card-title,
+.card-subtitle {
+  color: #212529; }
+  .active .card-title, .active
+  .card-subtitle {
+    color: #fff; }
 
 .card-title {
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #212529; }
+  font-weight: 600; }
 
 .card-subtitle {
   margin-top: 0;
-  color: #212529;
   font-size: 3.15rem;
   font-weight: 900;
   letter-spacing: -1px;
