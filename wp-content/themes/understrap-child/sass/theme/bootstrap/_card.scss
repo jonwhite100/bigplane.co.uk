@@ -1,11 +1,21 @@
 //
 // Override BS4
 //
+.card-about {
+    border-width: 0;
+
+    hr {
+        margin-top: $s_xs;
+        margin-bottom: $s_md;
+    }
+}
+
 .card-pricing {
   background-color: $white;
   // box-shadow: 0 0 10px gray("200");
   overflow: hidden;
   position: relative;
+  border-width: 1px;
   border-radius: 0.3rem;
 }
 
@@ -14,33 +24,44 @@
 }
 
 .card-title-container {
-  background-color: lighten($secondary, 35%);
-  border-bottom: 1px solid gray("200");
+    .card-pricing & {
+        background-color: lighten($secondary, 35%);
+        border-bottom: 1px solid gray("200");
 
-  &.active {
-      background-color: $primary;
-  }
+        &.active {
+          background-color: $primary;
+        }
+    }
 }
 
 .card-title,
 .card-subtitle {
-    color: gray("900");
+    .card-about & {
+        color: $primary;
+    }
 
-    .active & {
-        color: $white;
+    .card-pricing & {
+        color: gray("900");
+
+        .active & {
+            color: $white;
+        }
     }
 }
 
 .card-title {
-    font-weight: 600;
+    .card-about & {
+
+    }
+
+    .card-pricing & {
+        font-weight: 600;
+    }
 }
 
 .card-subtitle {
     margin-top: 0;
-    font-size: $h1-font-size * 1.4;
     font-weight: 900;
-    letter-spacing: -1px;
-    line-height: 1;
 
     sup {
         margin-right: 0;
@@ -53,6 +74,22 @@
         font-weight: 400;
         margin-left: -5px;
     }
+
+    .card-about & {
+        margin-bottom: $s_sm;
+        font-size: $h2-font-size;
+        color: gray("900");
+        line-height: 1.4;
+    }
+
+    .card-pricing & {
+        font-size: $h1-font-size * 1.4;
+        line-height: 1;
+    }
+}
+
+.card-body-heading {
+    margin-bottom: $s_md;
 }
 
 /// 1. the paragraph already has 1rem margin bottom (added together = 2rem)
