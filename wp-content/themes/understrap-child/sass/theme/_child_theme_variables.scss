@@ -47,7 +47,7 @@ $h5-font-size:                $font-size-base * 1.1 !default;
 $h6-font-size:                $font-size-base !default;
 
 // Shodows
-$box-shadow: 0 0 10px gray("200") !default;
+$box-shadow: 0 0 10px $grey !default;
 
 // Spacers
 $unit: 1.5rem;

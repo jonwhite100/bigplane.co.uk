@@ -10,6 +10,10 @@
     }
 }
 
+.card-post {
+
+}
+
 .card-pricing {
   background-color: $white;
   // box-shadow: 0 0 10px gray("200");
@@ -20,7 +24,11 @@
 }
 
 .card-body {
-  padding: 0;
+    padding: 0;
+
+    .card-blog-post & {
+        // padding: $s_sm;
+    }
 }
 
 .card-title-container {
@@ -40,6 +48,10 @@
         color: $primary;
     }
 
+    .card-blog-post & {
+
+    }
+
     .card-pricing & {
         color: gray("900");
 
@@ -52,6 +64,18 @@
 .card-title {
     .card-about & {
 
+    }
+
+    .card-blog-post & {
+        text-transform: capitalize;
+
+        a {
+            color: pink;
+        }
+
+        a:hover {
+            color: orange;
+        }
     }
 
     .card-pricing & {
@@ -80,6 +104,10 @@
         font-size: $h2-font-size;
         color: gray("900");
         line-height: 1.4;
+    }
+
+    .card-blog-post & {
+        // margin-bottom: $s_sm;
     }
 
     .card-pricing & {
