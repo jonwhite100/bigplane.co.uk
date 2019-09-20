@@ -27,13 +27,15 @@ $c_g_plus: #df4a32;
 $c_vimeo: #1ab7ea;
 $c_instagram: #cd486b;
 
+// buttons
+$border-radius-lg: 3rem !default;
 
 // navbar
 $c_navbar_bg: $white;
 $c_navbar_border: darken($white, 50%);
 
 // font font-family
-$font-size-base:              1rem !default;
+$font-size-base: 1rem !default;
 
 $font-family-sans-serif:      'Open Sans', sans-serif !default;
 $headings-font-family:        'Poppins', sans-serif !default;
