@@ -14020,6 +14020,21 @@ a.skip-link {
   line-height: 1.5;
   border-radius: 3rem; }
 
+.btn,
+.wpcf7 input[type=submit] {
+  padding: 10px 40px;
+  font-weight: 600; }
+  .btn.circle, .wpcf7 input.circle[type=submit] {
+    border-radius: 3rem; }
+  .btn-primary {
+    color: #fff;
+    font-size: 0.875rem;
+    text-transform: uppercase; }
+  .btn-sm, .btn-group-sm > .btn,
+  .wpcf7 .btn-group-sm > input[type=submit] {
+    padding: 10px 40px;
+    font-size: 0.8rem; }
+
 .card-deck .card {
   margin-bottom: 1.5rem; }
 
@@ -14065,9 +14080,9 @@ a.skip-link {
 .card-blog-post .card-title {
   text-transform: capitalize; }
   .card-blog-post .card-title a {
-    color: pink; }
+    color: #212529; }
   .card-blog-post .card-title a:hover {
-    color: orange; }
+    color: #126AB4; }
 
 .card-pricing .card-title {
   font-weight: 600; }
@@ -14086,6 +14101,7 @@ a.skip-link {
   .card-about .card-subtitle {
     margin-bottom: 1.125rem;
     font-size: 1.75rem;
+    text-transform: capitalize;
     color: #212529;
     line-height: 1.4; }
   .card-pricing .card-subtitle {
@@ -14148,48 +14164,63 @@ a.skip-link {
       .list-group-pricing .list-group-item i.fa-times {
         color: #e22626; }
 
+/*
+
 .default-padding {
-  padding-top: 80px;
-  padding-bottom: 80px; }
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
 
-.about-area h2 {
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 20px; }
+.about-area {
+    h2 {
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
 
-.about-area h4 {
-  color: #126AB4;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 0.84375rem; }
+    h4 {
+        color: $primary;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: $s_xs;
+    }
 
-.about-area .col-lg-6 {
-  margin-bottom: 1.125rem; }
+    .col-lg-6 {
+        margin-bottom: $s_sm;
+    }
 
-.about-area .item i {
-  color: #126AB4;
-  display: inline-block;
-  font-size: 4rem;
-  margin-bottom: 1.125rem;
-  position: relative;
-  z-index: 1;
-  line-height: 1; }
+    .item {
+        i {
+            color: $primary;
+            display: inline-block;
+            font-size: 4rem;
+            margin-bottom: $s_sm;
+            position: relative;
+            z-index: 1;
+            line-height: 1;
+        }
+    }
+}
 
 .about-area .bottom-info {
   border-top: 1px solid #e7e7e7;
   margin-top: 35px;
-  padding-top: 30px; }
+  padding-top: 30px;
+}
 
 .about-area .bottom-info span {
   display: table;
-  padding-top: 2px; }
+  padding-top: 2px;
+}
 
 .about-area .default.info h3 {
   font-weight: 600;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 
 .about-area .default.info > a {
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
 .about-area .bottom-info li {
   color: #666666;
@@ -14198,10 +14229,13 @@ a.skip-link {
   font-weight: 400;
   letter-spacing: 1px;
   margin-bottom: 15px;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+}
 
 .about-area .bottom-info li i {
-  background: #126AB4 none repeat scroll 0 0;
+  background: $primary none repeat scroll 0 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   border-radius: 50%;
   color: #ffffff;
   float: left;
@@ -14213,13 +14247,17 @@ a.skip-link {
   position: relative;
   text-align: center;
   width: 20px;
-  z-index: 1; }
+  z-index: 1;
+}
 
 .about-area .bottom-info li:last-child {
-  margin: 0; }
+  margin: 0;
+}
 
 .about-area .bottom-info li i::after {
-  background: #126AB4 none repeat scroll 0 0;
+  background: $primary none repeat scroll 0 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   border-radius: 50%;
   content: "";
   height: 28px;
@@ -14230,29 +14268,37 @@ a.skip-link {
   position: absolute;
   top: 0;
   width: 28px;
-  z-index: -1; }
+  z-index: -1;
+}
 
 .about-area .services-info .item {
   background: #ffffff none repeat scroll 0 0;
+  -moz-box-shadow: 0 0 10px #cccccc;
   -webkit-box-shadow: 0 0 10px #cccccc;
   -o-box-shadow: 0 0 10px #cccccc;
   box-shadow: 0 0 10px #cccccc;
   margin-top: 30px;
-  padding: 30px; }
+  padding: 30px;
+}
 
 .about-area .services-info {
-  margin-top: -30px; }
+  margin-top: -30px;
+}
+
 
 .about-area .services-info .item h4 {
   font-weight: 600;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+}
 
 .about-area .services-info .item p {
-  margin: 0; }
+  margin: 0;
+}
 
 .about-area .services-info .equal-height:nth-child(1) .item,
 .about-area .services-info .equal-height:nth-child(4) .item {
-  background: #126AB4 none repeat scroll 0 0; }
+  background: $primary none repeat scroll 0 0;
+}
 
 .about-area .services-info .equal-height:nth-child(1) .item i,
 .about-area .services-info .equal-height:nth-child(4) .item i,
@@ -14260,8 +14306,10 @@ a.skip-link {
 .about-area .services-info .equal-height:nth-child(4) .item h4,
 .about-area .services-info .equal-height:nth-child(1) .item p,
 .about-area .services-info .equal-height:nth-child(4) .item p {
-  color: #fff; }
+  color: #fff;
+}
 
+*/
 .companies-area {
   background-color: #6eb5f1; }
 
@@ -14404,6 +14452,92 @@ a.skip-link {
 
 .contact-form button i {
   padding-left: 0.84375rem; }
+
+/*
+  Flaticon icon font: Flaticon
+  Creation date: 08/09/2018 00:19
+  */
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/Flaticon.eot");
+  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg"); } }
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+  font-family: Flaticon;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.flaticon-move:before {
+  content: "\f100"; }
+
+.flaticon-scroll:before {
+  content: "\f101"; }
+
+.flaticon-customer-support:before {
+  content: "\f102"; }
+
+.flaticon-feature:before {
+  content: "\f103"; }
+
+.flaticon-intersect:before {
+  content: "\f104"; }
+
+.flaticon-union:before {
+  content: "\f105"; }
+
+.flaticon-intersection:before {
+  content: "\f106"; }
+
+.flaticon-rgb:before {
+  content: "\f107"; }
+
+.flaticon-rgb-1:before {
+  content: "\f108"; }
+
+.flaticon-resolution:before {
+  content: "\f109"; }
+
+.flaticon-showcase:before {
+  content: "\f10a"; }
+
+.flaticon-tickets:before {
+  content: "\f10b"; }
+
+.flaticon-ticket:before {
+  content: "\f10c"; }
+
+.flaticon-conversation:before {
+  content: "\f10d"; }
+
+.flaticon-speech-bubble:before {
+  content: "\f10e"; }
+
+.flaticon-email:before {
+  content: "\f10f"; }
+
+.flaticon-contact:before {
+  content: "\f110"; }
+
+.flaticon-file:before {
+  content: "\f111"; }
+
+.flaticon-upload-information:before {
+  content: "\f112"; }
 
 footer .f-items {
   display: -webkit-box;
@@ -14571,6 +14705,64 @@ footer .address span {
   max-width: 60%; }
 
 /*
+
+CC 2.0 License Iatek LLC 2018
+Attribution required
+
+*/
+@media (min-width: 768px) {
+  /* show 3 items */
+  .carousel-inner .active,
+  .carousel-inner .active + .carousel-item,
+  .carousel-inner .active + .carousel-item + .carousel-item {
+    display: block; }
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+    -webkit-transition: none;
+    transition: none; }
+  .carousel-inner .carousel-item-next,
+  .carousel-inner .carousel-item-prev {
+    position: relative;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    position: absolute;
+    top: 0;
+    right: -33.3333%;
+    z-index: -1;
+    display: block;
+    visibility: visible; }
+  /* left or forward direction */
+  .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+  .carousel-item-next.carousel-item-left + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+    position: relative;
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    visibility: visible; }
+  /* farthest right hidden item must be abso position for animations */
+  .carousel-inner .carousel-item-prev.carousel-item-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    visibility: visible; }
+  /* right or prev direction */
+  .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+  .carousel-item-prev.carousel-item-right + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+    position: relative;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible; } }
+
+/*
 .pricing {
     display: flex;
     width: 100%;
@@ -14646,149 +14838,9 @@ footer .address span {
   color: #232323;
 }
 */
-/*
-  Flaticon icon font: Flaticon
-  Creation date: 08/09/2018 00:19
-  */
-@font-face {
-  font-family: "Flaticon";
-  src: url("../fonts/Flaticon.eot");
-  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: "Flaticon";
-    src: url("./Flaticon.svg#Flaticon") format("svg"); } }
-
-[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
-  font-family: Flaticon;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.flaticon-move:before {
-  content: "\f100"; }
-
-.flaticon-scroll:before {
-  content: "\f101"; }
-
-.flaticon-customer-support:before {
-  content: "\f102"; }
-
-.flaticon-feature:before {
-  content: "\f103"; }
-
-.flaticon-intersect:before {
-  content: "\f104"; }
-
-.flaticon-union:before {
-  content: "\f105"; }
-
-.flaticon-intersection:before {
-  content: "\f106"; }
-
-.flaticon-rgb:before {
-  content: "\f107"; }
-
-.flaticon-rgb-1:before {
-  content: "\f108"; }
-
-.flaticon-resolution:before {
-  content: "\f109"; }
-
-.flaticon-showcase:before {
-  content: "\f10a"; }
-
-.flaticon-tickets:before {
-  content: "\f10b"; }
-
-.flaticon-ticket:before {
-  content: "\f10c"; }
-
-.flaticon-conversation:before {
-  content: "\f10d"; }
-
-.flaticon-speech-bubble:before {
-  content: "\f10e"; }
-
-.flaticon-email:before {
-  content: "\f10f"; }
-
-.flaticon-contact:before {
-  content: "\f110"; }
-
-.flaticon-file:before {
-  content: "\f111"; }
-
-.flaticon-upload-information:before {
-  content: "\f112"; }
-
-/*
-
-CC 2.0 License Iatek LLC 2018
-Attribution required
-
-*/
-@media (min-width: 768px) {
-  /* show 3 items */
-  .carousel-inner .active,
-  .carousel-inner .active + .carousel-item,
-  .carousel-inner .active + .carousel-item + .carousel-item {
-    display: block; }
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-    -webkit-transition: none;
-    transition: none; }
-  .carousel-inner .carousel-item-next,
-  .carousel-inner .carousel-item-prev {
-    position: relative;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
-  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-    position: absolute;
-    top: 0;
-    right: -33.3333%;
-    z-index: -1;
-    display: block;
-    visibility: visible; }
-  /* left or forward direction */
-  .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-  .carousel-item-next.carousel-item-left + .carousel-item,
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-    position: relative;
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
-    visibility: visible; }
-  /* farthest right hidden item must be abso position for animations */
-  .carousel-inner .carousel-item-prev.carousel-item-right {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    display: block;
-    visibility: visible; }
-  /* right or prev direction */
-  .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-  .carousel-item-prev.carousel-item-right + .carousel-item,
-  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
-  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-    position: relative;
-    -webkit-transform: translate3d(100%, 0, 0);
-            transform: translate3d(100%, 0, 0);
-    visibility: visible;
-    display: block;
-    visibility: visible; } }
+.section {
+  padding-top: 8rem;
+  padding-bottom: 8rem; }
 
 .text-center {
   text-align: center; }
@@ -14800,28 +14852,12 @@ p {
   font-size: 0.875rem;
   line-height: 1.6; }
 
-.site-heading {
-  margin-bottom: 3.375rem; }
-  .site-heading h2 {
-    display: inline-block;
-    font-weight: 700;
-    padding-bottom: 20px;
-    position: relative; }
-
-.btn,
-.wpcf7 input[type=submit] {
-  padding: 10px 40px;
-  font-weight: 600; }
-  .btn.circle, .wpcf7 input.circle[type=submit] {
-    border-radius: 3rem; }
-  .btn-primary {
-    color: #fff;
-    font-size: 0.875rem;
-    text-transform: uppercase; }
-  .btn-sm, .btn-group-sm > .btn,
-  .wpcf7 .btn-group-sm > input[type=submit] {
-    padding: 10px 40px;
-    font-size: 0.8rem; }
+.section-heading {
+  margin-bottom: 3.375rem;
+  display: inline-block;
+  font-weight: 700;
+  padding-bottom: 20px;
+  position: relative; }
 
 .container-fluid {
   max-width: 1440px; }

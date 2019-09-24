@@ -5,12 +5,13 @@
 @import "components/about"; // Sassify!!
 @import "components/companies"; // Sasify!!
 @import "components/contact"; // Still some sass to do
+@import "components/flaticon";
 @import "components/footer";
 @import "components/header";
 @import "components/jumbotron";
-@import "components/pricing";
-@import "components/flaticon";
 @import "components/multi-screen-carousel";
+@import "components/pricing";
+@import "components/section";
 
 // fonts / text
 .text-center {
@@ -26,37 +27,14 @@ p {
     line-height: 1.6;
 }
 
-.site-heading {
+.section-heading {
     margin-bottom: $s_xl;
-
-    h2 {
-        display: inline-block;
-        font-weight: 700;
-        padding-bottom: 20px;
-        position: relative;
-    }
+    display: inline-block;
+    font-weight: 700;
+    padding-bottom: 20px;
+    position: relative;
 }
 
-
-// buttons
-.btn {
-    padding: 10px 40px;
-    font-weight: 600;
-    &.circle {
-        border-radius: 3rem;
-    }
-
-    &-primary {
-        color: $white;
-        font-size: $font-size-sm;
-        text-transform: uppercase;
-    }
-
-    &-sm {
-        padding: 10px 40px;
-        font-size: $font-size-base * 0.8;
-    }
-}
 
 .container-fluid {
     max-width: 1440px;

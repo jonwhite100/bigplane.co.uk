@@ -9,18 +9,6 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<!--
-
-<div class="card" style="width: 18rem;">
-
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
--->
 <div class="col-sm-6 col-md-4 mb-5">
 	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 		<div class="card card-blog-post shadow">

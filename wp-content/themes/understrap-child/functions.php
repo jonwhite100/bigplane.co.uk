@@ -66,7 +66,7 @@ add_filter( 'display_posts_shortcode_post_class', 'be_dps_current_class', 10, 2 
 
 
 /**
-* Overriding the function in understrap/ic/setup.php
+* Overriding the function in understrap/inc/setup.php
 */
 add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
 

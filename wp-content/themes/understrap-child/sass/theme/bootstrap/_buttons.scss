@@ -5,3 +5,23 @@
 .btn {
     @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius-lg);
 }
+
+.btn {
+    padding: 10px 40px;
+    font-weight: 600;
+
+    &.circle {
+        border-radius: 3rem;
+    }
+
+    &-primary {
+        color: $white;
+        font-size: $font-size-sm;
+        text-transform: uppercase;
+    }
+
+    &-sm {
+        padding: 10px 40px;
+        font-size: $font-size-base * 0.8;
+    }
+}

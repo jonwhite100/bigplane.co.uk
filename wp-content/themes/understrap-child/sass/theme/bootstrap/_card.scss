@@ -95,11 +95,11 @@
         text-transform: capitalize;
 
         a {
-            color: pink;
+            color: gray("900");;
         }
 
         a:hover {
-            color: orange;
+            color: $primary;
         }
     }
 
@@ -127,6 +127,7 @@
     .card-about & {
         margin-bottom: $s_sm;
         font-size: $h2-font-size;
+        text-transform: capitalize;
         color: gray("900");
         line-height: 1.4;
     }
