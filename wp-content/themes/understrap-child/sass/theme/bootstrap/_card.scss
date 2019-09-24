@@ -1,6 +1,18 @@
 //
 // Override BS4
+// Variations:
+//      card-about: about us section, home page
+//      card-blog-post: blog summary page
+//      card-deck: used in the about us, home page section (right side cards)
+//      card-pricing: home page, pricing section
+
 //
+.card {
+    .card-deck & {
+        margin-bottom: $s_md;
+    }
+}
+
 .card-about {
     border-width: 0;
 
@@ -24,10 +36,23 @@
 }
 
 .card-body {
-    padding: 0;
+
+    .card-about {
+        padding: 0;
+    }
+
+    .card-deck & {
+        i {
+            font-size: 4rem;
+        }
+    }
 
     .card-blog-post & {
         // padding: $s_sm;
+    }
+
+    .card-pricing & {
+        padding: 0;
     }
 }
 
@@ -122,7 +147,10 @@
 
 /// 1. the paragraph already has 1rem margin bottom (added together = 2rem)
 .card-text {
-    padding-right: 2rem;
-    padding-bottom: 0.75rem; // 1
-    padding-left: 2rem;
+
+    .card-pricing & {
+        padding-right: 2rem;
+        padding-bottom: 0.75rem; // 1
+        padding-left: 2rem;
+    }
 }
