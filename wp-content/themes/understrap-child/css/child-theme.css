@@ -14804,15 +14804,34 @@ footer .address span {
 }
 */
 .section {
+  z-index: 1;
+  position: relative;
   padding-top: 8rem;
   padding-bottom: 8rem; }
+
+.section-newsletter h2,
+.section-newsletter p,
+.section-whatever h2,
+.section-whatever p {
+  color: #fff; }
 
 .fixed-bg {
   background-attachment: fixed;
   background-position: center center;
-  background-size: cover; }
+  background-size: cover;
+  z-index: -1; }
   .fixed-bg-newsletter {
-    background-image: url("http://validthemes.com/themeforest/softing/assets/img/banner/4.jpg"); }
+    background-image: url("/wp-content/uploads/2019/09/bigplane-test-image.jpg"); }
+  .fixed-bg::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #000 none repeat scroll 0 0;
+    opacity: 0.5; }
 
 .text-center {
   text-align: center; }
