@@ -13,8 +13,8 @@ $secondary: #4A9BD3; //logo light blue. original theme #4ac4f3
 $primary: #126AB4; // logo darker blue
 $white: #fff !default;
 $black: #000 !default;
-$grey-dark: #999 !default;
 $grey: #767676;
+$grey-light: #9e9e9e !default;
 $grey-lightest: #edf5ff;
 
 $brand-danger:          #e22626 !default;
@@ -52,7 +52,7 @@ $c_navbar_bg: $white;
 $c_navbar_border: darken($white, 50%);
 
 // Shodows
-$box-shadow: 0 0 10px $grey !default;
+$box-shadow: 0 0 6px darken($white, 25%) !default;
 
 // Spacers
 $unit: 1.5rem;

@@ -2,3 +2,13 @@
     padding-top: 8rem;
     padding-bottom: 8rem;
 }
+
+.fixed-bg {
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+
+    &-newsletter {
+        background-image: url('http://validthemes.com/themeforest/softing/assets/img/banner/4.jpg');
+    }
+}

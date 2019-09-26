@@ -6596,8 +6596,8 @@ button.bg-dark:focus {
           box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important; }
 
 .shadow {
-  -webkit-box-shadow: 0 0 10px #767676 !important;
-          box-shadow: 0 0 10px #767676 !important; }
+  -webkit-box-shadow: 0 0 6px #bfbfbf !important;
+          box-shadow: 0 0 6px #bfbfbf !important; }
 
 .shadow-lg {
   -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
@@ -14140,7 +14140,7 @@ a.skip-link {
     font-size: 2.5rem;
     text-transform: capitalize; }
   .jumbotron .lead {
-    color: #ced4da; }
+    color: #6c757d; }
 
 .list-group-about .list-group-item {
   margin-bottom: 0.84375rem;
@@ -14496,12 +14496,14 @@ a.skip-link {
     width: 100% !important;
     height: auto !important; }
   .listing-item a.card-title {
-    text-transform: capitalize;
+    margin-bottom: 1.125rem;
     padding-top: 1.5rem;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
-    font-size: 1.5rem;
-    color: #212529; }
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #212529;
+    text-transform: capitalize; }
     .listing-item a.card-title:hover {
       color: #126AB4; }
   .listing-item .excerpt-dash {
@@ -14510,7 +14512,8 @@ a.skip-link {
     padding-right: 1.5rem;
     padding-bottom: 1.5rem;
     padding-left: 1.5rem;
-    font-size: 0.9rem; }
+    font-size: 0.9rem;
+    line-height: 1.8rem; }
   .listing-item .btn,
   .listing-item .wpcf7 input[type=submit], .wpcf7 .listing-item input[type=submit] {
     margin-top: 1.5rem; }
@@ -14607,7 +14610,7 @@ footer .f-items {
   display: flex; }
 
 footer .f-item p {
-  color: #999; }
+  color: #dee2e6; }
 
 footer .f-item h3,
 footer .f-item h4 {
@@ -14628,7 +14631,7 @@ footer .link li {
   margin-bottom: 1.5rem; }
 
 footer .link a {
-  color: #999; }
+  color: #dee2e6; }
   footer .link a:hover {
     color: #126AB4;
     text-decoration: none; }
@@ -14666,7 +14669,7 @@ footer .address h5 {
 
 footer .address span {
   font-size: 0.8rem;
-  color: #999; }
+  color: #dee2e6; }
 
 .footer-menu {
   text-align: right; }
@@ -14723,64 +14726,6 @@ footer .address span {
 
 #page {
   margin-top: 2.25rem; }
-
-/*
-
-CC 2.0 License Iatek LLC 2018
-Attribution required
-
-*/
-@media (min-width: 768px) {
-  /* show 3 items */
-  .carousel-inner .active,
-  .carousel-inner .active + .carousel-item,
-  .carousel-inner .active + .carousel-item + .carousel-item {
-    display: block; }
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-    -webkit-transition: none;
-    transition: none; }
-  .carousel-inner .carousel-item-next,
-  .carousel-inner .carousel-item-prev {
-    position: relative;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
-  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-    position: absolute;
-    top: 0;
-    right: -33.3333%;
-    z-index: -1;
-    display: block;
-    visibility: visible; }
-  /* left or forward direction */
-  .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-  .carousel-item-next.carousel-item-left + .carousel-item,
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-    position: relative;
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
-    visibility: visible; }
-  /* farthest right hidden item must be abso position for animations */
-  .carousel-inner .carousel-item-prev.carousel-item-right {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    display: block;
-    visibility: visible; }
-  /* right or prev direction */
-  .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-  .carousel-item-prev.carousel-item-right + .carousel-item,
-  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
-  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-    position: relative;
-    -webkit-transform: translate3d(100%, 0, 0);
-            transform: translate3d(100%, 0, 0);
-    visibility: visible;
-    display: block;
-    visibility: visible; } }
 
 /*
 .pricing {
@@ -14862,6 +14807,13 @@ Attribution required
   padding-top: 8rem;
   padding-bottom: 8rem; }
 
+.fixed-bg {
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover; }
+  .fixed-bg-newsletter {
+    background-image: url("http://validthemes.com/themeforest/softing/assets/img/banner/4.jpg"); }
+
 .text-center {
   text-align: center; }
 
@@ -14870,7 +14822,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   font-size: 0.875rem;
-  line-height: 1.6; }
+  line-height: 1.8; }
 
 .section-heading {
   margin-bottom: 3.375rem;

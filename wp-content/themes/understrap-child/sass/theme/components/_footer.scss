@@ -5,7 +5,7 @@ footer {
 
     .f-item {
         p {
-            color: $grey-dark;
+            color: gray("300");
         }
 
         h3,
@@ -33,7 +33,7 @@ footer {
         }
 
         a {
-            color: $grey-dark;
+            color: gray("300");
 
             &:hover {
                 color: $primary;
@@ -86,7 +86,7 @@ footer {
 
         span {
             font-size: $font-size-base * 0.8;
-            color: $grey-dark;
+            color: gray("300");
         }
     }
 }
