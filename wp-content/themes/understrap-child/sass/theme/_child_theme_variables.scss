@@ -30,10 +30,6 @@ $c_instagram: #cd486b;
 // buttons
 $border-radius-lg: 3rem !default;
 
-// navbar
-$c_navbar_bg: $white;
-$c_navbar_border: darken($white, 50%);
-
 // font font-family
 $font-size-base: 1rem !default;
 
@@ -47,6 +43,13 @@ $h3-font-size:                $font-size-base * 1.5 !default;
 $h4-font-size:                $font-size-base * 1.1 !default;
 $h5-font-size:                $font-size-base * 1.1 !default;
 $h6-font-size:                $font-size-base !default;
+
+// jumbotron
+$jumbotron-bg: lighten($secondary, 35%) !default;
+
+// navbar
+$c_navbar_bg: $white;
+$c_navbar_border: darken($white, 50%);
 
 // Shodows
 $box-shadow: 0 0 10px $grey !default;

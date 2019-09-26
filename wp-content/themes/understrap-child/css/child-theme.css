@@ -4938,7 +4938,7 @@ input[type="button"].btn-block {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #e9ecef;
+  background-color: #daeaf6;
   border-radius: 3rem; }
   @media (min-width: 576px) {
     .jumbotron {
@@ -14116,6 +14116,32 @@ a.skip-link {
   padding-bottom: 0.75rem;
   padding-left: 2rem; }
 
+.jumbotron {
+  border-radius: 0; }
+  .jumbotron [class*="col-"] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  .jumbotron h1 {
+    margin-bottom: 2.25rem;
+    color: #126AB4;
+    font-size: 4.5rem;
+    text-transform: uppercase; }
+  .jumbotron h2 {
+    margin-bottom: 1.5rem;
+    color: #4A9BD3;
+    font-size: 2.5rem;
+    text-transform: capitalize; }
+  .jumbotron .lead {
+    color: #ced4da; }
+
 .list-group-about .list-group-item {
   margin-bottom: 0.84375rem;
   padding: 0;
@@ -14453,6 +14479,42 @@ a.skip-link {
 .contact-form button i {
   padding-left: 0.84375rem; }
 
+/**
+* This is for the display posts plugin. Classes have been added to the plugin
+* So be careful when updating the plugin! Added card and card-blog-post to the $class array ('listing-item')
+* added card-img-top to image class.
+**/
+.listing-item {
+  /*
+    @include media-breakpoint-up(xs) { ... }
+    @include media-breakpoint-up(sm) { ... }
+    @include media-breakpoint-up(md) { ... }
+    @include media-breakpoint-up(lg) { ... }
+    @include media-breakpoint-up(xl) { ... }
+    */ }
+  .listing-item .wp-post-image {
+    width: 100% !important;
+    height: auto !important; }
+  .listing-item a.card-title {
+    text-transform: capitalize;
+    padding-top: 1.5rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    font-size: 1.5rem;
+    color: #212529; }
+    .listing-item a.card-title:hover {
+      color: #126AB4; }
+  .listing-item .excerpt-dash {
+    display: none; }
+  .listing-item .card-text {
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    font-size: 0.9rem; }
+  .listing-item .btn,
+  .listing-item .wpcf7 input[type=submit], .wpcf7 .listing-item input[type=submit] {
+    margin-top: 1.5rem; }
+
 /*
   Flaticon icon font: Flaticon
   Creation date: 08/09/2018 00:19
@@ -14661,48 +14723,6 @@ footer .address span {
 
 #page {
   margin-top: 2.25rem; }
-
-.home__jumbotron {
-  background-color: #daeaf6;
-  height: 100%;
-  margin-top: 4rem;
-  padding: 5rem; }
-  .home__jumbotron h1,
-  .home__jumbotron h2,
-  .home__jumbotron p {
-    text-align: center;
-    font-weight: 600; }
-  .home__jumbotron h1 {
-    margin-bottom: 2.25rem;
-    color: #126AB4;
-    font-size: 4.75rem;
-    text-transform: uppercase; }
-  .home__jumbotron h2 {
-    margin-bottom: 1.5rem;
-    color: #4A9BD3;
-    font-size: 2.5rem;
-    text-transform: capitalize; }
-  .home__jumbotron p {
-    width: 74%;
-    color: #767676; }
-
-.home__jumbotron .wp-block-column {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
-
-.home__jumbotron .wp-block-image {
-  max-width: 60%; }
 
 /*
 

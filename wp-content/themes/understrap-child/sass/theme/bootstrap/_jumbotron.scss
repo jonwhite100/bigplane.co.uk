@@ -1,0 +1,31 @@
+//
+// Override BS4
+//
+
+.jumbotron {
+    border-radius: 0;
+
+    [class*="col-"] {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    h1 {
+        margin-bottom: $s_lg;
+        color: $primary;
+        font-size: $h1-font-size * 2;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        margin-bottom: $s_md;
+        color: $secondary;
+        font-size: 2.5rem;
+        text-transform: capitalize;
+    }
+
+    .lead {
+        color: gray("400");
+    }
+}

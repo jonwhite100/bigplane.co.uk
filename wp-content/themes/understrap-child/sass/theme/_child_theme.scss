@@ -1,14 +1,15 @@
 @import "bootstrap/buttons";
 @import "bootstrap/card";
+@import "bootstrap/jumbotron";
 @import "bootstrap/list-group";
 
 @import "components/about"; // Sassify!!
 @import "components/companies"; // Sasify!!
 @import "components/contact"; // Still some sass to do
+@import "components/display-posts";
 @import "components/flaticon";
 @import "components/footer";
 @import "components/header";
-@import "components/jumbotron";
 @import "components/multi-screen-carousel";
 @import "components/pricing";
 @import "components/section";
