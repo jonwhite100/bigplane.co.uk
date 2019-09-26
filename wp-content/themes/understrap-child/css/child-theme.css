@@ -14387,26 +14387,44 @@ a.skip-link {
 .companies-area .info p {
   margin: 0; }
 
-.contact-us-area .info {
-  list-style-type: none;
-  margin-bottom: 2.25rem;
-  padding-left: 0; }
-  .contact-us-area .info li {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    margin-bottom: 0.84375rem;
-    font-size: 0.8rem;
-    line-height: 1.8; }
+.section-work-with-us li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 0.84375rem;
+  font-size: 0.8rem;
+  line-height: 1.8; }
 
-.contact-us-area .fas {
+.section-work-with-us .fas {
   margin-right: 0.84375rem;
   border-radius: 50%;
   color: #126AB4;
   font-size: 1.1rem; }
+
+.social a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 2px;
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+  border-radius: 50%; }
+  .twitter .social a {
+    background-color: #00b6f1; }
+  .pinterest .social a {
+    background-color: #bd081c; }
+  .facebook .social a {
+    background-color: #3b5998; }
+  .g-plus .social a {
+    background-color: #df4a32; }
+  .vimeo .social a {
+    background-color: #1ab7ea; }
+  .instagram .social a {
+    background-color: #cd486b; }
 
 .contact-us-area .social {
   margin-bottom: 2.25rem;
@@ -14415,18 +14433,6 @@ a.skip-link {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex; }
-    .contact-us-area .social li.twitter a {
-      background-color: #00b6f1; }
-    .contact-us-area .social li.pinterest a {
-      background-color: #bd081c; }
-    .contact-us-area .social li.facebook a {
-      background-color: #3b5998; }
-    .contact-us-area .social li.g-plus a {
-      background-color: #df4a32; }
-    .contact-us-area .social li.vimeo a {
-      background-color: #1ab7ea; }
-    .contact-us-area .social li.instagram a {
-      background-color: #cd486b; }
   .contact-us-area .social a {
     display: -webkit-box;
     display: -ms-flexbox;

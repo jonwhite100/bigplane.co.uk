@@ -1,17 +1,14 @@
-.contact-us-area {
+.section-work-with-us {
+    ul {
 
-    .info {
-        list-style-type: none;
-        margin-bottom: $s_lg;
-        padding-left: 0;
+    }
 
-        li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: $s_xs;
-            font-size: $font-size-base * 0.8;
-            line-height: 1.8;
-        }
+    li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: $s_xs;
+        font-size: $font-size-base * 0.8;
+        line-height: 1.8;
     }
 
     .fas {
@@ -20,6 +17,57 @@
         color: $primary;
         font-size: $h4-font-size;
     }
+}
+
+.social {
+    a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin: 0 2px;
+        text-align: center;
+        color: $white;
+        line-height: 40px;
+        border-radius: 50%;
+
+        .twitter & {
+            background-color: $c_twitter;
+        }
+
+        .pinterest & {
+            background-color: $c_pinterest;
+        }
+
+        .facebook & {
+            background-color: $c_facebook;
+        }
+
+        .g-plus & {
+            background-color: $c_g_plus;
+        }
+
+        .vimeo & {
+            background-color: $c_vimeo;
+        }
+
+        .instagram & {
+            background-color: $c_instagram;
+        }
+    }
+}
+
+
+.contact-us-area {
+    //
+    // .info {
+    //     list-style-type: none;
+    //     margin-bottom: $s_lg;
+    //     padding-left: 0;
+    //
+    //     li {
+    //     }
+    // }
+
 
     .social {
         margin-bottom: $s_lg;
@@ -28,29 +76,7 @@
         li {
             display: inline-flex;
 
-            &.twitter a {
-                background-color: $c_twitter;
-            }
 
-            &.pinterest a {
-                background-color: $c_pinterest;
-            }
-
-            &.facebook a {
-                background-color: $c_facebook;
-            }
-
-            &.g-plus a {
-                background-color: $c_g_plus;
-            }
-
-            &.vimeo a {
-                background-color: $c_vimeo;
-            }
-
-            &.instagram a {
-                background-color: $c_instagram;
-            }
         }
 
         a {
