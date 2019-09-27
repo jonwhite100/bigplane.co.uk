@@ -1,7 +1,7 @@
 .section {
     z-index: 1;
     position: relative;
-    padding-top: 8rem;
+    padding-top: $s_xl;
     padding-bottom: 8rem;
 }
 
@@ -13,12 +13,17 @@
     }
 }
 
+.section-scroll-to {
+    display: flex;
+}
+
 /// 1. pust the dark overlay over the bg image
+// TODO: move this somewhere better
 .fixed-bg {
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
-    z-index: -1;
+    // z-index: -1;
 
     &-newsletter {
         background-image: url('/wp-content/uploads/2019/09/bigplane-test-image.jpg');

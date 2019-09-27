@@ -27,17 +27,20 @@
 }
 
 .card-pricing {
-  background-color: $white;
-  // box-shadow: 0 0 10px gray("200");
-  overflow: hidden;
-  position: relative;
-  border-width: 1px;
-  border-radius: 0.3rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: $s_lg;
+    background-color: $white;
+    border-width: 1px;
+    border-radius: 0.3rem;
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 0;
+    }
 }
 
 .card-body {
-
-    .card-about {
+    .card-about & {
         padding: 0;
     }
 
@@ -59,10 +62,10 @@
 .card-title-container {
     .card-pricing & {
         background-color: lighten($secondary, 35%);
-        border-bottom: 1px solid gray("200");
+        border-bottom: 1px solid gray('200');
 
         &.active {
-          background-color: $primary;
+            background-color: $primary;
         }
     }
 }
@@ -78,7 +81,7 @@
     }
 
     .card-pricing & {
-        color: gray("900");
+        color: gray('900');
 
         .active & {
             color: $white;
@@ -95,7 +98,7 @@
         text-transform: capitalize;
 
         a {
-            color: gray("900");
+            color: gray('900');
         }
 
         a:hover {
@@ -128,7 +131,7 @@
         margin-bottom: $s_sm;
         font-size: $h2-font-size;
         text-transform: capitalize;
-        color: gray("900");
+        color: gray('900');
         line-height: 1.4;
     }
 
@@ -148,7 +151,6 @@
 
 /// 1. the paragraph already has 1rem margin bottom (added together = 2rem)
 .card-text {
-
     .card-pricing & {
         padding-right: 2rem;
         padding-bottom: 0.75rem; // 1

@@ -14015,25 +14015,28 @@ a.skip-link {
 
 .btn,
 .wpcf7 input[type=submit] {
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
   border-radius: 3rem; }
 
-.btn,
-.wpcf7 input[type=submit] {
-  padding: 10px 40px;
-  font-weight: 600; }
-  .btn.circle, .wpcf7 input.circle[type=submit] {
-    border-radius: 3rem; }
-  .btn-primary {
-    color: #fff;
-    font-size: 0.875rem;
-    text-transform: uppercase; }
-  .btn-sm, .btn-group-sm > .btn,
-  .wpcf7 .btn-group-sm > input[type=submit] {
-    padding: 10px 40px;
-    font-size: 0.8rem; }
+/**
+* Pulsing button
+**/
+@-webkit-keyframes pulse {
+  to {
+    -webkit-box-shadow: 0 0 0 1.5rem rgba(232, 76, 61, 0);
+            box-shadow: 0 0 0 1.5rem rgba(232, 76, 61, 0); } }
+@keyframes pulse {
+  to {
+    -webkit-box-shadow: 0 0 0 1.5rem rgba(232, 76, 61, 0);
+            box-shadow: 0 0 0 1.5rem rgba(232, 76, 61, 0); } }
+
+.btn-pulse {
+  -webkit-box-shadow: 0 0 0 0 #4A9BD3;
+          box-shadow: 0 0 0 0 #4A9BD3;
+  -webkit-animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+          animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1); }
+  .btn-pulse::hover {
+    -webkit-animation: none;
+            animation: none; }
 
 .card-deck .card {
   margin-bottom: 1.5rem; }
@@ -14045,13 +14048,17 @@ a.skip-link {
     margin-bottom: 1.5rem; }
 
 .card-pricing {
-  background-color: #fff;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+  margin-bottom: 2.25rem;
+  background-color: #fff;
   border-width: 1px;
   border-radius: 0.3rem; }
+  @media (min-width: 992px) {
+    .card-pricing {
+      margin-bottom: 0; } }
 
-.card-body .card-about {
+.card-about .card-body {
   padding: 0; }
 
 .card-deck .card-body i {
@@ -14336,6 +14343,11 @@ a.skip-link {
 }
 
 */
+.section-newsletter input {
+  line-height: 1.5;
+  color: #495057;
+  border-radius: 0.25rem; }
+
 .companies-area {
   background-color: #6eb5f1; }
 
@@ -14812,7 +14824,7 @@ footer .address span {
 .section {
   z-index: 1;
   position: relative;
-  padding-top: 8rem;
+  padding-top: 3.375rem;
   padding-bottom: 8rem; }
 
 .section-newsletter h2,
@@ -14821,11 +14833,15 @@ footer .address span {
 .section-whatever p {
   color: #fff; }
 
+.section-scroll-to {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
 .fixed-bg {
   background-attachment: fixed;
   background-position: center center;
-  background-size: cover;
-  z-index: -1; }
+  background-size: cover; }
   .fixed-bg-newsletter {
     background-image: url("/wp-content/uploads/2019/09/bigplane-test-image.jpg"); }
   .fixed-bg::after {
