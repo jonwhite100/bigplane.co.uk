@@ -14149,6 +14149,16 @@ a.skip-link {
   .jumbotron .lead {
     color: #6c757d; }
 
+.jumbotron-base {
+  background-color: #daeaf6; }
+  .jumbotron-base-curve {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    position: relative;
+    display: block; }
+    .jumbotron-base-curve path {
+      fill: #fff; }
+
 .list-group-about .list-group-item {
   margin-bottom: 0.84375rem;
   padding: 0;
@@ -14416,26 +14426,30 @@ a.skip-link {
   color: #126AB4;
   font-size: 1.1rem; }
 
-.social a {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  margin: 0 2px;
-  text-align: center;
-  color: #fff;
-  line-height: 40px;
-  border-radius: 50%; }
-  .twitter .social a {
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .social a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 0 2px;
+    text-align: center;
+    color: #fff;
+    line-height: 40px;
+    border-radius: 50%; }
+  .social .twitter a {
     background-color: #00b6f1; }
-  .pinterest .social a {
+  .social .pinterest a {
     background-color: #bd081c; }
-  .facebook .social a {
+  .social .facebook a {
     background-color: #3b5998; }
-  .g-plus .social a {
+  .social .g-plus a {
     background-color: #df4a32; }
-  .vimeo .social a {
+  .social .vimeo a {
     background-color: #1ab7ea; }
-  .instagram .social a {
+  .social .instagram a {
     background-color: #cd486b; }
 
 .contact-us-area .social {

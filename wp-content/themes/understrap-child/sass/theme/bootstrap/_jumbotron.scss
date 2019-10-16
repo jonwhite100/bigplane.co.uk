@@ -29,3 +29,18 @@
         color: gray('600');
     }
 }
+
+.jumbotron-base {
+    background-color: $jumbotron-bg;
+
+    &-curve {
+        margin-bottom:0;
+        padding-bottom:0;
+        position:relative;
+        display:block;
+
+        path {
+            fill: $white;
+        }
+    }
+}

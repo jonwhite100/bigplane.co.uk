@@ -20,6 +20,8 @@
 }
 
 .social {
+    display: flex;
+    
     a {
         display: inline-block;
         width: 40px;
@@ -29,31 +31,32 @@
         color: $white;
         line-height: 40px;
         border-radius: 50%;
-
-        .twitter & {
-            background-color: $c_twitter;
-        }
-
-        .pinterest & {
-            background-color: $c_pinterest;
-        }
-
-        .facebook & {
-            background-color: $c_facebook;
-        }
-
-        .g-plus & {
-            background-color: $c_g_plus;
-        }
-
-        .vimeo & {
-            background-color: $c_vimeo;
-        }
-
-        .instagram & {
-            background-color: $c_instagram;
-        }
     }
+
+    .twitter a {
+        background-color: $c_twitter;
+    }
+
+    .pinterest a {
+        background-color: $c_pinterest;
+    }
+
+    .facebook a {
+        background-color: $c_facebook;
+    }
+
+    .g-plus a {
+        background-color: $c_g_plus;
+    }
+
+    .vimeo a {
+        background-color: $c_vimeo;
+    }
+
+    .instagram a {
+        background-color: $c_instagram;
+    }
+
 }
 
 
