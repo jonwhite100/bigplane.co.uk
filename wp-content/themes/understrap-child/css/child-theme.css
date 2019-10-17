@@ -14159,7 +14159,8 @@ a.skip-link {
     .jumbotron-base-curve path {
       fill: #fff; }
 
-.list-group-about .list-group-item {
+.list-group-about .list-group-item,
+.list-group-blog-site .list-group-item {
   margin-bottom: 0.84375rem;
   padding: 0;
   color: #212529;
@@ -14167,7 +14168,8 @@ a.skip-link {
   text-transform: capitalize;
   border: 0; }
 
-.list-group-about i {
+.list-group-about i,
+.list-group-blog-site i {
   position: relative;
   z-index: 1;
   height: 1.35rem;
@@ -14179,7 +14181,8 @@ a.skip-link {
   font-size: 0.75rem;
   line-height: 1.5rem;
   text-align: center; }
-  .list-group-about i::after {
+  .list-group-about i::after,
+  .list-group-blog-site i::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -14192,6 +14195,9 @@ a.skip-link {
     opacity: 0.5;
     background: #126AB4 none repeat scroll 0 0;
     border-radius: 50%; }
+
+.list-group-blog-site .list-group-item {
+  text-transform: none; }
 
 .list-group-pricing {
   margin-bottom: 2rem; }
@@ -14353,6 +14359,27 @@ a.skip-link {
 }
 
 */
+/*
+// blog post. loop-templates/content-single.php
+*/
+.single-post {
+  background-color: white; }
+  .single-post header a {
+    color: #fff; }
+  .single-post .entry-header {
+    width: 100%;
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+    background-color: #126AB4; }
+  .single-post .entry-title,
+  .single-post .entry-meta {
+    text-align: center;
+    color: #fff; }
+  .single-post .card-body {
+    padding: 2.25rem; }
+  .single-post .wp-post-image {
+    border-bottom: 1px solid #e9ecef; }
+
 .section-newsletter input {
   line-height: 1.5;
   color: #495057;
@@ -14885,9 +14912,6 @@ p {
   font-weight: 700;
   padding-bottom: 20px;
   position: relative; }
-
-.container-fluid {
-  max-width: 1440px; }
 
 .homepage__block {
   background-color: #ccc;
