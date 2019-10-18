@@ -14017,6 +14017,13 @@ a.skip-link {
 .wpcf7 input[type=submit] {
   border-radius: 3rem; }
 
+.card-pricing .btn,
+.card-pricing .wpcf7 input[type=submit], .wpcf7 .card-pricing input[type=submit] {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 1.125rem 1.5rem; }
+
 /**
 * Pulsing button
 **/
@@ -14866,7 +14873,7 @@ footer .address span {
   z-index: 1;
   position: relative;
   padding-top: 3.375rem;
-  padding-bottom: 8rem; }
+  padding-bottom: 6.75rem; }
 
 .section-newsletter h2,
 .section-newsletter p,
@@ -14877,7 +14884,8 @@ footer .address span {
 .section-scroll-to {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  margin-top: 2.25rem; }
 
 .fixed-bg {
   background-attachment: fixed;

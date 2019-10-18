@@ -2,7 +2,8 @@
     z-index: 1;
     position: relative;
     padding-top: $s_xl;
-    padding-bottom: 8rem;
+    padding-bottom: $s_xl * 2;
+    
 }
 
 .section-newsletter,
@@ -15,6 +16,7 @@
 
 .section-scroll-to {
     display: flex;
+    margin-top: $s_lg;
 }
 
 /// 1. pust the dark overlay over the bg image

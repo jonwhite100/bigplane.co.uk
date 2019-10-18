@@ -3998,8 +3998,10 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-    // script to scroll to each section by id
-    
+
+    // script to scroll to each section by id using https://github.com/cferdinandi/smooth-scroll
+    var scroll = new SmoothScroll('a[href*="#"]');
+
     // $(document).on('click', 'a[href*="#"]:not([href="#"])', function(e) {
     //     if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
     //         var hashStr = this.hash.slice(1);
