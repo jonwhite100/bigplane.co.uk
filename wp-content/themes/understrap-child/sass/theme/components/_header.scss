@@ -29,8 +29,8 @@
 // Navbar shrinking
 .navbar {
     padding: 1rem;
-    background-color: $c_navbar_bg;
-    // border-bottom: 1px solid $c_navbar_border;
+    background-color: $c-navbar-bg;
+    // border-bottom: 1px solid $c-navbar-border;
 	box-shadow: 0px 3px 6px 0px rgba(122,120,122,0.33);
 
     // Shrink the header
@@ -51,8 +51,8 @@
 .navbar-expand-md {
     .navbar-nav {
         .nav-link {
-            padding-right: $s_sm;
-            padding-left: $s_sm;
+            padding-right: $s-sm;
+            padding-left: $s-sm;
 
             @include media-breakpoint-up(md) {
 
@@ -63,5 +63,5 @@
 
 // Leave space at the top of the page for the fixed navbar
 #page {
-    margin-top: $s_lg;
+    margin-top: $s-lg;
 }

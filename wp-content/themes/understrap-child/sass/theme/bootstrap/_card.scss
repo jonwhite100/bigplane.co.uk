@@ -9,7 +9,7 @@
 //
 .card {
     .card-deck & {
-        margin-bottom: $s_md;
+        margin-bottom: $s-md;
     }
 }
 
@@ -17,8 +17,8 @@
     border-width: 0;
 
     hr {
-        margin-top: $s_xs;
-        margin-bottom: $s_md;
+        margin-top: $s-xs;
+        margin-bottom: $s-md;
     }
 }
 
@@ -29,7 +29,7 @@
 .card-pricing {
     position: relative;
     overflow: hidden;
-    margin-bottom: $s_lg;
+    margin-bottom: $s-lg;
     background-color: $white;
     border-width: 1px;
     border-radius: 0.3rem;
@@ -51,7 +51,7 @@
     }
 
     .card-blog-post & {
-        // padding: $s_sm;
+        // padding: $s-sm;
     }
 
     .card-pricing & {
@@ -128,7 +128,7 @@
     }
 
     .card-about & {
-        margin-bottom: $s_sm;
+        margin-bottom: $s-sm;
         font-size: $h2-font-size;
         text-transform: capitalize;
         color: gray('900');
@@ -136,7 +136,7 @@
     }
 
     .card-blog-post & {
-        // margin-bottom: $s_sm;
+        // margin-bottom: $s-sm;
     }
 
     .card-pricing & {
@@ -146,7 +146,7 @@
 }
 
 .card-body-heading {
-    margin-bottom: $s_md;
+    margin-bottom: $s-md;
 }
 
 /// 1. the paragraph already has 1rem margin bottom (added together = 2rem)

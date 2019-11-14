@@ -1,46 +1,60 @@
-//
-// Override BS4
-//
-
+///
+// Override BS4 (see bon appetit for full width image style)
+///
 .jumbotron {
-    border-radius: 0;
+	height: 30rem;
+	border-radius: 0;
+	overflow: hidden;
+}
 
-    [class*="col-"] {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+.jumbotron-text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
 
-    h1 {
-        margin-bottom: $s_lg;
-        color: $primary;
-        font-size: $h1-font-size * 2;
-        text-transform: uppercase;
-    }
+	h1 {
+		margin-bottom: $s-lg;
+		color: $primary;
+		font-size: $h1-font-size * 2;
+		text-transform: uppercase;
+	}
 
-    h2 {
-        margin-bottom: $s_md;
-        color: $secondary;
-        font-size: 2.5rem;
-        text-transform: capitalize;
-    }
+	h2 {
+		margin-bottom: $s-md;
+		color: $secondary;
+		font-size: 2.5rem;
+		text-transform: capitalize;
+	}
 
-    .lead {
-        color: gray('600');
-    }
+	.lead {
+		color: gray('600');
+	}
+}
+
+.jumbotron-img {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		max-height: 75%;
+	}
 }
 
 .jumbotron-base {
-    background-color: $jumbotron-bg;
+	width: 100%;
+	background-color: $jumbotron-bg;
 
-    &-curve {
-        margin-bottom:0;
-        padding-bottom:0;
-        position:relative;
-        display:block;
+	&-curve {
+		display: block;
+		position: relative;
+		margin-bottom: 0;
+		padding-bottom: 0;
 
-        path {
-            fill: $white;
-        }
-    }
+		path {
+			fill: $c-jumbotron-base-bg;
+		}
+	}
 }

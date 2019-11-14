@@ -19,11 +19,11 @@
         color: $primary;
         font-weight: 600;
         text-transform: uppercase;
-        margin-bottom: $s_xs;
+        margin-bottom: $s-xs;
     }
 
     .col-lg-6 {
-        margin-bottom: $s_sm;
+        margin-bottom: $s-sm;
     }
 
     .item {
@@ -31,7 +31,7 @@
             color: $primary;
             display: inline-block;
             font-size: 4rem;
-            margin-bottom: $s_sm;
+            margin-bottom: $s-sm;
             position: relative;
             z-index: 1;
             line-height: 1;
