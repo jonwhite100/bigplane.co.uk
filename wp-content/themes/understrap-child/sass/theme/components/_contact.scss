@@ -1,13 +1,10 @@
 .section-work-with-us {
-    ul {
-
-    }
 
     li {
         display: flex;
         align-items: flex-start;
         margin-bottom: $s-xs;
-        font-size: $font-size-base * 0.8;
+        font-size: $font-size-base * .8;
         line-height: 1.8;
     }
 
@@ -21,44 +18,54 @@
 
 .social {
     display: flex;
-    
-    a {
+
+	a {
         display: inline-block;
         width: 40px;
         height: 40px;
         margin: 0 2px;
-        text-align: center;
+		border-radius: 50%;
         color: $white;
         line-height: 40px;
-        border-radius: 50%;
+		text-align: center;
     }
 
-    .twitter a {
-        background-color: $c-twitter;
-    }
+    .twitter {
+		a {
+	        background-color: $c-twitter;
+	    }
+	}
 
-    .pinterest a {
-        background-color: $c-pinterest;
-    }
+    .pinterest {
+		a {
+			background-color: $c-pinterest;
+		}
+	}
 
-    .facebook a {
-        background-color: $c-facebook;
-    }
+	.facebook {
+		a {
+	        background-color: $c-facebook;
+	    }
+	}
 
-    .g-plus a {
-        background-color: $c-g-plus;
-    }
+	.g-plus {
+		a {
+	        background-color: $c-g-plus;
+	    }
+	}
 
-    .vimeo a {
-        background-color: $c-vimeo;
-    }
+	.vimeo {
+		a {
+	        background-color: $c-vimeo;
+	    }
+	}
 
-    .instagram a {
-        background-color: $c-instagram;
-    }
-
+	.instagram {
+		a {
+	        background-color: $c-instagram;
+	    }
+	}
 }
-
 
 .contact-us-area {
     //
@@ -70,7 +77,6 @@
     //     li {
     //     }
     // }
-
 
     .social {
         margin-bottom: $s-lg;
@@ -105,10 +111,10 @@
     }
 
     .form-control {
+		border: 1px solid gray('500'); //#e7e7e7;
+		color: gray('500'); // #232323;
         font-size: $font-size-sm;
-        border: 1px solid #e7e7e7;
         box-shadow: none;
-        color: #232323;
     }
 
     textarea {

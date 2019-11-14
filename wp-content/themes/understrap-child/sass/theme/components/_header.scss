@@ -1,16 +1,26 @@
-/* Paste this css to your style sheet file or under head tag */
-/* This only works with JavaScript, if it's not present, don't show loader */
-.no-js #loader { display: none;  }
-.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+#loader {
+	.no-js & {
+		display: none;
+	}
+
+	.js & {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 100px;
+	}
+}
+
 .se-pre-con {
 	position: fixed;
-	left: 0px;
-	top: 0px;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
+	background: url('images/preloader.gif') center no-repeat $white;
 	z-index: 9999;
-	background: url(images/preloader.gif) center no-repeat #fff;
 }
+
 
 // hide title on home homepage
 .page-id-9 {
@@ -30,20 +40,19 @@
 .navbar {
     padding: 1rem;
     background-color: $c-navbar-bg;
-    // border-bottom: 1px solid $c-navbar-border;
-	box-shadow: 0px 3px 6px 0px rgba(122,120,122,0.33);
+    box-shadow: 0 3px 6px 0 $c-navbar-box-shadow;
 
     // Shrink the header
 	&.shrink {
-		top: 0!important;
-		height:70px!important;
-		padding: 0.5rem 1rem!important;
-		background-color: rgba(250, 250, 250, 1)!important;
-		transition: all 0.33s ease-in-out;
+		top: 0;
+		height: 70px;
+		padding: .5rem 1rem;
+		transition: all .33s ease-in-out;
+		background-color: $c-navbar-bg-shrink;
 
 		.mob-standard-logo {
-		  height: 70px !important;
-		  transition: all 0.33s ease-in-out;
+			height: 70px;
+		  	transition: all .33s ease-in-out;
 		}
 	}
 }
@@ -53,10 +62,6 @@
         .nav-link {
             padding-right: $s-sm;
             padding-left: $s-sm;
-
-            @include media-breakpoint-up(md) {
-
-            }
         }
     }
 }

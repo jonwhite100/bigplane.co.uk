@@ -55,8 +55,10 @@ $c-jumbotron-base-bg: $white !default;
 // navbar
 $c-navbar-bg: $white;
 $c-navbar-border: darken($white, 50%);
+$c-navbar-box-shadow: rgba(122, 120, 122, .99) !default;
+$c-navbar-bg-shrink: rgba(250, 250, 250, 1) !default;
 
-// Shodows
+// box-shadows
 $box-shadow: 0 0 6px darken($white, 25%) !default;
 
 // Spacers
@@ -74,3 +76,6 @@ $card-spacer-y: .5rem !default; // 8px
 // List group
 $c-list-group-item-icon: $secondary !default;
 $c-list-group-item-icon-cross: $brand-danger !default;
+
+// Posts
+$c-single-post-bg: darken($white, 2%) !default;;

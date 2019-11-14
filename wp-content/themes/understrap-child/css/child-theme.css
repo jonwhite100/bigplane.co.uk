@@ -14390,11 +14390,8 @@ a.skip-link {
 }
 
 */
-/*
-// blog post. loop-templates/content-single.php
-*/
 .single-post {
-  background-color: white; }
+  background-color: #fafafa; }
   .single-post header a {
     color: #fff; }
   .single-post .entry-header {
@@ -14404,17 +14401,17 @@ a.skip-link {
     background-color: #126ab4; }
   .single-post .entry-title,
   .single-post .entry-meta {
-    text-align: center;
-    color: #fff; }
+    color: #fff;
+    text-align: center; }
   .single-post .card-body {
     padding: 2.25rem; }
   .single-post .wp-post-image {
     border-bottom: 1px solid #e9ecef; }
 
 .section-newsletter input {
-  line-height: 1.5;
+  border-radius: 0.25rem;
   color: #495057;
-  border-radius: 0.25rem; }
+  line-height: 1.5; }
 
 .companies-area {
   background-color: #6eb5f1; }
@@ -14493,10 +14490,10 @@ a.skip-link {
     width: 40px;
     height: 40px;
     margin: 0 2px;
-    text-align: center;
+    border-radius: 50%;
     color: #fff;
     line-height: 40px;
-    border-radius: 50%; }
+    text-align: center; }
   .social .twitter a {
     background-color: #00b6f1; }
   .social .pinterest a {
@@ -14557,11 +14554,11 @@ a.skip-link {
 .contact-form .wpcf7 input[type=submit], .wpcf7 .contact-form input[type=submit],
 .contact-form .wpcf7 select, .wpcf7 .contact-form select,
 .contact-form .wpcf7 textarea, .wpcf7 .contact-form textarea, .contact-form .wpcf7 .wpcf7-validation-errors, .wpcf7 .contact-form .wpcf7-validation-errors {
+  border: 1px solid #adb5bd;
+  color: #adb5bd;
   font-size: 0.875rem;
-  border: 1px solid #e7e7e7;
   -webkit-box-shadow: none;
-          box-shadow: none;
-  color: #232323; }
+          box-shadow: none; }
 
 .contact-form textarea {
   min-height: 300px; }
@@ -14569,130 +14566,120 @@ a.skip-link {
 .contact-form button i {
   padding-left: 0.84375rem; }
 
-/**
-* This is for the display posts plugin. Classes have been added to the plugin
-* So be careful when updating the plugin! Added card and card-blog-post to the $class array ('listing-item')
-* added card-img-top to image class.
-**/
-.listing-item {
-  /*
-    @include media-breakpoint-up(xs) { ... }
-    @include media-breakpoint-up(sm) { ... }
-    @include media-breakpoint-up(md) { ... }
-    @include media-breakpoint-up(lg) { ... }
-    @include media-breakpoint-up(xl) { ... }
-    */ }
-  .listing-item .wp-post-image {
-    width: 100% !important;
-    height: auto !important; }
-  .listing-item a.card-title {
-    margin-bottom: 1.125rem;
-    padding-top: 1.5rem;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #212529;
-    text-transform: capitalize; }
-    .listing-item a.card-title:hover {
-      color: #126ab4; }
-  .listing-item .excerpt-dash {
-    display: none; }
-  .listing-item .card-text {
-    padding-right: 1.5rem;
-    padding-bottom: 1.5rem;
-    padding-left: 1.5rem;
-    font-size: 0.9rem;
-    line-height: 1.8rem; }
-  .listing-item .btn,
-  .listing-item .wpcf7 input[type=submit], .wpcf7 .listing-item input[type=submit] {
-    margin-top: 1.5rem; }
+.listing-item .wp-post-image {
+  width: 100% !important;
+  height: auto !important; }
 
-/*
-  Flaticon icon font: Flaticon
-  Creation date: 08/09/2018 00:19
-  */
+.listing-item a .card-title {
+  margin-bottom: 1.125rem;
+  padding-top: 1.5rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  color: #212529;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: capitalize; }
+  .listing-item a .card-title:hover {
+    color: #126ab4; }
+
+.listing-item .excerpt-dash {
+  display: none; }
+
+.listing-item .card-text {
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.8rem; }
+
+.listing-item .btn,
+.listing-item .wpcf7 input[type=submit], .wpcf7 .listing-item input[type=submit] {
+  margin-top: 1.5rem; }
+
 @font-face {
-  font-family: "Flaticon";
-  src: url("../fonts/Flaticon.eot");
-  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-family: 'Flaticon';
+  font-style: normal;
   font-weight: normal;
-  font-style: normal; }
+  src: url("../fonts/Flaticon.eot"), url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg"); }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
-    font-family: "Flaticon";
+    font-family: 'Flaticon';
     src: url("./Flaticon.svg#Flaticon") format("svg"); } }
 
-[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+[class^='flaticon-']:before, [class^='flaticon-']:after,
+[class*=' flaticon-']:before,
+[class*=' flaticon-']:after,
+[class^='flaticon-']:before,
+[class^='flaticon-']:after,
+[class*=' flaticon-']:before,
+[class*=' flaticon-']:after {
   font-family: Flaticon;
-  speak: none;
   font-style: normal;
-  font-weight: normal;
   font-variant: normal;
-  text-transform: none;
+  font-weight: normal;
   line-height: 1;
-  /* Better Font Rendering =========== */
+  text-transform: none;
+  speak: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
 .flaticon-move:before {
-  content: "\f100"; }
+  content: '\f100'; }
 
 .flaticon-scroll:before {
-  content: "\f101"; }
+  content: '\f101'; }
 
 .flaticon-customer-support:before {
-  content: "\f102"; }
+  content: '\f102'; }
 
 .flaticon-feature:before {
-  content: "\f103"; }
+  content: '\f103'; }
 
 .flaticon-intersect:before {
-  content: "\f104"; }
+  content: '\f104'; }
 
 .flaticon-union:before {
-  content: "\f105"; }
+  content: '\f105'; }
 
 .flaticon-intersection:before {
-  content: "\f106"; }
+  content: '\f106'; }
 
 .flaticon-rgb:before {
-  content: "\f107"; }
+  content: '\f107'; }
 
 .flaticon-rgb-1:before {
-  content: "\f108"; }
+  content: '\f108'; }
 
 .flaticon-resolution:before {
-  content: "\f109"; }
+  content: '\f109'; }
 
 .flaticon-showcase:before {
-  content: "\f10a"; }
+  content: '\f10a'; }
 
 .flaticon-tickets:before {
-  content: "\f10b"; }
+  content: '\f10b'; }
 
 .flaticon-ticket:before {
-  content: "\f10c"; }
+  content: '\f10c'; }
 
 .flaticon-conversation:before {
-  content: "\f10d"; }
+  content: '\f10d'; }
 
 .flaticon-speech-bubble:before {
-  content: "\f10e"; }
+  content: '\f10e'; }
 
 .flaticon-email:before {
-  content: "\f10f"; }
+  content: '\f10f'; }
 
 .flaticon-contact:before {
-  content: "\f110"; }
+  content: '\f110'; }
 
 .flaticon-file:before {
-  content: "\f111"; }
+  content: '\f111'; }
 
 .flaticon-upload-information:before {
-  content: "\f112"; }
+  content: '\f112'; }
 
 #wrapper-footer,
 #wrapper-footer-full,
@@ -14758,25 +14745,23 @@ a.skip-link {
     display: inline-block;
     margin-left: 1rem; }
 
-/* Paste this css to your style sheet file or under head tag */
-/* This only works with JavaScript, if it's not present, don't show loader */
 .no-js #loader {
   display: none; }
 
 .js #loader {
   display: block;
   position: absolute;
-  left: 100px;
-  top: 0; }
+  top: 0;
+  left: 100px; }
 
 .se-pre-con {
   position: fixed;
-  left: 0px;
-  top: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 9999;
-  background: url(images/preloader.gif) center no-repeat #fff; }
+  background: url("images/preloader.gif") center no-repeat #fff;
+  z-index: 9999; }
 
 .page-id-9 .entry-header {
   display: none; }
@@ -14787,19 +14772,19 @@ a.skip-link {
 .navbar {
   padding: 1rem;
   background-color: #fff;
-  -webkit-box-shadow: 0px 3px 6px 0px rgba(122, 120, 122, 0.33);
-          box-shadow: 0px 3px 6px 0px rgba(122, 120, 122, 0.33); }
+  -webkit-box-shadow: 0 3px 6px 0 rgba(122, 120, 122, 0.99);
+          box-shadow: 0 3px 6px 0 rgba(122, 120, 122, 0.99); }
   .navbar.shrink {
-    top: 0 !important;
-    height: 70px !important;
-    padding: 0.5rem 1rem !important;
-    background-color: #fafafa !important;
-    -webkit-transition: all 0.33s ease-in-out;
-    transition: all 0.33s ease-in-out; }
+    top: 0;
+    height: 70px;
+    padding: .5rem 1rem;
+    -webkit-transition: all .33s ease-in-out;
+    transition: all .33s ease-in-out;
+    background-color: #fafafa; }
     .navbar.shrink .mob-standard-logo {
-      height: 70px !important;
-      -webkit-transition: all 0.33s ease-in-out;
-      transition: all 0.33s ease-in-out; }
+      height: 70px;
+      -webkit-transition: all .33s ease-in-out;
+      transition: all .33s ease-in-out; }
 
 .navbar-expand-md .navbar-nav .nav-link {
   padding-right: 1.125rem;

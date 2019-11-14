@@ -1,16 +1,12 @@
 .section-newsletter {
-    label {
-
-    }
-
     input {
         // height: $input-height;
         // padding: $input-padding-y $input-padding-x;
         // font-size: $font-size-base;
-        line-height: $input-line-height;
+		border-radius: $input-border-radius;
         color: $input-color;
+		line-height: $input-line-height;
         // background-color: $input-bg;
         // border: $input-border-width solid $input-border-color;
-        border-radius: $input-border-radius;
     }
 }

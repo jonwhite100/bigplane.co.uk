@@ -3998,20 +3998,23 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-    // script to scroll to each section by id
-    $(document).on('click', 'a[href*="#"]:not([href="#"])', function(e) {
-        if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
-            var hashStr = this.hash.slice(1);
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + hashStr +']');
-            if (target.length) {
-                $('html, body').animate({ scrollTop: target.offset().top }, 1000);
-                window.location.hash = hashStr;
-                return false;
-                e.preventDefault();
-            }
-        }
-    });
+
+    // script to scroll to each section by id using https://github.com/cferdinandi/smooth-scroll
+    var scroll = new SmoothScroll('a[href*="#"]');
+
+    // $(document).on('click', 'a[href*="#"]:not([href="#"])', function(e) {
+    //     if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
+    //         var hashStr = this.hash.slice(1);
+    //         var target = $(this.hash);
+    //         target = target.length ? target : $('[name=' + hashStr +']');
+    //         if (target.length) {
+    //             $('html, body').animate({ scrollTop: target.offset().top }, 1000);
+    //             window.location.hash = hashStr;
+    //             return false;
+    //             e.preventDefault();
+    //         }
+    //     }
+    // });
 
     // script for multi slides per BS carousel
     // $('#carouselExample').on('slide.bs.carousel', function (e) {
