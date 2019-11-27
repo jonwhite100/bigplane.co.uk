@@ -3,8 +3,9 @@ Contributors: vibhorchhabra
 Donate link: N/A
 Tags: Campaign Monitor, Email Marketing, Sign-Up Forms, Sign Up Forms
 Requires at least: 3.9
-Tested up to: 5.2.2
-Stable tag: 2.8.1
+Requires PHP: 5.3
+Tested up to: 5.3
+Stable tag: 2.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,10 +63,16 @@ When we launched 2.0, we improved how our plugin saves forms in the WordPress da
 
 == Changelog ==
 
+= 2.8.2 =
+* Further improvements to address connectivity issues.
+* Minor UI changes for WordPress 5.3.
+
+
 = 2.8.1 =
 * Admin navigation item renamed to "Subscribe forms".
 * Minor fixes to A/B tests.
 * Improved security.
+
 
 = 2.8.0 =
 * Addressed connection issues with PHP7

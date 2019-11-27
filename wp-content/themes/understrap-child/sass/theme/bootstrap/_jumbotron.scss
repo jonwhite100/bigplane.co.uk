@@ -2,9 +2,16 @@
 // Override BS4 (see bon appetit for full width image style)
 ///
 .jumbotron {
-	height: 30rem;
+	min-height: 27rem;
+	margin-top: $s-xl * 1.75;
 	border-radius: 0;
 	overflow: hidden;
+
+	.row {
+		@include media-breakpoint-down(sm) {
+			flex-direction: column-reverse;
+		}
+	}
 }
 
 .jumbotron-text {
@@ -13,18 +20,40 @@
 	align-items: flex-start;
 	justify-content: center;
 
+	h1,
+	h2,
+	p {
+		width: 100%;
+		margin-bottom: $s-md;
+		line-height: 1.4;
+		text-align: center;
+
+		@include media-breakpoint-up(md) {
+			text-align: left;
+		}
+	}
+
 	h1 {
-		margin-bottom: $s-lg;
+		margin-top: $s-lg;
 		color: $primary;
-		font-size: $h1-font-size * 2;
 		text-transform: uppercase;
+
+		@include media-breakpoint-up(md) {
+			font-size: $h1-font-size * 2;
+		}
 	}
 
 	h2 {
-		margin-bottom: $s-md;
 		color: $secondary;
-		font-size: 2.5rem;
-		text-transform: capitalize;
+		text-transform: none;
+
+		@include media-breakpoint-up(md) {
+			font-size: $h2-font-size * 1.05;
+		}
+
+		@include media-breakpoint-up(xl) {
+			font-size: $h2-font-size * 1.5;
+		}
 	}
 
 	.lead {
@@ -39,7 +68,13 @@
 	justify-content: center;
 
 	img {
+		max-width: 75%;
 		max-height: 75%;
+		margin-top: $s-md;
+
+		@include media-breakpoint-up(md) {
+			max-width: 100%;
+		}
 	}
 }
 
@@ -52,9 +87,12 @@
 		position: relative;
 		margin-bottom: 0;
 		padding-bottom: 0;
-
-		path {
-			fill: $c-jumbotron-base-bg;
-		}
 	}
+
+	path,
+	polygon {
+		fill: $c-jumbotron-base-bg;
+	}
+
+
 }

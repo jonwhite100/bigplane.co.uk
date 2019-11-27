@@ -16,6 +16,7 @@
 @import "components/pricing";
 @import "components/section";
 
+// @include media-breakpoint-up(md) {}
 
 // fonts / text
 .text-center {
@@ -40,23 +41,30 @@ p {
 }
 
 
-// .container-fluid {
-//     max-width: 1440px;
-// }
-
-.homepage__block {
-    background-color: #ccc;
-    min-height: 400px;
+///
+// Preloader
+///
+.no-js {
+    #loader {
+        display: none;
+    }
 }
 
-.no-js #loader { display: none;  }
-.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.js {
+    #loader {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 100px;
+    }
+}
+
 .se-pre-con {
 	position: fixed;
-	left: 0px;
-	top: 0px;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
+    background: url('../images/preloader.gif') center no-repeat $white;
 	z-index: 9999;
-	background: url(../images/preloader.gif) center no-repeat #fff;
 }

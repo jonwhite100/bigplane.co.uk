@@ -19,6 +19,19 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	// script to scroll to each section by id using https://github.com/cferdinandi/smooth-scroll
+	$('a[href^="#"]').on('click',function (e) {
+		// e.preventDefault();
+		var target = this.hash,
+		$target = $(target);
+
+		$('html, body').stop().animate({
+			'scrollTop': $target.offset().top-120
+		}, 900, 'swing', function () {
+			window.location.hash = target;
+		});
+	});
+
 	// using ScrollReveal
 	ScrollReveal().reveal('.card', { interval: 200 });
 

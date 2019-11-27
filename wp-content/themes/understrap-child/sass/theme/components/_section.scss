@@ -3,7 +3,7 @@
     position: relative;
     padding-top: $s-xl;
     padding-bottom: $s-xl * 2;
-    
+
 }
 
 .section-newsletter,
@@ -17,6 +17,19 @@
 .section-scroll-to {
     display: flex;
     margin-top: $s-lg;
+
+	.fa-stack {
+		display: flex;
+		align-items: center;
+
+		i {
+			color: $white;
+
+			&:first-child {
+				color: $primary;
+			}
+		}
+	}
 }
 
 /// 1. pust the dark overlay over the bg image

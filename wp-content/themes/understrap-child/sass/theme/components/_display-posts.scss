@@ -4,6 +4,16 @@
 // added card-img-top to image class.
 ///
 
+.section-jobs {
+	.col-md-6 {
+		margin-bottom: $s-lg;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
 .listing-item {
     .wp-post-image {
         width: 100% !important; // sass-lint:disable-line no-important
@@ -35,8 +45,17 @@
         padding-right: $s-md;
         padding-bottom: $s-md;
         padding-left: $s-md;
+		min-height: $s-xl * 7.5;
 		font-size: $font-size-base * .9;
         line-height: $font-size-base * 1.8;
+
+		@include media-breakpoint-up(lg) {
+			min-height: $s-xl * 8.5;
+		}
+
+		@include media-breakpoint-up(xl) {
+			min-height: $s-xl * 6.5;
+		}
     }
 
     .btn {

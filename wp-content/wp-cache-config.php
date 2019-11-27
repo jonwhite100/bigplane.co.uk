@@ -5,8 +5,10 @@ WP-Cache Config Sample File
 See wp-cache.php for author details.
 */
 
+$dismiss_readable_warning = 1;
+$wpsc_version = 169;
 $wp_cache_mobile_groups = '';
-$wp_cache_home_path = '/';
+$wp_cache_home_path = '/bigplanemedia.com/';
 $wp_cache_slash_check = 1;
 $cache_page_secret = 'b6690df50df2e0abab1f9458e8179d72';
 $cache_time_interval = 600;

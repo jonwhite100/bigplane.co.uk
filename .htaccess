@@ -1,21 +1,15 @@
-# BEGIN LSCACHE
-# END LSCACHE
-# BEGIN NON_LSCACHE
-# END NON_LSCACHE
-
-
-# php -- BEGIN cPanel-generated handler, do not edit
-# This domain inherits the “PHP” package.
-# php -- END cPanel-generated handler, do not edit
 
 # BEGIN WordPress
+# The directives (lines) between `BEGIN WordPress` and `END WordPress` are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /
+RewriteBase /bigplanemedia.com/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
+RewriteRule . /bigplanemedia.com/index.php [L]
 </IfModule>
 
 # END WordPress
