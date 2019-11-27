@@ -66,7 +66,7 @@ add_filter( 'display_posts_shortcode_post_class', 'be_dps_current_class', 10, 2 
 
 
 /**
-* Overriding the function in understrap/inc/setup.php
+* BPM Overriding the function in understrap/inc/setup.php
 */
 add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
 
@@ -88,7 +88,7 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 }
 
 /**
-* Split footer widget into x3 custom areas
+* BPM Split footer widget into x3 custom areas
 */
 function register_additional_childtheme_sidebars() {
     register_sidebar( array(
@@ -124,3 +124,11 @@ function register_additional_childtheme_sidebars() {
 }
 
 add_action( 'init', 'register_additional_childtheme_sidebars' );
+
+/**
+* BPM remove Contact Form 7 styling; now only use the understrap wpcf7 styling
+*/
+add_action( 'wp_print_styles', 'wps_deregister_styles', 100 );
+function wps_deregister_styles() {
+    wp_deregister_style( 'contact-form-7' );
+}

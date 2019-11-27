@@ -34,16 +34,16 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div class="wrapper" id="wrapper-footer">
 	<div class="<?php echo esc_attr( $container ); ?>">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col">
 				<div class="site-info">
-					&copy; BigPlaneMedia <?php echo date("Y"); ?>. Site by <a href="https://www.bigplanemedia.co.uk">Big Plane Media</a><span class="sep"></span>
+					Big Plane is a trading name of bpm web design ltd.
+					Registered number: 08710002
+					Registered office: First Floor, Telecom House, 125-135 Preston Road, Brighton, East Sussex, BN1 6AF<br />
+					<br />
+					VAT number: 171425327.
+					All content &copy; bpm web design ltd <?php echo date("Y"); ?>.
 				</div><!-- .site-info -->
 			</div>
-
-			<div class="col-md-6 footer-menu">
-				<?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
-			</div>
-
 		</div><!-- row end -->
 	</div><!-- container end -->
 </div><!-- wrapper end -->
