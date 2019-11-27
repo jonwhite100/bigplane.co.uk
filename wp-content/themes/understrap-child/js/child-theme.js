@@ -3984,6 +3984,8 @@ console.log('Put custom JS in this file: understrap-child/src/js/custom-javascri
 jQuery(window).load(function() {
 	// Animate loader off screen
 	jQuery(".se-pre-con").fadeOut("slow");
+	// Stop carousel from autoplaying
+	jQuery('#carousel-testimonials.carousel').carousel('pause');
 });
 
 jQuery(document).ready(function($) {

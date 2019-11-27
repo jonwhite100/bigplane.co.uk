@@ -3,7 +3,7 @@
 //
 .btn {
 	// @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius-lg);
-	border-radius: $btn-border-radius-lg;
+	// border-radius: $btn-border-radius-lg;
 
     .card-pricing & {
 		padding: $s-sm $s-md;
@@ -11,6 +11,16 @@
         font-weight: bold;
 		text-transform: uppercase;
     }
+
+	&.wpcf7-form-control {
+		color: $white;
+		background-color: $primary;
+
+		&:hover {
+			color: $white;
+			background-color: lighten($primary, 10%);
+		}
+	}
 }
 
 ///

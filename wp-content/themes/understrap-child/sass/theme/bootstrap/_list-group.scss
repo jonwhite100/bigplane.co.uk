@@ -29,9 +29,9 @@
 		align-items: center;
 		width: 28px;
 		height: 28px;
-		line-height: 28px;
-		background-color: $c-fa-stack-bg;
 		border-radius: 28px;
+		background-color: $c-fa-stack-bg;
+		line-height: 28px;
 	}
 
 	.fa-stack-1x {
@@ -50,7 +50,15 @@
 
 .list-group-blog-site {
     .list-group-item {
+		border: 0;
+		font-size: $fa-font-size-base * 1;
         text-transform: none;
+    }
+
+	i {
+		padding-right: $s-xs;
+		color: $primary;
+		font-size: $fa-font-size-base * 1.5;
     }
 }
 

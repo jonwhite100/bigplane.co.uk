@@ -1,70 +1,24 @@
-@import "bootstrap/buttons";
-@import "bootstrap/card";
-@import "bootstrap/jumbotron";
-@import "bootstrap/list-group";
+@import 'bootstrap/buttons';
+@import 'bootstrap/card';
+@import 'bootstrap/carousel';
+@import 'bootstrap/form';
+@import 'bootstrap/jumbotron';
+@import 'bootstrap/list-group';
+@import 'bootstrap/type';
 
-@import "components/about"; // Sassify!!
-@import "components/blog";
-@import "components/campaign-monitor";
-@import "components/companies"; // Sasify!!
-@import "components/contact"; // Still some sass to do
-@import "components/display-posts";
-@import "components/flaticon";
-@import "components/footer";
-@import "components/header";
-// @import "components/multi-screen-carousel";
-@import "components/pricing";
-@import "components/section";
+
+// @import 'components/about'; // Sassify!!
+@import 'components/blog';
+@import 'components/campaign-monitor';
+@import 'components/companies'; // Sasify!!
+@import 'components/contact'; // Still some sass to do
+@import 'components/display-posts';
+@import 'components/flaticon';
+@import 'components/footer';
+@import 'components/header';
+// @import 'components/multi-screen-carousel';
+@import 'components/preloader';
+@import 'components/pricing';
+@import 'components/section';
 
 // @include media-breakpoint-up(md) {}
-
-// fonts / text
-.text-center {
-    text-align: center;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    text-transform: uppercase;
-}
-
-p {
-    font-size: $font-size-sm;
-    line-height: 1.8;
-}
-
-.section-heading {
-    margin-bottom: $s-xl;
-    display: inline-block;
-    font-weight: 700;
-    padding-bottom: 20px;
-    position: relative;
-}
-
-
-///
-// Preloader
-///
-.no-js {
-    #loader {
-        display: none;
-    }
-}
-
-.js {
-    #loader {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 100px;
-    }
-}
-
-.se-pre-con {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-    background: url('../images/preloader.gif') center no-repeat $white;
-	z-index: 9999;
-}
