@@ -47,6 +47,22 @@ $h4-font-size:                $font-size-base * 1.1 !default;
 $h5-font-size:                $font-size-base * 1.1 !default;
 $h6-font-size:                $font-size-base !default;
 
+// Font Awesome
+$c-fa-no-bg: $primary !default;
+
+$c-fa-stack-border: rgba($secondary, .75) !default;
+$c-fa-stack-icon-outer: $primary !default;
+$c-fa-stack-icon-inner: $white !default;
+$c-fa-stack-icon-outer-inverted: $white !default;
+$c-fa-stack-icon-inner-inverted: $primary !default;
+
+// Default stack width and height is 2em
+$s-fa-stack-border: 2.0rem;
+$s-fa-stack-sm-icon: 1.75rem !default;
+$s-fa-stack-sm-icon-inner: .85rem !default;
+$s-fa-stack-lg-icon: 2.5rem !default;
+$s-fa-stack-lg-icon-inner: 1.25rem !default;
+
 // jumbotron
 $jumbotron-bg: lighten($secondary, 35%) !default;
 $jumbotron-padding: 0 !default;
@@ -59,21 +75,26 @@ $c-navbar-border: darken($white, 50%);
 $c-navbar-box-shadow: rgba(122, 120, 122, .99) !default;
 $c-navbar-bg-shrink: rgba(250, 250, 250, 1) !default;
 
-// Font Awesome bullet points
+// Font Awesome
 $c-fa-stack-bg: rgba($secondary, .75) !default;
+$c-fa-stack-lg-icon-inner: $primary !default;
 
+// Default stack width and height is 2em
+$s-fa-stack-lg-icon: 2.5rem !default;
+$s-fa-stack-lg-icon-inner: 1.25rem !default;
 
-// box-shadows
+// Box-shadows
 $box-shadow: 0 0 6px darken($white, 25%) !default;
 
 // Spacers
-$unit: 1.5rem;
+$spacer: 1rem; // 16px;
 
-$s-md: $unit;
-$s-sm: $s-md * .75;
-$s-xs: $s-sm * .75;
-$s-lg: $s-md * 1.5;
-$s-xl: $s-lg * 1.5;
+$s-sm: $spacer;
+$s-xs: $s-sm / 2;
+$s-xxs: $s-xs / 2;
+$s-md: $s-sm * 2;
+$s-lg: $s-md * 2;
+$s-xl: $s-lg + $s-md;
 
 // Card
 $card-spacer-y: .5rem !default; // 8px

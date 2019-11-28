@@ -19,33 +19,10 @@
 			margin-left: $s-xs;
 		}
     }
-
-	.icon-background {
-		color: $primary;
-	}
-
-	.fa-stack {
-		display: flex;
-		align-items: center;
-		width: 28px;
-		height: 28px;
-		border-radius: 28px;
-		background-color: $c-fa-stack-bg;
-		line-height: 28px;
-	}
-
-	.fa-stack-1x {
-		font-size: 11px;
-	}
-
-	.fa-stack-2x {
-		font-size: 22px;
-	}
-
-
-    i {
-		color: $white;
-    }
+	// 
+	// .icon-background {
+	// 	color: $primary;
+	// }
 }
 
 .list-group-blog-site {
