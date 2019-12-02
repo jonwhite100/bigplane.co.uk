@@ -4,8 +4,10 @@
 @import 'bpm-default/icons';
 @import 'bpm-default/footer';
 @import 'bpm-default/jumbotron';
+@import 'bpm-default/lists';
 @import 'bpm-default/preloader';
 @import 'bpm-default/vendor-overrides'; // override WP and Understrap
+
 
 @import 'bpm-overrides/jumbotron';
 @import 'bpm-overrides/vendor-overrides'; // override WP and Understrap
@@ -21,7 +23,7 @@
 @import 'components/companies'; // Sasify!!
 @import 'components/contact'; // Still some sass to do
 @import 'components/display-posts';
-@import 'components/footer';
+// @import 'components/footer';
 @import 'components/header';
 // @import 'components/multi-screen-carousel';
 @import 'components/pricing';

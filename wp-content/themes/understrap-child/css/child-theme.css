@@ -10623,6 +10623,18 @@ a.skip-link {
 #wrapper-footer {
   background-color: #126ab4; }
 
+.site-info {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #fff;
+  font-size: 0.75rem; }
+
+.footer-menu {
+  text-align: right; }
+  .footer-menu li {
+    display: inline-block;
+    margin-left: 1rem; }
+
 .jumbotron {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10714,6 +10726,23 @@ a.skip-link {
     .jumbotron-base-curve path,
     .jumbotron-base-curve polygon {
       fill: #fff; }
+
+.list-icon li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 0.5rem; }
+
+.list-icon-text {
+  padding-left: 1rem; }
+  .list-icon-text h5 {
+    margin-bottom: 0;
+    font-size: 0.77rem;
+    font-weight: 600;
+    text-transform: uppercase; }
 
 .no-js #loader {
   display: none; }
@@ -11140,46 +11169,6 @@ p {
 .listing-item .btn,
 .listing-item .wpcf7 input[type=submit], .wpcf7 .listing-item input[type=submit] {
   margin-top: 2rem; }
-
-.site-info {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  color: #fff;
-  font-size: 0.75rem; }
-
-.contact-info li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  margin-bottom: 0.5rem; }
-
-.contact-info .icon .fa,
-.contact-info .icon .fas {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  background: #edf5ff none repeat scroll 0 0;
-  color: #126ab4;
-  font-size: 1.1rem;
-  line-height: 4rem;
-  text-align: center; }
-
-.contact-info .info {
-  padding-left: 1rem; }
-  .contact-info .info h5 {
-    margin-bottom: 0;
-    font-size: 0.77rem;
-    font-weight: 600;
-    text-transform: uppercase; }
-
-.footer-menu {
-  text-align: right; }
-  .footer-menu li {
-    display: inline-block;
-    margin-left: 1rem; }
 
 .page-id-9 .entry-header {
   display: none; }
