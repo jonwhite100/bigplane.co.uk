@@ -1,24 +1,31 @@
+// Load up the bpm-default files first
+@import 'bpm-default/blog';
+@import 'bpm-default/campaign-monitor'; // Comment this out if not used
+@import 'bpm-default/icons';
+@import 'bpm-default/footer';
+@import 'bpm-default/jumbotron';
+@import 'bpm-default/preloader';
+@import 'bpm-default/vendor-overrides'; // override WP and Understrap
+
+@import 'bpm-overrides/jumbotron';
+@import 'bpm-overrides/vendor-overrides'; // override WP and Understrap
+
 @import 'bootstrap/buttons';
 @import 'bootstrap/card';
 @import 'bootstrap/carousel';
 @import 'bootstrap/form';
-@import 'bootstrap/jumbotron';
 @import 'bootstrap/list-group';
 @import 'bootstrap/type';
 
-
 // @import 'components/about'; // Sassify!!
-@import 'components/blog';
-@import 'components/campaign-monitor';
 @import 'components/companies'; // Sasify!!
 @import 'components/contact'; // Still some sass to do
 @import 'components/display-posts';
-@import 'components/icons';
 @import 'components/footer';
 @import 'components/header';
 // @import 'components/multi-screen-carousel';
-@import 'components/preloader';
 @import 'components/pricing';
 @import 'components/section';
+// @import 'components/wp-overrides';
 
 // @include media-breakpoint-up(md) {}

@@ -1,0 +1,26 @@
+// #wrapper-footer,
+// #wrapper-footer-full,
+// #wrapper-static-hero,
+.wrapper-footer-widgets {
+	background-color: $c-wrapper-footer-widgets-bg;
+    color: $c-wrapper-footer-widgets;
+    font-size: $font-size-base * .85;
+
+    a {
+	      color: $c-wrapper-footer-widgets-link;
+    }
+
+    h3 {
+  		margin-bottom: $s-md;
+  		font-size: $h4-font-size;
+    }
+
+    .menu {
+		padding-left: 0;
+		list-style: none;
+    }
+}
+
+#wrapper-footer {
+	background-color: $c-wrapper-footer-bg;
+}
