@@ -1,0 +1,32 @@
+.section {
+	position: relative;
+    padding-top: $s-xl;
+    padding-bottom: $s-xl * 2;
+	z-index: 1;
+}
+
+.section-newsletter,
+.section-whatever {
+    h2,
+    p {
+        color: $white;
+    }
+}
+
+.section-scroll-to {
+    display: flex;
+    margin-top: $s-lg;
+
+	.fa-stack {
+		display: flex;
+		align-items: center;
+
+		i {
+			color: $white;
+
+			&:first-child {
+				color: $primary;
+			}
+		}
+	}
+}
