@@ -20,7 +20,10 @@
 @import 'bpm-default/section';
 @import 'bpm-default/social-media';
 @import 'bpm-default/type';
+@import 'bpm-default/vendor-overrides'; // override WP and Understrap
+
+// Override bpm-default (site specific styling)
 @import 'bpm-overrides/jumbotron';
-@import 'bpm-overrides/vendor-overrides'; // override WP and Understrap
+@import 'bpm-overrides/vendor-overrides';
 
 // @include media-breakpoint-up(md) {}
