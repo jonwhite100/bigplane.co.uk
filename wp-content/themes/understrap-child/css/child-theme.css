@@ -7928,30 +7928,6 @@ a.skip-link {
 .navbar h1 {
   font-weight: 400; }
 
-/*
-* Use existing Bootstrap 4 classes and
-* variables to extend - override CF7 style
-*
-* Useful CF7 classes:
-* .wpcf7 the wrapper element
-* .wpcf7-form
-* .wpcf7-form-control
-* .wpcf7-text
-* .wpcf7-email
-* .wpcf7-textarea
-* .wpcf7-submit
-*/
-.wpcf7 {
-  max-width: 600px;
-  margin: 0 auto !important; }
-  .wpcf7 .wpcf7-form label {
-    width: 100%; }
-  .wpcf7 .wpcf7-not-valid-tip {
-    color: #dc3545; }
-  .wpcf7 .wpcf7-validation-errors {
-    color: #dc3545;
-    border: 1px solid #e9ecef; }
-
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0; }
@@ -10593,6 +10569,30 @@ a.skip-link {
   bottom: -30px;
   margin-bottom: 0; }
 
+/*
+* Use existing Bootstrap 4 classes and
+* variables to extend - override CF7 style
+*
+* Useful CF7 classes:
+* .wpcf7 the wrapper element
+* .wpcf7-form
+* .wpcf7-form-control
+* .wpcf7-text
+* .wpcf7-email
+* .wpcf7-textarea
+* .wpcf7-submit
+*/
+.wpcf7 {
+  max-width: 600px;
+  margin: 0 auto !important; }
+  .wpcf7 .wpcf7-form label {
+    width: 100%; }
+  .wpcf7 .wpcf7-not-valid-tip {
+    color: #dc3545; }
+  .wpcf7 .wpcf7-validation-errors {
+    color: #dc3545;
+    border: 1px solid #e9ecef; }
+
 .section-work-with-us li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11264,6 +11264,9 @@ p {
   .single-post .wp-post-image {
     border-bottom: 1px solid #e9ecef; }
 
+.card-article .wp-block-image img {
+  width: 100%; }
+
 .img-fluid {
   max-width: 15rem;
   max-height: 5rem;
@@ -11342,6 +11345,21 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
+
+.sr .wp-block-image,
+.sr .blocks-gallery-item {
+  visibility: visible; }
+
+.entry-header {
+  width: 100%;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: #126ab4;
+  display: none; }
+  .entry-header .entry-title,
+  .entry-header .entry-meta {
+    color: #fff;
+    text-align: center; }
 
 .site {
   margin-top: 6rem; }
