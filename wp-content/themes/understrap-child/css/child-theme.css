@@ -11087,6 +11087,23 @@ label {
   -webkit-transform: translateX(-25%);
           transform: translateX(-25%); }
 
+.nav-pills .nav-item .nav-link {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  padding-top: 0.5rem;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  border-radius: 2rem;
+  background-color: #edf5ff;
+  color: #212529;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+  .nav-pills .nav-item .nav-link.active {
+    background-color: #126ab4;
+    color: #fff; }
+
 .no-js #loader {
   display: none; }
 
