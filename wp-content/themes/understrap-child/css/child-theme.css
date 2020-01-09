@@ -10482,6 +10482,41 @@ a.skip-link {
     .card-pricing {
       margin-bottom: 0; } }
 
+.card-flip {
+  position: relative;
+  margin-bottom: 1rem;
+  border-width: 0; }
+  .card-flip .card-front,
+  .card-flip .card-back {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    -webkit-transition: -webkit-transform 300ms;
+    transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+    transition: transform 300ms, -webkit-transform 300ms;
+    -webkit-transition-timing-function: linear;
+            transition-timing-function: linear;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden; }
+  .card-flip .card-front {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg); }
+  .card-flip .card-back {
+    position: absolute;
+    top: 0;
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg); }
+  .card-flip:hover .card-front {
+    -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg); }
+  .card-flip:hover .card-back {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg); }
+
 .card-about .card-body {
   padding: 0; }
 
@@ -10490,6 +10525,29 @@ a.skip-link {
 
 .card-pricing .card-body {
   padding: 0; }
+
+.card-flip .card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%; }
+  .card-flip .card-body img {
+    max-width: 100%; }
+  .card-back .card-flip .card-body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
 
 .card-pricing .card-title-container {
   border-bottom: 1px solid #e9ecef;
@@ -11278,6 +11336,8 @@ p {
     text-align: center; }
   .single-post .card-body {
     padding: 4rem; }
+  .single-post .card-flip .card-body {
+    padding: 0.5rem; }
   .single-post .wp-post-image {
     border-bottom: 1px solid #e9ecef; }
 

@@ -5,6 +5,7 @@
 //      card-blog-post: blog summary page
 //      card-deck: used in the about us, home page section (right side cards)
 //      card-pricing: home page, pricing section
+// 		card-flip: hover over a card and flip to the rear side content
 
 //
 .card {
@@ -35,6 +36,43 @@
     }
 }
 
+.card-flip {
+	position: relative;
+	margin-bottom: $s-sm;
+	border-width: 0;
+
+	.card-front,
+	.card-back {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		transition: transform 300ms;
+		transition-timing-function: linear;
+		backface-visibility: hidden;
+	}
+
+	.card-front {
+		transform: rotateX(0deg);
+    }
+
+	.card-back {
+		position: absolute;
+		top: 0;
+		transform: rotateX(180deg);
+    }
+
+	&:hover {
+		.card-front {
+			transform: rotateX(-180deg);
+		}
+
+		.card-back {
+			transform: rotateX(0deg);
+		}
+	}
+}
+
 .card-body {
     .card-about & {
         padding: 0;
@@ -49,6 +87,22 @@
     .card-pricing & {
         padding: 0;
     }
+
+	.card-flip & {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+
+		img {
+			max-width: 100%;
+		}
+
+		.card-back & {
+			flex-direction: column;
+		}
+	}
 }
 
 .card-title-container {
@@ -141,3 +195,12 @@
         padding-left: 2rem;
     }
 }
+
+// Card Flip
+//
+//
+// .card-title,
+// .card-text {
+//   text-align: center;
+//   width: 100%;
+// }

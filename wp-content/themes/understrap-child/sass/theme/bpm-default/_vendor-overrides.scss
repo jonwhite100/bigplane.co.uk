@@ -76,6 +76,12 @@
         padding: $s-lg;
     }
 
+	.card-flip {
+		.card-body {
+			padding: $s_xs;
+		}
+	}
+
     .wp-post-image {
         border-bottom: 1px solid gray('200');
     }
