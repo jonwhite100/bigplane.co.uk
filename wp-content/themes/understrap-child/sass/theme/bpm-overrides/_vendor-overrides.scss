@@ -35,3 +35,10 @@
 		}
 	}
 }
+
+// ensure the entry-header appear on posts
+.entry-header {
+	.single-post & {
+		display: block;
+	}
+}

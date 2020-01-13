@@ -4003,7 +4003,8 @@ jQuery(document).ready(function ($) {
 		}, 330, 'linear');
 	});
 
-	// animate.css - add animate and fadeIn to all card-flip
+	// animate.css - add animate and fadeIn with a staggered delay
+	// to all card-flip (scrollReveal hides them on unseen tabs)
 	function addAnimatedClasses() {
 		var cardFlipClass = document.querySelectorAll('.active .card-flip');
 
@@ -4019,6 +4020,5 @@ jQuery(document).ready(function ($) {
 	});
 
 	// using ScrollReveal
-    ScrollReveal().reveal('.card', { interval: 200 });
-
+	ScrollReveal().reveal('.card', { interval: 200 });
 });
