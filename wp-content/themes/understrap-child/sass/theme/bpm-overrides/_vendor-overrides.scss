@@ -42,3 +42,10 @@
 		display: block;
 	}
 }
+
+// Hide the featured image from post type of 'Video'
+.format-video {
+	.card-img-top {
+		display: none;
+	}
+}

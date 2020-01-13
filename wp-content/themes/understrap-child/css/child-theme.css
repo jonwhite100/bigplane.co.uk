@@ -11512,4 +11512,7 @@ p {
 .single-post .entry-header {
   display: block; }
 
+.format-video .card-img-top {
+  display: none; }
+
 /*# sourceMappingURL=child-theme.css.map */
