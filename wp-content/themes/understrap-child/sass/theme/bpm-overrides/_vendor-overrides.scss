@@ -10,3 +10,28 @@
 		margin-top: $s-xl;
 	}
 }
+
+// animate.css
+.animated {
+	&.card {
+		&.delay-1s {
+			animation-delay: .33s;
+		}
+
+		&.delay-2s {
+			animation-delay: .66s;
+		}
+
+		&.delay-3s {
+			animation-delay: 1s;
+		}
+
+		&.delay-4s {
+			animation-delay: 1.33s;
+		}
+
+		&.delay-5s {
+			animation-delay: 1.66s;
+		}
+	}
+}

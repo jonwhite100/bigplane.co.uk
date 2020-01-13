@@ -11157,7 +11157,8 @@ label {
   color: #212529;
   font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  cursor: pointer; }
   .nav-pills .nav-item .nav-link.active {
     background-color: #126ab4;
     color: #fff; }
@@ -11344,6 +11345,9 @@ p {
 .card-article .wp-block-image img {
   width: 100%; }
 
+.bg-grenston {
+  background-color: #118518; }
+
 .img-fluid {
   max-width: 15rem;
   max-height: 5rem;
@@ -11446,5 +11450,25 @@ p {
   @media (min-width: 992px) {
     .site {
       margin-top: 6rem; } }
+
+.animated.card.delay-1s {
+  -webkit-animation-delay: .33s;
+          animation-delay: .33s; }
+
+.animated.card.delay-2s {
+  -webkit-animation-delay: .66s;
+          animation-delay: .66s; }
+
+.animated.card.delay-3s {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s; }
+
+.animated.card.delay-4s {
+  -webkit-animation-delay: 1.33s;
+          animation-delay: 1.33s; }
+
+.animated.card.delay-5s {
+  -webkit-animation-delay: 1.66s;
+          animation-delay: 1.66s; }
 
 /*# sourceMappingURL=child-theme.css.map */

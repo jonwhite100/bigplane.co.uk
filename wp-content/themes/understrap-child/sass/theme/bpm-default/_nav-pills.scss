@@ -8,15 +8,17 @@
 			padding-bottom: $s-xs;
 			padding-left: $s-md;
 			border-radius: $s-md;
-			background-color: $grey-lightest;
+			background-color: $c-nav-pills-link-bg;
 			color: gray('900');
 			font-size: $font-size-base * .85;
 			font-weight: 700;
 			text-transform: uppercase;
+			cursor: pointer;
 
 			&.active {
-				background-color: $primary;
-				color: $white;
+				background-color: $c-nav-pills-link-bg-active;
+				color: $c-nav-pills-link-active;
+
 			}
 		}
 	}
