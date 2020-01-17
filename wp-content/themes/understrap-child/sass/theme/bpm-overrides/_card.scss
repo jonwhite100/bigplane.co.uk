@@ -14,14 +14,13 @@
 }
 
 // align buttons to the bottom of the card in pricing
-.tab-pane {
-	.card-body {
-		display: flex;
-		flex-direction: column;
+.section-jobs,
+.card-body {
+	display: flex;
+	flex-direction: column;
 
-		.btn {
-			margin: auto;
-		}
+	.btn {
+		margin: auto;
 	}
 }
 

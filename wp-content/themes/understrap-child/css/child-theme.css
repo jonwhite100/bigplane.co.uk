@@ -11397,7 +11397,8 @@ p {
 .card-subtitle sup {
   top: -1.2rem; }
 
-.tab-pane .card-body {
+.section-jobs,
+.card-body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11405,8 +11406,11 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column; }
-  .tab-pane .card-body .btn,
-  .tab-pane .card-body .wpcf7 input[type=submit], .wpcf7 .tab-pane .card-body input[type=submit] {
+  .section-jobs .btn,
+  .section-jobs .wpcf7 input[type=submit], .wpcf7 .section-jobs input[type=submit],
+  .card-body .btn,
+  .card-body .wpcf7 input[type=submit],
+  .wpcf7 .card-body input[type=submit] {
     margin: auto; }
 
 .listing-item .excerpt {
@@ -11452,35 +11456,35 @@ p {
 .jumbotron-bg {
   display: none; }
 
-.jumbotron-main h1 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  color: #4a9bd3;
-  font-size: 3.375rem;
-  text-transform: uppercase; }
-  @media (min-width: 768px) {
-    .jumbotron-main h1 {
-      font-size: 4.5rem; } }
-  @media (min-width: 992px) {
-    .jumbotron-main h1 {
-      margin-top: 0; } }
-
-.jumbotron-main h2 {
-  margin-bottom: 2rem;
-  background-color: transparent;
-  color: #126ab4;
-  font-size: 1.75rem;
-  text-transform: uppercase; }
-  @media (min-width: 768px) {
-    .jumbotron-main h2 {
-      font-size: 1.75rem; } }
-  @media (min-width: 1200px) {
-    .jumbotron-main h2 {
-      font-size: 2.625rem; } }
-
-.jumbotron-main .lead {
-  margin-bottom: 2rem;
-  color: #6c757d; }
+.jumbotron-main {
+  margin-bottom: 2rem; }
+  .jumbotron-main h1 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #4a9bd3;
+    font-size: 3.375rem;
+    text-transform: uppercase; }
+    @media (min-width: 768px) {
+      .jumbotron-main h1 {
+        font-size: 4.5rem; } }
+    @media (min-width: 992px) {
+      .jumbotron-main h1 {
+        margin-top: 0; } }
+  .jumbotron-main h2 {
+    margin-bottom: 2rem;
+    background-color: transparent;
+    color: #126ab4;
+    font-size: 1.75rem;
+    text-transform: uppercase; }
+    @media (min-width: 768px) {
+      .jumbotron-main h2 {
+        font-size: 1.75rem; } }
+    @media (min-width: 1200px) {
+      .jumbotron-main h2 {
+        font-size: 2.625rem; } }
+  .jumbotron-main .lead {
+    margin-bottom: 2rem;
+    color: #6c757d; }
 
 .jumbotron-text {
   -webkit-box-align: center;
