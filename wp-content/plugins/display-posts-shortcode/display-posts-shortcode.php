@@ -553,7 +553,7 @@ function be_display_posts_shortcode( $atts ) {
 				$excerpt = get_the_excerpt();
 			}
 
-			$excerpt = ' <span class="excerpt card-text">' . $excerpt . '</span>';
+			$excerpt = ' <span class="excerpt card-text h-100">' . $excerpt . '</span>';
 			if ( $include_excerpt_dash ) {
 				$excerpt = ' <span class="excerpt-dash">-</span>' . $excerpt;
 			}
@@ -591,7 +591,7 @@ function be_display_posts_shortcode( $atts ) {
 
 		}
 
-		$class = array( 'listing-item', 'card', 'shadow', 'card-blog-post' );
+		$class = array( 'listing-item', 'card', 'shadow', 'h-100', 'card-blog-post' );
 
 		/**
 		 * Filter the post classes for the inner wrapper element of the current post.

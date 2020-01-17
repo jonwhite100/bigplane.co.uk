@@ -41,20 +41,11 @@
     }
 
     .card-text {
-		min-height: $s-xl * 7.5;
         padding-right: $s-md;
         padding-bottom: $s-md;
         padding-left: $s-md;
 		font-size: $font-size-base * .9;
         line-height: $font-size-base * 1.8;
-
-		@include media-breakpoint-up(lg) {
-			min-height: $s-xl * 8.5;
-		}
-
-		@include media-breakpoint-up(xl) {
-			min-height: $s-xl * 4;
-		}
     }
 
     .btn {

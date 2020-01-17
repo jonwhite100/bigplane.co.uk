@@ -10552,7 +10552,7 @@ a.skip-link {
 .card-pricing .card-title-container {
   border-bottom: 1px solid #e9ecef;
   background-color: #daeaf6; }
-  .card-pricing .card-title-container.active {
+  .card-pricing .card-title-container.highlight {
     background-color: #126ab4; }
 
 .card-about .card-title, .card-about
@@ -10562,9 +10562,10 @@ a.skip-link {
 .card-pricing .card-title, .card-pricing
 .card-subtitle {
   color: #212529; }
-  .active .card-pricing .card-title, .active .card-pricing
-  .card-subtitle {
-    color: #fff; }
+
+.highlight .card-title, .highlight
+.card-subtitle {
+  color: #fff; }
 
 .card-blog-post .card-title {
   padding-top: 2rem;
@@ -10731,18 +10732,11 @@ a.skip-link {
   display: none; }
 
 .listing-item .card-text {
-  min-height: 45rem;
   padding-right: 2rem;
   padding-bottom: 2rem;
   padding-left: 2rem;
   font-size: 0.9rem;
   line-height: 1.8rem; }
-  @media (min-width: 992px) {
-    .listing-item .card-text {
-      min-height: 51rem; } }
-  @media (min-width: 1200px) {
-    .listing-item .card-text {
-      min-height: 24rem; } }
 
 .listing-item .btn,
 .listing-item .wpcf7 input[type=submit], .wpcf7 .listing-item input[type=submit] {
@@ -11112,9 +11106,26 @@ label {
     text-transform: uppercase; }
 
 @media (min-width: 768px) {
-  .list-3-col {
+  .list-col-2 {
+    -webkit-column-count: 2;
+            column-count: 2; } }
+
+@media (min-width: 768px) {
+  .list-col-3 {
     -webkit-column-count: 3;
             column-count: 3; } }
+
+@media (min-width: 768px) {
+  .list-col-4 {
+    -webkit-column-count: 4;
+            column-count: 4; } }
+
+[class*='list-col-'].list-border-b li,
+[class^='list-col-'].list-border-b li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #dee2e6;
+  -webkit-column-break-inside: avoid;
+          break-inside: avoid; }
 
 .list-group-about .list-group-item,
 .list-group-blog-site .list-group-item {
@@ -11383,6 +11394,35 @@ p {
 .card-article .wp-block-image img {
   width: 100%; }
 
+.card-subtitle sup {
+  top: -1.2rem; }
+
+.tab-pane .card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .tab-pane .card-body .btn,
+  .tab-pane .card-body .wpcf7 input[type=submit], .wpcf7 .tab-pane .card-body input[type=submit] {
+    margin: auto; }
+
+.listing-item .excerpt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .listing-item .excerpt p {
+    margin-top: auto; }
+  .listing-item .excerpt .btn,
+  .listing-item .excerpt .wpcf7 input[type=submit], .wpcf7 .listing-item .excerpt input[type=submit] {
+    margin-top: 0; }
+
 .bg-grenston {
   background-color: #118518; }
 
@@ -11468,6 +11508,12 @@ p {
 .sr .wp-block-image,
 .sr .blocks-gallery-item {
   visibility: visible; }
+
+.section-jobs .col-md-6 {
+  margin-bottom: 2rem; }
+  @media (min-width: 992px) {
+    .section-jobs .col-md-6 {
+      margin-bottom: 0; } }
 
 .entry-header {
   width: 100%;

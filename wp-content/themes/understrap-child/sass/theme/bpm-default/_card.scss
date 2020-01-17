@@ -110,7 +110,7 @@
         border-bottom: 1px solid gray('200');
 		background-color: lighten($secondary, 35%);
 
-        &.active {
+        &.highlight {
             background-color: $primary;
         }
     }
@@ -124,11 +124,11 @@
 
     .card-pricing & {
         color: gray('900');
-
-        .active & {
-            color: $white;
-        }
     }
+
+	.highlight & {
+		color: $white;
+	}
 }
 
 .card-title {
@@ -195,12 +195,3 @@
         padding-left: 2rem;
     }
 }
-
-// Card Flip
-//
-//
-// .card-title,
-// .card-text {
-//   text-align: center;
-//   width: 100%;
-// }
