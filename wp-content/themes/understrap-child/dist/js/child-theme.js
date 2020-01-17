@@ -3977,87 +3977,64 @@
 	}
 })();
 
-console.log('Put custom JS in this file: understrap-child/src/js/custom-javascript.js!');
-
-// preloader JavaScript
-// Wait for window load
-jQuery(window).load(function() {
+window.addEventListener('load', function () {
 	// Animate loader off screen
-	jQuery(".se-pre-con").fadeOut("slow");
-	// Stop carousel from autoplaying
-	jQuery('#carousel-testimonials.carousel').carousel('pause');
+	jQuery('.se-pre-con').fadeOut('slow');
 });
 
-jQuery(document).ready(function($) {
-    // script to shrink header
+jQuery(document).ready(function ($) {
+	// script to shrink header
 	$(window).scroll(function () {
 		if ($(window).scrollTop() > 100) {
 			$('.navbar').addClass('shrink');
-		}
-
-		else{
+		} else {
 			$('.navbar').removeClass('shrink');
 		}
 	});
 
-	// script to scroll to each section by id using https://github.com/cferdinandi/smooth-scroll
-	// $('a[href^="#"]').on('click',function (e) {
-	// 	// e.preventDefault();
-	// 	var target = this.hash,
-	// 	$target = $(target);
-	//
-	// 	$('html, body').stop().animate({
-	// 		'scrollTop': $target.offset().top-120
-	// 	}, 900, 'swing', function () {
-	// 		window.location.hash = target;
-	// 	});
-	// });
-	// Select all links with hashes
-	$('a[href*="#"]')
-	// Remove links that don't actually link to anything
-	.not('[href="#"]')
-	.not('[href="#0"]')
+	// scroll to an id smoothly: taniarascia.com/smooth-scroll-to-id-with-jquery/
+	$('a[href^="#"]').click(function (e) {
+		var position = $($(this).attr('href')).offset().top;
 
-	.click(function(event) {
-		// On-page links
-		if (
-			location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-			&&
-			location.hostname == this.hostname
-		) {
-			// Figure out element to scroll to
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		e.preventDefault();
 
-			// Does a scroll target exist?
-			if (target.length) {
-				// Only prevent default if animation is actually gonna happen
-				event.preventDefault();
-				$('html, body').animate({
-					scrollTop: target.offset().top
-				}, 1000, function() {
-					// Callback after animation
-					// Must change focus!
-					var $target = $(target);
-					$target.focus();
-					if ($target.is(":focus")) { // Checking if the target was focused
-						return false;
-					} else {
-						$target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-						$target.focus(); // Set focus again
-					};
-				});
-			}
-		}
+		$('body, html').animate({
+			scrollTop: position,
+		}, 330, 'linear');
 	});
 
 
+	// animate.css - add animate and fadeIn with a staggered delay
+	// to all card-flip (scrollReveal hides them on unseen tabs)
+	function addAnimatedClasses() {
+		var cardFlipClass = document.querySelectorAll('.tab-pane.active .card');
+
+		cardFlipClass.forEach(function (element, index) {
+			element.classList.add('animated', 'fadeIn', 'delay-' + index + 's');
+		});
+	}
+
+	addAnimatedClasses();
+
+	$('.nav-pills a').on('shown.bs.tab', function () {
+		addAnimatedClasses();
+	});
+
+	// 'Find out more' in card-pricing button to open hidden content
+	$(document).on('click', '[id^=contactOption]', function () {
+		var num = this.id.split('contactOption')[1];
+
+		// populate the select list with the chosen option
+		$('select.hosting-options > option:eq(' + num + ')').attr('selected', true);
+
+		// scroll to Form and focus on first input
+		$('html, body').animate({
+			scrollTop: $('#hostingEnquiryForm').offset().top - 100,
+		}, 330, function () {
+			$('form [name="your-name"]').focus();
+		});
+	});
+
 	// using ScrollReveal
 	ScrollReveal().reveal('.card', { interval: 200 });
-
-    // script to scroll to each section by id using https://github.com/cferdinandi/smooth-scroll
-    // var scroll = new SmoothScroll('a[href*="#"]');
-
-
-
 });

@@ -131,21 +131,21 @@ add_action( 'init', 'register_additional_childtheme_sidebars' );
 ///
 
 // 1. Deregister Contact Form 7 JavaScript files on all pages without a form
-add_action( 'wp_print_scripts', 'aa_deregister_javascript', 100 );
-function aa_deregister_javascript() {
-	if ( ! is_page( array('ID', 'home-page', 'contact-bon-appetit') ) ) {
-		wp_deregister_script( 'contact-form-7' );
-	}
-}
+// add_action( 'wp_print_scripts', 'aa_deregister_javascript', 100 );
+// function aa_deregister_javascript() {
+// 	if ( ! is_page( array('ID', 'page-id-9', 'page-id-534', 'page-id-747') ) ) {
+// 		wp_deregister_script( 'contact-form-7' );
+// 	}
+// }
 
-// 2. Remove Contact Form 7's reCAPTCHA files on all pages without a form
-add_action( 'wp_enqueue_scripts', 'aa_remove_recaptcha', 9 );
-function aa_remove_recaptcha() {
-	if ( ! is_page( array('ID', 'home-page', 'contact-bon-appetit') ) ) { // EDIT these!
-	// if ( ! is_page_template( 'page-templates/page-contact-form.php' ) ) {
-		remove_action( 'wp_enqueue_scripts', 'wpcf7_recaptcha_enqueue_scripts' );
-	}
-}
+// // 2. Remove Contact Form 7's reCAPTCHA files on all pages without a form
+// add_action( 'wp_enqueue_scripts', 'aa_remove_recaptcha', 9 );
+// function aa_remove_recaptcha() {
+// 	if ( ! is_page( array('ID', 'page-id-9', 'page-id-534', 'page-id-747') ) ) { // EDIT these!
+// // 	// if ( ! is_page_template( 'page-templates/page-contact-form.php' ) ) {
+// 		remove_action( 'wp_enqueue_scripts', 'wpcf7_recaptcha_enqueue_scripts' );
+// 	}
+// }
 
 // 3. Remove Contact Form 7 styling
 add_action( 'wp_print_styles', 'wps_deregister_styles', 100 );
