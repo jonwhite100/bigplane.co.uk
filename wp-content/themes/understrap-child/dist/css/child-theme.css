@@ -11430,16 +11430,22 @@ p {
 .bg-grenston {
   background-color: #118518; }
 
-.img-fluid {
-  max-width: 15rem;
+.img-fluid,
+.custom-logo {
+  max-width: 14rem;
   max-height: 5rem;
   -webkit-transition: all .33s ease-in-out;
   transition: all .33s ease-in-out; }
-  .shrink .img-fluid {
+  .shrink .img-fluid, .shrink
+  .custom-logo {
     max-width: 10rem;
     max-height: 3rem;
     -webkit-transition: all .33s ease-in-out;
     transition: all .33s ease-in-out; }
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: #fff; } }
 
 .jumbotron {
   min-height: 42rem; }
@@ -11531,13 +11537,10 @@ p {
     text-align: center; }
 
 .site {
-  margin-top: 6rem; }
+  margin-top: 5rem; }
   @media (min-width: 768px) {
     .site {
-      margin-top: 6rem; } }
-  @media (min-width: 992px) {
-    .site {
-      margin-top: 6rem; } }
+      margin-top: 5.25rem; } }
 
 .animated.card.delay-1s {
   -webkit-animation-delay: .33s;
