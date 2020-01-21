@@ -10,12 +10,4 @@
 		max-height: 3rem;
 		transition: all .33s ease-in-out;
 	}
-
-}
-
-// dropdown list on smaller resolutions
-.navbar-collapse {
-	@include media-breakpoint-down(md) {
-		background-color: $white;
-	}
 }
