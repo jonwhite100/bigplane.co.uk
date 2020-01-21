@@ -10832,7 +10832,7 @@ label {
 
 @media (max-width: 991.98px) {
   .navbar-collapse {
-    background-color: #4a9bd3; } }
+    background-color: #fff; } }
 
 .navbar-brand {
   -webkit-transition: font-size .25s;
@@ -10918,7 +10918,7 @@ label {
   font-family: 'Flaticon';
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/Flaticon.eot"), url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg"); }
+  src: url("../fonts/Flaticon.eot"), url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("webfont.woff2") format("woff2"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg"); }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
@@ -11196,6 +11196,7 @@ label {
 
 .nav-pills .nav-item .nav-link {
   margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
   margin-left: 0.5rem;
   padding-top: 0.5rem;
   padding-right: 2rem;
@@ -11203,7 +11204,7 @@ label {
   padding-left: 2rem;
   border-radius: 2rem;
   background-color: #edf5ff;
-  color: #212529;
+  color: gray("900");
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -11442,10 +11443,6 @@ p {
     max-height: 3rem;
     -webkit-transition: all .33s ease-in-out;
     transition: all .33s ease-in-out; }
-
-@media (max-width: 991.98px) {
-  .navbar-collapse {
-    background-color: #fff; } }
 
 .jumbotron {
   min-height: 42rem; }
