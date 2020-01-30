@@ -1,11 +1,11 @@
 // Core theme building blocks that won't ever change
-@import 'theme/bpm-default-core';
+@import '../../../../../jmdwhite/sass/bpm-default-core';
 
 // Site specific overrides of Defaults
 @import 'theme/bpm-overrides/bpm-overrides-variables';
 
 // Site defaults - come after the overrides (variables get declared first)
-@import 'theme/bpm-default/bpm-default-variables';
+@import '../../../../../jmdwhite/sass/bpm-default/bpm-default-variables';
 
 // Load Bootstrap and Understrap files
 @import 'assets/bootstrap4';
@@ -13,7 +13,7 @@
 
 // Optional files - If you don´t use the corresponding scripts/fonts comment em out
 // @import '../src/sass/understrap/theme/contact-form7';
-@import 'assets/animate'; // <------- SCSS version of animate.css
+@import 'vendor/animate.css/animate'; // <------- SCSS version of animate.css from https://github.com/tgdev/animate-sass
 @import 'assets/font-awesome'; // <------- Font Awesome Icon font
 @import 'assets/underscores'; // <------- Underscores media styles
 
