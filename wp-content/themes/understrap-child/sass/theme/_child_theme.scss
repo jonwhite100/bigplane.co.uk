@@ -1,29 +1,29 @@
 // Load up the bpm-default files first
 // Comment out any files not used
-@import 'bpm-default/buttons';
-// @import 'bpm-default/campaign-monitor';
-@import 'bpm-default/card';
-@import 'bpm-default/carousel';
-@import 'bpm-default/cinemagraph';
-@import 'bpm-default/contact-form7'; // This is copied from src/sass/understrap/theme
-@import 'bpm-default/contact'; // TODO: sort this one out
-@import 'bpm-default/display-posts';
-@import 'bpm-default/fixed-bg';
-@import 'bpm-default/footer';
-@import 'bpm-default/form';
-@import 'bpm-default/header';
-@import 'bpm-default/icons';
-@import 'bpm-default/jumbotron';
-@import 'bpm-default/lists';
-@import 'bpm-default/list-group';
-@import 'bpm-default/multi-item-carousel';
-@import 'bpm-default/nav-pills';
-@import 'bpm-default/preloader';
-@import 'bpm-default/scroll-reveal';
-@import 'bpm-default/section';
-@import 'bpm-default/social-media';
-@import 'bpm-default/type';
-@import 'bpm-default/vendor-overrides'; // override WP and Understrap
+@import '../../../../../jmdwhite/sass/bpm-default/buttons';
+// @import '../../../../../jmdwhite/sass/bpm-default/campaign-monitor';
+@import '../../../../../jmdwhite/sass/bpm-default/card';
+@import '../../../../../jmdwhite/sass/bpm-default/carousel';
+@import '../../../../../jmdwhite/sass/bpm-default/cinemagraph';
+@import '../../../../../jmdwhite/sass/bpm-default/contact-form7'; // This is copied from src/sass/understrap/theme
+@import '../../../../../jmdwhite/sass/bpm-default/contact'; // TODO: sort this one out
+@import '../../../../../jmdwhite/sass/bpm-default/display-posts';
+@import '../../../../../jmdwhite/sass/bpm-default/fixed-bg';
+@import '../../../../../jmdwhite/sass/bpm-default/footer';
+@import '../../../../../jmdwhite/sass/bpm-default/form';
+@import '../../../../../jmdwhite/sass/bpm-default/header';
+@import '../../../../../jmdwhite/sass/bpm-default/icons';
+@import '../../../../../jmdwhite/sass/bpm-default/jumbotron';
+@import '../../../../../jmdwhite/sass/bpm-default/lists';
+@import '../../../../../jmdwhite/sass/bpm-default/list-group';
+@import '../../../../../jmdwhite/sass/bpm-default/multi-item-carousel';
+@import '../../../../../jmdwhite/sass/bpm-default/nav-pills';
+@import '../../../../../jmdwhite/sass/bpm-default/preloader';
+@import '../../../../../jmdwhite/sass/bpm-default/scroll-reveal';
+@import '../../../../../jmdwhite/sass/bpm-default/section';
+@import '../../../../../jmdwhite/sass/bpm-default/social-media';
+@import '../../../../../jmdwhite/sass/bpm-default/type';
+@import '../../../../../jmdwhite/sass/bpm-default/vendor-overrides'; // override WP and Understrap
 
 // Override bpm-default (site specific styling)
 @import 'bpm-overrides/buttons';
