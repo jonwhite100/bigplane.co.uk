@@ -9,14 +9,14 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<div class="col-sm-6 col-md-4 mb-5">
-	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-		<div class="card card-blog-post shadow">
+<div class="col-md-6 col-lg-4 mb-5">
+	<article class="h-100" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+		<div class="card card-blog-post shadow h-100">
             <div class="card-img-top">
                 <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
             </div>
 
-            <div class="card-body entry-content p-4">
+            <div class="card-body entry-content h-100 p-4">
                 <?php
                 the_title(
                     sprintf( '<h3 class="card-title entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),

@@ -1669,6 +1669,26 @@ pre {
   .wpcf7 textarea::-webkit-input-placeholder, .wpcf7 .wpcf7-validation-errors::-webkit-input-placeholder {
     color: #6c757d;
     opacity: 1; }
+  .form-control::-moz-placeholder, .wpcf7 input[type=text]::-moz-placeholder,
+  .wpcf7 input[type=search]::-moz-placeholder,
+  .wpcf7 input[type=url]::-moz-placeholder,
+  .wpcf7 input[type=tel]::-moz-placeholder,
+  .wpcf7 input[type=number]::-moz-placeholder,
+  .wpcf7 input[type=range]::-moz-placeholder,
+  .wpcf7 input[type=date]::-moz-placeholder,
+  .wpcf7 input[type=month]::-moz-placeholder,
+  .wpcf7 input[type=week]::-moz-placeholder,
+  .wpcf7 input[type=time]::-moz-placeholder,
+  .wpcf7 input[type=datetime]::-moz-placeholder,
+  .wpcf7 input[type=datetime-local]::-moz-placeholder,
+  .wpcf7 input[type=color]::-moz-placeholder,
+  .wpcf7 input[type=email]::-moz-placeholder,
+  .wpcf7 input[type=file]::-moz-placeholder,
+  .wpcf7 input[type=submit]::-moz-placeholder,
+  .wpcf7 select::-moz-placeholder,
+  .wpcf7 textarea::-moz-placeholder, .wpcf7 .wpcf7-validation-errors::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1; }
   .form-control::-ms-input-placeholder, .wpcf7 input[type=text]::-ms-input-placeholder,
   .wpcf7 input[type=search]::-ms-input-placeholder,
   .wpcf7 input[type=url]::-ms-input-placeholder,
@@ -4830,8 +4850,10 @@ input[type="button"].btn-block {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
+       -moz-column-count: 3;
             column-count: 3;
     -webkit-column-gap: 1.25rem;
+       -moz-column-gap: 1.25rem;
             column-gap: 1.25rem;
     orphans: 1;
     widows: 1; }
@@ -11714,16 +11736,19 @@ label {
 @media (min-width: 768px) {
   .list-col-2 {
     -webkit-column-count: 2;
+       -moz-column-count: 2;
             column-count: 2; } }
 
 @media (min-width: 768px) {
   .list-col-3 {
     -webkit-column-count: 3;
+       -moz-column-count: 3;
             column-count: 3; } }
 
 @media (min-width: 768px) {
   .list-col-4 {
     -webkit-column-count: 4;
+       -moz-column-count: 4;
             column-count: 4; } }
 
 [class*='list-col-'].list-border-b li,
@@ -11731,6 +11756,7 @@ label {
   padding: 0.5rem;
   border-bottom: 1px solid #dee2e6;
   -webkit-column-break-inside: avoid;
+     -moz-column-break-inside: avoid;
           break-inside: avoid; }
 
 .list-group-about .list-group-item,
@@ -11916,6 +11942,8 @@ label {
     background-color: #1ab7ea; }
   .social .instagram a {
     background-color: #cd486b; }
+  .social .linkedin a {
+    background-color: #2867b2; }
 
 .contact-us-area .social {
   margin-bottom: 4rem;
