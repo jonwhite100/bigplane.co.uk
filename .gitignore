@@ -1,0 +1,24 @@
+.sass-cache
+
+wp-content/themes/understrap/node_modules
+
+wp-content/themes/understrap-child/bower_components
+
+wp-content/themes/understrap-child/node_modules
+
+wp-content/themes/understrap-child/understrap.zip
+
+wp-content/themes/understrap-child/dist
+
+wp-content/themes/understrap-child/dist-product
+
+
+wp-content/themes/understrap-child/npm-debug.log
+
+/vendor/
+
+# Added by jmw
+wp-config.php
+
+# Include these files in previously blocked directories
+!wp-content/uploads/.htaccess
