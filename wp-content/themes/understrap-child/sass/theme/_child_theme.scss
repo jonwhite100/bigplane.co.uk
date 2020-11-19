@@ -1,0 +1,54 @@
+// Load up the bpm-default files first
+// Comment out any files not used
+@import '../../../../../jmdwhite/sass/bpm-default/buttons';
+// @import '../../../../../jmdwhite/sass/bpm-default/campaign-monitor';
+@import '../../../../../jmdwhite/sass/bpm-default/card';
+@import '../../../../../jmdwhite/sass/bpm-default/carousel';
+@import '../../../../../jmdwhite/sass/bpm-default/cinemagraph';
+@import '../../../../../jmdwhite/sass/bpm-default/contact-form7'; // This is copied from src/sass/understrap/theme
+@import '../../../../../jmdwhite/sass/bpm-default/contact'; // TODO: sort this one out
+@import '../../../../../jmdwhite/sass/bpm-default/display-posts';
+@import '../../../../../jmdwhite/sass/bpm-default/fixed-bg';
+@import '../../../../../jmdwhite/sass/bpm-default/footer';
+@import '../../../../../jmdwhite/sass/bpm-default/form';
+@import '../../../../../jmdwhite/sass/bpm-default/header';
+@import '../../../../../jmdwhite/sass/bpm-default/icons';
+@import '../../../../../jmdwhite/sass/bpm-default/jumbotron';
+@import '../../../../../jmdwhite/sass/bpm-default/lists';
+@import '../../../../../jmdwhite/sass/bpm-default/list-group';
+@import '../../../../../jmdwhite/sass/bpm-default/multi-item-carousel';
+@import '../../../../../jmdwhite/sass/bpm-default/nav-pills';
+@import '../../../../../jmdwhite/sass/bpm-default/preloader';
+@import '../../../../../jmdwhite/sass/bpm-default/scroll-reveal';
+@import '../../../../../jmdwhite/sass/bpm-default/section';
+@import '../../../../../jmdwhite/sass/bpm-default/social-media';
+@import '../../../../../jmdwhite/sass/bpm-default/type';
+@import '../../../../../jmdwhite/sass/bpm-default/vendor-overrides'; // override WP and Understrap
+
+// Override bpm-default (site specific styling)
+@import 'bpm-overrides/buttons';
+@import 'bpm-overrides/campaign-monitor';
+@import 'bpm-overrides/card';
+@import 'bpm-overrides/carousel';
+@import 'bpm-overrides/cinemagraph';
+@import 'bpm-overrides/contact';
+@import 'bpm-overrides/display-posts';
+@import 'bpm-overrides/fixed-bg';
+@import 'bpm-overrides/footer';
+@import 'bpm-overrides/form';
+@import 'bpm-overrides/header';
+@import 'bpm-overrides/icons';
+@import 'bpm-overrides/jumbotron';
+@import 'bpm-overrides/lists';
+@import 'bpm-overrides/list-group';
+@import 'bpm-overrides/multi-item-carousel';
+@import 'bpm-overrides/nav-pills';
+@import 'bpm-overrides/preloader';
+@import 'bpm-overrides/scroll-reveal';
+@import 'bpm-overrides/section';
+@import 'bpm-overrides/site-specific';
+@import 'bpm-overrides/social-media';
+@import 'bpm-overrides/type';
+@import 'bpm-overrides/vendor-overrides';
+
+// @include media-breakpoint-up(md) {}
