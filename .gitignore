@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Exclude these files from the git repo
 wp-content/backup/*
 wp-content/cache/*
@@ -12,6 +13,31 @@ wp-config.php
 *.Trashes
 
 
+=======
+.sass-cache
+
+4rg90d.php
+
+wp-content/themes/understrap/node_modules
+
+wp-content/themes/understrap-child/bower_components
+
+wp-content/themes/understrap-child/node_modules
+
+wp-content/themes/understrap-child/understrap.zip
+
+wp-content/themes/understrap-child/dist
+
+wp-content/themes/understrap-child/dist-product
+
+
+wp-content/themes/understrap-child/npm-debug.log
+
+/vendor/
+
+# Added by jmw
+wp-config.php
+>>>>>>> renamed-local-dir
 
 # Include these files in previously blocked directories
 !wp-content/uploads/.htaccess

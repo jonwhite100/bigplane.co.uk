@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 3.1.0
+Stable tag: 3.1.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,11 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 3.1.1 =
+
+* [FIX] Use unique `jsonpFunction` name in webpack config to avoid conflict with other plugins built with `@wordpress/scripts`. (Thanks CP-Antoine for the hint)
+* [IMPROVEMENT] Replace WordPress Dashicons with SVG icons.
 
 = 3.1.0 =
 
