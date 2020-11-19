@@ -1,0 +1,9 @@
+.section-jobs {
+	.col-md-6 {
+		margin-bottom: $s-md;
+
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 0;
+		}
+	}
+}

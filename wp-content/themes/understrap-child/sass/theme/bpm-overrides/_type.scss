@@ -1,0 +1,17 @@
+///
+// the bar header that contains the page title
+///
+.entry-header {
+	width: 100%;
+	padding-top: $s-lg;
+	padding-bottom: $s-lg;
+	background-color: $primary;
+
+    .entry-title,
+    .entry-meta {
+        color: $white;
+		text-align: center;
+    }
+
+	display: none;
+}

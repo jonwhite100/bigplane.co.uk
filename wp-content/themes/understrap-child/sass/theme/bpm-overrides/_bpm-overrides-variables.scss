@@ -1,0 +1,55 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from /sass/bootstrap/_variables.scss, paste it here and edit the value.
+// As example you find one of the most important Bootstrap variable below: $brand-primary.
+// Thats the ugly Bootstrap blue used for all the links, primary buttons etc.
+// Just add your color code here, compile the theme.scss file to change this color everywhere
+
+// Colours
+$primary:  #126ab4 !default; // dark blue from logo
+$secondary: #4a9bd3 !default; // light blue from logo
+$c-primary-grenston: #118518 !default;
+
+// Buttons
+$c-btn-pulse: rgba($secondary, 0) !default;
+
+
+// Fixed background
+$path-to-fixed-bg-newsletter: 'uploads/2019/09/bigplane-test-image.jpg' !default;
+$c-fixed-bg-overlay: $black !default;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Poppins&display=swap'); // sass-lint:disable-line no-url-domains no-url-protocols
+
+$font-family-sans-serif: 'Open Sans', sans-serif !default;
+$headings-font-family: 'Poppins', sans-serif !default;
+$headings-font-weight: 600 !default;
+$headings-text-transform: 'none' !default;
+
+// Footer widgets
+$c-wrapper-footer-widgets: $white !default;
+$c-wrapper-footer-widgets-bg: $primary !default;
+$c-wrapper-footer-widgets-link: $white !default;
+
+// Footer copyright info
+$c-wrapper-footer: $white !default;
+$c-wrapper-footer-bg: $black !default;
+
+$c-footer-menu-link: $white !default;
+
+// Jumbotron
+$c-jumbotron-h1: $secondary !default;
+$c-jumbotron-h2: $primary !default;
+$c-jumbotron-h2-bg: transparent !default;
+$c-jumbotron-base-bg: $white !default;
+$s-jumbotron-height: $s-xl * 7 !default;
+$jumbotron-bg: lighten($secondary, 35%) !default;
+
+// Navbar
+$navbar-light-color:                $secondary !default;
+$navbar-light-color-shrink:         $secondary !default;
+$navbar-light-hover-color:          rgba($secondary, .7) !default;
+$navbar-light-active-color:         rgba($secondary, .7) !default;
+$navbar-light-disabled-color:       rgba($secondary, .3) !default;
+$navbar-light-toggler-border-color: $white;
+$navbar-light-toggler-border-color-shrink: $primary;
