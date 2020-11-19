@@ -1,0 +1,290 @@
+# Translation of Plugins - EU Cookie Law for GDPR/CCPA - Development (trunk) in English (UK)
+# This file is distributed under the same license as the Plugins - EU Cookie Law for GDPR/CCPA - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-06-11 14:32:09+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: en_GB\n"
+"Project-Id-Version: Plugins - EU Cookie Law for GDPR/CCPA - Development (trunk)\n"
+
+#. Author of the plugin
+msgid "Alex Moss, Marco Milesi"
+msgstr "Alex Moss, Marco Milesi"
+
+#: class-admin.php:84
+msgid "Check this if you don't want scripts to be blocked."
+msgstr "Check this if you don't want scripts to be blocked."
+
+#: class-admin.php:82
+msgid "Exclude Scripts"
+msgstr "Exclude Scripts"
+
+#: class-admin.php:229
+msgid "Message when cookies have been accepted"
+msgstr "Message when cookies have been accepted"
+
+#: class-admin.php:239
+msgid "Message when cookies haven't been accepted"
+msgstr "Message when cookies haven't been accepted"
+
+#: class-frontend.php:255
+msgid "Name"
+msgstr "Name"
+
+#: class-frontend.php:256
+msgid "Value"
+msgstr "Value"
+
+#: class-admin.php:142
+msgid "Bottom Center"
+msgstr "Bottom Centre"
+
+#: class-admin.php:136
+msgid "Top Center"
+msgstr "Top Centre"
+
+#: class-admin.php:42
+msgid "Translate"
+msgstr "Translate"
+
+#: class-admin.php:182
+msgid "Custom Message"
+msgstr "Custom Message"
+
+#: class-admin.php:246
+msgid "Save Changes"
+msgstr "Save Changes"
+
+#: class-admin.php:204
+msgid "\"Close Popup\" Text"
+msgstr "\"Close Popup\" Text"
+
+#: class-admin.php:233
+msgid "\"Disable Cookie\" Text"
+msgstr "\"Disable Cookie\" Text"
+
+#: defaults.php:13
+msgid "<b>Content not available.</b><br><small>Please allow cookies by clicking Accept on the banner</small>"
+msgstr "<b>Content not available.</b><br><small>Please allow cookies by clicking Accept on the banner</small>"
+
+#: defaults.php:10
+msgid "Accept"
+msgstr "Accept"
+
+#: class-admin.php:167
+msgid "Accept Text"
+msgstr "Accept Text"
+
+#: class-admin.php:75
+msgid "Activate"
+msgstr "Activate"
+
+#: class-admin.php:126
+msgid "Appearance"
+msgstr "Appearance"
+
+#: class-admin.php:78
+msgid "Auto Block"
+msgstr "Auto Block"
+
+#: class-admin.php:147
+msgid "Background Color"
+msgstr "Background Colour"
+
+#: class-admin.php:171
+msgid "Bar Link"
+msgstr "Bar Link"
+
+#: class-admin.php:159
+msgid "Bar Message"
+msgstr "Bar Message"
+
+#: class-admin.php:215
+msgid "Blocked code message"
+msgstr "Blocked code message"
+
+#: class-admin.php:138
+msgid "Bottom Left"
+msgstr "Bottom Left"
+
+#: class-admin.php:132
+msgid "Bottom Right"
+msgstr "Bottom Right"
+
+#: defaults.php:8
+msgid "By continuing to use the site, you agree to the use of cookies."
+msgstr "By continuing to use the site, you agree to the use of cookies."
+
+#: class-admin.php:36
+msgid "Changelog"
+msgstr "Changelog"
+
+#: class-admin.php:114
+msgid "Click here if you want to consider continuing navigation as cookie acceptation. Users should be informed about this..."
+msgstr "Click here if you want to consider continuing navigation as cookie acceptation. Users should be informed about this..."
+
+#: class-admin.php:110
+msgid "Click here if you want to consider scrolling as cookie acceptation. Users should be informed about this..."
+msgstr "Click here if you want to consider scrolling as cookie acceptation. Users should be informed about this..."
+
+#: class-admin.php:118
+msgid "Click here if you want to share euCookie across your network (subdomains or multisite)"
+msgstr "Click here if you want to share euCookie across your network (subdomains or multisite)"
+
+#: defaults.php:11
+msgid "Close"
+msgstr "Close"
+
+#: class-admin.php:156
+msgid "Content"
+msgstr "Content"
+
+#: class-admin.php:238
+msgid "Cookie disabled message"
+msgstr "Cookie disabled message"
+
+#: class-admin.php:228
+msgid "Cookie enabled message"
+msgstr "Cookie enabled message"
+
+#: defaults.php:26
+msgid "Cookies are disabled<br>Accept Cookies by clicking \"%s\" in the banner."
+msgstr "Cookies are disabled<br>Accept Cookies by clicking \"%s\" in the banner."
+
+#: defaults.php:25
+msgid "Cookies are enabled"
+msgstr "Cookies are enabled"
+
+#: class-admin.php:191 class-admin.php:199
+msgid "Custom URL"
+msgstr "Custom URL"
+
+#: class-admin.php:99
+msgid "days"
+msgstr "days"
+
+#: class-admin.php:201
+msgid "Enter the destination URL"
+msgstr "Enter the destination URL"
+
+#. Plugin Name of the plugin
+msgid "EU Cookie Law"
+msgstr "EU Cookie Law"
+
+#. Description of the plugin
+#: eu-cookie-law.php:37
+msgid "EU Cookie Law informs users that your site uses cookies, with option to lock scripts before consent. Light + Customizable style."
+msgstr "EU Cookie Law informs users that your site uses cookies, with option to lock scripts before consent. Light + Customisable style."
+
+#: class-admin.php:151
+msgid "Font Color"
+msgstr "Font Colour"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://wordpress.org/plugins/eu-cookie-law/"
+msgstr "https://en-gb.wordpress.org/plugins/eu-cookie-law/"
+
+#: class-admin.php:103
+msgid "months"
+msgstr "months"
+
+#: class-admin.php:163
+msgid "More Info Text"
+msgstr "More Info Text"
+
+#: defaults.php:9
+msgid "more information"
+msgstr "more information"
+
+#: class-admin.php:112
+msgid "Navigation Consent"
+msgstr "Navigation Consent"
+
+#: class-admin.php:121
+msgid "Network Domain"
+msgstr "Network Domain"
+
+#: class-admin.php:105
+msgid "Once the user clicks accept the bar will disappear. You can set how long this will apply for before the bar reappears to the user."
+msgstr "Once the user clicks accept the bar will disappear. You can set how long this will apply for before the bar reappears to the user."
+
+#: class-admin.php:208
+msgid "Popup Box Content"
+msgstr "Popup Box Content"
+
+#: class-admin.php:128
+msgid "Position"
+msgstr "Position"
+
+#: class-admin.php:39
+msgid "Rate us"
+msgstr "Rate us"
+
+#: defaults.php:24
+msgid "Revoke cookie consent"
+msgstr "Revoke cookie consent"
+
+#: class-admin.php:108
+msgid "Scroll Consent"
+msgstr "Scroll Consent"
+
+#: class-admin.php:105
+msgid "Set \"0\" for SESSION cookie."
+msgstr "Set \"0\" for SESSION cookie."
+
+#: class-admin.php:116
+msgid "Share Cookie across Network"
+msgstr "Share Cookie across Network"
+
+#: class-admin.php:45
+msgid "Support"
+msgstr "Support"
+
+#: defaults.php:12
+msgid "The cookie settings on this website are set to \"allow cookies\" to give you the best browsing experience possible. If you continue to use this website without changing your cookie settings or you click \"Accept\" below then you are consenting to this."
+msgstr "The cookie settings on this website are set to \"allow cookies\" to give you the best browsing experience possible. If you continue to use this website without changing your cookie settings or you click \"Accept\" below then you are consenting to this."
+
+#: class-admin.php:80
+msgid "This function will automatically block iframes, embeds and scripts in your post, pages and widgets."
+msgstr "This function will automatically block iframes, embeds and scripts in your post, pages and widgets."
+
+#: class-admin.php:216
+msgid "This is the message that will be displayed for locked-code areas"
+msgstr "This is the message that will be displayed for locked-code areas"
+
+#: class-admin.php:140
+msgid "Top Left"
+msgstr "Top Left"
+
+#: class-admin.php:134
+msgid "Top Right"
+msgstr "Top Right"
+
+#: class-admin.php:172
+msgid "Use this field if you want to link a page instead of showing the popup"
+msgstr "Use this field if you want to link a page instead of showing the popup"
+
+#: class-admin.php:209
+msgid "Use this to add a popup that informs your users about your cookie policy"
+msgstr "Use this to add a popup that informs your users about your cookie policy"
+
+#: class-admin.php:101
+msgid "weeks"
+msgstr "weeks"
+
+#: class-admin.php:92
+msgid "Click here if you want to turn on the TinyMCE button for manual insertion of EU Cookie Law shortcodes while editing contents."
+msgstr "Click here if you want to turn on the TinyMCE button for manual insertion of EU Cookie Law shortcodes while editing contents."
+
+#: class-admin.php:95
+msgid "Cookie acceptance length"
+msgstr "Cookie acceptance length"
+
+#: class-admin.php:90
+msgid "Enable TinyMCE Button"
+msgstr "Enable TinyMCE Button"

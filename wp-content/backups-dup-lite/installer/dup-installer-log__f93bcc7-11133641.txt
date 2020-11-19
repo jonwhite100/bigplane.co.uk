@@ -1,0 +1,690 @@
+********************************************************************************
+* DUPLICATOR-PRO: Install-Log
+* STEP-1 START @ 01:45:38
+* VERSION: 1.3.38
+* NOTICE: Do NOT post to public sites or forums!!
+********************************************************************************
+PACKAGE INFO________ CURRENT SERVER                         |ORIGINAL SERVER
+PHP VERSION_________: 7.2.34                                |7.2.8
+OS__________________: Linux                                 |WINNT
+CREATED_____________: 2020-11-11 13:36:41
+WP VERSION__________: 5.5.3
+DUP VERSION_________: 1.3.38
+DB__________________: 10.3.24
+DB TABLES___________: 33
+DB ROWS_____________: 1,968
+DB FILE SIZE________: 11.34MB
+********************************************************************************
+SERVER INFO
+PHP_________________: 7.2.8 | SAPI: apache2handler
+PHP MEMORY__________: 4294967296 | SUHOSIN: disabled
+SERVER______________: Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8
+DOC ROOT____________: "C:/xampp/htdocs/bigplane.co.uk"
+DOC ROOT 755________: true
+LOG FILE 644________: true
+REQUEST URL_________: "http://localhost/bigplane.co.uk/dup-installer/main.installer.php"
+********************************************************************************
+USER INPUTS
+ARCHIVE ENGINE______: "ziparchive"
+SET DIR PERMS_______: 0
+DIR PERMS VALUE_____: 644
+SET FILE PERMS______: 0
+FILE PERMS VALUE____: 755
+SAFE MODE___________: "0"
+LOGGING_____________: "1"
+CONFIG MODE_________: "NEW"
+FILE TIME___________: "current"
+********************************************************************************
+
+
+--------------------------------------
+ARCHIVE SETUP
+--------------------------------------
+NAME________________: "C:/xampp/htdocs/bigplane.co.uk/20201111_bpm_web_design_[HASH]_20201111133641_archive.zip"
+SIZE________________: 113.39MB
+
+PRE-EXTRACT-CHECKS
+- PASS: Apache '.htaccess' not found - no backup needed.
+- PASS: Microsoft IIS 'web.config' not found - no backup needed.
+- PASS: WordFence '.user.ini' not found - no backup needed.
+
+
+START ZIP FILE EXTRACTION STANDARD >>> 
+
+--------------------------------------
+ARCHIVE SETUP
+--------------------------------------
+NAME________________: "C:/xampp/htdocs/bigplane.co.uk/20201111_bpm_web_design_[HASH]_20201111133641_archive.zip"
+SIZE________________: 113.39MBFile timestamp set to Current: 2020-11-11 13:48:26
+<<< ZipArchive Unzip Complete: true
+--------------------------------------
+POST-EXTACT-CHECKS
+--------------------------------------
+
+PERMISSION UPDATES: None Applied
+
+STEP-1 COMPLETE @ 01:48:26 - RUNTIME: 168.0361 sec.
+
+
+
+********************************************************************************
+* DUPLICATOR-LITE INSTALL-LOG
+* STEP-2 START @ 01:50:13
+* NOTICE: Do NOT post to public sites or forums!!
+********************************************************************************
+USER INPUTS
+VIEW MODE___________: "basic"
+DB ACTION___________: "empty"
+DB HOST_____________: "**OBSCURED**"
+DB NAME_____________: "**OBSCURED**"
+DB PASS_____________: "**OBSCURED**"
+DB PORT_____________: "**OBSCURED**"
+NON-BREAKING SPACES_: false
+MYSQL MODE__________: "DEFAULT"
+MYSQL MODE OPTS_____: ""
+CHARSET_____________: "utf8"
+COLLATE_____________: "utf8_general_ci"
+COLLATE FB__________: false
+VIEW CREATION_______: true
+STORED PROCEDURE____: true
+********************************************************************************
+
+--------------------------------------
+DATABASE-ENVIRONMENT
+--------------------------------------
+MYSQL VERSION:	This Server: 10.1.34 -- Build Server: 10.3.24
+FILE SIZE:	dup-database__[HASH].sql (5.77MB)
+TIMEOUT:	5000
+MAXPACK:	1048576
+SQLMODE:	NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+NEW SQL FILE:	[C:/xampp/htdocs/bigplane.co.uk/dup-installer/dup-installer-data__[HASH].sql]
+COLLATE FB:	Off
+
+NOTICE: This servers version [10.1.34] is less than the build version [10.3.24].  
+If you find issues after testing your site please referr to this FAQ item.
+https://snapcreek.com/duplicator/docs/faqs-tech/#faq-installer-260-q
+[PHP ERR][WARN] MSG:count(): Parameter must be an array or an object that implements Countable [CODE:2|FILE:C:\xampp\htdocs\bigplane.co.uk\dup-installer\ctrls\ctrl.s2.dbinstall.php|LINE:392]
+--------------------------------------
+DATABASE RESULTS
+--------------------------------------
+DB VIEWS:	enabled
+DB PROCEDURES:	enabled
+ERRORS FOUND:	0
+DROPPED TABLES:	0
+RENAMED TABLES:	0
+QUERIES RAN:	303
+
+wp_actionscheduler_actions: (3)
+wp_actionscheduler_claims: (0)
+wp_actionscheduler_groups: (2)
+wp_actionscheduler_logs: (9)
+wp_commentmeta: (0)
+wp_comments: (0)
+wp_duplicator_packages: (0)
+wp_hugeit_maps_circles: (1)
+wp_hugeit_maps_directions: (0)
+wp_hugeit_maps_maps: (2)
+wp_hugeit_maps_markers: (2)
+wp_hugeit_maps_polygons: (1)
+wp_hugeit_maps_polylines: (1)
+wp_hugeit_maps_stores: (0)
+wp_links: (0)
+wp_options: (587)
+wp_postmeta: (431)
+wp_posts: (756)
+wp_shortpixel_folders: (0)
+wp_shortpixel_meta: (0)
+wp_term_relationships: (41)
+wp_term_taxonomy: (16)
+wp_termmeta: (0)
+wp_terms: (16)
+wp_usermeta: (44)
+wp_users: (1)
+wp_wpmailsmtp_tasks_meta: (5)
+wp_yoast_indexable: (122)
+wp_yoast_indexable_hierarchy: (7)
+wp_yoast_migrations: (18)
+wp_yoast_primary_term: (4)
+wp_yoast_seo_links: (51)
+wp_yoast_seo_meta: (26)
+Removed '54' cache/transient rows
+
+INSERT DATA RUNTIME: 1.9932 sec.
+STEP-2 COMPLETE @ 01:50:15 - RUNTIME: 2.0203 sec.
+
+====================================
+SET SEARCH AND REPLACE LIST
+====================================
+
+
+********************************************************************************
+DUPLICATOR PRO INSTALL-LOG
+STEP-3 START @ 01:50:36
+NOTICE: Do NOT post to public sites or forums
+********************************************************************************
+CHARSET SERVER:	"utf8"
+CHARSET CLIENT:	"utf8"
+********************************************************************************
+OPTIONS:
+blogname______________: "Big Plane Media"
+postguid______________: false
+fullsearch____________: false
+path_old______________: "/home/bpmwdadmin/public_html"
+path_new______________: "C:/xampp/htdocs/bigplane.co.uk"
+siteurl_______________: "http://localhost/bigplane.co.uk"
+url_old_______________: "https://bpm-web-design.co.uk"
+url_new_______________: "http://localhost/bigplane.co.uk"
+maxSerializeStrlen____: 4000000
+replaceMail___________: false
+dbcharset_____________: "utf8"
+dbcollate_____________: "utf8_general_ci"
+wp_mail_______________: ""
+wp_nickname___________: ""
+wp_first_name_________: ""
+wp_last_name__________: ""
+ssl_admin_____________: false
+cache_wp______________: false
+cache_path____________: false
+exe_safe_mode_________: false
+config_mode___________: "NEW"
+********************************************************************************
+
+
+====================================
+RUN SEARCH AND REPLACE
+====================================
+
+EVALUATE TABLE: "wp_actionscheduler_actions"______________________[ROWS:     3][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_actionscheduler_claims"_______________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_actionscheduler_groups"_______________________[ROWS:     2][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_actionscheduler_logs"_________________________[ROWS:     9][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_commentmeta"__________________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_comments"_____________________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_duplicator_packages"__________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_hugeit_maps_circles"__________________________[ROWS:     1][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_hugeit_maps_directions"_______________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_hugeit_maps_maps"_____________________________[ROWS:     2][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_hugeit_maps_markers"__________________________[ROWS:     2][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_hugeit_maps_polygons"_________________________[ROWS:     1][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_hugeit_maps_polylines"________________________[ROWS:     1][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_hugeit_maps_stores"___________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_links"________________________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_options"______________________________________[ROWS:   587][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_postmeta"_____________________________________[ROWS:   431][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_posts"________________________________________[ROWS:   756][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_shortpixel_folders"___________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_shortpixel_meta"______________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_term_relationships"___________________________[ROWS:    41][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_term_taxonomy"________________________________[ROWS:    16][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_termmeta"_____________________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_terms"________________________________________[ROWS:    16][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_usermeta"_____________________________________[ROWS:    44][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_users"________________________________________[ROWS:     1][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_wpmailsmtp_tasks_meta"________________________[ROWS:     5][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_yoast_indexable"______________________________[ROWS:   122][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_yoast_indexable_hierarchy"____________________[ROWS:     7][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_yoast_migrations"_____________________________[ROWS:    18][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_yoast_primary_term"___________________________[ROWS:     4][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_yoast_seo_links"______________________________[ROWS:    51][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+
+EVALUATE TABLE: "wp_yoast_seo_meta"_______________________________[ROWS:    26][PG:   1][SCAN:text columns]
+	SEARCH  1:"/home/bpmwdadmin/public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  2:"\/home\/bpmwdadmin\/public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  3:"%2Fhome%2Fbpmwdadmin%2Fpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  4:"\home\bpmwdadmin\public_html" ====================> "C:/xampp/htdocs/bigplane.co.uk"
+	SEARCH  5:"\\home\\bpmwdadmin\\public_html" =================> "C:\/xampp\/htdocs\/bigplane.co.uk"
+	SEARCH  6:"%5Chome%5Cbpmwdadmin%5Cpublic_html" ==============> "C%3A%2Fxampp%2Fhtdocs%2Fbigplane.co.uk"
+	SEARCH  7:"//bpm-web-design.co.uk" ==========================> "//localhost/bigplane.co.uk"
+	SEARCH  8:"\/\/bpm-web-design.co.uk" ========================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH  9:"%2F%2Fbpm-web-design.co.uk" ======================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 10:"//www.bpm-web-design.co.uk" ======================> "//localhost/bigplane.co.uk"
+	SEARCH 11:"\/\/www.bpm-web-design.co.uk" ====================> "\/\/localhost\/bigplane.co.uk"
+	SEARCH 12:"%2F%2Fwww.bpm-web-design.co.uk" ==================> "%2F%2Flocalhost%2Fbigplane.co.uk"
+	SEARCH 13:"https://localhost/bigplane.co.uk" ================> "http://localhost/bigplane.co.uk"
+	SEARCH 14:"https:\/\/localhost\/bigplane.co.uk" =============> "http:\/\/localhost\/bigplane.co.uk"
+	SEARCH 15:"https%3A%2F%2Flocalhost%2Fbigplane.co.uk" ========> "http%3A%2F%2Flocalhost%2Fbigplane.co.uk"
+--------------------------------------
+SCANNED:	Tables:33 	|	 Rows:2146 	|	 Cells:29146 
+UPDATED:	Tables:5 	|	 Rows:908 	|	 Cells:1293 
+ERRORS:		0 
+RUNTIME:	1.115100 sec
+
+====================================
+REMOVE LICENSE KEY
+====================================
+
+====================================
+CREATE NEW ADMIN USER
+====================================
+
+====================================
+CONFIGURATION FILE UPDATES
+====================================
+	UPDATE DB_NAME ""bigplane_bpmwdadmin""
+	UPDATE DB_USER ""bigplane_bpmwdadmin""
+	UPDATE DB_PASSWORD "** OBSCURED **"
+	UPDATE DB_HOST ""localhost""
+	UPDATE WP_CACHE false
+	REMOVE WPCACHEHOME
+	
+*** UPDATED WP CONFIG FILE ***
+
+====================================
+HTACCESS UPDATE MODE: "NEW"
+====================================
+- PASS: Successfully created a new .htaccess file.
+- PASS: Existing Apache '.htaccess__[HASH]' was removed
+
+====================================
+GENERAL UPDATES & CLEANUP
+====================================
+
+====================================
+DEACTIVATE PLUGINS CHECK
+====================================
+Deactivated plugins list here: Array
+(
+    [0] => really-simple-ssl/rlrsssl-really-simple-ssl.php
+    [1] => simple-google-recaptcha/simple-google-recaptcha.php
+    [2] => js_composer/js_composer.php
+)
+
+
+====================================
+NOTICES TEST
+====================================
+No General Notices Found
+
+
+====================================
+CLEANUP TMP FILES
+====================================
+
+====================================
+FINAL REPORT NOTICES
+====================================
+
+STEP-3 COMPLETE @ 01:50:37 - RUNTIME: 1.2876 sec. 
+
+
+====================================
+FINAL REPORT NOTICES LIST
+====================================
+-----------------------
+[INFO] No general notices
+	SECTIONS: general
+
+-----------------------
+[INFO] No errors in database
+	SECTIONS: database
+
+-----------------------
+[INFO] No search and replace data errors
+	SECTIONS: search_replace
+
+-----------------------
+[INFO] No files extraction errors
+	SECTIONS: files
+
+====================================

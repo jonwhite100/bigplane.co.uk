@@ -1,0 +1,19 @@
+#This Apache config file was created by Duplicator Installer on 2020-11-11 13:50:36.
+#The original can be found in archived file with the name .htaccess__[HASH]
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /bigplane.co.uk/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /bigplane.co.uk/index.php [L]
+</IfModule>
+# END WordPress
+# BEGIN ShortPixelWebp
+# The directives (lines) between "BEGIN ShortPixelWebp" and "END ShortPixelWebp" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+
+# END ShortPixelWebp
