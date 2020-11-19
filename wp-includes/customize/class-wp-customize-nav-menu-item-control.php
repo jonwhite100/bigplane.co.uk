@@ -41,9 +41,13 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      The control ID.
+<<<<<<< HEAD
 	 * @param array                $args    Optional. Arguments to override class property defaults.
 	 *                                      See WP_Customize_Control::__construct() for information
 	 *                                      on accepted arguments. Default empty array.
+=======
+	 * @param array                $args    Optional. Overrides class property defaults.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
@@ -134,6 +138,7 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 				</label>
 			</p>
 
+<<<<<<< HEAD
 			<?php
 			/**
 			 * Fires at the end of the form field template for nav menu items in the customizer.
@@ -145,6 +150,8 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 			do_action( 'wp_nav_menu_item_custom_fields_customize_template' );
 			?>
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<div class="menu-item-actions description-thin submitbox">
 				<# if ( ( 'post_type' === data.item_type || 'taxonomy' === data.item_type ) && '' !== data.original_title ) { #>
 				<p class="link-to-original">

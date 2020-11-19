@@ -45,6 +45,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	 * @since 4.1.0
 	 * @since 4.2.0 Moved from WP_Customize_Upload_Control.
 	 *
+<<<<<<< HEAD
 	 * @see WP_Customize_Control::__construct()
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
@@ -52,6 +53,11 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	 * @param array                $args    Optional. Arguments to override class property defaults.
 	 *                                      See WP_Customize_Control::__construct() for information
 	 *                                      on accepted arguments. Default empty array.
+=======
+	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param string               $id      Control ID.
+	 * @param array                $args    Optional. Arguments to override class property defaults.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
@@ -90,9 +96,13 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 			if ( $this->setting->default ) {
 				// Fake an attachment model - needs all fields used by template.
 				// Note that the default value must be a URL, NOT an attachment ID.
+<<<<<<< HEAD
 				$ext  = substr( $this->setting->default, -3 );
 				$type = in_array( $ext, array( 'jpg', 'png', 'gif', 'bmp' ), true ) ? 'image' : 'document';
 
+=======
+				$type               = in_array( substr( $this->setting->default, -3 ), array( 'jpg', 'png', 'gif', 'bmp' ) ) ? 'image' : 'document';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$default_attachment = array(
 					'id'    => 1,
 					'url'   => $this->setting->default,
@@ -213,7 +223,11 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	 *
 	 * @since 4.9.0
 	 *
+<<<<<<< HEAD
 	 * @return string[] An associative array of default button labels keyed by the button name.
+=======
+	 * @return array An associative array of default button labels.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function get_default_button_labels() {
 		// Get just the mime type and strip the mime subtype if present.

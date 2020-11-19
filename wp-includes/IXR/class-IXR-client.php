@@ -58,6 +58,7 @@ class IXR_Client
 		self::__construct( $server, $path, $port, $timeout );
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @since 1.5.0
 	 * @since 5.5.0 Formalized the existing `...$args` parameter by adding it
@@ -67,6 +68,11 @@ class IXR_Client
 	 */
     function query( ...$args )
     {
+=======
+    function query()
+    {
+        $args = func_get_args();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         $method = array_shift($args);
         $request = new IXR_Request($method, $args);
         $length = $request->getLength();

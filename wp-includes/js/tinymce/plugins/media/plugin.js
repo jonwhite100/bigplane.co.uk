@@ -47,6 +47,7 @@ var media = (function () {
       hasDimensions: hasDimensions
     };
 
+<<<<<<< HEAD
     var Cell = function (initial) {
       var value = initial;
       var get = function () {
@@ -195,6 +196,11 @@ var media = (function () {
     var global$3 = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
 
     var global$4 = tinymce.util.Tools.resolve('tinymce.html.SaxParser');
+=======
+    var global$3 = tinymce.util.Tools.resolve('tinymce.html.SaxParser');
+
+    var global$4 = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
     var getVideoScriptMatch = function (prefixes, src) {
       if (prefixes) {
@@ -207,6 +213,7 @@ var media = (function () {
     };
     var VideoScript = { getVideoScriptMatch: getVideoScriptMatch };
 
+<<<<<<< HEAD
     var DOM = global$3.DOM;
     var trimPx = function (value) {
       return value.replace(/px$/, '');
@@ -227,10 +234,49 @@ var media = (function () {
       var isEphoxEmbed = Cell(false);
       var data = {};
       global$4({
+=======
+    var trimPx = function (value) {
+      return value.replace(/px$/, '');
+    };
+    var addPx = function (value) {
+      return /^[0-9.]+$/.test(value) ? value + 'px' : value;
+    };
+    var getSize = function (name) {
+      return function (elm) {
+        return elm ? trimPx(elm.style[name]) : '';
+      };
+    };
+    var setSize = function (name) {
+      return function (elm, value) {
+        if (elm) {
+          elm.style[name] = addPx(value);
+        }
+      };
+    };
+    var Size = {
+      getMaxWidth: getSize('maxWidth'),
+      getMaxHeight: getSize('maxHeight'),
+      setMaxWidth: setSize('maxWidth'),
+      setMaxHeight: setSize('maxHeight')
+    };
+
+    var DOM = global$4.DOM;
+    var getEphoxEmbedIri = function (elm) {
+      return DOM.getAttrib(elm, 'data-ephox-embed-iri');
+    };
+    var isEphoxEmbed = function (html) {
+      var fragment = DOM.createFragment(html);
+      return getEphoxEmbedIri(fragment.firstChild) !== '';
+    };
+    var htmlToDataSax = function (prefixes, html) {
+      var data = {};
+      global$3({
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         validate: false,
         allow_conditional_comments: true,
         special: 'script,noscript',
         start: function (name, attrs) {
+<<<<<<< HEAD
           if (isEphoxEmbed.get()) ; else if (has(attrs.map, 'data-ephox-embed-iri')) {
             isEphoxEmbed.set(true);
             data = getEphoxEmbedData(attrs);
@@ -267,6 +313,39 @@ var media = (function () {
               data.poster = attrs.map.src;
             }
           }
+=======
+          if (!data.source1 && name === 'param') {
+            data.source1 = attrs.map.movie;
+          }
+          if (name === 'iframe' || name === 'object' || name === 'embed' || name === 'video' || name === 'audio') {
+            if (!data.type) {
+              data.type = name;
+            }
+            data = global$2.extend(attrs.map, data);
+          }
+          if (name === 'script') {
+            var videoScript = VideoScript.getVideoScriptMatch(prefixes, attrs.map.src);
+            if (!videoScript) {
+              return;
+            }
+            data = {
+              type: 'script',
+              source1: attrs.map.src,
+              width: videoScript.width,
+              height: videoScript.height
+            };
+          }
+          if (name === 'source') {
+            if (!data.source1) {
+              data.source1 = attrs.map.src;
+            } else if (!data.source2) {
+              data.source2 = attrs.map.src;
+            }
+          }
+          if (name === 'img' && !data.poster) {
+            data.poster = attrs.map.src;
+          }
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
       }).parse(html);
       data.source1 = data.source1 || data.src || data.data;
@@ -274,6 +353,24 @@ var media = (function () {
       data.poster = data.poster || '';
       return data;
     };
+<<<<<<< HEAD
+=======
+    var ephoxEmbedHtmlToData = function (html) {
+      var fragment = DOM.createFragment(html);
+      var div = fragment.firstChild;
+      return {
+        type: 'ephox-embed-iri',
+        source1: getEphoxEmbedIri(div),
+        source2: '',
+        poster: '',
+        width: Size.getMaxWidth(div),
+        height: Size.getMaxHeight(div)
+      };
+    };
+    var htmlToData = function (prefixes, html) {
+      return isEphoxEmbed(html) ? ephoxEmbedHtmlToData(html) : htmlToDataSax(prefixes, html);
+    };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var HtmlToData = { htmlToData: htmlToData };
 
     var global$5 = tinymce.util.Tools.resolve('tinymce.util.Promise');
@@ -293,6 +390,7 @@ var media = (function () {
     };
     var Mime = { guess: guess };
 
+<<<<<<< HEAD
     var global$6 = tinymce.util.Tools.resolve('tinymce.html.Schema');
 
     var global$7 = tinymce.util.Tools.resolve('tinymce.html.Writer');
@@ -308,6 +406,24 @@ var media = (function () {
           var i = attrs.length;
           while (i--) {
             var attr = attrs[i];
+=======
+    var global$6 = tinymce.util.Tools.resolve('tinymce.html.Writer');
+
+    var global$7 = tinymce.util.Tools.resolve('tinymce.html.Schema');
+
+    var DOM$1 = global$4.DOM;
+    var setAttributes = function (attrs, updatedAttrs) {
+      var name;
+      var i;
+      var value;
+      var attr;
+      for (name in updatedAttrs) {
+        value = '' + updatedAttrs[name];
+        if (attrs.map[name]) {
+          i = attrs.length;
+          while (i--) {
+            attr = attrs[i];
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
             if (attr.name === name) {
               if (value) {
                 attrs.map[name] = value;
@@ -327,6 +443,7 @@ var media = (function () {
         }
       }
     };
+<<<<<<< HEAD
     var updateEphoxEmbed = function (data, attrs) {
       var style = attrs.map.style;
       var styleMap = style ? DOM$1.parseStyle(style) : {};
@@ -340,6 +457,19 @@ var media = (function () {
       var sourceCount = 0;
       var hasImage;
       global$4({
+=======
+    var normalizeHtml = function (html) {
+      var writer = global$6();
+      var parser = global$3(writer);
+      parser.parse(html);
+      return writer.getContent();
+    };
+    var updateHtmlSax = function (html, data, updateAll) {
+      var writer = global$6();
+      var sourceCount = 0;
+      var hasImage;
+      global$3({
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         validate: false,
         allow_conditional_comments: true,
         special: 'script,noscript',
@@ -353,6 +483,7 @@ var media = (function () {
           writer.text(text, raw);
         },
         start: function (name, attrs, empty) {
+<<<<<<< HEAD
           if (isEphoxEmbed.get()) ; else if (has(attrs.map, 'data-ephox-embed-iri')) {
             isEphoxEmbed.set(true);
             updateEphoxEmbed(data, attrs);
@@ -404,11 +535,60 @@ var media = (function () {
                 hasImage = true;
                 break;
               }
+=======
+          switch (name) {
+          case 'video':
+          case 'object':
+          case 'embed':
+          case 'img':
+          case 'iframe':
+            if (data.height !== undefined && data.width !== undefined) {
+              setAttributes(attrs, {
+                width: data.width,
+                height: data.height
+              });
+            }
+            break;
+          }
+          if (updateAll) {
+            switch (name) {
+            case 'video':
+              setAttributes(attrs, {
+                poster: data.poster,
+                src: ''
+              });
+              if (data.source2) {
+                setAttributes(attrs, { src: '' });
+              }
+              break;
+            case 'iframe':
+              setAttributes(attrs, { src: data.source1 });
+              break;
+            case 'source':
+              sourceCount++;
+              if (sourceCount <= 2) {
+                setAttributes(attrs, {
+                  src: data['source' + sourceCount],
+                  type: data['source' + sourceCount + 'mime']
+                });
+                if (!data['source' + sourceCount]) {
+                  return;
+                }
+              }
+              break;
+            case 'img':
+              if (!data.poster) {
+                return;
+              }
+              hasImage = true;
+              break;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
             }
           }
           writer.start(name, attrs, empty);
         },
         end: function (name) {
+<<<<<<< HEAD
           if (!isEphoxEmbed.get()) {
             if (name === 'video' && updateAll) {
               for (var index = 1; index <= 2; index++) {
@@ -441,6 +621,52 @@ var media = (function () {
       }, global$6({})).parse(html);
       return writer.getContent();
     };
+=======
+          if (name === 'video' && updateAll) {
+            for (var index = 1; index <= 2; index++) {
+              if (data['source' + index]) {
+                var attrs = [];
+                attrs.map = {};
+                if (sourceCount < index) {
+                  setAttributes(attrs, {
+                    src: data['source' + index],
+                    type: data['source' + index + 'mime']
+                  });
+                  writer.start('source', attrs, true);
+                }
+              }
+            }
+          }
+          if (data.poster && name === 'object' && updateAll && !hasImage) {
+            var imgAttrs = [];
+            imgAttrs.map = {};
+            setAttributes(imgAttrs, {
+              src: data.poster,
+              width: data.width,
+              height: data.height
+            });
+            writer.start('img', imgAttrs, true);
+          }
+          writer.end(name);
+        }
+      }, global$7({})).parse(html);
+      return writer.getContent();
+    };
+    var isEphoxEmbed$1 = function (html) {
+      var fragment = DOM$1.createFragment(html);
+      return DOM$1.getAttrib(fragment.firstChild, 'data-ephox-embed-iri') !== '';
+    };
+    var updateEphoxEmbed = function (html, data) {
+      var fragment = DOM$1.createFragment(html);
+      var div = fragment.firstChild;
+      Size.setMaxWidth(div, data.width);
+      Size.setMaxHeight(div, data.height);
+      return normalizeHtml(div.outerHTML);
+    };
+    var updateHtml = function (html, data, updateAll) {
+      return isEphoxEmbed$1(html) ? updateEphoxEmbed(html, data) : updateHtmlSax(html, data, updateAll);
+    };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var UpdateHtml = { updateHtml: updateHtml };
 
     var urlPatterns = [
@@ -664,6 +890,7 @@ var media = (function () {
       isCached: isCached
     };
 
+<<<<<<< HEAD
     var trimPx$1 = function (value) {
       return value.replace(/px$/, '');
     };
@@ -689,6 +916,8 @@ var media = (function () {
       setMaxHeight: setSize('maxHeight')
     };
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var doSyncSize = function (widthCtrl, heightCtrl) {
       widthCtrl.state.set('oldVal', widthCtrl.value());
       heightCtrl.state.set('oldVal', heightCtrl.value());
@@ -963,13 +1192,21 @@ var media = (function () {
     };
     var Dialog = { showDialog: showDialog };
 
+<<<<<<< HEAD
     var get$1 = function (editor) {
+=======
+    var get = function (editor) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       var showDialog = function () {
         Dialog.showDialog(editor);
       };
       return { showDialog: showDialog };
     };
+<<<<<<< HEAD
     var Api = { get: get$1 };
+=======
+    var Api = { get: get };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
     var register = function (editor) {
       var showDialog = function () {
@@ -985,9 +1222,15 @@ var media = (function () {
       if (Settings.shouldFilterHtml(editor) === false) {
         return html;
       }
+<<<<<<< HEAD
       var writer = global$7();
       var blocked;
       global$4({
+=======
+      var writer = global$6();
+      var blocked;
+      global$3({
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         validate: false,
         allow_conditional_comments: false,
         special: 'script,noscript',
@@ -1002,6 +1245,7 @@ var media = (function () {
         },
         start: function (name, attrs, empty) {
           blocked = true;
+<<<<<<< HEAD
           if (name === 'script' || name === 'noscript' || name === 'svg') {
             return;
           }
@@ -1012,6 +1256,16 @@ var media = (function () {
               attrs.splice(i, 1);
             }
             if (attrName === 'style') {
+=======
+          if (name === 'script' || name === 'noscript') {
+            return;
+          }
+          for (var i = 0; i < attrs.length; i++) {
+            if (attrs[i].name.indexOf('on') === 0) {
+              return;
+            }
+            if (attrs[i].name === 'style') {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
               attrs[i].value = editor.dom.serializeStyle(editor.dom.parseStyle(attrs[i].value), name);
             }
           }
@@ -1024,7 +1278,11 @@ var media = (function () {
           }
           writer.end(name);
         }
+<<<<<<< HEAD
       }, global$6({})).parse(html);
+=======
+      }, global$7({})).parse(html);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       return writer.getContent();
     };
     var Sanitize = { sanitize: sanitize };

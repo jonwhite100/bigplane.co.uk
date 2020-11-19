@@ -307,7 +307,11 @@
 
 .ui-button.ui-dialog-titlebar-close:hover,
 .ui-button.ui-dialog-titlebar-close:focus {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .ui-button.ui-dialog-titlebar-close:focus {

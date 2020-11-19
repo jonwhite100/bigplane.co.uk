@@ -22,7 +22,11 @@ class WP_Http_Streams {
 	 * @since 2.7.0
 	 * @since 3.7.0 Combined with the fsockopen transport and switched to stream_socket_client().
 	 *
+<<<<<<< HEAD
 	 * @param string       $url  The request URL.
+=======
+	 * @param string $url The request URL.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @param string|array $args Optional. Override the defaults.
 	 * @return array|WP_Error Array containing 'headers', 'body', 'response', 'cookies', 'filename'. A WP_Error instance upon error
 	 */
@@ -55,9 +59,15 @@ class WP_Http_Streams {
 
 		$connect_host = $arrURL['host'];
 
+<<<<<<< HEAD
 		$secure_transport = ( 'ssl' === $arrURL['scheme'] || 'https' === $arrURL['scheme'] );
 		if ( ! isset( $arrURL['port'] ) ) {
 			if ( 'ssl' === $arrURL['scheme'] || 'https' === $arrURL['scheme'] ) {
+=======
+		$secure_transport = ( $arrURL['scheme'] == 'ssl' || $arrURL['scheme'] == 'https' );
+		if ( ! isset( $arrURL['port'] ) ) {
+			if ( $arrURL['scheme'] == 'ssl' || $arrURL['scheme'] == 'https' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$arrURL['port']   = 443;
 				$secure_transport = true;
 			} else {
@@ -65,7 +75,11 @@ class WP_Http_Streams {
 			}
 		}
 
+<<<<<<< HEAD
 		// Always pass a path, defaulting to the root in cases such as http://example.com.
+=======
+		// Always pass a Path, defaulting to the root in cases such as http://example.com
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! isset( $arrURL['path'] ) ) {
 			$arrURL['path'] = '/';
 		}
@@ -84,7 +98,11 @@ class WP_Http_Streams {
 		 * to ::1, which fails when the server is not set up for it. For compatibility, always
 		 * connect to the IPv4 address.
 		 */
+<<<<<<< HEAD
 		if ( 'localhost' === strtolower( $connect_host ) ) {
+=======
+		if ( 'localhost' == strtolower( $connect_host ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$connect_host = '127.0.0.1';
 		}
 
@@ -114,7 +132,11 @@ class WP_Http_Streams {
 			array(
 				'ssl' => array(
 					'verify_peer'       => $ssl_verify,
+<<<<<<< HEAD
 					// 'CN_match' => $arrURL['host'], // This is handled by self::verify_ssl_certificate().
+=======
+					//'CN_match' => $arrURL['host'], // This is handled by self::verify_ssl_certificate()
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					'capture_peer_cert' => $ssl_verify,
 					'SNI_enabled'       => true,
 					'cafile'            => $parsed_args['sslcertificates'],
@@ -134,7 +156,11 @@ class WP_Http_Streams {
 		$connection_error_str = null;
 
 		if ( ! WP_DEBUG ) {
+<<<<<<< HEAD
 			// In the event that the SSL connection fails, silence the many PHP warnings.
+=======
+			// In the event that the SSL connection fails, silence the many PHP Warnings.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( $secure_transport ) {
 				$error_reporting = error_reporting( 0 );
 			}
@@ -176,7 +202,11 @@ class WP_Http_Streams {
 
 		stream_set_timeout( $handle, $timeout, $utimeout );
 
+<<<<<<< HEAD
 		if ( $proxy->is_enabled() && $proxy->send_through_proxy( $url ) ) { // Some proxies require full URL in this field.
+=======
+		if ( $proxy->is_enabled() && $proxy->send_through_proxy( $url ) ) { //Some proxies require full URL in this field.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$requestPath = $url;
 		} else {
 			$requestPath = $arrURL['path'] . ( isset( $arrURL['query'] ) ? '?' . $arrURL['query'] : '' );
@@ -186,8 +216,13 @@ class WP_Http_Streams {
 
 		$include_port_in_host_header = (
 			( $proxy->is_enabled() && $proxy->send_through_proxy( $url ) ) ||
+<<<<<<< HEAD
 			( 'http' === $arrURL['scheme'] && 80 != $arrURL['port'] ) ||
 			( 'https' === $arrURL['scheme'] && 443 != $arrURL['port'] )
+=======
+			( 'http' == $arrURL['scheme'] && 80 != $arrURL['port'] ) ||
+			( 'https' == $arrURL['scheme'] && 443 != $arrURL['port'] )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		);
 
 		if ( $include_port_in_host_header ) {
@@ -334,9 +369,13 @@ class WP_Http_Streams {
 		}
 
 		// If the body was chunk encoded, then decode it.
+<<<<<<< HEAD
 		if ( ! empty( $process['body'] ) && isset( $arrHeaders['headers']['transfer-encoding'] )
 			&& 'chunked' === $arrHeaders['headers']['transfer-encoding']
 		) {
+=======
+		if ( ! empty( $process['body'] ) && isset( $arrHeaders['headers']['transfer-encoding'] ) && 'chunked' == $arrHeaders['headers']['transfer-encoding'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$process['body'] = WP_Http::chunkTransferDecode( $process['body'] );
 		}
 
@@ -392,7 +431,11 @@ class WP_Http_Streams {
 			$match_against = preg_split( '/,\s*/', $cert['extensions']['subjectAltName'] );
 			foreach ( $match_against as $match ) {
 				list( $match_type, $match_host ) = explode( ':', $match );
+<<<<<<< HEAD
 				if ( strtolower( trim( $match_type ) ) === $host_type ) { // IP: or DNS:
+=======
+				if ( $host_type == strtolower( trim( $match_type ) ) ) { // IP: or DNS:
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$certificate_hostnames[] = strtolower( trim( $match_host ) );
 				}
 			}
@@ -402,12 +445,20 @@ class WP_Http_Streams {
 		}
 
 		// Exact hostname/IP matches.
+<<<<<<< HEAD
 		if ( in_array( strtolower( $host ), $certificate_hostnames, true ) ) {
+=======
+		if ( in_array( strtolower( $host ), $certificate_hostnames ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return true;
 		}
 
 		// IP's can't be wildcards, Stop processing.
+<<<<<<< HEAD
 		if ( 'ip' === $host_type ) {
+=======
+		if ( 'ip' == $host_type ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return false;
 		}
 
@@ -419,7 +470,11 @@ class WP_Http_Streams {
 		// Wildcard subdomains certs (*.example.com) are valid for a.example.com but not a.b.example.com.
 		$wildcard_host = preg_replace( '/^[^.]+\./', '*.', $host );
 
+<<<<<<< HEAD
 		return in_array( strtolower( $wildcard_host ), $certificate_hostnames, true );
+=======
+		return in_array( strtolower( $wildcard_host ), $certificate_hostnames );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**

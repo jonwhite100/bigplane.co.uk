@@ -19,11 +19,17 @@
  */
 function wp_styles() {
 	global $wp_styles;
+<<<<<<< HEAD
 
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
 		$wp_styles = new WP_Styles();
 	}
 
+=======
+	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
+		$wp_styles = new WP_Styles();
+	}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return $wp_styles;
 }
 
@@ -39,6 +45,7 @@ function wp_styles() {
  * @since 2.6.0
  *
  * @param string|bool|array $handles Styles to be printed. Default 'false'.
+<<<<<<< HEAD
  * @return string[] On success, an array of handles of processed WP_Dependencies items; otherwise, an empty array.
  */
 function wp_print_styles( $handles = false ) {
@@ -54,11 +61,29 @@ function wp_print_styles( $handles = false ) {
 		 *
 		 * @since 2.6.0
 		 */
+=======
+ * @return array On success, a processed array of WP_Dependencies items; otherwise, an empty array.
+ */
+function wp_print_styles( $handles = false ) {
+	if ( '' === $handles ) { // for wp_head
+		$handles = false;
+	}
+	/**
+	 * Fires before styles in the $handles queue are printed.
+	 *
+	 * @since 2.6.0
+	 */
+	if ( ! $handles ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		do_action( 'wp_print_styles' );
 	}
 
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
+<<<<<<< HEAD
+=======
+	global $wp_styles;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
 		if ( ! $handles ) {
 			return array(); // No need to instantiate if nothing is there.
@@ -85,7 +110,11 @@ function wp_print_styles( $handles = false ) {
  * @return bool True on success, false on failure.
  */
 function wp_add_inline_style( $handle, $data ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( false !== stripos( $data, '</style>' ) ) {
 		_doing_it_wrong(
@@ -116,7 +145,11 @@ function wp_add_inline_style( $handle, $data ) {
  * @param string           $handle Name of the stylesheet. Should be unique.
  * @param string|bool      $src    Full URL of the stylesheet, or path of the stylesheet relative to the WordPress root directory.
  *                                 If source is set to false, stylesheet is an alias of other stylesheets it depends on.
+<<<<<<< HEAD
  * @param string[]         $deps   Optional. An array of registered stylesheet handles this stylesheet depends on. Default empty array.
+=======
+ * @param array            $deps   Optional. An array of registered stylesheet handles this stylesheet depends on. Default empty array.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string|bool|null $ver    Optional. String specifying stylesheet version number, if it has one, which is added to the URL
  *                                 as a query string for cache busting purposes. If version is set to false, a version
  *                                 number is automatically added equal to current installed WordPress version.
@@ -127,7 +160,11 @@ function wp_add_inline_style( $handle, $data ) {
  * @return bool Whether the style has been registered. True on success, false on failure.
  */
 function wp_register_style( $handle, $src, $deps = array(), $ver = false, $media = 'all' ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return wp_styles()->add( $handle, $src, $deps, $ver, $media );
 }
@@ -142,7 +179,11 @@ function wp_register_style( $handle, $src, $deps = array(), $ver = false, $media
  * @param string $handle Name of the stylesheet to be removed.
  */
 function wp_deregister_style( $handle ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	wp_styles()->remove( $handle );
 }
@@ -161,7 +202,11 @@ function wp_deregister_style( $handle ) {
  * @param string           $handle Name of the stylesheet. Should be unique.
  * @param string           $src    Full URL of the stylesheet, or path of the stylesheet relative to the WordPress root directory.
  *                                 Default empty.
+<<<<<<< HEAD
  * @param string[]         $deps   Optional. An array of registered stylesheet handles this stylesheet depends on. Default empty array.
+=======
+ * @param array            $deps   Optional. An array of registered stylesheet handles this stylesheet depends on. Default empty array.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string|bool|null $ver    Optional. String specifying stylesheet version number, if it has one, which is added to the URL
  *                                 as a query string for cache busting purposes. If version is set to false, a version
  *                                 number is automatically added equal to current installed WordPress version.
@@ -171,7 +216,11 @@ function wp_deregister_style( $handle ) {
  *                                 '(orientation: portrait)' and '(max-width: 640px)'.
  */
 function wp_enqueue_style( $handle, $src = '', $deps = array(), $ver = false, $media = 'all' ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$wp_styles = wp_styles();
 
@@ -179,7 +228,10 @@ function wp_enqueue_style( $handle, $src = '', $deps = array(), $ver = false, $m
 		$_handle = explode( '?', $handle );
 		$wp_styles->add( $_handle[0], $src, $deps, $ver, $media );
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$wp_styles->enqueue( $handle );
 }
 
@@ -193,7 +245,11 @@ function wp_enqueue_style( $handle, $src = '', $deps = array(), $ver = false, $m
  * @param string $handle Name of the stylesheet to be removed.
  */
 function wp_dequeue_style( $handle ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	wp_styles()->dequeue( $handle );
 }
@@ -209,7 +265,11 @@ function wp_dequeue_style( $handle ) {
  * @return bool Whether style is queued.
  */
 function wp_style_is( $handle, $list = 'enqueued' ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return (bool) wp_styles()->query( $handle, $list );
 }
@@ -226,7 +286,11 @@ function wp_style_is( $handle, $list = 'enqueued' ) {
  * 'alt'         bool        For rel="alternate stylesheet".
  * 'title'       string      For preferred/alternate stylesheets.
  *
+<<<<<<< HEAD
  * @see WP_Dependencies::add_data()
+=======
+ * @see WP_Dependency::add_data()
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 3.6.0
  *

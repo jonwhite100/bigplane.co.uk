@@ -25,26 +25,47 @@ class WP_Dependencies {
 	public $registered = array();
 
 	/**
+<<<<<<< HEAD
 	 * An array of handles of queued objects.
 	 *
 	 * @since 2.6.8
 	 * @var string[]
+=======
+	 * An array of queued _WP_Dependency handle objects.
+	 *
+	 * @since 2.6.8
+	 * @var array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $queue = array();
 
 	/**
+<<<<<<< HEAD
 	 * An array of handles of objects to queue.
 	 *
 	 * @since 2.6.0
 	 * @var string[]
+=======
+	 * An array of _WP_Dependency handle objects to queue.
+	 *
+	 * @since 2.6.0
+	 * @var array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $to_do = array();
 
 	/**
+<<<<<<< HEAD
 	 * An array of handles of objects already queued.
 	 *
 	 * @since 2.6.0
 	 * @var string[]
+=======
+	 * An array of _WP_Dependency handle objects already queued.
+	 *
+	 * @since 2.6.0
+	 * @var array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $done = array();
 
@@ -76,6 +97,7 @@ class WP_Dependencies {
 	public $group = 0;
 
 	/**
+<<<<<<< HEAD
 	 * Cached lookup array of flattened queued items and dependencies.
 	 *
 	 * @since 5.4.0
@@ -84,6 +106,8 @@ class WP_Dependencies {
 	private $all_queued_deps;
 
 	/**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * Processes the items and dependencies.
 	 *
 	 * Processes the items passed to it or the queue, and their dependencies.
@@ -91,11 +115,17 @@ class WP_Dependencies {
 	 * @since 2.6.0
 	 * @since 2.8.0 Added the `$group` parameter.
 	 *
+<<<<<<< HEAD
 	 * @param string|string[]|false $handles Optional. Items to be processed: queue (false),
 	 *                                       single item (string), or multiple items (array of strings).
 	 *                                       Default false.
 	 * @param int|false             $group   Optional. Group level: level (int), no groups (false).
 	 * @return string[] Array of handles of items that have been processed.
+=======
+	 * @param mixed $handles Optional. Items to be processed: Process queue (false), process item (string), process items (array of strings).
+	 * @param mixed $group   Group level: level (int), no groups (false).
+	 * @return array Handles of items that have been processed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function do_items( $handles = false, $group = false ) {
 		/*
@@ -128,6 +158,7 @@ class WP_Dependencies {
 	 * Processes a dependency.
 	 *
 	 * @since 2.6.0
+<<<<<<< HEAD
 	 * @since 5.5.0 Added the `$group` parameter.
 	 *
 	 * @param string    $handle Name of the item. Should be unique.
@@ -136,6 +167,13 @@ class WP_Dependencies {
 	 * @return bool True on success, false if not set.
 	 */
 	public function do_item( $handle, $group = false ) {
+=======
+	 *
+	 * @param string $handle Name of the item. Should be unique.
+	 * @return bool True on success, false if not set.
+	 */
+	public function do_item( $handle ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return isset( $this->registered[ $handle ] );
 	}
 
@@ -149,11 +187,17 @@ class WP_Dependencies {
 	 * @since 2.6.0 Moved from `WP_Scripts`.
 	 * @since 2.8.0 Added the `$group` parameter.
 	 *
+<<<<<<< HEAD
 	 * @param string|string[] $handles   Item handle (string) or item handles (array of strings).
 	 * @param bool            $recursion Optional. Internal flag that function is calling itself.
 	 *                                   Default false.
 	 * @param int|false       $group     Optional. Group level: level (int), no groups (false).
 	 *                                   Default false.
+=======
+	 * @param mixed     $handles   Item handle and argument (string) or item handles and arguments (array of strings).
+	 * @param bool      $recursion Internal flag that function is calling itself.
+	 * @param int|false $group     Group level: (int) level, (false) no groups.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool True on success, false on failure.
 	 */
 	public function all_deps( $handles, $recursion = false, $group = false ) {
@@ -167,14 +211,22 @@ class WP_Dependencies {
 			$handle       = $handle_parts[0];
 			$queued       = in_array( $handle, $this->to_do, true );
 
+<<<<<<< HEAD
 			if ( in_array( $handle, $this->done, true ) ) { // Already done.
+=======
+			if ( in_array( $handle, $this->done, true ) ) { // Already done
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				continue;
 			}
 
 			$moved     = $this->set_group( $handle, $recursion, $group );
 			$new_group = $this->groups[ $handle ];
 
+<<<<<<< HEAD
 			if ( $queued && ! $moved ) { // Already queued and in the right group.
+=======
+			if ( $queued && ! $moved ) { // already queued and in the right group
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				continue;
 			}
 
@@ -218,6 +270,7 @@ class WP_Dependencies {
 	 * @since 2.6.0 Moved from `WP_Scripts`.
 	 *
 	 * @param string           $handle Name of the item. Should be unique.
+<<<<<<< HEAD
 	 * @param string|bool      $src    Full URL of the item, or path of the item relative
 	 *                                 to the WordPress root directory. If source is set to false,
 	 *                                 item is an alias of other items it depends on.
@@ -230,6 +283,16 @@ class WP_Dependencies {
 	 *                                 If set to null, no version is added.
 	 * @param mixed            $args   Optional. Custom property of the item. NOT the class property $args.
 	 *                                 Examples: $media, $in_footer.
+=======
+	 * @param string|bool      $src    Full URL of the item, or path of the item relative to the WordPress root directory.
+	 *                                 If source is set to false, item is an alias of other items it depends on.
+	 * @param string[]         $deps   Optional. An array of registered item handles this item depends on. Default empty array.
+	 * @param string|bool|null $ver    Optional. String specifying item version number, if it has one, which is added to the URL
+	 *                                 as a query string for cache busting purposes. If version is set to false, a version
+	 *                                 number is automatically added equal to current installed WordPress version.
+	 *                                 If set to null, no version is added.
+	 * @param mixed            $args   Optional. Custom property of the item. NOT the class property $args. Examples: $media, $in_footer.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool Whether the item has been registered. True on success, false on failure.
 	 */
 	public function add( $handle, $src, $deps = array(), $ver = false, $args = null ) {
@@ -289,7 +352,12 @@ class WP_Dependencies {
 	 * @since 2.1.0
 	 * @since 2.6.0 Moved from `WP_Scripts`.
 	 *
+<<<<<<< HEAD
 	 * @param string|string[] $handles Item handle (string) or item handles (array of strings).
+=======
+	 * @param mixed $handles Item handle and argument (string) or item handles and arguments (array of strings).
+	 * @return void
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function remove( $handles ) {
 		foreach ( (array) $handles as $handle ) {
@@ -308,11 +376,16 @@ class WP_Dependencies {
 	 * @since 2.1.0
 	 * @since 2.6.0 Moved from `WP_Scripts`.
 	 *
+<<<<<<< HEAD
 	 * @param string|string[] $handles Item handle (string) or item handles (array of strings).
+=======
+	 * @param mixed $handles Item handle and argument (string) or item handles and arguments (array of strings).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function enqueue( $handles ) {
 		foreach ( (array) $handles as $handle ) {
 			$handle = explode( '?', $handle );
+<<<<<<< HEAD
 
 			if ( ! in_array( $handle[0], $this->queue, true ) && isset( $this->registered[ $handle[0] ] ) ) {
 				$this->queue[] = $handle[0];
@@ -320,6 +393,10 @@ class WP_Dependencies {
 				// Reset all dependencies so they must be recalculated in recurse_deps().
 				$this->all_queued_deps = null;
 
+=======
+			if ( ! in_array( $handle[0], $this->queue ) && isset( $this->registered[ $handle[0] ] ) ) {
+				$this->queue[] = $handle[0];
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( isset( $handle[1] ) ) {
 					$this->args[ $handle[0] ] = $handle[1];
 				}
@@ -336,17 +413,26 @@ class WP_Dependencies {
 	 * @since 2.1.0
 	 * @since 2.6.0 Moved from `WP_Scripts`.
 	 *
+<<<<<<< HEAD
 	 * @param string|string[] $handles Item handle (string) or item handles (array of strings).
+=======
+	 * @param mixed $handles Item handle and argument (string) or item handles and arguments (array of strings).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function dequeue( $handles ) {
 		foreach ( (array) $handles as $handle ) {
 			$handle = explode( '?', $handle );
+<<<<<<< HEAD
 			$key    = array_search( $handle[0], $this->queue, true );
 
 			if ( false !== $key ) {
 				// Reset all dependencies so they must be recalculated in recurse_deps().
 				$this->all_queued_deps = null;
 
+=======
+			$key    = array_search( $handle[0], $this->queue );
+			if ( false !== $key ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				unset( $this->queue[ $key ] );
 				unset( $this->args[ $handle[0] ] );
 			}
@@ -354,7 +440,11 @@ class WP_Dependencies {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Recursively search the passed dependency tree for $handle.
+=======
+	 * Recursively search the passed dependency tree for $handle
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 4.0.0
 	 *
@@ -363,6 +453,7 @@ class WP_Dependencies {
 	 * @return bool Whether the handle is found after recursively searching the dependency tree.
 	 */
 	protected function recurse_deps( $queue, $handle ) {
+<<<<<<< HEAD
 		if ( isset( $this->all_queued_deps ) ) {
 			return isset( $this->all_queued_deps[ $handle ] );
 		}
@@ -388,6 +479,21 @@ class WP_Dependencies {
 		$this->all_queued_deps = $all_deps;
 
 		return isset( $this->all_queued_deps[ $handle ] );
+=======
+		foreach ( $queue as $queued ) {
+			if ( ! isset( $this->registered[ $queued ] ) ) {
+				continue;
+			}
+
+			if ( in_array( $handle, $this->registered[ $queued ]->deps ) ) {
+				return true;
+			} elseif ( $this->recurse_deps( $this->registered[ $queued ]->deps, $handle ) ) {
+				return true;
+			}
+		}
+
+		return false;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -397,13 +503,21 @@ class WP_Dependencies {
 	 * @since 2.6.0 Moved from `WP_Scripts`.
 	 *
 	 * @param string $handle Name of the item. Should be unique.
+<<<<<<< HEAD
 	 * @param string $list   Optional. Property name of list array. Default 'registered'.
+=======
+	 * @param string $list   Property name of list array.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool|_WP_Dependency Found, or object Item data.
 	 */
 	public function query( $handle, $list = 'registered' ) {
 		switch ( $list ) {
 			case 'registered':
+<<<<<<< HEAD
 			case 'scripts': // Back compat.
+=======
+			case 'scripts': // back compat
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( isset( $this->registered[ $handle ] ) ) {
 					return $this->registered[ $handle ];
 				}
@@ -411,18 +525,31 @@ class WP_Dependencies {
 
 			case 'enqueued':
 			case 'queue':
+<<<<<<< HEAD
 				if ( in_array( $handle, $this->queue, true ) ) {
+=======
+				if ( in_array( $handle, $this->queue ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					return true;
 				}
 				return $this->recurse_deps( $this->queue, $handle );
 
 			case 'to_do':
+<<<<<<< HEAD
 			case 'to_print': // Back compat.
 				return in_array( $handle, $this->to_do, true );
 
 			case 'done':
 			case 'printed': // Back compat.
 				return in_array( $handle, $this->done, true );
+=======
+			case 'to_print': // back compat
+				return in_array( $handle, $this->to_do );
+
+			case 'done':
+			case 'printed': // back compat
+				return in_array( $handle, $this->done );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		return false;
 	}
@@ -432,10 +559,17 @@ class WP_Dependencies {
 	 *
 	 * @since 2.8.0
 	 *
+<<<<<<< HEAD
 	 * @param string    $handle    Name of the item. Should be unique.
 	 * @param bool      $recursion Internal flag that calling function was called recursively.
 	 * @param int|false $group     Group level: level (int), no groups (false).
 	 * @return bool Not already in the group or a lower group.
+=======
+	 * @param string $handle    Name of the item. Should be unique.
+	 * @param bool   $recursion Internal flag that calling function was called recursively.
+	 * @param mixed  $group     Group level.
+	 * @return bool Not already in the group or a lower group
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function set_group( $handle, $recursion, $group ) {
 		$group = (int) $group;

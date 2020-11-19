@@ -82,6 +82,7 @@ function wp_import_cleanup( $id ) {
 function wp_import_handle_upload() {
 	if ( ! isset( $_FILES['import'] ) ) {
 		return array(
+<<<<<<< HEAD
 			'error' => sprintf(
 				/* translators: 1: php.ini, 2: post_max_size, 3: upload_max_filesize */
 				__( 'File is empty. Please upload something more substantial. This error could also be caused by uploads being disabled in your %1$s file or by %2$s being defined as smaller than %3$s in %1$s.' ),
@@ -89,6 +90,9 @@ function wp_import_handle_upload() {
 				'post_max_size',
 				'upload_max_filesize'
 			),
+=======
+			'error' => __( 'File is empty. Please upload something more substantial. This error could also be caused by uploads being disabled in your php.ini or by post_max_size being defined as smaller than upload_max_filesize in php.ini.' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		);
 	}
 
@@ -103,7 +107,11 @@ function wp_import_handle_upload() {
 		return $upload;
 	}
 
+<<<<<<< HEAD
 	// Construct the object array.
+=======
+	// Construct the object array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$object = array(
 		'post_title'     => wp_basename( $upload['file'] ),
 		'post_content'   => $upload['url'],
@@ -113,7 +121,11 @@ function wp_import_handle_upload() {
 		'post_status'    => 'private',
 	);
 
+<<<<<<< HEAD
 	// Save the data.
+=======
+	// Save the data
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$id = wp_insert_attachment( $object, $upload['file'] );
 
 	/*
@@ -136,8 +148,12 @@ function wp_import_handle_upload() {
  * @return array Importers with metadata for each.
  */
 function wp_get_popular_importers() {
+<<<<<<< HEAD
 	// Include an unmodified $wp_version.
 	require ABSPATH . WPINC . '/version.php';
+=======
+	include( ABSPATH . WPINC . '/version.php' ); // include an unmodified $wp_version
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$locale            = get_user_locale();
 	$cache_key         = 'popular_importers_' . md5( $locale . $wp_version );
@@ -176,7 +192,11 @@ function wp_get_popular_importers() {
 		foreach ( $popular_importers['importers'] as &$importer ) {
 			// phpcs:ignore WordPress.WP.I18n.LowLevelTranslationFunction,WordPress.WP.I18n.NonSingularStringLiteralText
 			$importer['description'] = translate( $importer['description'] );
+<<<<<<< HEAD
 			if ( 'WordPress' !== $importer['name'] ) {
+=======
+			if ( $importer['name'] != 'WordPress' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				// phpcs:ignore WordPress.WP.I18n.LowLevelTranslationFunction,WordPress.WP.I18n.NonSingularStringLiteralText
 				$importer['name'] = translate( $importer['name'] );
 			}
@@ -185,7 +205,11 @@ function wp_get_popular_importers() {
 	}
 
 	return array(
+<<<<<<< HEAD
 		// slug => name, description, plugin slug, and register_importer() slug.
+=======
+		// slug => name, description, plugin slug, and register_importer() slug
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'blogger'     => array(
 			'name'        => __( 'Blogger' ),
 			'description' => __( 'Import posts, comments, and users from a Blogger blog.' ),
@@ -210,6 +234,15 @@ function wp_get_popular_importers() {
 			'plugin-slug' => 'movabletype-importer',
 			'importer-id' => 'mt',
 		),
+<<<<<<< HEAD
+=======
+		'opml'        => array(
+			'name'        => __( 'Blogroll' ),
+			'description' => __( 'Import links in OPML format.' ),
+			'plugin-slug' => 'opml-importer',
+			'importer-id' => 'opml',
+		),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'rss'         => array(
 			'name'        => __( 'RSS' ),
 			'description' => __( 'Import posts from an RSS feed.' ),

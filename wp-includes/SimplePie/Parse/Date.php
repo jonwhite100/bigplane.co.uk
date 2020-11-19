@@ -5,7 +5,11 @@
  * A PHP-Based RSS and Atom Feed Framework.
  * Takes the hard work out of managing a complete RSS/Atom solution.
  *
+<<<<<<< HEAD
  * Copyright (c) 2004-2016, Ryan Parman, Sam Sneddon, Ryan McCue, and contributors
+=======
+ * Copyright (c) 2004-2012, Ryan Parman, Geoffrey Sneddon, Ryan McCue, and contributors
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are
@@ -33,9 +37,16 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @package SimplePie
+<<<<<<< HEAD
  * @copyright 2004-2016 Ryan Parman, Sam Sneddon, Ryan McCue
  * @author Ryan Parman
  * @author Sam Sneddon
+=======
+ * @version 1.3.1
+ * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
+ * @author Ryan Parman
+ * @author Geoffrey Sneddon
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
@@ -98,6 +109,7 @@ class SimplePie_Parse_Date
 		'dimanche' => 7,
 		// German
 		'montag' => 1,
+<<<<<<< HEAD
 		'mo' => 1,
 		'dienstag' => 2,
 		'di' => 2,
@@ -112,6 +124,14 @@ class SimplePie_Parse_Date
 		'sonnabend' => 6,
 		// AFAIK no short form for sonnabend
 		'so' => 7,
+=======
+		'dienstag' => 2,
+		'mittwoch' => 3,
+		'donnerstag' => 4,
+		'freitag' => 5,
+		'samstag' => 6,
+		'sonnabend' => 6,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'sonntag' => 7,
 		// Italian
 		'lunedì' => 1,
@@ -153,6 +173,7 @@ class SimplePie_Parse_Date
 		'Παρ' => 5,
 		'Σαβ' => 6,
 		'Κυρ' => 7,
+<<<<<<< HEAD
 		// Russian
 		'Пн.' => 1,
 		'Вт.' => 2,
@@ -161,6 +182,8 @@ class SimplePie_Parse_Date
 		'Пт.' => 5,
 		'Сб.' => 6,
 		'Вс.' => 7,
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	);
 
 	/**
@@ -188,7 +211,11 @@ class SimplePie_Parse_Date
 		'aug' => 8,
 		'august' => 8,
 		'sep' => 9,
+<<<<<<< HEAD
 		'september' => 9,
+=======
+		'september' => 8,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'oct' => 10,
 		'october' => 10,
 		'nov' => 11,
@@ -223,6 +250,7 @@ class SimplePie_Parse_Date
 		'décembre' => 12,
 		// German
 		'januar' => 1,
+<<<<<<< HEAD
 		'jan' => 1,
 		'februar' => 2,
 		'feb' => 2,
@@ -245,6 +273,19 @@ class SimplePie_Parse_Date
 		'nov' => 11,
 		'dezember' => 12,
 		'dez' => 12,
+=======
+		'februar' => 2,
+		'märz' => 3,
+		'april' => 4,
+		'mai' => 5,
+		'juni' => 6,
+		'juli' => 7,
+		'august' => 8,
+		'september' => 9,
+		'oktober' => 10,
+		'november' => 11,
+		'dezember' => 12,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		// Italian
 		'gennaio' => 1,
 		'febbraio' => 2,
@@ -316,6 +357,7 @@ class SimplePie_Parse_Date
 		'Σεπ' => 9,
 		'Οκτ' => 10,
 		'Νοέ' => 11,
+<<<<<<< HEAD
 		'Δεκ' => 12,		
 		// Russian
 		'Янв' => 1,
@@ -343,6 +385,9 @@ class SimplePie_Parse_Date
 		'Дек' => 12,
 		'декабря' => 12,
 
+=======
+		'Δεκ' => 12,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	);
 
 	/**
@@ -666,7 +711,11 @@ class SimplePie_Parse_Date
 	 *
 	 * @final
 	 * @access public
+<<<<<<< HEAD
 	 * @param callback $callback
+=======
+	 * @param callable $callback
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function add_callback($callback)
 	{
@@ -683,7 +732,11 @@ class SimplePie_Parse_Date
 	/**
 	 * Parse a superset of W3C-DTF (allows hyphens and colons to be omitted, as
 	 * well as allowing any of upper or lower case "T", horizontal tabs, or
+<<<<<<< HEAD
 	 * spaces to be used as the time separator (including more than one))
+=======
+	 * spaces to be used as the time seperator (including more than one))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @access protected
 	 * @return int Timestamp
@@ -743,12 +796,23 @@ class SimplePie_Parse_Date
 			}
 
 			// Convert the number of seconds to an integer, taking decimals into account
+<<<<<<< HEAD
 			$second = round((int)$match[6] + (int)$match[7] / (10 ** strlen($match[7])));
 
 			return gmmktime($match[4], $match[5], $second, $match[2], $match[3], $match[1]) - $timezone;
 		}
 
 		return false;
+=======
+			$second = round($match[6] + $match[7] / pow(10, strlen($match[7])));
+
+			return gmmktime($match[4], $match[5], $second, $match[2], $match[3], $match[1]) - $timezone;
+		}
+		else
+		{
+			return false;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -771,7 +835,11 @@ class SimplePie_Parse_Date
 		{
 			$output .= substr($string, $position, $pos - $position);
 			$position = $pos + 1;
+<<<<<<< HEAD
 			if ($pos === 0 || $string[$pos - 1] !== '\\')
+=======
+			if ($string[$pos - 1] !== '\\')
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			{
 				$depth++;
 				while ($depth && $position < $length)
@@ -899,8 +967,15 @@ class SimplePie_Parse_Date
 
 			return gmmktime($match[5], $match[6], $second, $month, $match[2], $match[4]) - $timezone;
 		}
+<<<<<<< HEAD
 
 		return false;
+=======
+		else
+		{
+			return false;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -962,8 +1037,15 @@ class SimplePie_Parse_Date
 
 			return gmmktime($match[5], $match[6], $match[7], $month, $match[2], $match[4]) - $timezone;
 		}
+<<<<<<< HEAD
 
 		return false;
+=======
+		else
+		{
+			return false;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -1002,8 +1084,15 @@ class SimplePie_Parse_Date
 			$month = $this->month[strtolower($match[2])];
 			return gmmktime($match[4], $match[5], $match[6], $month, $match[3], $match[7]);
 		}
+<<<<<<< HEAD
 
 		return false;
+=======
+		else
+		{
+			return false;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -1019,7 +1108,17 @@ class SimplePie_Parse_Date
 		{
 			return false;
 		}
+<<<<<<< HEAD
 
 		return $strtotime;
 	}
 }
+=======
+		else
+		{
+			return $strtotime;
+		}
+	}
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

@@ -82,11 +82,16 @@ this["wp"] = this["wp"] || {}; this["wp"]["escapeHtml"] =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 465);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 367);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /******/ })
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
 /***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -103,6 +108,14 @@ __webpack_require__.d(__webpack_exports__, "escapeHTML", function() { return /* 
 __webpack_require__.d(__webpack_exports__, "escapeEditableHTML", function() { return /* binding */ escapeEditableHTML; });
 __webpack_require__.d(__webpack_exports__, "isValidAttributeName", function() { return /* binding */ isValidAttributeName; });
 
+=======
+/***/ 367:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 // CONCATENATED MODULE: ./node_modules/@wordpress/escape-html/build-module/escape-greater.js
 /**
  * Returns a string with greater-than sign replaced.
@@ -121,6 +134,15 @@ function __unstableEscapeGreaterThan(value) {
 }
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/escape-html/build-module/index.js
+<<<<<<< HEAD
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "escapeAmpersand", function() { return escapeAmpersand; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "escapeQuotationMark", function() { return escapeQuotationMark; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "escapeLessThan", function() { return escapeLessThan; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "escapeAttribute", function() { return escapeAttribute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "escapeHTML", function() { return escapeHTML; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isValidAttributeName", function() { return isValidAttributeName; });
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /**
  * Internal dependencies
  */
@@ -219,6 +241,7 @@ function escapeHTML(value) {
   return escapeLessThan(escapeAmpersand(value));
 }
 /**
+<<<<<<< HEAD
  * Returns an escaped Editable HTML element value. This is different from
  * `escapeHTML`, because for editable HTML, ALL ampersands must be escaped in
  * order to render the content correctly on the page.
@@ -232,6 +255,8 @@ function escapeEditableHTML(value) {
   return escapeLessThan(value.replace(/&/g, '&amp;'));
 }
 /**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * Returns true if the given attribute name is valid, or false otherwise.
  *
  * @param {string} name Attribute name to test.

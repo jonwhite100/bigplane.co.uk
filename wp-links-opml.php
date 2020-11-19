@@ -12,13 +12,21 @@
  * @package WordPress
  */
 
+<<<<<<< HEAD
 require_once __DIR__ . '/wp-load.php';
+=======
+require_once( dirname( __FILE__ ) . '/wp-load.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ), true );
 $link_cat = '';
 if ( ! empty( $_GET['link_cat'] ) ) {
 	$link_cat = $_GET['link_cat'];
+<<<<<<< HEAD
 	if ( ! in_array( $link_cat, array( 'all', '0' ), true ) ) {
+=======
+	if ( ! in_array( $link_cat, array( 'all', '0' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$link_cat = absint( (string) urldecode( $link_cat ) );
 	}
 }
@@ -82,7 +90,11 @@ foreach ( (array) $cats as $cat ) :
 		?>
 <outline text="<?php echo esc_attr( $title ); ?>" type="link" xmlUrl="<?php echo esc_attr( $bookmark->link_rss ); ?>" htmlUrl="<?php echo esc_attr( $bookmark->link_url ); ?>" updated="
 							<?php
+<<<<<<< HEAD
 							if ( '0000-00-00 00:00:00' !== $bookmark->link_updated ) {
+=======
+							if ( '0000-00-00 00:00:00' != $bookmark->link_updated ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 								echo $bookmark->link_updated;}
 							?>
 " />

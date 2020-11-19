@@ -150,7 +150,11 @@ wp.media.mixin = {
 			return;
 		}
 
+<<<<<<< HEAD
 		// Invoke features cleanup.
+=======
+		// invoke features cleanup
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		for ( featureIndex in t.options.features ) {
 			feature = t.options.features[featureIndex];
 			if ( t['clean' + feature] ) {
@@ -246,7 +250,11 @@ wp.media.audio = {
 	 * @since 4.2.0
 	 *
 	 * @param {string} data The text to apply the shortcode on.
+<<<<<<< HEAD
 	 * @return {wp.media} The media object.
+=======
+	 * @returns {wp.media} The media object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	edit : function( data ) {
 		var frame, shortcode = wp.shortcode.next( 'audio', data ).shortcode;
@@ -266,7 +274,11 @@ wp.media.audio = {
 	 * @since 4.2.0
 	 *
 	 * @param {Array} model Array with attributes for the shortcode.
+<<<<<<< HEAD
 	 * @return {wp.shortcode} The audio shortcode object.
+=======
+	 * @returns {wp.shortcode} The audio shortcode object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	shortcode : function( model ) {
 		var content;
@@ -321,7 +333,11 @@ wp.media.video = {
 	 * @since 4.2.0
 	 *
 	 * @param {string} data The text to apply the shortcode on.
+<<<<<<< HEAD
 	 * @return {wp.media} The media object.
+=======
+	 * @returns {wp.media} The media object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	edit : function( data ) {
 		var frame,
@@ -346,7 +362,11 @@ wp.media.video = {
 	 * @since 4.2.0
 	 *
 	 * @param {Array} model Array with attributes for the shortcode.
+<<<<<<< HEAD
 	 * @return {wp.shortcode} The video shortcode object.
+=======
+	 * @returns {wp.shortcode} The video shortcode object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	shortcode : function( model ) {
 		var content;
@@ -995,7 +1015,11 @@ MediaDetails = AttachmentDisplay.extend(/** @lends wp.media.view.MediaDetails.pr
 	},
 
 	/**
+<<<<<<< HEAD
 	 * @return {media.view.MediaDetails} Returns itself to allow chaining.
+=======
+	 * @returns {media.view.MediaDetails} Returns itself to allow chaining
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	render: function() {
 		AttachmentDisplay.prototype.render.apply( this, arguments );
@@ -1020,7 +1044,11 @@ MediaDetails = AttachmentDisplay.extend(/** @lends wp.media.view.MediaDetails.pr
 	 * When multiple players in the DOM contain the same src, things get weird.
 	 *
 	 * @param {HTMLElement} elem
+<<<<<<< HEAD
 	 * @return {HTMLElement}
+=======
+	 * @returns {HTMLElement}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	prepareSrc : function( elem ) {
 		var i = MediaDetails.instances++;

@@ -560,6 +560,11 @@ var inlite = (function (domGlobals) {
     var never = constant(false);
     var always = constant(true);
 
+<<<<<<< HEAD
+=======
+    var never$1 = never;
+    var always$1 = always;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var none = function () {
       return NONE;
     };
@@ -573,18 +578,36 @@ var inlite = (function (domGlobals) {
       var id = function (n) {
         return n;
       };
+<<<<<<< HEAD
+=======
+      var noop = function () {
+      };
+      var nul = function () {
+        return null;
+      };
+      var undef = function () {
+        return undefined;
+      };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       var me = {
         fold: function (n, s) {
           return n();
         },
+<<<<<<< HEAD
         is: never,
         isSome: never,
         isNone: always,
+=======
+        is: never$1,
+        isSome: never$1,
+        isNone: always$1,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         getOr: id,
         getOrThunk: call,
         getOrDie: function (msg) {
           throw new Error(msg || 'error: getOrDie called on none.');
         },
+<<<<<<< HEAD
         getOrNull: constant(null),
         getOrUndefined: constant(undefined),
         or: id,
@@ -594,6 +617,19 @@ var inlite = (function (domGlobals) {
         bind: none,
         exists: never,
         forall: always,
+=======
+        getOrNull: nul,
+        getOrUndefined: undef,
+        or: id,
+        orThunk: call,
+        map: none,
+        ap: none,
+        each: noop,
+        bind: none,
+        flatten: none,
+        exists: never$1,
+        forall: always$1,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         filter: none,
         equals: eq,
         equals_: eq,
@@ -608,10 +644,22 @@ var inlite = (function (domGlobals) {
       return me;
     }();
     var some = function (a) {
+<<<<<<< HEAD
       var constant_a = constant(a);
       var self = function () {
         return me;
       };
+=======
+      var constant_a = function () {
+        return a;
+      };
+      var self = function () {
+        return me;
+      };
+      var map = function (f) {
+        return some(f(a));
+      };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       var bind = function (f) {
         return f(a);
       };
@@ -622,8 +670,13 @@ var inlite = (function (domGlobals) {
         is: function (v) {
           return a === v;
         },
+<<<<<<< HEAD
         isSome: always,
         isNone: never,
+=======
+        isSome: always$1,
+        isNone: never$1,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         getOr: constant_a,
         getOrThunk: constant_a,
         getOrDie: constant_a,
@@ -631,31 +684,58 @@ var inlite = (function (domGlobals) {
         getOrUndefined: constant_a,
         or: self,
         orThunk: self,
+<<<<<<< HEAD
         map: function (f) {
           return some(f(a));
+=======
+        map: map,
+        ap: function (optfab) {
+          return optfab.fold(none, function (fab) {
+            return some(fab(a));
+          });
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         },
         each: function (f) {
           f(a);
         },
         bind: bind,
+<<<<<<< HEAD
+=======
+        flatten: constant_a,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         exists: bind,
         forall: bind,
         filter: function (f) {
           return f(a) ? me : NONE;
         },
+<<<<<<< HEAD
         toArray: function () {
           return [a];
         },
         toString: function () {
           return 'some(' + a + ')';
         },
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         equals: function (o) {
           return o.is(a);
         },
         equals_: function (o, elementEq) {
+<<<<<<< HEAD
           return o.fold(never, function (b) {
             return elementEq(a, b);
           });
+=======
+          return o.fold(never$1, function (b) {
+            return elementEq(a, b);
+          });
+        },
+        toArray: function () {
+          return [a];
+        },
+        toString: function () {
+          return 'some(' + a + ')';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
       };
       return me;
@@ -691,17 +771,32 @@ var inlite = (function (domGlobals) {
     var isFunction$1 = isType$1('function');
     var isNumber$1 = isType$1('number');
 
+<<<<<<< HEAD
     var nativeSlice = Array.prototype.slice;
     var nativeIndexOf = Array.prototype.indexOf;
     var nativePush = Array.prototype.push;
     var rawIndexOf = function (ts, t) {
       return nativeIndexOf.call(ts, t);
     };
+=======
+    var slice = Array.prototype.slice;
+    var rawIndexOf = function () {
+      var pIndexOf = Array.prototype.indexOf;
+      var fastIndex = function (xs, x) {
+        return pIndexOf.call(xs, x);
+      };
+      var slowIndex = function (xs, x) {
+        return slowIndexOf(xs, x);
+      };
+      return pIndexOf === undefined ? slowIndex : fastIndex;
+    }();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var indexOf = function (xs, x) {
       var r = rawIndexOf(xs, x);
       return r === -1 ? Option.none() : Option.some(r);
     };
     var exists = function (xs, pred) {
+<<<<<<< HEAD
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
         if (pred(x, i)) {
@@ -709,27 +804,42 @@ var inlite = (function (domGlobals) {
         }
       }
       return false;
+=======
+      return findIndex(xs, pred).isSome();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     };
     var map = function (xs, f) {
       var len = xs.length;
       var r = new Array(len);
       for (var i = 0; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         r[i] = f(x, i);
+=======
+        r[i] = f(x, i, xs);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
       return r;
     };
     var each = function (xs, f) {
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         f(x, i);
+=======
+        f(x, i, xs);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
     };
     var filter = function (xs, pred) {
       var r = [];
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         if (pred(x, i)) {
+=======
+        if (pred(x, i, xs)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
           r.push(x);
         }
       }
@@ -744,24 +854,57 @@ var inlite = (function (domGlobals) {
     var find = function (xs, pred) {
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         if (pred(x, i)) {
+=======
+        if (pred(x, i, xs)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
           return Option.some(x);
         }
       }
       return Option.none();
     };
+<<<<<<< HEAD
+=======
+    var findIndex = function (xs, pred) {
+      for (var i = 0, len = xs.length; i < len; i++) {
+        var x = xs[i];
+        if (pred(x, i, xs)) {
+          return Option.some(i);
+        }
+      }
+      return Option.none();
+    };
+    var slowIndexOf = function (xs, x) {
+      for (var i = 0, len = xs.length; i < len; ++i) {
+        if (xs[i] === x) {
+          return i;
+        }
+      }
+      return -1;
+    };
+    var push = Array.prototype.push;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var flatten$1 = function (xs) {
       var r = [];
       for (var i = 0, len = xs.length; i < len; ++i) {
         if (!isArray$1(xs[i])) {
           throw new Error('Arr.flatten item ' + i + ' was not an array, input: ' + xs);
         }
+<<<<<<< HEAD
         nativePush.apply(r, xs[i]);
+=======
+        push.apply(r, xs[i]);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
       return r;
     };
     var from$1 = isFunction$1(Array.from) ? Array.from : function (x) {
+<<<<<<< HEAD
       return nativeSlice.call(x);
+=======
+      return slice.call(x);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     };
 
     var count = 0;
@@ -1193,7 +1336,11 @@ var inlite = (function (domGlobals) {
     });
 
     var Collection$1, proto;
+<<<<<<< HEAD
     var push = Array.prototype.push, slice = Array.prototype.slice;
+=======
+    var push$1 = Array.prototype.push, slice$1 = Array.prototype.slice;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     proto = {
       length: 0,
       init: function (items) {
@@ -1207,10 +1354,17 @@ var inlite = (function (domGlobals) {
           if (items instanceof Collection$1) {
             self.add(items.toArray());
           } else {
+<<<<<<< HEAD
             push.call(self, items);
           }
         } else {
           push.apply(self, items);
+=======
+            push$1.call(self, items);
+          }
+        } else {
+          push$1.apply(self, items);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
         return self;
       },
@@ -1247,7 +1401,11 @@ var inlite = (function (domGlobals) {
         return new Collection$1(matches);
       },
       slice: function () {
+<<<<<<< HEAD
         return new Collection$1(slice.apply(this, arguments));
+=======
+        return new Collection$1(slice$1.apply(this, arguments));
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       },
       eq: function (index) {
         return index === -1 ? this.slice(index) : this.slice(index, +index + 1);
@@ -7799,11 +7957,19 @@ var inlite = (function (domGlobals) {
       return menuItem && menuItem.text === '-';
     };
     var trimMenuItems = function (menuItems) {
+<<<<<<< HEAD
       var menuItems2 = filter(menuItems, function (menuItem, i) {
         return !isSeparator(menuItem) || !isSeparator(menuItems[i - 1]);
       });
       return filter(menuItems2, function (menuItem, i) {
         return !isSeparator(menuItem) || i > 0 && i < menuItems2.length - 1;
+=======
+      var menuItems2 = filter(menuItems, function (menuItem, i, menuItems) {
+        return !isSeparator(menuItem) || !isSeparator(menuItems[i - 1]);
+      });
+      return filter(menuItems2, function (menuItem, i, menuItems) {
+        return !isSeparator(menuItem) || i > 0 && i < menuItems.length - 1;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       });
     };
     var createContextMenuItems = function (editor, context) {

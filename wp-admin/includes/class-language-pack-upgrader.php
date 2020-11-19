@@ -188,11 +188,19 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 			return true;
 		}
 
+<<<<<<< HEAD
 		if ( 'upgrader_process_complete' === current_filter() ) {
 			$this->skin->feedback( 'starting_upgrade' );
 		}
 
 		// Remove any existing upgrade filters from the plugin/theme upgraders #WP29425 & #WP29230.
+=======
+		if ( 'upgrader_process_complete' == current_filter() ) {
+			$this->skin->feedback( 'starting_upgrade' );
+		}
+
+		// Remove any existing upgrade filters from the plugin/theme upgraders #WP29425 & #WP29230
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		remove_all_filters( 'upgrader_pre_install' );
 		remove_all_filters( 'upgrader_clear_destination' );
 		remove_all_filters( 'upgrader_post_install' );
@@ -202,7 +210,11 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 
 		$this->skin->header();
 
+<<<<<<< HEAD
 		// Connect to the filesystem first.
+=======
+		// Connect to the Filesystem first.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$res = $this->fs_connect( array( WP_CONTENT_DIR, WP_LANG_DIR ) );
 		if ( ! $res ) {
 			$this->skin->footer();
@@ -232,9 +244,15 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 			$this->skin->language_update = $language_update;
 
 			$destination = WP_LANG_DIR;
+<<<<<<< HEAD
 			if ( 'plugin' === $language_update->type ) {
 				$destination .= '/plugins';
 			} elseif ( 'theme' === $language_update->type ) {
+=======
+			if ( 'plugin' == $language_update->type ) {
+				$destination .= '/plugins';
+			} elseif ( 'theme' == $language_update->type ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$destination .= '/themes';
 			}
 
@@ -335,9 +353,15 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 		$po = false;
 		$mo = false;
 		foreach ( (array) $files as $file => $filedata ) {
+<<<<<<< HEAD
 			if ( '.po' === substr( $file, -3 ) ) {
 				$po = true;
 			} elseif ( '.mo' === substr( $file, -3 ) ) {
+=======
+			if ( '.po' == substr( $file, -3 ) ) {
+				$po = true;
+			} elseif ( '.mo' == substr( $file, -3 ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$mo = true;
 			}
 		}
@@ -369,7 +393,11 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	public function get_name_for_update( $update ) {
 		switch ( $update->type ) {
 			case 'core':
+<<<<<<< HEAD
 				return 'WordPress'; // Not translated.
+=======
+				return 'WordPress'; // Not translated
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			case 'theme':
 				$theme = wp_get_theme( $update->slug );

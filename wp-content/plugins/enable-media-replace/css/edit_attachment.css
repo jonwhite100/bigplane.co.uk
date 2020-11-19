@@ -1,12 +1,22 @@
 /* Styling for the edit attachment screen */
+<<<<<<< HEAD
 #emr-replace-box .previewwrapper, #emr-showthumbs-box .previewwrapper {
+=======
+#emr-replace-box .previewwrapper {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   display: inline-block;
   position: relative;
   clear: both;
   margin: 3px 0; }
+<<<<<<< HEAD
   #emr-replace-box .previewwrapper img, #emr-showthumbs-box .previewwrapper img {
     max-width: 100%; }
   #emr-replace-box .previewwrapper span.label, #emr-showthumbs-box .previewwrapper span.label {
+=======
+  #emr-replace-box .previewwrapper img {
+    max-width: 100%; }
+  #emr-replace-box .previewwrapper span.label {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     font-size: 14px;
     color: #fff;
     position: absolute;

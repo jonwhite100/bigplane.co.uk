@@ -47,7 +47,17 @@ class IXR_Server
                 die('XML-RPC server accepts POST requests only.');
             }
 
+<<<<<<< HEAD
             $data = file_get_contents('php://input');
+=======
+            global $HTTP_RAW_POST_DATA;
+            if (empty($HTTP_RAW_POST_DATA)) {
+                // workaround for a bug in PHP 5.2.2 - http://bugs.php.net/bug.php?id=41293
+                $data = file_get_contents('php://input');
+            } else {
+                $data =& $HTTP_RAW_POST_DATA;
+            }
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
         $this->message = new IXR_Message($data);
         if (!$this->message->parse()) {

@@ -1,7 +1,11 @@
 /**
  * This file is used on media-upload.php which has been replaced by media-new.php and upload.php
  *
+<<<<<<< HEAD
  * @deprecated 3.5.0
+=======
+ * @deprecated  3.5.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @output wp-admin/js/media-gallery.js
  */
 
@@ -11,7 +15,11 @@ jQuery(function($) {
 	 * Adds a click event handler to the element with a 'wp-gallery' class.
 	 */
 	$( 'body' ).bind( 'click.wp-gallery', function(e) {
+<<<<<<< HEAD
 		var target = $( e.target ), id, img_size, nonceValue;
+=======
+		var target = $( e.target ), id, img_size;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		if ( target.hasClass( 'wp-set-header' ) ) {
 			// Opens the image to preview it full size.
@@ -21,15 +29,24 @@ jQuery(function($) {
 			// Sets the image as background of the theme.
 			id = target.data( 'attachment-id' );
 			img_size = $( 'input[name="attachments[' + id + '][image-size]"]:checked').val();
+<<<<<<< HEAD
 			nonceValue = $( '#_wpnonce' ).val() && '';
 
 			/**
 			 * This Ajax action has been deprecated since 3.5.0, see custom-background.php
+=======
+
+			/**
+			 * This AJAX action has been deprecated since 3.5.0, see custom-background.php
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			jQuery.post(ajaxurl, {
 				action: 'set-background-image',
 				attachment_id: id,
+<<<<<<< HEAD
 				_ajax_nonce: nonceValue,
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				size: img_size
 			}, function() {
 				var win = window.dialogArguments || opener || parent || top;

@@ -125,12 +125,21 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 *
 	 * @since 4.3.0
 	 *
+<<<<<<< HEAD
 	 * @throws Exception If $id is not valid for this setting type.
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      A specific ID of the setting.
 	 *                                      Can be a theme mod or option name.
 	 * @param array                $args    Optional. Setting arguments.
+=======
+	 * @param WP_Customize_Manager $manager Bootstrap Customizer instance.
+	 * @param string               $id      An specific ID of the setting. Can be a
+	 *                                      theme mod or option name.
+	 * @param array                $args    Optional. Setting arguments.
+	 *
+	 * @throws Exception If $id is not valid for this setting type.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( WP_Customize_Manager $manager, $id, array $args = array() ) {
 		if ( empty( $manager->nav_menus ) ) {
@@ -156,7 +165,11 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 * @return array Instance data.
 	 */
 	public function value() {
+<<<<<<< HEAD
 		if ( $this->is_previewed && get_current_blog_id() === $this->_previewed_blog_id ) {
+=======
+		if ( $this->is_previewed && $this->_previewed_blog_id === get_current_blog_id() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$undefined  = new stdClass(); // Symbol.
 			$post_value = $this->post_value( $undefined );
 
@@ -179,7 +192,11 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 					$value['auto_add'] = false;
 
 					if ( isset( $nav_menu_options['auto_add'] ) && is_array( $nav_menu_options['auto_add'] ) ) {
+<<<<<<< HEAD
 						$value['auto_add'] = in_array( $term->term_id, $nav_menu_options['auto_add'], true );
+=======
+						$value['auto_add'] = in_array( $term->term_id, $nav_menu_options['auto_add'] );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					}
 				}
 			}
@@ -188,7 +205,10 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 				$value = $this->default;
 			}
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $value;
 	}
 
@@ -286,7 +306,11 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 				)
 			);
 		}
+<<<<<<< HEAD
 		// @todo Add support for $args['hide_empty'] === true.
+=======
+		// @todo add support for $args['hide_empty'] === true
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		return $menus;
 	}
@@ -382,10 +406,17 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 * @since 4.3.0
 	 *
 	 * @param array $nav_menu_options Nav menu options including auto_add.
+<<<<<<< HEAD
 	 * @return array (Maybe) modified nav menu options.
 	 */
 	public function filter_nav_menu_options( $nav_menu_options ) {
 		if ( get_current_blog_id() !== $this->_previewed_blog_id ) {
+=======
+	 * @return array (Kaybe) modified nav menu options.
+	 */
+	public function filter_nav_menu_options( $nav_menu_options ) {
+		if ( $this->_previewed_blog_id !== get_current_blog_id() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return $nav_menu_options;
 		}
 
@@ -556,7 +587,11 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 				}
 
 				$post_value = $setting->post_value( null );
+<<<<<<< HEAD
 				if ( ! is_null( $post_value ) && intval( $post_value ) === $this->previous_term_id ) {
+=======
+				if ( ! is_null( $post_value ) && $this->previous_term_id === intval( $post_value ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$this->manager->set_post_value( $setting->id, $this->term_id );
 					$setting->save();
 				}
@@ -603,8 +638,12 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 			$nav_menu_options['auto_add'] = array();
 		}
 
+<<<<<<< HEAD
 		$i = array_search( $menu_id, $nav_menu_options['auto_add'], true );
 
+=======
+		$i = array_search( $menu_id, $nav_menu_options['auto_add'] );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( $auto_add && false === $i ) {
 			array_push( $nav_menu_options['auto_add'], $this->term_id );
 		} elseif ( ! $auto_add && false !== $i ) {

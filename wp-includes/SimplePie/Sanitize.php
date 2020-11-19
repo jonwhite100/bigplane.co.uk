@@ -5,7 +5,11 @@
  * A PHP-Based RSS and Atom Feed Framework.
  * Takes the hard work out of managing a complete RSS/Atom solution.
  *
+<<<<<<< HEAD
  * Copyright (c) 2004-2016, Ryan Parman, Sam Sneddon, Ryan McCue, and contributors
+=======
+ * Copyright (c) 2004-2012, Ryan Parman, Geoffrey Sneddon, Ryan McCue, and contributors
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are
@@ -33,9 +37,16 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @package SimplePie
+<<<<<<< HEAD
  * @copyright 2004-2016 Ryan Parman, Sam Sneddon, Ryan McCue
  * @author Ryan Parman
  * @author Sam Sneddon
+=======
+ * @version 1.3.1
+ * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
+ * @author Ryan Parman
+ * @author Geoffrey Sneddon
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
@@ -60,8 +71,12 @@ class SimplePie_Sanitize
 	var $image_handler = '';
 	var $strip_htmltags = array('base', 'blink', 'body', 'doctype', 'embed', 'font', 'form', 'frame', 'frameset', 'html', 'iframe', 'input', 'marquee', 'meta', 'noscript', 'object', 'param', 'script', 'style');
 	var $encode_instead_of_strip = false;
+<<<<<<< HEAD
 	var $strip_attributes = array('bgsound', 'expr', 'id', 'style', 'onclick', 'onerror', 'onfinish', 'onmouseover', 'onmouseout', 'onfocus', 'onblur', 'lowsrc', 'dynsrc');
 	var $add_attributes = array('audio' => array('preload' => 'none'), 'iframe' => array('sandbox' => 'allow-scripts allow-same-origin'), 'video' => array('preload' => 'none'));
+=======
+	var $strip_attributes = array('bgsound', 'class', 'expr', 'id', 'style', 'onclick', 'onerror', 'onfinish', 'onmouseover', 'onmouseout', 'onfocus', 'onblur', 'lowsrc', 'dynsrc');
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	var $strip_comments = false;
 	var $output_encoding = 'UTF-8';
 	var $enable_cache = true;
@@ -160,7 +175,11 @@ class SimplePie_Sanitize
 		$this->encode_instead_of_strip = (bool) $encode;
 	}
 
+<<<<<<< HEAD
 	public function strip_attributes($attribs = array('bgsound', 'expr', 'id', 'style', 'onclick', 'onerror', 'onfinish', 'onmouseover', 'onmouseout', 'onfocus', 'onblur', 'lowsrc', 'dynsrc'))
+=======
+	public function strip_attributes($attribs = array('bgsound', 'class', 'expr', 'id', 'style', 'onclick', 'onerror', 'onfinish', 'onmouseover', 'onmouseout', 'onfocus', 'onblur', 'lowsrc', 'dynsrc'))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	{
 		if ($attribs)
 		{
@@ -179,6 +198,7 @@ class SimplePie_Sanitize
 		}
 	}
 
+<<<<<<< HEAD
 	public function add_attributes($attribs = array('audio' => array('preload' => 'none'), 'iframe' => array('sandbox' => 'allow-scripts allow-same-origin'), 'video' => array('preload' => 'none')))
 	{
 		if ($attribs)
@@ -198,6 +218,8 @@ class SimplePie_Sanitize
 		}
 	}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	public function strip_comments($strip = false)
 	{
 		$this->strip_comments = (bool) $strip;
@@ -268,22 +290,37 @@ class SimplePie_Sanitize
 
 				if (!class_exists('DOMDocument'))
 				{
+<<<<<<< HEAD
 					throw new SimplePie_Exception('DOMDocument not found, unable to use sanitizer');
 				}
 				$document = new DOMDocument();
 				$document->encoding = 'UTF-8';
 
+=======
+					$this->registry->call('Misc', 'error', array('DOMDocument not found, unable to use sanitizer', E_USER_WARNING, __FILE__, __LINE__));
+					return '';
+				}
+				$document = new DOMDocument();
+				$document->encoding = 'UTF-8';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$data = $this->preprocess($data, $type);
 
 				set_error_handler(array('SimplePie_Misc', 'silence_errors'));
 				$document->loadHTML($data);
 				restore_error_handler();
 
+<<<<<<< HEAD
 				$xpath = new DOMXPath($document);
 
 				// Strip comments
 				if ($this->strip_comments)
 				{
+=======
+				// Strip comments
+				if ($this->strip_comments)
+				{
+					$xpath = new DOMXPath($document);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$comments = $xpath->query('//comment()');
 
 					foreach ($comments as $comment)
@@ -299,7 +336,11 @@ class SimplePie_Sanitize
 				{
 					foreach ($this->strip_htmltags as $tag)
 					{
+<<<<<<< HEAD
 						$this->strip_tag($tag, $document, $xpath, $type);
+=======
+						$this->strip_tag($tag, $document, $type);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					}
 				}
 
@@ -307,6 +348,7 @@ class SimplePie_Sanitize
 				{
 					foreach ($this->strip_attributes as $attrib)
 					{
+<<<<<<< HEAD
 						$this->strip_attr($attrib, $xpath);
 					}
 				}
@@ -316,6 +358,9 @@ class SimplePie_Sanitize
 					foreach ($this->add_attributes as $tag => $valuePairs)
 					{
 						$this->add_attr($tag, $valuePairs, $document);
+=======
+						$this->strip_attr($attrib, $document);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					}
 				}
 
@@ -354,7 +399,11 @@ class SimplePie_Sanitize
 									}
 									else
 									{
+<<<<<<< HEAD
 										trigger_error("$this->cache_location is not writable. Make sure you've set the correct relative or absolute path, and that the location is server-writable.", E_USER_WARNING);
+=======
+										trigger_error("$this->cache_location is not writeable. Make sure you've set the correct relative or absolute path, and that the location is server-writable.", E_USER_WARNING);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 									}
 								}
 							}
@@ -362,10 +411,26 @@ class SimplePie_Sanitize
 					}
 				}
 
+<<<<<<< HEAD
 				// Get content node
 				$div = $document->getElementsByTagName('body')->item(0)->firstChild;
 				// Finally, convert to a HTML string
 				$data = trim($document->saveHTML($div));
+=======
+				// Remove the DOCTYPE
+				// Seems to cause segfaulting if we don't do this
+				if ($document->firstChild instanceof DOMDocumentType)
+				{
+					$document->removeChild($document->firstChild);
+				}
+
+				// Move everything from the body to the root
+				$real_body = $document->getElementsByTagName('body')->item(0)->childNodes->item(0);
+				$document->replaceChild($real_body, $document->firstChild);
+
+				// Finally, convert to a HTML string
+				$data = trim($document->saveHTML());
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 				if ($this->remove_div)
 				{
@@ -403,7 +468,10 @@ class SimplePie_Sanitize
 	protected function preprocess($html, $type)
 	{
 		$ret = '';
+<<<<<<< HEAD
 		$html = preg_replace('%</?(?:html|body)[^>]*?'.'>%is', '', $html);
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ($type & ~SIMPLEPIE_CONSTRUCT_XHTML)
 		{
 			// Atom XHTML constructs are wrapped with a div by default
@@ -476,8 +544,14 @@ class SimplePie_Sanitize
 		}
 	}
 
+<<<<<<< HEAD
 	protected function strip_tag($tag, $document, $xpath, $type)
 	{
+=======
+	protected function strip_tag($tag, $document, $type)
+	{
+		$xpath = new DOMXPath($document);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$elements = $xpath->query('body//' . $tag);
 		if ($this->encode_instead_of_strip)
 		{
@@ -560,8 +634,14 @@ class SimplePie_Sanitize
 		}
 	}
 
+<<<<<<< HEAD
 	protected function strip_attr($attrib, $xpath)
 	{
+=======
+	protected function strip_attr($attrib, $document)
+	{
+		$xpath = new DOMXPath($document);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$elements = $xpath->query('//*[@' . $attrib . ']');
 
 		foreach ($elements as $element)
@@ -569,6 +649,7 @@ class SimplePie_Sanitize
 			$element->removeAttribute($attrib);
 		}
 	}
+<<<<<<< HEAD
 
 	protected function add_attr($tag, $valuePairs, $document)
 	{
@@ -581,4 +662,6 @@ class SimplePie_Sanitize
 			}
 		}
 	}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

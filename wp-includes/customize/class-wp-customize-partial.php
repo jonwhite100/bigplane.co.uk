@@ -68,7 +68,11 @@ class WP_Customize_Partial {
 	 * IDs for settings tied to the partial.
 	 *
 	 * @since 4.5.0
+<<<<<<< HEAD
 	 * @var string[]
+=======
+	 * @var array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $settings;
 
@@ -97,11 +101,18 @@ class WP_Customize_Partial {
 	 * Render callback.
 	 *
 	 * @since 4.5.0
+<<<<<<< HEAD
 	 *
 	 * @see WP_Customize_Partial::render()
 	 * @var callable Callback is called with one argument, the instance of
 	 *               WP_Customize_Partial. The callback can either echo the
 	 *               partial or return the partial as a string, or return false if error.
+=======
+	 * @see WP_Customize_Partial::render()
+	 * @var callable Callback is called with one argument, the instance of
+	 *                 WP_Customize_Partial. The callback can either echo the
+	 *                 partial or return the partial as a string, or return false if error.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $render_callback;
 
@@ -134,6 +145,7 @@ class WP_Customize_Partial {
 	 *
 	 * @param WP_Customize_Selective_Refresh $component Customize Partial Refresh plugin instance.
 	 * @param string                         $id        Control ID.
+<<<<<<< HEAD
 	 * @param array                          $args {
 	 *     Optional. Array of properties for the new Partials object. Default empty array.
 	 *
@@ -155,6 +167,12 @@ class WP_Customize_Partial {
 	 *     @type bool     $fallback_refresh      Whether to refresh the entire preview in case a partial cannot be refreshed.
 	 *                                           A partial render is considered a failure if the render_callback returns
 	 *                                           false.
+=======
+	 * @param array                          $args      {
+	 *     Optional. Arguments to override class property defaults.
+	 *
+	 *     @type array|string $settings All settings IDs tied to the partial. If undefined, `$id` will be used.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * }
 	 */
 	public function __construct( WP_Customize_Selective_Refresh $component, $id, $args = array() ) {

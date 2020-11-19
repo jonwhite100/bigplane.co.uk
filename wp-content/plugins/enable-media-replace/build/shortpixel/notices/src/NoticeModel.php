@@ -3,6 +3,7 @@ namespace EnableMediaReplace\Notices;
 
 class NoticeModel //extends ShortPixelModel
 {
+<<<<<<< HEAD
   public $message; // The message we want to convey.
   public $details = array(); // extra details, like the files involved. Something could be hideable in the future.
   public $code;
@@ -19,6 +20,16 @@ class NoticeModel //extends ShortPixelModel
   public $notice_action; // empty unless for display. Ajax action to talk back to controller.
   protected $callback; // empty unless callback is needed
 
+=======
+  public $message;
+  public $code;
+
+  protected $viewed = false;
+  public $is_persistent = false;  // This is a fatal issue, display until something was fixed.
+  public $is_removable = true; // if removable, display a notice dialog with red X or so.
+  public $messageType = self::NOTICE_NORMAL;
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   public static $icons = array();
 
   const NOTICE_NORMAL = 1;
@@ -26,7 +37,11 @@ class NoticeModel //extends ShortPixelModel
   const NOTICE_SUCCESS = 3;
   const NOTICE_WARNING = 4;
 
+<<<<<<< HEAD
   /** Use this model in conjunction with NoticeController, do not call directly */
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   public function __construct($message, $messageType = self::NOTICE_NORMAL)
   {
       $this->message = $message;
@@ -36,6 +51,7 @@ class NoticeModel //extends ShortPixelModel
 
   public function isDone()
   {
+<<<<<<< HEAD
     // check suppressed
     if ($this->is_dismissed && ! is_null($this->suppress_until))
     {
@@ -47,10 +63,13 @@ class NoticeModel //extends ShortPixelModel
         }
     }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     if ($this->viewed && ! $this->is_persistent)
       return true;
     else
       return false;
+<<<<<<< HEAD
   }
 
   public function getID()
@@ -111,6 +130,9 @@ class NoticeModel //extends ShortPixelModel
       {
         $this->callback = $callback;
       }
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   }
 
   public static function setIcon($notice_type, $icon)
@@ -134,11 +156,14 @@ class NoticeModel //extends ShortPixelModel
     self::$icons[$type] = $icon;
   }
 
+<<<<<<< HEAD
   private function checkIncomplete($var)
   {
      return ($var instanceof \__PHP_Incomplete_Class);
   }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   public function getForDisplay()
   {
     $this->viewed = true;
@@ -146,6 +171,7 @@ class NoticeModel //extends ShortPixelModel
 
     $icon = '';
 
+<<<<<<< HEAD
     if ($this->callback)
     {
       if (is_array($this->callback))
@@ -168,6 +194,8 @@ class NoticeModel //extends ShortPixelModel
         return;
     }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     switch($this->messageType)
     {
       case self::NOTICE_ERROR:
@@ -201,6 +229,7 @@ class NoticeModel //extends ShortPixelModel
 
     if ($this->is_persistent)
     {
+<<<<<<< HEAD
       $class .= 'is-persistent ';
     }
 
@@ -261,5 +290,14 @@ class NoticeModel //extends ShortPixelModel
       );";
       return "\n jQuery(document).ready(function(){ \n" . $js . "\n});";
   }
+=======
+      $class .= '';
+    }
+
+    return "<div class='$class'>" . $icon . "<p>" . $this->message . "</p></div>";
+
+  }
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 }

@@ -4,9 +4,15 @@
 ** Akismet API: http://akismet.com/development/api/
 **/
 
+<<<<<<< HEAD
 add_filter( 'wpcf7_spam', 'wpcf7_akismet', 10, 2 );
 
 function wpcf7_akismet( $spam, $submission ) {
+=======
+add_filter( 'wpcf7_spam', 'wpcf7_akismet', 10, 1 );
+
+function wpcf7_akismet( $spam ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $spam ) {
 		return $spam;
 	}
@@ -32,8 +38,14 @@ function wpcf7_akismet( $spam, $submission ) {
 	$c['user_ip'] = $_SERVER['REMOTE_ADDR'];
 	$c['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 	$c['referrer'] = $_SERVER['HTTP_REFERER'];
+<<<<<<< HEAD
 	$c['comment_type'] = 'contact-form';
 	$c['comment_date_gmt'] = $submission->get_meta( 'timestamp' );
+=======
+
+	// http://blog.akismet.com/2012/06/19/pro-tip-tell-us-your-comment_type/
+	$c['comment_type'] = 'contact-form';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( $permalink = get_permalink() ) {
 		$c['permalink'] = $permalink;
@@ -50,6 +62,11 @@ function wpcf7_akismet( $spam, $submission ) {
 	if ( wpcf7_akismet_comment_check( $c ) ) {
 		$spam = true;
 
+<<<<<<< HEAD
+=======
+		$submission = WPCF7_Submission::get_instance();
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$submission->add_spam_log( array(
 			'agent' => 'akismet',
 			'reason' => __( "Akismet returns a spam response.", 'contact-form-7' ),

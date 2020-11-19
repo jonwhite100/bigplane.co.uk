@@ -32,8 +32,13 @@ class WP_HTTP_Requests_Hooks extends Requests_Hooks {
 	/**
 	 * Constructor.
 	 *
+<<<<<<< HEAD
 	 * @param string $url     URL to request.
 	 * @param array  $request Request data in WP_Http format.
+=======
+	 * @param string $url URL to request.
+	 * @param array $request Request data in WP_Http format.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( $url, $request ) {
 		$this->url     = $url;
@@ -43,14 +48,23 @@ class WP_HTTP_Requests_Hooks extends Requests_Hooks {
 	/**
 	 * Dispatch a Requests hook to a native WordPress action.
 	 *
+<<<<<<< HEAD
 	 * @param string $hook       Hook name.
 	 * @param array  $parameters Parameters to pass to callbacks.
+=======
+	 * @param string $hook Hook name.
+	 * @param array $parameters Parameters to pass to callbacks.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return boolean True if hooks were run, false if nothing was hooked.
 	 */
 	public function dispatch( $hook, $parameters = array() ) {
 		$result = parent::dispatch( $hook, $parameters );
 
+<<<<<<< HEAD
 		// Handle back-compat actions.
+=======
+		// Handle back-compat actions
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		switch ( $hook ) {
 			case 'curl.before_send':
 				/** This action is documented in wp-includes/class-wp-http-curl.php */

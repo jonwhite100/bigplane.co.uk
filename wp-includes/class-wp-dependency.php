@@ -21,7 +21,11 @@ class _WP_Dependency {
 	 * The handle name.
 	 *
 	 * @since 2.6.0
+<<<<<<< HEAD
 	 * @var string
+=======
+	 * @var null
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $handle;
 
@@ -29,7 +33,11 @@ class _WP_Dependency {
 	 * The handle source.
 	 *
 	 * @since 2.6.0
+<<<<<<< HEAD
 	 * @var string
+=======
+	 * @var null
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $src;
 
@@ -37,7 +45,11 @@ class _WP_Dependency {
 	 * An array of handle dependencies.
 	 *
 	 * @since 2.6.0
+<<<<<<< HEAD
 	 * @var string[]
+=======
+	 * @var array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $deps = array();
 
@@ -55,7 +67,11 @@ class _WP_Dependency {
 	 * Additional arguments for the handle.
 	 *
 	 * @since 2.6.0
+<<<<<<< HEAD
 	 * @var array
+=======
+	 * @var null
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $args = null;  // Custom property, such as $in_footer or $media.
 
@@ -90,7 +106,11 @@ class _WP_Dependency {
 	 * @since 5.3.0 Formalized the existing `...$args` parameter by adding it
 	 *              to the function signature.
 	 *
+<<<<<<< HEAD
 	 * @param mixed ...$args Dependency information.
+=======
+	 * @param ...$args Dependency information.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( ...$args ) {
 		list( $this->handle, $this->src, $this->deps, $this->ver, $this->args ) = $args;
@@ -123,6 +143,10 @@ class _WP_Dependency {
 	 *
 	 * @param string $domain The translation textdomain.
 	 * @param string $path   Optional. The full file path to the directory containing translation files.
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool False if $domain is not a string, true otherwise.
 	 */
 	public function set_translations( $domain, $path = null ) {

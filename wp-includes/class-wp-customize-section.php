@@ -77,10 +77,17 @@ class WP_Customize_Section {
 	public $capability = 'edit_theme_options';
 
 	/**
+<<<<<<< HEAD
 	 * Theme features required to support the section.
 	 *
 	 * @since 3.4.0
 	 * @var string|string[]
+=======
+	 * Theme feature support for the section.
+	 *
+	 * @since 3.4.0
+	 * @var string|array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $theme_supports = '';
 
@@ -149,6 +156,7 @@ class WP_Customize_Section {
 	 * @since 3.4.0
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+<<<<<<< HEAD
 	 * @param string               $id      A specific ID of the section.
 	 * @param array                $args    {
 	 *     Optional. Array of properties for the new Section object. Default empty array.
@@ -168,6 +176,10 @@ class WP_Customize_Section {
 	 *                                               instead of inline above the first control.
 	 *                                               Default false.
 	 * }
+=======
+	 * @param string               $id      An specific ID of the section.
+	 * @param array                $args    Section arguments.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		$keys = array_keys( get_object_vars( $this ) );
@@ -393,6 +405,7 @@ class WP_Customize_Section {
 }
 
 /** WP_Customize_Themes_Section class */
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/customize/class-wp-customize-themes-section.php';
 
 /** WP_Customize_Sidebar_Section class */
@@ -400,3 +413,23 @@ require_once ABSPATH . WPINC . '/customize/class-wp-customize-sidebar-section.ph
 
 /** WP_Customize_Nav_Menu_Section class */
 require_once ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-section.php';
+=======
+require_once( ABSPATH . WPINC . '/customize/class-wp-customize-themes-section.php' );
+
+/** WP_Customize_Sidebar_Section class */
+require_once( ABSPATH . WPINC . '/customize/class-wp-customize-sidebar-section.php' );
+
+/** WP_Customize_Nav_Menu_Section class */
+require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-section.php' );
+
+/**
+ * WP_Customize_New_Menu_Section class
+ *
+ * As this file is deprecated, it will trigger a deprecation notice if instantiated. In a subsequent
+ * release, the require_once() here will be removed and _deprecated_file() will be called if file is
+ * required at all.
+ *
+ * @deprecated 4.9.0 This file is no longer used due to new menu creation UX.
+ */
+require_once( ABSPATH . WPINC . '/customize/class-wp-customize-new-menu-section.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

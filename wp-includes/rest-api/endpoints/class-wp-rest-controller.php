@@ -42,6 +42,7 @@ abstract class WP_REST_Controller {
 	 * Registers the routes for the objects of the controller.
 	 *
 	 * @since 4.7.0
+<<<<<<< HEAD
 	 *
 	 * @see register_rest_route()
 	 */
@@ -52,6 +53,12 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' must be overridden." ), __METHOD__ ),
 			'4.7'
 		);
+=======
+	 */
+	public function register_routes() {
+		/* translators: %s: register_routes() */
+		_doing_it_wrong( 'WP_REST_Controller::register_routes', sprintf( __( "Method '%s' must be overridden." ), __METHOD__ ), '4.7' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -59,6 +66,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
 	 */
@@ -69,6 +77,14 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|bool True if the request has read access, WP_Error object otherwise.
+	 */
+	public function get_items_permissions_check( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -76,6 +92,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
@@ -86,6 +103,14 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
+	 */
+	public function get_items( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -93,6 +118,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
 	 */
@@ -103,6 +129,14 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|bool True if the request has read access for the item, WP_Error object otherwise.
+	 */
+	public function get_item_permissions_check( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -110,6 +144,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
@@ -120,6 +155,14 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
+	 */
+	public function get_item( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -127,6 +170,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to create items, WP_Error object otherwise.
 	 */
@@ -137,6 +181,14 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|bool True if the request has access to create items, WP_Error object otherwise.
+	 */
+	public function create_item_permissions_check( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -144,6 +196,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
@@ -154,6 +207,14 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
+	 */
+	public function create_item( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -161,6 +222,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to update the item, WP_Error object otherwise.
 	 */
@@ -171,6 +233,14 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|bool True if the request has access to update the item, WP_Error object otherwise.
+	 */
+	public function update_item_permissions_check( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -178,6 +248,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
@@ -188,6 +259,14 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
+	 */
+	public function update_item( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -195,6 +274,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to delete the item, WP_Error object otherwise.
 	 */
@@ -205,6 +285,14 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|bool True if the request has access to delete the item, WP_Error object otherwise.
+	 */
+	public function delete_item_permissions_check( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -212,6 +300,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
@@ -222,6 +311,14 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
+	 */
+	public function delete_item( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -230,6 +327,7 @@ abstract class WP_REST_Controller {
 	 * @since 4.7.0
 	 *
 	 * @param WP_REST_Request $request Request object.
+<<<<<<< HEAD
 	 * @return object|WP_Error The prepared item, or WP_Error object on failure.
 	 */
 	protected function prepare_item_for_database( $request ) {
@@ -239,6 +337,13 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @return WP_Error|object The prepared item, or WP_Error object on failure.
+	 */
+	protected function prepare_item_for_database( $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -248,6 +353,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @param mixed           $item    WordPress representation of the item.
 	 * @param WP_REST_Request $request Request object.
+<<<<<<< HEAD
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function prepare_item_for_response( $item, $request ) {
@@ -257,6 +363,13 @@ abstract class WP_REST_Controller {
 			sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ),
 			array( 'status' => 405 )
 		);
+=======
+	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
+	 */
+	public function prepare_item_for_response( $item, $request ) {
+		/* translators: %s: Method name. */
+		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -288,7 +401,11 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param array  $data    Response data to filter.
+=======
+	 * @param array  $data    Response data to fiter.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @param string $context Context defined in the schema.
 	 * @return array Filtered response.
 	 */
@@ -296,7 +413,36 @@ abstract class WP_REST_Controller {
 
 		$schema = $this->get_item_schema();
 
+<<<<<<< HEAD
 		return rest_filter_response_by_context( $data, $schema, $context );
+=======
+		foreach ( $data as $key => $value ) {
+			if ( empty( $schema['properties'][ $key ] ) || empty( $schema['properties'][ $key ]['context'] ) ) {
+				continue;
+			}
+
+			if ( ! in_array( $context, $schema['properties'][ $key ]['context'], true ) ) {
+				unset( $data[ $key ] );
+				continue;
+			}
+
+			if ( 'object' === $schema['properties'][ $key ]['type'] && ! empty( $schema['properties'][ $key ]['properties'] ) ) {
+				foreach ( $schema['properties'][ $key ]['properties'] as $attribute => $details ) {
+					if ( empty( $details['context'] ) ) {
+						continue;
+					}
+
+					if ( ! in_array( $context, $details['context'], true ) ) {
+						if ( isset( $data[ $key ][ $attribute ] ) ) {
+							unset( $data[ $key ][ $attribute ] );
+						}
+					}
+				}
+			}
+		}
+
+		return $data;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -321,10 +467,15 @@ abstract class WP_REST_Controller {
 
 		$schema = $this->get_item_schema();
 
+<<<<<<< HEAD
 		if ( ! empty( $schema['properties'] ) ) {
 			foreach ( $schema['properties'] as &$property ) {
 				unset( $property['arg_options'] );
 			}
+=======
+		foreach ( $schema['properties'] as &$property ) {
+			unset( $property['arg_options'] );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		return $schema;
@@ -422,11 +573,19 @@ abstract class WP_REST_Controller {
 		$requested_fields = $this->get_fields_for_response( $request );
 
 		foreach ( $additional_fields as $field_name => $field_options ) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( ! $field_options['get_callback'] ) {
 				continue;
 			}
 
+<<<<<<< HEAD
 			if ( ! rest_is_field_included( $field_name, $requested_fields ) ) {
+=======
+			if ( ! in_array( $field_name, $requested_fields, true ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				continue;
 			}
 
@@ -559,7 +718,10 @@ abstract class WP_REST_Controller {
 		$properties = isset( $schema['properties'] ) ? $schema['properties'] : array();
 
 		$additional_fields = $this->get_additional_fields();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $additional_fields as $field_name => $field_options ) {
 			// For back-compat, include any field with an empty schema
 			// because it won't be present in $this->get_item_schema().
@@ -603,8 +765,13 @@ abstract class WP_REST_Controller {
 				}
 				// Check for nested fields if $field is not a direct match.
 				$nested_fields = explode( '.', $field );
+<<<<<<< HEAD
 				// A nested field is included so long as its top-level property
 				// is present in the schema.
+=======
+				// A nested field is included so long as its top-level property is
+				// present in the schema.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( in_array( $nested_fields[0], $fields, true ) ) {
 					$response_fields[] = $field;
 				}
@@ -626,6 +793,7 @@ abstract class WP_REST_Controller {
 	 */
 	public function get_endpoint_args_for_item_schema( $method = WP_REST_Server::CREATABLE ) {
 
+<<<<<<< HEAD
 		$schema                  = $this->get_item_schema();
 		$schema_properties       = ! empty( $schema['properties'] ) ? $schema['properties'] : array();
 		$endpoint_args           = array();
@@ -647,6 +815,11 @@ abstract class WP_REST_Controller {
 			'maxItems',
 			'uniqueItems',
 		);
+=======
+		$schema            = $this->get_item_schema();
+		$schema_properties = ! empty( $schema['properties'] ) ? $schema['properties'] : array();
+		$endpoint_args     = array();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		foreach ( $schema_properties as $field_id => $params ) {
 
@@ -672,7 +845,11 @@ abstract class WP_REST_Controller {
 				$endpoint_args[ $field_id ]['required'] = true;
 			}
 
+<<<<<<< HEAD
 			foreach ( $valid_schema_properties as $schema_prop ) {
+=======
+			foreach ( array( 'type', 'format', 'enum', 'items', 'properties', 'additionalProperties' ) as $schema_prop ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( isset( $params[ $schema_prop ] ) ) {
 					$endpoint_args[ $field_id ][ $schema_prop ] = $params[ $schema_prop ];
 				}

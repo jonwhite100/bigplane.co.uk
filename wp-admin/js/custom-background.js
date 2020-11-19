@@ -21,7 +21,11 @@
 		 *
 		 * @since 3.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$('#background-color').wpColorPicker({
 			change: function( event, ui ) {
@@ -37,7 +41,11 @@
 		 *
 		 * @since 4.7.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$( 'select[name="background-size"]' ).change( function() {
 			bgImage.css( 'background-size', $( this ).val() );
@@ -48,7 +56,11 @@
 		 *
 		 * @since 4.7.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$( 'input[name="background-position"]' ).change( function() {
 			bgImage.css( 'background-position', $( this ).val() );
@@ -59,7 +71,11 @@
 		 *
 		 * @since 3.0.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$( 'input[name="background-repeat"]' ).change( function() {
 			bgImage.css( 'background-repeat', $( this ).is( ':checked' ) ? 'repeat' : 'no-repeat' );
@@ -70,7 +86,11 @@
 		 *
 		 * @since 4.7.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$( 'input[name="background-attachment"]' ).change( function() {
 			bgImage.css( 'background-attachment', $( this ).is( ':checked' ) ? 'scroll' : 'fixed' );
@@ -81,7 +101,11 @@
 		 *
 		 * @since 3.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$('#choose-from-library-link').click( function( event ) {
 			var $el = $(this);
@@ -121,11 +145,16 @@
 			 *
 			 * @since 3.5.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  			 */
 			frame.on( 'select', function() {
 				// Grab the selected attachment.
 				var attachment = frame.state().get('selection').first();
+<<<<<<< HEAD
 				var nonceValue = $( '#_wpnonce' ).val() || '';
 
 				// Run an Ajax request to set the background image.
@@ -133,6 +162,13 @@
 					action: 'set-background-image',
 					attachment_id: attachment.id,
 					_ajax_nonce: nonceValue,
+=======
+
+				// Run an AJAX request to set the background image.
+				$.post( ajaxurl, {
+					action: 'set-background-image',
+					attachment_id: attachment.id,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					size: 'full'
 				}).done( function() {
 					// When the request completes, reload the window.

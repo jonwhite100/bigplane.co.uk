@@ -2,6 +2,7 @@
  * Colors
  */
 /**
+<<<<<<< HEAD
  * Deprecated colors.
  * Please avoid using these.
  */
@@ -36,6 +37,12 @@
  */
 /**
  * Border radii.
+=======
+ * Breakpoints & Media Queries
+ */
+/**
+ * Often re-used variables
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 /**
  * Breakpoint mixins
@@ -47,12 +54,22 @@
  * than the space allows.
  */
 /**
+<<<<<<< HEAD
  * Focus styles.
+=======
+ * Button states and focus styles
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 /**
  * Applies editor left position to the selector passed as argument
  */
 /**
+<<<<<<< HEAD
+=======
+ * Applies editor right position to the selector passed as argument
+ */
+/**
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * Styles that are reused verbatim in a few places
  */
 /**
@@ -65,11 +82,14 @@
 /**
  * Reset the WP Admin page styles for Gutenberg-like pages.
  */
+<<<<<<< HEAD
 :root {
   --wp-admin-theme-color: #007cba;
   --wp-admin-theme-color-darker-10: #006ba1;
   --wp-admin-theme-color-darker-20: #005a87; }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .nux-dot-tip::before, .nux-dot-tip::after {
   border-radius: 100%;
   content: " ";
@@ -79,7 +99,10 @@
 .nux-dot-tip::before {
   animation: nux-pulse 1.6s infinite cubic-bezier(0.17, 0.67, 0.92, 0.62);
   background: rgba(0, 115, 156, 0.9);
+<<<<<<< HEAD
   opacity: 0.9;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   height: 24px;
   right: -12px;
   top: -12px;
@@ -99,9 +122,14 @@
     transform: scale(1); } }
 
 .nux-dot-tip .components-popover__content {
+<<<<<<< HEAD
   width: 350px; }
   .nux-dot-tip .components-popover__content > div {
     padding: 20px 18px; }
+=======
+  padding: 5px 20px 5px 41px;
+  width: 350px; }
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   @media (min-width: 600px) {
     .nux-dot-tip .components-popover__content {
       width: 450px; } }
@@ -110,6 +138,7 @@
     left: 0;
     top: 0; }
 
+<<<<<<< HEAD
 .nux-dot-tip[data-y-axis="top"] {
   margin-top: -4px; }
 
@@ -138,6 +167,36 @@
   z-index: 1000001; }
   @media (max-width: 600px) {
     .nux-dot-tip[data-y-axis="left"] .components-popover__content, .nux-dot-tip[data-y-axis="center"] .components-popover__content, .nux-dot-tip[data-y-axis="right"] .components-popover__content {
+=======
+.nux-dot-tip.is-top {
+  margin-top: -4px; }
+
+.nux-dot-tip.is-bottom {
+  margin-top: 4px; }
+
+.nux-dot-tip.is-middle.is-left {
+  margin-right: -4px; }
+
+.nux-dot-tip.is-middle.is-right {
+  margin-right: 4px; }
+
+.nux-dot-tip.is-top .components-popover__content {
+  margin-bottom: 20px; }
+
+.nux-dot-tip.is-bottom .components-popover__content {
+  margin-top: 20px; }
+
+.nux-dot-tip.is-middle.is-left .components-popover__content {
+  margin-left: 20px; }
+
+.nux-dot-tip.is-middle.is-right .components-popover__content {
+  margin-right: 20px; }
+
+.nux-dot-tip:not(.is-mobile).is-left, .nux-dot-tip:not(.is-mobile).is-center, .nux-dot-tip:not(.is-mobile).is-right {
+  z-index: 1000001; }
+  @media (max-width: 600px) {
+    .nux-dot-tip:not(.is-mobile).is-left .components-popover__content, .nux-dot-tip:not(.is-mobile).is-center .components-popover__content, .nux-dot-tip:not(.is-mobile).is-right .components-popover__content {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       -ms-grid-row-align: end;
           align-self: end;
       right: 5px;
@@ -147,6 +206,7 @@
       left: 5px;
       width: auto; } }
 
+<<<<<<< HEAD
 .nux-dot-tip.components-popover:not([data-y-axis="middle"])[data-y-axis="right"] .components-popover__content {
   margin-left: 0; }
 
@@ -157,4 +217,16 @@
   margin-left: -12px; }
 
 .nux-dot-tip.components-popover.edit-post-more-menu__content:not([data-y-axis="middle"])[data-y-axis="left"] .components-popover__content {
+=======
+.nux-dot-tip.components-popover:not(.is-mobile):not(.is-middle).is-right .components-popover__content {
+  margin-left: 0; }
+
+.nux-dot-tip.components-popover:not(.is-mobile):not(.is-middle).is-left .components-popover__content {
+  margin-right: 0; }
+
+.nux-dot-tip.components-popover.edit-post-more-menu__content:not(.is-mobile):not(.is-middle).is-right .components-popover__content {
+  margin-left: -12px; }
+
+.nux-dot-tip.components-popover.edit-post-more-menu__content:not(.is-mobile):not(.is-middle).is-left .components-popover__content {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   margin-right: -12px; }

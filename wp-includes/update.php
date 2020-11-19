@@ -9,6 +9,7 @@
 /**
  * Check WordPress version against the newest version.
  *
+<<<<<<< HEAD
  * The WordPress version, PHP version, and locale is sent.
  *
  * Checks against the WordPress server at api.wordpress.org. Will only check
@@ -19,26 +20,50 @@
  * @global string $wp_version       Used to check against the newest WordPress version.
  * @global wpdb   $wpdb             WordPress database abstraction object.
  * @global string $wp_local_package Locale code of the package.
+=======
+ * The WordPress version, PHP version, and Locale is sent. Checks against the
+ * WordPress server at api.wordpress.org server. Will only check if WordPress
+ * isn't installing.
+ *
+ * @since 2.3.0
+ * @global string $wp_version       Used to check against the newest WordPress version.
+ * @global wpdb   $wpdb             WordPress database abstraction object.
+ * @global string $wp_local_package
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @param array $extra_stats Extra statistics to report to the WordPress.org API.
  * @param bool  $force_check Whether to bypass the transient cache and force a fresh update check. Defaults to false, true if $extra_stats is set.
  */
 function wp_version_check( $extra_stats = array(), $force_check = false ) {
+<<<<<<< HEAD
 	global $wpdb, $wp_local_package;
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( wp_installing() ) {
 		return;
 	}
 
+<<<<<<< HEAD
 	// Include an unmodified $wp_version.
 	require ABSPATH . WPINC . '/version.php';
+=======
+	global $wpdb, $wp_local_package;
+	// include an unmodified $wp_version
+	include( ABSPATH . WPINC . '/version.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$php_version = phpversion();
 
 	$current      = get_site_transient( 'update_core' );
 	$translations = wp_get_installed_translations( 'core' );
 
+<<<<<<< HEAD
 	// Invalidate the transient when $wp_version changes.
 	if ( is_object( $current ) && $wp_version !== $current->version_checked ) {
+=======
+	// Invalidate the transient when $wp_version changes
+	if ( is_object( $current ) && $wp_version != $current->version_checked ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$current = false;
 	}
 
@@ -52,10 +77,16 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 		$force_check = true;
 	}
 
+<<<<<<< HEAD
 	// Wait 1 minute between multiple version check requests.
 	$timeout          = MINUTE_IN_SECONDS;
 	$time_not_changed = isset( $current->last_checked ) && $timeout > ( time() - $current->last_checked );
 
+=======
+	// Wait 60 seconds between multiple version check requests
+	$timeout          = 60;
+	$time_not_changed = isset( $current->last_checked ) && $timeout > ( time() - $current->last_checked );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! $force_check && $time_not_changed ) {
 		return;
 	}
@@ -69,7 +100,11 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	 */
 	$locale = apply_filters( 'core_version_check_locale', get_locale() );
 
+<<<<<<< HEAD
 	// Update last_checked for current to prevent multiple blocking requests if request hangs.
+=======
+	// Update last_checked for current to prevent multiple blocking requests if request hangs
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$current->last_checked = time();
 	set_site_transient( 'update_core', $current );
 
@@ -139,7 +174,10 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	$url      = 'http://api.wordpress.org/core/version-check/1.7/?' . http_build_query( $query, null, '&' );
 	$http_url = $url;
 	$ssl      = wp_http_supports( array( 'ssl' ) );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $ssl ) {
 		$url = set_url_scheme( $url, 'https' );
 	}
@@ -157,7 +195,10 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	);
 
 	$response = wp_remote_post( $url, $options );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $ssl && is_wp_error( $response ) ) {
 		trigger_error(
 			sprintf(
@@ -170,7 +211,11 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 		$response = wp_remote_post( $http_url, $options );
 	}
 
+<<<<<<< HEAD
 	if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
+=======
+	if ( is_wp_error( $response ) || 200 != wp_remote_retrieve_response_code( $response ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return;
 	}
 
@@ -185,12 +230,20 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 
 	foreach ( $offers as &$offer ) {
 		foreach ( $offer as $offer_key => $value ) {
+<<<<<<< HEAD
 			if ( 'packages' === $offer_key ) {
+=======
+			if ( 'packages' == $offer_key ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$offer['packages'] = (object) array_intersect_key(
 					array_map( 'esc_url', $offer['packages'] ),
 					array_fill_keys( array( 'full', 'no_content', 'new_bundled', 'partial', 'rollback' ), '' )
 				);
+<<<<<<< HEAD
 			} elseif ( 'download' === $offer_key ) {
+=======
+			} elseif ( 'download' == $offer_key ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$offer['download'] = esc_url( $value );
 			} else {
 				$offer[ $offer_key ] = esc_html( $value );
@@ -232,7 +285,10 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 
 	if ( ! empty( $body['ttl'] ) ) {
 		$ttl = (int) $body['ttl'];
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( $ttl && ( time() + $ttl < wp_next_scheduled( 'wp_version_check' ) ) ) {
 			// Queue an event to re-run the update check in $ttl seconds.
 			wp_schedule_single_event( time() + $ttl, 'wp_version_check' );
@@ -242,7 +298,11 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	// Trigger background updates if running non-interactively, and we weren't called from the update handler.
 	if ( $doing_cron && ! doing_action( 'wp_maybe_auto_update' ) ) {
 		/**
+<<<<<<< HEAD
 		 * Fires during wp_cron, starting the auto-update process.
+=======
+		 * Fires during wp_cron, starting the auto update process.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * @since 3.9.0
 		 */
@@ -251,6 +311,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 }
 
 /**
+<<<<<<< HEAD
  * Checks for available updates to plugins based on the latest versions hosted on WordPress.org.
  *
  * Despite its name this function does not actually perform any updates, it only checks for available updates.
@@ -263,6 +324,16 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
  * @since 2.3.0
  *
  * @global string $wp_version The WordPress version string.
+=======
+ * Check plugin versions against the latest versions hosted on WordPress.org.
+ *
+ * The WordPress version, PHP version, and Locale is sent along with a list of
+ * all plugins installed. Checks against the WordPress server at
+ * api.wordpress.org. Will only check if WordPress isn't installing.
+ *
+ * @since 2.3.0
+ * @global string $wp_version Used to notify the WordPress version.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @param array $extra_stats Extra statistics to report to the WordPress.org API.
  */
@@ -271,12 +342,21 @@ function wp_update_plugins( $extra_stats = array() ) {
 		return;
 	}
 
+<<<<<<< HEAD
 	// Include an unmodified $wp_version.
 	require ABSPATH . WPINC . '/version.php';
 
 	// If running blog-side, bail unless we've not checked in the last 12 hours.
 	if ( ! function_exists( 'get_plugins' ) ) {
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+=======
+	// include an unmodified $wp_version
+	include( ABSPATH . WPINC . '/version.php' );
+
+	// If running blog-side, bail unless we've not checked in the last 12 hours
+	if ( ! function_exists( 'get_plugins' ) ) {
+		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$plugins      = get_plugins();
@@ -284,7 +364,10 @@ function wp_update_plugins( $extra_stats = array() ) {
 
 	$active  = get_option( 'active_plugins', array() );
 	$current = get_site_transient( 'update_plugins' );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! is_object( $current ) ) {
 		$current = new stdClass;
 	}
@@ -318,7 +401,10 @@ function wp_update_plugins( $extra_stats = array() ) {
 
 	if ( $time_not_changed && ! $extra_stats ) {
 		$plugin_changed = false;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $plugins as $file => $p ) {
 			$new_option->checked[ $file ] = $p['Version'];
 
@@ -336,13 +422,21 @@ function wp_update_plugins( $extra_stats = array() ) {
 			}
 		}
 
+<<<<<<< HEAD
 		// Bail if we've checked recently and if nothing has changed.
+=======
+		// Bail if we've checked recently and if nothing has changed
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! $plugin_changed ) {
 			return;
 		}
 	}
 
+<<<<<<< HEAD
 	// Update last_checked for current to prevent multiple blocking requests if request hangs.
+=======
+	// Update last_checked for current to prevent multiple blocking requests if request hangs
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$current->last_checked = time();
 	set_site_transient( 'update_plugins', $current );
 
@@ -364,7 +458,11 @@ function wp_update_plugins( $extra_stats = array() ) {
 	if ( $doing_cron ) {
 		$timeout = 30;
 	} else {
+<<<<<<< HEAD
 		// Three seconds, plus one extra second for every 10 plugins.
+=======
+		// Three seconds, plus one extra second for every 10 plugins
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$timeout = 3 + (int) ( count( $plugins ) / 10 );
 	}
 
@@ -386,13 +484,19 @@ function wp_update_plugins( $extra_stats = array() ) {
 	$url      = 'http://api.wordpress.org/plugins/update-check/1.1/';
 	$http_url = $url;
 	$ssl      = wp_http_supports( array( 'ssl' ) );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $ssl ) {
 		$url = set_url_scheme( $url, 'https' );
 	}
 
 	$raw_response = wp_remote_post( $url, $options );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $ssl && is_wp_error( $raw_response ) ) {
 		trigger_error(
 			sprintf(
@@ -405,11 +509,16 @@ function wp_update_plugins( $extra_stats = array() ) {
 		$raw_response = wp_remote_post( $http_url, $options );
 	}
 
+<<<<<<< HEAD
 	if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
+=======
+	if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return;
 	}
 
 	$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+<<<<<<< HEAD
 
 	foreach ( $response['plugins'] as &$plugin ) {
 		$plugin = (object) $plugin;
@@ -417,11 +526,18 @@ function wp_update_plugins( $extra_stats = array() ) {
 		if ( isset( $plugin->compatibility ) ) {
 			$plugin->compatibility = (object) $plugin->compatibility;
 
+=======
+	foreach ( $response['plugins'] as &$plugin ) {
+		$plugin = (object) $plugin;
+		if ( isset( $plugin->compatibility ) ) {
+			$plugin->compatibility = (object) $plugin->compatibility;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			foreach ( $plugin->compatibility as &$data ) {
 				$data = (object) $data;
 			}
 		}
 	}
+<<<<<<< HEAD
 
 	unset( $plugin, $data );
 
@@ -429,6 +545,12 @@ function wp_update_plugins( $extra_stats = array() ) {
 		$plugin = (object) $plugin;
 	}
 
+=======
+	unset( $plugin, $data );
+	foreach ( $response['no_update'] as &$plugin ) {
+		$plugin = (object) $plugin;
+	}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	unset( $plugin );
 
 	if ( is_array( $response ) ) {
@@ -446,6 +568,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 }
 
 /**
+<<<<<<< HEAD
  * Checks for available updates to themes based on the latest versions hosted on WordPress.org.
  *
  * Despite its name this function does not actually perform any updates, it only checks for available updates.
@@ -459,6 +582,16 @@ function wp_update_plugins( $extra_stats = array() ) {
  *
  * @global string $wp_version The WordPress version string.
  *
+=======
+ * Check theme versions against the latest versions hosted on WordPress.org.
+ *
+ * A list of all themes installed in sent to WP. Checks against the
+ * WordPress server at api.wordpress.org. Will only check if WordPress isn't
+ * installing.
+ *
+ * @since 2.7.0
+ *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param array $extra_stats Extra statistics to report to the WordPress.org API.
  */
 function wp_update_themes( $extra_stats = array() ) {
@@ -466,14 +599,22 @@ function wp_update_themes( $extra_stats = array() ) {
 		return;
 	}
 
+<<<<<<< HEAD
 	// Include an unmodified $wp_version.
 	require ABSPATH . WPINC . '/version.php';
+=======
+	// include an unmodified $wp_version
+	include( ABSPATH . WPINC . '/version.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$installed_themes = wp_get_themes();
 	$translations     = wp_get_installed_translations( 'themes' );
 
 	$last_update = get_site_transient( 'update_themes' );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! is_object( $last_update ) ) {
 		$last_update = new stdClass;
 	}
@@ -525,7 +666,10 @@ function wp_update_themes( $extra_stats = array() ) {
 
 	if ( $time_not_changed && ! $extra_stats ) {
 		$theme_changed = false;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $checked as $slug => $v ) {
 			if ( ! isset( $last_update->checked[ $slug ] ) || strval( $last_update->checked[ $slug ] ) !== strval( $v ) ) {
 				$theme_changed = true;
@@ -541,13 +685,21 @@ function wp_update_themes( $extra_stats = array() ) {
 			}
 		}
 
+<<<<<<< HEAD
 		// Bail if we've checked recently and if nothing has changed.
+=======
+		// Bail if we've checked recently and if nothing has changed
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! $theme_changed ) {
 			return;
 		}
 	}
 
+<<<<<<< HEAD
 	// Update last_checked for current to prevent multiple blocking requests if request hangs.
+=======
+	// Update last_checked for current to prevent multiple blocking requests if request hangs
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$last_update->last_checked = time();
 	set_site_transient( 'update_themes', $last_update );
 
@@ -569,7 +721,11 @@ function wp_update_themes( $extra_stats = array() ) {
 	if ( $doing_cron ) {
 		$timeout = 30;
 	} else {
+<<<<<<< HEAD
 		// Three seconds, plus one extra second for every 10 themes.
+=======
+		// Three seconds, plus one extra second for every 10 themes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$timeout = 3 + (int) ( count( $themes ) / 10 );
 	}
 
@@ -590,13 +746,19 @@ function wp_update_themes( $extra_stats = array() ) {
 	$url      = 'http://api.wordpress.org/themes/update-check/1.1/';
 	$http_url = $url;
 	$ssl      = wp_http_supports( array( 'ssl' ) );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $ssl ) {
 		$url = set_url_scheme( $url, 'https' );
 	}
 
 	$raw_response = wp_remote_post( $url, $options );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $ssl && is_wp_error( $raw_response ) ) {
 		trigger_error(
 			sprintf(
@@ -609,7 +771,11 @@ function wp_update_themes( $extra_stats = array() ) {
 		$raw_response = wp_remote_post( $http_url, $options );
 	}
 
+<<<<<<< HEAD
 	if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
+=======
+	if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return;
 	}
 
@@ -621,7 +787,10 @@ function wp_update_themes( $extra_stats = array() ) {
 
 	if ( is_array( $response ) ) {
 		$new_update->response     = $response['themes'];
+<<<<<<< HEAD
 		$new_update->no_update    = $response['no_update'];
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$new_update->translations = $response['translations'];
 	}
 
@@ -631,6 +800,7 @@ function wp_update_themes( $extra_stats = array() ) {
 /**
  * Performs WordPress automatic background updates.
  *
+<<<<<<< HEAD
  * Updates WordPress core plus any plugins and themes that have automatic updates enabled.
  *
  * @since 3.7.0
@@ -638,6 +808,13 @@ function wp_update_themes( $extra_stats = array() ) {
 function wp_maybe_auto_update() {
 	include_once ABSPATH . 'wp-admin/includes/admin.php';
 	require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+=======
+ * @since 3.7.0
+ */
+function wp_maybe_auto_update() {
+	include_once( ABSPATH . 'wp-admin/includes/admin.php' );
+	include_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$upgrader = new WP_Automatic_Updater;
 	$upgrader->run();
@@ -657,10 +834,15 @@ function wp_get_translation_updates() {
 		'update_plugins' => 'plugin',
 		'update_themes'  => 'theme',
 	);
+<<<<<<< HEAD
 
 	foreach ( $transients as $transient => $type ) {
 		$transient = get_site_transient( $transient );
 
+=======
+	foreach ( $transients as $transient => $type ) {
+		$transient = get_site_transient( $transient );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( empty( $transient->translations ) ) {
 			continue;
 		}
@@ -669,7 +851,10 @@ function wp_get_translation_updates() {
 			$updates[] = (object) $translation;
 		}
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return $updates;
 }
 
@@ -689,26 +874,37 @@ function wp_get_update_data() {
 	);
 
 	$plugins = current_user_can( 'update_plugins' );
+<<<<<<< HEAD
 
 	if ( $plugins ) {
 		$update_plugins = get_site_transient( 'update_plugins' );
 
+=======
+	if ( $plugins ) {
+		$update_plugins = get_site_transient( 'update_plugins' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! empty( $update_plugins->response ) ) {
 			$counts['plugins'] = count( $update_plugins->response );
 		}
 	}
 
 	$themes = current_user_can( 'update_themes' );
+<<<<<<< HEAD
 
 	if ( $themes ) {
 		$update_themes = get_site_transient( 'update_themes' );
 
+=======
+	if ( $themes ) {
+		$update_themes = get_site_transient( 'update_themes' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! empty( $update_themes->response ) ) {
 			$counts['themes'] = count( $update_themes->response );
 		}
 	}
 
 	$core = current_user_can( 'update_core' );
+<<<<<<< HEAD
 
 	if ( $core && function_exists( 'get_core_updates' ) ) {
 		$update_wordpress = get_core_updates( array( 'dismissed' => false ) );
@@ -717,6 +913,11 @@ function wp_get_update_data() {
 			&& ! in_array( $update_wordpress[0]->response, array( 'development', 'latest' ), true )
 			&& current_user_can( 'update_core' )
 		) {
+=======
+	if ( $core && function_exists( 'get_core_updates' ) ) {
+		$update_wordpress = get_core_updates( array( 'dismissed' => false ) );
+		if ( ! empty( $update_wordpress ) && ! in_array( $update_wordpress[0]->response, array( 'development', 'latest' ) ) && current_user_can( 'update_core' ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$counts['wordpress'] = 1;
 		}
 	}
@@ -727,22 +928,34 @@ function wp_get_update_data() {
 
 	$counts['total'] = $counts['plugins'] + $counts['themes'] + $counts['wordpress'] + $counts['translations'];
 	$titles          = array();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $counts['wordpress'] ) {
 		/* translators: %d: Number of available WordPress updates. */
 		$titles['wordpress'] = sprintf( __( '%d WordPress Update' ), $counts['wordpress'] );
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $counts['plugins'] ) {
 		/* translators: %d: Number of available plugin updates. */
 		$titles['plugins'] = sprintf( _n( '%d Plugin Update', '%d Plugin Updates', $counts['plugins'] ), $counts['plugins'] );
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $counts['themes'] ) {
 		/* translators: %d: Number of available theme updates. */
 		$titles['themes'] = sprintf( _n( '%d Theme Update', '%d Theme Updates', $counts['themes'] ), $counts['themes'] );
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $counts['translations'] ) {
 		$titles['translations'] = __( 'Translation Updates' );
 	}
@@ -774,6 +987,7 @@ function wp_get_update_data() {
  *
  * @since 2.8.0
  *
+<<<<<<< HEAD
  * @global string $wp_version The WordPress version string.
  */
 function _maybe_update_core() {
@@ -789,6 +1003,21 @@ function _maybe_update_core() {
 		return;
 	}
 
+=======
+ * @global string $wp_version
+ */
+function _maybe_update_core() {
+	// include an unmodified $wp_version
+	include( ABSPATH . WPINC . '/version.php' );
+
+	$current = get_site_transient( 'update_core' );
+
+	if ( isset( $current->last_checked, $current->version_checked ) &&
+		12 * HOUR_IN_SECONDS > ( time() - $current->last_checked ) &&
+		$current->version_checked == $wp_version ) {
+		return;
+	}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	wp_version_check();
 }
 /**
@@ -803,6 +1032,7 @@ function _maybe_update_core() {
  */
 function _maybe_update_plugins() {
 	$current = get_site_transient( 'update_plugins' );
+<<<<<<< HEAD
 
 	if ( isset( $current->last_checked )
 		&& 12 * HOUR_IN_SECONDS > ( time() - $current->last_checked )
@@ -810,6 +1040,11 @@ function _maybe_update_plugins() {
 		return;
 	}
 
+=======
+	if ( isset( $current->last_checked ) && 12 * HOUR_IN_SECONDS > ( time() - $current->last_checked ) ) {
+		return;
+	}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	wp_update_plugins();
 }
 
@@ -824,6 +1059,7 @@ function _maybe_update_plugins() {
  */
 function _maybe_update_themes() {
 	$current = get_site_transient( 'update_themes' );
+<<<<<<< HEAD
 
 	if ( isset( $current->last_checked )
 		&& 12 * HOUR_IN_SECONDS > ( time() - $current->last_checked )
@@ -831,6 +1067,11 @@ function _maybe_update_themes() {
 		return;
 	}
 
+=======
+	if ( isset( $current->last_checked ) && 12 * HOUR_IN_SECONDS > ( time() - $current->last_checked ) ) {
+		return;
+	}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	wp_update_themes();
 }
 
@@ -864,9 +1105,13 @@ function wp_clean_update_cache() {
 	} else {
 		delete_site_transient( 'update_plugins' );
 	}
+<<<<<<< HEAD
 
 	wp_clean_themes_cache();
 
+=======
+	wp_clean_themes_cache();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	delete_site_transient( 'update_core' );
 }
 

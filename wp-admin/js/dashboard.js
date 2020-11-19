@@ -23,7 +23,11 @@ jQuery(document).ready( function($) {
 	 *
 	 * @param {boolean} visible Should it be visible or not.
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	updateWelcomePanel = function( visible ) {
 		$.post( ajaxurl, {
@@ -64,7 +68,11 @@ jQuery(document).ready( function($) {
 	window.ajaxWidgets = ['dashboard_primary'];
 
 	/**
+<<<<<<< HEAD
 	 * Triggers widget updates via Ajax.
+=======
+	 * Triggers widget updates via AJAX.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 2.7.0
 	 *
@@ -72,7 +80,11 @@ jQuery(document).ready( function($) {
 	 *
 	 * @param {string} el Optional. Widget to fetch or none to update all.
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	window.ajaxPopulateWidgets = function(el) {
 		/**
@@ -81,7 +93,11 @@ jQuery(document).ready( function($) {
 		 * @param {number} i Number of half-seconds to use as the timeout.
 		 * @param {string} id ID of the element which is going to be checked for changes.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		function show(i, id) {
 			var p, e = $('#' + id + ' div.inside:visible').find('.widget-loading');
@@ -103,7 +119,11 @@ jQuery(document).ready( function($) {
 		// If we have received a specific element to fetch, check if it is valid.
 		if ( el ) {
 			el = el.toString();
+<<<<<<< HEAD
 			// If the element is available as Ajax widget, show it.
+=======
+			// If the element is available as AJAX widget, show it.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( $.inArray(el, ajaxWidgets) !== -1 ) {
 				// Show element without any delay.
 				show(0, el);
@@ -127,7 +147,11 @@ jQuery(document).ready( function($) {
 	 *
 	 * @global
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	window.quickPressLoad = function() {
 		var act = $('#quickpost-action'), t;
@@ -159,7 +183,11 @@ jQuery(document).ready( function($) {
 			/**
 			 * Highlights the latest post for one second.
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  			 */
 			function highlightLatestPost () {
 				var latestPost = $('.drafts ul li').first();
@@ -189,7 +217,11 @@ jQuery(document).ready( function($) {
 	 *
 	 * @since 3.6.0
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	function autoResizeTextarea() {
 		// When IE8 or older is used to render this document, exit.
@@ -266,11 +298,14 @@ jQuery( function( $ ) {
 	'use strict';
 
 	var communityEventsData = window.communityEventsData || {},
+<<<<<<< HEAD
 		dateI18n = wp.date.dateI18n,
 		format = wp.date.format,
 		sprintf = wp.i18n.sprintf,
 		__ = wp.i18n.__,
 		_x = wp.i18n._x,
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		app;
 
 	/**
@@ -290,7 +325,11 @@ jQuery( function( $ ) {
 		 *
 		 * @since 4.8.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		init: function() {
 			if ( app.initialized ) {
@@ -324,7 +363,11 @@ jQuery( function( $ ) {
 			/**
 			 * Filters events based on entered location.
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			$container.on( 'submit', '.community-events-form', function( event ) {
 				var location = $.trim( $( '#community-events-location' ).val() );
@@ -361,7 +404,11 @@ jQuery( function( $ ) {
 		 * @param {event|string} action 'show' or 'hide' to specify a state;
 		 *                              or an event object to flip between states.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		toggleLocationForm: function( action ) {
 			var $toggleButton = $( '.community-events-toggle-location' ),
@@ -406,7 +453,11 @@ jQuery( function( $ ) {
 		 *
 		 * @param {Object} requestParams REST API Request parameters object.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		getEvents: function( requestParams ) {
 			var initiatedBy,
@@ -446,7 +497,10 @@ jQuery( function( $ ) {
 				.fail( function() {
 					app.renderEventsTemplate({
 						'location' : false,
+<<<<<<< HEAD
 						'events'   : [],
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						'error'    : true
 					}, initiatedBy );
 				});
@@ -461,7 +515,11 @@ jQuery( function( $ ) {
 		 * @param {string} initiatedBy    'user' to indicate that this was triggered manually by the user;
 		 *                                'app' to indicate it was triggered automatically by the app itself.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		renderEventsTemplate: function( templateParams, initiatedBy ) {
 			var template,
@@ -471,11 +529,14 @@ jQuery( function( $ ) {
 				$locationMessage = $( '#community-events-location-message' ),
 				$results         = $( '.community-events-results' );
 
+<<<<<<< HEAD
 			templateParams.events = app.populateDynamicEventFields(
 				templateParams.events,
 				communityEventsData.time_format
 			);
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			/*
 			 * Hide all toggleable elements by default, to keep the logic simple.
 			 * Otherwise, each block below would have to turn hide everything that
@@ -587,6 +648,7 @@ jQuery( function( $ ) {
 			} else {
 				app.toggleLocationForm( 'show' );
 			}
+<<<<<<< HEAD
 		},
 
 		/**
@@ -776,6 +838,8 @@ jQuery( function( $ ) {
 			}
 
 			return formattedDate;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	};
 

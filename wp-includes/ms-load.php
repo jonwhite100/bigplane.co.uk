@@ -20,7 +20,11 @@ function is_subdomain_install() {
 		return SUBDOMAIN_INSTALL;
 	}
 
+<<<<<<< HEAD
 	return ( defined( 'VHOST' ) && 'yes' === VHOST );
+=======
+	return ( defined( 'VHOST' ) && VHOST == 'yes' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -32,7 +36,11 @@ function is_subdomain_install() {
  * @access private
  * @since 3.1.0
  *
+<<<<<<< HEAD
  * @return string[] Array of absolute paths to files to include.
+=======
+ * @return array Files to include.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_get_active_network_plugins() {
 	$active_plugins = (array) get_site_option( 'active_sitewide_plugins', array() );
@@ -45,9 +53,15 @@ function wp_get_active_network_plugins() {
 	sort( $active_plugins );
 
 	foreach ( $active_plugins as $plugin ) {
+<<<<<<< HEAD
 		if ( ! validate_file( $plugin )                     // $plugin must validate as file.
 			&& '.php' === substr( $plugin, -4 )             // $plugin must end with '.php'.
 			&& file_exists( WP_PLUGIN_DIR . '/' . $plugin ) // $plugin must exist.
+=======
+		if ( ! validate_file( $plugin ) // $plugin must validate as file
+			&& '.php' == substr( $plugin, -4 ) // $plugin must end with '.php'
+			&& file_exists( WP_PLUGIN_DIR . '/' . $plugin ) // $plugin must exist
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			) {
 			$plugins[] = WP_PLUGIN_DIR . '/' . $plugin;
 		}
@@ -78,14 +92,22 @@ function ms_site_check() {
 	 *
 	 * @since 3.0.0
 	 *
+<<<<<<< HEAD
 	 * @param bool|null $check Whether to skip the blog status check. Default null.
+=======
+	 * @param bool null Whether to skip the blog status check. Default null.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	$check = apply_filters( 'ms_site_check', null );
 	if ( null !== $check ) {
 		return true;
 	}
 
+<<<<<<< HEAD
 	// Allow super admins to see blocked sites.
+=======
+	// Allow super admins to see blocked sites
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( is_super_admin() ) {
 		return true;
 	}
@@ -115,7 +137,11 @@ function ms_site_check() {
 		}
 	}
 
+<<<<<<< HEAD
 	if ( '1' == $blog->archived || '1' == $blog->spam ) {
+=======
+	if ( $blog->archived == '1' || $blog->spam == '1' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( file_exists( WP_CONTENT_DIR . '/blog-suspended.php' ) ) {
 			return WP_CONTENT_DIR . '/blog-suspended.php';
 		} else {
@@ -203,13 +229,21 @@ function get_site_by_path( $domain, $path, $segments = null ) {
 	 *
 	 * @since 3.9.0
 	 *
+<<<<<<< HEAD
 	 * @param null|false|WP_Site $site     Site value to return by path. Default null
 	 *                                     to continue retrieving the site.
+=======
+	 * @param null|false|WP_Site $site     Site value to return by path.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @param string             $domain   The requested domain.
 	 * @param string             $path     The requested path, in full.
 	 * @param int|null           $segments The suggested number of paths to consult.
 	 *                                     Default null, meaning the entire path was to be consulted.
+<<<<<<< HEAD
 	 * @param string[]           $paths    The paths to search for, based on $path and $segments.
+=======
+	 * @param array              $paths    The paths to search for, based on $path and $segments.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	$pre = apply_filters( 'pre_get_site_by_path', null, $domain, $path, $segments, $paths );
 	if ( null !== $pre ) {
@@ -221,7 +255,11 @@ function get_site_by_path( $domain, $path, $segments = null ) {
 
 	/*
 	 * @todo
+<<<<<<< HEAD
 	 * Caching, etc. Consider alternative optimization routes,
+=======
+	 * caching, etc. Consider alternative optimization routes,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * perhaps as an opt-in for plugins, rather than using the pre_* filter.
 	 * For example: The segments filter can expand or ignore paths.
 	 * If persistent caching is enabled, we could query the DB for a path <> '/'
@@ -305,7 +343,11 @@ function ms_load_current_site_and_network( $domain, $path, $subdomain = false ) 
 		$current_site->path   = PATH_CURRENT_SITE;
 		if ( defined( 'BLOG_ID_CURRENT_SITE' ) ) {
 			$current_site->blog_id = BLOG_ID_CURRENT_SITE;
+<<<<<<< HEAD
 		} elseif ( defined( 'BLOGID_CURRENT_SITE' ) ) { // Deprecated.
+=======
+		} elseif ( defined( 'BLOGID_CURRENT_SITE' ) ) { // deprecated.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$current_site->blog_id = BLOGID_CURRENT_SITE;
 		}
 
@@ -419,11 +461,17 @@ function ms_load_current_site_and_network( $domain, $path, $subdomain = false ) 
 			// For a "subdomain" installation, redirect to the signup form specifically.
 			$destination .= 'wp-signup.php?new=' . str_replace( '.' . $current_site->domain, '', $domain );
 		} elseif ( $subdomain ) {
+<<<<<<< HEAD
 			/*
 			 * For a "subdomain" installation, the NOBLOGREDIRECT constant
 			 * can be used to avoid a redirect to the signup form.
 			 * Using the ms_site_not_found action is preferred to the constant.
 			 */
+=======
+			// For a "subdomain" installation, the NOBLOGREDIRECT constant
+			// can be used to avoid a redirect to the signup form.
+			// Using the ms_site_not_found action is preferred to the constant.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( '%siteurl%' !== NOBLOGREDIRECT ) {
 				$destination = NOBLOGREDIRECT;
 			}
@@ -494,12 +542,20 @@ function ms_not_installed( $domain, $path ) {
 	$msg .= '<p><strong>' . __( 'What do I do now?' ) . '</strong> ';
 	$msg .= sprintf(
 		/* translators: %s: Documentation URL. */
+<<<<<<< HEAD
 		__( 'Read the <a href="%s" target="_blank">Debugging a WordPress Network</a> article. Some of the suggestions there may help you figure out what went wrong.' ),
+=======
+		__( 'Read the <a href="%s" target="_blank">bug report</a> page. Some of the guidelines there may help you figure out what went wrong.' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		__( 'https://wordpress.org/support/article/debugging-a-wordpress-network/' )
 	);
 	$msg .= ' ' . __( 'If you&#8217;re still stuck with this message, then check that your database contains the following tables:' ) . '</p><ul>';
 	foreach ( $wpdb->tables( 'global' ) as $t => $table ) {
+<<<<<<< HEAD
 		if ( 'sitecategories' === $t ) {
+=======
+		if ( 'sitecategories' == $t ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			continue;
 		}
 		$msg .= '<li>' . $table . '</li>';

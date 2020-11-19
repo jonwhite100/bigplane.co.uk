@@ -102,7 +102,11 @@ class WP_Links_List_Table extends WP_List_Table {
 		}
 		?>
 		<div class="alignleft actions">
+<<<<<<< HEAD
 			<?php
+=======
+		<?php
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$dropdown_options = array(
 				'selected'        => $cat_id,
 				'name'            => 'cat_id',
@@ -117,7 +121,11 @@ class WP_Links_List_Table extends WP_List_Table {
 			echo '<label class="screen-reader-text" for="cat_id">' . __( 'Filter by category' ) . '</label>';
 			wp_dropdown_categories( $dropdown_options );
 			submit_button( __( 'Filter' ), '', 'filter_action', false, array( 'id' => 'post-query-submit' ) );
+<<<<<<< HEAD
 			?>
+=======
+		?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		</div>
 		<?php
 	}
@@ -314,8 +322,12 @@ class WP_Links_List_Table extends WP_List_Table {
 	 * @param object $link        Link being acted upon.
 	 * @param string $column_name Current column name.
 	 * @param string $primary     Primary column name.
+<<<<<<< HEAD
 	 * @return string Row actions output for links, or an empty string
 	 *                if the current column is not the primary column.
+=======
+	 * @return string Row action output for links.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	protected function handle_row_actions( $link, $column_name, $primary ) {
 		if ( $primary !== $column_name ) {

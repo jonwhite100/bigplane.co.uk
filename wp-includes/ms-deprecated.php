@@ -91,7 +91,11 @@ function graceful_fail( $message ) {
 	$message = apply_filters( 'graceful_fail', $message );
 	$message_template = apply_filters( 'graceful_fail_template',
 '<!DOCTYPE html>
+<<<<<<< HEAD
 <html><head>
+=======
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Error!</title>
 <style type="text/css">
@@ -165,7 +169,11 @@ function is_main_blog() {
  *
  * @param string $email        Email address to verify.
  * @param bool   $check_domain Deprecated.
+<<<<<<< HEAD
  * @return string|false Valid email address on success, false on failure.
+=======
+ * @return string|bool Either false or the valid email address.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function validate_email( $email, $check_domain = true) {
 	_deprecated_function( __FUNCTION__, '3.0.0', 'is_email()' );
@@ -199,7 +207,11 @@ function get_blog_list( $start = 0, $num = 10, $deprecated = '' ) {
 		return array();
 	}
 
+<<<<<<< HEAD
 	if ( 'all' === $num ) {
+=======
+	if ( $num == 'all' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return array_slice( $blog_list, $start, count( $blog_list ) );
 	} else {
 		return array_slice( $blog_list, $start, $num );
@@ -226,7 +238,11 @@ function get_most_active_blogs( $num = 10, $display = true ) {
 		$blog_list = array();
 		foreach ( (array) $blogs as $key => $details ) {
 			$most_active[ $details['blog_id'] ] = $details['postcount'];
+<<<<<<< HEAD
 			$blog_list[ $details['blog_id'] ] = $details; // array_slice() removes keys!
+=======
+			$blog_list[ $details['blog_id'] ] = $details; // array_slice() removes keys!!
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		arsort( $most_active );
 		reset( $most_active );
@@ -282,24 +298,40 @@ function wpmu_admin_do_redirect( $url = '' ) {
 	if ( $ref ) {
 		$ref = wpmu_admin_redirect_add_updated_param( $ref );
 		wp_redirect( $ref );
+<<<<<<< HEAD
 		exit;
 	}
 	if ( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
 		wp_redirect( $_SERVER['HTTP_REFERER'] );
 		exit;
+=======
+		exit();
+	}
+	if ( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
+		wp_redirect( $_SERVER['HTTP_REFERER'] );
+		exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$url = wpmu_admin_redirect_add_updated_param( $url );
 	if ( isset( $_GET['redirect'] ) && isset( $_POST['redirect'] ) && $_GET['redirect'] !== $_POST['redirect'] ) {
 		wp_die( __( 'A variable mismatch has been detected.' ), __( 'Sorry, you are not allowed to view this item.' ), 400 );
 	} elseif ( isset( $_GET['redirect'] ) ) {
+<<<<<<< HEAD
 		if ( 's_' === substr( $_GET['redirect'], 0, 2 ) )
+=======
+		if ( substr( $_GET['redirect'], 0, 2 ) == 's_' )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$url .= '&action=blogs&s='. esc_html( substr( $_GET['redirect'], 2 ) );
 	} elseif ( isset( $_POST['redirect'] ) ) {
 		$url = wpmu_admin_redirect_add_updated_param( $_POST['redirect'] );
 	}
 	wp_redirect( $url );
+<<<<<<< HEAD
 	exit;
+=======
+	exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -371,10 +403,17 @@ function get_blogaddress_by_domain( $domain, $path ) {
 		if ( $domain != $_SERVER['HTTP_HOST'] ) {
 			$blogname = substr( $domain, 0, strpos( $domain, '.' ) );
 			$url = 'http://' . substr( $domain, strpos( $domain, '.' ) + 1 ) . $path;
+<<<<<<< HEAD
 			// We're not installing the main blog.
 			if ( 'www.' !== $blogname )
 				$url .= $blogname . '/';
 		} else { // Main blog.
+=======
+			// we're not installing the main blog
+			if ( $blogname != 'www.' )
+				$url .= $blogname . '/';
+		} else { // main blog
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$url = 'http://' . $domain . $path;
 		}
 	}
@@ -401,6 +440,7 @@ function create_empty_blog( $domain, $path, $weblog_title, $site_id = 1 ) {
 
 	// Check if the domain has been used already. We should return an error message.
 	if ( domain_exists($domain, $path, $site_id) )
+<<<<<<< HEAD
 		return __( '<strong>Error</strong>: Site URL you&#8217;ve entered is already taken.' );
 
 	/*
@@ -411,6 +451,16 @@ function create_empty_blog( $domain, $path, $weblog_title, $site_id = 1 ) {
 
 	if ( ! $blog_id = insert_blog($domain, $path, $site_id) )
 		return __( '<strong>Error</strong>: There was a problem creating site entry.' );
+=======
+		return __( '<strong>ERROR</strong>: Site URL already taken.' );
+
+	// Need to back up wpdb table names, and create a new wp_blogs entry for new blog.
+	// Need to get blog_id from wp_blogs, and create new table names.
+	// Must restore table names at the end of function.
+
+	if ( ! $blog_id = insert_blog($domain, $path, $site_id) )
+		return __( '<strong>ERROR</strong>: problem creating site entry.' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	switch_to_blog($blog_id);
 	install_blog($blog_id);
@@ -474,8 +524,15 @@ function get_admin_users_for_domain( $domain = '', $path = '' ) {
  *     @type int       $limit      Number of sites to limit the query to. Default 100.
  *     @type int       $offset     Exclude the first x sites. Used in combination with the $limit parameter. Default 0.
  * }
+<<<<<<< HEAD
  * @return array[] An empty array if the installation is considered "large" via wp_is_large_network(). Otherwise,
  *                 an associative array of WP_Site data as arrays.
+=======
+ * @return array An empty array if the installation is considered "large" via wp_is_large_network(). Otherwise,
+ *               an associative array of site data arrays, each containing the site (network) ID, blog ID,
+ *               site domain and path, dates registered and modified, and the language ID. Also, boolean
+ *               values for whether the site is public, archived, mature, spam, and/or deleted.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_get_sites( $args = array() ) {
 	_deprecated_function( __FUNCTION__, '4.6.0', 'get_sites()' );
@@ -496,7 +553,11 @@ function wp_get_sites( $args = array() ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
+<<<<<<< HEAD
 	// Backward compatibility.
+=======
+	// Backwards compatibility
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if( is_array( $args['network_id'] ) ){
 		$args['network__in'] = $args['network_id'];
 		$args['network_id'] = null;
@@ -607,10 +668,17 @@ function install_blog( $blog_id, $blog_title = '' ) {
 
 	_deprecated_function( __FUNCTION__, '5.1.0' );
 
+<<<<<<< HEAD
 	// Cast for security.
 	$blog_id = (int) $blog_id;
 
 	require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+=======
+	// Cast for security
+	$blog_id = (int) $blog_id;
+
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$suppress = $wpdb->suppress_errors();
 	if ( $wpdb->get_results( "DESCRIBE {$wpdb->posts}" ) ) {
@@ -620,7 +688,11 @@ function install_blog( $blog_id, $blog_title = '' ) {
 
 	$url = get_blogaddress_by_id( $blog_id );
 
+<<<<<<< HEAD
 	// Set everything up.
+=======
+	// Set everything up
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	make_db_current_silent( 'blog' );
 	populate_options();
 	populate_roles();
@@ -652,10 +724,17 @@ function install_blog( $blog_id, $blog_title = '' ) {
 	update_option( 'blogname', wp_unslash( $blog_title ) );
 	update_option( 'admin_email', '' );
 
+<<<<<<< HEAD
 	// Remove all permissions.
 	$table_prefix = $wpdb->get_blog_prefix();
 	delete_metadata( 'user', 0, $table_prefix . 'user_level', null, true );   // Delete all.
 	delete_metadata( 'user', 0, $table_prefix . 'capabilities', null, true ); // Delete all.
+=======
+	// remove all perms
+	$table_prefix = $wpdb->get_blog_prefix();
+	delete_metadata( 'user', 0, $table_prefix . 'user_level', null, true ); // delete all
+	delete_metadata( 'user', 0, $table_prefix . 'capabilities', null, true ); // delete all
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -677,7 +756,11 @@ function install_blog_defaults( $blog_id, $user_id ) {
 
 	_deprecated_function( __FUNCTION__, 'MU' );
 
+<<<<<<< HEAD
 	require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+=======
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$suppress = $wpdb->suppress_errors();
 
@@ -718,7 +801,11 @@ function update_user_status( $id, $pref, $value, $deprecated = null ) {
 	$user = new WP_User( $id );
 	clean_user_cache( $user );
 
+<<<<<<< HEAD
 	if ( 'spam' === $pref ) {
+=======
+	if ( $pref == 'spam' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( $value == 1 ) {
 			/** This filter is documented in wp-includes/user.php */
 			do_action( 'make_spam_user', $id );

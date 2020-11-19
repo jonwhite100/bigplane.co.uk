@@ -18,16 +18,20 @@
 class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 	public $api;
 	public $type;
+<<<<<<< HEAD
 	public $url;
 	public $overwrite;
 
 	private $is_downgrading = false;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * @param array $args
 	 */
 	public function __construct( $args = array() ) {
 		$defaults = array(
+<<<<<<< HEAD
 			'type'      => 'web',
 			'url'       => '',
 			'plugin'    => '',
@@ -41,19 +45,39 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		$this->url       = $args['url'];
 		$this->api       = isset( $args['api'] ) ? $args['api'] : array();
 		$this->overwrite = $args['overwrite'];
+=======
+			'type'   => 'web',
+			'url'    => '',
+			'plugin' => '',
+			'nonce'  => '',
+			'title'  => '',
+		);
+		$args     = wp_parse_args( $args, $defaults );
+
+		$this->type = $args['type'];
+		$this->api  = isset( $args['api'] ) ? $args['api'] : array();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		parent::__construct( $args );
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Action to perform before installing a plugin.
 	 *
 	 * @since 2.8.0
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function before() {
 		if ( ! empty( $this->api ) ) {
 			$this->upgrader->strings['process_success'] = sprintf(
+<<<<<<< HEAD
 				$this->upgrader->strings['process_success_specific'],
+=======
+				/* translators: 1: Plugin name, 2: Plugin version. */
+				__( 'Successfully installed the plugin <strong>%1$s %2$s</strong>.' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$this->api->name,
 				$this->api->version
 			);
@@ -61,6 +85,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Hides the `process_failed` error when updating a plugin by uploading a zip file.
 	 *
 	 * @since 5.5.0
@@ -91,19 +116,31 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 			return;
 		}
 
+=======
+	 */
+	public function after() {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$plugin_file = $this->upgrader->plugin_info();
 
 		$install_actions = array();
 
 		$from = isset( $_GET['from'] ) ? wp_unslash( $_GET['from'] ) : 'plugins';
 
+<<<<<<< HEAD
 		if ( 'import' === $from ) {
+=======
+		if ( 'import' == $from ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$install_actions['activate_plugin'] = sprintf(
 				'<a class="button button-primary" href="%s" target="_parent">%s</a>',
 				wp_nonce_url( 'plugins.php?action=activate&amp;from=import&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
 				__( 'Activate Plugin &amp; Run Importer' )
 			);
+<<<<<<< HEAD
 		} elseif ( 'press-this' === $from ) {
+=======
+		} elseif ( 'press-this' == $from ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$install_actions['activate_plugin'] = sprintf(
 				'<a class="button button-primary" href="%s" target="_parent">%s</a>',
 				wp_nonce_url( 'plugins.php?action=activate&amp;from=press-this&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
@@ -126,19 +163,31 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 			unset( $install_actions['activate_plugin'] );
 		}
 
+<<<<<<< HEAD
 		if ( 'import' === $from ) {
+=======
+		if ( 'import' == $from ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$install_actions['importers_page'] = sprintf(
 				'<a href="%s" target="_parent">%s</a>',
 				admin_url( 'import.php' ),
 				__( 'Return to Importers' )
 			);
+<<<<<<< HEAD
 		} elseif ( 'web' === $this->type ) {
+=======
+		} elseif ( $this->type == 'web' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$install_actions['plugins_page'] = sprintf(
 				'<a href="%s" target="_parent">%s</a>',
 				self_admin_url( 'plugin-install.php' ),
 				__( 'Return to Plugin Installer' )
 			);
+<<<<<<< HEAD
 		} elseif ( 'upload' === $this->type && 'plugins' === $from ) {
+=======
+		} elseif ( 'upload' == $this->type && 'plugins' == $from ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$install_actions['plugins_page'] = sprintf(
 				'<a href="%s">%s</a>',
 				self_admin_url( 'plugin-install.php' ),
@@ -154,7 +203,11 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 
 		if ( ! $this->result || is_wp_error( $this->result ) ) {
 			unset( $install_actions['activate_plugin'], $install_actions['network_activate'] );
+<<<<<<< HEAD
 		} elseif ( ! current_user_can( 'activate_plugin', $plugin_file ) || is_plugin_active( $plugin_file ) ) {
+=======
+		} elseif ( ! current_user_can( 'activate_plugin', $plugin_file ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			unset( $install_actions['activate_plugin'] );
 		}
 
@@ -175,6 +228,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 			$this->feedback( implode( ' ', (array) $install_actions ) );
 		}
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Check if the plugin can be overwritten and output the HTML for overwriting a plugin on upload.
@@ -346,4 +400,6 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 
 		return true;
 	}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

@@ -46,7 +46,11 @@ class WP_SimplePie_Sanitize_KSES extends SimplePie_Sanitize {
 		}
 		if ( $type & ( SIMPLEPIE_CONSTRUCT_HTML | SIMPLEPIE_CONSTRUCT_XHTML ) ) {
 			$data = wp_kses_post( $data );
+<<<<<<< HEAD
 			if ( 'UTF-8' !== $this->output_encoding ) {
+=======
+			if ( $this->output_encoding !== 'UTF-8' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$data = $this->registry->call( 'Misc', 'change_encoding', array( $data, 'UTF-8', $this->output_encoding ) );
 			}
 			return $data;

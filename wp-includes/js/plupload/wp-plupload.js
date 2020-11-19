@@ -33,7 +33,11 @@ window.wp = window.wp || {};
 	 */
 	Uploader = function( options ) {
 		var self = this,
+<<<<<<< HEAD
 			isIE, // Not used, back-compat.
+=======
+			isIE, // not used, back-compat
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			elements = {
 				container: 'container',
 				browser:   'browse_button',
@@ -60,12 +64,19 @@ window.wp = window.wp || {};
 		this.plupload = $.extend( true, { multipart_params: {} }, Uploader.defaults );
 		this.container = document.body; // Set default container.
 
+<<<<<<< HEAD
 		/*
 		 * Extend the instance with options.
 		 *
 		 * Use deep extend to allow options.plupload to override individual
 		 * default plupload keys.
 		 */
+=======
+		// Extend the instance with options.
+		//
+		// Use deep extend to allow options.plupload to override individual
+		// default plupload keys.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$.extend( true, this, options );
 
 		// Proxy all methods so this always refers to the current instance.
@@ -115,12 +126,22 @@ window.wp = window.wp || {};
 		 *
 		 * @since 5.3.0
 		 *
+<<<<<<< HEAD
 		 * @param {string}        message Error message.
 		 * @param {object}        data    Error data from Plupload.
 		 * @param {plupload.File} file    File that was uploaded.
 		 */
 		tryAgain = function( message, data, file ) {
 			var times, id;
+=======
+		 * @param  {string}        message  Error message.
+		 * @param  {object}        data     Error data from Plupload.
+		 * @param  {plupload.File} file     File that was uploaded.
+		 */
+		tryAgain = function( message, data, file ) {
+			var times;
+			var id;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			if ( ! data || ! data.responseHeaders ) {
 				error( pluploadL10n.http_error_image, data, file, 'no-retry' );
@@ -139,11 +160,17 @@ window.wp = window.wp || {};
 			times = tryAgainCount[ file.id ];
 
 			if ( times && times > 4 ) {
+<<<<<<< HEAD
 				/*
 				 * The file may have been uploaded and attachment post created,
 				 * but post-processing and resizing failed...
 				 * Do a cleanup then tell the user to scale down the image and upload it again.
 				 */
+=======
+				// The file may have been uploaded and attachment post created,
+				// but post-processing and resizing failed...
+				// Do a cleanup then tell the user to scale down the image and upload it again.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$.ajax({
 					type: 'post',
 					url: ajaxurl,
@@ -203,6 +230,7 @@ window.wp = window.wp || {};
 		 * Add a new error to the errors collection, so other modules can track
 		 * and display errors. @see wp.Uploader.errors.
 		 *
+<<<<<<< HEAD
 		 * @param {string}        message Error message.
 		 * @param {object}        data    Error data from Plupload.
 		 * @param {plupload.File} file    File that was uploaded.
@@ -211,6 +239,16 @@ window.wp = window.wp || {};
 		error = function( message, data, file, retry ) {
 			var isImage = file.type && file.type.indexOf( 'image/' ) === 0,
 				status = data && data.status;
+=======
+		 * @param  {string}        message  Error message.
+		 * @param  {object}        data     Error data from Plupload.
+		 * @param  {plupload.File} file     File that was uploaded.
+		 * @param  {string}        retry    Whether to try again to create image sub-sizes. Passing 'no-retry' will prevent it.
+		 */
+		error = function( message, data, file, retry ) {
+			var isImage = file.type && file.type.indexOf( 'image/' ) === 0;
+			var status  = data && data.status;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			// If the file is an image and the error is HTTP 5xx try to create sub-sizes again.
 			if ( retry !== 'no-retry' && isImage && status >= 500 && status < 600 ) {
@@ -241,7 +279,11 @@ window.wp = window.wp || {};
 		fileUploaded = function( up, file, response ) {
 			var complete;
 
+<<<<<<< HEAD
 			// Remove the "uploading" UI elements.
+=======
+			// Remove the "uploading" UI elements
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			_.each( ['file','loaded','size','percent'], function( key ) {
 				file.attachment.unset( key );
 			} );
@@ -298,6 +340,7 @@ window.wp = window.wp || {};
 			});
 
 			dropzone.bind('dragleave.wp-uploader, drop.wp-uploader', function() {
+<<<<<<< HEAD
 				/*
 				 * Using an instant timer prevents the drag-over class
 				 * from being quickly removed and re-added when elements
@@ -305,6 +348,13 @@ window.wp = window.wp || {};
 				 *
 				 * @see https://core.trac.wordpress.org/ticket/21705
 				 */
+=======
+				// Using an instant timer prevents the drag-over class from
+				// being quickly removed and re-added when elements inside the
+				// dropzone are repositioned.
+				//
+				// @see https://core.trac.wordpress.org/ticket/21705
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				timer = setTimeout( function() {
 					active = false;
 					dropzone.trigger('dropzone:leave').removeClass('drag-over');
@@ -326,6 +376,7 @@ window.wp = window.wp || {};
 			this.browser.on( 'mouseenter', this.refresh );
 		} else {
 			this.uploader.disableBrowse( true );
+<<<<<<< HEAD
 		}
 
 		$( self ).on( 'uploader:ready', function() {
@@ -336,6 +387,12 @@ window.wp = window.wp || {};
 				} );
 		} );
 
+=======
+			// If HTML5 mode, hide the auto-created file container.
+			$('#' + this.uploader.id + '_html5_container').hide();
+		}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		/**
 		 * After files were filtered and added to the queue, create a model for each.
 		 *
@@ -351,6 +408,7 @@ window.wp = window.wp || {};
 					return;
 				}
 
+<<<<<<< HEAD
 				if ( file.type === 'image/heic' && up.settings.heic_upload_error ) {
 					// Show error but do not block uploading.
 					Uploader.errors.unshift({
@@ -360,6 +418,8 @@ window.wp = window.wp || {};
 					});
 				}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				// Generate attributes for a new `Attachment` model.
 				attributes = _.extend({
 					file:      file,
@@ -533,11 +593,17 @@ window.wp = window.wp || {};
 					node = node.parentNode;
 				}
 
+<<<<<<< HEAD
 				/*
 				 * If the browser node is not attached to the DOM,
 				 * use a temporary container to house it, as the browser button shims
 				 * require the button to exist in the DOM at all times.
 				 */
+=======
+				// If the browser node is not attached to the DOM, use a
+				// temporary container to house it, as the browser button
+				// shims require the button to exist in the DOM at all times.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( ! attached ) {
 					id = 'wp-uploader-browser-' + this.uploader.id;
 

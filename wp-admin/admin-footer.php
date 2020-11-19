@@ -6,7 +6,11 @@
  * @subpackage Administration
  */
 
+<<<<<<< HEAD
 // Don't load directly.
+=======
+// don't load directly
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
@@ -104,7 +108,11 @@ do_action( 'admin_print_footer_scripts' );
  */
 do_action( "admin_footer-{$hook_suffix}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
+<<<<<<< HEAD
 // get_site_option() won't exist when auto upgrading from <= 2.7.
+=======
+// get_site_option() won't exist when auto upgrading from <= 2.7
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( function_exists( 'get_site_option' ) ) {
 	if ( false === get_site_option( 'can_compress_scripts' ) ) {
 		compression_test();

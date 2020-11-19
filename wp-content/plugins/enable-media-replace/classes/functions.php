@@ -57,7 +57,11 @@ function emr_remove_size_from_filename( $url, $remove_extension = false ) {
 function emr_get_match_url($url) {
 	$url = emr_remove_scheme($url);
 	$url = emr_maybe_remove_query_string($url);
+<<<<<<< HEAD
 	$url = emr_remove_size_from_filename($url, true); // and extension is removed.
+=======
+	$url = emr_remove_size_from_filename($url, true);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$url = emr_remove_domain_from_filename($url);
 	return $url;
 }

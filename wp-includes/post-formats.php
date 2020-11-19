@@ -11,7 +11,11 @@
  *
  * @since 3.1.0
  *
+<<<<<<< HEAD
  * @param int|object|null $post Optional. Post ID or post object. Defaults to the current post in the loop.
+=======
+ * @param int|object|null $post Post ID or post object. Optional, default is the current post from the loop.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string|false The format if successful. False otherwise.
  */
 function get_post_format( $post = null ) {
@@ -41,10 +45,16 @@ function get_post_format( $post = null ) {
  *
  * @since 3.1.0
  *
+<<<<<<< HEAD
  * @param string|array     $format Optional. The format or formats to check.
  * @param WP_Post|int|null $post   Optional. The post to check. Defaults to the current post in the loop.
  * @return bool True if the post has any of the given formats (or any format, if no format specified),
  *              false otherwise.
+=======
+ * @param string|array    $format Optional. The format or formats to check.
+ * @param object|int|null $post   Optional. The post to check. If not supplied, defaults to the current post if used in the loop.
+ * @return bool True if the post has any of the given formats (or any format, if no format specified), false otherwise.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function has_post_format( $format = array(), $post = null ) {
 	$prefixed = array();
@@ -65,7 +75,11 @@ function has_post_format( $format = array(), $post = null ) {
  *
  * @param int|object $post   The post for which to assign a format.
  * @param string     $format A format to assign. Use an empty string or array to remove all formats from the post.
+<<<<<<< HEAD
  * @return array|WP_Error|false Array of affected term IDs on success. WP_Error on error.
+=======
+ * @return array|WP_Error|false WP_Error on error. Array of affected term IDs on success.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function set_post_format( $post, $format ) {
 	$post = get_post( $post );
@@ -76,7 +90,11 @@ function set_post_format( $post, $format ) {
 
 	if ( ! empty( $format ) ) {
 		$format = sanitize_key( $format );
+<<<<<<< HEAD
 		if ( 'standard' === $format || ! in_array( $format, get_post_format_slugs(), true ) ) {
+=======
+		if ( 'standard' === $format || ! in_array( $format, get_post_format_slugs() ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$format = '';
 		} else {
 			$format = 'post-format-' . $format;
@@ -91,11 +109,19 @@ function set_post_format( $post, $format ) {
  *
  * @since 3.1.0
  *
+<<<<<<< HEAD
  * @return string[] Array of post format labels keyed by format slug.
  */
 function get_post_format_strings() {
 	$strings = array(
 		'standard' => _x( 'Standard', 'Post format' ), // Special case. Any value that evals to false will be considered standard.
+=======
+ * @return array The array of translated post format names.
+ */
+function get_post_format_strings() {
+	$strings = array(
+		'standard' => _x( 'Standard', 'Post format' ), // Special case. any value that evals to false will be considered standard
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'aside'    => _x( 'Aside', 'Post format' ),
 		'chat'     => _x( 'Chat', 'Post format' ),
 		'gallery'  => _x( 'Gallery', 'Post format' ),
@@ -114,7 +140,11 @@ function get_post_format_strings() {
  *
  * @since 3.1.0
  *
+<<<<<<< HEAD
  * @return string[] The array of post format slugs as both keys and values.
+=======
+ * @return array The array of post format slugs as both keys and values.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_post_format_slugs() {
 	$slugs = array_keys( get_post_format_strings() );
@@ -193,7 +223,11 @@ function _post_format_request( $qvs ) {
  */
 function _post_format_link( $link, $term, $taxonomy ) {
 	global $wp_rewrite;
+<<<<<<< HEAD
 	if ( 'post_format' !== $taxonomy ) {
+=======
+	if ( 'post_format' != $taxonomy ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $link;
 	}
 	if ( $wp_rewrite->get_extra_permastruct( $taxonomy ) ) {
@@ -232,14 +266,23 @@ function _post_format_get_term( $term ) {
  * @return array
  */
 function _post_format_get_terms( $terms, $taxonomies, $args ) {
+<<<<<<< HEAD
 	if ( in_array( 'post_format', (array) $taxonomies, true ) ) {
 		if ( isset( $args['fields'] ) && 'names' === $args['fields'] ) {
+=======
+	if ( in_array( 'post_format', (array) $taxonomies ) ) {
+		if ( isset( $args['fields'] ) && 'names' == $args['fields'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			foreach ( $terms as $order => $name ) {
 				$terms[ $order ] = get_post_format_string( str_replace( 'post-format-', '', $name ) );
 			}
 		} else {
 			foreach ( (array) $terms as $order => $term ) {
+<<<<<<< HEAD
 				if ( isset( $term->taxonomy ) && 'post_format' === $term->taxonomy ) {
+=======
+				if ( isset( $term->taxonomy ) && 'post_format' == $term->taxonomy ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$terms[ $order ]->name = get_post_format_string( str_replace( 'post-format-', '', $term->slug ) );
 				}
 			}
@@ -259,7 +302,11 @@ function _post_format_get_terms( $terms, $taxonomies, $args ) {
  */
 function _post_format_wp_get_object_terms( $terms ) {
 	foreach ( (array) $terms as $order => $term ) {
+<<<<<<< HEAD
 		if ( isset( $term->taxonomy ) && 'post_format' === $term->taxonomy ) {
+=======
+		if ( isset( $term->taxonomy ) && 'post_format' == $term->taxonomy ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$terms[ $order ]->name = get_post_format_string( str_replace( 'post-format-', '', $term->slug ) );
 		}
 	}

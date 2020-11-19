@@ -18,12 +18,17 @@ if ( ! class_exists( 'POMO_Reader', false ) ) :
 		 * PHP5 constructor.
 		 */
 		function __construct() {
+<<<<<<< HEAD
 			$this->is_overloaded = ( ( ini_get( 'mbstring.func_overload' ) & 2 ) != 0 ) && function_exists( 'mb_substr' ); // phpcs:ignore PHPCompatibility.IniDirectives.RemovedIniDirectives.mbstring_func_overloadDeprecated
+=======
+			$this->is_overloaded = ( ( ini_get( 'mbstring.func_overload' ) & 2 ) != 0 ) && function_exists( 'mb_substr' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->_pos          = 0;
 		}
 
 		/**
 		 * PHP4 constructor.
+<<<<<<< HEAD
 		 *
 		 * @deprecated 5.4.0 Use __construct() instead.
 		 *
@@ -31,6 +36,10 @@ if ( ! class_exists( 'POMO_Reader', false ) ) :
 		 */
 		public function POMO_Reader() {
 			_deprecated_constructor( self::class, '5.4.0', static::class );
+=======
+		 */
+		public function POMO_Reader() {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			self::__construct();
 		}
 
@@ -54,7 +63,11 @@ if ( ! class_exists( 'POMO_Reader', false ) ) :
 			if ( 4 != $this->strlen( $bytes ) ) {
 				return false;
 			}
+<<<<<<< HEAD
 			$endian_letter = ( 'big' === $this->endian ) ? 'N' : 'V';
+=======
+			$endian_letter = ( 'big' == $this->endian ) ? 'N' : 'V';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$int           = unpack( $endian_letter, $bytes );
 			return reset( $int );
 		}
@@ -71,7 +84,11 @@ if ( ! class_exists( 'POMO_Reader', false ) ) :
 			if ( 4 * $count != $this->strlen( $bytes ) ) {
 				return false;
 			}
+<<<<<<< HEAD
 			$endian_letter = ( 'big' === $this->endian ) ? 'N' : 'V';
+=======
+			$endian_letter = ( 'big' == $this->endian ) ? 'N' : 'V';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return unpack( $endian_letter . $count, $bytes );
 		}
 
@@ -149,12 +166,17 @@ if ( ! class_exists( 'POMO_FileReader', false ) ) :
 		 * @param string $filename
 		 */
 		function __construct( $filename ) {
+<<<<<<< HEAD
 			parent::__construct();
+=======
+			parent::POMO_Reader();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->_f = fopen( $filename, 'rb' );
 		}
 
 		/**
 		 * PHP4 constructor.
+<<<<<<< HEAD
 		 *
 		 * @deprecated 5.4.0 Use __construct() instead.
 		 *
@@ -162,6 +184,10 @@ if ( ! class_exists( 'POMO_FileReader', false ) ) :
 		 */
 		public function POMO_FileReader( $filename ) {
 			_deprecated_constructor( self::class, '5.4.0', static::class );
+=======
+		 */
+		public function POMO_FileReader( $filename ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			self::__construct( $filename );
 		}
 
@@ -232,13 +258,18 @@ if ( ! class_exists( 'POMO_StringReader', false ) ) :
 		 * PHP5 constructor.
 		 */
 		function __construct( $str = '' ) {
+<<<<<<< HEAD
 			parent::__construct();
+=======
+			parent::POMO_Reader();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->_str = $str;
 			$this->_pos = 0;
 		}
 
 		/**
 		 * PHP4 constructor.
+<<<<<<< HEAD
 		 *
 		 * @deprecated 5.4.0 Use __construct() instead.
 		 *
@@ -246,6 +277,10 @@ if ( ! class_exists( 'POMO_StringReader', false ) ) :
 		 */
 		public function POMO_StringReader( $str = '' ) {
 			_deprecated_constructor( self::class, '5.4.0', static::class );
+=======
+		 */
+		public function POMO_StringReader( $str = '' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			self::__construct( $str );
 		}
 
@@ -300,7 +335,11 @@ if ( ! class_exists( 'POMO_CachedFileReader', false ) ) :
 		 * PHP5 constructor.
 		 */
 		function __construct( $filename ) {
+<<<<<<< HEAD
 			parent::__construct();
+=======
+			parent::POMO_StringReader();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->_str = file_get_contents( $filename );
 			if ( false === $this->_str ) {
 				return false;
@@ -310,6 +349,7 @@ if ( ! class_exists( 'POMO_CachedFileReader', false ) ) :
 
 		/**
 		 * PHP4 constructor.
+<<<<<<< HEAD
 		 *
 		 * @deprecated 5.4.0 Use __construct() instead.
 		 *
@@ -317,6 +357,10 @@ if ( ! class_exists( 'POMO_CachedFileReader', false ) ) :
 		 */
 		public function POMO_CachedFileReader( $filename ) {
 			_deprecated_constructor( self::class, '5.4.0', static::class );
+=======
+		 */
+		public function POMO_CachedFileReader( $filename ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			self::__construct( $filename );
 		}
 	}
@@ -331,11 +375,16 @@ if ( ! class_exists( 'POMO_CachedIntFileReader', false ) ) :
 		 * PHP5 constructor.
 		 */
 		public function __construct( $filename ) {
+<<<<<<< HEAD
 			parent::__construct( $filename );
+=======
+			parent::POMO_CachedFileReader( $filename );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		/**
 		 * PHP4 constructor.
+<<<<<<< HEAD
 		 *
 		 * @deprecated 5.4.0 Use __construct() instead.
 		 *
@@ -343,6 +392,10 @@ if ( ! class_exists( 'POMO_CachedIntFileReader', false ) ) :
 		 */
 		function POMO_CachedIntFileReader( $filename ) {
 			_deprecated_constructor( self::class, '5.4.0', static::class );
+=======
+		 */
+		function POMO_CachedIntFileReader( $filename ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			self::__construct( $filename );
 		}
 	}

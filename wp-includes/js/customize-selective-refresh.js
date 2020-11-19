@@ -59,6 +59,7 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 		 *
 		 * @since 4.5.0
 		 *
+<<<<<<< HEAD
 		 * @param {string}  id                      - Unique identifier for the partial instance.
 		 * @param {Object}  options                 - Options hash for the partial instance.
 		 * @param {string}  options.type            - Type of partial (e.g. nav_menu, widget, etc)
@@ -67,6 +68,16 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 		 * @param {string}  options.primarySetting  - The ID for the primary setting the partial renders.
 		 * @param {boolean} options.fallbackRefresh - Whether to refresh the entire preview in case of a partial refresh failure.
 		 * @param {Object}  [options.params]        - Deprecated wrapper for the above properties.
+=======
+		 * @param {string} id                      - Unique identifier for the partial instance.
+		 * @param {object} options                 - Options hash for the partial instance.
+		 * @param {string} options.type            - Type of partial (e.g. nav_menu, widget, etc)
+		 * @param {string} options.selector        - jQuery selector to find the container element in the page.
+		 * @param {array}  options.settings        - The IDs for the settings the partial relates to.
+		 * @param {string} options.primarySetting  - The ID for the primary setting the partial renders.
+		 * @param {bool}   options.fallbackRefresh - Whether to refresh the entire preview in case of a partial refresh failure.
+		 * @param {object} [options.params]        - Deprecated wrapper for the above properties.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		initialize: function( id, options ) {
 			var partial = this;
@@ -120,7 +131,11 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 		 * @access public
 		 *
 		 * @param {Placement} placement The placement container element.
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		createEditShortcutForPlacement: function( placement ) {
 			var partial = this, $shortcut, $placementContainer, illegalAncestorSelector, illegalContainerSelector;
@@ -150,7 +165,11 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 		 *
 		 * @param {Placement} placement The placement for the partial.
 		 * @param {jQuery} $editShortcut The shortcut element as a jQuery object.
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		addEditShortcutToPlacement: function( placement, $editShortcut ) {
 			var $placementContainer = $( placement.container );
@@ -285,7 +304,11 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 		 *
 		 * @since 4.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {string[]}
+=======
+		 * @return {String[]}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		settings: function() {
 			var partial = this;
@@ -406,9 +429,15 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 		 *
 		 * @param {Placement}             placement
 		 * @param {Element|jQuery}        [placement.container]  - This param will be empty if there was no element matching the selector.
+<<<<<<< HEAD
 		 * @param {string|Object|boolean} placement.addedContent - Rendered HTML content, a data object for JS templates to render, or false if no render.
 		 * @param {Object}                [placement.context]    - Optional context information about the container.
 		 * @return {boolean} Whether the rendering was successful and the fallback was not invoked.
+=======
+		 * @param {string|object|boolean} placement.addedContent - Rendered HTML content, a data object for JS templates to render, or false if no render.
+		 * @param {object}                [placement.context]    - Optional context information about the container.
+		 * @returns {boolean} Whether the rendering was successful and the fallback was not invoked.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		renderContent: function( placement ) {
 			var partial = this, content, newContainerElement;
@@ -442,7 +471,11 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 
 				if ( partial.params.containerInclusive ) {
 
+<<<<<<< HEAD
 					// Note that content may be an empty string, and in this case jQuery will just remove the oldContainer.
+=======
+					// Note that content may be an empty string, and in this case jQuery will just remove the oldContainer
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					newContainerElement = $( content );
 
 					// Merge the new context on top of the old context.
@@ -602,12 +635,20 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 		 *
 		 * @since 4.5.0
 		 *
+<<<<<<< HEAD
 		 * @param {Object}                   args
+=======
+		 * @param {object}                   args
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @param {Partial}                  args.partial
 		 * @param {jQuery|Element}           [args.container]
 		 * @param {Node}                     [args.startNode]
 		 * @param {Node}                     [args.endNode]
+<<<<<<< HEAD
 		 * @param {Object}                   [args.context]
+=======
+		 * @param {object}                   [args.context]
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @param {string}                   [args.addedContent]
 		 * @param {jQuery|DocumentFragment}  [args.removedNodes]
 		 */
@@ -645,7 +686,11 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 	 * @since 4.5.0
 	 * @see wp.customize.previewer.query()
 	 *
+<<<<<<< HEAD
 	 * @return {Object}
+=======
+	 * @return {object}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	self.getCustomizeQuery = function() {
 		var dirtyCustomized = {};

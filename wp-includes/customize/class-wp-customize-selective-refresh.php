@@ -58,11 +58,19 @@ final class WP_Customize_Selective_Refresh {
 	 *
 	 * @since 4.5.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 */
 	public function __construct( WP_Customize_Manager $manager ) {
 		$this->manager = $manager;
 		require_once ABSPATH . WPINC . '/customize/class-wp-customize-partial.php';
+=======
+	 * @param WP_Customize_Manager $manager Manager instance.
+	 */
+	public function __construct( WP_Customize_Manager $manager ) {
+		$this->manager = $manager;
+		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-partial.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		add_action( 'customize_preview_init', array( $this, 'init_preview' ) );
 	}
@@ -83,6 +91,7 @@ final class WP_Customize_Selective_Refresh {
 	 *
 	 * @since 4.5.0
 	 *
+<<<<<<< HEAD
 	 * @see WP_Customize_Partial::__construct()
 	 *
 	 * @param WP_Customize_Partial|string $id   Customize Partial object, or Partial ID.
@@ -90,6 +99,31 @@ final class WP_Customize_Selective_Refresh {
 	 *                                          See WP_Customize_Partial::__construct() for information
 	 *                                          on accepted arguments. Default empty array.
 	 * @return WP_Customize_Partial The instance of the partial that was added.
+=======
+	 * @param WP_Customize_Partial|string $id   Customize Partial object, or Panel ID.
+	 * @param array                       $args {
+	 *  Optional. Array of properties for the new Partials object. Default empty array.
+	 *
+	 *  @type string   $type                  Type of the partial to be created.
+	 *  @type string   $selector              The jQuery selector to find the container element for the partial, that is, a partial's placement.
+	 *  @type array    $settings              IDs for settings tied to the partial.
+	 *  @type string   $primary_setting       The ID for the setting that this partial is primarily responsible for
+	 *                                        rendering. If not supplied, it will default to the ID of the first setting.
+	 *  @type string   $capability            Capability required to edit this partial.
+	 *                                        Normally this is empty and the capability is derived from the capabilities
+	 *                                        of the associated `$settings`.
+	 *  @type callable $render_callback       Render callback.
+	 *                                        Callback is called with one argument, the instance of WP_Customize_Partial.
+	 *                                        The callback can either echo the partial or return the partial as a string,
+	 *                                        or return false if error.
+	 *  @type bool     $container_inclusive   Whether the container element is included in the partial, or if only
+	 *                                        the contents are rendered.
+	 *  @type bool     $fallback_refresh      Whether to refresh the entire preview in case a partial cannot be refreshed.
+	 *                                        A partial render is considered a failure if the render_callback returns
+	 *                                        false.
+	 * }
+	 * @return WP_Customize_Partial             The instance of the panel that was added.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function add_partial( $id, $args = array() ) {
 		if ( $id instanceof WP_Customize_Partial ) {
@@ -192,7 +226,11 @@ final class WP_Customize_Selective_Refresh {
 		);
 
 		// Export data to JS.
+<<<<<<< HEAD
 		printf( '<script>var _customizePartialRefreshExports = %s;</script>', wp_json_encode( $exports ) );
+=======
+		echo sprintf( '<script>var _customizePartialRefreshExports = %s;</script>', wp_json_encode( $exports ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**

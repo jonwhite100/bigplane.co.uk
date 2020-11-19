@@ -265,7 +265,11 @@ Manage = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.Manage.prototype 
 				}
 			}, 1000 );
 
+<<<<<<< HEAD
 		// Update the URL when entering search string (at most once per second).
+=======
+		// Update the URL when entering search string (at most once per second)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		search.on( 'input', _.bind( input, this ) );
 
 		this.gridRouter
@@ -346,7 +350,11 @@ Manage = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.Manage.prototype 
 		$browser = this.$('.attachments-browser');
 		$toolbar = $browser.find('.media-toolbar');
 
+<<<<<<< HEAD
 		// Offset doesn't appear to take top margin into account, hence +16.
+=======
+		// Offset doesn't appear to take top margin into account, hence +16
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ( $browser.offset().top + 16 ) < this.$window.scrollTop() + this.$adminBar.height() ) {
 			$browser.addClass( 'fixed' );
 			$toolbar.css('width', $browser.width() + 'px');
@@ -434,7 +442,11 @@ Manage = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.Manage.prototype 
 	},
 
 	startHistory: function() {
+<<<<<<< HEAD
 		// Verify pushState support and activate.
+=======
+		// Verify pushState support and activate
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( window.history && window.history.pushState ) {
 			if ( Backbone.History.started ) {
 				Backbone.history.stop();
@@ -529,7 +541,11 @@ var Router = Backbone.Router.extend(/** @lends wp.media.view.MediaFrame.Manage.R
 		'upload.php':                      'reset'
 	},
 
+<<<<<<< HEAD
 	// Map routes against the page URL.
+=======
+	// Map routes against the page URL
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	baseUrl: function( url ) {
 		return 'upload.php' + url;
 	},
@@ -542,19 +558,31 @@ var Router = Backbone.Router.extend(/** @lends wp.media.view.MediaFrame.Manage.R
 		}
 	},
 
+<<<<<<< HEAD
 	// Respond to the search route by filling the search field and trigggering the input event.
+=======
+	// Respond to the search route by filling the search field and trigggering the input event
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	search: function( query ) {
 		jQuery( '#media-search-input' ).val( query ).trigger( 'input' );
 	},
 
+<<<<<<< HEAD
 	// Show the modal with a specific item.
+=======
+	// Show the modal with a specific item
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	showItem: function( query ) {
 		var media = wp.media,
 			frame = media.frames.browse,
 			library = frame.state().get('library'),
 			item;
 
+<<<<<<< HEAD
 		// Trigger the media frame to open the correct item.
+=======
+		// Trigger the media frame to open the correct item
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		item = library.findWhere( { id: parseInt( query, 10 ) } );
 		item.set( 'skipHistory', true );
 
@@ -882,11 +910,19 @@ EditAttachments = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.EditAtta
 			return;
 		}
 
+<<<<<<< HEAD
 		// The right arrow key.
 		if ( 39 === event.keyCode ) {
 			this.nextMediaItem();
 		}
 		// The left arrow key.
+=======
+		// The right arrow key
+		if ( 39 === event.keyCode ) {
+			this.nextMediaItem();
+		}
+		// The left arrow key
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( 37 === event.keyCode ) {
 			this.previousMediaItem();
 		}
@@ -957,7 +993,11 @@ SelectModeToggle = Button.extend(/** @lends wp.media.view.SelectModeToggle.proto
 
 		children = toolbar.$( '.media-toolbar-secondary > *, .media-toolbar-primary > *' );
 
+<<<<<<< HEAD
 		// @todo The Frame should be doing all of this.
+=======
+		// TODO: the Frame should be doing all of this.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( this.controller.isModeActive( 'select' ) ) {
 			this.model.set( {
 				size: 'large',

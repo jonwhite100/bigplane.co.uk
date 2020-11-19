@@ -3,6 +3,7 @@ namespace EnableMediaReplace\Build;
 
 class PackageLoader
 {
+<<<<<<< HEAD
   public $dir;
   public $composerFile  = false;
 
@@ -23,6 +24,14 @@ class PackageLoader
 
       return $this->composerFile;
   }
+=======
+    public $dir;
+
+    public function getComposerFile()
+    {
+        return json_decode(file_get_contents($this->dir."/composer.json"), 1);
+    }
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
     public function load($dir)
     {
@@ -75,11 +84,15 @@ class PackageLoader
                     if ($psr4) {
                         $classname = str_replace($namespace, "", $classname);
                     }
+<<<<<<< HEAD
 
                     //  $filename = preg_replace("#\\\\#", "", $classname).".php";
                     // This is fix for nested classes which were losing a /
                     $filename = ltrim($classname .'.php', '\\');
                     $filename = str_replace('\\','/', $filename);
+=======
+                    $filename = preg_replace("#\\\\#", "", $classname).".php";
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
                     foreach ($classpaths as $classpath) {
                       $fullpath = trailingslashit($dir) . trailingslashit($classpath) .$filename;

@@ -41,14 +41,21 @@ class WP_Customize_Color_Control extends WP_Customize_Control {
 	 * Constructor.
 	 *
 	 * @since 3.4.0
+<<<<<<< HEAD
 	 *
 	 * @see WP_Customize_Control::__construct()
+=======
+	 * @uses WP_Customize_Control::__construct()
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      Control ID.
 	 * @param array                $args    Optional. Arguments to override class property defaults.
+<<<<<<< HEAD
 	 *                                      See WP_Customize_Control::__construct() for information
 	 *                                      on accepted arguments. Default empty array.
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		$this->statuses = array( '' => __( 'Default' ) );

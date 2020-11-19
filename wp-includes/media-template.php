@@ -152,9 +152,21 @@ function wp_underscore_video_template() {
  * Prints the templates used in the media manager.
  *
  * @since 3.5.0
+<<<<<<< HEAD
  */
 function wp_print_media_templates() {
 	$class = 'media-modal wp-core-ui';
+=======
+ *
+ * @global bool $is_IE
+ */
+function wp_print_media_templates() {
+	global $is_IE;
+	$class = 'media-modal wp-core-ui';
+	if ( $is_IE && strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE 7' ) !== false ) {
+		$class .= ' ie7';
+	}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$alt_text_description = sprintf(
 		/* translators: 1: Link to tutorial, 2: Additional link attributes, 3: Accessibility text. */
@@ -310,10 +322,17 @@ function wp_print_media_templates() {
 	<?php // Template for the view switchers, used for example in the Media Grid. ?>
 	<script type="text/html" id="tmpl-media-library-view-switcher">
 		<a href="<?php echo esc_url( add_query_arg( 'mode', 'list', $_SERVER['REQUEST_URI'] ) ); ?>" class="view-list">
+<<<<<<< HEAD
 			<span class="screen-reader-text"><?php _e( 'List view' ); ?></span>
 		</a>
 		<a href="<?php echo esc_url( add_query_arg( 'mode', 'grid', $_SERVER['REQUEST_URI'] ) ); ?>" class="view-grid current" aria-current="page">
 			<span class="screen-reader-text"><?php _e( 'Grid view' ); ?></span>
+=======
+			<span class="screen-reader-text"><?php _e( 'List View' ); ?></span>
+		</a>
+		<a href="<?php echo esc_url( add_query_arg( 'mode', 'grid', $_SERVER['REQUEST_URI'] ) ); ?>" class="view-grid current">
+			<span class="screen-reader-text"><?php _e( 'Grid View' ); ?></span>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		</a>
 	</script>
 
@@ -419,11 +438,14 @@ function wp_print_media_templates() {
 							?>
 						</div>
 					<# } #>
+<<<<<<< HEAD
 
 					<# if ( data.originalImageURL && data.originalImageName ) { #>
 						<?php _e( 'Original image:' ); ?>
 						<a href="{{ data.originalImageURL }}">{{data.originalImageName}}</a>
 					<# } #>
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				<# } #>
 
 				<# if ( data.fileLength && data.fileLengthHumanReadable ) { #>
@@ -500,12 +522,17 @@ function wp_print_media_templates() {
 					</span>
 				<# } #>
 				<span class="setting" data-setting="url">
+<<<<<<< HEAD
 					<label for="attachment-details-two-column-copy-link" class="name"><?php _e( 'File URL:' ); ?></label>
 					<input type="text" class="attachment-details-copy-link" id="attachment-details-two-column-copy-link" value="{{ data.url }}" readonly />
 					<span class="copy-to-clipboard-container">
 						<button type="button" class="button button-small copy-attachment-url" data-clipboard-target="#attachment-details-two-column-copy-link"><?php _e( 'Copy URL' ); ?></button>
 						<span class="success hidden" aria-hidden="true"><?php _e( 'Copied!' ); ?></span>
 					</span>
+=======
+					<label for="attachment-details-two-column-copy-link" class="name"><?php _e( 'Copy Link' ); ?></label>
+					<input type="text" id="attachment-details-two-column-copy-link" value="{{ data.url }}" readonly />
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				</span>
 				<div class="attachment-compat"></div>
 			</div>
@@ -523,7 +550,11 @@ function wp_print_media_templates() {
 							<button type="button" class="button-link trash-attachment"><?php _e( 'Move to Trash' ); ?></button>
 						<# } #>
 					<?php else : ?>
+<<<<<<< HEAD
 						<button type="button" class="button-link delete-attachment"><?php _e( 'Delete permanently' ); ?></button>
+=======
+						<button type="button" class="button-link delete-attachment"><?php _e( 'Delete Permanently' ); ?></button>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<?php endif; ?>
 				<# } #>
 			</div>
@@ -619,11 +650,14 @@ function wp_print_media_templates() {
 						</div>
 					<# } #>
 
+<<<<<<< HEAD
 					<# if ( data.originalImageURL && data.originalImageName ) { #>
 						<?php _e( 'Original image:' ); ?>
 						<a href="{{ data.originalImageURL }}">{{data.originalImageName}}</a>
 					<# } #>
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<# if ( data.can.save && data.sizes ) { #>
 						<a class="edit-attachment" href="{{ data.editLink }}&amp;image-editor" target="_blank"><?php _e( 'Edit Image' ); ?></a>
 					<# } #>
@@ -644,7 +678,11 @@ function wp_print_media_templates() {
 						<button type="button" class="button-link trash-attachment"><?php _e( 'Move to Trash' ); ?></button>
 					<# } #>
 					<?php else : ?>
+<<<<<<< HEAD
 						<button type="button" class="button-link delete-attachment"><?php _e( 'Delete permanently' ); ?></button>
+=======
+						<button type="button" class="button-link delete-attachment"><?php _e( 'Delete Permanently' ); ?></button>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<?php endif; ?>
 				<# } #>
 
@@ -691,12 +729,17 @@ function wp_print_media_templates() {
 			<textarea id="attachment-details-description" {{ maybeReadOnly }}>{{ data.description }}</textarea>
 		</span>
 		<span class="setting" data-setting="url">
+<<<<<<< HEAD
 			<label for="attachment-details-copy-link" class="name"><?php _e( 'File URL:' ); ?></label>
 			<input type="text" class="attachment-details-copy-link" id="attachment-details-copy-link" value="{{ data.url }}" readonly />
 			<div class="copy-to-clipboard-container">
 				<button type="button" class="button button-small copy-attachment-url" data-clipboard-target="#attachment-details-copy-link"><?php _e( 'Copy URL' ); ?></button>
 				<span class="success hidden" aria-hidden="true"><?php _e( 'Copied!' ); ?></span>
 			</div>
+=======
+			<label for="attachment-details-copy-link" class="name"><?php _e( 'Copy Link' ); ?></label>
+			<input type="text" id="attachment-details-copy-link" value="{{ data.url }}" readonly />
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		</span>
 	</script>
 
@@ -840,15 +883,26 @@ function wp_print_media_templates() {
 					data-user-setting="urlbutton"
 				<# } #>>
 
+<<<<<<< HEAD
 				<option value="post" <# if ( ! wp.media.galleryDefaults.link || 'post' === wp.media.galleryDefaults.link ) {
+=======
+				<option value="post" <# if ( ! wp.media.galleryDefaults.link || 'post' == wp.media.galleryDefaults.link ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					#>selected="selected"<# }
 				#>>
 					<?php esc_html_e( 'Attachment Page' ); ?>
 				</option>
+<<<<<<< HEAD
 				<option value="file" <# if ( 'file' === wp.media.galleryDefaults.link ) { #>selected="selected"<# } #>>
 					<?php esc_html_e( 'Media File' ); ?>
 				</option>
 				<option value="none" <# if ( 'none' === wp.media.galleryDefaults.link ) { #>selected="selected"<# } #>>
+=======
+				<option value="file" <# if ( 'file' == wp.media.galleryDefaults.link ) { #>selected="selected"<# } #>>
+					<?php esc_html_e( 'Media File' ); ?>
+				</option>
+				<option value="none" <# if ( 'none' == wp.media.galleryDefaults.link ) { #>selected="selected"<# } #>>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<?php esc_html_e( 'None' ); ?>
 				</option>
 			</select>

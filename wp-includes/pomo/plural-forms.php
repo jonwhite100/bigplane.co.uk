@@ -103,19 +103,31 @@ class Plural_Forms {
 			$next = substr( $str, $pos, 1 );
 
 			switch ( $next ) {
+<<<<<<< HEAD
 				// Ignore whitespace.
+=======
+				// Ignore whitespace
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				case ' ':
 				case "\t":
 					$pos++;
 					break;
 
+<<<<<<< HEAD
 				// Variable (n).
+=======
+				// Variable (n)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				case 'n':
 					$output[] = array( 'var' );
 					$pos++;
 					break;
 
+<<<<<<< HEAD
 				// Parentheses.
+=======
+				// Parentheses
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				case '(':
 					$stack[] = $next;
 					$pos++;
@@ -125,7 +137,11 @@ class Plural_Forms {
 					$found = false;
 					while ( ! empty( $stack ) ) {
 						$o2 = $stack[ count( $stack ) - 1 ];
+<<<<<<< HEAD
 						if ( '(' !== $o2 ) {
+=======
+						if ( $o2 !== '(' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							$output[] = array( 'op', array_pop( $stack ) );
 							continue;
 						}
@@ -143,7 +159,11 @@ class Plural_Forms {
 					$pos++;
 					break;
 
+<<<<<<< HEAD
 				// Operators.
+=======
+				// Operators
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				case '|':
 				case '&':
 				case '>':
@@ -161,8 +181,13 @@ class Plural_Forms {
 					while ( ! empty( $stack ) ) {
 						$o2 = $stack[ count( $stack ) - 1 ];
 
+<<<<<<< HEAD
 						// Ternary is right-associative in C.
 						if ( '?:' === $operator || '?' === $operator ) {
+=======
+						// Ternary is right-associative in C
+						if ( $operator === '?:' || $operator === '?' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							if ( self::$op_precedence[ $operator ] >= self::$op_precedence[ $o2 ] ) {
 								break;
 							}
@@ -177,13 +202,21 @@ class Plural_Forms {
 					$pos += $end_operator;
 					break;
 
+<<<<<<< HEAD
 				// Ternary "else".
+=======
+				// Ternary "else"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				case ':':
 					$found = false;
 					$s_pos = count( $stack ) - 1;
 					while ( $s_pos >= 0 ) {
 						$o2 = $stack[ $s_pos ];
+<<<<<<< HEAD
 						if ( '?' !== $o2 ) {
+=======
+						if ( $o2 !== '?' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							$output[] = array( 'op', array_pop( $stack ) );
 							$s_pos--;
 							continue;
@@ -201,7 +234,11 @@ class Plural_Forms {
 					$pos++;
 					break;
 
+<<<<<<< HEAD
 				// Default - number or invalid.
+=======
+				// Default - number or invalid
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				default:
 					if ( $next >= '0' && $next <= '9' ) {
 						$span     = strspn( $str, self::NUM_CHARS, $pos );
@@ -216,7 +253,11 @@ class Plural_Forms {
 
 		while ( ! empty( $stack ) ) {
 			$o2 = array_pop( $stack );
+<<<<<<< HEAD
 			if ( '(' === $o2 || ')' === $o2 ) {
+=======
+			if ( $o2 === '(' || $o2 === ')' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				throw new Exception( 'Mismatched parentheses' );
 			}
 
@@ -259,10 +300,17 @@ class Plural_Forms {
 		while ( $i < $total ) {
 			$next = $this->tokens[ $i ];
 			$i++;
+<<<<<<< HEAD
 			if ( 'var' === $next[0] ) {
 				$stack[] = $n;
 				continue;
 			} elseif ( 'value' === $next[0] ) {
+=======
+			if ( $next[0] === 'var' ) {
+				$stack[] = $n;
+				continue;
+			} elseif ( $next[0] === 'value' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$stack[] = $next[1];
 				continue;
 			}

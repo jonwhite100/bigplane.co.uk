@@ -46,7 +46,11 @@
 		/**
 		 * Registers a new view type.
 		 *
+<<<<<<< HEAD
 		 * @param {string} type   The view type.
+=======
+		 * @param {String} type   The view type.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @param {Object} extend An object to extend wp.mce.View.prototype with.
 		 */
 		register: function( type, extend ) {
@@ -56,7 +60,11 @@
 		/**
 		 * Unregisters a view type.
 		 *
+<<<<<<< HEAD
 		 * @param {string} type The view type.
+=======
+		 * @param {String} type The view type.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		unregister: function( type ) {
 			delete views[ type ];
@@ -65,7 +73,11 @@
 		/**
 		 * Returns the settings of a view type.
 		 *
+<<<<<<< HEAD
 		 * @param {string} type The view type.
+=======
+		 * @param {String} type The view type.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * @return {Function} The view constructor.
 		 */
@@ -88,10 +100,17 @@
 		 * replacing any matches with markers,
 		 * and creates a new instance for every match.
 		 *
+<<<<<<< HEAD
 		 * @param {string} content The string to scan.
 		 * @param {tinymce.Editor} editor The editor.
 		 *
 		 * @return {string} The string with markers.
+=======
+		 * @param {String} content The string to scan.
+		 * @param {tinymce.Editor} editor The editor.
+		 *
+		 * @return {String} The string with markers.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		setMarkers: function( content, editor ) {
 			var pieces = [ { content: content } ],
@@ -149,10 +168,17 @@
 		/**
 		 * Create a view instance.
 		 *
+<<<<<<< HEAD
 		 * @param {string}  type    The view type.
 		 * @param {string}  text    The textual representation of the view.
 		 * @param {Object}  options Options.
 		 * @param {boolean} force   Recreate the instance. Optional.
+=======
+		 * @param {String}  type    The view type.
+		 * @param {String}  text    The textual representation of the view.
+		 * @param {Object}  options Options.
+		 * @param {Boolean} force   Recreate the instance. Optional.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * @return {wp.mce.View} The view instance.
 		 */
@@ -190,7 +216,11 @@
 		/**
 		 * Get a view instance.
 		 *
+<<<<<<< HEAD
 		 * @param {(string|HTMLElement)} object The textual representation of the view or the view node.
+=======
+		 * @param {(String|HTMLElement)} object The textual representation of the view or the view node.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * @return {wp.mce.View} The view instance or undefined.
 		 */
@@ -207,7 +237,11 @@
 		 *
 		 * @param {HTMLElement} node The view node.
 		 *
+<<<<<<< HEAD
 		 * @return {string} The textual representation of the view.
+=======
+		 * @return {String} The textual representation of the view.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		getText: function( node ) {
 			return decodeURIComponent( $( node ).attr( 'data-wpview-text' ) || '' );
@@ -216,7 +250,11 @@
 		/**
 		 * Renders all view nodes that are not yet rendered.
 		 *
+<<<<<<< HEAD
 		 * @param {boolean} force Rerender all view nodes.
+=======
+		 * @param {Boolean} force Rerender all view nodes.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		render: function( force ) {
 			_.each( instances, function( instance ) {
@@ -227,10 +265,17 @@
 		/**
 		 * Update the text of a given view node.
 		 *
+<<<<<<< HEAD
 		 * @param {string}         text   The new text.
 		 * @param {tinymce.Editor} editor The TinyMCE editor instance the view node is in.
 		 * @param {HTMLElement}    node   The view node to update.
 		 * @param {boolean}        force  Recreate the instance. Optional.
+=======
+		 * @param {String}         text   The new text.
+		 * @param {tinymce.Editor} editor The TinyMCE editor instance the view node is in.
+		 * @param {HTMLElement}    node   The view node to update.
+		 * @param {Boolean}        force  Recreate the instance. Optional.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		update: function( text, editor, node, force ) {
 			var instance = this.getInstance( node );
@@ -317,8 +362,13 @@
 		/**
 		 * Renders all view nodes tied to this view instance that are not yet rendered.
 		 *
+<<<<<<< HEAD
 		 * @param {string}  content The content to render. Optional.
 		 * @param {boolean} force   Rerender all view nodes tied to this view instance. Optional.
+=======
+		 * @param {String}  content The content to render. Optional.
+		 * @param {Boolean} force   Rerender all view nodes tied to this view instance. Optional.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		render: function( content, force ) {
 			if ( content != null ) {
@@ -385,7 +435,11 @@
 		 * Gets all view nodes tied to this view instance.
 		 *
 		 * @param {Function} callback A callback.
+<<<<<<< HEAD
 		 * @param {boolean}  rendered Get (un)rendered view nodes. Optional.
+=======
+		 * @param {Boolean}  rendered Get (un)rendered view nodes. Optional.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		getNodes: function( callback, rendered ) {
 			this.getEditors( function( editor ) {
@@ -473,7 +527,11 @@
 		 *
 		 * @param {*}        content  The content to set.
 		 * @param {Function} callback A callback. Optional.
+<<<<<<< HEAD
 		 * @param {boolean}  rendered Only set for (un)rendered nodes. Optional.
+=======
+		 * @param {Boolean}  rendered Only set for (un)rendered nodes. Optional.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		setContent: function( content, callback, rendered ) {
 			if ( _.isObject( content ) && ( content.sandbox || content.head || content.body.indexOf( '<script' ) !== -1 ) ) {
@@ -502,10 +560,17 @@
 		/**
 		 * Sets the content in an iframe for all view nodes tied to this view instance.
 		 *
+<<<<<<< HEAD
 		 * @param {string}   head     HTML string to be added to the head of the document.
 		 * @param {string}   body     HTML string to be added to the body of the document.
 		 * @param {Function} callback A callback. Optional.
 		 * @param {boolean}  rendered Only set for (un)rendered nodes. Optional.
+=======
+		 * @param {String}   head     HTML string to be added to the head of the document.
+		 * @param {String}   body     HTML string to be added to the body of the document.
+		 * @param {Function} callback A callback. Optional.
+		 * @param {Boolean}  rendered Only set for (un)rendered nodes. Optional.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		setIframes: function( head, body, callback, rendered ) {
 			var self = this;
@@ -565,12 +630,19 @@
 					dom.add( node, 'span', { 'class': 'wpview-end' } );
 				} );
 
+<<<<<<< HEAD
 				/*
 				 * Bail if the iframe node is not attached to the DOM.
 				 * Happens when the view is dragged in the editor.
 				 * There is a browser restriction when iframes are moved in the DOM. They get emptied.
 				 * The iframe will be rerendered after dropping the view node at the new location.
 				 */
+=======
+				// Bail if the iframe node is not attached to the DOM.
+				// Happens when the view is dragged in the editor.
+				// There is a browser restriction when iframes are moved in the DOM. They get emptied.
+				// The iframe will be rerendered after dropping the view node at the new location.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( ! iframe.contentWindow ) {
 					return;
 				}
@@ -698,8 +770,13 @@
 		/**
 		 * Sets an error for all view nodes tied to this view instance.
 		 *
+<<<<<<< HEAD
 		 * @param {string} message  The error message to set.
 		 * @param {string} dashicon A dashicon ID. Optional. {@link https://developer.wordpress.org/resource/dashicons/}
+=======
+		 * @param {String} message  The error message to set.
+		 * @param {String} dashicon A dashicon ID. Optional. {@link https://developer.wordpress.org/resource/dashicons/}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		setError: function( message, dashicon ) {
 			this.setContent(
@@ -713,7 +790,11 @@
 		/**
 		 * Tries to find a text match in a given string.
 		 *
+<<<<<<< HEAD
 		 * @param {string} content The string to scan.
+=======
+		 * @param {String} content The string to scan.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * @return {Object}
 		 */
@@ -734,10 +815,17 @@
 		/**
 		 * Update the text of a given view node.
 		 *
+<<<<<<< HEAD
 		 * @param {string}         text   The new text.
 		 * @param {tinymce.Editor} editor The TinyMCE editor instance the view node is in.
 		 * @param {HTMLElement}    node   The view node to update.
 		 * @param {boolean}        force  Recreate the instance. Optional.
+=======
+		 * @param {String}         text   The new text.
+		 * @param {tinymce.Editor} editor The TinyMCE editor instance the view node is in.
+		 * @param {HTMLElement}    node   The view node to update.
+		 * @param {Boolean}        force  Recreate the instance. Optional.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		update: function( text, editor, node, force ) {
 			_.find( views, function( view, type ) {

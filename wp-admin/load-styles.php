@@ -9,17 +9,30 @@ error_reporting( 0 );
 
 /** Set ABSPATH for execution */
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	define( 'ABSPATH', dirname( __DIR__ ) . '/' );
+=======
+	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 define( 'WPINC', 'wp-includes' );
 
+<<<<<<< HEAD
 require ABSPATH . 'wp-admin/includes/noop.php';
 require ABSPATH . WPINC . '/script-loader.php';
 require ABSPATH . WPINC . '/version.php';
 
 $protocol = $_SERVER['SERVER_PROTOCOL'];
 if ( ! in_array( $protocol, array( 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0' ), true ) ) {
+=======
+require( ABSPATH . 'wp-admin/includes/noop.php' );
+require( ABSPATH . WPINC . '/script-loader.php' );
+require( ABSPATH . WPINC . '/version.php' );
+
+$protocol = $_SERVER['SERVER_PROTOCOL'];
+if ( ! in_array( $protocol, array( 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$protocol = 'HTTP/1.0';
 }
 
@@ -37,8 +50,13 @@ if ( empty( $load ) ) {
 	exit;
 }
 
+<<<<<<< HEAD
 $rtl            = ( isset( $_GET['dir'] ) && 'rtl' === $_GET['dir'] );
 $expires_offset = 31536000; // 1 year.
+=======
+$rtl            = ( isset( $_GET['dir'] ) && 'rtl' == $_GET['dir'] );
+$expires_offset = 31536000; // 1 year
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $out            = '';
 
 $wp_styles = new WP_Styles();
@@ -46,7 +64,11 @@ wp_default_styles( $wp_styles );
 
 if ( isset( $_SERVER['HTTP_IF_NONE_MATCH'] ) && stripslashes( $_SERVER['HTTP_IF_NONE_MATCH'] ) === $wp_version ) {
 	header( "$protocol 304 Not Modified" );
+<<<<<<< HEAD
 	exit;
+=======
+	exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 foreach ( $load as $handle ) {

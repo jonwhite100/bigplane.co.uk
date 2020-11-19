@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /**
  * Base Styles
  */
@@ -42,7 +45,11 @@
 
 .media-frame a:hover,
 .media-frame a:active {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .media-frame a:focus {
@@ -74,7 +81,11 @@
 
 .media-frame select,
 .wp-admin .media-frame select {
+<<<<<<< HEAD
 	min-height: 30px;
+=======
+	min-height: 28px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	vertical-align: middle;
 }
 
@@ -121,12 +132,15 @@
 	line-height: 2.15384615; /* 28px */
 }
 
+<<<<<<< HEAD
 /* Search field in the Media Library toolbar */
 .media-frame.mode-grid .wp-filter input[type="search"] {
 	font-size: 14px;
 	line-height: 2;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .media-frame input[type="text"]:focus,
 .media-frame input[type="password"]:focus,
 .media-frame input[type="number"]:focus,
@@ -237,11 +251,19 @@
 
 .media-modal-close:hover,
 .media-modal-close:active {
+<<<<<<< HEAD
 	color: #006799;
 }
 
 .media-modal-close:focus {
 	color: #006799;
+=======
+	color: #00a0d2;
+}
+
+.media-modal-close:focus {
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	border-color: #5b9dd9;
 	box-shadow: 0 0 3px rgba(0, 115, 170, 0.8);
 	/* Only visible in Windows High Contrast mode */
@@ -308,7 +330,11 @@
 
 .media-frame-toolbar .media-toolbar {
 	top: auto;
+<<<<<<< HEAD
 	bottom: -47px;
+=======
+	bottom: -45px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	height: auto;
 	overflow: visible;
 	border-top: 1px solid #ddd;
@@ -347,7 +373,11 @@
 	left: 0;
 	bottom: 0;
 	width: 267px;
+<<<<<<< HEAD
 	padding: 0 16px;
+=======
+	padding: 0 16px 24px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	z-index: 75;
 	background: #f3f3f3;
 	border-right: 1px solid #ddd;
@@ -355,6 +385,7 @@
 	-webkit-overflow-scrolling: touch;
 }
 
+<<<<<<< HEAD
 /*
  * Implementation of bottom padding in overflow content differs across browsers.
  * We need a different method. See https://github.com/w3c/csswg-drafts/issues/129
@@ -366,6 +397,8 @@
 	height: 24px;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .hide-toolbar .media-sidebar {
 	bottom: 0;
 }
@@ -458,6 +491,7 @@
 	font-size: 12px;
 }
 
+<<<<<<< HEAD
 .media-sidebar .copy-to-clipboard-container,
 .attachment-details .copy-to-clipboard-container {
 	flex-wrap: wrap;
@@ -478,6 +512,8 @@
 	text-align: right;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .compat-item label span {
 	text-align: left;
 }
@@ -778,6 +814,11 @@
 	position: absolute;
 	right: 200px;
 	left: 0;
+<<<<<<< HEAD
+=======
+	bottom: 0;
+	height: 60px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	z-index: 100;
 	bottom: 60px;
 	height: auto;
@@ -1598,7 +1639,11 @@
 
 .media-selection .button-link:hover,
 .media-selection .button-link:focus {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .media-selection .button-link:last-child {
@@ -1880,7 +1925,11 @@
 }
 
 .media-modal .imgedit-wrap .imgedit-panel-content {
+<<<<<<< HEAD
 	padding: 16px 16px 0 16px;
+=======
+	padding: 16px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	position: absolute;
 	top: 0;
 	left: 282px;
@@ -1889,6 +1938,7 @@
 	overflow: auto;
 }
 
+<<<<<<< HEAD
 /*
  * Implementation of bottom padding in overflow content differs across browsers.
  * We need a different method. See https://github.com/w3c/csswg-drafts/issues/129
@@ -1901,6 +1951,12 @@
 	background: #f3f3f3;
 	border-right: 1px solid #ddd;
 	padding: 20px 16px 0;
+=======
+.media-modal .imgedit-wrap .imgedit-settings {
+	background: #f3f3f3;
+	border-right: 1px solid #ddd;
+	padding: 20px 16px 16px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1909,6 +1965,7 @@
 	overflow: auto;
 }
 
+<<<<<<< HEAD
 /*
  * Implementation of bottom padding in overflow content differs across browsers.
  * We need a different method. See https://github.com/w3c/csswg-drafts/issues/129
@@ -1917,6 +1974,8 @@
 	margin: 8px 0 24px;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .media-modal .imgedit-group {
 	background: none;
 	border: none;
@@ -1999,8 +2058,12 @@
 	display: block;
 }
 
+<<<<<<< HEAD
 .media-modal .imgedit-wrap div.updated, /* Back-compat for pre-5.5 */
 .media-modal .imgedit-wrap .notice {
+=======
+.media-modal .imgedit-wrap div.updated {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	margin: 0;
 	margin-bottom: 16px;
 }
@@ -2048,6 +2111,7 @@
 	right: 0;
 	left: 0;
 	bottom: 0;
+<<<<<<< HEAD
 	padding: 0 16px;
 	overflow: auto;
 }
@@ -2064,6 +2128,12 @@
 	height: 24px;
 }
 
+=======
+	padding: 0 16px 32px;
+	overflow: auto;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .media-embed .embed-link-settings {
 	/* avoid Firefox to give focus to the embed preview container parent */
 	overflow: visible;
@@ -2108,10 +2178,13 @@
 	padding: 0;
 }
 
+<<<<<<< HEAD
 .image-details .embed-media-settings::after {
 	content: none;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .image-details .embed-media-settings,
 .image-details .embed-media-settings div {
 	box-sizing: border-box;
@@ -2561,6 +2634,7 @@
 		padding: 8px 2px 2px;
 	}
 
+<<<<<<< HEAD
 	/* Needs high specificity. */
 	.media-sidebar .setting .copy-to-clipboard-container,
 	.attachment-details .attachment-info .copy-to-clipboard-container {
@@ -2573,6 +2647,8 @@
 		margin: 0 1px;
 	}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	.media-sidebar .setting .value,
 	.attachment-details .setting .value {
 		float: none;
@@ -2744,6 +2820,7 @@
 	}
 
 	.media-frame-toolbar .media-toolbar {
+<<<<<<< HEAD
 		bottom: -54px;
 	}
 
@@ -2756,6 +2833,16 @@
 		font-size: 14px;
 		line-height: 2.71428571;
 	}
+=======
+		bottom: -48px;
+	}
+}
+
+@media screen and (max-width: 782px) {
+	.mode-grid .attachments-browser .media-toolbar-primary {
+		display: block;
+	}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /* Responsive on portrait and landscape */

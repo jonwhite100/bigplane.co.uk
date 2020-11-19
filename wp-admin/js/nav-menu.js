@@ -9,7 +9,11 @@
  * @output wp-admin/js/nav-menu.js
  */
 
+<<<<<<< HEAD
 /* global menus, postboxes, columns, isRtl, ajaxurl, wpNavMenu */
+=======
+/* global menus, postboxes, columns, isRtl, navMenuL10n, ajaxurl, wpNavMenu */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 (function($) {
 
@@ -69,7 +73,11 @@
 		},
 
 		jQueryExtensions : function() {
+<<<<<<< HEAD
 			// jQuery extensions.
+=======
+			// jQuery extensions
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$.fn.extend({
 				menuItemDepth : function() {
 					var margin = api.isRTL ? this.eq(0).css('margin-right') : this.eq(0).css('margin-left');
@@ -114,7 +122,11 @@
 							depth = t.menuItemDepth(),
 							newDepth = depth + dir;
 
+<<<<<<< HEAD
 						// Change .menu-item-depth-n class.
+=======
+						// Change .menu-item-depth-n class
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						t.moveHorizontally( newDepth, depth );
 					});
 				},
@@ -125,10 +137,17 @@
 							diff = newDepth - depth,
 							subItemText = t.find('.is-submenu');
 
+<<<<<<< HEAD
 						// Change .menu-item-depth-n class.
 						t.updateDepthClass( newDepth, depth ).updateParentMenuItemDBId();
 
 						// If it has children, move those too.
+=======
+						// Change .menu-item-depth-n class
+						t.updateDepthClass( newDepth, depth ).updateParentMenuItemDBId();
+
+						// If it has children, move those too
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						if ( children ) {
 							children.each(function() {
 								var t = $(this),
@@ -138,7 +157,11 @@
 							});
 						}
 
+<<<<<<< HEAD
 						// Show "Sub item" helper text.
+=======
+						// Show "Sub item" helper text
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						if (0 === newDepth)
 							subItemText.hide();
 						else
@@ -153,7 +176,11 @@
 							parentDepth = depth - 1,
 							parent = item.prevAll( '.menu-item-depth-' + parentDepth ).first();
 
+<<<<<<< HEAD
 						if ( 0 === depth ) { // Item is on the top level, has no parent.
+=======
+						if ( 0 === depth ) { // Item is on the top level, has no parent
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							input.val(0);
 						} else { // Find the parent item, and retrieve its object id.
 							input.val( parent.find( '.menu-item-data-db-id' ).val() );
@@ -191,10 +218,17 @@
 						if ( !checkboxes.length )
 							return false;
 
+<<<<<<< HEAD
 						// Show the Ajax spinner.
 						t.find( '.button-controls .spinner' ).addClass( 'is-active' );
 
 						// Retrieve menu item data.
+=======
+						// Show the ajax spinner
+						t.find( '.button-controls .spinner' ).addClass( 'is-active' );
+
+						// Retrieve menu item data
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$(checkboxes).each(function(){
 							var t = $(this),
 								listItemDBIDMatch = re.exec( t.attr('name') ),
@@ -205,9 +239,15 @@
 							menuItems[listItemDBID] = t.closest('li').getItemData( 'add-menu-item', listItemDBID );
 						});
 
+<<<<<<< HEAD
 						// Add the items.
 						api.addItemToMenu(menuItems, processMethod, function(){
 							// Deselect the items and hide the Ajax spinner.
+=======
+						// Add the items
+						api.addItemToMenu(menuItems, processMethod, function(){
+							// Deselect the items and hide the ajax spinner
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							checkboxes.prop( 'checked', false );
 							t.find( '.button-controls .select-all' ).prop( 'checked', false );
 							t.find( '.button-controls .spinner' ).removeClass( 'is-active' );
@@ -312,6 +352,7 @@
 			case 'up':
 				newItemPosition = thisItemPosition - 1;
 
+<<<<<<< HEAD
 				// Already at top.
 				if ( 0 === thisItemPosition )
 					break;
@@ -321,13 +362,28 @@
 					thisItem.moveHorizontally( 0, thisItemDepth );
 
 				// If prev item is sub item, shift to match depth.
+=======
+				// Already at top
+				if ( 0 === thisItemPosition )
+					break;
+
+				// If a sub item is moved to top, shift it to 0 depth
+				if ( 0 === newItemPosition && 0 !== thisItemDepth )
+					thisItem.moveHorizontally( 0, thisItemDepth );
+
+				// If prev item is sub item, shift to match depth
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( 0 !== prevItemDepth )
 					thisItem.moveHorizontally( prevItemDepth, thisItemDepth );
 
 				// Does this item have sub items?
 				if ( thisItemChildren ) {
 					items = thisItem.add( thisItemChildren );
+<<<<<<< HEAD
 					// Move the entire block.
+=======
+					// Move the entire block
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					items.detach().insertBefore( menuItems.eq( newItemPosition ) ).updateParentMenuItemDBId();
 				} else {
 					thisItem.detach().insertBefore( menuItems.eq( newItemPosition ) ).updateParentMenuItemDBId();
@@ -351,40 +407,67 @@
 
 					items.detach().insertAfter( menuItems.eq( thisItemPosition + items.length ) ).updateParentMenuItemDBId();
 				} else {
+<<<<<<< HEAD
 					// If next item has sub items, shift depth.
 					if ( 0 !== nextItemChildren.length )
 						thisItem.moveHorizontally( nextItemDepth, thisItemDepth );
 
 					// Have we reached the bottom?
+=======
+					// If next item has sub items, shift depth
+					if ( 0 !== nextItemChildren.length )
+						thisItem.moveHorizontally( nextItemDepth, thisItemDepth );
+
+					// Have we reached the bottom
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( menuItemsCount === thisItemPosition + 1 )
 						break;
 					thisItem.detach().insertAfter( menuItems.eq( thisItemPosition + 1 ) ).updateParentMenuItemDBId();
 				}
 				break;
 			case 'top':
+<<<<<<< HEAD
 				// Already at top.
+=======
+				// Already at top
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( 0 === thisItemPosition )
 					break;
 				// Does this item have sub items?
 				if ( thisItemChildren ) {
 					items = thisItem.add( thisItemChildren );
+<<<<<<< HEAD
 					// Move the entire block.
+=======
+					// Move the entire block
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					items.detach().insertBefore( menuItems.eq( 0 ) ).updateParentMenuItemDBId();
 				} else {
 					thisItem.detach().insertBefore( menuItems.eq( 0 ) ).updateParentMenuItemDBId();
 				}
 				break;
 			case 'left':
+<<<<<<< HEAD
 				// As far left as possible.
+=======
+				// As far left as possible
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( 0 === thisItemDepth )
 					break;
 				thisItem.shiftHorizontally( -1 );
 				break;
 			case 'right':
+<<<<<<< HEAD
 				// Can't be sub item at top.
 				if ( 0 === thisItemPosition )
 					break;
 				// Already sub item of prevItem.
+=======
+				// Can't be sub item at top
+				if ( 0 === thisItemPosition )
+					break;
+				// Already sub item of prevItem
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( thisItemData['menu-item-parent-id'] === prevItemId )
 					break;
 				thisItem.shiftHorizontally( 1 );
@@ -402,7 +485,11 @@
 			api.refreshKeyboardAccessibility();
 			api.refreshAdvancedAccessibility();
 
+<<<<<<< HEAD
 			// Refresh the accessibility when the user comes close to the item in any way.
+=======
+			// Refresh the accessibility when the user comes close to the item in any way
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			menu.on( 'mouseenter.refreshAccessibility focus.refreshAccessibility touchstart.refreshAccessibility' , '.menu-item' , function(){
 				api.refreshAdvancedAccessibilityOfItem( $( this ).find( 'a.item-edit' ) );
 			} );
@@ -412,7 +499,11 @@
 				api.refreshAdvancedAccessibilityOfItem( $( this ) );
 			} );
 
+<<<<<<< HEAD
 			// Links for moving items.
+=======
+			// Links for moving items
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			menu.on( 'click', '.menus-move', function () {
 				var $this = $( this ),
 					dir = $this.data( 'dir' );
@@ -429,11 +520,19 @@
 		 * Refreshes advanced accessibility buttons for one menu item.
 		 * Shows or hides buttons based on the location of the menu item.
 		 *
+<<<<<<< HEAD
 		 * @param {Object} itemToRefresh The menu item that might need its advanced accessibility buttons refreshed
 		 */
 		refreshAdvancedAccessibilityOfItem : function( itemToRefresh ) {
 
 			// Only refresh accessibility when necessary.
+=======
+		 * @param  {object} itemToRefresh The menu item that might need its advanced accessibility buttons refreshed
+		 */
+		refreshAdvancedAccessibilityOfItem : function( itemToRefresh ) {
+
+			// Only refresh accessibility when necessary
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( true !== $( itemToRefresh ).data( 'needs_accessibility_refresh' ) ) {
 				return;
 			}
@@ -494,7 +593,11 @@
 				itemPosition = primaryItems.index( menuItem ) + 1,
 				totalMenuItems = primaryItems.length,
 
+<<<<<<< HEAD
 				// String together help text for primary menu items.
+=======
+				// String together help text for primary menu items
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				title = menus.menuFocus.replace( '%1$s', itemName ).replace( '%2$d', itemPosition ).replace( '%3$d', totalMenuItems );
 			} else {
 				parentItem = menuItem.prevAll( '.menu-item-depth-' + parseInt( depth - 1, 10 ) ).first(),
@@ -503,13 +606,21 @@
 				subItems = $( '.menu-item .menu-item-data-parent-id[value="' + parentItemId + '"]' ),
 				itemPosition = $( subItems.parents('.menu-item').get().reverse() ).index( menuItem ) + 1;
 
+<<<<<<< HEAD
 				// String together help text for sub menu items.
+=======
+				// String together help text for sub menu items
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				title = menus.subMenuFocus.replace( '%1$s', itemName ).replace( '%2$d', itemPosition ).replace( '%3$s', parentItemName );
 			}
 
 			$this.attr( 'aria-label', title );
 
+<<<<<<< HEAD
 			// Mark this item's accessibility as refreshed.
+=======
+			// Mark this item's accessibility as refreshed
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this.data( 'needs_accessibility_refresh', false );
 		},
 
@@ -523,10 +634,17 @@
 			// Hide all the move buttons by default.
 			$( '.menu-item-settings .field-move .menus-move' ).hide();
 
+<<<<<<< HEAD
 			// Mark all menu items as unprocessed.
 			$( 'a.item-edit' ).data( 'needs_accessibility_refresh', true );
 
 			// All open items have to be refreshed or they will show no links.
+=======
+			// Mark all menu items as unprocessed
+			$( 'a.item-edit' ).data( 'needs_accessibility_refresh', true );
+
+			// All open items have to be refreshed or they will show no links
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$( '.menu-item-edit-active a.item-edit' ).each( function() {
 				api.refreshAdvancedAccessibilityOfItem( this );
 			} );
@@ -541,6 +659,7 @@
 						thisItem = $this.parents( 'li.menu-item' ),
 						thisItemData = thisItem.getItemData();
 
+<<<<<<< HEAD
 					// Bail if it's not an arrow key.
 					if ( 37 != e.which && 38 != e.which && 39 != e.which && 40 != e.which )
 						return;
@@ -553,6 +672,20 @@
 						return;
 
 					// If RTL, swap left/right arrows.
+=======
+					// Bail if it's not an arrow key
+					if ( 37 != e.which && 38 != e.which && 39 != e.which && 40 != e.which )
+						return;
+
+					// Avoid multiple keydown events
+					$this.off('keydown');
+
+					// Bail if there is only one menu item
+					if ( 1 === $('#menu-to-edit li').length )
+						return;
+
+					// If RTL, swap left/right arrows
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					arrows = { '38': 'up', '40': 'down', '37': 'left', '39': 'right' };
 					if ( $('body').hasClass('rtl') )
 						arrows = { '38' : 'up', '40' : 'down', '39' : 'left', '37' : 'right' };
@@ -571,7 +704,11 @@
 						api.moveMenuItem( $this, 'right' );
 						break;
 					}
+<<<<<<< HEAD
 					// Put focus back on same menu item.
+=======
+					// Put focus back on same menu item
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$( '#edit-' + thisItemData['menu-item-db-id'] ).focus();
 					return false;
 				});
@@ -588,16 +725,27 @@
 				if ( title ) {
 					titleEl.text( title ).removeClass( 'no-title' );
 				} else {
+<<<<<<< HEAD
 					titleEl.text( wp.i18n._x( '(no label)', 'missing menu item navigation label' ) ).addClass( 'no-title' );
+=======
+					titleEl.text( navMenuL10n.untitled ).addClass( 'no-title' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 			} );
 		},
 
 		initToggles : function() {
+<<<<<<< HEAD
 			// Init postboxes.
 			postboxes.add_postbox_toggles('nav-menus');
 
 			// Adjust columns functions for menus UI.
+=======
+			// init postboxes
+			postboxes.add_postbox_toggles('nav-menus');
+
+			// adjust columns functions for menus UI
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			columns.useCheckboxesForHidden();
 			columns.checked = function(field) {
 				$('.field-' + field).removeClass('hidden-field');
@@ -605,7 +753,11 @@
 			columns.unchecked = function(field) {
 				$('.field-' + field).addClass('hidden-field');
 			};
+<<<<<<< HEAD
 			// Hide fields.
+=======
+			// hide fields
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			api.menuList.hideAdvancedMenuItemFields();
 
 			$('.hide-postbox-tog').click(function () {
@@ -639,7 +791,11 @@
 				start: function(e, ui) {
 					var height, width, parent, children, tempHolder;
 
+<<<<<<< HEAD
 					// Handle placement for RTL orientation.
+=======
+					// handle placement for rtl orientation
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( api.isRTL )
 						ui.item[0].style.right = 'auto';
 
@@ -649,19 +805,32 @@
 					originalDepth = ui.item.menuItemDepth();
 					updateCurrentDepth(ui, originalDepth);
 
+<<<<<<< HEAD
 					// Attach child elements to parent.
 					// Skip the placeholder.
+=======
+					// Attach child elements to parent
+					// Skip the placeholder
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					parent = ( ui.item.next()[0] == ui.placeholder[0] ) ? ui.item.next() : ui.item;
 					children = parent.childMenuItems();
 					transport.append( children );
 
 					// Update the height of the placeholder to match the moving item.
 					height = transport.outerHeight();
+<<<<<<< HEAD
 					// If there are children, account for distance between top of children and parent.
 					height += ( height > 0 ) ? (ui.placeholder.css('margin-top').slice(0, -2) * 1) : 0;
 					height += ui.helper.outerHeight();
 					helperHeight = height;
 					height -= 2;                                              // Subtract 2 for borders.
+=======
+					// If there are children, account for distance between top of children and parent
+					height += ( height > 0 ) ? (ui.placeholder.css('margin-top').slice(0, -2) * 1) : 0;
+					height += ui.helper.outerHeight();
+					helperHeight = height;
+					height -= 2; // Subtract 2 for borders
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					ui.placeholder.height(height);
 
 					// Update the width of the placeholder to match the moving item.
@@ -670,18 +839,32 @@
 						var depth = $(this).menuItemDepth();
 						maxChildDepth = (depth > maxChildDepth) ? depth : maxChildDepth;
 					});
+<<<<<<< HEAD
 					width = ui.helper.find('.menu-item-handle').outerWidth(); // Get original width.
 					width += api.depthToPx(maxChildDepth - originalDepth);    // Account for children.
 					width -= 2;                                               // Subtract 2 for borders.
+=======
+					width = ui.helper.find('.menu-item-handle').outerWidth(); // Get original width
+					width += api.depthToPx(maxChildDepth - originalDepth); // Account for children
+					width -= 2; // Subtract 2 for borders
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					ui.placeholder.width(width);
 
 					// Update the list of menu items.
 					tempHolder = ui.placeholder.next( '.menu-item' );
+<<<<<<< HEAD
 					tempHolder.css( 'margin-top', helperHeight + 'px' ); // Set the margin to absorb the placeholder.
 					ui.placeholder.detach();         // Detach or jQuery UI will think the placeholder is a menu item.
 					$(this).sortable( 'refresh' );   // The children aren't sortable. We should let jQuery UI know.
 					ui.item.after( ui.placeholder ); // Reattach the placeholder.
 					tempHolder.css('margin-top', 0); // Reset the margin.
+=======
+					tempHolder.css( 'margin-top', helperHeight + 'px' ); // Set the margin to absorb the placeholder
+					ui.placeholder.detach(); // detach or jQuery UI will think the placeholder is a menu item
+					$(this).sortable( 'refresh' ); // The children aren't sortable. We should let jQ UI know.
+					ui.item.after( ui.placeholder ); // reattach the placeholder.
+					tempHolder.css('margin-top', 0); // reset the margin
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 					// Now that the element is complete, we can update...
 					updateSharedVars(ui);
@@ -690,31 +873,53 @@
 					var children, subMenuTitle,
 						depthChange = currentDepth - originalDepth;
 
+<<<<<<< HEAD
 					// Return child elements to the list.
 					children = transport.children().insertAfter(ui.item);
 
 					// Add "sub menu" description.
+=======
+					// Return child elements to the list
+					children = transport.children().insertAfter(ui.item);
+
+					// Add "sub menu" description
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					subMenuTitle = ui.item.find( '.item-title .is-submenu' );
 					if ( 0 < currentDepth )
 						subMenuTitle.show();
 					else
 						subMenuTitle.hide();
 
+<<<<<<< HEAD
 					// Update depth classes.
+=======
+					// Update depth classes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( 0 !== depthChange ) {
 						ui.item.updateDepthClass( currentDepth );
 						children.shiftDepthClass( depthChange );
 						updateMenuMaxDepth( depthChange );
 					}
+<<<<<<< HEAD
 					// Register a change.
+=======
+					// Register a change
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					api.registerChange();
 					// Update the item data.
 					ui.item.updateParentMenuItemDBId();
 
+<<<<<<< HEAD
 					// Address sortable's incorrectly-calculated top in Opera.
 					ui.item[0].style.top = 0;
 
 					// Handle drop placement for rtl orientation.
+=======
+					// address sortable's incorrectly-calculated top in opera
+					ui.item[0].style.top = 0;
+
+					// handle drop placement for rtl orientation
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( api.isRTL ) {
 						ui.item[0].style.left = 'auto';
 						ui.item[0].style.right = 0;
@@ -736,11 +941,17 @@
 						edge = api.isRTL ? offset.left + ui.helper.width() : offset.left,
 						depth = api.negateIfRTL * api.pxToDepth( edge - menuEdge );
 
+<<<<<<< HEAD
 					/*
 					 * Check and correct if depth is not within range.
 					 * Also, if the dragged element is dragged upwards over an item,
 					 * shift the placeholder to a child position.
 					 */
+=======
+					// Check and correct if depth is not within range.
+					// Also, if the dragged element is dragged upwards over
+					// an item, shift the placeholder to a child position.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( depth > maxDepth || offset.top < ( prevBottom - api.options.targetTolerance ) ) {
 						depth = maxDepth;
 					} else if ( depth < minDepth ) {
@@ -750,7 +961,11 @@
 					if( depth != currentDepth )
 						updateCurrentDepth(ui, depth);
 
+<<<<<<< HEAD
 					// If we overlap the next element, manually shift downwards.
+=======
+					// If we overlap the next element, manually shift downwards
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if( nextThreshold && offset.top + helperHeight > nextThreshold ) {
 						next.after( ui.placeholder );
 						updateSharedVars( ui );
@@ -920,7 +1135,11 @@
 				q = input.val();
 
 			/*
+<<<<<<< HEAD
 			 * Minimum characters for a search. Also avoid a new Ajax search when
+=======
+			 * Minimum characters for a search. Also avoid a new AJAX search when
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 * the pressed key (e.g. arrows) doesn't change the searched term.
 			 */
 			if ( q.length < minSearchLength || api.lastSearch == q ) {
@@ -957,12 +1176,21 @@
 				return false;
 			}
 
+<<<<<<< HEAD
 			// Show the Ajax spinner.
 			$( '.customlinkdiv .spinner' ).addClass( 'is-active' );
 			this.addLinkToMenu( url, label, processMethod, function() {
 				// Remove the Ajax spinner.
 				$( '.customlinkdiv .spinner' ).removeClass( 'is-active' );
 				// Set custom link form back to defaults.
+=======
+			// Show the ajax spinner
+			$( '.customlinkdiv .spinner' ).addClass( 'is-active' );
+			this.addLinkToMenu( url, label, processMethod, function() {
+				// Remove the ajax spinner
+				$( '.customlinkdiv .spinner' ).removeClass( 'is-active' );
+				// Set custom link form back to defaults
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$('#custom-menu-item-name').val('').blur();
 				$( '#custom-menu-item-url' ).val( '' ).attr( 'placeholder', 'https://' );
 			});
@@ -999,10 +1227,17 @@
 			$.post( ajaxurl, params, function(menuMarkup) {
 				var ins = $('#menu-instructions');
 
+<<<<<<< HEAD
 				menuMarkup = $.trim( menuMarkup ); // Trim leading whitespaces.
 				processMethod(menuMarkup, params);
 
 				// Make it stand out a bit more visually, by adding a fadeIn.
+=======
+				menuMarkup = $.trim( menuMarkup ); // Trim leading whitespaces
+				processMethod(menuMarkup, params);
+
+				// Make it stand out a bit more visually, by adding a fadeIn
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$( 'li.pending' ).hide().fadeIn('slow');
 				$( '.drag-instructions' ).show();
 				if( ! ins.hasClass( 'menu-instructions-inactive' ) && ins.siblings().length )
@@ -1050,10 +1285,17 @@
 			if ( 0 !== $('#menu-to-edit').length || 0 !== $('.menu-location-menus select').length ) {
 				window.onbeforeunload = function(){
 					if ( api.menusChanged )
+<<<<<<< HEAD
 						return wp.i18n.__( 'The changes you made will be lost if you navigate away from this page.' );
 				};
 			} else {
 				// Make the post boxes read-only, as they can't be used yet.
+=======
+						return navMenuL10n.saveAlert;
+				};
+			} else {
+				// Make the post boxes read-only, as they can't be used yet
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$( '#menu-settings-column' ).find( 'input,select' ).end().find( 'a' ).attr( 'href', '#' ).unbind( 'click' );
 			}
 		},
@@ -1073,7 +1315,11 @@
 
 					wrapper = target.parents('.accordion-section-content').first();
 
+<<<<<<< HEAD
 					// Upon changing tabs, we want to uncheck all checkboxes.
+=======
+					// upon changing tabs, we want to uncheck all checkboxes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$( 'input', wrapper ).prop( 'checked', false );
 
 					$('.tabs-panel-active', wrapper).removeClass('tabs-panel-active').addClass('tabs-panel-inactive');
@@ -1082,7 +1328,11 @@
 					$('.tabs', wrapper).removeClass('tabs');
 					target.parent().addClass('tabs');
 
+<<<<<<< HEAD
 					// Select the search bar.
+=======
+					// select the search bar
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$('.quick-search', wrapper).focus();
 
 					// Hide controls in the search tab if no items found.
@@ -1162,7 +1412,10 @@
 		eventOnClickEditLink : function(clickedEl) {
 			var settings, item,
 			matchedSection = /#(.*)$/.exec(clickedEl.href);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( matchedSection && matchedSection[1] ) {
 				settings = $('#'+matchedSection[1]);
 				item = settings.parent();
@@ -1187,12 +1440,17 @@
 		eventOnClickCancelLink : function(clickedEl) {
 			var settings = $( clickedEl ).closest( '.menu-item-settings' ),
 				thisMenuItem = $( clickedEl ).closest( '.menu-item' );
+<<<<<<< HEAD
 
 			thisMenuItem.removeClass( 'menu-item-edit-active' ).addClass( 'menu-item-edit-inactive' );
 			settings.setItemData( settings.data( 'menu-item-data' ) ).hide();
 			// Restore the title of the currently active/expanded menu item.
 			thisMenuItem.find( '.menu-item-title' ).text( settings.data( 'menu-item-data' )['menu-item-title'] );
 
+=======
+			thisMenuItem.removeClass('menu-item-edit-active').addClass('menu-item-edit-inactive');
+			settings.setItemData( settings.data('menu-item-data') ).hide();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return false;
 		},
 
@@ -1200,18 +1458,30 @@
 			var locs = '',
 			menuName = $('#menu-name'),
 			menuNameVal = menuName.val();
+<<<<<<< HEAD
 
 			// Cancel and warn if invalid menu name.
+=======
+			// Cancel and warn if invalid menu name
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( ! menuNameVal || ! menuNameVal.replace( /\s+/, '' ) ) {
 				menuName.parent().addClass( 'form-invalid' );
 				return false;
 			}
+<<<<<<< HEAD
 			// Copy menu theme locations.
+=======
+			// Copy menu theme locations
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$('#nav-menu-theme-locations select').each(function() {
 				locs += '<input type="hidden" name="' + this.name + '" value="' + $(this).val() + '" />';
 			});
 			$('#update-nav-menu').append( locs );
+<<<<<<< HEAD
 			// Update menu item position data.
+=======
+			// Update menu item position data
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			api.menuList.find('.menu-item-data-position').val( function(index) { return index + 1; } );
 			window.onbeforeunload = null;
 
@@ -1219,8 +1489,13 @@
 		},
 
 		eventOnClickMenuDelete : function() {
+<<<<<<< HEAD
 			// Delete warning AYS.
 			if ( window.confirm( wp.i18n.__( 'You are about to permanently delete this menu.\n\'Cancel\' to stop, \'OK\' to delete.' ) ) ) {
+=======
+			// Delete warning AYS
+			if ( window.confirm( navMenuL10n.warnDeleteMenu ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				window.onbeforeunload = null;
 				return true;
 			}
@@ -1229,7 +1504,10 @@
 
 		eventOnClickMenuItemDelete : function(clickedEl) {
 			var itemID = parseInt(clickedEl.id.replace('delete-', ''), 10);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			api.removeMenuItem( $('#menu-item-' + itemID) );
 			api.registerChange();
 			return false;
@@ -1253,7 +1531,11 @@
 			$item;
 
 			if( ! $items.length ) {
+<<<<<<< HEAD
 				$('.categorychecklist', panel).html( '<li><p>' + wp.i18n.__( 'No results found.' ) + '</p></li>' );
+=======
+				$('.categorychecklist', panel).html( '<li><p>' + navMenuL10n.noResultsFound + '</p></li>' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$( '.spinner', panel ).removeClass( 'is-active' );
 				wrapper.addClass( 'has-no-menu-item' );
 				return;
@@ -1262,7 +1544,11 @@
 			$items.each(function(){
 				$item = $(this);
 
+<<<<<<< HEAD
 				// Make a unique DB ID number.
+=======
+				// make a unique DB ID number
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				matched = pattern.exec($item.html());
 
 				if ( matched && matched[1] ) {
@@ -1292,8 +1578,12 @@
 
 		/**
 		 * Remove a menu item.
+<<<<<<< HEAD
 		 *
 		 * @param {Object} el The element to be removed as a jQuery object.
+=======
+		 * @param  {object} el The element to be removed as a jQuery object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * @fires document#menu-removing-item Passes the element to be removed.
 		 */

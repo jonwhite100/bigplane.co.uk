@@ -168,7 +168,11 @@ foreach ( $menu as $id => $data ) {
 	 * If there is only one submenu and it is has same destination as the parent,
 	 * remove the submenu.
 	 */
+<<<<<<< HEAD
 	if ( ! empty( $submenu[ $data[2] ] ) && 1 === count( $submenu[ $data[2] ] ) ) {
+=======
+	if ( ! empty( $submenu[ $data[2] ] ) && 1 == count( $submenu[ $data[2] ] ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$subs      = $submenu[ $data[2] ];
 		$first_sub = reset( $subs );
 		if ( $data[2] == $first_sub[2] ) {
@@ -208,13 +212,21 @@ function add_menu_classes( $menu ) {
 	foreach ( $menu as $order => $top ) {
 		$i++;
 
+<<<<<<< HEAD
 		if ( 0 == $order ) { // Dashboard is always shown/single.
+=======
+		if ( 0 == $order ) { // dashboard is always shown/single
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$menu[0][4] = add_cssclass( 'menu-top-first', $top[4] );
 			$lastorder  = 0;
 			continue;
 		}
 
+<<<<<<< HEAD
 		if ( 0 === strpos( $top[2], 'separator' ) && false !== $lastorder ) { // If separator.
+=======
+		if ( 0 === strpos( $top[2], 'separator' ) && false !== $lastorder ) { // if separator
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$first                 = true;
 			$c                     = $menu[ $lastorder ][4];
 			$menu[ $lastorder ][4] = add_cssclass( 'menu-top-last', $c );
@@ -227,7 +239,11 @@ function add_menu_classes( $menu ) {
 			$first             = false;
 		}
 
+<<<<<<< HEAD
 		if ( $mc == $i ) { // Last item.
+=======
+		if ( $mc == $i ) { // last item
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$c                 = $menu[ $order ][4];
 			$menu[ $order ][4] = add_cssclass( 'menu-top-last', $c );
 		}
@@ -245,7 +261,11 @@ function add_menu_classes( $menu ) {
 	return apply_filters( 'add_menu_classes', $menu );
 }
 
+<<<<<<< HEAD
 uksort( $menu, 'strnatcasecmp' ); // Make it all pretty.
+=======
+uksort( $menu, 'strnatcasecmp' ); // make it all pretty
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
  * Filters whether to enable custom ordering of the administration menu.
@@ -310,21 +330,37 @@ if ( apply_filters( 'custom_menu_order', false ) ) {
 	unset( $menu_order, $default_menu_order );
 }
 
+<<<<<<< HEAD
 // Prevent adjacent separators.
+=======
+// Prevent adjacent separators
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $prev_menu_was_separator = false;
 foreach ( $menu as $id => $data ) {
 	if ( false === stristr( $data[4], 'wp-menu-separator' ) ) {
 
+<<<<<<< HEAD
 		// This item is not a separator, so falsey the toggler and do nothing.
 		$prev_menu_was_separator = false;
 	} else {
 
 		// The previous item was a separator, so unset this one.
+=======
+		// This item is not a separator, so falsey the toggler and do nothing
+		$prev_menu_was_separator = false;
+	} else {
+
+		// The previous item was a separator, so unset this one
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( true === $prev_menu_was_separator ) {
 			unset( $menu[ $id ] );
 		}
 
+<<<<<<< HEAD
 		// This item is a separator, so truthy the toggler and move on.
+=======
+		// This item is a separator, so truthy the toggler and move on
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$prev_menu_was_separator = true;
 	}
 }
@@ -333,7 +369,11 @@ unset( $id, $data, $prev_menu_was_separator );
 // Remove the last menu item if it is a separator.
 $last_menu_key = array_keys( $menu );
 $last_menu_key = array_pop( $last_menu_key );
+<<<<<<< HEAD
 if ( ! empty( $menu ) && 'wp-menu-separator' === $menu[ $last_menu_key ][4] ) {
+=======
+if ( ! empty( $menu ) && 'wp-menu-separator' == $menu[ $last_menu_key ][4] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	unset( $menu[ $last_menu_key ] );
 }
 unset( $last_menu_key );

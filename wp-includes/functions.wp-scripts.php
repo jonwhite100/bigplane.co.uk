@@ -19,11 +19,17 @@
  */
 function wp_scripts() {
 	global $wp_scripts;
+<<<<<<< HEAD
 
 	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
 		$wp_scripts = new WP_Scripts();
 	}
 
+=======
+	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
+		$wp_scripts = new WP_Scripts();
+	}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return $wp_scripts;
 }
 
@@ -32,6 +38,7 @@ function wp_scripts() {
  *
  * @ignore
  * @since 4.2.0
+<<<<<<< HEAD
  * @since 5.5.0 Added the `$handle` parameter.
  *
  * @param string $function Function name.
@@ -64,6 +71,25 @@ function _wp_scripts_maybe_doing_it_wrong( $function, $handle = '' ) {
 	_doing_it_wrong(
 		$function,
 		$message,
+=======
+ *
+ * @param string $function Function name.
+ */
+function _wp_scripts_maybe_doing_it_wrong( $function ) {
+	if ( did_action( 'init' ) || did_action( 'admin_enqueue_scripts' ) || did_action( 'wp_enqueue_scripts' ) || did_action( 'login_enqueue_scripts' ) ) {
+		return;
+	}
+
+	_doing_it_wrong(
+		$function,
+		sprintf(
+			/* translators: 1: wp_enqueue_scripts, 2: admin_enqueue_scripts, 3: login_enqueue_scripts */
+			__( 'Scripts and styles should not be registered or enqueued until the %1$s, %2$s, or %3$s hooks.' ),
+			'<code>wp_enqueue_scripts</code>',
+			'<code>admin_enqueue_scripts</code>',
+			'<code>login_enqueue_scripts</code>'
+		),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'3.3.0'
 	);
 }
@@ -82,24 +108,38 @@ function _wp_scripts_maybe_doing_it_wrong( $function, $handle = '' ) {
  * @since 2.1.0
  *
  * @param string|bool|array $handles Optional. Scripts to be printed. Default 'false'.
+<<<<<<< HEAD
  * @return string[] On success, an array of handles of processed WP_Dependencies items; otherwise, an empty array.
  */
 function wp_print_scripts( $handles = false ) {
 	global $wp_scripts;
 
+=======
+ * @return array On success, a processed array of WP_Dependencies items; otherwise, an empty array.
+ */
+function wp_print_scripts( $handles = false ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	/**
 	 * Fires before scripts in the $handles queue are printed.
 	 *
 	 * @since 2.1.0
 	 */
 	do_action( 'wp_print_scripts' );
+<<<<<<< HEAD
 
 	if ( '' === $handles ) { // For 'wp_head'.
+=======
+	if ( '' === $handles ) { // for wp_head
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$handles = false;
 	}
 
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
+<<<<<<< HEAD
+=======
+	global $wp_scripts;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
 		if ( ! $handles ) {
 			return array(); // No need to instantiate if nothing is there.
@@ -128,7 +168,11 @@ function wp_print_scripts( $handles = false ) {
  * @return bool True on success, false on failure.
  */
 function wp_add_inline_script( $handle, $data, $position = 'after' ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( false !== stripos( $data, '</script>' ) ) {
 		_doing_it_wrong(
@@ -161,7 +205,11 @@ function wp_add_inline_script( $handle, $data, $position = 'after' ) {
  * @param string           $handle    Name of the script. Should be unique.
  * @param string|bool      $src       Full URL of the script, or path of the script relative to the WordPress root directory.
  *                                    If source is set to false, script is an alias of other scripts it depends on.
+<<<<<<< HEAD
  * @param string[]         $deps      Optional. An array of registered script handles this script depends on. Default empty array.
+=======
+ * @param array            $deps      Optional. An array of registered script handles this script depends on. Default empty array.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string|bool|null $ver       Optional. String specifying script version number, if it has one, which is added to the URL
  *                                    as a query string for cache busting purposes. If version is set to false, a version
  *                                    number is automatically added equal to current installed WordPress version.
@@ -171,9 +219,14 @@ function wp_add_inline_script( $handle, $data, $position = 'after' ) {
  * @return bool Whether the script has been registered. True on success, false on failure.
  */
 function wp_register_script( $handle, $src, $deps = array(), $ver = false, $in_footer = false ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
 
 	$wp_scripts = wp_scripts();
+=======
+	$wp_scripts = wp_scripts();
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$registered = $wp_scripts->add( $handle, $src, $deps, $ver );
 	if ( $in_footer ) {
@@ -207,14 +260,23 @@ function wp_register_script( $handle, $src, $deps = array(), $ver = false, $in_f
  * @param string $handle      Script handle the data will be attached to.
  * @param string $object_name Name for the JavaScript object. Passed directly, so it should be qualified JS variable.
  *                            Example: '/[a-zA-Z0-9_]+/'.
+<<<<<<< HEAD
  * @param array  $l10n        The data itself. The data can be either a single or multi-dimensional array.
+=======
+ * @param array $l10n         The data itself. The data can be either a single or multi-dimensional array.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return bool True if the script was successfully localized, false otherwise.
  */
 function wp_localize_script( $handle, $object_name, $l10n ) {
 	global $wp_scripts;
+<<<<<<< HEAD
 
 	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
 		_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
+		_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return false;
 	}
 
@@ -239,9 +301,14 @@ function wp_localize_script( $handle, $object_name, $l10n ) {
  */
 function wp_set_script_translations( $handle, $domain = 'default', $path = null ) {
 	global $wp_scripts;
+<<<<<<< HEAD
 
 	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
 		_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
+		_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return false;
 	}
 
@@ -261,7 +328,11 @@ function wp_set_script_translations( $handle, $domain = 'default', $path = null 
  * @param string $handle Name of the script to be removed.
  */
 function wp_deregister_script( $handle ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Do not allow accidental or negligent de-registering of critical scripts in the admin.
@@ -271,7 +342,11 @@ function wp_deregister_script( $handle ) {
 	if ( ( is_admin() && 'admin_enqueue_scripts' !== $current_filter ) ||
 		( 'wp-login.php' === $GLOBALS['pagenow'] && 'login_enqueue_scripts' !== $current_filter )
 	) {
+<<<<<<< HEAD
 		$not_allowed = array(
+=======
+		$no = array(
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'jquery',
 			'jquery-core',
 			'jquery-migrate',
@@ -299,7 +374,11 @@ function wp_deregister_script( $handle ) {
 			'backbone',
 		);
 
+<<<<<<< HEAD
 		if ( in_array( $handle, $not_allowed, true ) ) {
+=======
+		if ( in_array( $handle, $no ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$message = sprintf(
 				/* translators: 1: Script name, 2: wp_enqueue_scripts */
 				__( 'Do not deregister the %1$s script in the administration area. To target the front-end theme, use the %2$s hook.' ),
@@ -328,7 +407,11 @@ function wp_deregister_script( $handle ) {
  * @param string           $handle    Name of the script. Should be unique.
  * @param string           $src       Full URL of the script, or path of the script relative to the WordPress root directory.
  *                                    Default empty.
+<<<<<<< HEAD
  * @param string[]         $deps      Optional. An array of registered script handles this script depends on. Default empty array.
+=======
+ * @param array            $deps      Optional. An array of registered script handles this script depends on. Default empty array.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string|bool|null $ver       Optional. String specifying script version number, if it has one, which is added to the URL
  *                                    as a query string for cache busting purposes. If version is set to false, a version
  *                                    number is automatically added equal to current installed WordPress version.
@@ -337,10 +420,17 @@ function wp_deregister_script( $handle ) {
  *                                    Default 'false'.
  */
 function wp_enqueue_script( $handle, $src = '', $deps = array(), $ver = false, $in_footer = false ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
 
 	$wp_scripts = wp_scripts();
 
+=======
+	$wp_scripts = wp_scripts();
+
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $src || $in_footer ) {
 		$_handle = explode( '?', $handle );
 
@@ -366,7 +456,11 @@ function wp_enqueue_script( $handle, $src = '', $deps = array(), $ver = false, $
  * @param string $handle Name of the script to be removed.
  */
 function wp_dequeue_script( $handle ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	wp_scripts()->dequeue( $handle );
 }
@@ -387,7 +481,11 @@ function wp_dequeue_script( $handle ) {
  * @return bool Whether the script is queued.
  */
 function wp_script_is( $handle, $list = 'enqueued' ) {
+<<<<<<< HEAD
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__, $handle );
+=======
+	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return (bool) wp_scripts()->query( $handle, $list );
 }

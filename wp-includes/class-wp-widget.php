@@ -101,7 +101,11 @@ class WP_Widget {
 	/**
 	 * Echoes the widget content.
 	 *
+<<<<<<< HEAD
 	 * Subclasses should override this function to generate their widget code.
+=======
+	 * Sub-classes should over-ride this function to generate their widget code.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 2.8.0
 	 *
@@ -110,7 +114,11 @@ class WP_Widget {
 	 * @param array $instance The settings for the particular instance of the widget.
 	 */
 	public function widget( $args, $instance ) {
+<<<<<<< HEAD
 		die( 'function WP_Widget::widget() must be overridden in a subclass.' );
+=======
+		die( 'function WP_Widget::widget() must be over-ridden in a sub-class.' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -151,11 +159,19 @@ class WP_Widget {
 	 *
 	 * @since 2.8.0
 	 *
+<<<<<<< HEAD
 	 * @param string $id_base         Optional. Base ID for the widget, lowercase and unique. If left empty,
 	 *                                a portion of the widget's class name will be used. Has to be unique.
 	 * @param string $name            Name for the widget displayed on the configuration page.
 	 * @param array  $widget_options  Optional. Widget options. See wp_register_sidebar_widget() for
 	 *                                information on accepted arguments. Default empty array.
+=======
+	 * @param string $id_base         Optional Base ID for the widget, lowercase and unique. If left empty,
+	 *                                a portion of the widget's class name will be used Has to be unique.
+	 * @param string $name            Name for the widget displayed on the configuration page.
+	 * @param array  $widget_options  Optional. Widget options. See wp_register_sidebar_widget() for information
+	 *                                on accepted arguments. Default empty array.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @param array  $control_options Optional. Widget control options. See wp_register_widget_control() for
 	 *                                information on accepted arguments. Default empty array.
 	 */
@@ -177,6 +193,7 @@ class WP_Widget {
 	 * PHP4 constructor.
 	 *
 	 * @since 2.8.0
+<<<<<<< HEAD
 	 * @deprecated 4.3.0 Use __construct() instead.
 	 *
 	 * @see WP_Widget::__construct()
@@ -186,6 +203,16 @@ class WP_Widget {
 	 * @param string $name            Name for the widget displayed on the configuration page.
 	 * @param array  $widget_options  Optional. Widget options. See wp_register_sidebar_widget() for
 	 *                                information on accepted arguments. Default empty array.
+=======
+	 *
+	 * @see __construct()
+	 *
+	 * @param string $id_base         Optional Base ID for the widget, lowercase and unique. If left empty,
+	 *                                a portion of the widget's class name will be used Has to be unique.
+	 * @param string $name            Name for the widget displayed on the configuration page.
+	 * @param array  $widget_options  Optional. Widget options. See wp_register_sidebar_widget() for information
+	 *                                on accepted arguments. Default empty array.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @param array  $control_options Optional. Widget control options. See wp_register_widget_control() for
 	 *                                information on accepted arguments. Default empty array.
 	 */
@@ -399,13 +426,21 @@ class WP_Widget {
 
 		$all_instances = $this->get_settings();
 
+<<<<<<< HEAD
 		// We need to update the data.
+=======
+		// We need to update the data
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( $this->updated ) {
 			return;
 		}
 
 		if ( isset( $_POST['delete_widget'] ) && $_POST['delete_widget'] ) {
+<<<<<<< HEAD
 			// Delete the settings for this instance of the widget.
+=======
+			// Delete the settings for this instance of the widget
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( isset( $_POST['the-widget-id'] ) ) {
 				$del_id = $_POST['the-widget-id'];
 			} else {
@@ -464,7 +499,11 @@ class WP_Widget {
 					$all_instances[ $number ] = $instance;
 				}
 
+<<<<<<< HEAD
 				break; // Run only once.
+=======
+				break; // run only once
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 
@@ -494,7 +533,11 @@ class WP_Widget {
 		$all_instances = $this->get_settings();
 
 		if ( -1 == $widget_args['number'] ) {
+<<<<<<< HEAD
 			// We echo out a form where 'number' can be set later.
+=======
+			// We echo out a form where 'number' can be set later
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->_set( '__i__' );
 			$instance = array();
 		} else {

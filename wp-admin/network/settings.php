@@ -8,10 +8,17 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
 
 /** WordPress Translation Installation API */
 require_once ABSPATH . 'wp-admin/includes/translation-install.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+
+/** WordPress Translation Installation API */
+require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_network_options' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
@@ -20,7 +27,11 @@ if ( ! current_user_can( 'manage_network_options' ) ) {
 $title       = __( 'Network Settings' );
 $parent_file = 'settings.php';
 
+<<<<<<< HEAD
 // Handle network admin email change requests.
+=======
+// Handle network admin email change requests
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( ! empty( $_GET['network_admin_hash'] ) ) {
 	$new_admin_details = get_site_option( 'network_admin_hash' );
 	$redirect          = 'settings.php?updated=false';
@@ -32,7 +43,11 @@ if ( ! empty( $_GET['network_admin_hash'] ) ) {
 	}
 	wp_redirect( network_admin_url( $redirect ) );
 	exit;
+<<<<<<< HEAD
 } elseif ( ! empty( $_GET['dismiss'] ) && 'new_network_admin_email' === $_GET['dismiss'] ) {
+=======
+} elseif ( ! empty( $_GET['dismiss'] ) && 'new_network_admin_email' == $_GET['dismiss'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	check_admin_referer( 'dismiss_new_network_admin_email' );
 	delete_site_option( 'network_admin_hash' );
 	delete_site_option( 'new_admin_email' );
@@ -132,10 +147,17 @@ if ( $_POST ) {
 	do_action( 'update_wpmu_options' );
 
 	wp_redirect( add_query_arg( 'updated', 'true', network_admin_url( 'settings.php' ) ) );
+<<<<<<< HEAD
 	exit;
 }
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+	exit();
+}
+
+include( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( isset( $_GET['updated'] ) ) {
 	?><div id="message" class="updated notice is-dismissible"><p><?php _e( 'Settings saved.' ); ?></p></div>
@@ -161,11 +183,19 @@ if ( isset( $_GET['updated'] ) ) {
 				<td>
 					<input name="new_admin_email" type="email" id="admin_email" aria-describedby="admin-email-desc" class="regular-text" value="<?php echo esc_attr( get_site_option( 'admin_email' ) ); ?>" />
 					<p class="description" id="admin-email-desc">
+<<<<<<< HEAD
 						<?php _e( 'This address is used for admin purposes. If you change this, we will send you an email at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>' ); ?>
 					</p>
 					<?php
 					$new_admin_email = get_site_option( 'new_admin_email' );
 					if ( $new_admin_email && get_site_option( 'admin_email' ) !== $new_admin_email ) :
+=======
+						<?php _e( 'This address is used for admin purposes. If you change this we will send you an email at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>' ); ?>
+					</p>
+					<?php
+					$new_admin_email = get_site_option( 'new_admin_email' );
+					if ( $new_admin_email && $new_admin_email != get_site_option( 'admin_email' ) ) :
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						?>
 						<div class="updated inline">
 						<p>
@@ -255,6 +285,7 @@ if ( isset( $_GET['updated'] ) ) {
 					<?php
 					$limited_email_domains = get_site_option( 'limited_email_domains' );
 					$limited_email_domains = str_replace( ' ', "\n", $limited_email_domains );
+<<<<<<< HEAD
 
 					if ( $limited_email_domains ) {
 						$limited_email_domains = implode( "\n", (array) $limited_email_domains );
@@ -262,6 +293,11 @@ if ( isset( $_GET['updated'] ) ) {
 					?>
 					<textarea name="limited_email_domains" id="limited_email_domains" aria-describedby="limited-email-domains-desc" cols="45" rows="5">
 <?php echo esc_textarea( $limited_email_domains ); ?></textarea>
+=======
+					?>
+					<textarea name="limited_email_domains" id="limited_email_domains" aria-describedby="limited-email-domains-desc" cols="45" rows="5">
+<?php echo esc_textarea( $limited_email_domains == '' ? '' : implode( "\n", (array) $limited_email_domains ) ); ?></textarea>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<p class="description" id="limited-email-domains-desc">
 						<?php _e( 'If you want to limit site registrations to certain domains. One domain per line.' ); ?>
 					</p>
@@ -271,6 +307,7 @@ if ( isset( $_GET['updated'] ) ) {
 			<tr>
 				<th scope="row"><label for="banned_email_domains"><?php _e( 'Banned Email Domains' ); ?></label></th>
 				<td>
+<<<<<<< HEAD
 					<?php
 					$banned_email_domains = get_site_option( 'banned_email_domains' );
 
@@ -280,6 +317,10 @@ if ( isset( $_GET['updated'] ) ) {
 					?>
 					<textarea name="banned_email_domains" id="banned_email_domains" aria-describedby="banned-email-domains-desc" cols="45" rows="5">
 <?php echo esc_textarea( $banned_email_domains ); ?></textarea>
+=======
+					<textarea name="banned_email_domains" id="banned_email_domains" aria-describedby="banned-email-domains-desc" cols="45" rows="5">
+<?php echo esc_textarea( get_site_option( 'banned_email_domains' ) == '' ? '' : implode( "\n", (array) get_site_option( 'banned_email_domains' ) ) ); ?></textarea>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<p class="description" id="banned-email-domains-desc">
 						<?php _e( 'If you want to ban domains from site registrations. One domain per line.' ); ?>
 					</p>
@@ -427,7 +468,11 @@ if ( isset( $_GET['updated'] ) ) {
 					<td>
 						<?php
 						$lang = get_site_option( 'WPLANG' );
+<<<<<<< HEAD
 						if ( ! in_array( $lang, $languages, true ) ) {
+=======
+						if ( ! in_array( $lang, $languages ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							$lang = '';
 						}
 
@@ -449,6 +494,7 @@ if ( isset( $_GET['updated'] ) ) {
 		}
 		?>
 
+<<<<<<< HEAD
 		<?php
 		$menu_perms = get_site_option( 'menu_items' );
 		/**
@@ -490,6 +536,43 @@ if ( isset( $_GET['updated'] ) ) {
 			<?php
 		endif;
 		?>
+=======
+		<h2><?php _e( 'Menu Settings' ); ?></h2>
+		<table id="menu" class="form-table">
+			<tr>
+				<th scope="row"><?php _e( 'Enable administration menus' ); ?></th>
+				<td>
+			<?php
+			$menu_perms = get_site_option( 'menu_items' );
+			/**
+			 * Filters available network-wide administration menu options.
+			 *
+			 * Options returned to this filter are output as individual checkboxes that, when selected,
+			 * enable site administrator access to the specified administration menu in certain contexts.
+			 *
+			 * Adding options for specific menus here hinges on the appropriate checks and capabilities
+			 * being in place in the site dashboard on the other side. For instance, when the single
+			 * default option, 'plugins' is enabled, site administrators are granted access to the Plugins
+			 * screen in their individual sites' dashboards.
+			 *
+			 * @since MU (3.0.0)
+			 *
+			 * @param string[] $admin_menus Associative array of the menu items available.
+			 */
+			$menu_items = apply_filters( 'mu_menu_items', array( 'plugins' => __( 'Plugins' ) ) );
+
+			echo '<fieldset><legend class="screen-reader-text">' . __( 'Enable menus' ) . '</legend>';
+
+			foreach ( (array) $menu_items as $key => $val ) {
+				echo "<label><input type='checkbox' name='menu_items[" . $key . "]' value='1'" . ( isset( $menu_perms[ $key ] ) ? checked( $menu_perms[ $key ], '1', false ) : '' ) . ' /> ' . esc_html( $val ) . '</label><br/>';
+			}
+
+			echo '</fieldset>';
+			?>
+				</td>
+			</tr>
+		</table>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		<?php
 		/**
@@ -503,4 +586,8 @@ if ( isset( $_GET['updated'] ) ) {
 	</form>
 </div>
 
+<<<<<<< HEAD
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

@@ -223,13 +223,20 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
      */
     protected static function context()
     {
+<<<<<<< HEAD
         $ctx    = new SplFixedArray(6);
+=======
+        $ctx    = new SplFixedArray(5);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         $ctx[0] = new SplFixedArray(8);   // h
         $ctx[1] = new SplFixedArray(2);   // t
         $ctx[2] = new SplFixedArray(2);   // f
         $ctx[3] = new SplFixedArray(256); // buf
         $ctx[4] = 0;                      // buflen
+<<<<<<< HEAD
         $ctx[5] = 0;                      // last_node (uint8_t)
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
         for ($i = 8; $i--;) {
             $ctx[0][$i] = self::$iv[$i];
@@ -483,8 +490,11 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
      *
      * @param SplFixedArray|null $key
      * @param int $outlen
+<<<<<<< HEAD
      * @param SplFixedArray|null $salt
      * @param SplFixedArray|null $personal
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
      * @return SplFixedArray
      * @throws SodiumException
      * @throws TypeError
@@ -494,12 +504,17 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
      * @psalm-suppress MixedArrayAssignment
      * @psalm-suppress MixedMethodCall
      */
+<<<<<<< HEAD
     public static function init(
         $key = null,
         $outlen = 64,
         $salt = null,
         $personal = null
     ) {
+=======
+    public static function init($key = null, $outlen = 64)
+    {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         self::pseudoConstructor();
         $klen = 0;
 
@@ -517,7 +532,10 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
         $ctx = self::context();
 
         $p = new SplFixedArray(64);
+<<<<<<< HEAD
         // Zero our param buffer...
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         for ($i = 64; --$i;) {
             $p[$i] = 0;
         }
@@ -527,6 +545,7 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
         $p[2] = 1;       // fanout
         $p[3] = 1;       // depth
 
+<<<<<<< HEAD
         if ($salt instanceof SplFixedArray) {
             // salt: [32] through [47]
             for ($i = 0; $i < 16; ++$i) {
@@ -540,11 +559,14 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
             }
         }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         $ctx[0][0] = self::xor64(
             $ctx[0][0],
             self::load64($p, 0)
         );
 
+<<<<<<< HEAD
         if ($salt instanceof SplFixedArray || $personal instanceof SplFixedArray) {
             // We need to do what blake2b_init_param() does:
             for ($i = 1; $i < 8; ++$i) {
@@ -555,6 +577,8 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
             }
         }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         if ($klen > 0 && $key instanceof SplFixedArray) {
             $block = new SplFixedArray(128);
             for ($i = 128; $i--;) {
@@ -564,7 +588,10 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
                 $block[$i] = $key[$i];
             }
             self::update($ctx, $block, 128);
+<<<<<<< HEAD
             $ctx[4] = 128;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
 
         return $ctx;
@@ -627,7 +654,11 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
             }
             /** @var ParagonIE_Sodium_Core32_Int64 $ctxAi */
             $ctxAi = $ctxA[$i];
+<<<<<<< HEAD
             $str .= $ctxAi->toReverseString();
+=======
+            $str .= $ctxAi->toString();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
 
         # uint64_t t[2];
@@ -640,8 +671,13 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
             /** @var ParagonIE_Sodium_Core32_Int64 $ctxA2 */
             $ctxA2 = $ctxA[1];
 
+<<<<<<< HEAD
             $str .= $ctxA1->toReverseString();
             $str .= $ctxA2->toReverseString();
+=======
+            $str .= $ctxA1->toString();
+            $str .= $ctxA2->toString();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
 
         # uint8_t buf[2 * 128];
@@ -656,16 +692,25 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
             self::intToChr(($ctx4 >> 8) & 0xff),
             self::intToChr(($ctx4 >> 16) & 0xff),
             self::intToChr(($ctx4 >> 24) & 0xff),
+<<<<<<< HEAD
             "\x00\x00\x00\x00"
             /*
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
             self::intToChr(($ctx4 >> 32) & 0xff),
             self::intToChr(($ctx4 >> 40) & 0xff),
             self::intToChr(($ctx4 >> 48) & 0xff),
             self::intToChr(($ctx4 >> 56) & 0xff)
+<<<<<<< HEAD
             */
         ));
         # uint8_t last_node;
         return $str . self::intToChr($ctx[5]) . str_repeat("\x00", 23);
+=======
+        ));
+        # uint8_t last_node;
+        return $str . "\x00";
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     }
 
     /**
@@ -687,7 +732,11 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
 
         # uint64_t h[8];
         for ($i = 0; $i < 8; ++$i) {
+<<<<<<< HEAD
             $ctx[0][$i] = ParagonIE_Sodium_Core32_Int64::fromReverseString(
+=======
+            $ctx[0][$i] = ParagonIE_Sodium_Core32_Int64::fromString(
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
                 self::substr($string, (($i << 3) + 0), 8)
             );
         }
@@ -695,10 +744,17 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
         # uint64_t t[2];
         # uint64_t f[2];
         for ($i = 1; $i < 3; ++$i) {
+<<<<<<< HEAD
             $ctx[$i][1] = ParagonIE_Sodium_Core32_Int64::fromReverseString(
                 self::substr($string, 72 + (($i - 1) << 4), 8)
             );
             $ctx[$i][0] = ParagonIE_Sodium_Core32_Int64::fromReverseString(
+=======
+            $ctx[$i][1] = ParagonIE_Sodium_Core32_Int64::fromString(
+                self::substr($string, 72 + (($i - 1) << 4), 8)
+            );
+            $ctx[$i][0] = ParagonIE_Sodium_Core32_Int64::fromString(
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
                 self::substr($string, 64 + (($i - 1) << 4), 8)
             );
         }
@@ -706,6 +762,10 @@ abstract class ParagonIE_Sodium_Core32_BLAKE2b extends ParagonIE_Sodium_Core_Uti
         # uint8_t buf[2 * 128];
         $ctx[3] = self::stringToSplFixedArray(self::substr($string, 96, 256));
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         # uint8_t buf[2 * 128];
         $int = 0;
         for ($i = 0; $i < 8; ++$i) {

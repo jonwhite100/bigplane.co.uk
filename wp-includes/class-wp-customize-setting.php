@@ -15,7 +15,10 @@
  * @since 3.4.0
  *
  * @see WP_Customize_Manager
+<<<<<<< HEAD
  * @link https://developer.wordpress.org/themes/customize-api
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 class WP_Customize_Setting {
 	/**
@@ -51,10 +54,17 @@ class WP_Customize_Setting {
 	public $capability = 'edit_theme_options';
 
 	/**
+<<<<<<< HEAD
 	 * Theme features required to support the setting.
 	 *
 	 * @since 3.4.0
 	 * @var string|string[]
+=======
+	 * Feature a theme is required to support to enable this setting.
+	 *
+	 * @since 3.4.0
+	 * @var string
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $theme_supports = '';
 
@@ -72,6 +82,11 @@ class WP_Customize_Setting {
 	 * Set this value to 'postMessage' to enable a custom JavaScript handler to render changes to this setting
 	 * as opposed to reloading the whole page.
 	 *
+<<<<<<< HEAD
+=======
+	 * @link https://developer.wordpress.org/themes/customize-api
+	 *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @since 3.4.0
 	 * @var string
 	 */
@@ -97,7 +112,11 @@ class WP_Customize_Setting {
 	 * Callback to convert a Customize PHP setting value to a value that is JSON serializable.
 	 *
 	 * @since 3.4.0
+<<<<<<< HEAD
 	 * @var callable
+=======
+	 * @var string
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $sanitize_js_callback = '';
 
@@ -153,6 +172,7 @@ class WP_Customize_Setting {
 	 *
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      A specific ID of the setting.
 	 *                                      Can be a theme mod or option name.
@@ -173,6 +193,12 @@ class WP_Customize_Setting {
 	 *                                                 JSON serializable.
 	 *     @type bool            $dirty                Whether or not the setting is initially dirty when created.
 	 * }
+=======
+	 * @param WP_Customize_Manager $manager
+	 * @param string               $id      An specific ID of the setting. Can be a
+	 *                                      theme mod or option name.
+	 * @param array                $args    Setting arguments.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		$keys = array_keys( get_object_vars( $this ) );
@@ -513,7 +539,11 @@ class WP_Customize_Setting {
 	 *
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @return void|false False if cap check fails or value isn't set or is invalid.
+=======
+	 * @return false|void False if cap check fails or value isn't set or is invalid.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	final public function save() {
 		$value = $this->post_value();
@@ -546,7 +576,11 @@ class WP_Customize_Setting {
 	 *
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @param mixed $default A default value which is used as a fallback. Default null.
+=======
+	 * @param mixed $default A default value which is used as a fallback. Default is null.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return mixed The default value on failure, otherwise the sanitized and validated value.
 	 */
 	final public function post_value( $default = null ) {
@@ -846,9 +880,15 @@ class WP_Customize_Setting {
 	 *
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @param array $root
 	 * @param array $keys
 	 * @param bool  $create Default false.
+=======
+	 * @param $root
+	 * @param $keys
+	 * @param bool $create Default is false.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return array|void Keys are 'root', 'node', and 'key'.
 	 */
 	final protected function multidimensional( &$root, $keys, $create = false ) {
@@ -877,7 +917,11 @@ class WP_Customize_Setting {
 
 		if ( $create ) {
 			if ( ! is_array( $node ) ) {
+<<<<<<< HEAD
 				// Account for an array overriding a string or object value.
+=======
+				// account for an array overriding a string or object value
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$node = array();
 			}
 			if ( ! isset( $node[ $last ] ) ) {
@@ -901,8 +945,13 @@ class WP_Customize_Setting {
 	 *
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @param array $root
 	 * @param array $keys
+=======
+	 * @param $root
+	 * @param $keys
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @param mixed $value The value to update.
 	 * @return mixed
 	 */
@@ -927,9 +976,15 @@ class WP_Customize_Setting {
 	 *
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @param array $root
 	 * @param array $keys
 	 * @param mixed $default A default value which is used as a fallback. Default null.
+=======
+	 * @param $root
+	 * @param $keys
+	 * @param mixed $default A default value which is used as a fallback. Default is null.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return mixed The requested value or the default value.
 	 */
 	final protected function multidimensional_get( $root, $keys, $default = null ) {
@@ -946,8 +1001,13 @@ class WP_Customize_Setting {
 	 *
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @param array $root
 	 * @param array $keys
+=======
+	 * @param $root
+	 * @param $keys
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool True if value is set, false if not.
 	 */
 	final protected function multidimensional_isset( $root, $keys ) {
@@ -959,24 +1019,44 @@ class WP_Customize_Setting {
 /**
  * WP_Customize_Filter_Setting class.
  */
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/customize/class-wp-customize-filter-setting.php';
+=======
+require_once( ABSPATH . WPINC . '/customize/class-wp-customize-filter-setting.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
  * WP_Customize_Header_Image_Setting class.
  */
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/customize/class-wp-customize-header-image-setting.php';
+=======
+require_once( ABSPATH . WPINC . '/customize/class-wp-customize-header-image-setting.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
  * WP_Customize_Background_Image_Setting class.
  */
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/customize/class-wp-customize-background-image-setting.php';
+=======
+require_once( ABSPATH . WPINC . '/customize/class-wp-customize-background-image-setting.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
  * WP_Customize_Nav_Menu_Item_Setting class.
  */
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-item-setting.php';
+=======
+require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-item-setting.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
  * WP_Customize_Nav_Menu_Setting class.
  */
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-setting.php';
+=======
+require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-setting.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

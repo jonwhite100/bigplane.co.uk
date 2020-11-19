@@ -42,6 +42,7 @@ class Requests_Utility_FilteredIterator extends ArrayIterator {
 		$value = call_user_func($this->callback, $value);
 		return $value;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * @inheritdoc
@@ -58,4 +59,6 @@ class Requests_Utility_FilteredIterator extends ArrayIterator {
 	public function __wakeup() { // phpcs:ignore PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.MethodDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.NewMagicMethods.__wakeupFound
 		unset( $this->callback );
 	}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

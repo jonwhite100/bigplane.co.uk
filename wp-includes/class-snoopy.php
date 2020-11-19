@@ -183,7 +183,11 @@ class Snoopy
 						$frameurls = $this->_frameurls;
 						$this->_frameurls = array();
 
+<<<<<<< HEAD
 						foreach ( $frameurls as $frameurl )
+=======
+						while(list(,$frameurl) = each($frameurls))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						{
 							if($this->_framedepth < $this->maxframes)
 							{
@@ -243,7 +247,11 @@ class Snoopy
 					$frameurls = $this->_frameurls;
 					$this->_frameurls = array();
 
+<<<<<<< HEAD
 					foreach ( $frameurls as $frameurl )
+=======
+					while(list(,$frameurl) = each($frameurls))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					{
 						if($this->_framedepth < $this->maxframes)
 						{
@@ -341,7 +349,11 @@ class Snoopy
 						$frameurls = $this->_frameurls;
 						$this->_frameurls = array();
 
+<<<<<<< HEAD
 						foreach ( $frameurls as $frameurl )
+=======
+						while(list(,$frameurl) = each($frameurls))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						{
 							if($this->_framedepth < $this->maxframes)
 							{
@@ -408,7 +420,11 @@ class Snoopy
 					$frameurls = $this->_frameurls;
 					$this->_frameurls = array();
 
+<<<<<<< HEAD
 					foreach ( $frameurls as $frameurl )
+=======
+					while(list(,$frameurl) = each($frameurls))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					{
 						if($this->_framedepth < $this->maxframes)
 						{
@@ -629,13 +645,21 @@ class Snoopy
 
 		// catenate the non-empty matches from the conditional subpattern
 
+<<<<<<< HEAD
 		foreach ( $links[2] as $key => $val )
+=======
+		while(list($key,$val) = each($links[2]))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		{
 			if(!empty($val))
 				$match[] = $val;
 		}
 
+<<<<<<< HEAD
 		foreach ( $links[3] as $key => $val )
+=======
+		while(list($key,$val) = each($links[3]))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		{
 			if(!empty($val))
 				$match[] = $val;
@@ -821,7 +845,11 @@ class Snoopy
 		{
 			if(!is_array($this->rawheaders))
 				$this->rawheaders = (array)$this->rawheaders;
+<<<<<<< HEAD
 			foreach ( $this->rawheaders as $headerKey => $headerVal )
+=======
+			while(list($headerKey,$headerVal) = each($this->rawheaders))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$headers .= $headerKey.": ".$headerVal."\r\n";
 		}
 		if(!empty($content_type)) {
@@ -985,7 +1013,11 @@ class Snoopy
 		{
 			if(!is_array($this->rawheaders))
 				$this->rawheaders = (array)$this->rawheaders;
+<<<<<<< HEAD
 			foreach ( $this->rawheaders as $headerKey => $headerVal )
+=======
+			while(list($headerKey,$headerVal) = each($this->rawheaders))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$headers[] = $headerKey.": ".$headerVal;
 		}
 		if(!empty($content_type)) {
@@ -1204,9 +1236,15 @@ class Snoopy
 		switch ($this->_submit_type) {
 			case "application/x-www-form-urlencoded":
 				reset($formvars);
+<<<<<<< HEAD
 				foreach ( $formvars as $key => $val ) {
 					if (is_array($val) || is_object($val)) {
 						foreach ( $val as $cur_key => $cur_val ) {
+=======
+				while(list($key,$val) = each($formvars)) {
+					if (is_array($val) || is_object($val)) {
+						while (list($cur_key, $cur_val) = each($val)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							$postdata .= urlencode($key)."[]=".urlencode($cur_val)."&";
 						}
 					} else
@@ -1218,9 +1256,15 @@ class Snoopy
 				$this->_mime_boundary = "Snoopy".md5(uniqid(microtime()));
 
 				reset($formvars);
+<<<<<<< HEAD
 				foreach ( $formvars as $key => $val ) {
 					if (is_array($val) || is_object($val)) {
 						foreach ( $val as $cur_key => $cur_val ) {
+=======
+				while(list($key,$val) = each($formvars)) {
+					if (is_array($val) || is_object($val)) {
+						while (list($cur_key, $cur_val) = each($val)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							$postdata .= "--".$this->_mime_boundary."\r\n";
 							$postdata .= "Content-Disposition: form-data; name=\"$key\[\]\"\r\n\r\n";
 							$postdata .= "$cur_val\r\n";
@@ -1233,9 +1277,15 @@ class Snoopy
 				}
 
 				reset($formfiles);
+<<<<<<< HEAD
 				foreach ( $formfiles as $field_name => $file_names ) {
 					settype($file_names, "array");
 					foreach ( $file_names as $file_name ) {
+=======
+				while (list($field_name, $file_names) = each($formfiles)) {
+					settype($file_names, "array");
+					while (list(, $file_name) = each($file_names)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						if (!is_readable($file_name)) continue;
 
 						$fp = fopen($file_name, "r");

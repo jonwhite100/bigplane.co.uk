@@ -80,6 +80,7 @@ class ParagonIE_Sodium_Core_Poly1305_State extends ParagonIE_Sodium_Core_Util
     }
 
     /**
+<<<<<<< HEAD
      * Zero internal buffer upon destruction
      */
     public function __destruct()
@@ -103,6 +104,8 @@ class ParagonIE_Sodium_Core_Poly1305_State extends ParagonIE_Sodium_Core_Util
     }
 
     /**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
      * @internal You should not use this directly from another application
      *
      * @param string $message
@@ -113,9 +116,12 @@ class ParagonIE_Sodium_Core_Poly1305_State extends ParagonIE_Sodium_Core_Util
     public function update($message = '')
     {
         $bytes = self::strlen($message);
+<<<<<<< HEAD
         if ($bytes < 1) {
             return $this;
         }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
         /* handle leftover */
         if ($this->leftover) {
@@ -137,7 +143,11 @@ class ParagonIE_Sodium_Core_Poly1305_State extends ParagonIE_Sodium_Core_Util
             }
 
             $this->blocks(
+<<<<<<< HEAD
                 self::intArrayToString($this->buffer),
+=======
+                static::intArrayToString($this->buffer),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
                 ParagonIE_Sodium_Core_Poly1305::BLOCK_SIZE
             );
             $this->leftover = 0;
@@ -322,7 +332,11 @@ class ParagonIE_Sodium_Core_Poly1305_State extends ParagonIE_Sodium_Core_Util
             $this->final = true;
             $this->blocks(
                 self::substr(
+<<<<<<< HEAD
                     self::intArrayToString($this->buffer),
+=======
+                    static::intArrayToString($this->buffer),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
                     0,
                     ParagonIE_Sodium_Core_Poly1305::BLOCK_SIZE
                 ),

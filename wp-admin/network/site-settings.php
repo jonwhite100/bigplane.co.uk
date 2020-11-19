@@ -8,7 +8,11 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_sites' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to edit this site.' ) );
@@ -34,7 +38,11 @@ if ( ! can_edit_network( $details->site_id ) ) {
 
 $is_main_site = is_main_site( $id );
 
+<<<<<<< HEAD
 if ( isset( $_REQUEST['action'] ) && 'update-site' === $_REQUEST['action'] && is_array( $_POST['option'] ) ) {
+=======
+if ( isset( $_REQUEST['action'] ) && 'update-site' == $_REQUEST['action'] && is_array( $_POST['option'] ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	check_admin_referer( 'edit-site' );
 
 	switch_to_blog( $id );
@@ -43,8 +51,13 @@ if ( isset( $_REQUEST['action'] ) && 'update-site' === $_REQUEST['action'] && is
 	foreach ( (array) $_POST['option'] as $key => $val ) {
 		$key = wp_unslash( $key );
 		$val = wp_unslash( $val );
+<<<<<<< HEAD
 		if ( 0 === $key || is_array( $val ) || in_array( $key, $skip_options, true ) ) {
 			continue; // Avoids "0 is a protected WP option and may not be modified" error when editing blog options.
+=======
+		if ( $key === 0 || is_array( $val ) || in_array( $key, $skip_options ) ) {
+			continue; // Avoids "0 is a protected WP option and may not be modified" error when edit blog options
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		update_option( $key, $val );
 	}
@@ -74,7 +87,11 @@ if ( isset( $_REQUEST['action'] ) && 'update-site' === $_REQUEST['action'] && is
 
 if ( isset( $_GET['update'] ) ) {
 	$messages = array();
+<<<<<<< HEAD
 	if ( 'updated' === $_GET['update'] ) {
+=======
+	if ( 'updated' == $_GET['update'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$messages[] = __( 'Site options updated.' );
 	}
 }
@@ -85,7 +102,11 @@ $title = sprintf( __( 'Edit Site: %s' ), esc_html( $details->blogname ) );
 $parent_file  = 'sites.php';
 $submenu_file = 'sites.php';
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ?>
 
@@ -123,6 +144,7 @@ if ( ! empty( $messages ) ) {
 			'%' . $wpdb->esc_like( 'user_roles' )
 		);
 		$options     = $wpdb->get_results( $query );
+<<<<<<< HEAD
 
 		foreach ( $options as $option ) {
 			if ( 'default_role' === $option->option_name ) {
@@ -132,6 +154,14 @@ if ( ! empty( $messages ) ) {
 			$disabled = false;
 			$class    = 'all-options';
 
+=======
+		foreach ( $options as $option ) {
+			if ( $option->option_name == 'default_role' ) {
+				$editblog_default_role = $option->option_value;
+			}
+			$disabled = false;
+			$class    = 'all-options';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( is_serialized( $option->option_value ) ) {
 				if ( is_serialized_string( $option->option_value ) ) {
 					$option->option_value = esc_html( maybe_unserialize( $option->option_value ) );
@@ -141,7 +171,10 @@ if ( ! empty( $messages ) ) {
 					$class                = 'all-options disabled';
 				}
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( strpos( $option->option_value, "\n" ) !== false ) {
 				?>
 				<tr class="form-field">
@@ -153,7 +186,11 @@ if ( ! empty( $messages ) ) {
 				?>
 				<tr class="form-field">
 					<th scope="row"><label for="<?php echo esc_attr( $option->option_name ); ?>"><?php echo esc_html( ucwords( str_replace( '_', ' ', $option->option_name ) ) ); ?></label></th>
+<<<<<<< HEAD
 					<?php if ( $is_main_site && in_array( $option->option_name, array( 'siteurl', 'home' ), true ) ) { ?>
+=======
+					<?php if ( $is_main_site && in_array( $option->option_name, array( 'siteurl', 'home' ) ) ) { ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<td><code><?php echo esc_html( $option->option_value ); ?></code></td>
 					<?php } else { ?>
 					<td><input class="<?php echo $class; ?>" name="option[<?php echo esc_attr( $option->option_name ); ?>]" type="text" id="<?php echo esc_attr( $option->option_name ); ?>" value="<?php echo esc_attr( $option->option_value ); ?>" size="40" <?php disabled( $disabled ); ?> /></td>
@@ -161,8 +198,12 @@ if ( ! empty( $messages ) ) {
 				</tr>
 				<?php
 			}
+<<<<<<< HEAD
 		} // End foreach.
 
+=======
+		} // End foreach
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		/**
 		 * Fires at the end of the Edit Site form, before the submit button.
 		 *
@@ -178,4 +219,8 @@ if ( ! empty( $messages ) ) {
 
 </div>
 <?php
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+require( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

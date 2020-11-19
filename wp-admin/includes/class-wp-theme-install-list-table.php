@@ -34,7 +34,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	 * @global array  $theme_field_defaults
 	 */
 	public function prepare_items() {
+<<<<<<< HEAD
 		require ABSPATH . 'wp-admin/includes/theme-install.php';
+=======
+		include( ABSPATH . 'wp-admin/includes/theme-install.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		global $tabs, $tab, $paged, $type, $theme_field_defaults;
 		wp_reset_vars( array( 'tab' ) );
@@ -82,7 +86,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		$nonmenu_tabs = apply_filters( 'install_themes_nonmenu_tabs', $nonmenu_tabs );
 
 		// If a non-valid menu tab has been selected, And it's not a non-menu action.
+<<<<<<< HEAD
 		if ( empty( $tab ) || ( ! isset( $tabs[ $tab ] ) && ! in_array( $tab, (array) $nonmenu_tabs, true ) ) ) {
+=======
+		if ( empty( $tab ) || ( ! isset( $tabs[ $tab ] ) && ! in_array( $tab, (array) $nonmenu_tabs ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$tab = key( $tabs );
 		}
 
@@ -137,7 +145,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		 *
 		 * @since 3.7.0
 		 *
+<<<<<<< HEAD
 		 * @param array|false $args Theme install API arguments.
+=======
+		 * @param array $args An array of themes API arguments.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$args = apply_filters( "install_themes_table_api_args_{$tab}", $args );
 
@@ -231,7 +243,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 				?>
 				</div>
 			<?php
+<<<<<<< HEAD
 		} // End foreach $theme_names.
+=======
+		} // end foreach $theme_names
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$this->theme_installer();
 	}
@@ -250,7 +266,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	 *     @type string $slug           Theme slug, e.g. 'twentytwenty'.
 	 *     @type string $version        Theme version, e.g. '1.1'.
 	 *     @type string $author         Theme author username, e.g. 'melchoyce'.
+<<<<<<< HEAD
 	 *     @type string $preview_url    Preview URL, e.g. 'https://2020.wordpress.net/'.
+=======
+	 *     @type string $preview_url    Preview URL, e.g. 'http://2020.wordpress.net/'.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *     @type string $screenshot_url Screenshot URL, e.g. 'https://wordpress.org/themes/twentytwenty/'.
 	 *     @type float  $rating         Rating score.
 	 *     @type int    $num_ratings    The number of ratings.
@@ -323,7 +343,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 					'<a class="install-now" href="%s" title="%s">%s</a>',
 					esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ),
 					/* translators: %s: Theme name. */
+<<<<<<< HEAD
 					esc_attr( sprintf( _x( 'Install %s', 'theme' ), $name ) ),
+=======
+					esc_attr( sprintf( __( 'Install %s' ), $name ) ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					__( 'Install Now' )
 				);
 				break;

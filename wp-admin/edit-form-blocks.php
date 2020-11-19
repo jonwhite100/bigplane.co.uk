@@ -8,7 +8,11 @@
  * @subpackage Administration
  */
 
+<<<<<<< HEAD
 // Don't load directly.
+=======
+// don't load directly
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
@@ -59,8 +63,13 @@ $preload_paths = array(
  *
  * @since 5.0.0
  *
+<<<<<<< HEAD
  * @param string[] $preload_paths Array of paths to preload.
  * @param WP_Post  $post          Post being edited.
+=======
+ * @param array  $preload_paths Array of paths to preload.
+ * @param object $post          The post resource data.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 $preload_paths = apply_filters( 'block_editor_preload_paths', $preload_paths, $post );
 
@@ -132,12 +141,18 @@ wp_localize_script( 'wp-editor', '_wpMetaBoxUrl', $meta_box_url );
  * Initialize the editor.
  */
 
+<<<<<<< HEAD
 $align_wide         = get_theme_support( 'align-wide' );
 $color_palette      = current( (array) get_theme_support( 'editor-color-palette' ) );
 $font_sizes         = current( (array) get_theme_support( 'editor-font-sizes' ) );
 $gradient_presets   = current( (array) get_theme_support( 'editor-gradient-presets' ) );
 $custom_line_height = get_theme_support( 'custom-line-height' );
 $custom_units       = get_theme_support( 'custom-units' );
+=======
+$align_wide    = get_theme_support( 'align-wide' );
+$color_palette = current( (array) get_theme_support( 'editor-color-palette' ) );
+$font_sizes    = current( (array) get_theme_support( 'editor-font-sizes' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
  * Filters the allowed block types for the editor, defaulting to true (all
@@ -147,6 +162,7 @@ $custom_units       = get_theme_support( 'custom-units' );
  *
  * @param bool|array $allowed_block_types Array of block type slugs, or
  *                                        boolean to enable/disable all.
+<<<<<<< HEAD
  * @param WP_Post    $post                The post resource data.
  */
 $allowed_block_types = apply_filters( 'allowed_block_types', true, $post );
@@ -157,6 +173,16 @@ $allowed_block_types = apply_filters( 'allowed_block_types', true, $post );
  * not empty so we do not trigger the template select element without any options
  * besides the default value.
  */
+=======
+ * @param object $post                    The post resource data.
+ */
+$allowed_block_types = apply_filters( 'allowed_block_types', true, $post );
+
+// Get all available templates for the post/page attributes meta-box.
+// The "Default template" array element should only be added if the array is
+// not empty so we do not trigger the template select element without any options
+// besides the default value.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $available_templates = wp_get_theme()->get_page_templates( get_post( $post->ID ) );
 $available_templates = ! empty( $available_templates ) ? array_merge(
 	array(
@@ -229,6 +255,7 @@ foreach ( $image_size_names as $image_size_slug => $image_size_name ) {
 	);
 }
 
+<<<<<<< HEAD
 $image_dimensions = array();
 $all_sizes        = wp_get_registered_image_subsizes();
 foreach ( $available_image_sizes as $size ) {
@@ -238,6 +265,8 @@ foreach ( $available_image_sizes as $size ) {
 	}
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 // Lock settings.
 $user_id = wp_check_post_lock( $post->ID );
 if ( $user_id ) {
@@ -285,6 +314,7 @@ if ( $user_id ) {
 $body_placeholder = apply_filters( 'write_your_story', __( 'Start writing or type / to choose a block' ), $post );
 
 $editor_settings = array(
+<<<<<<< HEAD
 	'alignWide'                            => $align_wide,
 	'availableTemplates'                   => $available_templates,
 	'allowedBlockTypes'                    => $allowed_block_types,
@@ -305,10 +335,31 @@ $editor_settings = array(
 	'richEditingEnabled'                   => user_can_richedit(),
 	'postLock'                             => $lock_details,
 	'postLockUtils'                        => array(
+=======
+	'alignWide'              => $align_wide,
+	'availableTemplates'     => $available_templates,
+	'allowedBlockTypes'      => $allowed_block_types,
+	'disableCustomColors'    => get_theme_support( 'disable-custom-colors' ),
+	'disableCustomFontSizes' => get_theme_support( 'disable-custom-font-sizes' ),
+	'disablePostFormats'     => ! current_theme_supports( 'post-formats' ),
+	/** This filter is documented in wp-admin/edit-form-advanced.php */
+	'titlePlaceholder'       => apply_filters( 'enter_title_here', __( 'Add title' ), $post ),
+	'bodyPlaceholder'        => $body_placeholder,
+	'isRTL'                  => is_rtl(),
+	'autosaveInterval'       => AUTOSAVE_INTERVAL,
+	'maxUploadFileSize'      => $max_upload_size,
+	'allowedMimeTypes'       => get_allowed_mime_types(),
+	'styles'                 => $styles,
+	'imageSizes'             => $available_image_sizes,
+	'richEditingEnabled'     => user_can_richedit(),
+	'postLock'               => $lock_details,
+	'postLockUtils'          => array(
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'nonce'       => wp_create_nonce( 'lock-post_' . $post->ID ),
 		'unlockNonce' => wp_create_nonce( 'update-post_' . $post->ID ),
 		'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
 	),
+<<<<<<< HEAD
 	'__experimentalBlockPatterns'          => WP_Block_Patterns_Registry::get_instance()->get_all_registered(),
 	'__experimentalBlockPatternCategories' => WP_Block_Pattern_Categories_Registry::get_instance()->get_all_registered(),
 
@@ -317,6 +368,12 @@ $editor_settings = array(
 	'enableCustomFields'                   => (bool) get_user_meta( get_current_user_id(), 'enable_custom_fields', true ),
 	'enableCustomLineHeight'               => $custom_line_height,
 	'enableCustomUnits'                    => $custom_units,
+=======
+
+	// Whether or not to load the 'postcustom' meta box is stored as a user meta
+	// field so that we're not always loading its assets.
+	'enableCustomFields'     => (bool) get_user_meta( get_current_user_id(), 'enable_custom_fields', true ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 );
 
 $autosave = wp_get_post_autosave( $post_ID );
@@ -338,10 +395,13 @@ if ( false !== $font_sizes ) {
 	$editor_settings['fontSizes'] = $font_sizes;
 }
 
+<<<<<<< HEAD
 if ( false !== $gradient_presets ) {
 	$editor_settings['gradients'] = $gradient_presets;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( ! empty( $post_type_object->template ) ) {
 	$editor_settings['template']     = $post_type_object->template;
 	$editor_settings['templateLock'] = ! empty( $post_type_object->template_lock ) ? $post_type_object->template_lock : false;
@@ -366,7 +426,10 @@ wp_enqueue_media(
 wp_tinymce_inline_scripts();
 wp_enqueue_editor();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /**
  * Styles
  */
@@ -386,7 +449,11 @@ wp_enqueue_style( 'wp-format-library' );
 do_action( 'enqueue_block_editor_assets' );
 
 // In order to duplicate classic meta box behaviour, we need to run the classic meta box actions.
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/includes/meta-boxes.php';
+=======
+require_once( ABSPATH . 'wp-admin/includes/meta-boxes.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 register_and_do_post_meta_boxes( $post );
 
 // Check if the Custom Fields meta box has been removed at some point.
@@ -424,7 +491,11 @@ $script = sprintf(
 );
 wp_add_inline_script( 'wp-edit-post', $script );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 
 <div class="block-editor">

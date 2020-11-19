@@ -75,6 +75,7 @@ class WPCF7_Pipes {
 
 		return $this->pipes[array_rand( $this->pipes )];
 	}
+<<<<<<< HEAD
 
 	public function to_array() {
 		return array_map(
@@ -87,4 +88,6 @@ class WPCF7_Pipes {
 			$this->pipes
 		);
 	}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

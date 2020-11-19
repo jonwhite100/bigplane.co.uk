@@ -39,15 +39,23 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	 * @param array $instance Settings for the current Navigation Menu widget instance.
 	 */
 	public function widget( $args, $instance ) {
+<<<<<<< HEAD
 		// Get menu.
+=======
+		// Get menu
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$nav_menu = ! empty( $instance['nav_menu'] ) ? wp_get_nav_menu_object( $instance['nav_menu'] ) : false;
 
 		if ( ! $nav_menu ) {
 			return;
 		}
 
+<<<<<<< HEAD
 		$default_title = __( 'Menu' );
 		$title         = ! empty( $instance['title'] ) ? $instance['title'] : '';
+=======
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
@@ -58,6 +66,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
+<<<<<<< HEAD
 		$format = current_theme_supports( 'html5', 'navigation-widgets' ) ? 'html5' : 'xhtml';
 
 		/**
@@ -88,6 +97,12 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 				'menu'        => $nav_menu,
 			);
 		}
+=======
+		$nav_menu_args = array(
+			'fallback_cb' => '',
+			'menu'        => $nav_menu,
+		);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		/**
 		 * Filters the arguments for the Navigation Menu widget.
@@ -95,15 +110,25 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 		 * @since 4.2.0
 		 * @since 4.4.0 Added the `$instance` parameter.
 		 *
+<<<<<<< HEAD
 		 * @param array   $nav_menu_args {
+=======
+		 * @param array    $nav_menu_args {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *     An array of arguments passed to wp_nav_menu() to retrieve a navigation menu.
 		 *
 		 *     @type callable|bool $fallback_cb Callback to fire if the menu doesn't exist. Default empty.
 		 *     @type mixed         $menu        Menu ID, slug, or name.
 		 * }
+<<<<<<< HEAD
 		 * @param WP_Term $nav_menu      Nav menu object for the current menu.
 		 * @param array   $args          Display arguments for the current widget.
 		 * @param array   $instance      Array of settings for the current widget.
+=======
+		 * @param WP_Term  $nav_menu      Nav menu object for the current menu.
+		 * @param array    $args          Display arguments for the current widget.
+		 * @param array    $instance      Array of settings for the current widget.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		wp_nav_menu( apply_filters( 'widget_nav_menu_args', $nav_menu_args, $nav_menu, $args, $instance ) );
 
@@ -144,7 +169,11 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 		$title    = isset( $instance['title'] ) ? $instance['title'] : '';
 		$nav_menu = isset( $instance['nav_menu'] ) ? $instance['nav_menu'] : '';
 
+<<<<<<< HEAD
 		// Get menus.
+=======
+		// Get menus
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$menus = wp_get_nav_menus();
 
 		$empty_menus_style     = '';

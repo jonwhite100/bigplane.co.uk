@@ -82,25 +82,39 @@ this["wp"] = this["wp"] || {}; this["wp"]["blockSerializationDefaultParser"] =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 303);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 235);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /******/ })
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
 /***/ 14:
+=======
+/***/ 23:
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ _slicedToArray; });
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
 var arrayWithHoles = __webpack_require__(38);
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js
 function _iterableToArrayLimit(arr, i) {
+<<<<<<< HEAD
   if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   var _arr = [];
   var _n = true;
   var _d = false;
@@ -125,23 +139,35 @@ function _iterableToArrayLimit(arr, i) {
 
   return _arr;
 }
+<<<<<<< HEAD
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
 var unsupportedIterableToArray = __webpack_require__(29);
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js
 var nonIterableRest = __webpack_require__(39);
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js
+<<<<<<< HEAD
 
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _slicedToArray; });
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 
 
 function _slicedToArray(arr, i) {
+<<<<<<< HEAD
   return Object(arrayWithHoles["a" /* default */])(arr) || _iterableToArrayLimit(arr, i) || Object(unsupportedIterableToArray["a" /* default */])(arr, i) || Object(nonIterableRest["a" /* default */])();
+=======
+  return Object(arrayWithHoles["a" /* default */])(arr) || _iterableToArrayLimit(arr, i) || Object(nonIterableRest["a" /* default */])();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 26:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -178,12 +204,19 @@ function _unsupportedIterableToArray(o, minLen) {
 /***/ }),
 
 /***/ 303:
+=======
+/***/ 235:
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parse", function() { return parse; });
+<<<<<<< HEAD
 /* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+=======
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(23);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 var document;
 var offset;
@@ -225,7 +258,11 @@ var stack;
  *    once browsers reliably support atomic grouping or possessive
  *    quantifiers natively we should remove this trick and simplify
  *
+<<<<<<< HEAD
  * @type {RegExp}
+=======
+ * @type RegExp
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 3.8.0
  * @since 4.6.1 added optimization to prevent backtracking on attribute parsing
@@ -490,10 +527,17 @@ function nextToken() {
       closerMatch = _matches[1],
       namespaceMatch = _matches[2],
       nameMatch = _matches[3],
+<<<<<<< HEAD
       attrsMatch
   /* internal/unused */
   = _matches[4],
       voidMatch = _matches[6];
+=======
+      attrsMatch = _matches[4],
+
+  /* internal/unused */
+  voidMatch = _matches[6];
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
   var length = match.length;
   var isCloser = !!closerMatch;
@@ -584,7 +628,11 @@ function _arrayWithHoles(arr) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _nonIterableRest; });
 function _nonIterableRest() {
+<<<<<<< HEAD
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+=======
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /***/ })

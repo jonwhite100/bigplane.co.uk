@@ -12,7 +12,11 @@
 	text-align: right;
 }
 
+<<<<<<< HEAD
 .tag-generator-panel .control-box > fieldset > legend {
+=======
+.tag-generator-panel .control-box > fieldset legend {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	border: 1px solid #dfdfdf;
 	border-right: 4px solid #00a0d2;
 }

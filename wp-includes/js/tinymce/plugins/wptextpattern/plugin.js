@@ -52,9 +52,15 @@
 	/**
 	 * Escapes characters for use in a Regular Expression.
 	 *
+<<<<<<< HEAD
 	 * @param {String} string Characters to escape
 	 *
 	 * @return {String} Escaped characters
+=======
+	 * @param  {String} string Characters to escape
+	 *
+	 * @return {String}        Escaped characters
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	function escapeRegExp( string ) {
 		return string.replace( /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&' );
@@ -120,7 +126,11 @@
 			var format;
 			var zero;
 
+<<<<<<< HEAD
 			// We need a non-empty text node with an offset greater than zero.
+=======
+			// We need a non empty text node with an offset greater than zero.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( ! node || node.nodeType !== 3 || ! node.data.length || ! offset ) {
 				return;
 			}
@@ -149,9 +159,15 @@
 				var before = string.charAt( startOffset - 1 );
 				var after = string.charAt( startOffset + p.delimiter.length );
 
+<<<<<<< HEAD
 				// test*test*  => format applied.
 				// test *test* => applied.
 				// test* test* => not applied.
+=======
+				// test*test* => format applied
+				// test *test* => applied
+				// test* test* => not applied
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( startOffset && /\S/.test( before ) ) {
 					if ( /\s/.test( after ) || before === delimiterFirstChar ) {
 						return;

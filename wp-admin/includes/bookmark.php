@@ -39,7 +39,11 @@ function edit_link( $link_id = 0 ) {
 	$_POST['link_name']  = esc_html( $_POST['link_name'] );
 	$_POST['link_image'] = esc_html( $_POST['link_image'] );
 	$_POST['link_rss']   = esc_url( $_POST['link_rss'] );
+<<<<<<< HEAD
 	if ( ! isset( $_POST['link_visible'] ) || 'N' !== $_POST['link_visible'] ) {
+=======
+	if ( ! isset( $_POST['link_visible'] ) || 'N' != $_POST['link_visible'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$_POST['link_visible'] = 'Y';
 	}
 
@@ -117,12 +121,21 @@ function wp_delete_link( $link_id ) {
 }
 
 /**
+<<<<<<< HEAD
  * Retrieves the link category IDs associated with the link specified.
  *
  * @since 2.1.0
  *
  * @param int $link_id Link ID to look up.
  * @return int[] The IDs of the requested link's categories.
+=======
+ * Retrieves the link categories associated with the link specified.
+ *
+ * @since 2.1.0
+ *
+ * @param int $link_id Link ID to look up
+ * @return array The requested link's categories
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_get_link_cats( $link_id = 0 ) {
 	$cats = wp_get_object_terms( $link_id, 'link_category', array( 'fields' => 'ids' ) );
@@ -174,15 +187,24 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
 		$update = true;
 	}
 
+<<<<<<< HEAD
 	if ( '' === trim( $link_name ) ) {
 		if ( '' !== trim( $link_url ) ) {
+=======
+	if ( trim( $link_name ) == '' ) {
+		if ( trim( $link_url ) != '' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$link_name = $link_url;
 		} else {
 			return 0;
 		}
 	}
 
+<<<<<<< HEAD
 	if ( '' === trim( $link_url ) ) {
+=======
+	if ( trim( $link_url ) == '' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return 0;
 	}
 
@@ -198,14 +220,24 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
 	$link_category    = ( ! empty( $parsed_args['link_category'] ) ) ? $parsed_args['link_category'] : array();
 
 	// Make sure we set a valid category.
+<<<<<<< HEAD
 	if ( ! is_array( $link_category ) || 0 === count( $link_category ) ) {
+=======
+	if ( ! is_array( $link_category ) || 0 == count( $link_category ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$link_category = array( get_option( 'default_link_category' ) );
 	}
 
 	if ( $update ) {
+<<<<<<< HEAD
 		if ( false === $wpdb->update( $wpdb->links, compact( 'link_url', 'link_name', 'link_image', 'link_target', 'link_description', 'link_visible', 'link_owner', 'link_rating', 'link_rel', 'link_notes', 'link_rss' ), compact( 'link_id' ) ) ) {
 			if ( $wp_error ) {
 				return new WP_Error( 'db_update_error', __( 'Could not update link in the database.' ), $wpdb->last_error );
+=======
+		if ( false === $wpdb->update( $wpdb->links, compact( 'link_url', 'link_name', 'link_image', 'link_target', 'link_description', 'link_visible', 'link_rating', 'link_rel', 'link_notes', 'link_rss' ), compact( 'link_id' ) ) ) {
+			if ( $wp_error ) {
+				return new WP_Error( 'db_update_error', __( 'Could not update link in the database' ), $wpdb->last_error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			} else {
 				return 0;
 			}
@@ -213,7 +245,11 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
 	} else {
 		if ( false === $wpdb->insert( $wpdb->links, compact( 'link_url', 'link_name', 'link_image', 'link_target', 'link_description', 'link_visible', 'link_owner', 'link_rating', 'link_rel', 'link_notes', 'link_rss' ) ) ) {
 			if ( $wp_error ) {
+<<<<<<< HEAD
 				return new WP_Error( 'db_insert_error', __( 'Could not insert link into the database.' ), $wpdb->last_error );
+=======
+				return new WP_Error( 'db_insert_error', __( 'Could not insert link into the database' ), $wpdb->last_error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			} else {
 				return 0;
 			}
@@ -257,7 +293,11 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
  */
 function wp_set_link_cats( $link_id = 0, $link_categories = array() ) {
 	// If $link_categories isn't already an array, make it one:
+<<<<<<< HEAD
 	if ( ! is_array( $link_categories ) || 0 === count( $link_categories ) ) {
+=======
+	if ( ! is_array( $link_categories ) || 0 == count( $link_categories ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$link_categories = array( get_option( 'default_link_category' ) );
 	}
 
@@ -286,9 +326,13 @@ function wp_update_link( $linkdata ) {
 	$link = wp_slash( $link );
 
 	// Passed link category list overwrites existing category list if not empty.
+<<<<<<< HEAD
 	if ( isset( $linkdata['link_category'] ) && is_array( $linkdata['link_category'] )
 		&& count( $linkdata['link_category'] ) > 0
 	) {
+=======
+	if ( isset( $linkdata['link_category'] ) && is_array( $linkdata['link_category'] ) && 0 != count( $linkdata['link_category'] ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$link_cats = $linkdata['link_category'];
 	} else {
 		$link_cats = $link['link_category'];
@@ -311,8 +355,12 @@ function wp_update_link( $linkdata ) {
  */
 function wp_link_manager_disabled_message() {
 	global $pagenow;
+<<<<<<< HEAD
 
 	if ( ! in_array( $pagenow, array( 'link-manager.php', 'link-add.php', 'link.php' ), true ) ) {
+=======
+	if ( 'link-manager.php' != $pagenow && 'link-add.php' != $pagenow && 'link.php' != $pagenow ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return;
 	}
 

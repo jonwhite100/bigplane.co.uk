@@ -13,6 +13,7 @@ window.wp = window.wp || {};
 
 (function(){
 	wp.shortcode = {
+<<<<<<< HEAD
 		/*
 		 * ### Find the next matching shortcode.
 		 *
@@ -22,6 +23,15 @@ window.wp = window.wp || {};
 		 * Shortcodes are formatted as an object that contains the match
 		 * `content`, the matching `index`, and the parsed `shortcode` object.
 		 */
+=======
+		// ### Find the next matching shortcode
+		//
+		// Given a shortcode `tag`, a block of `text`, and an optional starting
+		// `index`, returns the next matching shortcode or `undefined`.
+		//
+		// Shortcodes are formatted as an object that contains the match
+		// `content`, the matching `index`, and the parsed `shortcode` object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		next: function( tag, text, index ) {
 			var re = wp.shortcode.regexp( tag ),
 				match, result;
@@ -59,6 +69,7 @@ window.wp = window.wp || {};
 			return result;
 		},
 
+<<<<<<< HEAD
 		/*
 		 * ### Replace matching shortcodes in a block of text.
 		 *
@@ -70,6 +81,17 @@ window.wp = window.wp || {};
 		 * a shortcode `attrs` object, the `content` between shortcode tags,
 		 * and a boolean flag to indicate if the match was a `single` tag.
 		 */
+=======
+		// ### Replace matching shortcodes in a block of text
+		//
+		// Accepts a shortcode `tag`, content `text` to scan, and a `callback`
+		// to process the shortcode matches and return a replacement string.
+		// Returns the `text` with all shortcodes replaced.
+		//
+		// Shortcode matches are objects that contain the shortcode `tag`,
+		// a shortcode `attrs` object, the `content` between shortcode tags,
+		// and a boolean flag to indicate if the match was a `single` tag.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		replace: function( tag, text, callback ) {
 			return text.replace( wp.shortcode.regexp( tag ), function( match, left, tag, attrs, slash, content, closing, right ) {
 				// If both extra brackets exist, the shortcode has been
@@ -87,6 +109,7 @@ window.wp = window.wp || {};
 			});
 		},
 
+<<<<<<< HEAD
 		/*
 		 * ### Generate a string from shortcode parameters.
 		 *
@@ -97,10 +120,21 @@ window.wp = window.wp || {};
 		 * indicating whether to format the shortcode using a `single` tag, and a
 		 * `content` string.
 		 */
+=======
+		// ### Generate a string from shortcode parameters
+		//
+		// Creates a `wp.shortcode` instance and returns a string.
+		//
+		// Accepts the same `options` as the `wp.shortcode()` constructor,
+		// containing a `tag` string, a string or object of `attrs`, a boolean
+		// indicating whether to format the shortcode using a `single` tag, and a
+		// `content` string.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		string: function( options ) {
 			return new wp.shortcode( options ).string();
 		},
 
+<<<<<<< HEAD
 		/*
 		 * ### Generate a RegExp to identify a shortcode.
 		 *
@@ -117,11 +151,28 @@ window.wp = window.wp || {};
 		 * 6. The closing tag.
 		 * 7. An extra `]` to allow for escaping shortcodes with double `[[]]`.
 		 */
+=======
+		// ### Generate a RegExp to identify a shortcode
+		//
+		// The base regex is functionally equivalent to the one found in
+		// `get_shortcode_regex()` in `wp-includes/shortcodes.php`.
+		//
+		// Capture groups:
+		//
+		// 1. An extra `[` to allow for escaping shortcodes with double `[[]]`
+		// 2. The shortcode name
+		// 3. The shortcode argument list
+		// 4. The self closing `/`
+		// 5. The content of a shortcode when it wraps some content.
+		// 6. The closing tag.
+		// 7. An extra `]` to allow for escaping shortcodes with double `[[]]`
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		regexp: _.memoize( function( tag ) {
 			return new RegExp( '\\[(\\[?)(' + tag + ')(?![\\w-])([^\\]\\/]*(?:\\/(?!\\])[^\\]\\/]*)*?)(?:(\\/)\\]|\\](?:([^\\[]*(?:\\[(?!\\/\\2\\])[^\\[]*)*)(\\[\\/\\2\\]))?)(\\]?)', 'g' );
 		}),
 
 
+<<<<<<< HEAD
 		/*
 		 * ### Parse shortcode attributes.
 		 *
@@ -135,11 +186,25 @@ window.wp = window.wp || {};
 		 * `name='value'`, or `name=value`. Numeric attributes can be formatted
 		 * as `"value"` or just `value`.
 		 */
+=======
+		// ### Parse shortcode attributes
+		//
+		// Shortcodes accept many types of attributes. These can chiefly be
+		// divided into named and numeric attributes:
+		//
+		// Named attributes are assigned on a key/value basis, while numeric
+		// attributes are treated as an array.
+		//
+		// Named attributes can be formatted as either `name="value"`,
+		// `name='value'`, or `name=value`. Numeric attributes can be formatted
+		// as `"value"` or just `value`.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		attrs: _.memoize( function( text ) {
 			var named   = {},
 				numeric = [],
 				pattern, match;
 
+<<<<<<< HEAD
 			/*
 			 * This regular expression is reused from `shortcode_parse_atts()`
 			 * in `wp-includes/shortcodes.php`.
@@ -156,6 +221,22 @@ window.wp = window.wp || {};
 			 * 8. A numeric attribute in single quotes.
 			 * 9. An unquoted numeric attribute.
 			 */
+=======
+			// This regular expression is reused from `shortcode_parse_atts()`
+			// in `wp-includes/shortcodes.php`.
+			//
+			// Capture groups:
+			//
+			// 1. An attribute name, that corresponds to...
+			// 2. a value in double quotes.
+			// 3. An attribute name, that corresponds to...
+			// 4. a value in single quotes.
+			// 5. An attribute name, that corresponds to...
+			// 6. an unquoted value.
+			// 7. A numeric attribute in double quotes.
+			// 8. A numeric attribute in single quotes.
+			// 9. An unquoted numeric attribute.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			pattern = /([\w-]+)\s*=\s*"([^"]*)"(?:\s|$)|([\w-]+)\s*=\s*'([^']*)'(?:\s|$)|([\w-]+)\s*=\s*([^\s'"]+)(?:\s|$)|"([^"]*)"(?:\s|$)|'([^']*)'(?:\s|$)|(\S+)(?:\s|$)/g;
 
 			// Map zero-width spaces to actual spaces.
@@ -184,6 +265,7 @@ window.wp = window.wp || {};
 			};
 		}),
 
+<<<<<<< HEAD
 		/*
 		 * ### Generate a Shortcode Object from a RegExp match.
 		 *
@@ -191,6 +273,12 @@ window.wp = window.wp || {};
 		 * generated by `wp.shortcode.regexp()`. `match` can also be set
 		 * to the `arguments` from a callback passed to `regexp.replace()`.
 		 */
+=======
+		// ### Generate a Shortcode Object from a RegExp match
+		// Accepts a `match` object from calling `regexp.exec()` on a `RegExp`
+		// generated by `wp.shortcode.regexp()`. `match` can also be set to the
+		// `arguments` from a callback passed to `regexp.replace()`.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		fromMatch: function( match ) {
 			var type;
 
@@ -212,6 +300,7 @@ window.wp = window.wp || {};
 	};
 
 
+<<<<<<< HEAD
 	/*
 	 * Shortcode Objects
 	 * -----------------
@@ -224,6 +313,18 @@ window.wp = window.wp || {};
 	 * indicating the `type` of the shortcode ('single', 'self-closing',
 	 * or 'closed'), and a `content` string.
 	 */
+=======
+	// Shortcode Objects
+	// -----------------
+	//
+	// Shortcode objects are generated automatically when using the main
+	// `wp.shortcode` methods: `next()`, `replace()`, and `string()`.
+	//
+	// To access a raw representation of a shortcode, pass an `options` object,
+	// containing a `tag` string, a string or object of `attrs`, a string
+	// indicating the `type` of the shortcode ('single', 'self-closing', or
+	// 'closed'), and a `content` string.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	wp.shortcode = _.extend( function( options ) {
 		_.extend( this, _.pick( options || {}, 'tag', 'attrs', 'type', 'content' ) );
 
@@ -244,8 +345,13 @@ window.wp = window.wp || {};
 			this.attrs = wp.shortcode.attrs( attrs );
 
 		// Identify a correctly formatted `attrs` object.
+<<<<<<< HEAD
 		} else if ( _.difference( _.keys( attrs ), [ 'named', 'numeric' ] ).length === 0 ) {
 			this.attrs = _.defaults( attrs, this.attrs );
+=======
+		} else if ( _.isEqual( _.keys( attrs ), [ 'named', 'numeric' ] ) ) {
+			this.attrs = attrs;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		// Handle a flat object of attributes.
 		} else {
@@ -256,28 +362,46 @@ window.wp = window.wp || {};
 	}, wp.shortcode );
 
 	_.extend( wp.shortcode.prototype, {
+<<<<<<< HEAD
 		/*
 		 * ### Get a shortcode attribute.
 		 *
 		 * Automatically detects whether `attr` is named or numeric and routes
 		 * it accordingly.
 		 */
+=======
+		// ### Get a shortcode attribute
+		//
+		// Automatically detects whether `attr` is named or numeric and routes
+		// it accordingly.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		get: function( attr ) {
 			return this.attrs[ _.isNumber( attr ) ? 'numeric' : 'named' ][ attr ];
 		},
 
+<<<<<<< HEAD
 		/*
 		 * ### Set a shortcode attribute.
 		 *
 		 * Automatically detects whether `attr` is named or numeric and routes
 		 * it accordingly.
 		 */
+=======
+		// ### Set a shortcode attribute
+		//
+		// Automatically detects whether `attr` is named or numeric and routes
+		// it accordingly.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		set: function( attr, value ) {
 			this.attrs[ _.isNumber( attr ) ? 'numeric' : 'named' ][ attr ] = value;
 			return this;
 		},
 
+<<<<<<< HEAD
 		// ### Transform the shortcode match into a string.
+=======
+		// ### Transform the shortcode match into a string
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		string: function() {
 			var text    = '[' + this.tag;
 
@@ -314,6 +438,7 @@ window.wp = window.wp || {};
 	});
 }());
 
+<<<<<<< HEAD
 /*
  * HTML utility functions
  * ----------------------
@@ -332,6 +457,22 @@ window.wp = window.wp || {};
 		 * of the attributes that were entered using `empty` attribute syntax (i.e.
 		 * with no value).
 		 */
+=======
+// HTML utility functions
+// ----------------------
+//
+// Experimental. These functions may change or be removed in the future.
+(function(){
+	wp.html = _.extend( wp.html || {}, {
+		// ### Parse HTML attributes.
+		//
+		// Converts `content` to a set of parsed HTML attributes.
+		// Utilizes `wp.shortcode.attrs( content )`, which is a valid superset of
+		// the HTML attribute specification. Reformats the attributes into an
+		// object that contains the `attrs` with `key:value` mapping, and a record
+		// of the attributes that were entered using `empty` attribute syntax (i.e.
+		// with no value).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		attrs: function( content ) {
 			var result, attrs;
 

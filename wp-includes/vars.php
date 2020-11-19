@@ -19,9 +19,15 @@ global $pagenow,
 	$is_lynx, $is_gecko, $is_winIE, $is_macIE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone, $is_IE, $is_edge,
 	$is_apache, $is_IIS, $is_iis7, $is_nginx;
 
+<<<<<<< HEAD
 // On which page are we?
 if ( is_admin() ) {
 	// wp-admin pages are checked more carefully.
+=======
+// On which page are we ?
+if ( is_admin() ) {
+	// wp-admin pages are checked more carefully
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( is_network_admin() ) {
 		preg_match( '#/wp-admin/network/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches );
 	} elseif ( is_user_admin() ) {
@@ -38,7 +44,11 @@ if ( is_admin() ) {
 		preg_match( '#(.*?)(/|$)#', $pagenow, $self_matches );
 		$pagenow = strtolower( $self_matches[1] );
 		if ( '.php' !== substr( $pagenow, -4, 4 ) ) {
+<<<<<<< HEAD
 			$pagenow .= '.php'; // For `Options +Multiviews`: /wp-admin/themes/index.php (themes.php is queried).
+=======
+			$pagenow .= '.php'; // for Options +Multiviews: /wp-admin/themes/index.php (themes.php is queried)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	}
 } else {
@@ -50,7 +60,11 @@ if ( is_admin() ) {
 }
 unset( $self_matches );
 
+<<<<<<< HEAD
 // Simple browser detection.
+=======
+// Simple browser detection
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $is_lynx   = false;
 $is_gecko  = false;
 $is_winIE  = false;
@@ -106,7 +120,11 @@ if ( $is_safari && stripos( $_SERVER['HTTP_USER_AGENT'], 'mobile' ) !== false ) 
 
 $is_IE = ( $is_macIE || $is_winIE );
 
+<<<<<<< HEAD
 // Server detection.
+=======
+// Server detection
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
  * Whether the server software is Apache or something else
@@ -146,7 +164,11 @@ $is_iis7 = $is_IIS && intval( substr( $_SERVER['SERVER_SOFTWARE'], strpos( $_SER
 function wp_is_mobile() {
 	if ( empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
 		$is_mobile = false;
+<<<<<<< HEAD
 	} elseif ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Mobile' ) !== false // Many mobile devices (all iPhone, iPad, etc.)
+=======
+	} elseif ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Mobile' ) !== false // many mobile devices (all iPhone, iPad, etc.)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		|| strpos( $_SERVER['HTTP_USER_AGENT'], 'Android' ) !== false
 		|| strpos( $_SERVER['HTTP_USER_AGENT'], 'Silk/' ) !== false
 		|| strpos( $_SERVER['HTTP_USER_AGENT'], 'Kindle' ) !== false

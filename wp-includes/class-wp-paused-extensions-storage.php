@@ -3,7 +3,11 @@
  * Error Protection API: WP_Paused_Extensions_Storage class
  *
  * @package WordPress
+<<<<<<< HEAD
  * @since 5.2.0
+=======
+ * @since   5.2.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 
 /**
@@ -80,6 +84,10 @@ class WP_Paused_Extensions_Storage {
 	 * @since 5.2.0
 	 *
 	 * @param string $extension Plugin or theme directory name.
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool True on success, false on failure.
 	 */
 	public function delete( $extension ) {
@@ -120,6 +128,10 @@ class WP_Paused_Extensions_Storage {
 	 * @since 5.2.0
 	 *
 	 * @param string $extension Plugin or theme directory name.
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return array|null Error that is stored, or null if the extension is not paused.
 	 */
 	public function get( $extension ) {

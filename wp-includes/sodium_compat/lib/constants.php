@@ -1,8 +1,11 @@
 <?php
 namespace Sodium;
 
+<<<<<<< HEAD
 require_once dirname(dirname(__FILE__)) . '/autoload.php';
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 use ParagonIE_Sodium_Compat;
 
 const CRYPTO_AEAD_AES256GCM_KEYBYTES = ParagonIE_Sodium_Compat::CRYPTO_AEAD_AES256GCM_KEYBYTES;

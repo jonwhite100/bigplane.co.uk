@@ -8,7 +8,11 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 $action = ( isset( $_GET['action'] ) ) ? $_GET['action'] : '';
 
@@ -38,4 +42,8 @@ do_action( 'wpmuadminedit' );
 do_action( "network_admin_edit_{$action}" );
 
 wp_redirect( network_admin_url() );
+<<<<<<< HEAD
 exit;
+=======
+exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

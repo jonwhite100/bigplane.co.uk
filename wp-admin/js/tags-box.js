@@ -6,7 +6,11 @@
 /* global ajaxurl, tagBox, array_unique_noempty */
 
 ( function( $ ) {
+<<<<<<< HEAD
 	var tagDelimiter = wp.i18n._x( ',', 'tag delimiter' ) || ',';
+=======
+	var tagDelimiter = ( window.tagsSuggestL10n && window.tagsSuggestL10n.tagDelimiter ) || ',';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Filters unique items and returns a new array.
@@ -52,7 +56,10 @@
 		 * Cleans up tags by removing redundant characters.
 		 *
 		 * @since 2.9.0
+<<<<<<< HEAD
 		 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @memberOf tagBox
 		 *
 		 * @param {string} tags Comma separated tags that need to be cleaned up.
@@ -77,7 +84,10 @@
 		 * Parses tags and makes them editable.
 		 *
 		 * @since 2.9.0
+<<<<<<< HEAD
 		 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @memberOf tagBox
 		 *
 		 * @param {Object} el The tag element to retrieve the ID from.
@@ -112,7 +122,10 @@
 		 * Creates clickable links, buttons and fields for adding or editing tags.
 		 *
 		 * @since 2.9.0
+<<<<<<< HEAD
 		 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @memberOf tagBox
 		 *
 		 * @param {Object} el The container HTML element.
@@ -137,7 +150,10 @@
 			 * Creates a delete button if tag editing is enabled, before adding it to the tag list.
 			 *
 			 * @since 2.5.0
+<<<<<<< HEAD
 			 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 * @memberOf tagBox
 			 *
 			 * @param {string} key The index of the current tag.
@@ -164,7 +180,11 @@
 					 */
 					xbutton = $( '<button type="button" id="' + id + '-check-num-' + key + '" class="ntdelbutton">' +
 						'<span class="remove-tag-icon" aria-hidden="true"></span>' +
+<<<<<<< HEAD
 						'<span class="screen-reader-text">' + wp.i18n.__( 'Remove term:' ) + ' ' + listItem.html() + '</span>' +
+=======
+						'<span class="screen-reader-text">' + window.tagsSuggestL10n.removeTerm + ' ' + listItem.html() + '</span>' +
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						'</button>' );
 
 					/**
@@ -213,7 +233,10 @@
 		 * Also ensures that the quick links are properly generated.
 		 *
 		 * @since 2.9.0
+<<<<<<< HEAD
 		 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @memberOf tagBox
 		 *
 		 * @param {Object} el The container HTML element.
@@ -267,7 +290,10 @@
 		 * tagcloud. Clicking a tag will add it.
 		 *
 		 * @since 2.9.0
+<<<<<<< HEAD
 		 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @memberOf tagBox
 		 *
 		 * @param {string} id The ID to extract the taxonomy from.
@@ -284,8 +310,13 @@
 			 *
 			 * @since 2.9.0
 			 *
+<<<<<<< HEAD
 			 * @param {number|string} r The response message from the Ajax call.
 			 * @param {string} stat The status of the Ajax request.
+=======
+			 * @param {number|string} r The response message from the AJAX call.
+			 * @param {string} stat The status of the AJAX request.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 *
 			 * @return {void}
 			 */
@@ -334,11 +365,19 @@
 
 			switch ( this.userAction ) {
 				case 'remove':
+<<<<<<< HEAD
 					message = wp.i18n.__( 'Term removed.' );
 					break;
 
 				case 'add':
 					message = wp.i18n.__( 'Term added.' );
+=======
+					message = window.tagsSuggestL10n.termRemoved;
+					break;
+
+				case 'add':
+					message = window.tagsSuggestL10n.termAdded;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					break;
 
 				default:
@@ -356,7 +395,10 @@
 		 * retrieval of tag suggestions.
 		 *
 		 * @since 2.9.0
+<<<<<<< HEAD
 		 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @memberOf tagBox
 		 *
 		 * @return {void}

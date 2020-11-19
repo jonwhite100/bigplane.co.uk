@@ -15,6 +15,7 @@
 function render_block_core_search( $attributes ) {
 	static $instance_id = 0;
 
+<<<<<<< HEAD
 	// Older versions of the Search block defaulted the label and buttonText
 	// attributes to `__( 'Search' )` meaning that many posts contain `<!--
 	// wp:search /-->`. Support these by defaulting an undefined label and
@@ -27,6 +28,8 @@ function render_block_core_search( $attributes ) {
 		)
 	);
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$input_id      = 'wp-block-search__input-' . ++$instance_id;
 	$label_markup  = '';
 	$button_markup = '';
@@ -37,6 +40,7 @@ function render_block_core_search( $attributes ) {
 			$input_id,
 			$attributes['label']
 		);
+<<<<<<< HEAD
 	} else {
 		$label_markup = sprintf(
 			'<label for="%s" class="wp-block-search__label screen-reader-text">%s</label>',
@@ -47,6 +51,12 @@ function render_block_core_search( $attributes ) {
 
 	$input_markup = sprintf(
 		'<input type="search" id="%s" class="wp-block-search__input" name="s" value="%s" placeholder="%s" required />',
+=======
+	}
+
+	$input_markup = sprintf(
+		'<input type="search" id="%s" class="wp-block-search__input" name="s" value="%s" placeholder="%s" />',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$input_id,
 		esc_attr( get_search_query() ),
 		esc_attr( $attributes['placeholder'] )
@@ -63,13 +73,21 @@ function render_block_core_search( $attributes ) {
 	if ( isset( $attributes['className'] ) ) {
 		$class .= ' ' . $attributes['className'];
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( isset( $attributes['align'] ) ) {
 		$class .= ' align' . $attributes['align'];
 	}
 
 	return sprintf(
 		'<form class="%s" role="search" method="get" action="%s">%s</form>',
+<<<<<<< HEAD
 		esc_attr( $class ),
+=======
+		$class,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		esc_url( home_url( '/' ) ),
 		$label_markup . $input_markup . $button_markup
 	);
@@ -79,9 +97,36 @@ function render_block_core_search( $attributes ) {
  * Registers the `core/search` block on the server.
  */
 function register_block_core_search() {
+<<<<<<< HEAD
 	register_block_type_from_metadata(
 		__DIR__ . '/search',
 		array(
+=======
+	register_block_type(
+		'core/search',
+		array(
+			'attributes'      => array(
+				'align'       => array(
+					'type' => 'string',
+					'enum' => array( 'left', 'center', 'right', 'wide', 'full' ),
+				),
+				'className'   => array(
+					'type' => 'string',
+				),
+				'label'       => array(
+					'type'    => 'string',
+					'default' => __( 'Search' ),
+				),
+				'placeholder' => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+				'buttonText'  => array(
+					'type'    => 'string',
+					'default' => __( 'Search' ),
+				),
+			),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'render_callback' => 'render_block_core_search',
 		)
 	);

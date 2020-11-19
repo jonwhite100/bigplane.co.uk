@@ -48,10 +48,17 @@ final class WP_Internal_Pointers {
 		 *     )
 		 */
 		$registered_pointers = array(
+<<<<<<< HEAD
 			// None currently.
 		);
 
 		// Check if screen related pointer is registered.
+=======
+			//None currently.
+		);
+
+		// Check if screen related pointer is registered
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( empty( $registered_pointers[ $hook_suffix ] ) ) {
 			return;
 		}
@@ -75,7 +82,11 @@ final class WP_Internal_Pointers {
 			// None currently.
 		);
 
+<<<<<<< HEAD
 		// Get dismissed pointers.
+=======
+		// Get dismissed pointers
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$dismissed = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
 
 		$got_pointers = false;
@@ -88,7 +99,11 @@ final class WP_Internal_Pointers {
 				}
 			}
 
+<<<<<<< HEAD
 			// Bind pointer print function.
+=======
+			// Bind pointer print function
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			add_action( 'admin_print_footer_scripts', array( 'WP_Internal_Pointers', 'pointer_' . $pointer ) );
 			$got_pointers = true;
 		}
@@ -97,7 +112,11 @@ final class WP_Internal_Pointers {
 			return;
 		}
 
+<<<<<<< HEAD
 		// Add pointers script and style to queue.
+=======
+		// Add pointers script and style to queue
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		wp_enqueue_style( 'wp-pointer' );
 		wp_enqueue_script( 'wp-pointer' );
 	}

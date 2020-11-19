@@ -9,7 +9,11 @@
  */
 
 if ( empty( $wp ) ) {
+<<<<<<< HEAD
 	require_once __DIR__ . '/wp-load.php';
+=======
+	require_once( dirname( __FILE__ ) . '/wp-load.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	wp( array( 'tb' => '1' ) );
 }
 
@@ -20,9 +24,15 @@ if ( empty( $wp ) ) {
  *
  * @since 0.71
  *
+<<<<<<< HEAD
  * @param int|bool $error         Whether there was an error.
  *                                Default '0'. Accepts '0' or '1', true or false.
  * @param string   $error_message Error message if an error occurred.
+=======
+ * @param mixed  $error         Whether there was an error.
+ *                              Default '0'. Accepts '0' or '1', true or false.
+ * @param string $error_message Error message if an error occurred.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function trackback_response( $error = 0, $error_message = '' ) {
 	header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ) );

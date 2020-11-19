@@ -14,9 +14,12 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
 if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
 	exit;
 }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 class getid3_ac3 extends getid3_handler
 {
@@ -488,7 +491,11 @@ class getid3_ac3 extends getid3_handler
 	/**
 	 * @param int $length
 	 *
+<<<<<<< HEAD
 	 * @return int
+=======
+	 * @return float|int
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	private function readHeaderBSI($length) {
 		$data = substr($this->AC3header['bsi'], $this->BSIoffset, $length);

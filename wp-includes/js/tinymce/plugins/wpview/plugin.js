@@ -52,7 +52,11 @@
 				var className = editor.getBody().className;
 
 				editor.$( 'iframe[class="wpview-sandbox"]' ).each( function( i, iframe ) {
+<<<<<<< HEAD
 					// Make sure it is a local iframe.
+=======
+					// Make sure it is a local iframe
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					// jshint scripturl: true
 					if ( ! iframe.src || iframe.src === 'javascript:""' ) {
 						try {
@@ -79,11 +83,19 @@
 				node = editor.selection.getNode();
 
 				if ( node && node !== editor.getBody() && /^\s*https?:\/\/\S+\s*$/i.test( event.content ) ) {
+<<<<<<< HEAD
 					// When a url is pasted or inserted, only try to embed it when it is in an empty paragraph.
 					node = editor.dom.getParent( node, 'p' );
 
 					if ( node && /^[\s\uFEFF\u00A0]*$/.test( editor.$( node ).text() || '' ) ) {
 						// Make sure there are no empty inline elements in the <p>.
+=======
+					// When a url is pasted or inserted, only try to embed it when it is in an empty paragrapgh.
+					node = editor.dom.getParent( node, 'p' );
+
+					if ( node && /^[\s\uFEFF\u00A0]*$/.test( editor.$( node ).text() || '' ) ) {
+						// Make sure there are no empty inline elements in the <p>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						node.innerHTML = '';
 					} else {
 						return;
@@ -178,7 +190,11 @@
 		} );
 
 		editor.addButton( 'wp_view_edit', {
+<<<<<<< HEAD
 			tooltip: 'Edit|button', // '|button' is not displayed, only used for context.
+=======
+			tooltip: 'Edit|button', // '|button' is not displayed, only used for context
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			icon: 'dashicon dashicons-edit',
 			onclick: function() {
 				var node = editor.selection.getNode();

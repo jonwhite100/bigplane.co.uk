@@ -95,8 +95,13 @@ class WP_Roles {
 	 *
 	 * @since 4.0.0
 	 *
+<<<<<<< HEAD
 	 * @param string $name      Method to call.
 	 * @param array  $arguments Arguments to pass when calling.
+=======
+	 * @param string   $name      Method to call.
+	 * @param array    $arguments Arguments to pass when calling.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return mixed|false Return value of the callback, false otherwise.
 	 */
 	public function __call( $name, $arguments ) {
@@ -147,10 +152,16 @@ class WP_Roles {
 	 *
 	 * @since 2.0.0
 	 *
+<<<<<<< HEAD
 	 * @param string $role         Role name.
 	 * @param string $display_name Role display name.
 	 * @param bool[] $capabilities List of capabilities keyed by the capability name,
 	 *                             e.g. array( 'edit_posts' => true, 'delete_posts' => false ).
+=======
+	 * @param string $role Role name.
+	 * @param string $display_name Role display name.
+	 * @param array $capabilities List of role capabilities in the above format.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return WP_Role|void WP_Role object, if role is added.
 	 */
 	public function add_role( $role, $display_name, $capabilities = array() ) {
@@ -200,10 +211,16 @@ class WP_Roles {
 	 *
 	 * @since 2.0.0
 	 *
+<<<<<<< HEAD
 	 * @param string $role  Role name.
 	 * @param string $cap   Capability name.
 	 * @param bool   $grant Optional. Whether role is capable of performing capability.
 	 *                      Default true.
+=======
+	 * @param string $role Role name.
+	 * @param string $cap Capability name.
+	 * @param bool $grant Optional, default is true. Whether role is capable of performing capability.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function add_cap( $role, $cap, $grant = true ) {
 		if ( ! isset( $this->roles[ $role ] ) ) {
@@ -222,7 +239,11 @@ class WP_Roles {
 	 * @since 2.0.0
 	 *
 	 * @param string $role Role name.
+<<<<<<< HEAD
 	 * @param string $cap  Capability name.
+=======
+	 * @param string $cap Capability name.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function remove_cap( $role, $cap ) {
 		if ( ! isset( $this->roles[ $role ] ) ) {
@@ -357,7 +378,11 @@ class WP_Roles {
 			return $wp_user_roles;
 		}
 
+<<<<<<< HEAD
 		if ( is_multisite() && get_current_blog_id() != $this->site_id ) {
+=======
+		if ( is_multisite() && $this->site_id != get_current_blog_id() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			remove_action( 'switch_blog', 'wp_switch_roles_and_user', 1 );
 
 			$roles = get_blog_option( $this->site_id, $this->role_key, array() );

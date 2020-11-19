@@ -20,7 +20,11 @@ function check_upload_size( $file ) {
 		return $file;
 	}
 
+<<<<<<< HEAD
 	if ( '0' != $file['error'] ) { // There's already an error.
+=======
+	if ( $file['error'] != '0' ) { // there's already an error
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $file;
 	}
 
@@ -45,7 +49,11 @@ function check_upload_size( $file ) {
 		$file['error'] = __( 'You have used your space quota. Please delete files before uploading.' );
 	}
 
+<<<<<<< HEAD
 	if ( '0' != $file['error'] && ! isset( $_POST['html-upload'] ) && ! wp_doing_ajax() ) {
+=======
+	if ( $file['error'] != '0' && ! isset( $_POST['html-upload'] ) && ! wp_doing_ajax() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		wp_die( $file['error'] . ' <a href="javascript:history.go(-1)">' . __( 'Back' ) . '</a>' );
 	}
 
@@ -61,7 +69,11 @@ function check_upload_size( $file ) {
  * @global wpdb $wpdb WordPress database abstraction object.
  *
  * @param int  $blog_id Site ID.
+<<<<<<< HEAD
  * @param bool $drop    True if site's database tables should be dropped. Default false.
+=======
+ * @param bool $drop    True if site's database tables should be dropped. Default is false.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wpmu_delete_blog( $blog_id, $drop = false ) {
 	global $wpdb;
@@ -129,7 +141,11 @@ function wpmu_delete_blog( $blog_id, $drop = false ) {
  *
  * @since 3.0.0
  *
+<<<<<<< HEAD
  * @todo Merge with wp_delete_user()?
+=======
+ * @todo Merge with wp_delete_user() ?
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -160,12 +176,19 @@ function wpmu_delete_user( $id ) {
 	 * Fires before a user is deleted from the network.
 	 *
 	 * @since MU (3.0.0)
+<<<<<<< HEAD
 	 * @since 5.5.0 Added the `$user` parameter.
 	 *
 	 * @param int     $id   ID of the user about to be deleted from the network.
 	 * @param WP_User $user WP_User object of the user about to be deleted from the network.
 	 */
 	do_action( 'wpmu_delete_user', $id, $user );
+=======
+	 *
+	 * @param int $id ID of the user about to be deleted from the network.
+	 */
+	do_action( 'wpmu_delete_user', $id );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$blogs = get_blogs_of_user( $id );
 
@@ -179,7 +202,11 @@ function wpmu_delete_user( $id ) {
 				wp_delete_post( $post_id );
 			}
 
+<<<<<<< HEAD
 			// Clean links.
+=======
+			// Clean links
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$link_ids = $wpdb->get_col( $wpdb->prepare( "SELECT link_id FROM $wpdb->links WHERE link_owner = %d", $id ) );
 
 			if ( $link_ids ) {
@@ -202,7 +229,11 @@ function wpmu_delete_user( $id ) {
 	clean_user_cache( $user );
 
 	/** This action is documented in wp-admin/includes/user.php */
+<<<<<<< HEAD
 	do_action( 'deleted_user', $id, null, $user );
+=======
+	do_action( 'deleted_user', $id, null );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return true;
 }
@@ -222,7 +253,11 @@ function upload_is_user_over_quota( $echo = true ) {
 
 	$space_allowed = get_space_allowed();
 	if ( ! is_numeric( $space_allowed ) ) {
+<<<<<<< HEAD
 		$space_allowed = 10; // Default space allowed is 10 MB.
+=======
+		$space_allowed = 10; // Default space allowed is 10 MB
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 	$space_used = get_space_used();
 
@@ -550,7 +585,11 @@ function format_code_lang( $code = '' ) {
  *                       if `$taxonomy` is 'category' or 'post_tag'.
  */
 function sync_category_tag_slugs( $term, $taxonomy ) {
+<<<<<<< HEAD
 	if ( global_terms_enabled() && ( 'category' === $taxonomy || 'post_tag' === $taxonomy ) ) {
+=======
+	if ( global_terms_enabled() && ( $taxonomy == 'category' || $taxonomy == 'post_tag' ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( is_object( $term ) ) {
 			$term->slug = sanitize_title( $term->name );
 		} else {
@@ -646,11 +685,19 @@ function mu_dropdown_languages( $lang_files = array(), $current = '' ) {
 	foreach ( (array) $lang_files as $val ) {
 		$code_lang = basename( $val, '.mo' );
 
+<<<<<<< HEAD
 		if ( 'en_US' === $code_lang ) { // American English.
 			$flag          = true;
 			$ae            = __( 'American English' );
 			$output[ $ae ] = '<option value="' . esc_attr( $code_lang ) . '"' . selected( $current, $code_lang, false ) . '> ' . $ae . '</option>';
 		} elseif ( 'en_GB' === $code_lang ) { // British English.
+=======
+		if ( $code_lang == 'en_US' ) { // American English
+			$flag          = true;
+			$ae            = __( 'American English' );
+			$output[ $ae ] = '<option value="' . esc_attr( $code_lang ) . '"' . selected( $current, $code_lang, false ) . '> ' . $ae . '</option>';
+		} elseif ( $code_lang == 'en_GB' ) { // British English
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$flag          = true;
 			$be            = __( 'British English' );
 			$output[ $be ] = '<option value="' . esc_attr( $code_lang ) . '"' . selected( $current, $code_lang, false ) . '> ' . $be . '</option>';
@@ -660,11 +707,19 @@ function mu_dropdown_languages( $lang_files = array(), $current = '' ) {
 		}
 	}
 
+<<<<<<< HEAD
 	if ( false === $flag ) { // WordPress English.
 		$output[] = '<option value=""' . selected( $current, '', false ) . '>' . __( 'English' ) . '</option>';
 	}
 
 	// Order by name.
+=======
+	if ( $flag === false ) { // WordPress english
+		$output[] = '<option value=""' . selected( $current, '', false ) . '>' . __( 'English' ) . '</option>';
+	}
+
+	// Order by name
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	uksort( $output, 'strnatcasecmp' );
 
 	/**
@@ -698,12 +753,20 @@ function site_admin_notice() {
 		return false;
 	}
 
+<<<<<<< HEAD
 	if ( 'upgrade.php' === $pagenow ) {
+=======
+	if ( 'upgrade.php' == $pagenow ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return;
 	}
 
 	if ( get_site_option( 'wpmu_upgrade_site' ) != $wp_db_version ) {
+<<<<<<< HEAD
 		echo "<div class='update-nag notice notice-warning inline'>" . sprintf(
+=======
+		echo "<div class='update-nag'>" . sprintf(
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			/* translators: %s: URL to Upgrade Network screen. */
 			__( 'Thank you for Updating! Please visit the <a href="%s">Upgrade Network</a> page to update all your sites.' ),
 			esc_url( network_admin_url( 'upgrade.php' ) )
@@ -727,10 +790,17 @@ function avoid_blog_page_permalink_collision( $data, $postarr ) {
 	if ( is_subdomain_install() ) {
 		return $data;
 	}
+<<<<<<< HEAD
 	if ( 'page' !== $data['post_type'] ) {
 		return $data;
 	}
 	if ( ! isset( $data['post_name'] ) || '' === $data['post_name'] ) {
+=======
+	if ( $data['post_type'] != 'page' ) {
+		return $data;
+	}
+	if ( ! isset( $data['post_name'] ) || $data['post_name'] == '' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $data;
 	}
 	if ( ! is_main_site() ) {
@@ -815,7 +885,11 @@ function choose_primary_blog() {
  * @return bool True if network can be edited, otherwise false.
  */
 function can_edit_network( $network_id ) {
+<<<<<<< HEAD
 	if ( get_current_network_id() == $network_id ) {
+=======
+	if ( $network_id == get_current_network_id() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$result = true;
 	} else {
 		$result = false;
@@ -842,7 +916,11 @@ function can_edit_network( $network_id ) {
 function _thickbox_path_admin_subfolder() {
 	?>
 <script type="text/javascript">
+<<<<<<< HEAD
 var tb_pathToImage = "<?php echo esc_js( includes_url( 'js/thickbox/loadingAnimation.gif', 'relative' ) ); ?>";
+=======
+var tb_pathToImage = "<?php echo includes_url( 'js/thickbox/loadingAnimation.gif', 'relative' ); ?>";
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 </script>
 	<?php
 }
@@ -858,7 +936,11 @@ function confirm_delete_users( $users ) {
 	?>
 	<h1><?php esc_html_e( 'Users' ); ?></h1>
 
+<<<<<<< HEAD
 	<?php if ( 1 === count( $users ) ) : ?>
+=======
+	<?php if ( 1 == count( $users ) ) : ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		<p><?php _e( 'You have chosen to delete the user from all networks and sites.' ); ?></p>
 	<?php else : ?>
 		<p><?php _e( 'You have chosen to delete the following users from all networks and sites.' ); ?></p>
@@ -875,7 +957,11 @@ function confirm_delete_users( $users ) {
 	<?php
 	$allusers = (array) $_POST['allusers'];
 	foreach ( $allusers as $user_id ) {
+<<<<<<< HEAD
 		if ( '' !== $user_id && '0' != $user_id ) {
+=======
+		if ( $user_id != '' && $user_id != '0' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$delete_user = get_userdata( $user_id );
 
 			if ( ! current_user_can( 'delete_user', $delete_user->ID ) ) {
@@ -888,7 +974,11 @@ function confirm_delete_users( $users ) {
 				);
 			}
 
+<<<<<<< HEAD
 			if ( in_array( $delete_user->user_login, $site_admins, true ) ) {
+=======
+			if ( in_array( $delete_user->user_login, $site_admins ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				wp_die(
 					sprintf(
 						/* translators: %s: User login. */
@@ -910,7 +1000,11 @@ function confirm_delete_users( $users ) {
 				<td><fieldset><p><legend>
 				<?php
 				printf(
+<<<<<<< HEAD
 					/* translators: %s: User login. */
+=======
+					/* translators: User login. */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					__( 'What should be done with content owned by %s?' ),
 					'<em>' . $delete_user->user_login . '</em>'
 				);
@@ -924,12 +1018,16 @@ function confirm_delete_users( $users ) {
 							'fields'  => array( 'ID', 'user_login' ),
 						)
 					);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( is_array( $blog_users ) && ! empty( $blog_users ) ) {
 						$user_site      = "<a href='" . esc_url( get_home_url( $details->userblog_id ) ) . "'>{$details->blogname}</a>";
 						$user_dropdown  = '<label for="reassign_user" class="screen-reader-text">' . __( 'Select a user' ) . '</label>';
 						$user_dropdown .= "<select name='blog[$user_id][$key]' id='reassign_user'>";
 						$user_list      = '';
+<<<<<<< HEAD
 
 						foreach ( $blog_users as $user ) {
 							if ( ! in_array( (int) $user->ID, $allusers, true ) ) {
@@ -941,6 +1039,16 @@ function confirm_delete_users( $users ) {
 							$user_list = $admin_out;
 						}
 
+=======
+						foreach ( $blog_users as $user ) {
+							if ( ! in_array( $user->ID, $allusers ) ) {
+								$user_list .= "<option value='{$user->ID}'>{$user->user_login}</option>";
+							}
+						}
+						if ( '' == $user_list ) {
+							$user_list = $admin_out;
+						}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$user_dropdown .= $user_list;
 						$user_dropdown .= "</select>\n";
 						?>
@@ -976,7 +1084,11 @@ function confirm_delete_users( $users ) {
 	/** This action is documented in wp-admin/users.php */
 	do_action( 'delete_user_form', $current_user, $allusers );
 
+<<<<<<< HEAD
 	if ( 1 === count( $users ) ) :
+=======
+	if ( 1 == count( $users ) ) :
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		?>
 		<p><?php _e( 'Once you hit &#8220;Confirm Deletion&#8221;, the user will be permanently removed.' ); ?></p>
 	<?php else : ?>
@@ -1018,7 +1130,11 @@ jQuery(document).ready( function($) {
  *
  * @since 4.6.0
  *
+<<<<<<< HEAD
  * @param array $args {
+=======
+ * @param $args {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *     Optional. Array or string of Query parameters. Default empty array.
  *
  *     @type int    $blog_id  The site ID. Default is the current site.
@@ -1073,7 +1189,11 @@ function network_edit_site_nav( $args = array() ) {
 		)
 	);
 
+<<<<<<< HEAD
 	// Parse arguments.
+=======
+	// Parse arguments
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$parsed_args = wp_parse_args(
 		$args,
 		array(
@@ -1083,6 +1203,7 @@ function network_edit_site_nav( $args = array() ) {
 		)
 	);
 
+<<<<<<< HEAD
 	// Setup the links array.
 	$screen_links = array();
 
@@ -1090,22 +1211,40 @@ function network_edit_site_nav( $args = array() ) {
 	foreach ( $parsed_args['links'] as $link_id => $link ) {
 
 		// Skip link if user can't access.
+=======
+	// Setup the links array
+	$screen_links = array();
+
+	// Loop through tabs
+	foreach ( $parsed_args['links'] as $link_id => $link ) {
+
+		// Skip link if user can't access
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! current_user_can( $link['cap'], $parsed_args['blog_id'] ) ) {
 			continue;
 		}
 
+<<<<<<< HEAD
 		// Link classes.
+=======
+		// Link classes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$classes = array( 'nav-tab' );
 
 		// Aria-current attribute.
 		$aria_current = '';
 
+<<<<<<< HEAD
 		// Selected is set by the parent OR assumed by the $pagenow global.
+=======
+		// Selected is set by the parent OR assumed by the $pagenow global
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( $parsed_args['selected'] === $link_id || $link['url'] === $GLOBALS['pagenow'] ) {
 			$classes[]    = 'nav-tab-active';
 			$aria_current = ' aria-current="page"';
 		}
 
+<<<<<<< HEAD
 		// Escape each class.
 		$esc_classes = implode( ' ', $classes );
 
@@ -1113,6 +1252,15 @@ function network_edit_site_nav( $args = array() ) {
 		$url = add_query_arg( array( 'id' => $parsed_args['blog_id'] ), network_admin_url( $link['url'] ) );
 
 		// Add link to nav links.
+=======
+		// Escape each class
+		$esc_classes = implode( ' ', $classes );
+
+		// Get the URL for this link
+		$url = add_query_arg( array( 'id' => $parsed_args['blog_id'] ), network_admin_url( $link['url'] ) );
+
+		// Add link to nav links
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$screen_links[ $link_id ] = '<a href="' . esc_url( $url ) . '" id="' . esc_attr( $link_id ) . '" class="' . $esc_classes . '"' . $aria_current . '>' . esc_html( $link['label'] ) . '</a>';
 	}
 

@@ -8,9 +8,15 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
 
 require_once ABSPATH . WPINC . '/http.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+
+require_once( ABSPATH . WPINC . '/http.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 $title       = __( 'Upgrade Network' );
 $parent_file = 'upgrade.php';
@@ -32,7 +38,11 @@ get_current_screen()->set_help_sidebar(
 	'<p>' . __( '<a href="https://wordpress.org/support/">Support</a>' ) . '</p>'
 );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'upgrade_network' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
@@ -90,7 +100,10 @@ switch ( $action ) {
 					'sslverify'   => false,
 				)
 			);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( is_wp_error( $response ) ) {
 				wp_die(
 					sprintf(
@@ -110,7 +123,10 @@ switch ( $action ) {
 			 * @param array|WP_Error $response The upgrade response array or WP_Error on failure.
 			 */
 			do_action( 'after_mu_upgrade', $response );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			/**
 			 * Fires after each site has been upgraded.
 			 *
@@ -134,7 +150,11 @@ switch ( $action ) {
 		break;
 	case 'show':
 	default:
+<<<<<<< HEAD
 		if ( (int) get_site_option( 'wpmu_upgrade_site' ) !== $GLOBALS['wp_db_version'] ) :
+=======
+		if ( get_site_option( 'wpmu_upgrade_site' ) != $GLOBALS['wp_db_version'] ) :
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			?>
 		<h2><?php _e( 'Database Update Required' ); ?></h2>
 		<p><?php _e( 'WordPress has been updated! Before we send you on your way, we need to individually upgrade the sites in your network.' ); ?></p>
@@ -154,4 +174,8 @@ switch ( $action ) {
 ?>
 </div>
 
+<<<<<<< HEAD
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

@@ -5,15 +5,24 @@
  * @package WordPress
  * @subpackage Administration
  */
+<<<<<<< HEAD
 // TODO: Route this page via a specific iframe handler instead of the do_action below.
 if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-information' === $_GET['tab'] ) ) {
+=======
+// TODO route this pages via a specific iframe handler instead of the do_action below
+if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-information' == $_GET['tab'] ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	define( 'IFRAME_REQUEST', true );
 }
 
 /**
  * WordPress Administration Bootstrap.
  */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'install_plugins' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to install plugins on this site.' ) );
@@ -21,7 +30,11 @@ if ( ! current_user_can( 'install_plugins' ) ) {
 
 if ( is_multisite() && ! is_network_admin() ) {
 	wp_redirect( network_admin_url( 'plugin-install.php' ) );
+<<<<<<< HEAD
 	exit;
+=======
+	exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 $wp_list_table = _get_list_table( 'WP_Plugin_Install_List_Table' );
@@ -121,7 +134,11 @@ get_current_screen()->set_screen_reader_content(
 /**
  * WordPress Administration Template Header.
  */
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+include( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 <div class="wrap <?php echo esc_attr( "plugin-install-tab-$tab" ); ?>">
 <h1 class="wp-heading-inline">
@@ -158,6 +175,10 @@ if ( 'upload' !== $tab ) {
 	</div>
 	<?php
 	$wp_list_table->views();
+<<<<<<< HEAD
+=======
+	echo '<br class="clear" />';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -183,4 +204,8 @@ wp_print_admin_notice_templates();
 /**
  * WordPress Administration Template Footer.
  */
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

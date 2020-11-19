@@ -85,7 +85,11 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 * @global string $term
 	 */
 	public function prepare_items() {
+<<<<<<< HEAD
 		include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+=======
+		include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		global $tabs, $tab, $paged, $type, $term;
 
@@ -95,13 +99,21 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 
 		$per_page = 36;
 
+<<<<<<< HEAD
 		// These are the tabs which are shown on the page.
+=======
+		// These are the tabs which are shown on the page
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$tabs = array();
 
 		if ( 'search' === $tab ) {
 			$tabs['search'] = __( 'Search Results' );
 		}
+<<<<<<< HEAD
 		if ( 'beta' === $tab || false !== strpos( get_bloginfo( 'version' ), '-' ) ) {
+=======
+		if ( $tab === 'beta' || false !== strpos( get_bloginfo( 'version' ), '-' ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$tabs['beta'] = _x( 'Beta Testing', 'Plugin Installer' );
 		}
 		$tabs['featured']    = _x( 'Featured', 'Plugin Installer' );
@@ -117,26 +129,47 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		$nonmenu_tabs = array( 'plugin-information' ); // Valid actions to perform which do not have a Menu item.
 
 		/**
+<<<<<<< HEAD
 		 * Filters the tabs shown on the Add Plugins screen.
 		 *
 		 * @since 2.7.0
 		 *
 		 * @param string[] $tabs The tabs shown on the Add Plugins screen. Defaults include
 		 *                       'featured', 'popular', 'recommended', 'favorites', and 'upload'.
+=======
+		 * Filters the tabs shown on the Plugin Install screen.
+		 *
+		 * @since 2.7.0
+		 *
+		 * @param string[] $tabs The tabs shown on the Plugin Install screen. Defaults include 'featured', 'popular',
+		 *                      'recommended', 'favorites', and 'upload'.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$tabs = apply_filters( 'install_plugins_tabs', $tabs );
 
 		/**
+<<<<<<< HEAD
 		 * Filters tabs not associated with a menu item on the Add Plugins screen.
 		 *
 		 * @since 2.7.0
 		 *
 		 * @param string[] $nonmenu_tabs The tabs that don't have a menu item on the Add Plugins screen.
+=======
+		 * Filters tabs not associated with a menu item on the Plugin Install screen.
+		 *
+		 * @since 2.7.0
+		 *
+		 * @param string[] $nonmenu_tabs The tabs that don't have a menu item on the Plugin Install screen.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$nonmenu_tabs = apply_filters( 'install_plugins_nonmenu_tabs', $nonmenu_tabs );
 
 		// If a non-valid menu tab has been selected, And it's not a non-menu action.
+<<<<<<< HEAD
 		if ( empty( $tab ) || ( ! isset( $tabs[ $tab ] ) && ! in_array( $tab, (array) $nonmenu_tabs, true ) ) ) {
+=======
+		if ( empty( $tab ) || ( ! isset( $tabs[ $tab ] ) && ! in_array( $tab, (array) $nonmenu_tabs ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$tab = key( $tabs );
 		}
 
@@ -207,14 +240,22 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		}
 
 		/**
+<<<<<<< HEAD
 		 * Filters API request arguments for each Add Plugins screen tab.
+=======
+		 * Filters API request arguments for each Plugin Install screen tab.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * The dynamic portion of the hook name, `$tab`, refers to the plugin install tabs.
 		 * Default tabs include 'featured', 'popular', 'recommended', 'favorites', and 'upload'.
 		 *
 		 * @since 3.7.0
 		 *
+<<<<<<< HEAD
 		 * @param array|false $args Plugin install API arguments.
+=======
+		 * @param array|bool $args Plugin Install API arguments.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$args = apply_filters( "install_plugins_table_api_args_{$tab}", $args );
 
@@ -369,7 +410,11 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 * @param string $which
 	 */
 	protected function display_tablenav( $which ) {
+<<<<<<< HEAD
 		if ( 'featured' === $GLOBALS['tab'] ) {
+=======
+		if ( $GLOBALS['tab'] === 'featured' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return;
 		}
 
@@ -471,7 +516,11 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 				$plugin = (array) $plugin;
 			}
 
+<<<<<<< HEAD
 			// Display the group heading if there is one.
+=======
+			// Display the group heading if there is one
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( isset( $plugin['group'] ) && $plugin['group'] != $group ) {
 				if ( isset( $this->groups[ $plugin['group'] ] ) ) {
 					$group_name = $this->groups[ $plugin['group'] ];
@@ -482,13 +531,21 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 					$group_name = $plugin['group'];
 				}
 
+<<<<<<< HEAD
 				// Starting a new group, close off the divs of the last one.
+=======
+				// Starting a new group, close off the divs of the last one
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( ! empty( $group ) ) {
 					echo '</div></div>';
 				}
 
 				echo '<div class="plugin-group"><h3>' . esc_html( $group_name ) . '</h3>';
+<<<<<<< HEAD
 				// Needs an extra wrapping div for nth-child selectors to work.
+=======
+				// needs an extra wrapping div for nth-child selectors to work
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				echo '<div class="plugin-items">';
 
 				$group = $plugin['group'];
@@ -528,7 +585,11 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 									esc_attr( $plugin['slug'] ),
 									esc_url( $status['url'] ),
 									/* translators: %s: Plugin name and version. */
+<<<<<<< HEAD
 									esc_attr( sprintf( _x( 'Install %s now', 'plugin' ), $name ) ),
+=======
+									esc_attr( sprintf( __( 'Install %s now' ), $name ) ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 									esc_attr( $name ),
 									__( 'Install Now' )
 								);
@@ -550,7 +611,11 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 									esc_attr( $plugin['slug'] ),
 									esc_url( $status['url'] ),
 									/* translators: %s: Plugin name and version. */
+<<<<<<< HEAD
 									esc_attr( sprintf( _x( 'Update %s now', 'plugin' ), $name ) ),
+=======
+									esc_attr( sprintf( __( 'Update %s now' ), $name ) ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 									esc_attr( $name ),
 									__( 'Update Now' )
 								);
@@ -698,7 +763,11 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 					<h3>
 						<a href="<?php echo esc_url( $details_link ); ?>" class="thickbox open-plugin-details-modal">
 						<?php echo $title; ?>
+<<<<<<< HEAD
 						<img src="<?php echo esc_attr( $plugin_icon_url ); ?>" class="plugin-icon" alt="" />
+=======
+						<img src="<?php echo esc_attr( $plugin_icon_url ); ?>" class="plugin-icon" alt="">
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						</a>
 					</h3>
 				</div>
@@ -768,7 +837,11 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			<?php
 		}
 
+<<<<<<< HEAD
 		// Close off the group divs of the last one.
+=======
+		// Close off the group divs of the last one
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! empty( $group ) ) {
 			echo '</div></div>';
 		}

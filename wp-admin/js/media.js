@@ -10,7 +10,11 @@
  * @requires jQuery
  */
 
+<<<<<<< HEAD
 /* global ajaxurl, _wpMediaGridSettings, showNotice, findPosts */
+=======
+/* global ajaxurl, attachMediaBoxL10n, _wpMediaGridSettings, showNotice, findPosts */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ( function( $ ){
 	window.findPosts = {
@@ -26,7 +30,11 @@
 		 * @param {string} af_name The name of the affected element.
 		 * @param {string} af_val The value of the affected post element.
 		 *
+<<<<<<< HEAD
 		 * @return {boolean} Always returns false.
+=======
+		 * @returns {boolean} Always returns false.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		open: function( af_name, af_val ) {
 			var overlay = $( '.ui-find-overlay' );
@@ -65,7 +73,11 @@
 		 *
 		 * @memberOf findPosts
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		close: function() {
 			$('#find-posts-response').empty();
@@ -81,7 +93,11 @@
 		 *
 		 * @memberOf findPosts
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		overlay: function() {
 			$( '.ui-find-overlay' ).on( 'click', function () {
@@ -100,7 +116,11 @@
 		 *
 		 * @memberOf findPosts
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		send: function() {
 			var post = {
@@ -124,12 +144,20 @@
 				spinner.removeClass( 'is-active' );
 			}).done( function( x ) {
 				if ( ! x.success ) {
+<<<<<<< HEAD
 					$( '#find-posts-response' ).text( wp.i18n.__( 'An error has occurred. Please reload the page and try again.' ) );
+=======
+					$( '#find-posts-response' ).text( attachMediaBoxL10n.error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 
 				$( '#find-posts-response' ).html( x.data );
 			}).fail( function() {
+<<<<<<< HEAD
 				$( '#find-posts-response' ).text( wp.i18n.__( 'An error has occurred. Please reload the page and try again.' ) );
+=======
+				$( '#find-posts-response' ).text( attachMediaBoxL10n.error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			});
 		}
 	};
@@ -138,7 +166,11 @@
 	 * Initializes the file once the DOM is fully loaded and attaches events to the
 	 * various form elements.
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	$( document ).ready( function() {
 		var settings, $mediaGridWrap = $( '#wp-media-grid' );
@@ -147,14 +179,21 @@
 		if ( $mediaGridWrap.length && window.wp && window.wp.media ) {
 			settings = _wpMediaGridSettings;
 
+<<<<<<< HEAD
 			var frame = window.wp.media({
+=======
+			window.wp.media({
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				frame: 'manage',
 				container: $mediaGridWrap,
 				library: settings.queryVars
 			}).open();
+<<<<<<< HEAD
 
 			// Fire a global ready event.
 			$mediaGridWrap.trigger( 'wp-media-grid-ready', frame );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		// Prevents form submission if no post has been selected.
@@ -201,7 +240,11 @@
 		/**
 		 * Enables clicking on the entire table row.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$( '.find-box-inside' ).on( 'click', 'tr', function() {
 			$( this ).find( '.found-radio input' ).prop( 'checked', true );

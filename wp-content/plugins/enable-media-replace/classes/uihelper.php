@@ -64,7 +64,11 @@ class UIHelper
 
       $url = add_query_arg('SHORTPIXEL_DEBUG', $spdebug, $url);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     $url = apply_filters('emr_returnurl', $url);
     Log::addDebug('Success URL- ' . $url);
 
@@ -97,6 +101,7 @@ class UIHelper
 
   public function setSourceSizes($attach_id)
   {
+<<<<<<< HEAD
     $data = $this->getImageSizes($attach_id, 'full');  // wp_get_attachment_image_src($attach_id, 'full');
   //  $file = get_attached_file($attach_id);
 
@@ -111,11 +116,24 @@ class UIHelper
 
   // Returns Preview Image HTML Output.
   public function getPreviewImage($attach_id,$file)
+=======
+    $data = wp_get_attachment_image_src($attach_id, 'full');
+    if (is_array($data))
+    {
+      $this->full_width = $data[1];
+      $this->full_height = $data[2];
+    }
+  }
+
+  // Returns Preview Image HTML Output.
+  public function getPreviewImage($attach_id)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   {
       $data = false;
 
       if ($attach_id > 0)
       {
+<<<<<<< HEAD
         $data = $this->getImageSizes($attach_id, $this->preview_size); //wp_get_attachment_image_src($attach_id, $this->preview_size);
         /*$file = get_attached_file($attach_id);
 
@@ -128,11 +146,21 @@ class UIHelper
         }
         */
         Log::addDebug('Attached File '  . $file->getFullFilePath(), $data);
+=======
+        $data = wp_get_attachment_image_src($attach_id, $this->preview_size);
+        $file = get_attached_file($attach_id);
+        Log::addDebug('Attached File '  . $file, $data);
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
 
       $mime_type = get_post_mime_type($attach_id);
 
+<<<<<<< HEAD
       if (! is_array($data) || ! $file->exists() )
+=======
+      if (! is_array($data) || ! file_exists($file) )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       {
         // if attachid higher than zero ( exists ) but not the image, fail, that's an error state.
         $icon = ($attach_id < 0) ? '' : 'dashicons-no';
@@ -144,6 +172,7 @@ class UIHelper
             'is_image' => false,
             'is_document' => $is_document,
             'icon' => $icon,
+<<<<<<< HEAD
             'mime_type' => null,
         );
 
@@ -153,11 +182,20 @@ class UIHelper
         if ($mime_type == 'application/pdf')
         {
             return $this->getPreviewFile($attach_id, $file);
+=======
+        );
+
+        // failed, it might be this server doens't support PDF thumbnails. Fallback to File preview.
+        if ($mime_type == 'application/pdf')
+        {
+            return $this->getPreviewFile($attach_id);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
 
         return $this->getPlaceHolder($args);
       }
 
+<<<<<<< HEAD
 
       $url = $data[0];
       $width = $data[1];
@@ -165,11 +203,19 @@ class UIHelper
 
       // SVG's without any helpers return around 0 for width / height. Fix preview.
 
+=======
+      $url = $data[0];
+      $width = $data[1];
+      $height = $data[2];
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       // preview width, if source if found, should be set to source.
       $this->preview_width = $width;
       $this->preview_height = $height;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       if ($width > $this->preview_max_width)
         $width = $this->preview_max_width;
       if ($height > $this->preview_max_height)
@@ -182,13 +228,18 @@ class UIHelper
         'height' => $height,
         'image' => $image,
         'mime_type' => $mime_type,
+<<<<<<< HEAD
         'file_size' => $file->getFileSize(),
       );
 
+=======
+      );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       $output = $this->getPlaceHolder($args);
       return $output;
   }
 
+<<<<<<< HEAD
   protected function getImageSizes($attach_id, $size = 'thumbnail')
   {
     $data = wp_get_attachment_image_src($attach_id, $size);
@@ -221,6 +272,8 @@ class UIHelper
     return $data;
   }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   public function getPreviewError($attach_id)
   {
     $args = array(
@@ -233,18 +286,31 @@ class UIHelper
     return $output;
   }
 
+<<<<<<< HEAD
   public function getPreviewFile($attach_id, $file)
   {
     if ($attach_id > 0)
     {
       //$filepath = get_attached_file($attach_id);
       $filename = $file->getFileName();
+=======
+  public function getPreviewFile($attach_id)
+  {
+    if ($attach_id > 0)
+    {
+      $filepath = get_attached_file($attach_id);
+      $filename = basename($filepath);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     }
     else {
       $filename = false;
     }
 
+<<<<<<< HEAD
     $mime_type = $file->getFileMime();
+=======
+    $mime_type = get_post_mime_type($attach_id);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
     $args = array(
       'width' => 300,
@@ -253,7 +319,10 @@ class UIHelper
       'is_document' => true,
       'layer' => $filename,
       'mime_type' => $mime_type,
+<<<<<<< HEAD
       'file_size' => $file->getFileSize(),
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     );
     $output = $this->getPlaceHolder($args);
     return $output;
@@ -292,11 +361,17 @@ class UIHelper
         'is_image' => true,
         'is_document' => false,
         'mime_type' => false,
+<<<<<<< HEAD
         'file_size' => false,
     );
 
     $args = wp_parse_args($args, $defaults);
 
+=======
+    );
+
+    $args = wp_parse_args($args, $defaults);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     $w = $args['width'];
     $h = $args['height'];
 
@@ -326,13 +401,17 @@ class UIHelper
       $filetype = 'data-filetype="' . $args['mime_type'] . '"';
     }
 
+<<<<<<< HEAD
     $filesize = ($args['file_size']) ? $args['file_size'] : '';
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
     $output = "<div class='image_placeholder $placeholder_class' $filetype style='width:" . $w . "px; height:". $h ."px'> ";
     $output .= $args['image'];
     $output .= "<div class='dashicons $icon'>&nbsp;</div>";
     $output .= "<span class='textlayer'>" . $args['layer'] . "</span>";
+<<<<<<< HEAD
     $output .= "<div class='image_size'>" . $this->convertFileSize($filesize). "</div>";
     $output .= "</div>";
 
@@ -346,6 +425,13 @@ class UIHelper
      return size_format($filesize);
   }
 
+=======
+    $output .= "</div>";
+
+    return $output;
+  }
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     /**
   * Get size information for all currently-registered image sizes.
   * Directly stolen from - https://codex.wordpress.org/Function_Reference/get_intermediate_image_sizes
@@ -373,6 +459,7 @@ class UIHelper
    return $sizes;
   }
 
+<<<<<<< HEAD
   /** For Location Dir replacement. Get the Subdir that is in use now.  */
   public function getRelPathNow()
   {
@@ -383,4 +470,6 @@ class UIHelper
         return false;
   }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 } // class

@@ -8,7 +8,11 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_sites' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to edit this site.' ), 403 );
@@ -77,7 +81,10 @@ if ( $action ) {
 						$update = 'err_add_fail';
 					} else {
 						$update = 'newuser';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						/**
 						 * Fires after a user has been created via the network site-users.php page.
 						 *
@@ -179,23 +186,39 @@ if ( $action ) {
 			}
 			check_admin_referer( 'bulk-users' );
 			$userids = $_REQUEST['users'];
+<<<<<<< HEAD
 
 			/** This action is documented in wp-admin/network/site-themes.php */
 			$referer = apply_filters( 'handle_network_bulk_actions-' . get_current_screen()->id, $referer, $action, $userids, $id ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
 			$update = $action;
+=======
+			/** This action is documented in wp-admin/network/site-themes.php */
+			$referer = apply_filters( 'handle_network_bulk_actions-' . get_current_screen()->id, $referer, $action, $userids, $id ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+			$update  = $action;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			break;
 	}
 
 	wp_safe_redirect( add_query_arg( 'update', $update, $referer ) );
+<<<<<<< HEAD
 	exit;
+=======
+	exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 restore_current_blog();
 
+<<<<<<< HEAD
 if ( isset( $_GET['action'] ) && 'update-site' === $_GET['action'] ) {
 	wp_safe_redirect( $referer );
 	exit;
+=======
+if ( isset( $_GET['action'] ) && 'update-site' == $_GET['action'] ) {
+	wp_safe_redirect( $referer );
+	exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 add_screen_option( 'per_page' );
@@ -217,10 +240,17 @@ if ( ! wp_is_large_network( 'users' ) && apply_filters( 'show_network_site_users
 	wp_enqueue_script( 'user-suggest' );
 }
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php'; ?>
 
 <script type="text/javascript">
 var current_site_id = <?php echo absint( $id ); ?>;
+=======
+require( ABSPATH . 'wp-admin/admin-header.php' ); ?>
+
+<script type="text/javascript">
+var current_site_id = <?php echo $id; ?>;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 </script>
 
 
@@ -366,4 +396,8 @@ if ( current_user_can( 'create_users' ) && apply_filters( 'show_network_site_use
 <?php endif; ?>
 </div>
 <?php
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+require( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

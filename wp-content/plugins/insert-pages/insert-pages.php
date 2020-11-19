@@ -7,7 +7,11 @@
  * Text Domain: insert-pages
  * Domain Path: /languages
  * License: GPL2
+<<<<<<< HEAD
  * Version: 3.5.7
+=======
+ * Version: 3.5.1
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @package insert-pages
  */
@@ -40,6 +44,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 	 */
 	class InsertPagesPlugin {
 		/**
+<<<<<<< HEAD
 		 * Stack tracking inserted pages (for loop detection).
 		 *
 		 * @var  array Array of page ids inserted.
@@ -66,13 +71,49 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 			}
 
 			return self::$instance;
+=======
+		 * Page ID being inserted.
+		 *
+		 * @var int
+		 */
+		protected $page_id;
+
+
+		/**
+		 * Constructor.
+		 */
+		public function __construct() {
+			// Include the code that generates the options page.
+			require_once dirname( __FILE__ ) . '/options.php';
 		}
 
 
 		/**
+		 * Getter for page_id.
+		 *
+		 * @return int Page ID being inserted.
+		 */
+		public function get_page_id() {
+			return $this->page_id;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
+		}
+
+
+		/**
+<<<<<<< HEAD
 		 * Disable constructor to enforce a single plugin instance..
 		 */
 		protected function __construct() {
+=======
+		 * Setter for page_id.
+		 *
+		 * @param int $id Page ID being inserted.
+		 */
+		public function set_page_id( $id ) {
+			$this->page_id = $id;
+
+			return $this->page_id;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 
@@ -87,6 +128,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 			// Register the [insert] shortcode.
 			add_shortcode( 'insert', array( $this, 'insert_pages_handle_shortcode_insert' ) );
 
+<<<<<<< HEAD
 			// Register the gutenberg block so we can populate it via server side
 			// rendering. Note: only register it once (some plugins, like Advanced
 			// Custom Fields, create a scenario where this init hook gets called
@@ -120,6 +162,13 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 					array(
 						'editor_style' => 'insert-pages-gutenberg-block',
 						'editor_script' => 'insert-pages-gutenberg-block',
+=======
+			// Register the gutenberg block so we can populate it via server side rendering.
+			if ( function_exists( 'register_block_type' ) && isset( $options['wpip_gutenberg_block'] ) && 'enabled' === $options['wpip_gutenberg_block'] ) {
+				register_block_type(
+					'insert-pages/block',
+					array(
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						'attributes' => array(
 							'url' => array(
 								'type' => 'string',
@@ -209,6 +258,23 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 		public function insert_pages_enqueue_block_editor_assets() {
 			$options = get_option( 'wpip_settings' );
 			if ( isset( $options['wpip_gutenberg_block'] ) && 'enabled' === $options['wpip_gutenberg_block'] ) {
+<<<<<<< HEAD
+=======
+				// Load the gutenberg block.
+				wp_enqueue_script(
+					'insert-pages-gutenberg-block',
+					plugins_url( 'lib/gutenberg-block/dist/block.js', __FILE__ ),
+					array( 'wp-i18n', 'wp-blocks', 'wp-editor', 'wp-components', 'wp-compose' ),
+					'20190613',
+					false
+				);
+				wp_enqueue_style(
+					'insert-pages-gutenberg-block',
+					plugins_url( 'lib/gutenberg-block/dist/block.css', __FILE__ ),
+					array(),
+					'20190613'
+				);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 
@@ -230,7 +296,11 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 				'wpinsertpages',
 				plugins_url( '/js/wpinsertpages.js', __FILE__ ),
 				array( 'wpdialogs' ),
+<<<<<<< HEAD
 				'20200722',
+=======
+				'20180702',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				false
 			);
 			wp_localize_script(
@@ -363,6 +433,20 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 				$attributes['should_apply_the_content_filter'] = false;
 			}
 
+<<<<<<< HEAD
+=======
+			$attributes['should_apply_nesting_check'] = true;
+			/**
+			 * Filter the flag indicating whether to apply deep nesting check
+			 * that can prevent circular loops. Note that some use cases rely
+			 * on inserting pages that themselves have inserted pages, so this
+			 * check should be disabled for those individuals.
+			 *
+			 * @param bool $apply_nesting_check Indicates whether to apply deep nesting check.
+			 */
+			$attributes['should_apply_nesting_check'] = apply_filters( 'insert_pages_apply_nesting_check', $attributes['should_apply_nesting_check'] );
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			/**
 			 * Filter the chosen display method, where display can be one of:
 			 * title, link, excerpt, excerpt-only, content, post-thumbnail, all, {custom-template.php}
@@ -374,6 +458,23 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 			 */
 			$attributes['display'] = apply_filters( 'insert_pages_override_display', $attributes['display'] );
 
+<<<<<<< HEAD
+=======
+			// Don't allow inserted pages to be added to the_content more than once (prevent infinite loops).
+			if ( $attributes['should_apply_nesting_check'] ) {
+				$done = false;
+				foreach ( $wp_current_filter as $filter ) {
+					if ( 'the_content' === $filter ) {
+						if ( $done ) {
+							return $content;
+						} else {
+							$done = true;
+						}
+					}
+				}
+			}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			// Get the WP_Post object from the provided slug or ID.
 			if ( ! is_numeric( $attributes['page'] ) ) {
 				// Get list of post types that can be inserted (page, post, custom
@@ -411,6 +512,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 				$inserted_page = null;
 			}
 
+<<<<<<< HEAD
 			// Loop detection: check if the page we are inserting has already been
 			// inserted; if so, short circuit here.
 			if ( ! is_array( $this->inserted_page_ids ) ) {
@@ -427,6 +529,8 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 				}
 			}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			// Set any querystring params included in the shortcode.
 			parse_str( $attributes['querystring'], $querystring );
 			$original_get = $_GET; // phpcs:ignore WordPress.Security.NonceVerification
@@ -508,6 +612,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 							} elseif ( defined( 'VCV_TF_ASSETS_IN_UPLOADS' ) && constant( 'VCV_TF_ASSETS_IN_UPLOADS' ) ) {
 								$upload_dir = wp_upload_dir();
 								$bundle_url = set_url_scheme( $upload_dir['baseurl'] . '/' . VCV_PLUGIN_ASSETS_DIRNAME . '/' . ltrim( $bundle_url, '/\\' ) );
+<<<<<<< HEAD
 							} elseif ( class_exists( 'VisualComposer\Helpers\AssetsEnqueue' ) ) {
 								// These methods should work for Visual Composer 26.0.
 								// Enqueue custom css/js stored in vcvSourceAssetsFiles postmeta.
@@ -518,6 +623,8 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 								// Enqueue custom CSS stored in vcvSourceCssFileUrl postmeta.
 								$upload_dir = wp_upload_dir();
 								$bundle_url = set_url_scheme( $upload_dir['baseurl'] . '/' . VCV_PLUGIN_ASSETS_DIRNAME . '/' . ltrim( $bundle_url, '/\\' ) );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							} else {
 								$bundle_url = content_url() . '/' . VCV_PLUGIN_ASSETS_DIRNAME . '/' . ltrim( $bundle_url, '/\\' );
 							}
@@ -686,7 +793,12 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 						// We save the previous query state here instead of using
 						// wp_reset_query() because wp_reset_query() only has a single stack
 						// variable ($GLOBALS['wp_the_query']). This allows us to support
+<<<<<<< HEAD
 						// pages inserted into other pages (multiple nested pages).
+=======
+						// pages inserted into other pages (multiple nested pages, which
+						// requires insert_pages_apply_nesting_check to be turned off).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$old_query = $GLOBALS['wp_query'];
 						$inserted_page = query_posts( $args );
 						if ( have_posts() ) {
@@ -737,7 +849,12 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 				// We save the previous query state here instead of using
 				// wp_reset_query() because wp_reset_query() only has a single stack
 				// variable ($GLOBALS['wp_the_query']). This allows us to support
+<<<<<<< HEAD
 				// pages inserted into other pages (multiple nested pages).
+=======
+				// pages inserted into other pages (multiple nested pages, which
+				// requires insert_pages_apply_nesting_check to be turned off).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$old_query = $GLOBALS['wp_query'];
 				$posts = query_posts( $args );
 				if ( have_posts() ) {
@@ -797,6 +914,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 								} elseif ( defined( 'VCV_TF_ASSETS_IN_UPLOADS' ) && constant( 'VCV_TF_ASSETS_IN_UPLOADS' ) ) {
 									$upload_dir = wp_upload_dir();
 									$bundle_url = set_url_scheme( $upload_dir['baseurl'] . '/' . VCV_PLUGIN_ASSETS_DIRNAME . '/' . ltrim( $bundle_url, '/\\' ) );
+<<<<<<< HEAD
 								} elseif ( class_exists( 'VisualComposer\Helpers\AssetsEnqueue' ) ) {
 									// These methods should work for Visual Composer 26.0.
 									// Enqueue custom css/js stored in vcvSourceAssetsFiles postmeta.
@@ -807,6 +925,8 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 									// Enqueue custom CSS stored in vcvSourceCssFileUrl postmeta.
 									$upload_dir = wp_upload_dir();
 									$bundle_url = set_url_scheme( $upload_dir['baseurl'] . '/' . VCV_PLUGIN_ASSETS_DIRNAME . '/' . ltrim( $bundle_url, '/\\' ) );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 								} else {
 									$bundle_url = content_url() . '/' . VCV_PLUGIN_ASSETS_DIRNAME . '/' . ltrim( $bundle_url, '/\\' );
 								}
@@ -905,11 +1025,14 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 							} else {
 								echo get_the_content();
 							}
+<<<<<<< HEAD
 							// Render any <!--nextpage--> pagination links.
 							wp_link_pages( array(
 								'before' => '<div class="page-links">' . __( 'Pages:', 'twentynineteen' ),
 								'after'  => '</div>',
 							) );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							break;
 						case 'post-thumbnail':
 							?><a href="<?php echo esc_url( get_permalink( $inserted_page->ID ) ); ?>"><?php echo get_the_post_thumbnail( $inserted_page->ID ); ?></a>
@@ -927,11 +1050,14 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 								echo get_the_content();
 							}
 							the_meta();
+<<<<<<< HEAD
 							// Render any <!--nextpage--> pagination links.
 							wp_link_pages( array(
 								'before' => '<div class="page-links">' . __( 'Pages:', 'twentynineteen' ),
 								'after'  => '</div>',
 							) );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							break;
 						default: // Display is either invalid, or contains a template file to use.
 							$template = locate_template( $attributes['display'] );
@@ -983,6 +1109,10 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 			 *   inline: Boolean indicating wrapper element should be a span.
 			 *   public: Boolean indicating anonymous users can see private inserted pages.
 			 *   querystring: Extra querystring values provided to the custom template.
+<<<<<<< HEAD
+=======
+			 *   should_apply_nesting_check: Whether to disable nested inserted pages.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 *   should_apply_the_content_filter: Whether to apply the_content filter to post contents and excerpts.
 			 *   wrapper_tag: Tag to use for the wrapper element (e.g., div, span).
 			 */
@@ -992,6 +1122,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 			$_GET = $original_get;
 			$_REQUEST = $original_request;
 
+<<<<<<< HEAD
 			// Loop detection: remove the page from the stack (so we can still insert
 			// the same page multiple times on another page, but prevent it from being
 			// inserted multiple times within the same recursive chain).
@@ -1014,6 +1145,8 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 			}
 
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return $content;
 		}
 
@@ -1155,6 +1288,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 				return;
 			}
 
+<<<<<<< HEAD
 			// Get user's previously selected display and template to restore (if any).
 			$tinymce_state = get_user_meta( get_current_user_id(), 'insert_pages_tinymce_state', true );
 			if ( empty( $tinymce_state ) ) {
@@ -1164,6 +1298,8 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 					);
 			}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			// Get ID of post currently being edited.
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$post_id = isset( $_REQUEST['post'] ) && intval( $_REQUEST['post'] ) > 0 ? intval( $_REQUEST['post'] ) : '';
@@ -1217,6 +1353,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 						<label for="insertpage-format-select">
 							<?php esc_html_e( 'Display', 'insert-pages' ); ?>
 							<select name="insertpage-format-select" id="insertpage-format-select">
+<<<<<<< HEAD
 								<option value='title' <?php selected( $tinymce_state['format'], 'title' ); ?>><?php esc_html_e( 'Title', 'insert-pages' ); ?></option>
 								<option value='link' <?php selected( $tinymce_state['format'], 'link' ); ?>><?php esc_html_e( 'Link', 'insert-pages' ); ?></option>
 								<option value='excerpt' <?php selected( $tinymce_state['format'], 'excerpt' ); ?>><?php esc_html_e( 'Excerpt with title', 'insert-pages' ); ?></option>
@@ -1229,6 +1366,20 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 							<select name="insertpage-template-select" id="insertpage-template-select" disabled="true">
 								<option value='all' <?php selected( $tinymce_state['template'], 'all' ); ?>><?php esc_html_e( 'Default Template', 'insert-pages' ); ?></option>
 								<?php page_template_dropdown( $tinymce_state['template'] ); ?>
+=======
+								<option value='title'><?php esc_html_e( 'Title', 'insert-pages' ); ?></option>
+								<option value='link'><?php esc_html_e( 'Link', 'insert-pages' ); ?></option>
+								<option value='excerpt'><?php esc_html_e( 'Excerpt with title', 'insert-pages' ); ?></option>
+								<option value='excerpt-only'><?php esc_html_e( 'Excerpt only (no title)', 'insert-pages' ); ?></option>
+								<option value='content'><?php esc_html_e( 'Content', 'insert-pages' ); ?></option>
+								<option value='post-thumbnail'><?php esc_html_e( 'Post Thumbnail', 'insert-pages' ); ?></option>
+								<option value='all'><?php esc_html_e( 'All (includes custom fields)', 'insert-pages' ); ?></option>
+								<option value='template'><?php esc_html_e( 'Use a custom template', 'insert-pages' ); ?> &raquo;</option>
+							</select>
+							<select name="insertpage-template-select" id="insertpage-template-select" disabled="true">
+								<option value='all'><?php esc_html_e( 'Default Template', 'insert-pages' ); ?></option>
+								<?php page_template_dropdown(); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							</select>
 						</label>
 					</div>
@@ -1312,6 +1463,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 		}
 
 		/**
+<<<<<<< HEAD
 		 * Save the user's last-selected display or template in the TinyMCE widget
 		 * whenever it changes.
 		 *
@@ -1350,6 +1502,8 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 		}
 
 		/**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * Modified from:
 		 * Performs post queries for internal linking.
 		 *
@@ -1452,6 +1606,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 		 * @return boolean       Whether post type is insertable.
 		 */
 		private function is_post_type_insertable( $type ) {
+<<<<<<< HEAD
 			return ! in_array(
 				$type,
 				array(
@@ -1466,6 +1621,9 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 				),
 				true
 			);
+=======
+			return ! in_array( $type, array( 'nav_menu_item', 'attachment', 'revision', 'customize_changeset', 'oembed_cache' ), true );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		/**
@@ -1482,14 +1640,21 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 
 // Initialize InsertPagesPlugin object.
 if ( class_exists( 'InsertPagesPlugin' ) ) {
+<<<<<<< HEAD
 	$insert_pages_plugin = InsertPagesPlugin::get_instance();
+=======
+	$insert_pages_plugin = new InsertPagesPlugin();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 // Actions and Filters handled by InsertPagesPlugin class.
 if ( isset( $insert_pages_plugin ) ) {
+<<<<<<< HEAD
 	// Include the code that generates the options page.
 	require_once dirname( __FILE__ ) . '/options.php';
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	// Get options set in WordPress dashboard (Settings > Insert Pages).
 	$options = get_option( 'wpip_settings' );
 	if ( false === $options || ! is_array( $options ) || ! array_key_exists( 'wpip_format', $options ) || ! array_key_exists( 'wpip_wrapper', $options ) || ! array_key_exists( 'wpip_insert_method', $options ) || ! array_key_exists( 'wpip_tinymce_filter', $options ) ) {
@@ -1514,9 +1679,12 @@ if ( isset( $insert_pages_plugin ) ) {
 	// Ajax: Populate page search in TinyMCE button popup.
 	add_action( 'wp_ajax_insertpage', array( $insert_pages_plugin, 'insert_pages_insert_page_callback' ) );
 
+<<<<<<< HEAD
 	// Ajax: save user's last selected display and template inputs.
 	add_action( 'wp_ajax_insertpage_save_presets', array( $insert_pages_plugin, 'insert_pages_save_presets' ) );
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	// Use internal filter to wrap inserted content in a div or span.
 	add_filter( 'insert_pages_wrap_content', array( $insert_pages_plugin, 'insert_pages_wrap_content' ), 10, 3 );
 
@@ -1534,4 +1702,10 @@ if ( isset( $insert_pages_plugin ) ) {
 	// Register Insert Pages shortcode widget.
 	require_once dirname( __FILE__ ) . '/widget.php';
 	add_action( 'widgets_init', array( $insert_pages_plugin, 'insert_pages_widgets_init' ) );
+<<<<<<< HEAD
+=======
+
+	// Register Gutenberg block.
+	add_action( 'enqueue_block_editor_assets', array( $insert_pages_plugin, 'insert_pages_enqueue_block_editor_assets' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

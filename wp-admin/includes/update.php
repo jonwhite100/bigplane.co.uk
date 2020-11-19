@@ -9,8 +9,11 @@
 /**
  * Selects the first update version from the update_core option.
  *
+<<<<<<< HEAD
  * @since 2.7.0
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return object|array|false The response from the API on success, false on failure.
  */
 function get_preferred_from_update_core() {
@@ -25,9 +28,13 @@ function get_preferred_from_update_core() {
 }
 
 /**
+<<<<<<< HEAD
  * Gets available core updates.
  *
  * @since 2.7.0
+=======
+ * Get available core updates.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @param array $options Set $options['dismissed'] to true to show dismissed upgrades too,
  *                       set $options['available'] to false to skip not-dismissed updates.
@@ -56,7 +63,11 @@ function get_core_updates( $options = array() ) {
 	$updates = $from_api->updates;
 	$result  = array();
 	foreach ( $updates as $update ) {
+<<<<<<< HEAD
 		if ( 'autoupdate' === $update->response ) {
+=======
+		if ( $update->response == 'autoupdate' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			continue;
 		}
 
@@ -76,6 +87,7 @@ function get_core_updates( $options = array() ) {
 }
 
 /**
+<<<<<<< HEAD
  * Gets the best available (and enabled) Auto-Update for WordPress core.
  *
  * If there's 1.2.3 and 1.3 on offer, it'll choose 1.3 if the installation allows it, else, 1.2.3.
@@ -83,6 +95,15 @@ function get_core_updates( $options = array() ) {
  * @since 3.7.0
  *
  * @return object|false The core update offering on success, false on failure.
+=======
+ * Gets the best available (and enabled) Auto-Update for WordPress Core.
+ *
+ * If there's 1.2.3 and 1.3 on offer, it'll choose 1.3 if the installation allows it, else, 1.2.3
+ *
+ * @since 3.7.0
+ *
+ * @return array|false False on failure, otherwise the core update offering.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function find_core_auto_update() {
 	$updates = get_site_transient( 'update_core' );
@@ -90,12 +111,20 @@ function find_core_auto_update() {
 		return false;
 	}
 
+<<<<<<< HEAD
 	require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+=======
+	include_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$auto_update = false;
 	$upgrader    = new WP_Automatic_Updater;
 	foreach ( $updates->updates as $update ) {
+<<<<<<< HEAD
 		if ( 'autoupdate' !== $update->response ) {
+=======
+		if ( 'autoupdate' != $update->response ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			continue;
 		}
 
@@ -117,7 +146,11 @@ function find_core_auto_update() {
  *
  * @param string $version Version string to query.
  * @param string $locale  Locale to query.
+<<<<<<< HEAD
  * @return array|false An array of checksums on success, false on failure.
+=======
+ * @return bool|array False on failure. An array of checksums on success.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_core_checksums( $version, $locale ) {
 	$http_url = 'http://api.wordpress.org/core/checksums/1.0/?' . http_build_query( compact( 'version', 'locale' ), null, '&' );
@@ -160,10 +193,13 @@ function get_core_checksums( $version, $locale ) {
 }
 
 /**
+<<<<<<< HEAD
  * Dismisses core update.
  *
  * @since 2.7.0
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param object $update
  * @return bool
  */
@@ -174,10 +210,13 @@ function dismiss_core_update( $update ) {
 }
 
 /**
+<<<<<<< HEAD
  * Undismisses core update.
  *
  * @since 2.7.0
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string $version
  * @param string $locale
  * @return bool
@@ -195,6 +234,7 @@ function undismiss_core_update( $version, $locale ) {
 }
 
 /**
+<<<<<<< HEAD
  * Finds the available update for WordPress core.
  *
  * @since 2.7.0
@@ -202,6 +242,11 @@ function undismiss_core_update( $version, $locale ) {
  * @param string $version Version string to find the update for.
  * @param string $locale  Locale to find the update for.
  * @return object|false The core update offering on success, false on failure.
+=======
+ * @param string $version
+ * @param string $locale
+ * @return object|false
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function find_core_update( $version, $locale ) {
 	$from_api = get_site_transient( 'update_core' );
@@ -220,8 +265,11 @@ function find_core_update( $version, $locale ) {
 }
 
 /**
+<<<<<<< HEAD
  * @since 2.3.0
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string $msg
  * @return string
  */
@@ -273,10 +321,15 @@ function core_update_footer( $msg = '' ) {
 }
 
 /**
+<<<<<<< HEAD
  * @since 2.3.0
  *
  * @global string $pagenow
  * @return void|false
+=======
+ * @global string $pagenow
+ * @return false|void
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function update_nag() {
 	if ( is_multisite() && ! current_user_can( 'update_core' ) ) {
@@ -285,13 +338,21 @@ function update_nag() {
 
 	global $pagenow;
 
+<<<<<<< HEAD
 	if ( 'update-core.php' === $pagenow ) {
+=======
+	if ( 'update-core.php' == $pagenow ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return;
 	}
 
 	$cur = get_preferred_from_update_core();
 
+<<<<<<< HEAD
 	if ( ! isset( $cur->response ) || 'upgrade' !== $cur->response ) {
+=======
+	if ( ! isset( $cur->response ) || $cur->response != 'upgrade' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return false;
 	}
 
@@ -318,6 +379,7 @@ function update_nag() {
 			$cur->current
 		);
 	}
+<<<<<<< HEAD
 
 	echo "<div class='update-nag notice notice-warning inline'>$msg</div>";
 }
@@ -327,6 +389,12 @@ function update_nag() {
  *
  * @since 2.5.0
  */
+=======
+	echo "<div class='update-nag'>$msg</div>";
+}
+
+// Called directly from dashboard
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 function update_right_now_message() {
 	$theme_name = wp_get_theme();
 	if ( current_user_can( 'switch_themes' ) ) {
@@ -338,7 +406,11 @@ function update_right_now_message() {
 	if ( current_user_can( 'update_core' ) ) {
 		$cur = get_preferred_from_update_core();
 
+<<<<<<< HEAD
 		if ( isset( $cur->response ) && 'upgrade' === $cur->response ) {
+=======
+		if ( isset( $cur->response ) && $cur->response == 'upgrade' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$msg .= sprintf(
 				'<a href="%s" class="button" aria-describedby="wp-version">%s</a> ',
 				network_admin_url( 'update-core.php' ),
@@ -406,11 +478,17 @@ function wp_plugin_update_rows() {
 /**
  * Displays update information for a plugin.
  *
+<<<<<<< HEAD
  * @since 2.3.0
  *
  * @param string $file        Plugin basename.
  * @param array  $plugin_data Plugin information.
  * @return void|false
+=======
+ * @param string $file        Plugin basename.
+ * @param array  $plugin_data Plugin information.
+ * @return false|void
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_plugin_update_row( $file, $plugin_data ) {
 	$current = get_site_transient( 'update_plugins' );
@@ -436,12 +514,16 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 	$details_url = self_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $response->slug . '&section=changelog&TB_iframe=true&width=600&height=800' );
 
 	/** @var WP_Plugins_List_Table $wp_list_table */
+<<<<<<< HEAD
 	$wp_list_table = _get_list_table(
 		'WP_Plugins_List_Table',
 		array(
 			'screen' => get_current_screen(),
 		)
 	);
+=======
+	$wp_list_table = _get_list_table( 'WP_Plugins_List_Table' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( is_network_admin() || ! is_multisite() ) {
 		if ( is_network_admin() ) {
@@ -509,7 +591,11 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 					sprintf(
 						'class="update-link" aria-label="%s"',
 						/* translators: %s: Plugin name. */
+<<<<<<< HEAD
 						esc_attr( sprintf( _x( 'Update %s now', 'plugin' ), $plugin_name ) )
+=======
+						esc_attr( sprintf( __( 'Update %s now' ), $plugin_name ) )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					)
 				);
 			} else {
@@ -572,8 +658,11 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 }
 
 /**
+<<<<<<< HEAD
  * @since 2.9.0
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return array
  */
 function get_theme_updates() {
@@ -613,11 +702,17 @@ function wp_theme_update_rows() {
 /**
  * Displays update information for a theme.
  *
+<<<<<<< HEAD
  * @since 3.1.0
  *
  * @param string   $theme_key Theme stylesheet.
  * @param WP_Theme $theme     Theme object.
  * @return void|false
+=======
+ * @param string   $theme_key Theme stylesheet.
+ * @param WP_Theme $theme     Theme object.
+ * @return false|void
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_theme_update_row( $theme_key, $theme ) {
 	$current = get_site_transient( 'update_themes' );
@@ -642,12 +737,15 @@ function wp_theme_update_row( $theme_key, $theme ) {
 
 	$active = $theme->is_allowed( 'network' ) ? ' active' : '';
 
+<<<<<<< HEAD
 	$requires_wp  = isset( $response['requires'] ) ? $response['requires'] : null;
 	$requires_php = isset( $response['requires_php'] ) ? $response['requires_php'] : null;
 
 	$compatible_wp  = is_wp_version_compatible( $requires_wp );
 	$compatible_php = is_php_version_compatible( $requires_php );
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	printf(
 		'<tr class="plugin-update-tr%s" id="%s" data-slug="%s">' .
 		'<td colspan="%s" class="plugin-update colspanchange">' .
@@ -658,6 +756,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 		$wp_list_table->get_column_count()
 	);
 
+<<<<<<< HEAD
 	if ( $compatible_wp && $compatible_php ) {
 		if ( ! current_user_can( 'update_themes' ) ) {
 			printf(
@@ -762,6 +861,53 @@ function wp_theme_update_row( $theme_key, $theme ) {
 				wp_update_php_annotation( '</p><p><em>', '</em>' );
 			}
 		}
+=======
+	if ( ! current_user_can( 'update_themes' ) ) {
+		printf(
+			/* translators: 1: Theme name, 2: Details URL, 3: Additional link attributes, 4: Version number. */
+			__( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.' ),
+			$theme['Name'],
+			esc_url( $details_url ),
+			sprintf(
+				'class="thickbox open-plugin-details-modal" aria-label="%s"',
+				/* translators: 1: Theme name, 2: Version number. */
+				esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $theme['Name'], $response['new_version'] ) )
+			),
+			$response['new_version']
+		);
+	} elseif ( empty( $response['package'] ) ) {
+		printf(
+			/* translators: 1: Theme name, 2: Details URL, 3: Additional link attributes, 4: Version number. */
+			__( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>' ),
+			$theme['Name'],
+			esc_url( $details_url ),
+			sprintf(
+				'class="thickbox open-plugin-details-modal" aria-label="%s"',
+				/* translators: 1: Theme name, 2: Version number. */
+				esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $theme['Name'], $response['new_version'] ) )
+			),
+			$response['new_version']
+		);
+	} else {
+		printf(
+			/* translators: 1: Theme name, 2: Details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes. */
+			__( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.' ),
+			$theme['Name'],
+			esc_url( $details_url ),
+			sprintf(
+				'class="thickbox open-plugin-details-modal" aria-label="%s"',
+				/* translators: 1: Theme name, 2: Version number. */
+				esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $theme['Name'], $response['new_version'] ) )
+			),
+			$response['new_version'],
+			wp_nonce_url( self_admin_url( 'update.php?action=upgrade-theme&theme=' ) . $theme_key, 'upgrade-theme_' . $theme_key ),
+			sprintf(
+				'class="update-link" aria-label="%s"',
+				/* translators: %s: Theme name. */
+				esc_attr( sprintf( __( 'Update %s now' ), $theme['Name'] ) )
+			)
+		);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -788,6 +934,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 }
 
 /**
+<<<<<<< HEAD
  * @since 2.7.0
  *
  * @global int $upgrading
@@ -796,6 +943,13 @@ function wp_theme_update_row( $theme_key, $theme ) {
 function maintenance_nag() {
 	// Include an unmodified $wp_version.
 	require ABSPATH . WPINC . '/version.php';
+=======
+ * @global int $upgrading
+ * @return false|void
+ */
+function maintenance_nag() {
+	include( ABSPATH . WPINC . '/version.php' ); // include an unmodified $wp_version
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	global $upgrading;
 	$nag = isset( $upgrading );
 	if ( ! $nag ) {
@@ -830,7 +984,11 @@ function maintenance_nag() {
 		$msg = __( 'An automated WordPress update has failed to complete! Please notify the site administrator.' );
 	}
 
+<<<<<<< HEAD
 	echo "<div class='update-nag notice notice-warning inline'>$msg</div>";
+=======
+	echo "<div class='update-nag'>$msg</div>";
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -1004,6 +1162,7 @@ function wp_recovery_mode_nag() {
 	</div>
 	<?php
 }
+<<<<<<< HEAD
 
 /**
  * Checks whether auto-updates are enabled.
@@ -1081,3 +1240,5 @@ function wp_get_auto_update_message() {
 
 	return $message;
 }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

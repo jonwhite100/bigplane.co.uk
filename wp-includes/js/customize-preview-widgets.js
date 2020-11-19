@@ -16,7 +16,11 @@
  * @param {Object} wp  Current WordPress environment instance.
  * @param {Object} api Information from the API.
  *
+<<<<<<< HEAD
  * @return {Object} Widget-related variables.
+=======
+ * @returns {Object} Widget-related variables.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( $, _, wp, api ) {
 
@@ -42,7 +46,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 	 *
 	 * @memberOf wp.customize.widgetsPreview
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	self.init = function() {
 		var self = this;
@@ -124,7 +132,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 		 *
 		 * @since 4.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {Promise|void} Either a promise postponing the refresh, or void.
+=======
+		 * @returns {Promise|void} Either a promise postponing the refresh, or void.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		refresh: function() {
 			var partial = this, refreshDeferred;
@@ -146,7 +158,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 		 * @param {wp.customize.selectiveRefresh.Placement} placement The placement
 		 *                                                            function.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		renderContent: function( placement ) {
 			var partial = this;
@@ -205,7 +221,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 		 *
 		 * @since 4.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		ready: function() {
 			var sidebarPartial = this;
@@ -251,9 +271,15 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 		 *
 		 * @since 4.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {Array.<{before: Comment, after: Comment, instanceNumber: number}>}
 		 *         An array with an object for each sidebar instance, containing the
 		 *         node before and after the sidebar instance and its instance number.
+=======
+		 * @returns {Array.<{before: Comment, after: Comment, instanceNumber: number}>}
+		 *          An array with an object for each sidebar instance, containing the
+		 *          node before and after the sidebar instance and its instance number.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		findDynamicSidebarBoundaryNodes: function() {
 			var partial = this, regExp, boundaryNodes = {}, recursiveCommentTraversal;
@@ -293,8 +319,13 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 		 *
 		 * @since 4.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {Array} An array containing placement objects for each of the
 		 *                 dynamic sidebar boundary nodes.
+=======
+		 * @returns {Array} An array containing placement objects for each of the
+		 *                  dynamic sidebar boundary nodes.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		placements: function() {
 			var partial = this;
@@ -318,9 +349,15 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 		 *
 		 * @throws {Error} If there's no settingId.
 		 * @throws {Error} If the setting doesn't exist in the API.
+<<<<<<< HEAD
 		 * @throws {Error} If the API doesn't pass an array of widget IDs.
 		 *
 		 * @return {Array} A shallow copy of the array containing widget IDs.
+=======
+		 * @throws {Error} If the API doesn't pass an array of widget ids.
+		 *
+		 * @returns {Array} A shallow copy of the array containing widget IDs.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		getWidgetIds: function() {
 			var sidebarPartial = this, settingId, widgetIds;
@@ -344,8 +381,13 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 		 *
 		 * @since 4.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {Array.<wp.customize.selectiveRefresh.Placement>} List of placements
 		 *                                                           that were reflowed.
+=======
+		 * @returns {Array.<wp.customize.selectiveRefresh.Placement>} List of placements
+		 *                                                            that were reflowed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		reflowWidgets: function() {
 			var sidebarPartial = this, sidebarPlacements, widgetIds, widgetPartials, sortedSidebarContainers = [];
@@ -412,7 +454,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 		 *
 		 * @param {string} widgetId The widget ID.
 		 *
+<<<<<<< HEAD
 		 * @return {wp.customize.selectiveRefresh.Partial} The widget instance partial.
+=======
+		 * @returns {wp.customize.selectiveRefresh.Partial} The widget instance partial.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		ensureWidgetPlacementContainers: function( widgetId ) {
 			var sidebarPartial = this, widgetPartial, wasInserted = false, partialId = 'widget[' + widgetId + ']';
@@ -480,7 +526,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 		 * @param {Array} newWidgetIds New widget IDs.
 		 * @param {Array} oldWidgetIds Old widget IDs.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		handleSettingChange: function( newWidgetIds, oldWidgetIds ) {
 			var sidebarPartial = this, needsRefresh, widgetsRemoved, widgetsAdded, addedWidgetPartials = [];
@@ -535,7 +585,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 		 *
 		 * @since 4.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {Promise} A promise postponing the refresh.
+=======
+		 * @returns {Promise} A promise postponing the refresh.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		refresh: function() {
 			var partial = this, deferred = $.Deferred();
@@ -565,7 +619,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 	 *
 	 * @since 4.5.0
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	self.addPartials = function() {
 		_.each( self.registeredSidebars, function( registeredSidebar ) {
@@ -590,7 +648,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 	 *
 	 * @since 3.9.0
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	self.buildWidgetSelectors = function() {
 		var self = this;
@@ -631,9 +693,15 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 	 * @memberOf wp.customize.widgetsPreview
 	 *
 	 * @since 3.9.0
+<<<<<<< HEAD
 	 * @param {string} widgetId ID of the widget.
 	 *
 	 * @return {void}
+=======
+	 * @param  {string} widgetId ID of the widget.
+	 *
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	self.highlightWidget = function( widgetId ) {
 		var $body = $( document.body ),
@@ -655,7 +723,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 	 *
 	 * @since 3.9.0
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	self.highlightControls = function() {
 		var self = this,
@@ -672,7 +744,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 			self.preview.send( 'highlight-widget-control', $( this ).prop( 'id' ) );
 		});
 
+<<<<<<< HEAD
 		// Open expand the widget control when shift+clicking the widget element.
+=======
+		// Open expand the widget control when shift+clicking the widget element
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$( document ).on( 'click', selector, function( e ) {
 			if ( ! e.shiftKey ) {
 				return;
@@ -692,8 +768,13 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 	 *
 	 * @param {string} widgetId The widget ID.
 	 *
+<<<<<<< HEAD
 	 * @return {{idBase: string, number: number|null}} An object containing the idBase
 	 *                                                 and number of the parsed widget ID.
+=======
+	 * @returns {{idBase: string, number: number|null}} An object containing the
+	 *          idBase and number of the parsed widget ID.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	self.parseWidgetId = function( widgetId ) {
 		var matches, parsed = {
@@ -721,9 +802,15 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 	 *
 	 * @param {string} settingId Widget setting ID.
 	 *
+<<<<<<< HEAD
 	 * @return {{idBase: string, number: number|null}|null} Either an object containing the idBase
 	 *                                                      and number of the parsed widget setting ID,
 	 *                                                      or null.
+=======
+	 * @returns {{idBase: string, number: number|null}|null} Either an object
+	 *          containing the idBase and number of the parsed widget setting ID, or
+	 *          null.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	self.parseWidgetSettingId = function( settingId ) {
 		var matches, parsed = {
@@ -751,7 +838,11 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 	 *
 	 * @param {string} widgetId The widget ID.
 	 *
+<<<<<<< HEAD
 	 * @return {string} The setting ID.
+=======
+	 * @returns {string} The setting ID.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	self.getWidgetSettingId = function( widgetId ) {
 		var parsed = this.parseWidgetId( widgetId ), settingId;

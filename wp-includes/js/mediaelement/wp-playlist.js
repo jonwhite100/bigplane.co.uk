@@ -177,7 +177,11 @@
 	 * Only initializes new playlists not previously-initialized.
 	 *
 	 * @since 4.9.3
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	function initialize() {
 		$( '.wp-playlist:not(:has(.mejs-container))' ).each( function() {

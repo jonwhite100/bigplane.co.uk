@@ -131,7 +131,10 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 		if ( is_wp_error( rest_validate_value_from_schema( $value, $schema ) ) ) {
 			return null;
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return rest_sanitize_value_from_schema( $value, $schema );
 	}
 
@@ -251,7 +254,11 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 			}
 
 			/*
+<<<<<<< HEAD
 			 * Allow the supported types for settings, as we don't want invalid types
+=======
+			 * Whitelist the supported types for settings, as we don't want invalid types
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 * to be updated with arbitrary values that we can't do decent sanitizing for.
 			 */
 			if ( ! in_array( $rest_args['schema']['type'], array( 'number', 'integer', 'string', 'boolean', 'array', 'object' ), true ) ) {
@@ -295,7 +302,10 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 		}
 
 		$this->schema = $schema;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $this->add_additional_fields_schema( $this->schema );
 	}
 
@@ -304,7 +314,11 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 	 *
 	 * By default, the schema of settings will throw an error if a value is set to
 	 * `null` as it's not a valid value for something like "type => string". We
+<<<<<<< HEAD
 	 * provide a wrapper sanitizer to allow the use of `null`.
+=======
+	 * provide a wrapper sanitizer to whitelist the use of `null`.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 4.7.0
 	 *
@@ -317,7 +331,10 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 		if ( is_null( $value ) ) {
 			return $value;
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return rest_parse_request_arg( $value, $request, $param );
 	}
 
@@ -339,7 +356,10 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 				foreach ( $schema['properties'] as $key => $child_schema ) {
 					$schema['properties'][ $key ] = $this->set_additional_properties_to_false( $child_schema );
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$schema['additionalProperties'] = false;
 				break;
 			case 'array':

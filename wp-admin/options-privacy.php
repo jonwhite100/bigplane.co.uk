@@ -7,7 +7,11 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_privacy_options' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage privacy on this site.' ) );
@@ -49,7 +53,11 @@ if ( ! empty( $action ) ) {
 	} elseif ( 'create-privacy-page' === $action ) {
 
 		if ( ! class_exists( 'WP_Privacy_Policy_Content' ) ) {
+<<<<<<< HEAD
 			require_once ABSPATH . 'wp-admin/includes/class-wp-privacy-policy-content.php';
+=======
+			require_once( ABSPATH . 'wp-admin/includes/class-wp-privacy-policy-content.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		$privacy_policy_page_content = WP_Privacy_Policy_Content::get_default_content();
@@ -100,8 +108,13 @@ if ( ! empty( $privacy_policy_page_id ) ) {
 				'page_for_privacy_policy',
 				'page_for_privacy_policy',
 				sprintf(
+<<<<<<< HEAD
 					/* translators: %s: URL to Pages Trash. */
 					__( 'The currently selected Privacy Policy page is in the Trash. Please create or select a new Privacy Policy page or <a href="%s">restore the current page</a>.' ),
+=======
+					/* translators: URL to Pages Trash. */
+					__( 'The currently selected Privacy Policy page is in the trash. Please create or select a new Privacy Policy page or <a href="%s">restore the current page</a>.' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					'edit.php?post_status=trash&post_type=page'
 				),
 				'error'
@@ -115,7 +128,11 @@ if ( ! empty( $privacy_policy_page_id ) ) {
 $title       = __( 'Privacy Settings' );
 $parent_file = 'options-general.php';
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ?>
 <div class="wrap">
@@ -252,4 +269,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 </div>
 <?php
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

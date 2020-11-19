@@ -7,10 +7,17 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
 
 /** WordPress Translation Installation API */
 require_once ABSPATH . 'wp-admin/includes/translation-install.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+
+/** WordPress Translation Installation API */
+require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_options' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage options for this site.' ) );
@@ -18,7 +25,11 @@ if ( ! current_user_can( 'manage_options' ) ) {
 
 $title       = __( 'General Settings' );
 $parent_file = 'options-general.php';
+<<<<<<< HEAD
 /* translators: Date and time format for exact current time, mainly about timezones, see https://www.php.net/date */
+=======
+/* translators: Date and time format for exact current time, mainly about timezones, see https://secure.php.net/date */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $timezone_format = _x( 'Y-m-d H:i:s', 'timezone date format' );
 
 add_action( 'admin_head', 'options_general_add_js' );
@@ -49,7 +60,11 @@ get_current_screen()->set_help_sidebar(
 	'<p>' . __( '<a href="https://wordpress.org/support/">Support</a>' ) . '</p>'
 );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+include( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 
 <div class="wrap">
@@ -110,10 +125,17 @@ if ( ! is_multisite() ) {
 <tr>
 <th scope="row"><label for="new_admin_email"><?php _e( 'Administration Email Address' ); ?></label></th>
 <td><input name="new_admin_email" type="email" id="new_admin_email" aria-describedby="new-admin-email-description" value="<?php form_option( 'admin_email' ); ?>" class="regular-text ltr" />
+<<<<<<< HEAD
 <p class="description" id="new-admin-email-description"><?php _e( 'This address is used for admin purposes. If you change this, we will send you an email at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>' ); ?></p>
 <?php
 $new_admin_email = get_option( 'new_admin_email' );
 if ( $new_admin_email && get_option( 'admin_email' ) !== $new_admin_email ) :
+=======
+<p class="description" id="new-admin-email-description"><?php _e( 'This address is used for admin purposes. If you change this we will send you an email at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>' ); ?></p>
+<?php
+$new_admin_email = get_option( 'new_admin_email' );
+if ( $new_admin_email && $new_admin_email != get_option( 'admin_email' ) ) :
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	?>
 	<div class="updated inline">
 	<p>
@@ -157,7 +179,11 @@ if ( $new_admin_email && get_option( 'admin_email' ) !== $new_admin_email ) :
 
 $languages    = get_available_languages();
 $translations = wp_get_available_translations();
+<<<<<<< HEAD
 if ( ! is_multisite() && defined( 'WPLANG' ) && '' !== WPLANG && 'en_US' !== WPLANG && ! in_array( WPLANG, $languages, true ) ) {
+=======
+if ( ! is_multisite() && defined( 'WPLANG' ) && '' !== WPLANG && 'en_US' !== WPLANG && ! in_array( WPLANG, $languages ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$languages[] = WPLANG;
 }
 if ( ! empty( $languages ) || ! empty( $translations ) ) {
@@ -167,7 +193,11 @@ if ( ! empty( $languages ) || ! empty( $translations ) ) {
 		<td>
 			<?php
 			$locale = get_locale();
+<<<<<<< HEAD
 			if ( ! in_array( $locale, $languages, true ) ) {
+=======
+			if ( ! in_array( $locale, $languages ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$locale = '';
 			}
 
@@ -183,7 +213,11 @@ if ( ! empty( $languages ) || ! empty( $translations ) ) {
 			);
 
 			// Add note about deprecated WPLANG constant.
+<<<<<<< HEAD
 			if ( defined( 'WPLANG' ) && ( '' !== WPLANG ) && WPLANG !== $locale ) {
+=======
+			if ( defined( 'WPLANG' ) && ( '' !== WPLANG ) && $locale !== WPLANG ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				_deprecated_argument(
 					'define()',
 					'4.0.0',
@@ -209,7 +243,11 @@ if ( false !== strpos( $tzstring, 'Etc/GMT' ) ) {
 	$tzstring = '';
 }
 
+<<<<<<< HEAD
 if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
+=======
+if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$check_zone_info = false;
 	if ( 0 == $current_offset ) {
 		$tzstring = 'UTC+0';
@@ -276,6 +314,7 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 	?>
 	<br />
 	<?php
+<<<<<<< HEAD
 	if ( in_array( $tzstring, timezone_identifiers_list(), true ) ) {
 		$transitions = timezone_transitions_get( timezone_open( $tzstring ), time() );
 
@@ -283,13 +322,42 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 		if ( ! empty( $transitions[1] ) ) {
 			echo ' ';
 			$message = $transitions[1]['isdst'] ?
+=======
+	$allowed_zones = timezone_identifiers_list();
+
+	if ( in_array( $tzstring, $allowed_zones ) ) {
+		$found                   = false;
+		$date_time_zone_selected = new DateTimeZone( $tzstring );
+		$tz_offset               = timezone_offset_get( $date_time_zone_selected, date_create() );
+		$right_now               = time();
+		foreach ( timezone_transitions_get( $date_time_zone_selected ) as $tr ) {
+			if ( $tr['ts'] > $right_now ) {
+				$found = true;
+				break;
+			}
+		}
+
+		if ( $found ) {
+			echo ' ';
+			$message = $tr['isdst'] ?
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				/* translators: %s: Date and time. */
 				__( 'Daylight saving time begins on: %s.' ) :
 				/* translators: %s: Date and time. */
 				__( 'Standard time begins on: %s.' );
+<<<<<<< HEAD
 			printf(
 				$message,
 				'<code>' . wp_date( __( 'F j, Y' ) . ' ' . __( 'g:i a' ), $transitions[1]['ts'] ) . '</code>'
+=======
+			// Add the difference between the current offset and the new offset to ts to get the correct transition time from date_i18n().
+			printf(
+				$message,
+				'<code>' . date_i18n(
+					__( 'F j, Y' ) . ' ' . __( 'g:i a' ),
+					$tr['ts'] + ( $tz_offset - $tr['offset'] )
+				) . '</code>'
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			);
 		} else {
 			_e( 'This timezone does not observe daylight saving time.' );
@@ -321,7 +389,11 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 
 foreach ( $date_formats as $format ) {
 	echo "\t<label><input type='radio' name='date_format' value='" . esc_attr( $format ) . "'";
+<<<<<<< HEAD
 	if ( get_option( 'date_format' ) === $format ) { // checked() uses "==" rather than "===".
+=======
+	if ( get_option( 'date_format' ) === $format ) { // checked() uses "==" rather than "==="
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		echo " checked='checked'";
 		$custom = false;
 	}
@@ -358,7 +430,11 @@ foreach ( $date_formats as $format ) {
 
 foreach ( $time_formats as $format ) {
 	echo "\t<label><input type='radio' name='time_format' value='" . esc_attr( $format ) . "'";
+<<<<<<< HEAD
 	if ( get_option( 'time_format' ) === $format ) { // checked() uses "==" rather than "===".
+=======
+	if ( get_option( 'time_format' ) === $format ) { // checked() uses "==" rather than "==="
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		echo " checked='checked'";
 		$custom = false;
 	}
@@ -405,4 +481,8 @@ endfor;
 
 </div>
 
+<<<<<<< HEAD
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

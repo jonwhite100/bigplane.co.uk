@@ -24,7 +24,11 @@
 			clipboard_msg: "Copy/Cut/Paste is not available in Mozilla and Firefox.",
 			clipboard_no_support: "Currently not supported by your browser, use keyboard shortcuts instead.",
 			popup_blocked: "Sorry, but we have noticed that your popup-blocker has disabled a window that provides application functionality. You will need to disable popup blocking on this site in order to fully utilize this tool.",
+<<<<<<< HEAD
 			invalid_data: "Error: Invalid values entered, these are marked in red.",
+=======
+			invalid_data: "ERROR: Invalid values entered, these are marked in red.",
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			invalid_data_number: "{#field} must be a number",
 			invalid_data_min: "{#field} must be a number greater than {#min}",
 			invalid_data_size: "{#field} must be a number or percentage",
@@ -501,6 +505,12 @@
 		css: "CSS Class",
 		adv_link_settings: "Advanced Link Settings",
 		link_rel: "Link Rel",
+<<<<<<< HEAD
+=======
+		height: "Height",
+		orig_size: "Original Size",
+		css: "CSS Class",
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		s60: "60%",
 		s70: "70%",
 		s80: "80%",

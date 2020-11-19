@@ -14,9 +14,12 @@
 //                                                             //
 /////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
 if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
 	exit;
 }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
 * @tutorial http://wiki.multimedia.cx/index.php?title=DTS
@@ -152,7 +155,11 @@ class getid3_dts extends getid3_handler
 	 * @param string $bin
 	 * @param int $length
 	 *
+<<<<<<< HEAD
 	 * @return int
+=======
+	 * @return float|int
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	private function readBinData($bin, $length) {
 		$data = substr($bin, $this->readBinDataOffset, $length);
@@ -255,11 +262,16 @@ class getid3_dts extends getid3_handler
 		switch ($index) {
 			case 0:
 				return 1;
+<<<<<<< HEAD
+=======
+				break;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			case 1:
 			case 2:
 			case 3:
 			case 4:
 				return 2;
+<<<<<<< HEAD
 			case 5:
 			case 6:
 				return 3;
@@ -268,15 +280,40 @@ class getid3_dts extends getid3_handler
 				return 4;
 			case 9:
 				return 5;
+=======
+				break;
+			case 5:
+			case 6:
+				return 3;
+				break;
+			case 7:
+			case 8:
+				return 4;
+				break;
+			case 9:
+				return 5;
+				break;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			case 10:
 			case 11:
 			case 12:
 				return 6;
+<<<<<<< HEAD
 			case 13:
 				return 7;
 			case 14:
 			case 15:
 				return 8;
+=======
+				break;
+			case 13:
+				return 7;
+				break;
+			case 14:
+			case 15:
+				return 8;
+				break;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		return false;
 	}
@@ -318,8 +355,15 @@ class getid3_dts extends getid3_handler
 		switch ($version) {
 			case 7:
 				return 0 - $index;
+<<<<<<< HEAD
 			case 6:
 				return 0 - 16 - $index;
+=======
+				break;
+			case 6:
+				return 0 - 16 - $index;
+				break;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		return false;
 	}

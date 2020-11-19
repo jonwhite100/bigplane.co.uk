@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #customize-theme-controls #accordion-section-menu_locations {
 	position: relative;
 	margin-top: 30px;
@@ -270,8 +273,12 @@
 
 .customize-screen-options-toggle:focus,
 #customize-controls .customize-info .customize-help-toggle:focus {
+<<<<<<< HEAD
 	/* Only visible in Windows High Contrast mode */
 	outline: 1px solid transparent;
+=======
+	outline: none;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .customize-screen-options-toggle:before {
@@ -477,6 +484,13 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
+=======
+.ie8 .menu-item-bar .item-delete:before {
+	top: -10px;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .menu-item-bar .item-delete:hover,
 .menu-item-bar .item-delete:focus {
 	box-shadow: none;

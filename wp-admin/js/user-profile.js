@@ -2,10 +2,17 @@
  * @output wp-admin/js/user-profile.js
  */
 
+<<<<<<< HEAD
 /* global ajaxurl, pwsL10n */
 (function($) {
 	var updateLock = false,
 		__ = wp.i18n.__,
+=======
+/* global ajaxurl, pwsL10n, userProfileL10n */
+(function($) {
+	var updateLock = false,
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$pass1Row,
 		$pass1,
 		$pass2,
@@ -39,7 +46,11 @@
 		}
 
 		// Once zxcvbn loads, passwords strength is known.
+<<<<<<< HEAD
 		$( '#pw-weak-text-label' ).text( __( 'Confirm use of weak password' ) );
+=======
+		$( '#pw-weak-text-label' ).html( userProfileL10n.warnWeak );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	function bindPass1() {
@@ -64,10 +75,17 @@
 	function resetToggle( show ) {
 		$toggleButton
 			.attr({
+<<<<<<< HEAD
 				'aria-label': show ? __( 'Show password' ) : __( 'Hide password' )
 			})
 			.find( '.text' )
 				.text( show ? __( 'Show' ) : __( 'Hide' ) )
+=======
+				'aria-label': show ? userProfileL10n.ariaShow : userProfileL10n.ariaHide
+			})
+			.find( '.text' )
+				.text( show ? userProfileL10n.show : userProfileL10n.hide )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			.end()
 			.find( '.dashicons' )
 				.removeClass( show ? 'dashicons-hidden' : 'dashicons-visibility' )
@@ -196,7 +214,11 @@
 			resetToggle( false );
 
 			if ( $pass1Row.closest( 'form' ).is( '#your-profile' ) ) {
+<<<<<<< HEAD
 				// Clear password field to prevent update.
+=======
+				// Clear password field to prevent update
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$pass1.val( '' ).trigger( 'pwupdate' );
 				$submitButtons.prop( 'disabled', false );
 			}
@@ -220,7 +242,11 @@
 			return;
 		}
 
+<<<<<<< HEAD
 		strength = wp.passwordStrength.meter( pass1, wp.passwordStrength.userInputDisallowedList(), pass1 );
+=======
+		strength = wp.passwordStrength.meter( pass1, wp.passwordStrength.userInputBlacklist(), pass1 );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		switch ( strength ) {
 			case -1:
@@ -342,7 +368,11 @@
 			$this.siblings( '.selected' ).removeClass( 'selected' );
 			$this.addClass( 'selected' ).find( 'input[type="radio"]' ).prop( 'checked', true );
 
+<<<<<<< HEAD
 			// Set color scheme.
+=======
+			// Set color scheme
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( user_id === current_user_id ) {
 				// Load the colors stylesheet.
 				// The default color scheme won't have one, so we'll need to create an element.
@@ -351,7 +381,11 @@
 				}
 				$stylesheet.attr( 'href', $this.children( '.css_url' ).val() );
 
+<<<<<<< HEAD
 				// Repaint icons.
+=======
+				// repaint icons
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( typeof wp !== 'undefined' && wp.svgPainter ) {
 					try {
 						colors = $.parseJSON( $this.children( '.icon_colors' ).val() );
@@ -363,7 +397,11 @@
 					}
 				}
 
+<<<<<<< HEAD
 				// Update user option.
+=======
+				// update user option
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$.post( ajaxurl, {
 					action:       'save-user-color-scheme',
 					color_scheme: $this.children( 'input[name="admin_color"]' ).val(),
@@ -402,7 +440,11 @@
 	/* Warn the user if password was generated but not saved */
 	$( window ).on( 'beforeunload', function () {
 		if ( true === updateLock ) {
+<<<<<<< HEAD
 			return __( 'Your new password has not been saved.' );
+=======
+			return userProfileL10n.warn;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	} );
 

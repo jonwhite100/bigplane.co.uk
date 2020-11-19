@@ -6,6 +6,7 @@
 	box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .widget.open {
 	z-index: 99;
 }
@@ -13,6 +14,8 @@
 	z-index: 100;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .widget-top {
 	font-size: 13px;
 	font-weight: 600;
@@ -25,6 +28,10 @@
 	padding: 10px;
 	background: none;
 	cursor: pointer;
+<<<<<<< HEAD
+=======
+	outline: none;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .widget-title h3,
@@ -139,9 +146,12 @@
 .media-widget-control .media-widget-preview img {
 	max-width: 100%;
 	vertical-align: middle;
+<<<<<<< HEAD
 	background-image: linear-gradient(45deg, #c4c4c4 25%, transparent 25%, transparent 75%, #c4c4c4 75%, #c4c4c4), linear-gradient(45deg, #c4c4c4 25%, transparent 25%, transparent 75%, #c4c4c4 75%, #c4c4c4);
 	background-position: 0 0, 10px 10px;
 	background-size: 20px 20px;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 .media-widget-control .media-widget-preview .wp-video-shortcode {
 	background: #000;
@@ -154,7 +164,10 @@
 .media-frame.media-widget .image-details .embed-media-settings .setting.align,
 .media-frame.media-widget .attachment-display-settings .setting.align,
 .media-frame.media-widget .embed-media-settings .setting.align,
+<<<<<<< HEAD
 .media-frame.media-widget .embed-media-settings .legend-inline,
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .media-frame.media-widget .embed-link-settings .setting.link-text,
 .media-frame.media-widget .replace-attachment,
 .media-frame.media-widget .checkbox-setting.autoplay {
@@ -318,8 +331,12 @@
 
 .sidebar-name .handlediv:focus {
 	box-shadow: none;
+<<<<<<< HEAD
 	/* Only visible in Windows High Contrast mode */
 	outline: 1px solid transparent;
+=======
+	outline: none;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 #widgets-left .sidebar-name .toggle-indicator {
@@ -607,10 +624,13 @@ div#widgets-right .closed .widgets-sortables {
 	background: #fff;
 }
 
+<<<<<<< HEAD
 .widget-inside select {
 	max-width: 100%;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /* Dragging widgets over the available widget area show's a "Deactivate" message */
 #removing-widget {
 	display: none;
@@ -791,6 +811,7 @@ ul.CodeMirror-hints {
 /* =Media Queries
 -------------------------------------------------------------- */
 
+<<<<<<< HEAD
 @media screen and (max-width: 782px) {
 	.widgets-holder-wrap .widget-inside input[type="checkbox"],
 	.widgets-holder-wrap .widget-inside input[type="radio"],
@@ -800,6 +821,8 @@ ul.CodeMirror-hints {
 	}
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 @media screen and (max-width: 480px) {
 	div.widget-liquid-left {
 		width: 100%;

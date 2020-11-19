@@ -2,10 +2,17 @@
 Contributors: ShortPixel
 Donate link: https://www.paypal.me/resizeImage
 Tags: replace, attachment, media, files, replace image, replace jpg, change media, replace media, image, file
+<<<<<<< HEAD
 Requires at least: 4.9.7
 Tested up to: 5.5.1
 Requires PHP: 5.6
 Stable tag: 3.5.0
+=======
+Requires at least: 4.2
+Tested up to: 5.3
+Requires PHP: 5.4
+Stable tag: trunk
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 Easily replace any attached image/file by simply uploading a new file in the Media Library edit view - a real time saver!
 
@@ -47,6 +54,7 @@ If you want more control over the format used to display the time, you can use t
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 3.5.0 =
 
 Release date: October 29th 2020
@@ -128,6 +136,8 @@ Release date: 18th February 2020
 * Extra - Javascript tries to resume after external errors.
 * Language – 0 new strings added, 2 updated, 0 fuzzied, and 0 obsoleted
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 = 3.3.7 =
 
 Release date: 13th November 2019

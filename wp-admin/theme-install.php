@@ -7,8 +7,13 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
 require ABSPATH . 'wp-admin/includes/theme-install.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+require( ABSPATH . 'wp-admin/includes/theme-install.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 wp_reset_vars( array( 'tab' ) );
 
@@ -18,7 +23,11 @@ if ( ! current_user_can( 'install_themes' ) ) {
 
 if ( is_multisite() && ! is_network_admin() ) {
 	wp_redirect( network_admin_url( 'theme-install.php' ) );
+<<<<<<< HEAD
 	exit;
+=======
+	exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 $title       = __( 'Add Themes' );
@@ -54,7 +63,11 @@ wp_localize_script(
 		'l10n'            => array(
 			'addNew'              => __( 'Add New Theme' ),
 			'search'              => __( 'Search Themes' ),
+<<<<<<< HEAD
 			'searchPlaceholder'   => __( 'Search themes...' ), // Placeholder (no ellipsis).
+=======
+			'searchPlaceholder'   => __( 'Search themes...' ), // placeholder (no ellipsis)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'upload'              => __( 'Upload Theme' ),
 			'back'                => __( 'Back' ),
 			'error'               => sprintf(
@@ -72,7 +85,10 @@ wp_localize_script(
 			'selectFeatureFilter' => __( 'Select one or more Theme features to filter by' ),
 		),
 		'installedThemes' => array_keys( $installed_themes ),
+<<<<<<< HEAD
 		'activeTheme'     => get_stylesheet(),
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	)
 );
 
@@ -132,7 +148,11 @@ get_current_screen()->set_help_sidebar(
 	'<p>' . __( '<a href="https://wordpress.org/support/">Support</a>' ) . '</p>'
 );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+include( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ?>
 <div class="wrap">
@@ -209,10 +229,14 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				<button type="button" class="clear-filters button" aria-label="<?php esc_attr_e( 'Clear current filters' ); ?>"><?php _e( 'Clear' ); ?></button>
 			</div>
 		<?php
+<<<<<<< HEAD
 		// Use the core list, rather than the .org API, due to inconsistencies
 		// and to ensure tags are translated.
 		$feature_list = get_theme_feature_list( false );
 
+=======
+		$feature_list = get_theme_feature_list( false ); // Use the core list, rather than the .org API, due to inconsistencies and to ensure tags are translated.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $feature_list as $feature_name => $features ) {
 			echo '<fieldset class="filter-group">';
 			$feature_name = esc_html( $feature_name );
@@ -271,6 +295,7 @@ if ( $tab ) {
 	<# } else { #>
 		<div class="theme-screenshot blank"></div>
 	<# } #>
+<<<<<<< HEAD
 
 	<# if ( data.installed ) { #>
 		<div class="notice notice-success notice-alt"><p><?php _ex( 'Installed', 'theme' ); ?></p></div>
@@ -331,6 +356,8 @@ if ( $tab ) {
 		</p></div>
 	<# } #>
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<span class="more-details"><?php _ex( 'Details &amp; Preview', 'theme' ); ?></span>
 	<div class="theme-author">
 		<?php
@@ -344,6 +371,7 @@ if ( $tab ) {
 
 		<div class="theme-actions">
 			<# if ( data.installed ) { #>
+<<<<<<< HEAD
 				<# if ( data.compatible_wp && data.compatible_php ) { #>
 					<?php
 					/* translators: %s: Theme name. */
@@ -398,6 +426,34 @@ if ( $tab ) {
 			<# } #>
 		</div>
 	</div>
+=======
+				<?php
+				/* translators: %s: Theme name. */
+				$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
+				?>
+				<# if ( data.activate_url ) { #>
+					<a class="button button-primary activate" href="{{ data.activate_url }}" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
+				<# } #>
+				<# if ( data.customize_url ) { #>
+					<a class="button load-customize" href="{{ data.customize_url }}"><?php _e( 'Live Preview' ); ?></a>
+				<# } else { #>
+					<button class="button preview install-theme-preview"><?php _e( 'Preview' ); ?></button>
+				<# } #>
+			<# } else { #>
+				<?php
+				/* translators: %s: Theme name. */
+				$aria_label = sprintf( __( 'Install %s' ), '{{ data.name }}' );
+				?>
+				<a class="button button-primary theme-install" data-name="{{ data.name }}" data-slug="{{ data.id }}" href="{{ data.install_url }}" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Install' ); ?></a>
+				<button class="button preview install-theme-preview"><?php _e( 'Preview' ); ?></button>
+			<# } #>
+		</div>
+	</div>
+
+	<# if ( data.installed ) { #>
+		<div class="notice notice-success notice-alt"><p><?php _ex( 'Installed', 'theme' ); ?></p></div>
+	<# } #>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 </script>
 
 <script id="tmpl-theme-preview" type="text/template">
@@ -407,6 +463,7 @@ if ( $tab ) {
 			<button class="previous-theme"><span class="screen-reader-text"><?php _e( 'Previous theme' ); ?></span></button>
 			<button class="next-theme"><span class="screen-reader-text"><?php _e( 'Next theme' ); ?></span></button>
 			<# if ( data.installed ) { #>
+<<<<<<< HEAD
 				<# if ( data.compatible_wp && data.compatible_php ) { #>
 					<?php
 					/* translators: %s: Theme name. */
@@ -426,6 +483,11 @@ if ( $tab ) {
 				<# } else { #>
 					<a class="button button-primary disabled" ><?php _ex( 'Cannot Install', 'theme' ); ?></a>
 				<# } #>
+=======
+				<a class="button button-primary activate" href="{{ data.activate_url }}"><?php _e( 'Activate' ); ?></a>
+			<# } else { #>
+				<a href="{{ data.install_url }}" class="button button-primary theme-install" data-name="{{ data.name }}" data-slug="{{ data.id }}"><?php _e( 'Install' ); ?></a>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<# } #>
 		</div>
 		<div class="wp-full-overlay-sidebar-content">
@@ -447,20 +509,28 @@ if ( $tab ) {
 								<a class="num-ratings" href="{{ data.reviews_url }}">
 									<?php
 									/* translators: %s: Number of ratings. */
+<<<<<<< HEAD
 									printf( __( '(%s ratings)' ), '{{ data.num_ratings }}' );
+=======
+									echo sprintf( __( '(%s ratings)' ), '{{ data.num_ratings }}' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 									?>
 								</a>
 							</div>
 						<# } else { #>
 							<span class="no-rating"><?php _e( 'This theme has not been rated yet.' ); ?></span>
 						<# } #>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						<div class="theme-version">
 							<?php
 							/* translators: %s: Theme version. */
 							printf( __( 'Version: %s' ), '{{ data.version }}' );
 							?>
 						</div>
+<<<<<<< HEAD
 
 						<# if ( ! data.compatible_wp || ! data.compatible_php ) { #>
 							<div class="notice notice-error notice-alt notice-large"><p>
@@ -517,6 +587,8 @@ if ( $tab ) {
 							</p></div>
 						<# } #>
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						<div class="theme-description">{{{ data.description }}}</div>
 					</div>
 				</div>
@@ -537,4 +609,8 @@ if ( $tab ) {
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

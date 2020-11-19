@@ -13,6 +13,7 @@
 	z-index: 1; /* positive z-index to avoid elastic scrolling woes in Safari */
 }
 
+<<<<<<< HEAD
 .php-error #adminmenuback {
 	position: absolute;
 }
@@ -22,6 +23,8 @@
 	margin-top: 2em;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #adminmenu {
 	clear: left;
 	margin: 12px 0;
@@ -391,6 +394,14 @@ div.wp-menu-image:before {
 	color: #00b9eb;
 }
 
+<<<<<<< HEAD
+=======
+/* IE8 doesn't redraw the pseudo elements unless you make a change to the content, this restore the initial color after hover */
+.ie8 #adminmenu li.opensub div.wp-menu-image:before {
+	color: #a0a5aa;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .folded #adminmenu div.wp-menu-image {
 	width: 35px;
 	height: 30px;
@@ -402,6 +413,23 @@ div.wp-menu-image:before {
 	height: 34px;
 }
 
+<<<<<<< HEAD
+=======
+/* No @font-face support */
+.no-font-face #adminmenu .wp-menu-image {
+	display: none;
+}
+
+.no-font-face #adminmenu div.wp-menu-name {
+	padding: 8px 12px;
+}
+
+.no-font-face.auto-fold #adminmenu .wp-menu-name {
+	margin-left: 0;
+}
+/* End no @font-face support */
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /* Sticky admin menu */
 .sticky-menu #adminmenuwrap {
 	position: fixed;

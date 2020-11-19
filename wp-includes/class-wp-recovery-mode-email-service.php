@@ -3,7 +3,11 @@
  * Error Protection API: WP_Recovery_Mode_Email_Link class
  *
  * @package WordPress
+<<<<<<< HEAD
  * @since 5.2.0
+=======
+ * @since   5.2.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 
 /**
@@ -41,11 +45,17 @@ final class WP_Recovery_Mode_Email_Service {
 	 *
 	 * @param int   $rate_limit Number of seconds before another email can be sent.
 	 * @param array $error      Error details from {@see error_get_last()}
+<<<<<<< HEAD
 	 * @param array $extension {
 	 *     The extension that caused the error.
 	 *
 	 *     @type string $slug The extension slug. The plugin or theme's directory.
 	 *     @type string $type The extension type. Either 'plugin' or 'theme'.
+=======
+	 * @param array $extension  The extension that caused the error. {
+	 *      @type string $slug The extension slug. The plugin or theme's directory.
+	 *      @type string $type The extension type. Either 'plugin' or 'theme'.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * }
 	 * @return true|WP_Error True if email sent, WP_Error otherwise.
 	 */
@@ -103,6 +113,10 @@ final class WP_Recovery_Mode_Email_Service {
 	 * @param int   $rate_limit Number of seconds before another email can be sent.
 	 * @param array $error      Error details from {@see error_get_last()}
 	 * @param array $extension  Extension that caused the error.
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool Whether the email was sent successfully.
 	 */
 	private function send_recovery_mode_email( $rate_limit, $error, $extension ) {
@@ -135,7 +149,11 @@ final class WP_Recovery_Mode_Email_Service {
 		 *
 		 * @since 5.2.0
 		 *
+<<<<<<< HEAD
 		 * @param string $message The Message to include in the email.
+=======
+		 * @param $message string The Message to include in the email.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$support = apply_filters( 'recovery_email_support_info', __( 'Please contact your host for assistance with investigating this issue further.' ) );
 
@@ -144,7 +162,11 @@ final class WP_Recovery_Mode_Email_Service {
 		 *
 		 * @since 5.3.0
 		 *
+<<<<<<< HEAD
 		 * @param array $message An associative array of debug information.
+=======
+		 * @param $message array An associated array of debug information.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$debug = apply_filters( 'recovery_email_debug_info', $this->get_debug( $extension ) );
 
@@ -307,7 +329,11 @@ When seeking help with this issue, you may be asked for some of the following in
 	 * @since 5.3.0
 	 *
 	 * @param array $extension The extension that caused the error.
+<<<<<<< HEAD
 	 * @return array An associative array of debug information.
+=======
+	 * @return array An associated array of debug information.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	private function get_debug( $extension ) {
 		$theme      = wp_get_theme();

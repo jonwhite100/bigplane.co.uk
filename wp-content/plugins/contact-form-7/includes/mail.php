@@ -105,8 +105,12 @@ class WPCF7_Mail {
 		);
 
 		$components = apply_filters( 'wpcf7_mail_components',
+<<<<<<< HEAD
 			$components, wpcf7_get_current_contact_form(), $this
 		);
+=======
+			$components, wpcf7_get_current_contact_form(), $this );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		if ( ! $send ) {
 			return $components;
@@ -317,6 +321,7 @@ class WPCF7_MailTaggedText {
 			? $submission->get_posted_data( $field_name )
 			: null;
 
+<<<<<<< HEAD
 		if ( $mail_tag->get_option( 'do_not_heat' ) ) {
 			$submitted = isset( $_POST[$field_name] ) ? $_POST[$field_name] : '';
 		}
@@ -324,6 +329,16 @@ class WPCF7_MailTaggedText {
 		$replaced = $submitted;
 
 		if ( null !== $replaced ) {
+=======
+		if ( null !== $submitted ) {
+
+			if ( $mail_tag->get_option( 'do_not_heat' ) ) {
+				$submitted = isset( $_POST[$field_name] ) ? $_POST[$field_name] : '';
+			}
+
+			$replaced = $submitted;
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( $format = $mail_tag->get_option( 'format' ) ) {
 				$replaced = $this->format( $replaced, $format );
 			}
@@ -334,6 +349,7 @@ class WPCF7_MailTaggedText {
 				$replaced = esc_html( $replaced );
 				$replaced = wptexturize( $replaced );
 			}
+<<<<<<< HEAD
 		}
 
 		if ( $form_tag = $mail_tag->corresponding_form_tag() ) {
@@ -351,6 +367,20 @@ class WPCF7_MailTaggedText {
 		);
 
 		if ( null !== $replaced ) {
+=======
+
+			if ( $form_tag = $mail_tag->corresponding_form_tag() ) {
+				$type = $form_tag->type;
+
+				$replaced = apply_filters(
+					"wpcf7_mail_tag_replaced_{$type}", $replaced,
+					$submitted, $html, $mail_tag );
+			}
+
+			$replaced = apply_filters( 'wpcf7_mail_tag_replaced', $replaced,
+				$submitted, $html, $mail_tag );
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$replaced = wp_unslash( trim( $replaced ) );
 
 			$this->replaced_tags[$tag] = $replaced;
@@ -358,8 +388,12 @@ class WPCF7_MailTaggedText {
 		}
 
 		$special = apply_filters( 'wpcf7_special_mail_tags', null,
+<<<<<<< HEAD
 			$mail_tag->tag_name(), $html, $mail_tag
 		);
+=======
+			$mail_tag->tag_name(), $html, $mail_tag );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		if ( null !== $special ) {
 			$this->replaced_tags[$tag] = $special;
@@ -374,11 +408,15 @@ class WPCF7_MailTaggedText {
 
 		foreach ( $original as $key => $value ) {
 			if ( preg_match( '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $value ) ) {
+<<<<<<< HEAD
 				$datetime = date_create( $value, wp_timezone() );
 
 				if ( false !== $datetime ) {
 					$original[$key] = wp_date( $format, $datetime->getTimestamp() );
 				}
+=======
+				$original[$key] = mysql2date( $format, $value );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 

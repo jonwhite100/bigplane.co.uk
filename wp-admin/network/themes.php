@@ -8,7 +8,11 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_network_themes' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage network themes.' ) );
@@ -22,6 +26,7 @@ $action = $wp_list_table->current_action();
 $s = isset( $_REQUEST['s'] ) ? $_REQUEST['s'] : '';
 
 // Clean up request URI from temporary args for screen options/paging uri's to work as expected.
+<<<<<<< HEAD
 $temp_args = array(
 	'enabled',
 	'disabled',
@@ -31,6 +36,9 @@ $temp_args = array(
 	'disabled-auto-update',
 );
 
+=======
+$temp_args              = array( 'enabled', 'disabled', 'deleted', 'error' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $_SERVER['REQUEST_URI'] = remove_query_arg( $temp_args, $_SERVER['REQUEST_URI'] );
 $referer                = remove_query_arg( $temp_args, wp_get_referer() );
 
@@ -84,7 +92,11 @@ if ( $action ) {
 			$title       = __( 'Update Themes' );
 			$parent_file = 'themes.php';
 
+<<<<<<< HEAD
 			require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+			require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			echo '<div class="wrap">';
 			echo '<h1>' . esc_html( $title ) . '</h1>';
@@ -94,7 +106,11 @@ if ( $action ) {
 
 			echo "<iframe src='$url' style='width: 100%; height:100%; min-height:850px;'></iframe>";
 			echo '</div>';
+<<<<<<< HEAD
 			require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+			require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			exit;
 		case 'delete-selected':
 			if ( ! current_user_can( 'delete_themes' ) ) {
@@ -122,17 +138,29 @@ if ( $action ) {
 				$theme_info[ $theme ] = wp_get_theme( $theme );
 			}
 
+<<<<<<< HEAD
 			require ABSPATH . 'wp-admin/update.php';
+=======
+			include( ABSPATH . 'wp-admin/update.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			$parent_file = 'themes.php';
 
 			if ( ! isset( $_REQUEST['verify-delete'] ) ) {
 				wp_enqueue_script( 'jquery' );
+<<<<<<< HEAD
 				require_once ABSPATH . 'wp-admin/admin-header.php';
 				$themes_to_delete = count( $themes );
 				?>
 				<div class="wrap">
 				<?php if ( 1 === $themes_to_delete ) : ?>
+=======
+				require_once( ABSPATH . 'wp-admin/admin-header.php' );
+				$themes_to_delete = count( $themes );
+				?>
+			<div class="wrap">
+				<?php if ( 1 == $themes_to_delete ) : ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<h1><?php _e( 'Delete Theme' ); ?></h1>
 					<div class="error"><p><strong><?php _e( 'Caution:' ); ?></strong> <?php _e( 'This theme may be active on other sites in the network.' ); ?></p></div>
 					<p><?php _e( 'You are about to remove the following theme:' ); ?></p>
@@ -153,7 +181,11 @@ if ( $action ) {
 					}
 					?>
 					</ul>
+<<<<<<< HEAD
 				<?php if ( 1 === $themes_to_delete ) : ?>
+=======
+				<?php if ( 1 == $themes_to_delete ) : ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<p><?php _e( 'Are you sure you want to delete this theme?' ); ?></p>
 				<?php else : ?>
 					<p><?php _e( 'Are you sure you want to delete these themes?' ); ?></p>
@@ -162,18 +194,28 @@ if ( $action ) {
 					<input type="hidden" name="verify-delete" value="1" />
 					<input type="hidden" name="action" value="delete-selected" />
 					<?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					foreach ( (array) $themes as $theme ) {
 						echo '<input type="hidden" name="checked[]" value="' . esc_attr( $theme ) . '" />';
 					}
 
+<<<<<<< HEAD
 					wp_nonce_field( 'bulk-themes' );
 
 					if ( 1 === $themes_to_delete ) {
+=======
+						wp_nonce_field( 'bulk-themes' );
+
+					if ( 1 == $themes_to_delete ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						submit_button( __( 'Yes, delete this theme' ), '', 'submit', false );
 					} else {
 						submit_button( __( 'Yes, delete these themes' ), '', 'submit', false );
 					}
+<<<<<<< HEAD
 
 					?>
 				</form>
@@ -187,6 +229,21 @@ if ( $action ) {
 				require_once ABSPATH . 'wp-admin/admin-footer.php';
 				exit;
 			} // End if verify-delete.
+=======
+					?>
+				</form>
+				<?php
+				$referer = wp_get_referer();
+				?>
+				<form method="post" action="<?php echo $referer ? esc_url( $referer ) : ''; ?>" style="display:inline;">
+					<?php submit_button( __( 'No, return me to the theme list' ), '', 'submit', false ); ?>
+				</form>
+			</div>
+				<?php
+				require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+				exit;
+			} // Endif verify-delete
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			foreach ( $themes as $theme ) {
 				$delete_result = delete_theme(
@@ -217,6 +274,7 @@ if ( $action ) {
 				)
 			);
 			exit;
+<<<<<<< HEAD
 		case 'enable-auto-update':
 		case 'disable-auto-update':
 		case 'enable-auto-update-selected':
@@ -269,6 +327,8 @@ if ( $action ) {
 
 			wp_safe_redirect( $referer );
 			exit;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		default:
 			$themes = isset( $_POST['checked'] ) ? (array) $_POST['checked'] : array();
 			if ( empty( $themes ) ) {
@@ -302,6 +362,7 @@ get_current_screen()->add_help_tab(
 	)
 );
 
+<<<<<<< HEAD
 $help_sidebar_autoupdates = '';
 
 if ( current_user_can( 'update_themes' ) && wp_is_auto_update_enabled_for_type( 'theme' ) ) {
@@ -322,6 +383,11 @@ get_current_screen()->set_help_sidebar(
 	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
 	'<p>' . __( '<a href="https://codex.wordpress.org/Network_Admin_Themes_Screen">Documentation on Network Themes</a>' ) . '</p>' .
 	$help_sidebar_autoupdates .
+=======
+get_current_screen()->set_help_sidebar(
+	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
+	'<p>' . __( '<a href="https://codex.wordpress.org/Network_Admin_Themes_Screen">Documentation on Network Themes</a>' ) . '</p>' .
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	'<p>' . __( '<a href="https://wordpress.org/support/">Support</a>' ) . '</p>'
 );
 
@@ -339,7 +405,11 @@ $parent_file = 'themes.php';
 wp_enqueue_script( 'updates' );
 wp_enqueue_script( 'theme-preview' );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ?>
 
@@ -362,7 +432,11 @@ if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 <?php
 if ( isset( $_GET['enabled'] ) ) {
 	$enabled = absint( $_GET['enabled'] );
+<<<<<<< HEAD
 	if ( 1 === $enabled ) {
+=======
+	if ( 1 == $enabled ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$message = __( 'Theme enabled.' );
 	} else {
 		/* translators: %s: Number of themes. */
@@ -371,7 +445,11 @@ if ( isset( $_GET['enabled'] ) ) {
 	echo '<div id="message" class="updated notice is-dismissible"><p>' . sprintf( $message, number_format_i18n( $enabled ) ) . '</p></div>';
 } elseif ( isset( $_GET['disabled'] ) ) {
 	$disabled = absint( $_GET['disabled'] );
+<<<<<<< HEAD
 	if ( 1 === $disabled ) {
+=======
+	if ( 1 == $disabled ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$message = __( 'Theme disabled.' );
 	} else {
 		/* translators: %s: Number of themes. */
@@ -380,13 +458,18 @@ if ( isset( $_GET['enabled'] ) ) {
 	echo '<div id="message" class="updated notice is-dismissible"><p>' . sprintf( $message, number_format_i18n( $disabled ) ) . '</p></div>';
 } elseif ( isset( $_GET['deleted'] ) ) {
 	$deleted = absint( $_GET['deleted'] );
+<<<<<<< HEAD
 	if ( 1 === $deleted ) {
+=======
+	if ( 1 == $deleted ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$message = __( 'Theme deleted.' );
 	} else {
 		/* translators: %s: Number of themes. */
 		$message = _n( '%s theme deleted.', '%s themes deleted.', $deleted );
 	}
 	echo '<div id="message" class="updated notice is-dismissible"><p>' . sprintf( $message, number_format_i18n( $deleted ) ) . '</p></div>';
+<<<<<<< HEAD
 } elseif ( isset( $_GET['enabled-auto-update'] ) ) {
 	$enabled = absint( $_GET['enabled-auto-update'] );
 	if ( 1 === $enabled ) {
@@ -408,6 +491,11 @@ if ( isset( $_GET['enabled'] ) ) {
 } elseif ( isset( $_GET['error'] ) && 'none' === $_GET['error'] ) {
 	echo '<div id="message" class="error notice is-dismissible"><p>' . __( 'No theme selected.' ) . '</p></div>';
 } elseif ( isset( $_GET['error'] ) && 'main' === $_GET['error'] ) {
+=======
+} elseif ( isset( $_GET['error'] ) && 'none' == $_GET['error'] ) {
+	echo '<div id="message" class="error notice is-dismissible"><p>' . __( 'No theme selected.' ) . '</p></div>';
+} elseif ( isset( $_GET['error'] ) && 'main' == $_GET['error'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	echo '<div class="error notice is-dismissible"><p>' . __( 'You cannot delete a theme while it is active on the main site.' ) . '</p></div>';
 }
 
@@ -420,7 +508,11 @@ if ( isset( $_GET['enabled'] ) ) {
 <?php
 $wp_list_table->views();
 
+<<<<<<< HEAD
 if ( 'broken' === $status ) {
+=======
+if ( 'broken' == $status ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	echo '<p class="clear">' . __( 'The following themes are installed but incomplete.' ) . '</p>';
 }
 ?>
@@ -439,4 +531,8 @@ wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 wp_print_update_row_templates();
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

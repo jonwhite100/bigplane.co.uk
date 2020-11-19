@@ -7,8 +7,13 @@
  * @subpackage mo
  */
 
+<<<<<<< HEAD
 require_once __DIR__ . '/translations.php';
 require_once __DIR__ . '/streams.php';
+=======
+require_once dirname( __FILE__ ) . '/translations.php';
+require_once dirname( __FILE__ ) . '/streams.php';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! class_exists( 'MO', false ) ) :
 	class MO extends Gettext_Translations {
@@ -101,7 +106,11 @@ if ( ! class_exists( 'MO', false ) ) :
 			ksort( $entries );
 			$magic                     = 0x950412de;
 			$revision                  = 0;
+<<<<<<< HEAD
 			$total                     = count( $entries ) + 1; // All the headers are one entry.
+=======
+			$total                     = count( $entries ) + 1; // all the headers are one entry
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$originals_lenghts_addr    = 28;
 			$translations_lenghts_addr = $originals_lenghts_addr + 8 * $total;
 			$size_of_hash              = 0;
@@ -122,7 +131,11 @@ if ( ! class_exists( 'MO', false ) ) :
 			);
 			fseek( $fh, $originals_lenghts_addr );
 
+<<<<<<< HEAD
 			// Headers' msgid is an empty string.
+=======
+			// headers' msgid is an empty string
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			fwrite( $fh, pack( 'VV', 0, $current_addr ) );
 			$current_addr++;
 			$originals_table = "\0";
@@ -133,7 +146,11 @@ if ( ! class_exists( 'MO', false ) ) :
 				$originals_table .= $this->export_original( $entry ) . "\0";
 				$length           = $reader->strlen( $this->export_original( $entry ) );
 				fwrite( $fh, pack( 'VV', $length, $current_addr ) );
+<<<<<<< HEAD
 				$current_addr += $length + 1; // Account for the NULL byte after.
+=======
+				$current_addr += $length + 1; // account for the NULL byte after
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 
 			$exported_headers = $this->export_headers();
@@ -158,7 +175,11 @@ if ( ! class_exists( 'MO', false ) ) :
 		 * @return string
 		 */
 		function export_original( $entry ) {
+<<<<<<< HEAD
 			// TODO: Warnings for control characters.
+=======
+			//TODO: warnings for control characters
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$exported = $entry->singular;
 			if ( $entry->is_plural ) {
 				$exported .= "\0" . $entry->plural;
@@ -174,7 +195,11 @@ if ( ! class_exists( 'MO', false ) ) :
 		 * @return string
 		 */
 		function export_translations( $entry ) {
+<<<<<<< HEAD
 			// TODO: Warnings for control characters.
+=======
+			//TODO: warnings for control characters
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return $entry->is_plural ? implode( "\0", $entry->translations ) : $entry->translations[0];
 		}
 
@@ -194,7 +219,11 @@ if ( ! class_exists( 'MO', false ) ) :
 		 * @return string|false
 		 */
 		function get_byteorder( $magic ) {
+<<<<<<< HEAD
 			// The magic is 0x950412de.
+=======
+			// The magic is 0x950412de
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			// bug in PHP 5.0.2, see https://savannah.nongnu.org/bugs/?func=detailitem&item_id=10565
 			$magic_little    = (int) - 1794895138;
@@ -221,19 +250,28 @@ if ( ! class_exists( 'MO', false ) ) :
 			}
 			$reader->setEndian( $endian_string );
 
+<<<<<<< HEAD
 			$endian = ( 'big' === $endian_string ) ? 'N' : 'V';
+=======
+			$endian = ( 'big' == $endian_string ) ? 'N' : 'V';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			$header = $reader->read( 24 );
 			if ( $reader->strlen( $header ) != 24 ) {
 				return false;
 			}
 
+<<<<<<< HEAD
 			// Parse header.
+=======
+			// parse header
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$header = unpack( "{$endian}revision/{$endian}total/{$endian}originals_lenghts_addr/{$endian}translations_lenghts_addr/{$endian}hash_length/{$endian}hash_addr", $header );
 			if ( ! is_array( $header ) ) {
 				return false;
 			}
 
+<<<<<<< HEAD
 			// Support revision 0 of MO format specs, only.
 			if ( 0 != $header['revision'] ) {
 				return false;
@@ -243,6 +281,17 @@ if ( ! class_exists( 'MO', false ) ) :
 			$reader->seekto( $header['originals_lenghts_addr'] );
 
 			// Read originals' indices.
+=======
+			// support revision 0 of MO format specs, only
+			if ( $header['revision'] != 0 ) {
+				return false;
+			}
+
+			// seek to data blocks
+			$reader->seekto( $header['originals_lenghts_addr'] );
+
+			// read originals' indices
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$originals_lengths_length = $header['translations_lenghts_addr'] - $header['originals_lenghts_addr'];
 			if ( $originals_lengths_length != $header['total'] * 8 ) {
 				return false;
@@ -253,7 +302,11 @@ if ( ! class_exists( 'MO', false ) ) :
 				return false;
 			}
 
+<<<<<<< HEAD
 			// Read translations' indices.
+=======
+			// read translations' indices
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$translations_lenghts_length = $header['hash_addr'] - $header['translations_lenghts_addr'];
 			if ( $translations_lenghts_length != $header['total'] * 8 ) {
 				return false;
@@ -264,11 +317,19 @@ if ( ! class_exists( 'MO', false ) ) :
 				return false;
 			}
 
+<<<<<<< HEAD
 			// Transform raw data into set of indices.
 			$originals    = $reader->str_split( $originals, 8 );
 			$translations = $reader->str_split( $translations, 8 );
 
 			// Skip hash table.
+=======
+			// transform raw data into set of indices
+			$originals    = $reader->str_split( $originals, 8 );
+			$translations = $reader->str_split( $translations, 8 );
+
+			// skip hash table
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$strings_addr = $header['hash_addr'] + $header['hash_length'] * 4;
 
 			$reader->seekto( $strings_addr );
@@ -283,7 +344,11 @@ if ( ! class_exists( 'MO', false ) ) :
 					return false;
 				}
 
+<<<<<<< HEAD
 				// Adjust offset due to reading strings to separate space before.
+=======
+				// adjust offset due to reading strings to separate space before
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$o['pos'] -= $strings_addr;
 				$t['pos'] -= $strings_addr;
 
@@ -319,14 +384,22 @@ if ( ! class_exists( 'MO', false ) ) :
 				$original       = $parts[1];
 				$entry->context = $parts[0];
 			}
+<<<<<<< HEAD
 			// Look for plural original.
+=======
+			// look for plural original
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$parts           = explode( "\0", $original );
 			$entry->singular = $parts[0];
 			if ( isset( $parts[1] ) ) {
 				$entry->is_plural = true;
 				$entry->plural    = $parts[1];
 			}
+<<<<<<< HEAD
 			// Plural translations are also separated by \0.
+=======
+			// plural translations are also separated by \0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$entry->translations = explode( "\0", $translation );
 			return $entry;
 		}

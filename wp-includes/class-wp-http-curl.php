@@ -63,7 +63,11 @@ class WP_Http_Curl {
 	 *
 	 * @since 2.7.0
 	 *
+<<<<<<< HEAD
 	 * @param string       $url  The request URL.
+=======
+	 * @param string $url The request URL.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @param string|array $args Optional. Override the defaults.
 	 * @return array|WP_Error Array containing 'headers', 'body', 'response', 'cookies', 'filename'. A WP_Error instance upon error
 	 */
@@ -129,7 +133,11 @@ class WP_Http_Curl {
 
 		curl_setopt( $handle, CURLOPT_URL, $url );
 		curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
+<<<<<<< HEAD
 		curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, ( true === $ssl_verify ) ? 2 : false );
+=======
+		curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, ( $ssl_verify === true ) ? 2 : false );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, $ssl_verify );
 
 		if ( $ssl_verify ) {
@@ -209,7 +217,11 @@ class WP_Http_Curl {
 			curl_setopt( $handle, CURLOPT_HTTPHEADER, $headers );
 		}
 
+<<<<<<< HEAD
 		if ( '1.0' === $parsed_args['httpversion'] ) {
+=======
+		if ( $parsed_args['httpversion'] == '1.0' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			curl_setopt( $handle, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0 );
 		} else {
 			curl_setopt( $handle, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1 );
@@ -223,9 +235,15 @@ class WP_Http_Curl {
 		 *
 		 * @since 2.8.0
 		 *
+<<<<<<< HEAD
 		 * @param resource $handle      The cURL handle returned by curl_init() (passed by reference).
 		 * @param array    $parsed_args The HTTP request arguments.
 		 * @param string   $url         The request URL.
+=======
+		 * @param resource $handle  The cURL handle returned by curl_init() (passed by reference).
+		 * @param array    $parsed_args       The HTTP request arguments.
+		 * @param string   $url     The request URL.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		do_action_ref_array( 'http_api_curl', array( &$handle, $parsed_args, $url ) );
 
@@ -238,7 +256,11 @@ class WP_Http_Curl {
 				curl_close( $handle );
 				return new WP_Error( 'http_request_failed', $curl_error );
 			}
+<<<<<<< HEAD
 			if ( in_array( curl_getinfo( $handle, CURLINFO_HTTP_CODE ), array( 301, 302 ), true ) ) {
+=======
+			if ( in_array( curl_getinfo( $handle, CURLINFO_HTTP_CODE ), array( 301, 302 ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				curl_close( $handle );
 				return new WP_Error( 'http_request_failed', __( 'Too many redirects.' ) );
 			}
@@ -286,7 +308,11 @@ class WP_Http_Curl {
 					return new WP_Error( 'http_request_failed', $curl_error );
 				}
 			}
+<<<<<<< HEAD
 			if ( in_array( curl_getinfo( $handle, CURLINFO_HTTP_CODE ), array( 301, 302 ), true ) ) {
+=======
+			if ( in_array( curl_getinfo( $handle, CURLINFO_HTTP_CODE ), array( 301, 302 ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				curl_close( $handle );
 				return new WP_Error( 'http_request_failed', __( 'Too many redirects.' ) );
 			}

@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 
   // interface for emr.
   var emrIf = function ($)
+=======
+jQuery(document).ready(function($)
+{
+  // interface for emr.
+  var emrIf = new function ()
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   {
     var source_type;
     var source_is_image;
@@ -9,11 +16,16 @@
 
     var is_debug = false;
 
+<<<<<<< HEAD
     var is_dragging = false;
 
     this.init = function()
     {
 
+=======
+    this.init = function()
+    {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       if ( emr_options.is_debug)
       {
         this.is_debug = true;
@@ -21,6 +33,7 @@
       }
 
       $('input[name="timestamp_replace"]').on('change', $.proxy(this.checkCustomDate, this));
+<<<<<<< HEAD
       $('input[name="replace_type"]').on('change', $.proxy(this.showReplaceOptions, this));
       $('input[name="userfile"]').on('change', $.proxy(this.handleImage, this));
 
@@ -29,6 +42,9 @@
       $('.wrap.emr_upload_form').on('dragleave', $.proxy(this.dragOutArea, this));
       $('.emr_drop_area').on('drop', $.proxy(this.fileDrop, this));
 
+=======
+      $('input[name="userfile"]').on('change', $.proxy(this.handleImage, this));
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       this.checkCustomDate();
       this.loadDatePicker();
 
@@ -38,18 +54,26 @@
         source_type = $(source).data('filetype').trim();
         this.debug('detected type - ' + source_type);
       }
+<<<<<<< HEAD
       else
         source_type = ''; // error state
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       if (source.hasClass('is_image'))
       {
           source_is_image = true;
       }
 
       this.updateTextLayer(source, false);
+<<<<<<< HEAD
       this.showReplaceOptions();
 
     }
+=======
+
+    },
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     this.loadDatePicker = function()
     {
       $('#emr_datepicker').datepicker({
@@ -96,12 +120,19 @@
           if ($('input[name="userfile"]').val().length > 0)
             this.checkSubmit();
           console.log('FileAPI not detected');
+<<<<<<< HEAD
           return false;
+=======
+          return;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
 
         var status = this.checkUpload(file);
         this.debug('check upload status ' + status);
+<<<<<<< HEAD
         this.debug('file size:' + file.size);
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
         if (status)
         {
@@ -118,17 +149,23 @@
 
       $(preview).find('img').remove();
       $(preview).removeClass('is_image not_image is_document');
+<<<<<<< HEAD
       var is_empty = false;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
       if (file !== null) /// file is null when empty, or error
       {
         target_is_image = (file.type.indexOf('image') >= 0) ? true : false;
         target_type = file.type.trim();
       }
+<<<<<<< HEAD
       else
       {
         is_empty = true;
       }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       // If image, load thumbnail and get dimensions.
       if (file && target_is_image)
       {
@@ -138,6 +175,7 @@
 
         img.setAttribute('style', 'max-width:100%; max-height: 100%;');
         img.addEventListener("load", function () {
+<<<<<<< HEAD
           // with formats like svg it can be rough.
             var width = img.naturalWidth;
             var height = img.naturalHeight;
@@ -148,6 +186,10 @@
             //  $(preview).find('.textlayer').text(img.naturalWidth + ' x ' + img.naturalHeight );
               self.updateTextLayer(preview, width + ' x ' + height);
               self.updateFileSize(preview, file);
+=======
+            //  $(preview).find('.textlayer').text(img.naturalWidth + ' x ' + img.naturalHeight );
+              self.updateTextLayer(preview, img.naturalWidth + ' x ' + img.naturalHeight);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         });
 
         $(preview).prepend(img);
@@ -159,7 +201,10 @@
         $(preview).find('.dashicons').removeClass().addClass('dashicons dashicons-no');
         //$(preview).find('.textlayer').text('');
         this.updateTextLayer(preview, '');
+<<<<<<< HEAD
         this.updateFileSize(preview, null);
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         this.debug('File is null');
       }
       else { // not an image
@@ -167,6 +212,7 @@
         $(preview).find('.dashicons').removeClass().addClass('dashicons dashicons-media-document');
         //$(preview).find('.textlayer').text(file.name);
         this.updateTextLayer(preview, file.name);
+<<<<<<< HEAD
         this.updateFileSize(preview, file);
         this.debug('Not image, media document');
       }
@@ -200,6 +246,17 @@
        }
        return false;
     }
+=======
+        this.debug('Not image, media document');
+      }
+
+      if (target_type != source_type)
+      {
+        this.debug(target_type + ' not ' + source_type);
+        this.warningFileType();
+      }
+    },
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     // replace the text, check if text is there ( or hide ), and fix the layout.
     this.updateTextLayer = function (preview, newtext)
     {
@@ -215,6 +272,7 @@
         }
 
     },
+<<<<<<< HEAD
     this.updateFileSize = function(preview, file)
     {
       if (file === null)
@@ -229,6 +287,8 @@
 
       $(preview).find('.image_size').text(size);
     }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     this.checkSubmit = function()
     {
        var check = ($('input[name="userfile"]').val().length > 0) ? true : false;
@@ -245,7 +305,11 @@
     {
       $('.form-error').fadeOut();
       $('.form-warning').fadeOut();
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     this.checkUpload = function(fileItem)
     {
       var maxsize = emr_options.maxfilesize;
@@ -275,14 +339,18 @@
     {
       $('.form-warning.filetype').fadeIn();
     }
+<<<<<<< HEAD
     this.warningMimeType = function(fileItem)
     {
       $('.form-warning.mimetype').fadeIn();
     }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     this.debug = function(message)
     {
       console.debug(message);
     }
+<<<<<<< HEAD
     this.showReplaceOptions = function(e)
     {
         $('section.options .location_option').hide();
@@ -353,3 +421,10 @@ jQuery(document).ready(function($)
         }
     }
     setTimeout(emrDelayedInit, 3000);
+=======
+  } // emrIf
+
+  window.enableMediaReplace = emrIf;
+  window.enableMediaReplace.init();
+});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

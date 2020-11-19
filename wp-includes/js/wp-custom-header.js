@@ -50,7 +50,11 @@
 
 	CustomHeader.prototype = {
 		/**
+<<<<<<< HEAD
 		 * Initialize the custom header.
+=======
+		 * Initalize the custom header.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * If the environment supports video, loops through registered handlers
 		 * until one is found that can handle the video.
@@ -79,7 +83,11 @@
 		 * @return {boolean}
 		 */
 		supportsVideo: function() {
+<<<<<<< HEAD
 			// Don't load video on small screens. @todo Consider bandwidth and other factors.
+=======
+			// Don't load video on small screens. @todo: consider bandwidth and other factors.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( window.innerWidth < settings.minWidth || window.innerHeight < settings.minHeight ) {
 				return false;
 			}
@@ -108,7 +116,11 @@
 		/**
 		 * Initialize the video handler.
 		 *
+<<<<<<< HEAD
 		 * @param {Object} settings Video settings.
+=======
+		 * @param {object} settings Video settings.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		initialize: function( settings ) {
 			var handler = this,
@@ -217,7 +229,11 @@
 		 * Whether the handler can process a video.
 		 *
 		 * @abstract
+<<<<<<< HEAD
 		 * @param {Object} settings Video settings.
+=======
+		 * @param {object} settings Video settings.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @return {boolean}
 		 */
 		test: function() {
@@ -239,7 +255,11 @@
 	 *
 	 * @memberOf wp
 	 *
+<<<<<<< HEAD
 	 * @param {Object} protoProps Properties to apply to the prototype.
+=======
+	 * @param {object} protoProps Properties to apply to the prototype.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return CustomHandler The subclass.
 	 */
 	BaseHandler.extend = function( protoProps ) {
@@ -271,7 +291,11 @@
 		/**
 		 * Whether the native handler supports a video.
 		 *
+<<<<<<< HEAD
 		 * @param {Object} settings Video settings.
+=======
+		 * @param {object} settings Video settings.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @return {boolean}
 		 */
 		test: function( settings ) {
@@ -345,7 +369,11 @@
 		/**
 		 * Whether the handler supports a video.
 		 *
+<<<<<<< HEAD
 		 * @param {Object} settings Video settings.
+=======
+		 * @param {object} settings Video settings.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @return {boolean}
 		 */
 		test: function( settings ) {

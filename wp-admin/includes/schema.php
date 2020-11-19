@@ -29,8 +29,13 @@ $charset_collate = $wpdb->get_charset_collate();
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
+<<<<<<< HEAD
  * @param string $scope   Optional. The tables for which to retrieve SQL. Can be all, global, ms_global, or blog tables. Defaults to all.
  * @param int    $blog_id Optional. The site ID for which to retrieve SQL. Default is the current site ID.
+=======
+ * @param string $scope Optional. The tables for which to retrieve SQL. Can be all, global, ms_global, or blog tables. Defaults to all.
+ * @param int $blog_id Optional. The site ID for which to retrieve SQL. Default is the current site ID.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string The SQL needed to create the requested tables.
  */
 function wp_get_db_schema( $scope = 'all', $blog_id = null ) {
@@ -52,7 +57,11 @@ function wp_get_db_schema( $scope = 'all', $blog_id = null ) {
 	 */
 	$max_index_length = 191;
 
+<<<<<<< HEAD
 	// Blog-specific tables.
+=======
+	// Blog specific tables.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$blog_tables = "CREATE TABLE $wpdb->termmeta (
 	meta_id bigint(20) unsigned NOT NULL auto_increment,
 	term_id bigint(20) unsigned NOT NULL default '0',
@@ -111,7 +120,11 @@ CREATE TABLE $wpdb->comments (
 	comment_karma int(11) NOT NULL default '0',
 	comment_approved varchar(20) NOT NULL default '1',
 	comment_agent varchar(255) NOT NULL default '',
+<<<<<<< HEAD
 	comment_type varchar(20) NOT NULL default 'comment',
+=======
+	comment_type varchar(20) NOT NULL default '',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	comment_parent bigint(20) unsigned NOT NULL default '0',
 	user_id bigint(20) unsigned NOT NULL default '0',
 	PRIMARY KEY  (comment_ID),
@@ -205,7 +218,11 @@ CREATE TABLE $wpdb->posts (
 	KEY user_email (user_email)
 ) $charset_collate;\n";
 
+<<<<<<< HEAD
 	// Multisite users table.
+=======
+	// Multisite users table
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$users_multi_table = "CREATE TABLE $wpdb->users (
 	ID bigint(20) unsigned NOT NULL auto_increment,
 	user_login varchar(60) NOT NULL default '',
@@ -236,7 +253,11 @@ CREATE TABLE $wpdb->posts (
 	KEY meta_key (meta_key($max_index_length))
 ) $charset_collate;\n";
 
+<<<<<<< HEAD
 	// Global tables.
+=======
+	// Global tables
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $is_multisite ) {
 		$global_tables = $users_multi_table . $usermeta_table;
 	} else {
@@ -369,6 +390,16 @@ function populate_options( array $options = array() ) {
 	 */
 	do_action( 'populate_options' );
 
+<<<<<<< HEAD
+=======
+	if ( ini_get( 'safe_mode' ) ) {
+		// Safe mode can break mkdir() so use a flat structure by default.
+		$uploads_use_yearmonth_folders = 0;
+	} else {
+		$uploads_use_yearmonth_folders = 1;
+	}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	// If WP_DEFAULT_THEME doesn't exist, fall back to the latest core default theme.
 	$stylesheet = WP_DEFAULT_THEME;
 	$template   = WP_DEFAULT_THEME;
@@ -387,13 +418,21 @@ function populate_options( array $options = array() ) {
 	$gmt_offset      = 0;
 	/*
 	 * translators: default GMT offset or timezone string. Must be either a valid offset (-12 to 14)
+<<<<<<< HEAD
 	 * or a valid timezone string (America/New_York). See https://www.php.net/manual/en/timezones.php
+=======
+	 * or a valid timezone string (America/New_York). See https://secure.php.net/manual/en/timezones.php
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * for all timezone strings supported by PHP.
 	 */
 	$offset_or_tz = _x( '0', 'default GMT offset or timezone string' ); // phpcs:ignore WordPress.WP.I18n.NoEmptyStrings
 	if ( is_numeric( $offset_or_tz ) ) {
 		$gmt_offset = $offset_or_tz;
+<<<<<<< HEAD
 	} elseif ( $offset_or_tz && in_array( $offset_or_tz, timezone_identifiers_list(), true ) ) {
+=======
+	} elseif ( $offset_or_tz && in_array( $offset_or_tz, timezone_identifiers_list() ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$timezone_string = $offset_or_tz;
 	}
 
@@ -422,11 +461,19 @@ function populate_options( array $options = array() ) {
 		'default_ping_status'             => 'open',
 		'default_pingback_flag'           => 1,
 		'posts_per_page'                  => 10,
+<<<<<<< HEAD
 		/* translators: Default date format, see https://www.php.net/date */
 		'date_format'                     => __( 'F j, Y' ),
 		/* translators: Default time format, see https://www.php.net/date */
 		'time_format'                     => __( 'g:i a' ),
 		/* translators: Links last updated date format, see https://www.php.net/date */
+=======
+		/* translators: Default date format, see https://secure.php.net/date */
+		'date_format'                     => __( 'F j, Y' ),
+		/* translators: Default time format, see https://secure.php.net/date */
+		'time_format'                     => __( 'g:i a' ),
+		/* translators: Links last updated date format, see https://secure.php.net/date */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'links_updated_date_format'       => __( 'F j, Y g:i a' ),
 		'comment_moderation'              => 0,
 		'moderation_notify'               => 1,
@@ -441,34 +488,61 @@ function populate_options( array $options = array() ) {
 		'comment_max_links'               => 2,
 		'gmt_offset'                      => $gmt_offset,
 
+<<<<<<< HEAD
 		// 1.5.0
+=======
+		// 1.5
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'default_email_category'          => 1,
 		'recently_edited'                 => '',
 		'template'                        => $template,
 		'stylesheet'                      => $stylesheet,
+<<<<<<< HEAD
+=======
+		'comment_whitelist'               => 1,
+		'blacklist_keys'                  => '',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'comment_registration'            => 0,
 		'html_type'                       => 'text/html',
 
 		// 1.5.1
 		'use_trackback'                   => 0,
 
+<<<<<<< HEAD
 		// 2.0.0
+=======
+		// 2.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'default_role'                    => 'subscriber',
 		'db_version'                      => $wp_db_version,
 
 		// 2.0.1
+<<<<<<< HEAD
 		'uploads_use_yearmonth_folders'   => 1,
 		'upload_path'                     => '',
 
 		// 2.1.0
+=======
+		'uploads_use_yearmonth_folders'   => $uploads_use_yearmonth_folders,
+		'upload_path'                     => '',
+
+		// 2.1
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'blog_public'                     => '1',
 		'default_link_category'           => 2,
 		'show_on_front'                   => 'posts',
 
+<<<<<<< HEAD
 		// 2.2.0
 		'tag_base'                        => '',
 
 		// 2.5.0
+=======
+		// 2.2
+		'tag_base'                        => '',
+
+		// 2.5
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'show_avatars'                    => '1',
 		'avatar_rating'                   => 'G',
 		'upload_url_path'                 => '',
@@ -478,10 +552,17 @@ function populate_options( array $options = array() ) {
 		'medium_size_w'                   => 300,
 		'medium_size_h'                   => 300,
 
+<<<<<<< HEAD
 		// 2.6.0
 		'avatar_default'                  => 'mystery',
 
 		// 2.7.0
+=======
+		// 2.6
+		'avatar_default'                  => 'mystery',
+
+		// 2.7
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'large_size_w'                    => 1024,
 		'large_size_h'                    => 1024,
 		'image_default_link_type'         => 'none',
@@ -501,6 +582,7 @@ function populate_options( array $options = array() ) {
 		'widget_rss'                      => array(),
 		'uninstall_plugins'               => array(),
 
+<<<<<<< HEAD
 		// 2.8.0
 		'timezone_string'                 => $timezone_string,
 
@@ -512,6 +594,19 @@ function populate_options( array $options = array() ) {
 		'default_post_format'             => 0,
 
 		// 3.5.0
+=======
+		// 2.8
+		'timezone_string'                 => $timezone_string,
+
+		// 3.0
+		'page_for_posts'                  => 0,
+		'page_on_front'                   => 0,
+
+		// 3.1
+		'default_post_format'             => 0,
+
+		// 3.5
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'link_manager_enabled'            => 0,
 
 		// 4.3.0
@@ -530,6 +625,7 @@ function populate_options( array $options = array() ) {
 
 		// 5.3.0
 		'admin_email_lifespan'            => ( time() + 6 * MONTH_IN_SECONDS ),
+<<<<<<< HEAD
 
 		// 5.5.0
 		'disallowed_keys'                 => '',
@@ -538,12 +634,21 @@ function populate_options( array $options = array() ) {
 	);
 
 	// 3.3.0
+=======
+	);
+
+	// 3.3
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! is_multisite() ) {
 		$defaults['initial_db_version'] = ! empty( $wp_current_db_version ) && $wp_current_db_version < $wp_db_version
 			? $wp_current_db_version : $wp_db_version;
 	}
 
+<<<<<<< HEAD
 	// 3.0.0 multisite.
+=======
+	// 3.0 multisite
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( is_multisite() ) {
 		/* translators: %s: Network title. */
 		$defaults['blogdescription']     = sprintf( __( 'Just another %s site' ), get_network()->site_name );
@@ -552,6 +657,7 @@ function populate_options( array $options = array() ) {
 
 	$options = wp_parse_args( $options, $defaults );
 
+<<<<<<< HEAD
 	// Set autoload to no for these options.
 	$fat_options = array(
 		'moderation_keys',
@@ -560,11 +666,16 @@ function populate_options( array $options = array() ) {
 		'uninstall_plugins',
 		'auto_plugin_theme_update_emails',
 	);
+=======
+	// Set autoload to no for these options
+	$fat_options = array( 'moderation_keys', 'recently_edited', 'blacklist_keys', 'uninstall_plugins' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$keys             = "'" . implode( "', '", array_keys( $options ) ) . "'";
 	$existing_options = $wpdb->get_col( "SELECT option_name FROM $wpdb->options WHERE option_name in ( $keys )" ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 
 	$insert = '';
+<<<<<<< HEAD
 
 	foreach ( $options as $option => $value ) {
 		if ( in_array( $option, $existing_options, true ) ) {
@@ -572,6 +683,13 @@ function populate_options( array $options = array() ) {
 		}
 
 		if ( in_array( $option, $fat_options, true ) ) {
+=======
+	foreach ( $options as $option => $value ) {
+		if ( in_array( $option, $existing_options ) ) {
+			continue;
+		}
+		if ( in_array( $option, $fat_options ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$autoload = 'no';
 		} else {
 			$autoload = 'yes';
@@ -580,11 +698,17 @@ function populate_options( array $options = array() ) {
 		if ( is_array( $value ) ) {
 			$value = serialize( $value );
 		}
+<<<<<<< HEAD
 
 		if ( ! empty( $insert ) ) {
 			$insert .= ', ';
 		}
 
+=======
+		if ( ! empty( $insert ) ) {
+			$insert .= ', ';
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$insert .= $wpdb->prepare( '(%s, %s, %s)', $option, $value, $autoload );
 	}
 
@@ -683,7 +807,11 @@ function populate_options( array $options = array() ) {
 	// Delete obsolete magpie stuff.
 	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name REGEXP '^rss_[0-9a-f]{32}(_ts)?$'" );
 
+<<<<<<< HEAD
 	// Clear expired transients.
+=======
+	// Clear expired transients
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	delete_expired_transients( true );
 }
 
@@ -709,14 +837,23 @@ function populate_roles() {
  * @since 2.0.0
  */
 function populate_roles_160() {
+<<<<<<< HEAD
 	// Add roles.
+=======
+	// Add roles
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	add_role( 'administrator', 'Administrator' );
 	add_role( 'editor', 'Editor' );
 	add_role( 'author', 'Author' );
 	add_role( 'contributor', 'Contributor' );
 	add_role( 'subscriber', 'Subscriber' );
 
+<<<<<<< HEAD
 	// Add caps for Administrator role.
+=======
+	// Add caps for Administrator role
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$role = get_role( 'administrator' );
 	$role->add_cap( 'switch_themes' );
 	$role->add_cap( 'edit_themes' );
@@ -749,7 +886,11 @@ function populate_roles_160() {
 	$role->add_cap( 'level_1' );
 	$role->add_cap( 'level_0' );
 
+<<<<<<< HEAD
 	// Add caps for Editor role.
+=======
+	// Add caps for Editor role
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$role = get_role( 'editor' );
 	$role->add_cap( 'moderate_comments' );
 	$role->add_cap( 'manage_categories' );
@@ -771,7 +912,11 @@ function populate_roles_160() {
 	$role->add_cap( 'level_1' );
 	$role->add_cap( 'level_0' );
 
+<<<<<<< HEAD
 	// Add caps for Author role.
+=======
+	// Add caps for Author role
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$role = get_role( 'author' );
 	$role->add_cap( 'upload_files' );
 	$role->add_cap( 'edit_posts' );
@@ -782,14 +927,22 @@ function populate_roles_160() {
 	$role->add_cap( 'level_1' );
 	$role->add_cap( 'level_0' );
 
+<<<<<<< HEAD
 	// Add caps for Contributor role.
+=======
+	// Add caps for Contributor role
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$role = get_role( 'contributor' );
 	$role->add_cap( 'edit_posts' );
 	$role->add_cap( 'read' );
 	$role->add_cap( 'level_1' );
 	$role->add_cap( 'level_0' );
 
+<<<<<<< HEAD
 	// Add caps for Subscriber role.
+=======
+	// Add caps for Subscriber role
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$role = get_role( 'subscriber' );
 	$role->add_cap( 'read' );
 	$role->add_cap( 'level_0' );
@@ -967,10 +1120,17 @@ function populate_network( $network_id = 1, $domain = '', $email = '', $site_nam
 	global $wpdb, $current_site, $wp_rewrite;
 
 	$errors = new WP_Error();
+<<<<<<< HEAD
 	if ( '' === $domain ) {
 		$errors->add( 'empty_domain', __( 'You must provide a domain name.' ) );
 	}
 	if ( '' === $site_name ) {
+=======
+	if ( '' == $domain ) {
+		$errors->add( 'empty_domain', __( 'You must provide a domain name.' ) );
+	}
+	if ( '' == $site_name ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$errors->add( 'empty_sitename', __( 'You must provide a name for your network of sites.' ) );
 	}
 
@@ -1149,7 +1309,11 @@ function populate_network_meta( $network_id, array $meta = array() ) {
 		$allowed_themes[ WP_DEFAULT_THEME ] = true;
 	}
 
+<<<<<<< HEAD
 	// If WP_DEFAULT_THEME doesn't exist, also include the latest core default theme.
+=======
+	// If WP_DEFAULT_THEME doesn't exist, also whitelist the latest core default theme.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! wp_get_theme( WP_DEFAULT_THEME )->exists() ) {
 		$core_default = WP_Theme::get_core_default_theme();
 		if ( $core_default ) {
@@ -1249,7 +1413,11 @@ We hope you enjoy your new site. Thanks!
 		'welcome_email'               => $welcome_email,
 		/* translators: %s: Site link. */
 		'first_post'                  => __( 'Welcome to %s. This is your first post. Edit or delete it, then start writing!' ),
+<<<<<<< HEAD
 		// @todo - Network admins should have a method of editing the network siteurl (used for cookie hash).
+=======
+		// @todo - network admins should have a method of editing the network siteurl (used for cookie hash)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'siteurl'                     => get_option( 'siteurl' ) . '/',
 		'add_new_users'               => '0',
 		'upload_space_check_disabled' => is_multisite() ? get_site_option( 'upload_space_check_disabled' ) : '1',

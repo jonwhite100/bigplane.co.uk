@@ -25,18 +25,30 @@ class WP_Importer {
 		$limit  = 100;
 		$offset = 0;
 
+<<<<<<< HEAD
 		// Grab all posts in chunks.
+=======
+		// Grab all posts in chunks
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		do {
 			$meta_key = $importer_name . '_' . $bid . '_permalink';
 			$sql      = $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = %s LIMIT %d,%d", $meta_key, $offset, $limit );
 			$results  = $wpdb->get_results( $sql );
 
+<<<<<<< HEAD
 			// Increment offset.
+=======
+			// Increment offset
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$offset = ( $limit + $offset );
 
 			if ( ! empty( $results ) ) {
 				foreach ( $results as $r ) {
+<<<<<<< HEAD
 					// Set permalinks into array.
+=======
+					// Set permalinks into array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$hashtable[ $r->meta_value ] = intval( $r->post_id );
 				}
 			}
@@ -62,7 +74,11 @@ class WP_Importer {
 
 		$count = 0;
 
+<<<<<<< HEAD
 		// Get count of permalinks.
+=======
+		// Get count of permalinks
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$meta_key = $importer_name . '_' . $bid . '_permalink';
 		$sql      = $wpdb->prepare( "SELECT COUNT( post_id ) AS cnt FROM $wpdb->postmeta WHERE meta_key = %s", $meta_key );
 
@@ -94,21 +110,37 @@ class WP_Importer {
 		$limit  = 100;
 		$offset = 0;
 
+<<<<<<< HEAD
 		// Grab all comments in chunks.
+=======
+		// Grab all comments in chunks
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		do {
 			$sql     = $wpdb->prepare( "SELECT comment_ID, comment_agent FROM $wpdb->comments LIMIT %d,%d", $offset, $limit );
 			$results = $wpdb->get_results( $sql );
 
+<<<<<<< HEAD
 			// Increment offset.
+=======
+			// Increment offset
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$offset = ( $limit + $offset );
 
 			if ( ! empty( $results ) ) {
 				foreach ( $results as $r ) {
+<<<<<<< HEAD
 					// Explode comment_agent key.
 					list ( $ca_bid, $source_comment_id ) = explode( '-', $r->comment_agent );
 					$source_comment_id                   = intval( $source_comment_id );
 
 					// Check if this comment came from this blog.
+=======
+					// Explode comment_agent key
+					list ( $ca_bid, $source_comment_id ) = explode( '-', $r->comment_agent );
+					$source_comment_id                   = intval( $source_comment_id );
+
+					// Check if this comment came from this blog
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( $bid == $ca_bid ) {
 						$hashtable[ $source_comment_id ] = intval( $r->comment_ID );
 					}
@@ -134,7 +166,11 @@ class WP_Importer {
 			$parsed = parse_url( $blog );
 			if ( ! $parsed || empty( $parsed['host'] ) ) {
 				fwrite( STDERR, "Error: can not determine blog_id from $blog_id\n" );
+<<<<<<< HEAD
 				exit;
+=======
+				exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 			if ( empty( $parsed['path'] ) ) {
 				$parsed['path'] = '/';
@@ -148,7 +184,11 @@ class WP_Importer {
 			);
 			if ( ! $blogs ) {
 				fwrite( STDERR, "Error: Could not find blog\n" );
+<<<<<<< HEAD
 				exit;
+=======
+				exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 			$blog    = array_shift( $blogs );
 			$blog_id = (int) $blog->blog_id;
@@ -176,7 +216,11 @@ class WP_Importer {
 
 		if ( ! $user_id || ! wp_set_current_user( $user_id ) ) {
 			fwrite( STDERR, "Error: can not find user\n" );
+<<<<<<< HEAD
 			exit;
+=======
+			exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		return $user_id;
@@ -203,7 +247,11 @@ class WP_Importer {
 	 * @return array
 	 */
 	public function get_page( $url, $username = '', $password = '', $head = false ) {
+<<<<<<< HEAD
 		// Increase the timeout.
+=======
+		// Increase the timeout
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		add_filter( 'http_request_timeout', array( $this, 'bump_request_timeout' ) );
 
 		$headers = array();
@@ -267,7 +315,11 @@ class WP_Importer {
 		global $wpdb, $wp_actions;
 		// Or define( 'WP_IMPORTING', true );
 		$wpdb->queries = array();
+<<<<<<< HEAD
 		// Reset $wp_actions to keep it from growing out of control.
+=======
+		// Reset $wp_actions to keep it from growing out of control
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$wp_actions = array();
 	}
 }
@@ -312,11 +364,16 @@ function get_cli_args( $param, $required = false ) {
 			}
 
 			$last_arg = $key;
+<<<<<<< HEAD
 		} elseif ( null !== $last_arg ) {
+=======
+		} elseif ( $last_arg !== null ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$out[ $last_arg ] = $args[ $i ];
 		}
 	}
 
+<<<<<<< HEAD
 	// Check array for specified param.
 	if ( isset( $out[ $param ] ) ) {
 		// Set return value.
@@ -328,6 +385,19 @@ function get_cli_args( $param, $required = false ) {
 		// Display message and exit.
 		echo "\"$param\" parameter is required but was not specified\n";
 		exit;
+=======
+	// Check array for specified param
+	if ( isset( $out[ $param ] ) ) {
+		// Set return value
+		$return = $out[ $param ];
+	}
+
+	// Check for missing required param
+	if ( ! isset( $out[ $param ] ) && $required ) {
+		// Display message and exit
+		echo "\"$param\" parameter is required but was not specified\n";
+		exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	return $return;

@@ -102,6 +102,7 @@ class WP_List_Util {
 		$filtered = array();
 
 		foreach ( $this->output as $key => $obj ) {
+<<<<<<< HEAD
 			$matched = 0;
 
 			foreach ( $args as $m_key => $m_value ) {
@@ -121,6 +122,21 @@ class WP_List_Util {
 			if ( ( 'AND' === $operator && $matched === $count )
 				|| ( 'OR' === $operator && $matched > 0 )
 				|| ( 'NOT' === $operator && 0 === $matched )
+=======
+			$to_match = (array) $obj;
+
+			$matched = 0;
+			foreach ( $args as $m_key => $m_value ) {
+				if ( array_key_exists( $m_key, $to_match ) && $m_value == $to_match[ $m_key ] ) {
+					$matched++;
+				}
+			}
+
+			if (
+				( 'AND' == $operator && $matched == $count ) ||
+				( 'OR' == $operator && $matched > 0 ) ||
+				( 'NOT' == $operator && 0 == $matched )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			) {
 				$filtered[ $key ] = $obj;
 			}

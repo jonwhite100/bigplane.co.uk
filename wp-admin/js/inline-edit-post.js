@@ -5,7 +5,11 @@
  * @output wp-admin/js/inline-edit-post.js
  */
 
+<<<<<<< HEAD
 /* global ajaxurl, typenow, inlineEditPost */
+=======
+/* global inlineEditL10n, ajaxurl, typenow, inlineEditPost */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 window.wp = window.wp || {};
 
@@ -19,7 +23,11 @@ window.wp = window.wp || {};
  * @type {Object}
  *
  * @property {string} type The type of inline editor.
+<<<<<<< HEAD
  * @property {string} what The prefix before the post ID.
+=======
+ * @property {string} what The prefix before the post id.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  */
 ( function( $, wp ) {
@@ -29,6 +37,7 @@ window.wp = window.wp || {};
 	/**
 	 * Initializes the inline and bulk post editor.
 	 *
+<<<<<<< HEAD
 	 * Binds event handlers to the Escape key to close the inline editor
 	 * and to the save and close buttons. Changes DOM to be ready for inline
 	 * editing. Adds event handler to bulk edit.
@@ -38,11 +47,22 @@ window.wp = window.wp || {};
 	 * @memberof inlineEditPost
 	 *
 	 * @return {void}
+=======
+	 * Binds event handlers to the escape key to close the inline editor
+	 * and to the save and close buttons. Changes DOM to be ready for inline
+	 * editing. Adds event handler to bulk edit.
+	 *
+	 * @memberof inlineEditPost
+	 * @since 2.7.0
+	 *
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	init : function(){
 		var t = this, qeRow = $('#inline-edit'), bulkRow = $('#bulk-edit');
 
 		t.type = $('table.widefat').hasClass('pages') ? 'page' : 'post';
+<<<<<<< HEAD
 		// Post ID prefix.
 		t.what = '#post-';
 
@@ -53,18 +73,39 @@ window.wp = window.wp || {};
 		 */
 		qeRow.keyup(function(e){
 			// Revert changes if Escape key is pressed.
+=======
+		// Post id prefix.
+		t.what = '#post-';
+
+		/**
+		 * Binds the escape key to revert the changes and close the quick editor.
+		 *
+		 * @returns {boolean} The result of revert.
+		 */
+		qeRow.keyup(function(e){
+			// Revert changes if escape key is pressed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( e.which === 27 ) {
 				return inlineEditPost.revert();
 			}
 		});
 
 		/**
+<<<<<<< HEAD
 		 * Binds the Escape key to revert the changes and close the bulk editor.
 		 *
 		 * @return {boolean} The result of revert.
 		 */
 		bulkRow.keyup(function(e){
 			// Revert changes if Escape key is pressed.
+=======
+		 * Binds the escape key to revert the changes and close the bulk editor.
+		 *
+		 * @returns {boolean} The result of revert.
+		 */
+		bulkRow.keyup(function(e){
+			// Revert changes if escape key is pressed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( e.which === 27 ) {
 				return inlineEditPost.revert();
 			}
@@ -73,7 +114,11 @@ window.wp = window.wp || {};
 		/**
 		 * Reverts changes and close the quick editor if the cancel button is clicked.
 		 *
+<<<<<<< HEAD
 		 * @return {boolean} The result of revert.
+=======
+		 * @returns {boolean} The result of revert.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$( '.cancel', qeRow ).click( function() {
 			return inlineEditPost.revert();
@@ -82,16 +127,26 @@ window.wp = window.wp || {};
 		/**
 		 * Saves changes in the quick editor if the save(named: update) button is clicked.
 		 *
+<<<<<<< HEAD
 		 * @return {boolean} The result of save.
+=======
+		 * @returns {boolean} The result of save.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$( '.save', qeRow ).click( function() {
 			return inlineEditPost.save(this);
 		});
 
 		/**
+<<<<<<< HEAD
 		 * If Enter is pressed, and the target is not the cancel button, save the post.
 		 *
 		 * @return {boolean} The result of save.
+=======
+		 * If enter is pressed, and the target is not the cancel button, save the post.
+		 *
+		 * @returns {boolean} The result of save.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$('td', qeRow).keydown(function(e){
 			if ( e.which === 13 && ! $( e.target ).hasClass( 'cancel' ) ) {
@@ -102,7 +157,11 @@ window.wp = window.wp || {};
 		/**
 		 * Reverts changes and close the bulk editor if the cancel button is clicked.
 		 *
+<<<<<<< HEAD
 		 * @return {boolean} The result of revert.
+=======
+		 * @returns {boolean} The result of revert.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$( '.cancel', bulkRow ).click( function() {
 			return inlineEditPost.revert();
@@ -158,9 +217,14 @@ window.wp = window.wp || {};
 	 * Toggles the quick edit window, hiding it when it's active and showing it when
 	 * inactive.
 	 *
+<<<<<<< HEAD
 	 * @since 2.7.0
 	 *
 	 * @memberof inlineEditPost
+=======
+	 * @memberof inlineEditPost
+	 * @since 2.7.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @param {Object} el Element within a post table row.
 	 */
@@ -172,9 +236,14 @@ window.wp = window.wp || {};
 	/**
 	 * Creates the bulk editor row to edit multiple posts at once.
 	 *
+<<<<<<< HEAD
 	 * @since 2.7.0
 	 *
 	 * @memberof inlineEditPost
+=======
+	 * @memberof inlineEditPost
+	 * @since 2.7.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	setBulk : function(){
 		var te = '', type = this.type, c = true;
@@ -198,8 +267,13 @@ window.wp = window.wp || {};
 			if ( $(this).prop('checked') ) {
 				c = false;
 				var id = $(this).val(), theTitle;
+<<<<<<< HEAD
 				theTitle = $('#inline_'+id+' .post_title').html() || wp.i18n.__( '(no title)' );
 				te += '<div id="ttle'+id+'"><a id="_'+id+'" class="ntdelbutton" title="'+ wp.i18n.__( 'Remove From Bulk Edit' ) +'">X</a>'+theTitle+'</div>';
+=======
+				theTitle = $('#inline_'+id+' .post_title').html() || inlineEditL10n.notitle;
+				te += '<div id="ttle'+id+'"><a id="_'+id+'" class="ntdelbutton" title="'+inlineEditL10n.ntdeltitle+'">X</a>'+theTitle+'</div>';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		});
 
@@ -245,6 +319,7 @@ window.wp = window.wp || {};
 	/**
 	 * Creates a quick edit window for the post that has been clicked.
 	 *
+<<<<<<< HEAD
 	 * @since 2.7.0
 	 *
 	 * @memberof inlineEditPost
@@ -252,6 +327,14 @@ window.wp = window.wp || {};
 	 * @param {number|Object} id The ID of the clicked post or an element within a post
 	 *                           table row.
 	 * @return {boolean} Always returns false at the end of execution.
+=======
+	 * @memberof inlineEditPost
+	 * @since 2.7.0
+	 *
+	 * @param {number|Object} id The id of the clicked post or an element within a post
+	 *                           table row.
+	 * @returns {boolean} Always returns false at the end of execution.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	edit : function(id) {
 		var t = this, fields, editRow, rowData, status, pageOpt, pageLevel, nextPage, pageLoop = true, nextLevel, f, val, pw;
@@ -289,7 +372,11 @@ window.wp = window.wp || {};
 			/**
 			 * Replaces the image for a Twemoji(Twitter emoji) with it's alternate text.
 			 *
+<<<<<<< HEAD
 			 * @return {string} Alternate text from the image.
+=======
+			 * @returns Alternate text from the image.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			val.find( 'img' ).replaceWith( function() { return this.alt; } );
 			val = val.text();
@@ -327,7 +414,11 @@ window.wp = window.wp || {};
 			var terms = $(this),
 				taxname = $(this).attr('id').replace('_' + id, ''),
 				textarea = $('textarea.tax_input_' + taxname, editRow),
+<<<<<<< HEAD
 				comma = wp.i18n._x( ',', 'tag delimiter' ).trim();
+=======
+				comma = inlineEditL10n.comma;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			terms.find( 'img' ).replaceWith( function() { return this.alt; } );
 			terms = terms.text();
@@ -385,6 +476,7 @@ window.wp = window.wp || {};
 
 	/**
 	 * Saves the changes made in the quick edit window to the post.
+<<<<<<< HEAD
 	 * Ajax saving is only for Quick Edit and not for bulk edit.
 	 *
 	 * @since 2.7.0
@@ -392,6 +484,15 @@ window.wp = window.wp || {};
 	 * @param {number} id The ID for the post that has been changed.
 	 * @return {boolean} False, so the form does not submit when pressing
 	 *                   Enter on a focused field.
+=======
+	 * AJAX saving is only for Quick Edit and not for bulk edit.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @param   {int}     id The id for the post that has been changed.
+	 * @returns {boolean}    false, so the form does not submit when pressing
+	 *                       Enter on a focused field.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	save : function(id) {
 		var params, fields, page = $('.post_status_page').val() || '';
@@ -413,7 +514,11 @@ window.wp = window.wp || {};
 		fields = $('#edit-'+id).find(':input').serialize();
 		params = fields + '&' + $.param(params);
 
+<<<<<<< HEAD
 		// Make Ajax request.
+=======
+		// Make ajax request.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$.post( ajaxurl, params,
 			function(r) {
 				var $errorNotice = $( '#edit-' + id + ' .inline-edit-save .notice-error' ),
@@ -431,7 +536,11 @@ window.wp = window.wp || {};
 							$( this ).find( '.editinline' )
 								.attr( 'aria-expanded', 'false' )
 								.focus();
+<<<<<<< HEAD
 							wp.a11y.speak( wp.i18n.__( 'Changes saved.' ) );
+=======
+							wp.a11y.speak( inlineEditL10n.saved );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						});
 					} else {
 						r = r.replace( /<.[^<>]*?>/g, '' );
@@ -441,8 +550,13 @@ window.wp = window.wp || {};
 					}
 				} else {
 					$errorNotice.removeClass( 'hidden' );
+<<<<<<< HEAD
 					$error.text( wp.i18n.__( 'Error while saving the changes.' ) );
 					wp.a11y.speak( wp.i18n.__( 'Error while saving the changes.' ) );
+=======
+					$error.html( inlineEditL10n.error );
+					wp.a11y.speak( inlineEditL10n.error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 			},
 		'html');
@@ -454,11 +568,18 @@ window.wp = window.wp || {};
 	/**
 	 * Hides and empties the Quick Edit and/or Bulk Edit windows.
 	 *
+<<<<<<< HEAD
 	 * @since 2.7.0
 	 *
 	 * @memberof inlineEditPost
 	 *
 	 * @return {boolean} Always returns false.
+=======
+	 * @memberof    inlineEditPost
+	 * @since 2.7.0
+	 *
+	 * @returns {boolean} Always returns false.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	revert : function(){
 		var $tableWideFat = $( '.widefat' ),
@@ -496,6 +617,7 @@ window.wp = window.wp || {};
 	},
 
 	/**
+<<<<<<< HEAD
 	 * Gets the ID for a the post that you want to quick edit from the row in the quick
 	 * edit table.
 	 *
@@ -505,6 +627,16 @@ window.wp = window.wp || {};
 	 *
 	 * @param {Object} o DOM row object to get the ID for.
 	 * @return {string} The post ID extracted from the table row in the object.
+=======
+	 * Gets the id for a the post that you want to quick edit from the row in the quick
+	 * edit table.
+	 *
+	 * @memberof    inlineEditPost
+	 * @since 2.7.0
+	 *
+	 * @param   {Object} o DOM row object to get the id for.
+	 * @returns {string}   The post id extracted from the table row in the object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	getId : function(o) {
 		var id = $(o).closest('tr').attr('id'),
@@ -529,6 +661,7 @@ $( document ).on( 'heartbeat-tick.wp-check-locked-posts', function( e, data ) {
 				row.find('.check-column checkbox').prop('checked', false);
 
 				if ( lock_data.avatar_src ) {
+<<<<<<< HEAD
 					avatar = $( '<img />', {
 						'class': 'avatar avatar-18 photo',
 						width: 18,
@@ -537,6 +670,9 @@ $( document ).on( 'heartbeat-tick.wp-check-locked-posts', function( e, data ) {
 						src: lock_data.avatar_src,
 						srcset: lock_data.avatar_src_2x ? lock_data.avatar_src_2x + ' 2x' : undefined
 					} );
+=======
+					avatar = $( '<img class="avatar avatar-18 photo" width="18" height="18" alt="" />' ).attr( 'src', lock_data.avatar_src.replace( /&amp;/g, '&' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					row.find('.column-title .locked-avatar').empty().append( avatar );
 				}
 				row.addClass('wp-locked');
@@ -559,7 +695,11 @@ $( document ).on( 'heartbeat-tick.wp-check-locked-posts', function( e, data ) {
 	}
 }).ready( function() {
 
+<<<<<<< HEAD
 	// Set the heartbeat interval to 15 seconds.
+=======
+	// Set the heartbeat interval to 15 sec.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( typeof wp !== 'undefined' && wp.heartbeat ) {
 		wp.heartbeat.interval( 15 );
 	}

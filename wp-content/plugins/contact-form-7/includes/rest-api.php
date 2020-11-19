@@ -11,6 +11,7 @@ function wpcf7_rest_api_init() {
 			array(
 				'methods' => WP_REST_Server::READABLE,
 				'callback' => 'wpcf7_rest_get_contact_forms',
+<<<<<<< HEAD
 				'permission_callback' => function() {
 					if ( current_user_can( 'wpcf7_read_contact_forms' ) ) {
 						return true;
@@ -21,10 +22,13 @@ function wpcf7_rest_api_init() {
 						);
 					}
 				},
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			),
 			array(
 				'methods' => WP_REST_Server::CREATABLE,
 				'callback' => 'wpcf7_rest_create_contact_form',
+<<<<<<< HEAD
 				'permission_callback' => function() {
 					if ( current_user_can( 'wpcf7_edit_contact_forms' ) ) {
 						return true;
@@ -35,6 +39,8 @@ function wpcf7_rest_api_init() {
 						);
 					}
 				},
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			),
 		)
 	);
@@ -45,6 +51,7 @@ function wpcf7_rest_api_init() {
 			array(
 				'methods' => WP_REST_Server::READABLE,
 				'callback' => 'wpcf7_rest_get_contact_form',
+<<<<<<< HEAD
 				'permission_callback' => function( WP_REST_Request $request ) {
 					$id = (int) $request->get_param( 'id' );
 
@@ -57,10 +64,13 @@ function wpcf7_rest_api_init() {
 						);
 					}
 				},
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			),
 			array(
 				'methods' => WP_REST_Server::EDITABLE,
 				'callback' => 'wpcf7_rest_update_contact_form',
+<<<<<<< HEAD
 				'permission_callback' => function( WP_REST_Request $request ) {
 					$id = (int) $request->get_param( 'id' );
 
@@ -73,10 +83,13 @@ function wpcf7_rest_api_init() {
 						);
 					}
 				},
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			),
 			array(
 				'methods' => WP_REST_Server::DELETABLE,
 				'callback' => 'wpcf7_rest_delete_contact_form',
+<<<<<<< HEAD
 				'permission_callback' => function( WP_REST_Request $request ) {
 					$id = (int) $request->get_param( 'id' );
 
@@ -89,6 +102,8 @@ function wpcf7_rest_api_init() {
 						);
 					}
 				},
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			),
 		)
 	);
@@ -99,7 +114,10 @@ function wpcf7_rest_api_init() {
 			array(
 				'methods' => WP_REST_Server::CREATABLE,
 				'callback' => 'wpcf7_rest_create_feedback',
+<<<<<<< HEAD
 				'permission_callback' => '__return_true',
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			),
 		)
 	);
@@ -110,13 +128,25 @@ function wpcf7_rest_api_init() {
 			array(
 				'methods' => WP_REST_Server::READABLE,
 				'callback' => 'wpcf7_rest_get_refill',
+<<<<<<< HEAD
 				'permission_callback' => '__return_true',
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			),
 		)
 	);
 }
 
 function wpcf7_rest_get_contact_forms( WP_REST_Request $request ) {
+<<<<<<< HEAD
+=======
+	if ( ! current_user_can( 'wpcf7_read_contact_forms' ) ) {
+		return new WP_Error( 'wpcf7_forbidden',
+			__( "You are not allowed to access contact forms.", 'contact-form-7' ),
+			array( 'status' => 403 ) );
+	}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$args = array();
 
 	$per_page = $request->get_param( 'per_page' );
@@ -171,8 +201,18 @@ function wpcf7_rest_create_contact_form( WP_REST_Request $request ) {
 	if ( $id ) {
 		return new WP_Error( 'wpcf7_post_exists',
 			__( "Cannot create existing contact form.", 'contact-form-7' ),
+<<<<<<< HEAD
 			array( 'status' => 400 )
 		);
+=======
+			array( 'status' => 400 ) );
+	}
+
+	if ( ! current_user_can( 'wpcf7_edit_contact_forms' ) ) {
+		return new WP_Error( 'wpcf7_forbidden',
+			__( "You are not allowed to create a contact form.", 'contact-form-7' ),
+			array( 'status' => 403 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$args = $request->get_params();
@@ -183,8 +223,12 @@ function wpcf7_rest_create_contact_form( WP_REST_Request $request ) {
 	if ( ! $item ) {
 		return new WP_Error( 'wpcf7_cannot_save',
 			__( "There was an error saving the contact form.", 'contact-form-7' ),
+<<<<<<< HEAD
 			array( 'status' => 500 )
 		);
+=======
+			array( 'status' => 500 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$response = array(
@@ -192,7 +236,11 @@ function wpcf7_rest_create_contact_form( WP_REST_Request $request ) {
 		'slug' => $item->name(),
 		'title' => $item->title(),
 		'locale' => $item->locale(),
+<<<<<<< HEAD
 		'properties' => wpcf7_get_properties_for_api( $item ),
+=======
+		'properties' => $item->get_properties(),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'config_errors' => array(),
 	);
 
@@ -217,8 +265,18 @@ function wpcf7_rest_get_contact_form( WP_REST_Request $request ) {
 	if ( ! $item ) {
 		return new WP_Error( 'wpcf7_not_found',
 			__( "The requested contact form was not found.", 'contact-form-7' ),
+<<<<<<< HEAD
 			array( 'status' => 404 )
 		);
+=======
+			array( 'status' => 404 ) );
+	}
+
+	if ( ! current_user_can( 'wpcf7_edit_contact_form', $id ) ) {
+		return new WP_Error( 'wpcf7_forbidden',
+			__( "You are not allowed to access the requested contact form.", 'contact-form-7' ),
+			array( 'status' => 403 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$response = array(
@@ -226,7 +284,11 @@ function wpcf7_rest_get_contact_form( WP_REST_Request $request ) {
 		'slug' => $item->name(),
 		'title' => $item->title(),
 		'locale' => $item->locale(),
+<<<<<<< HEAD
 		'properties' => wpcf7_get_properties_for_api( $item ),
+=======
+		'properties' => $item->get_properties(),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	);
 
 	return rest_ensure_response( $response );
@@ -239,8 +301,18 @@ function wpcf7_rest_update_contact_form( WP_REST_Request $request ) {
 	if ( ! $item ) {
 		return new WP_Error( 'wpcf7_not_found',
 			__( "The requested contact form was not found.", 'contact-form-7' ),
+<<<<<<< HEAD
 			array( 'status' => 404 )
 		);
+=======
+			array( 'status' => 404 ) );
+	}
+
+	if ( ! current_user_can( 'wpcf7_edit_contact_form', $id ) ) {
+		return new WP_Error( 'wpcf7_forbidden',
+			__( "You are not allowed to access the requested contact form.", 'contact-form-7' ),
+			array( 'status' => 403 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$args = $request->get_params();
@@ -250,8 +322,12 @@ function wpcf7_rest_update_contact_form( WP_REST_Request $request ) {
 	if ( ! $item ) {
 		return new WP_Error( 'wpcf7_cannot_save',
 			__( "There was an error saving the contact form.", 'contact-form-7' ),
+<<<<<<< HEAD
 			array( 'status' => 500 )
 		);
+=======
+			array( 'status' => 500 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$response = array(
@@ -259,7 +335,11 @@ function wpcf7_rest_update_contact_form( WP_REST_Request $request ) {
 		'slug' => $item->name(),
 		'title' => $item->title(),
 		'locale' => $item->locale(),
+<<<<<<< HEAD
 		'properties' => wpcf7_get_properties_for_api( $item ),
+=======
+		'properties' => $item->get_properties(),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		'config_errors' => array(),
 	);
 
@@ -284,8 +364,18 @@ function wpcf7_rest_delete_contact_form( WP_REST_Request $request ) {
 	if ( ! $item ) {
 		return new WP_Error( 'wpcf7_not_found',
 			__( "The requested contact form was not found.", 'contact-form-7' ),
+<<<<<<< HEAD
 			array( 'status' => 404 )
 		);
+=======
+			array( 'status' => 404 ) );
+	}
+
+	if ( ! current_user_can( 'wpcf7_delete_contact_form', $id ) ) {
+		return new WP_Error( 'wpcf7_forbidden',
+			__( "You are not allowed to access the requested contact form.", 'contact-form-7' ),
+			array( 'status' => 403 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$result = $item->delete();
@@ -293,8 +383,12 @@ function wpcf7_rest_delete_contact_form( WP_REST_Request $request ) {
 	if ( ! $result ) {
 		return new WP_Error( 'wpcf7_cannot_delete',
 			__( "There was an error deleting the contact form.", 'contact-form-7' ),
+<<<<<<< HEAD
 			array( 'status' => 500 )
 		);
+=======
+			array( 'status' => 500 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$response = array( 'deleted' => true );
@@ -303,6 +397,7 @@ function wpcf7_rest_delete_contact_form( WP_REST_Request $request ) {
 }
 
 function wpcf7_rest_create_feedback( WP_REST_Request $request ) {
+<<<<<<< HEAD
 	$url_params = $request->get_url_params();
 
 	$item = null;
@@ -310,12 +405,20 @@ function wpcf7_rest_create_feedback( WP_REST_Request $request ) {
 	if ( ! empty( $url_params['id'] ) ) {
 		$item = wpcf7_contact_form( $url_params['id'] );
 	}
+=======
+	$id = (int) $request->get_param( 'id' );
+	$item = wpcf7_contact_form( $id );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( ! $item ) {
 		return new WP_Error( 'wpcf7_not_found',
 			__( "The requested contact form was not found.", 'contact-form-7' ),
+<<<<<<< HEAD
 			array( 'status' => 404 )
 		);
+=======
+			array( 'status' => 404 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$result = $item->submit();
@@ -326,7 +429,10 @@ function wpcf7_rest_create_feedback( WP_REST_Request $request ) {
 		'into' => '#' . wpcf7_sanitize_unit_tag( $unit_tag ),
 		'status' => $result['status'],
 		'message' => $result['message'],
+<<<<<<< HEAD
 		'posted_data_hash' => $result['posted_data_hash'],
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	);
 
 	if ( 'validation_failed' == $result['status'] ) {
@@ -338,6 +444,7 @@ function wpcf7_rest_create_feedback( WP_REST_Request $request ) {
 					. sanitize_html_class( $name ),
 				'message' => $field['reason'],
 				'idref' => $field['idref'],
+<<<<<<< HEAD
 				'error_id' => sprintf(
 					'%1$s-ve-%2$s',
 					$unit_tag,
@@ -357,6 +464,15 @@ function wpcf7_rest_create_feedback( WP_REST_Request $request ) {
 	);
 
 	$response = apply_filters( 'wpcf7_feedback_response', $response, $result );
+=======
+			);
+		}
+
+		$response['invalidFields'] = $invalid_fields;
+	}
+
+	$response = apply_filters( 'wpcf7_ajax_json_echo', $response, $result );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return rest_ensure_response( $response );
 }
@@ -368,6 +484,7 @@ function wpcf7_rest_get_refill( WP_REST_Request $request ) {
 	if ( ! $item ) {
 		return new WP_Error( 'wpcf7_not_found',
 			__( "The requested contact form was not found.", 'contact-form-7' ),
+<<<<<<< HEAD
 			array( 'status' => 404 )
 		);
 	}
@@ -436,3 +553,12 @@ function wpcf7_get_properties_for_api( WPCF7_ContactForm $contact_form ) {
 
 	return $properties;
 }
+=======
+			array( 'status' => 404 ) );
+	}
+
+	$response = apply_filters( 'wpcf7_ajax_onload', array() );
+
+	return rest_ensure_response( $response );
+}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

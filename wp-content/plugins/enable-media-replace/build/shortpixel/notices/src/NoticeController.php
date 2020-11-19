@@ -8,8 +8,11 @@ class NoticeController //extends ShortPixelController
   protected static $instance = null;
   protected static $cssHookLoaded = false; // prevent css output more than once.
 
+<<<<<<< HEAD
   protected $notice_displayed = array();
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   public $notice_count = 0;
 
   protected $has_stored = false;
@@ -19,16 +22,24 @@ class NoticeController //extends ShortPixelController
   /** For backward compat. Never call constructor directly. */
   public function __construct()
   {
+<<<<<<< HEAD
+=======
+  //    $this->loadModel('notice');
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       $ns = __NAMESPACE__;
       $ns = substr($ns, 0, strpos($ns, '\\')); // try to get first part of namespace
       $this->notice_option = $ns . '-notices';
 
+<<<<<<< HEAD
       add_action('wp_ajax_' . $this->notice_option, array($this, 'ajax_action'));
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       $this->loadNotices();
       //$this->loadConfig();
   }
 
+<<<<<<< HEAD
   public static function getInstance()
   {
      if ( self::$instance === null)
@@ -47,13 +58,18 @@ class NoticeController //extends ShortPixelController
     $result = delete_option($ns . '-notices');
   }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   /** Load Notices Config File, if any
   *
   * [ Future Use ]
   */
   public function loadConfig()
   {
+<<<<<<< HEAD
     return;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     if (file_exists('../notice_config.json'))
     {
       $config = file_get_contents('../notice_config.json');
@@ -72,6 +88,7 @@ class NoticeController //extends ShortPixelController
   {
     $notices = get_option($this->notice_option, false);
     $cnotice = (is_array($notices)) ? count($notices) : 0;
+<<<<<<< HEAD
 
     if ($notices !== false && is_array($notices))
     {
@@ -84,6 +101,12 @@ class NoticeController //extends ShortPixelController
         }
       }
       self::$notices = $checked;
+=======
+    Log::addDebug('Notice Control - #num notices' . $cnotice);
+    if ($notices !== false)
+    {
+      self::$notices = $notices;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       $this->has_stored = true;
     }
     else {
@@ -94,7 +117,11 @@ class NoticeController //extends ShortPixelController
   }
 
 
+<<<<<<< HEAD
   protected function addNotice($message, $code, $unique)
+=======
+  public function addNotice($message, $code, $unique)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   {
       $notice = new NoticeModel($message, $code);
 
@@ -103,7 +130,11 @@ class NoticeController //extends ShortPixelController
         foreach(self::$notices as $nitem)
         {
           if ($nitem->message == $notice->message && $nitem->code == $notice->code) // same message.
+<<<<<<< HEAD
             return $nitem; // return the notice with the same message.
+=======
+            return false;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
       }
       self::$notices[] = $notice;
@@ -148,6 +179,7 @@ class NoticeController //extends ShortPixelController
 
   public function getNotices()
   {
+<<<<<<< HEAD
       return self::$notices;
   }
 
@@ -240,6 +272,19 @@ class NoticeController //extends ShortPixelController
       $response['reason'] = 'wrong nonce';
     }
     wp_send_json($response);
+=======
+        return self::$notices;
+  }
+
+  public static function getInstance()
+  {
+     if ( self::$instance === null)
+     {
+         self::$instance = new NoticeController();
+     }
+
+     return self::$instance;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   }
 
   /** Adds a notice, quick and fast method
@@ -270,6 +315,10 @@ class NoticeController //extends ShortPixelController
     $noticeController = self::getInstance();
     $notice = $noticeController->addNotice($message, NoticeModel::NOTICE_WARNING, $unique);
     return $notice;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   }
 
   public static function addSuccess($message, $unique = false)
@@ -280,6 +329,7 @@ class NoticeController //extends ShortPixelController
 
   }
 
+<<<<<<< HEAD
   public static function addDetail($notice, $detail)
   {
     $noticeController = self::getInstance();
@@ -327,6 +377,8 @@ class NoticeController //extends ShortPixelController
      $noticeController->update();
   }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   public function admin_notices()
   {
       if ($this->countNotices() > 0)
@@ -336,7 +388,11 @@ class NoticeController //extends ShortPixelController
             add_action('admin_print_footer_scripts', array($this, 'printNoticeStyle'));
             self::$cssHookLoaded = true;
           }
+<<<<<<< HEAD
           foreach($this->getNoticesForDisplay() as $notice)
+=======
+          foreach($this->getNotices() as $notice)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
           {
             echo $notice->getForDisplay();
           }
@@ -344,7 +400,10 @@ class NoticeController //extends ShortPixelController
       $this->update(); // puts views, and updates
   }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   public function printNoticeStyle()
   {
      if (file_exists(__DIR__ . '/css/notices.css'))

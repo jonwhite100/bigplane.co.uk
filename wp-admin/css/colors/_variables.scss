@@ -18,9 +18,14 @@ $link: #0073aa !default;
 $link-focus: lighten( $link, 10% ) !default;
 
 $button-color: $highlight-color !default;
+<<<<<<< HEAD
 $button-text-color: $text-color !default;
 
 $form-checked: #7e8993 !default;
+=======
+$form-checked: $highlight-color !default;
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // admin menu & admin-bar
 
@@ -61,5 +66,8 @@ $adminbar-recovery-exit-background: $menu-bubble-background !default;
 $adminbar-recovery-exit-background-alt: mix(black, $adminbar-recovery-exit-background, 10%) !default;
 
 $menu-customizer-text: mix( $base-color, $text-color, 40% ) !default;
+<<<<<<< HEAD
 
 $low-contrast-theme: "false" !default;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

@@ -12,4 +12,8 @@
 _deprecated_file( basename( __FILE__ ), '5.3.0', 'wp-includes/class-wp-oembed.php' );
 
 /** WP_oEmbed class */
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-includes/class-wp-oembed.php';
+=======
+require_once( ABSPATH . 'wp-includes/class-wp-oembed.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

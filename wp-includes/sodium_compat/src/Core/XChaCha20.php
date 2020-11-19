@@ -39,6 +39,7 @@ class ParagonIE_Sodium_Core_XChaCha20 extends ParagonIE_Sodium_Core_HChaCha20
     /**
      * @internal You should not use this directly from another application
      *
+<<<<<<< HEAD
      * @param int $len
      * @param string $nonce
      * @param string $key
@@ -66,6 +67,8 @@ class ParagonIE_Sodium_Core_XChaCha20 extends ParagonIE_Sodium_Core_HChaCha20
     /**
      * @internal You should not use this directly from another application
      *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
      * @param string $message
      * @param string $nonce
      * @param string $key
@@ -88,6 +91,7 @@ class ParagonIE_Sodium_Core_XChaCha20 extends ParagonIE_Sodium_Core_HChaCha20
             $message
         );
     }
+<<<<<<< HEAD
 
     /**
      * @internal You should not use this directly from another application
@@ -114,4 +118,6 @@ class ParagonIE_Sodium_Core_XChaCha20 extends ParagonIE_Sodium_Core_HChaCha20
             $message
         );
     }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

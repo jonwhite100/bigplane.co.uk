@@ -82,16 +82,25 @@ this["wp"] = this["wp"] || {}; this["wp"]["domReady"] =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 419);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 324);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /******/ })
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
 /***/ 419:
+=======
+/***/ 324:
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return domReady; });
 /**
  * @typedef {() => void} Callback
@@ -111,6 +120,12 @@ __webpack_require__.r(__webpack_exports__);
  * Specify a function to execute when the DOM is fully loaded.
  *
  * @param {Callback} callback A function to execute after the DOM is ready.
+=======
+/**
+ * Specify a function to execute when the DOM is fully loaded.
+ *
+ * @param {Function} callback A function to execute after the DOM is ready.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @example
  * ```js
@@ -123,16 +138,30 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {void}
  */
+<<<<<<< HEAD
 function domReady(callback) {
   if (document.readyState === 'complete' || // DOMContentLoaded + Images/Styles/etc loaded, so we call directly.
   document.readyState === 'interactive' // DOMContentLoaded fires at this point, so we call directly.
   ) {
       return void callback();
+=======
+var domReady = function domReady(callback) {
+  if (document.readyState === 'complete' || // DOMContentLoaded + Images/Styles/etc loaded, so we call directly.
+  document.readyState === 'interactive' // DOMContentLoaded fires at this point, so we call directly.
+  ) {
+      return callback();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     } // DOMContentLoaded has not fired yet, delay callback until then.
 
 
   document.addEventListener('DOMContentLoaded', callback);
+<<<<<<< HEAD
 }
+=======
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (domReady);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 
 /***/ })

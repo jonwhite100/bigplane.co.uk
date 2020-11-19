@@ -125,7 +125,11 @@ class Requests_SSL {
 	 * @return boolean Does the domain match?
 	 */
 	public static function match_domain($host, $reference) {
+<<<<<<< HEAD
 		// Check if the reference is blocklisted first
+=======
+		// Check if the reference is blacklisted first
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if (self::verify_reference_name($reference) !== true) {
 			return false;
 		}
@@ -149,4 +153,8 @@ class Requests_SSL {
 
 		return false;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

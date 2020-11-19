@@ -15,7 +15,11 @@ jQuery(document).ready(function($) {
 			distance: 2,
 			handle: 'div.filename',
 			stop: function() {
+<<<<<<< HEAD
 				// When an update has occurred, adjust the order for each item.
+=======
+				// When an update has occurred, adjust the order for each item
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				var all = $('#media-items').sortable('toArray'), len = all.length;
 				$.each(all, function(i, id) {
 					var order = desc ? (len - i) : (1 + i);
@@ -71,7 +75,11 @@ jQuery(document).ready(function($) {
 		$('img.pinkynail').toggle(true);
 	});
 
+<<<<<<< HEAD
 	// Initialize sortable.
+=======
+	// initialize sortable
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	gallerySortableInit();
 	clearAll();
 
@@ -88,7 +96,11 @@ jQuery(document).ready(function($) {
 	}
 });
 
+<<<<<<< HEAD
 jQuery(window).unload( function () { window.tinymce = window.tinyMCE = window.wpgallery = null; } ); // Cleanup.
+=======
+jQuery(window).unload( function () { window.tinymce = window.tinyMCE = window.wpgallery = null; } ); // Cleanup
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /* gallery settings */
 window.tinymce = null;
@@ -122,7 +134,11 @@ window.wpgallery = {
 			document.domain = q.mce_rdomain;
 		}
 
+<<<<<<< HEAD
 		// Find window & API.
+=======
+		// Find window & API
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		window.tinymce = w.tinymce;
 		window.tinyMCE = w.tinyMCE;
 		t.editor = tinymce.EditorManager.activeEditor;

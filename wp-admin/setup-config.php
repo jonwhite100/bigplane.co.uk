@@ -27,6 +27,7 @@ define( 'WP_SETUP_CONFIG', true );
 error_reporting( 0 );
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	define( 'ABSPATH', dirname( __DIR__ ) . '/' );
 }
 
@@ -37,6 +38,18 @@ require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
 /** Load WordPress Translation Installation API */
 require_once ABSPATH . 'wp-admin/includes/translation-install.php';
+=======
+	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/' );
+}
+
+require( ABSPATH . 'wp-settings.php' );
+
+/** Load WordPress Administration Upgrade API */
+require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
+/** Load WordPress Translation Installation API */
+require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 nocache_headers();
 
@@ -55,7 +68,11 @@ if ( file_exists( ABSPATH . 'wp-config-sample.php' ) ) {
 	);
 }
 
+<<<<<<< HEAD
 // Check if wp-config.php has been created.
+=======
+// Check if wp-config.php has been created
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( file_exists( ABSPATH . 'wp-config.php' ) ) {
 	wp_die(
 		'<p>' . sprintf(
@@ -63,12 +80,20 @@ if ( file_exists( ABSPATH . 'wp-config.php' ) ) {
 			__( 'The file %1$s already exists. If you need to reset any of the configuration items in this file, please delete it first. You may try <a href="%2$s">installing now</a>.' ),
 			'<code>wp-config.php</code>',
 			'install.php'
+<<<<<<< HEAD
 		) . '</p>',
 		409
 	);
 }
 
 // Check if wp-config.php exists above the root directory but is not part of another installation.
+=======
+		) . '</p>'
+	);
+}
+
+// Check if wp-config.php exists above the root directory but is not part of another installation
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( @file_exists( ABSPATH . '../wp-config.php' ) && ! @file_exists( ABSPATH . '../wp-settings.php' ) ) {
 	wp_die(
 		'<p>' . sprintf(
@@ -76,8 +101,12 @@ if ( @file_exists( ABSPATH . '../wp-config.php' ) && ! @file_exists( ABSPATH . '
 			__( 'The file %1$s already exists one level above your WordPress installation. If you need to reset any of the configuration items in this file, please delete it first. You may try <a href="%2$s">installing now</a>.' ),
 			'<code>wp-config.php</code>',
 			'install.php'
+<<<<<<< HEAD
 		) . '</p>',
 		409
+=======
+		) . '</p>'
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	);
 }
 
@@ -89,7 +118,11 @@ $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : -1;
  * @ignore
  * @since 2.3.0
  *
+<<<<<<< HEAD
  * @global string    $wp_local_package Locale code of the package.
+=======
+ * @global string    $wp_local_package
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @global WP_Locale $wp_locale        WordPress date and time locale object.
  *
  * @param string|array $body_classes
@@ -106,7 +139,11 @@ function setup_config_display_header( $body_classes = array() ) {
 	header( 'Content-Type: text/html; charset=utf-8' );
 	?>
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html<?php echo $dir_attr; ?>>
+=======
+<html xmlns="http://www.w3.org/1999/xhtml"<?php echo $dir_attr; ?>>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -115,9 +152,15 @@ function setup_config_display_header( $body_classes = array() ) {
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
 <body class="<?php echo implode( ' ', $body_classes ); ?>">
+<<<<<<< HEAD
 <p id="logo"><?php _e( 'WordPress' ); ?></p>
 	<?php
 } // End function setup_config_display_header();
+=======
+<p id="logo"><a href="<?php echo esc_url( __( 'https://wordpress.org/' ) ); ?>"><?php _e( 'WordPress' ); ?></a></p>
+	<?php
+} // end function setup_config_display_header();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 $language = '';
 if ( ! empty( $_REQUEST['language'] ) ) {
@@ -280,15 +323,26 @@ switch ( $step ) {
 		$tryagain_link = '</p><p class="step"><a href="' . $step_1 . '" onclick="javascript:history.go(-1);return false;" class="button button-large">' . __( 'Try Again' ) . '</a>';
 
 		if ( empty( $prefix ) ) {
+<<<<<<< HEAD
 			wp_die( __( '<strong>Error</strong>: "Table Prefix" must not be empty.' ) . $tryagain_link );
+=======
+			wp_die( __( '<strong>ERROR</strong>: "Table Prefix" must not be empty.' ) . $tryagain_link );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		// Validate $prefix: it can only contain letters, numbers and underscores.
 		if ( preg_match( '|[^a-z0-9_]|i', $prefix ) ) {
+<<<<<<< HEAD
 			wp_die( __( '<strong>Error</strong>: "Table Prefix" can only contain numbers, letters, and underscores.' ) . $tryagain_link );
 		}
 
 		// Test the DB connection.
+=======
+			wp_die( __( '<strong>ERROR</strong>: "Table Prefix" can only contain numbers, letters, and underscores.' ) . $tryagain_link );
+		}
+
+		// Test the db connection.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		/**#@+
 		 *
 		 * @ignore
@@ -318,7 +372,11 @@ switch ( $step ) {
 		$wpdb->show_errors( $errors );
 		if ( ! $wpdb->last_error ) {
 			// MySQL was able to parse the prefix as a value, which we don't want. Bail.
+<<<<<<< HEAD
 			wp_die( __( '<strong>Error</strong>: "Table Prefix" is invalid.' ) );
+=======
+			wp_die( __( '<strong>ERROR</strong>: "Table Prefix" is invalid.' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		// Generate keys and salts using secure CSPRNG; fallback to API if enabled; further fallback to original wp_generate_password().
@@ -354,7 +412,11 @@ switch ( $step ) {
 
 		$key = 0;
 		foreach ( $config_file as $line_num => $line ) {
+<<<<<<< HEAD
 			if ( '$table_prefix =' === substr( $line, 0, 15 ) ) {
+=======
+			if ( '$table_prefix =' == substr( $line, 0, 15 ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$config_file[ $line_num ] = '$table_prefix = \'' . addcslashes( $prefix, "\\'" ) . "';\r\n";
 				continue;
 			}
@@ -398,7 +460,11 @@ switch ( $step ) {
 	<p>
 			<?php
 			/* translators: %s: wp-config.php */
+<<<<<<< HEAD
 			printf( __( 'Unable to write to %s file.' ), '<code>wp-config.php</code>' );
+=======
+			printf( __( 'Sorry, but I can&#8217;t write the %s file.' ), '<code>wp-config.php</code>' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			?>
 </p>
 <p>

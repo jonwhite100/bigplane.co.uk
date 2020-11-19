@@ -41,7 +41,11 @@ define( 'DOING_CRON', true );
 
 if ( ! defined( 'ABSPATH' ) ) {
 	/** Set up WordPress environment */
+<<<<<<< HEAD
 	require_once __DIR__ . '/wp-load.php';
+=======
+	require_once( dirname( __FILE__ ) . '/wp-load.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -86,7 +90,11 @@ $gmt_time = microtime( true );
 // The cron lock: a unix timestamp from when the cron was spawned.
 $doing_cron_transient = get_transient( 'doing_cron' );
 
+<<<<<<< HEAD
 // Use global $doing_wp_cron lock, otherwise use the GET lock. If no lock, try to grab a new lock.
+=======
+// Use global $doing_wp_cron lock otherwise use the GET lock. If no lock, trying grabbing a new lock.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( empty( $doing_wp_cron ) ) {
 	if ( empty( $_GET['doing_wp_cron'] ) ) {
 		// Called from external script/job. Try setting a lock.
@@ -105,7 +113,11 @@ if ( empty( $doing_wp_cron ) ) {
  * The cron lock (a unix timestamp set when the cron was spawned),
  * must match $doing_wp_cron (the "key").
  */
+<<<<<<< HEAD
 if ( $doing_cron_transient !== $doing_wp_cron ) {
+=======
+if ( $doing_cron_transient != $doing_wp_cron ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return;
 }
 
@@ -138,14 +150,22 @@ foreach ( $crons as $timestamp => $cronhooks ) {
 			do_action_ref_array( $hook, $v['args'] );
 
 			// If the hook ran too long and another cron process stole the lock, quit.
+<<<<<<< HEAD
 			if ( _get_cron_lock() !== $doing_wp_cron ) {
+=======
+			if ( _get_cron_lock() != $doing_wp_cron ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				return;
 			}
 		}
 	}
 }
 
+<<<<<<< HEAD
 if ( _get_cron_lock() === $doing_wp_cron ) {
+=======
+if ( _get_cron_lock() == $doing_wp_cron ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	delete_transient( 'doing_cron' );
 }
 

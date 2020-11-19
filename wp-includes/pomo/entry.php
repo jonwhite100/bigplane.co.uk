@@ -41,11 +41,19 @@ if ( ! class_exists( 'Translation_Entry', false ) ) :
 		 *  - flags (array) -- flags like php-format
 		 */
 		function __construct( $args = array() ) {
+<<<<<<< HEAD
 			// If no singular -- empty object.
 			if ( ! isset( $args['singular'] ) ) {
 				return;
 			}
 			// Get member variable values from args hash.
+=======
+			// if no singular -- empty object
+			if ( ! isset( $args['singular'] ) ) {
+				return;
+			}
+			// get member variable values from args hash
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			foreach ( $args as $varname => $value ) {
 				$this->$varname = $value;
 			}
@@ -65,6 +73,7 @@ if ( ! class_exists( 'Translation_Entry', false ) ) :
 
 		/**
 		 * PHP4 constructor.
+<<<<<<< HEAD
 		 *
 		 * @deprecated 5.4.0 Use __construct() instead.
 		 *
@@ -72,6 +81,10 @@ if ( ! class_exists( 'Translation_Entry', false ) ) :
 		 */
 		public function Translation_Entry( $args = array() ) {
 			_deprecated_constructor( self::class, '5.4.0', static::class );
+=======
+		 */
+		public function Translation_Entry( $args = array() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			self::__construct( $args );
 		}
 
@@ -85,9 +98,15 @@ if ( ! class_exists( 'Translation_Entry', false ) ) :
 				return false;
 			}
 
+<<<<<<< HEAD
 			// Prepend context and EOT, like in MO files.
 			$key = ! $this->context ? $this->singular : $this->context . "\4" . $this->singular;
 			// Standardize on \n line endings.
+=======
+			// Prepend context and EOT, like in MO files
+			$key = ! $this->context ? $this->singular : $this->context . "\4" . $this->singular;
+			// Standardize on \n line endings
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$key = str_replace( array( "\r\n", "\r" ), "\n", $key );
 
 			return $key;

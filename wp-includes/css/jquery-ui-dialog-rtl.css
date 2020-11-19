@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /*!
  * jQuery UI CSS Framework 1.11.4
  * http://jqueryui.com
@@ -308,7 +311,11 @@
 
 .ui-button.ui-dialog-titlebar-close:hover,
 .ui-button.ui-dialog-titlebar-close:focus {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .ui-button.ui-dialog-titlebar-close:focus {

@@ -38,7 +38,11 @@ class WP_MatchesMapRegex {
 	 *
 	 * @var string
 	 */
+<<<<<<< HEAD
 	public $_pattern = '(\$matches\[[1-9]+[0-9]*\])'; // Magic number.
+=======
+	public $_pattern = '(\$matches\[[1-9]+[0-9]*\])'; // magic number
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * constructor
@@ -79,7 +83,11 @@ class WP_MatchesMapRegex {
 	/**
 	 * preg_replace_callback hook
 	 *
+<<<<<<< HEAD
 	 * @param array $matches preg_replace regexp matches
+=======
+	 * @param  array $matches preg_replace regexp matches
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return string
 	 */
 	public function callback( $matches ) {

@@ -9,8 +9,12 @@ add_action( 'wpcf7_init', 'wpcf7_add_form_tag_textarea', 10, 0 );
 
 function wpcf7_add_form_tag_textarea() {
 	wpcf7_add_form_tag( array( 'textarea', 'textarea*' ),
+<<<<<<< HEAD
 		'wpcf7_textarea_form_tag_handler', array( 'name-attr' => true )
 	);
+=======
+		'wpcf7_textarea_form_tag_handler', array( 'name-attr' => true ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 function wpcf7_textarea_form_tag_handler( $tag ) {
@@ -53,6 +57,7 @@ function wpcf7_textarea_form_tag_handler( $tag ) {
 		$atts['aria-required'] = 'true';
 	}
 
+<<<<<<< HEAD
 	if ( $validation_error ) {
 		$atts['aria-invalid'] = 'true';
 		$atts['aria-describedby'] = wpcf7_get_validation_error_reference(
@@ -61,6 +66,9 @@ function wpcf7_textarea_form_tag_handler( $tag ) {
 	} else {
 		$atts['aria-invalid'] = 'false';
 	}
+=======
+	$atts['aria-invalid'] = $validation_error ? 'true' : 'false';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$value = empty( $tag->content )
 		? (string) reset( $tag->values )
@@ -83,8 +91,12 @@ function wpcf7_textarea_form_tag_handler( $tag ) {
 	$html = sprintf(
 		'<span class="wpcf7-form-control-wrap %1$s"><textarea %2$s>%3$s</textarea>%4$s</span>',
 		sanitize_html_class( $tag->name ), $atts,
+<<<<<<< HEAD
 		esc_textarea( $value ), $validation_error
 	);
+=======
+		esc_textarea( $value ), $validation_error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return $html;
 }
@@ -103,7 +115,11 @@ function wpcf7_textarea_validation_filter( $result, $tag ) {
 
 	$value = isset( $_POST[$name] ) ? (string) $_POST[$name] : '';
 
+<<<<<<< HEAD
 	if ( $tag->is_required() and '' === $value ) {
+=======
+	if ( $tag->is_required() and '' == $value ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$result->invalidate( $tag, wpcf7_get_message( 'invalid_required' ) );
 	}
 
@@ -147,7 +163,11 @@ function wpcf7_tag_generator_textarea( $contact_form, $args = '' ) {
 
 	$description = __( "Generate a form-tag for a multi-line text input field. For more details, see %s.", 'contact-form-7' );
 
+<<<<<<< HEAD
 	$desc_link = wpcf7_link( __( 'https://contactform7.com/text-fields/', 'contact-form-7' ), __( 'Text fields', 'contact-form-7' ) );
+=======
+	$desc_link = wpcf7_link( __( 'https://contactform7.com/text-fields/', 'contact-form-7' ), __( 'Text Fields', 'contact-form-7' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ?>
 <div class="control-box">

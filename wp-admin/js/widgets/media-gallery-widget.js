@@ -21,7 +21,11 @@
 		 * Create the default states.
 		 *
 		 * @since 4.9.0
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		createStates: function createStates() {
 			this.states.add([
@@ -88,7 +92,11 @@
 		 * @param {Backbone.Model} options.model - Model.
 		 * @param {jQuery}         options.el - Control field container element.
 		 * @param {jQuery}         options.syncContainer - Container element where fields are synced for the server.
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		initialize: function initialize( options ) {
 			var control = this;
@@ -122,7 +130,11 @@
 		 * Update the selected attachments if necessary.
 		 *
 		 * @since 4.9.0
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		updateSelectedAttachments: function updateSelectedAttachments() {
 			var control = this, newIds, oldIds, removedIds, addedIds, addedQuery;
@@ -155,7 +167,11 @@
 		 * Render preview.
 		 *
 		 * @since 4.9.0
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		renderPreview: function renderPreview() {
 			var control = this, previewContainer, previewTemplate, data;
@@ -176,7 +192,11 @@
 		 * Determine whether there are selected attachments.
 		 *
 		 * @since 4.9.0
+<<<<<<< HEAD
 		 * @return {boolean} Selected.
+=======
+		 * @returns {boolean} Selected.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		isSelected: function isSelected() {
 			var control = this;
@@ -192,7 +212,11 @@
 		 * Open the media select frame to edit images.
 		 *
 		 * @since 4.9.0
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		editMedia: function editMedia() {
 			var control = this, selection, mediaFrame, mediaFrameProps;
@@ -255,7 +279,11 @@
 		 * Open the media select frame to chose an item.
 		 *
 		 * @since 4.9.0
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		selectMedia: function selectMedia() {
 			var control = this, selection, mediaFrame, mediaFrameProps;
@@ -321,7 +349,11 @@
 		 *
 		 * @since 4.9.0
 		 * @param {wp.media.models.Attachment} attachment - Attachment.
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		handleAttachmentDestroy: function handleAttachmentDestroy( attachment ) {
 			var control = this;

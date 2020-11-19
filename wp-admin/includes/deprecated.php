@@ -159,9 +159,14 @@ function wp_dropdown_cats( $currentcat = 0, $currentparent = 0, $parent = 0, $le
  * @deprecated 3.0.0 Use register_setting()
  * @see register_setting()
  *
+<<<<<<< HEAD
  * @param string $option_group A settings group name. Should correspond to an allowed option key name.
  *                             Default allowed option key names include 'general', 'discussion', 'media',
  *                             'reading', 'writing', 'misc', 'options', and 'privacy'.
+=======
+ * @param string $option_group A settings group name. Should correspond to a whitelisted option key name.
+ * 	Default whitelisted option key names include "general," "discussion," and "reading," among others.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string $option_name The name of an option to sanitize and save.
  * @param callable $sanitize_callback A callback function that sanitizes the option's value.
  */
@@ -234,7 +239,11 @@ function get_author_user_ids() {
 	if ( !is_multisite() )
 		$level_key = $wpdb->get_blog_prefix() . 'user_level';
 	else
+<<<<<<< HEAD
 		$level_key = $wpdb->get_blog_prefix() . 'capabilities'; // WPMU site admins don't have user_levels.
+=======
+		$level_key = $wpdb->get_blog_prefix() . 'capabilities'; // wpmu site admins don't have user_levels
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return $wpdb->get_col( $wpdb->prepare("SELECT user_id FROM $wpdb->usermeta WHERE meta_key = %s AND meta_value != '0'", $level_key) );
 }
@@ -296,7 +305,11 @@ function get_editable_user_ids( $user_id, $exclude_zeros = true, $post_type = 'p
 	if ( !is_multisite() )
 		$level_key = $wpdb->get_blog_prefix() . 'user_level';
 	else
+<<<<<<< HEAD
 		$level_key = $wpdb->get_blog_prefix() . 'capabilities'; // WPMU site admins don't have user_levels.
+=======
+		$level_key = $wpdb->get_blog_prefix() . 'capabilities'; // wpmu site admins don't have user_levels
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$query = $wpdb->prepare("SELECT user_id FROM $wpdb->usermeta WHERE meta_key = %s", $level_key);
 	if ( $exclude_zeros )
@@ -320,7 +333,11 @@ function get_nonauthor_user_ids() {
 	if ( !is_multisite() )
 		$level_key = $wpdb->get_blog_prefix() . 'user_level';
 	else
+<<<<<<< HEAD
 		$level_key = $wpdb->get_blog_prefix() . 'capabilities'; // WPMU site admins don't have user_levels.
+=======
+		$level_key = $wpdb->get_blog_prefix() . 'capabilities'; // wpmu site admins don't have user_levels
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return $wpdb->get_col( $wpdb->prepare("SELECT user_id FROM $wpdb->usermeta WHERE meta_key = %s AND meta_value = '0'", $level_key) );
 }
@@ -545,7 +562,11 @@ class WP_User_Search {
 			$this->query_from .= " INNER JOIN $wpdb->usermeta ON $wpdb->users.ID = $wpdb->usermeta.user_id";
 			$this->query_where .= $wpdb->prepare(" AND $wpdb->usermeta.meta_key = '{$wpdb->prefix}capabilities' AND $wpdb->usermeta.meta_value LIKE %s", '%' . $this->role . '%');
 		} elseif ( is_multisite() ) {
+<<<<<<< HEAD
 			$level_key = $wpdb->prefix . 'capabilities'; // WPMU site admins don't have user_levels.
+=======
+			$level_key = $wpdb->prefix . 'capabilities'; // wpmu site admins don't have user_levels
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->query_from .= ", $wpdb->usermeta";
 			$this->query_where .= " AND $wpdb->users.ID = $wpdb->usermeta.user_id AND meta_key = '{$level_key}'";
 		}
@@ -565,7 +586,11 @@ class WP_User_Search {
 		$this->results = $wpdb->get_col("SELECT DISTINCT($wpdb->users.ID)" . $this->query_from . $this->query_where . $this->query_orderby . $this->query_limit);
 
 		if ( $this->results )
+<<<<<<< HEAD
 			$this->total_users_for_query = $wpdb->get_var("SELECT COUNT(DISTINCT($wpdb->users.ID))" . $this->query_from . $this->query_where); // No limit.
+=======
+			$this->total_users_for_query = $wpdb->get_var("SELECT COUNT(DISTINCT($wpdb->users.ID))" . $this->query_from . $this->query_where); // no limit
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		else
 			$this->search_errors = new WP_Error('no_matching_users_found', __('No users found.'));
 	}
@@ -585,7 +610,11 @@ class WP_User_Search {
 	 * @access public
 	 */
 	public function do_paging() {
+<<<<<<< HEAD
 		if ( $this->total_users_for_query > $this->users_per_page ) { // Have to page the results.
+=======
+		if ( $this->total_users_for_query > $this->users_per_page ) { // have to page the results
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$args = array();
 			if ( ! empty($this->search_term) )
 				$args['usersearch'] = urlencode($this->search_term);
@@ -754,6 +783,11 @@ function wp_dashboard_quick_press_output() {
  * @since 2.7.0
  * @deprecated 3.3.0 Use wp_editor()
  * @see wp_editor()
+<<<<<<< HEAD
+=======
+ *
+ * @staticvar int $num
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_tiny_mce( $teeny = false, $settings = false ) {
 	_deprecated_function( __FUNCTION__, '3.3.0', 'wp_editor()' );
@@ -761,7 +795,11 @@ function wp_tiny_mce( $teeny = false, $settings = false ) {
 	static $num = 1;
 
 	if ( ! class_exists( '_WP_Editors', false ) )
+<<<<<<< HEAD
 		require_once ABSPATH . WPINC . '/class-wp-editor.php';
+=======
+		require_once( ABSPATH . WPINC . '/class-wp-editor.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$editor_id = 'content' . $num++;
 
@@ -1000,7 +1038,11 @@ function add_contextual_help( $screen, $help ) {
  * @deprecated 3.4.0 Use wp_get_themes()
  * @see wp_get_themes()
  *
+<<<<<<< HEAD
  * @return WP_Theme[] Array of WP_Theme objects keyed by their name.
+=======
+ * @return array $themes Array of allowed themes.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_allowed_themes() {
 	_deprecated_function( __FUNCTION__, '3.4.0', "wp_get_themes( array( 'allowed' => true ) )" );
@@ -1117,7 +1159,11 @@ function get_default_page_to_edit() {
  * @deprecated 3.5.0 Use image_resize()
  * @see image_resize()
  *
+<<<<<<< HEAD
  * @param mixed $file Filename of the original image, Or attachment ID.
+=======
+ * @param mixed $file Filename of the original image, Or attachment id.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param int $max_side Maximum length of a single side for the thumbnail.
  * @param mixed $deprecated Never used.
  * @return string Thumbnail path on success, Error string on failure.
@@ -1155,7 +1201,11 @@ function wp_update_core($current, $feedback = '') {
 	if ( !empty($feedback) )
 		add_filter('update_feedback', $feedback);
 
+<<<<<<< HEAD
 	require ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+=======
+	include( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$upgrader = new Core_Upgrader();
 	return $upgrader->upgrade($current);
 
@@ -1178,7 +1228,11 @@ function wp_update_plugin($plugin, $feedback = '') {
 	if ( !empty($feedback) )
 		add_filter('update_feedback', $feedback);
 
+<<<<<<< HEAD
 	require ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+=======
+	include( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$upgrader = new Plugin_Upgrader();
 	return $upgrader->upgrade($plugin);
 }
@@ -1200,7 +1254,11 @@ function wp_update_theme($theme, $feedback = '') {
 	if ( !empty($feedback) )
 		add_filter('update_feedback', $feedback);
 
+<<<<<<< HEAD
 	require ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+=======
+	include( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$upgrader = new Theme_Upgrader();
 	return $upgrader->upgrade($theme);
 }
@@ -1318,7 +1376,11 @@ function wp_dashboard_secondary_control() {}
 function wp_dashboard_plugins_output( $rss, $args = array() ) {
 	_deprecated_function( __FUNCTION__, '4.8.0' );
 
+<<<<<<< HEAD
 	// Plugin feeds plus link to install them.
+=======
+	// Plugin feeds plus link to install them
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$popular = fetch_feed( $args['url']['popular'] );
 
 	if ( false === $plugin_slugs = get_transient( 'plugin_slugs' ) ) {
@@ -1334,10 +1396,17 @@ function wp_dashboard_plugins_output( $rss, $args = array() ) {
 
 		$items = $feed->get_items(0, 5);
 
+<<<<<<< HEAD
 		// Pick a random, non-installed plugin.
 		while ( true ) {
 			// Abort this foreach loop iteration if there's no plugins left of this type.
 			if ( 0 === count($items) )
+=======
+		// Pick a random, non-installed plugin
+		while ( true ) {
+			// Abort this foreach loop iteration if there's no plugins left of this type
+			if ( 0 == count($items) )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				continue 2;
 
 			$item_key = array_rand($items);
@@ -1366,7 +1435,11 @@ function wp_dashboard_plugins_output( $rss, $args = array() ) {
 			break;
 		}
 
+<<<<<<< HEAD
 		// Eliminate some common badly formed plugin descriptions.
+=======
+		// Eliminate some common badly formed plugin descriptions
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		while ( ( null !== $item_key = array_rand($items) ) && false !== strpos( $items[$item_key]->get_description(), 'Plugin Name:' ) )
 			unset($items[$item_key]);
 
@@ -1379,7 +1452,11 @@ function wp_dashboard_plugins_output( $rss, $args = array() ) {
 		echo '<li class="dashboard-news-plugin"><span>' . __( 'Popular Plugin' ) . ':</span> ' . esc_html( $raw_title ) .
 			'&nbsp;<a href="' . $ilink . '" class="thickbox open-plugin-details-modal" aria-label="' .
 			/* translators: %s: Plugin name. */
+<<<<<<< HEAD
 			esc_attr( sprintf( _x( 'Install %s', 'plugin' ), $raw_title ) ) . '">(' . __( 'Install' ) . ')</a></li>';
+=======
+			esc_attr( sprintf( __( 'Install %s' ), $raw_title ) ) . '">(' . __( 'Install' ) . ')</a></li>';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$feed->__destruct();
 		unset( $feed );
@@ -1530,7 +1607,11 @@ class WP_Privacy_Data_Export_Requests_Table extends WP_Privacy_Data_Export_Reque
 			$args['screen'] = 'export-personal-data';
 		}
 
+<<<<<<< HEAD
 		parent::__construct( $args );
+=======
+		parent::__construct( $args );	
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 }
 

@@ -200,7 +200,11 @@ final class WP_Post_Type {
 	 * Do `remove_meta_box()` and `add_meta_box()` calls in the callback. Default null.
 	 *
 	 * @since 4.6.0
+<<<<<<< HEAD
 	 * @var callable $register_meta_box_cb
+=======
+	 * @var string $register_meta_box_cb
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $register_meta_box_cb = null;
 
@@ -250,7 +254,11 @@ final class WP_Post_Type {
 	/**
 	 * Whether to delete posts of this type when deleting a user.
 	 *
+<<<<<<< HEAD
 	 * If true, posts of this type belonging to the user will be moved to Trash when then user is deleted.
+=======
+	 * If true, posts of this type belonging to the user will be moved to trash when then user is deleted.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * If false, posts of this type belonging to the user will *not* be trashed or deleted.
 	 * If not set (the default), posts are trashed if post_type_supports( 'author' ).
 	 * Otherwise posts are not trashed or deleted. Default null.
@@ -423,27 +431,47 @@ final class WP_Post_Type {
 
 		$args['name'] = $this->name;
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'public'.
+=======
+		// If not set, default to the setting for public.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['publicly_queryable'] ) {
 			$args['publicly_queryable'] = $args['public'];
 		}
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'public'.
+=======
+		// If not set, default to the setting for public.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['show_ui'] ) {
 			$args['show_ui'] = $args['public'];
 		}
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'show_ui'.
+=======
+		// If not set, default to the setting for show_ui.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['show_in_menu'] || ! $args['show_ui'] ) {
 			$args['show_in_menu'] = $args['show_ui'];
 		}
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'show_in_menu'.
+=======
+		// If not set, default to the whether the full UI is shown.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['show_in_admin_bar'] ) {
 			$args['show_in_admin_bar'] = (bool) $args['show_in_menu'];
 		}
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'public'.
+=======
+		// If not set, default to the setting for public.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['show_in_nav_menus'] ) {
 			$args['show_in_nav_menus'] = $args['public'];
 		}
@@ -454,9 +482,13 @@ final class WP_Post_Type {
 		}
 
 		// Back compat with quirky handling in version 3.0. #14122.
+<<<<<<< HEAD
 		if ( empty( $args['capabilities'] )
 			&& null === $args['map_meta_cap'] && in_array( $args['capability_type'], array( 'post', 'page' ), true )
 		) {
+=======
+		if ( empty( $args['capabilities'] ) && null === $args['map_meta_cap'] && in_array( $args['capability_type'], array( 'post', 'page' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$args['map_meta_cap'] = true;
 		}
 
@@ -485,7 +517,11 @@ final class WP_Post_Type {
 			}
 		}
 
+<<<<<<< HEAD
 		if ( false !== $args['rewrite'] && ( is_admin() || get_option( 'permalink_structure' ) ) ) {
+=======
+		if ( false !== $args['rewrite'] && ( is_admin() || '' != get_option( 'permalink_structure' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( ! is_array( $args['rewrite'] ) ) {
 				$args['rewrite'] = array();
 			}
@@ -554,7 +590,11 @@ final class WP_Post_Type {
 			$wp->add_query_var( $this->query_var );
 		}
 
+<<<<<<< HEAD
 		if ( false !== $this->rewrite && ( is_admin() || get_option( 'permalink_structure' ) ) ) {
+=======
+		if ( false !== $this->rewrite && ( is_admin() || '' != get_option( 'permalink_structure' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( $this->hierarchical ) {
 				add_rewrite_tag( "%$this->name%", '(.+?)', $this->query_var ? "{$this->query_var}=" : "post_type=$this->name&pagename=" );
 			} else {

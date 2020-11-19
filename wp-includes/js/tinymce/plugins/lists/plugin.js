@@ -204,8 +204,11 @@ var lists = (function (domGlobals) {
       resolveBookmark: resolveBookmark
     };
 
+<<<<<<< HEAD
     var noop = function () {
     };
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var constant = function (value) {
       return function () {
         return value;
@@ -223,6 +226,11 @@ var lists = (function (domGlobals) {
     var never = constant(false);
     var always = constant(true);
 
+<<<<<<< HEAD
+=======
+    var never$1 = never;
+    var always$1 = always;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var none = function () {
       return NONE;
     };
@@ -236,18 +244,36 @@ var lists = (function (domGlobals) {
       var id = function (n) {
         return n;
       };
+<<<<<<< HEAD
+=======
+      var noop = function () {
+      };
+      var nul = function () {
+        return null;
+      };
+      var undef = function () {
+        return undefined;
+      };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       var me = {
         fold: function (n, s) {
           return n();
         },
+<<<<<<< HEAD
         is: never,
         isSome: never,
         isNone: always,
+=======
+        is: never$1,
+        isSome: never$1,
+        isNone: always$1,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         getOr: id,
         getOrThunk: call,
         getOrDie: function (msg) {
           throw new Error(msg || 'error: getOrDie called on none.');
         },
+<<<<<<< HEAD
         getOrNull: constant(null),
         getOrUndefined: constant(undefined),
         or: id,
@@ -257,6 +283,19 @@ var lists = (function (domGlobals) {
         bind: none,
         exists: never,
         forall: always,
+=======
+        getOrNull: nul,
+        getOrUndefined: undef,
+        or: id,
+        orThunk: call,
+        map: none,
+        ap: none,
+        each: noop,
+        bind: none,
+        flatten: none,
+        exists: never$1,
+        forall: always$1,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         filter: none,
         equals: eq,
         equals_: eq,
@@ -271,10 +310,22 @@ var lists = (function (domGlobals) {
       return me;
     }();
     var some = function (a) {
+<<<<<<< HEAD
       var constant_a = constant(a);
       var self = function () {
         return me;
       };
+=======
+      var constant_a = function () {
+        return a;
+      };
+      var self = function () {
+        return me;
+      };
+      var map = function (f) {
+        return some(f(a));
+      };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       var bind = function (f) {
         return f(a);
       };
@@ -285,8 +336,13 @@ var lists = (function (domGlobals) {
         is: function (v) {
           return a === v;
         },
+<<<<<<< HEAD
         isSome: always,
         isNone: never,
+=======
+        isSome: always$1,
+        isNone: never$1,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         getOr: constant_a,
         getOrThunk: constant_a,
         getOrDie: constant_a,
@@ -294,31 +350,58 @@ var lists = (function (domGlobals) {
         getOrUndefined: constant_a,
         or: self,
         orThunk: self,
+<<<<<<< HEAD
         map: function (f) {
           return some(f(a));
+=======
+        map: map,
+        ap: function (optfab) {
+          return optfab.fold(none, function (fab) {
+            return some(fab(a));
+          });
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         },
         each: function (f) {
           f(a);
         },
         bind: bind,
+<<<<<<< HEAD
+=======
+        flatten: constant_a,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         exists: bind,
         forall: bind,
         filter: function (f) {
           return f(a) ? me : NONE;
         },
+<<<<<<< HEAD
         toArray: function () {
           return [a];
         },
         toString: function () {
           return 'some(' + a + ')';
         },
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         equals: function (o) {
           return o.is(a);
         },
         equals_: function (o, elementEq) {
+<<<<<<< HEAD
           return o.fold(never, function (b) {
             return elementEq(a, b);
           });
+=======
+          return o.fold(never$1, function (b) {
+            return elementEq(a, b);
+          });
+        },
+        toArray: function () {
+          return [a];
+        },
+        toString: function () {
+          return 'some(' + a + ')';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
       };
       return me;
@@ -356,28 +439,44 @@ var lists = (function (domGlobals) {
     var isFunction = isType('function');
     var isNumber = isType('number');
 
+<<<<<<< HEAD
     var nativeSlice = Array.prototype.slice;
     var nativePush = Array.prototype.push;
+=======
+    var slice = Array.prototype.slice;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var map = function (xs, f) {
       var len = xs.length;
       var r = new Array(len);
       for (var i = 0; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         r[i] = f(x, i);
+=======
+        r[i] = f(x, i, xs);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
       return r;
     };
     var each = function (xs, f) {
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         f(x, i);
+=======
+        f(x, i, xs);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
     };
     var filter = function (xs, pred) {
       var r = [];
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         if (pred(x, i)) {
+=======
+        if (pred(x, i, xs)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
           r.push(x);
         }
       }
@@ -415,19 +514,31 @@ var lists = (function (domGlobals) {
     var find = function (xs, pred) {
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         if (pred(x, i)) {
+=======
+        if (pred(x, i, xs)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
           return Option.some(x);
         }
       }
       return Option.none();
     };
+<<<<<<< HEAD
+=======
+    var push = Array.prototype.push;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var flatten = function (xs) {
       var r = [];
       for (var i = 0, len = xs.length; i < len; ++i) {
         if (!isArray(xs[i])) {
           throw new Error('Arr.flatten item ' + i + ' was not an array, input: ' + xs);
         }
+<<<<<<< HEAD
         nativePush.apply(r, xs[i]);
+=======
+        push.apply(r, xs[i]);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
       return r;
     };
@@ -436,7 +547,11 @@ var lists = (function (domGlobals) {
       return flatten(output);
     };
     var reverse = function (xs) {
+<<<<<<< HEAD
       var r = nativeSlice.call(xs, 0);
+=======
+      var r = slice.call(xs, 0);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       r.reverse();
       return r;
     };
@@ -447,7 +562,11 @@ var lists = (function (domGlobals) {
       return xs.length === 0 ? Option.none() : Option.some(xs[xs.length - 1]);
     };
     var from$1 = isFunction(Array.from) ? Array.from : function (x) {
+<<<<<<< HEAD
       return nativeSlice.call(x);
+=======
+      return slice.call(x);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     };
 
     var Global = typeof domGlobals.window !== 'undefined' ? domGlobals.window : Function('return this;')();
@@ -602,8 +721,22 @@ var lists = (function (domGlobals) {
       fromPoint: fromPoint
     };
 
+<<<<<<< HEAD
     var lift2 = function (oa, ob, f) {
       return oa.isSome() && ob.isSome() ? Option.some(f(oa.getOrDie(), ob.getOrDie())) : Option.none();
+=======
+    var liftN = function (arr, f) {
+      var r = [];
+      for (var i = 0; i < arr.length; i++) {
+        var x = arr[i];
+        if (x.isSome()) {
+          r.push(x.getOrDie());
+        } else {
+          return Option.none();
+        }
+      }
+      return Option.some(f.apply(null, r));
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     };
 
     var fromElements = function (elements, scope) {
@@ -642,7 +775,11 @@ var lists = (function (domGlobals) {
       for (var k = 0, len = props.length; k < len; k++) {
         var i = props[k];
         var x = obj[i];
+<<<<<<< HEAD
         f(x, i);
+=======
+        f(x, i, obj);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
     };
 
@@ -1169,7 +1306,14 @@ var lists = (function (domGlobals) {
       }
     };
     var appendSegments = function (head$1, tail) {
+<<<<<<< HEAD
       lift2(last(head$1), head(tail), joinSegment);
+=======
+      liftN([
+        last(head$1),
+        head(tail)
+      ], joinSegment);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     };
     var createSegment = function (scope, listType) {
       var segment = {
@@ -1466,7 +1610,14 @@ var lists = (function (domGlobals) {
     };
     var getItemSelection = function (editor) {
       var selectedListItems = map(Selection.getSelectedListItems(editor), Element.fromDom);
+<<<<<<< HEAD
       return lift2(find(selectedListItems, not(hasFirstChildList)), find(reverse(selectedListItems), not(hasFirstChildList)), function (start, end) {
+=======
+      return liftN([
+        find(selectedListItems, not(hasFirstChildList)),
+        find(reverse(selectedListItems), not(hasFirstChildList))
+      ], function (start, end) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         return {
           start: start,
           end: end

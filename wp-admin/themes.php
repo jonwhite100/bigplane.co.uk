@@ -7,7 +7,11 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'switch_themes' ) && ! current_user_can( 'edit_theme_options' ) ) {
 	wp_die(
@@ -18,7 +22,11 @@ if ( ! current_user_can( 'switch_themes' ) && ! current_user_can( 'edit_theme_op
 }
 
 if ( current_user_can( 'switch_themes' ) && isset( $_GET['action'] ) ) {
+<<<<<<< HEAD
 	if ( 'activate' === $_GET['action'] ) {
+=======
+	if ( 'activate' == $_GET['action'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		check_admin_referer( 'switch-theme_' . $_GET['stylesheet'] );
 		$theme = wp_get_theme( $_GET['stylesheet'] );
 
@@ -53,7 +61,11 @@ if ( current_user_can( 'switch_themes' ) && isset( $_GET['action'] ) ) {
 
 		wp_redirect( admin_url( 'themes.php?resumed=true' ) );
 		exit;
+<<<<<<< HEAD
 	} elseif ( 'delete' === $_GET['action'] ) {
+=======
+	} elseif ( 'delete' == $_GET['action'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		check_admin_referer( 'delete-theme_' . $_GET['stylesheet'] );
 		$theme = wp_get_theme( $_GET['stylesheet'] );
 
@@ -81,6 +93,7 @@ if ( current_user_can( 'switch_themes' ) && isset( $_GET['action'] ) ) {
 			wp_redirect( admin_url( 'themes.php?deleted=true' ) );
 		}
 		exit;
+<<<<<<< HEAD
 	} elseif ( 'enable-auto-update' === $_GET['action'] ) {
 		if ( ! ( current_user_can( 'update_themes' ) && wp_is_auto_update_enabled_for_type( 'theme' ) ) ) {
 			wp_die( __( 'Sorry, you are not allowed to enable themes automatic updates.' ) );
@@ -120,13 +133,19 @@ if ( current_user_can( 'switch_themes' ) && isset( $_GET['action'] ) ) {
 		wp_redirect( admin_url( 'themes.php?disabled-auto-update=true' ) );
 
 		exit;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 }
 
 $title       = __( 'Manage Themes' );
 $parent_file = 'themes.php';
 
+<<<<<<< HEAD
 // Help tab: Overview.
+=======
+// Help tab: Overview
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( current_user_can( 'switch_themes' ) ) {
 	$help_overview = '<p>' . __( 'This screen is used for managing your installed themes. Aside from the default theme(s) included with your WordPress installation, themes are designed and developed by third parties.' ) . '</p>' .
 		'<p>' . __( 'From this screen you can:' ) . '</p>' .
@@ -143,9 +162,15 @@ if ( current_user_can( 'switch_themes' ) ) {
 			'content' => $help_overview,
 		)
 	);
+<<<<<<< HEAD
 } // End if 'switch_themes'.
 
 // Help tab: Adding Themes.
+=======
+} // switch_themes
+
+// Help tab: Adding Themes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( current_user_can( 'install_themes' ) ) {
 	if ( is_multisite() ) {
 		$help_install = '<p>' . __( 'Installing themes on Multisite can only be done from the Network Admin section.' ) . '</p>';
@@ -164,9 +189,15 @@ if ( current_user_can( 'install_themes' ) ) {
 			'content' => $help_install,
 		)
 	);
+<<<<<<< HEAD
 } // End if 'install_themes'.
 
 // Help tab: Previewing and Customizing.
+=======
+} // install_themes
+
+// Help tab: Previewing and Customizing
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
 	$help_customize =
 		'<p>' . __( 'Tap or hover on any theme then click the Live Preview button to see a live preview of that theme and change theme options in a separate, full-screen view. You can also find a Live Preview button at the bottom of the theme details screen. Any installed theme can be previewed and customized in this way.' ) . '</p>' .
@@ -180,6 +211,7 @@ if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' )
 			'content' => $help_customize,
 		)
 	);
+<<<<<<< HEAD
 } // End if 'edit_theme_options' && 'customize'.
 
 $help_sidebar_autoupdates = '';
@@ -200,11 +232,17 @@ if ( current_user_can( 'update_themes' ) && wp_is_auto_update_enabled_for_type( 
 
 	$help_sidebar_autoupdates = '<p>' . __( '<a href="https://wordpress.org/support/article/plugins-themes-auto-updates/">Learn more: Auto-updates documentation</a>' ) . '</p>';
 } // End if 'update_themes' && 'wp_is_auto_update_enabled_for_type'.
+=======
+} // edit_theme_options && customize
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 get_current_screen()->set_help_sidebar(
 	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
 	'<p>' . __( '<a href="https://wordpress.org/support/article/using-themes/">Documentation on Using Themes</a>' ) . '</p>' .
+<<<<<<< HEAD
 	$help_sidebar_autoupdates .
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	'<p>' . __( '<a href="https://wordpress.org/support/">Support</a>' ) . '</p>'
 );
 
@@ -229,7 +267,11 @@ wp_localize_script(
 		'l10n'     => array(
 			'addNew'            => __( 'Add New Theme' ),
 			'search'            => __( 'Search Installed Themes' ),
+<<<<<<< HEAD
 			'searchPlaceholder' => __( 'Search installed themes...' ), // Placeholder (no ellipsis).
+=======
+			'searchPlaceholder' => __( 'Search installed themes...' ), // placeholder (no ellipsis)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			/* translators: %d: Number of themes. */
 			'themesFound'       => __( 'Number of Themes found: %d' ),
 			'noThemesFound'     => __( 'No themes found. Try a different search.' ),
@@ -241,7 +283,11 @@ add_thickbox();
 wp_enqueue_script( 'theme' );
 wp_enqueue_script( 'updates' );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 
 <div class="wrap">
@@ -250,7 +296,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	</h1>
 
 	<?php if ( ! is_multisite() && current_user_can( 'install_themes' ) ) : ?>
+<<<<<<< HEAD
 		<a href="<?php echo admin_url( 'theme-install.php' ); ?>" class="hide-if-no-js page-title-action"><?php echo esc_html_x( 'Add New', 'theme' ); ?></a>
+=======
+		<a href="<?php echo admin_url( 'theme-install.php' ); ?>" class="hide-if-no-js page-title-action"><?php echo esc_html_x( 'Add New', 'Add new theme' ); ?></a>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<?php endif; ?>
 
 	<form class="search-form"></form>
@@ -287,6 +337,7 @@ if ( ! validate_current_theme() || isset( $_GET['broken'] ) ) {
 	?>
 	<div id="message6" class="error"><p><?php _e( 'Theme could not be resumed because it triggered a <strong>fatal error</strong>.' ); ?></p></div>
 	<?php
+<<<<<<< HEAD
 } elseif ( isset( $_GET['enabled-auto-update'] ) ) {
 	?>
 	<div id="message7" class="updated notice is-dismissible"><p><?php _e( 'Theme will be auto-updated.' ); ?></p></div>
@@ -295,17 +346,27 @@ if ( ! validate_current_theme() || isset( $_GET['broken'] ) ) {
 	?>
 	<div id="message8" class="updated notice is-dismissible"><p><?php _e( 'Theme will no longer be auto-updated.' ); ?></p></div>
 	<?php
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 $ct = wp_get_theme();
 
 if ( $ct->errors() && ( ! is_multisite() || current_user_can( 'manage_network_themes' ) ) ) {
+<<<<<<< HEAD
 	echo '<div class="error"><p>' . __( 'Error:' ) . ' ' . $ct->errors()->get_error_message() . '</p></div>';
+=======
+	echo '<div class="error"><p>' . __( 'ERROR:' ) . ' ' . $ct->errors()->get_error_message() . '</p></div>';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /*
 // Certain error codes are less fatal than others. We can still display theme information in most cases.
+<<<<<<< HEAD
 if ( ! $ct->errors() || ( 1 === count( $ct->errors()->get_error_codes() )
+=======
+if ( ! $ct->errors() || ( 1 == count( $ct->errors()->get_error_codes() )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	&& in_array( $ct->errors()->get_error_code(), array( 'theme_no_parent', 'theme_parent_invalid', 'theme_no_index' ) ) ) ) : ?>
 */
 
@@ -314,10 +375,17 @@ if ( ! $ct->errors() || ( 1 === count( $ct->errors()->get_error_codes() )
 if ( is_array( $submenu ) && isset( $submenu['themes.php'] ) ) {
 	foreach ( (array) $submenu['themes.php'] as $item ) {
 		$class = '';
+<<<<<<< HEAD
 		if ( 'themes.php' === $item[2] || 'theme-editor.php' === $item[2] || 0 === strpos( $item[2], 'customize.php' ) ) {
 			continue;
 		}
 		// 0 = name, 1 = capability, 2 = file.
+=======
+		if ( 'themes.php' == $item[2] || 'theme-editor.php' == $item[2] || 0 === strpos( $item[2], 'customize.php' ) ) {
+			continue;
+		}
+		// 0 = name, 1 = capability, 2 = file
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ( strcmp( $self, $item[2] ) == 0 && empty( $parent_file ) ) || ( $parent_file && ( $item[2] == $parent_file ) ) ) {
 			$class = ' current';
 		}
@@ -389,6 +457,7 @@ foreach ( $themes as $theme ) :
 	<?php } ?>
 
 	<?php if ( $theme['hasUpdate'] ) : ?>
+<<<<<<< HEAD
 		<?php if ( $theme['updateResponse']['compatibleWP'] && $theme['updateResponse']['compatiblePHP'] ) : ?>
 			<div class="update-message notice inline notice-warning notice-alt"><p>
 				<?php if ( $theme['hasPackage'] ) : ?>
@@ -512,6 +581,17 @@ foreach ( $themes as $theme ) :
 	}
 	?>
 
+=======
+		<div class="update-message notice inline notice-warning notice-alt">
+		<?php if ( $theme['hasPackage'] ) : ?>
+			<p><?php _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?></p>
+		<?php else : ?>
+			<p><?php _e( 'New version available.' ); ?></p>
+		<?php endif; ?>
+		</div>
+	<?php endif; ?>
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<span class="more-details" id="<?php echo $aria_action; ?>"><?php _e( 'Theme Details' ); ?></span>
 	<div class="theme-author">
 		<?php
@@ -523,7 +603,14 @@ foreach ( $themes as $theme ) :
 	<div class="theme-id-container">
 		<?php if ( $theme['active'] ) { ?>
 			<h2 class="theme-name" id="<?php echo $aria_name; ?>">
+<<<<<<< HEAD
 				<span><?php _ex( 'Active:', 'theme' ); ?></span> <?php echo $theme['name']; ?>
+=======
+				<?php
+				/* translators: %s: Theme name. */
+				printf( __( '<span>Active:</span> %s' ), $theme['name'] );
+				?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			</h2>
 		<?php } else { ?>
 			<h2 class="theme-name" id="<?php echo $aria_name; ?>"><?php echo $theme['name']; ?></h2>
@@ -534,7 +621,11 @@ foreach ( $themes as $theme ) :
 			<?php if ( $theme['actions']['customize'] && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
 				<a class="button button-primary customize load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Customize' ); ?></a>
 			<?php } ?>
+<<<<<<< HEAD
 		<?php } elseif ( $theme['compatibleWP'] && $theme['compatiblePHP'] ) { ?>
+=======
+		<?php } else { ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<?php
 			/* translators: %s: Theme name. */
 			$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
@@ -543,6 +634,7 @@ foreach ( $themes as $theme ) :
 			<?php if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
 				<a class="button button-primary load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Live Preview' ); ?></a>
 			<?php } ?>
+<<<<<<< HEAD
 		<?php } else { ?>
 			<?php
 			/* translators: %s: Theme name. */
@@ -552,6 +644,8 @@ foreach ( $themes as $theme ) :
 			<?php if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
 				<a class="button button-primary hide-if-no-customize disabled"><?php _e( 'Live Preview' ); ?></a>
 			<?php } ?>
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		<?php } ?>
 
 		</div>
@@ -567,7 +661,11 @@ foreach ( $themes as $theme ) :
 <?php
 // List broken themes, if any.
 $broken_themes = wp_get_themes( array( 'errors' => true ) );
+<<<<<<< HEAD
 if ( ! is_multisite() && $broken_themes ) {
+=======
+if ( ! is_multisite() && current_user_can( 'edit_themes' ) && $broken_themes ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	?>
 
 <div class="broken-themes">
@@ -595,7 +693,11 @@ if ( ! is_multisite() && $broken_themes ) {
 	</tr>
 	<?php foreach ( $broken_themes as $broken_theme ) : ?>
 		<tr>
+<<<<<<< HEAD
 			<td><?php echo $broken_theme->get( 'Name' ) ? $broken_theme->display( 'Name' ) : esc_html( $broken_theme->get_stylesheet() ); ?></td>
+=======
+			<td><?php echo $broken_theme->get( 'Name' ) ? $broken_theme->display( 'Name' ) : $broken_theme->get_stylesheet(); ?></td>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<td><?php echo $broken_theme->errors()->get_error_message(); ?></td>
 			<?php
 			if ( $can_resume ) {
@@ -664,6 +766,7 @@ if ( ! is_multisite() && $broken_themes ) {
 </div><!-- .wrap -->
 
 <?php
+<<<<<<< HEAD
 
 /**
  * Returns the JavaScript template used to display the auto-update setting for a theme.
@@ -714,6 +817,8 @@ function wp_theme_auto_update_setting_template() {
 	return apply_filters( 'theme_auto_update_setting_template', $template );
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /*
  * The tmpl-theme template is synchronized with PHP above!
  */
@@ -728,6 +833,7 @@ function wp_theme_auto_update_setting_template() {
 	<# } #>
 
 	<# if ( data.hasUpdate ) { #>
+<<<<<<< HEAD
 		<# if ( data.updateResponse.compatibleWP && data.updateResponse.compatiblePHP ) { #>
 			<div class="update-message notice inline notice-warning notice-alt"><p>
 				<# if ( data.hasPackage ) { #>
@@ -859,6 +965,15 @@ function wp_theme_auto_update_setting_template() {
 		</p></div>
 	<# } #>
 
+=======
+		<# if ( data.hasPackage ) { #>
+			<div class="update-message notice inline notice-warning notice-alt"><p><?php _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?></p></div>
+		<# } else { #>
+			<div class="update-message notice inline notice-warning notice-alt"><p><?php _e( 'New version available.' ); ?></p></div>
+		<# } #>
+	<# } #>
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<span class="more-details" id="{{ data.id }}-action"><?php _e( 'Theme Details' ); ?></span>
 	<div class="theme-author">
 		<?php
@@ -870,7 +985,14 @@ function wp_theme_auto_update_setting_template() {
 	<div class="theme-id-container">
 		<# if ( data.active ) { #>
 			<h2 class="theme-name" id="{{ data.id }}-name">
+<<<<<<< HEAD
 				<span><?php _ex( 'Active:', 'theme' ); ?></span> {{{ data.name }}}
+=======
+				<?php
+				/* translators: %s: Theme name. */
+				printf( __( '<span>Active:</span> %s' ), '{{{ data.name }}}' );
+				?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			</h2>
 		<# } else { #>
 			<h2 class="theme-name" id="{{ data.id }}-name">{{{ data.name }}}</h2>
@@ -882,6 +1004,7 @@ function wp_theme_auto_update_setting_template() {
 					<a class="button button-primary customize load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Customize' ); ?></a>
 				<# } #>
 			<# } else { #>
+<<<<<<< HEAD
 				<# if ( data.compatibleWP && data.compatiblePHP ) { #>
 					<?php
 					/* translators: %s: Theme name. */
@@ -897,6 +1020,14 @@ function wp_theme_auto_update_setting_template() {
 					<a class="button disabled" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
 					<a class="button button-primary hide-if-no-customize disabled"><?php _e( 'Live Preview' ); ?></a>
 				<# } #>
+=======
+				<?php
+				/* translators: %s: Theme name. */
+				$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
+				?>
+				<a class="button activate" href="{{{ data.actions.activate }}}" aria-label="<?php echo $aria_label; ?>"><?php _e( 'Activate' ); ?></a>
+				<a class="button button-primary load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Live Preview' ); ?></a>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<# } #>
 		</div>
 	</div>
@@ -936,6 +1067,7 @@ function wp_theme_auto_update_setting_template() {
 					?>
 				</p>
 
+<<<<<<< HEAD
 				<# if ( ! data.compatibleWP || ! data.compatiblePHP ) { #>
 					<div class="notice notice-error notice-alt notice-large"><p>
 						<# if ( ! data.compatibleWP && ! data.compatiblePHP ) { #>
@@ -1072,6 +1204,14 @@ function wp_theme_auto_update_setting_template() {
 					<?php echo wp_theme_auto_update_setting_template(); ?>
 				<# } #>
 
+=======
+				<# if ( data.hasUpdate ) { #>
+				<div class="notice notice-warning notice-alt notice-large">
+					<h3 class="notice-title"><?php _e( 'Update Available' ); ?></h3>
+					{{{ data.update }}}
+				</div>
+				<# } #>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				<p class="theme-description">{{{ data.description }}}</p>
 
 				<# if ( data.parent ) { #>
@@ -1095,6 +1235,7 @@ function wp_theme_auto_update_setting_template() {
 				<?php echo implode( ' ', $current_theme_actions ); ?>
 			</div>
 			<div class="inactive-theme">
+<<<<<<< HEAD
 				<# if ( data.compatibleWP && data.compatiblePHP ) { #>
 					<?php
 					/* translators: %s: Theme name. */
@@ -1114,6 +1255,16 @@ function wp_theme_auto_update_setting_template() {
 					<# } #>
 					<a class="button button-primary hide-if-no-customize disabled"><?php _e( 'Live Preview' ); ?></a>
 				<# } #>
+=======
+				<?php
+				/* translators: %s: Theme name. */
+				$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
+				?>
+				<# if ( data.actions.activate ) { #>
+					<a href="{{{ data.actions.activate }}}" class="button activate" aria-label="<?php echo $aria_label; ?>"><?php _e( 'Activate' ); ?></a>
+				<# } #>
+				<a href="{{{ data.actions.customize }}}" class="button button-primary load-customize hide-if-no-customize"><?php _e( 'Live Preview' ); ?></a>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			</div>
 
 			<# if ( ! data.active && data.actions['delete'] ) { #>
@@ -1136,4 +1287,8 @@ wp_localize_script(
 	)
 );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+require( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

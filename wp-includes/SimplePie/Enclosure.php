@@ -5,7 +5,11 @@
  * A PHP-Based RSS and Atom Feed Framework.
  * Takes the hard work out of managing a complete RSS/Atom solution.
  *
+<<<<<<< HEAD
  * Copyright (c) 2004-2016, Ryan Parman, Sam Sneddon, Ryan McCue, and contributors
+=======
+ * Copyright (c) 2004-2012, Ryan Parman, Geoffrey Sneddon, Ryan McCue, and contributors
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are
@@ -33,9 +37,16 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @package SimplePie
+<<<<<<< HEAD
  * @copyright 2004-2016 Ryan Parman, Sam Sneddon, Ryan McCue
  * @author Ryan Parman
  * @author Sam Sneddon
+=======
+ * @version 1.3.1
+ * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
+ * @author Ryan Parman
+ * @author Geoffrey Sneddon
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
@@ -282,8 +293,15 @@ class SimplePie_Enclosure
 		{
 			return $this->bitrate;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -299,8 +317,15 @@ class SimplePie_Enclosure
 		{
 			return $captions[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -314,8 +339,15 @@ class SimplePie_Enclosure
 		{
 			return $this->captions;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -331,8 +363,15 @@ class SimplePie_Enclosure
 		{
 			return $categories[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -346,8 +385,15 @@ class SimplePie_Enclosure
 		{
 			return $this->categories;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -361,8 +407,15 @@ class SimplePie_Enclosure
 		{
 			return $this->channels;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -376,8 +429,15 @@ class SimplePie_Enclosure
 		{
 			return $this->copyright;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -393,8 +453,15 @@ class SimplePie_Enclosure
 		{
 			return $credits[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -408,8 +475,15 @@ class SimplePie_Enclosure
 		{
 			return $this->credits;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -423,14 +497,25 @@ class SimplePie_Enclosure
 		{
 			return $this->description;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
 	 * Get the duration of the enclosure
 	 *
+<<<<<<< HEAD
 	 * @param bool $convert Convert seconds into hh:mm:ss
+=======
+	 * @param string $convert Convert seconds into hh:mm:ss
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return string|int|null 'hh:mm:ss' string if `$convert` was specified, otherwise integer (or null if none found)
 	 */
 	public function get_duration($convert = false)
@@ -442,11 +527,23 @@ class SimplePie_Enclosure
 				$time = SimplePie_Misc::time_hms($this->duration);
 				return $time;
 			}
+<<<<<<< HEAD
 
 			return $this->duration;
 		}
 
 		return null;
+=======
+			else
+			{
+				return $this->duration;
+			}
+		}
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -460,8 +557,15 @@ class SimplePie_Enclosure
 		{
 			return $this->expression;
 		}
+<<<<<<< HEAD
 
 		return 'full';
+=======
+		else
+		{
+			return 'full';
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -493,8 +597,15 @@ class SimplePie_Enclosure
 		{
 			return $this->framerate;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -521,8 +632,15 @@ class SimplePie_Enclosure
 		{
 			return $hashes[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -536,8 +654,15 @@ class SimplePie_Enclosure
 		{
 			return $this->hashes;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -551,8 +676,15 @@ class SimplePie_Enclosure
 		{
 			return $this->height;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -567,8 +699,15 @@ class SimplePie_Enclosure
 		{
 			return $this->lang;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -584,8 +723,15 @@ class SimplePie_Enclosure
 		{
 			return $keywords[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -599,8 +745,15 @@ class SimplePie_Enclosure
 		{
 			return $this->keywords;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -614,8 +767,15 @@ class SimplePie_Enclosure
 		{
 			return $this->length;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -629,8 +789,15 @@ class SimplePie_Enclosure
 		{
 			return urldecode($this->link);
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -645,8 +812,15 @@ class SimplePie_Enclosure
 		{
 			return $this->medium;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -661,8 +835,15 @@ class SimplePie_Enclosure
 		{
 			return $this->player;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -678,8 +859,15 @@ class SimplePie_Enclosure
 		{
 			return $ratings[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -693,8 +881,15 @@ class SimplePie_Enclosure
 		{
 			return $this->ratings;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -710,8 +905,15 @@ class SimplePie_Enclosure
 		{
 			return $restrictions[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -725,8 +927,15 @@ class SimplePie_Enclosure
 		{
 			return $this->restrictions;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -740,8 +949,15 @@ class SimplePie_Enclosure
 		{
 			return $this->samplingrate;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -756,8 +972,15 @@ class SimplePie_Enclosure
 		{
 			return round($length/1048576, 2);
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -773,8 +996,15 @@ class SimplePie_Enclosure
 		{
 			return $thumbnails[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -788,8 +1018,15 @@ class SimplePie_Enclosure
 		{
 			return $this->thumbnails;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -803,8 +1040,15 @@ class SimplePie_Enclosure
 		{
 			return $this->title;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -819,8 +1063,15 @@ class SimplePie_Enclosure
 		{
 			return $this->type;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -834,8 +1085,15 @@ class SimplePie_Enclosure
 		{
 			return $this->width;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -871,7 +1129,11 @@ class SimplePie_Enclosure
 	 * - `height` (integer): The height of the embedded media. Accepts any
 	 *    numeric pixel value (such as `360`) or `auto`. Defaults to `auto`,
 	 *    and it is recommended that you use this default.
+<<<<<<< HEAD
 	 * - `loop` (boolean): Do you want the media to loop when it's done?
+=======
+	 * - `loop` (boolean): Do you want the media to loop when its done?
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *    Defaults to `false`.
 	 * - `mediaplayer` (string): The location of the included
 	 *    `mediaplayer.swf` file. This allows for the playback of Flash Video
@@ -1295,6 +1557,7 @@ class SimplePie_Enclosure
 			{
 				return 'mp3';
 			}
+<<<<<<< HEAD
 
 			return null;
 		}
@@ -1302,3 +1565,17 @@ class SimplePie_Enclosure
 		return $type;
 	}
 }
+=======
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return $type;
+		}
+	}
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

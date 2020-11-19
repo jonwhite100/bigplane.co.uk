@@ -20,7 +20,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
+<<<<<<< HEAD
     <!-- <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script> -->
+=======
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<!-- favicon local
 	<link rel="apple-touch-icon" sizes="180x180" href="/bigplanemedia.com/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/bigplanemedia.com/favicon-32x32.png">
@@ -32,7 +36,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<link rel="manifest" href="/site.webmanifest">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 </head>
 
 <body <?php body_class(); ?>>

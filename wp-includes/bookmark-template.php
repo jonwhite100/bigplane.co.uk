@@ -22,7 +22,11 @@
  * @since 2.1.0
  * @access private
  *
+<<<<<<< HEAD
  * @param array        $bookmarks List of bookmarks to traverse.
+=======
+ * @param array $bookmarks List of bookmarks to traverse.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string|array $args {
  *     Optional. Bookmarks arguments.
  *
@@ -83,7 +87,11 @@ function _walk_bookmarks( $bookmarks, $args = '' ) {
 		$title = $desc;
 
 		if ( $parsed_args['show_updated'] ) {
+<<<<<<< HEAD
 			if ( '00' !== substr( $bookmark->link_updated_f, 0, 2 ) ) {
+=======
+			if ( '00' != substr( $bookmark->link_updated_f, 0, 2 ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$title .= ' (';
 				$title .= sprintf(
 					/* translators: %s: Date and time of last update. */
@@ -98,6 +106,7 @@ function _walk_bookmarks( $bookmarks, $args = '' ) {
 		}
 		$alt = ' alt="' . $name . ( $parsed_args['show_description'] ? ' ' . $title : '' ) . '"';
 
+<<<<<<< HEAD
 		if ( '' !== $title ) {
 			$title = ' title="' . $title . '"';
 		}
@@ -107,16 +116,34 @@ function _walk_bookmarks( $bookmarks, $args = '' ) {
 		}
 		$target = $bookmark->link_target;
 		if ( '' !== $target ) {
+=======
+		if ( '' != $title ) {
+			$title = ' title="' . $title . '"';
+		}
+		$rel = $bookmark->link_rel;
+		if ( '' != $rel ) {
+			$rel = ' rel="' . esc_attr( $rel ) . '"';
+		}
+		$target = $bookmark->link_target;
+		if ( '' != $target ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$target = ' target="' . $target . '"';
 		}
 		$output .= '<a href="' . $the_link . '"' . $rel . $title . $target . '>';
 
 		$output .= $parsed_args['link_before'];
 
+<<<<<<< HEAD
 		if ( null != $bookmark->link_image && $parsed_args['show_images'] ) {
 			if ( strpos( $bookmark->link_image, 'http' ) === 0 ) {
 				$output .= "<img src=\"$bookmark->link_image\" $alt $title />";
 			} else { // If it's a relative path.
+=======
+		if ( $bookmark->link_image != null && $parsed_args['show_images'] ) {
+			if ( strpos( $bookmark->link_image, 'http' ) === 0 ) {
+				$output .= "<img src=\"$bookmark->link_image\" $alt $title />";
+			} else { // If it's a relative path
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$output .= '<img src="' . get_option( 'siteurl' ) . "$bookmark->link_image\" $alt $title />";
 			}
 			if ( $parsed_args['show_name'] ) {
@@ -134,7 +161,11 @@ function _walk_bookmarks( $bookmarks, $args = '' ) {
 			$output .= '</em>';
 		}
 
+<<<<<<< HEAD
 		if ( $parsed_args['show_description'] && '' !== $desc ) {
+=======
+		if ( $parsed_args['show_description'] && '' != $desc ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$output .= $parsed_args['between'] . $desc;
 		}
 
@@ -147,7 +178,11 @@ function _walk_bookmarks( $bookmarks, $args = '' ) {
 			);
 		}
 		$output .= $parsed_args['after'] . "\n";
+<<<<<<< HEAD
 	} // End while.
+=======
+	} // end while
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return $output;
 }
@@ -173,7 +208,11 @@ function _walk_bookmarks( $bookmarks, $args = '' ) {
  *                                      Accepts 'ASC' (ascending) or 'DESC' (descending). Default 'ASC'.
  *     @type int      $limit            Amount of bookmarks to display. Accepts 1+ or -1 for all.
  *                                      Default -1.
+<<<<<<< HEAD
  *     @type string   $category         Comma-separated list of category IDs to include links from.
+=======
+ *     @type string   $category         Comma-separated list of category ids to include links from.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *                                      Default empty.
  *     @type string   $category_name    Category to retrieve links for by name. Default empty.
  *     @type int|bool $hide_invisible   Whether to show or hide links marked as 'invisible'. Accepts
@@ -202,7 +241,11 @@ function _walk_bookmarks( $bookmarks, $args = '' ) {
  *                                      $categorize is true. Accepts 'ASC' (ascending) or 'DESC' (descending).
  *                                      Default 'ASC'.
  * }
+<<<<<<< HEAD
  * @return void|string Void if 'echo' argument is true, HTML list of bookmarks if 'echo' is false.
+=======
+ * @return string|void Will only return if echo option is set to not echo. Default is not return anything.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_list_bookmarks( $args = '' ) {
 	$defaults = array(
@@ -254,7 +297,11 @@ function wp_list_bookmarks( $args = '' ) {
 	}
 
 	if ( $parsed_args['categorize'] ) {
+<<<<<<< HEAD
 		// Split the bookmarks into ul's for each category.
+=======
+		// Split the bookmarks into ul's for each category
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( (array) $cats as $cat ) {
 			$params    = array_merge( $parsed_args, array( 'category' => $cat->term_id ) );
 			$bookmarks = get_bookmarks( $params );
@@ -284,7 +331,11 @@ function wp_list_bookmarks( $args = '' ) {
 			$output .= $parsed_args['category_after'] . "\n";
 		}
 	} else {
+<<<<<<< HEAD
 		// Output one single list using title_li for the title.
+=======
+		//output one single list using title_li for the title
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$bookmarks = get_bookmarks( $parsed_args );
 
 		if ( ! empty( $bookmarks ) ) {
@@ -316,9 +367,16 @@ function wp_list_bookmarks( $args = '' ) {
 	 */
 	$html = apply_filters( 'wp_list_bookmarks', $output );
 
+<<<<<<< HEAD
 	if ( $parsed_args['echo'] ) {
 		echo $html;
 	} else {
 		return $html;
 	}
+=======
+	if ( ! $parsed_args['echo'] ) {
+		return $html;
+	}
+	echo $html;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

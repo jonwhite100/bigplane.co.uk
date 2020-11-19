@@ -55,7 +55,11 @@ $theme_field_defaults = array(
  *
  * @since 2.8.0
  *
+<<<<<<< HEAD
  * @deprecated 3.1.0 Use get_theme_feature_list() instead.
+=======
+ * @deprecated since 3.1.0 Use get_theme_feature_list() instead.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @return array
  */
@@ -179,11 +183,19 @@ function install_themes_dashboard() {
  */
 function install_themes_upload() {
 	?>
+<<<<<<< HEAD
 <p class="install-help"><?php _e( 'If you have a theme in a .zip format, you may install or update it by uploading it here.' ); ?></p>
 <form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php echo self_admin_url( 'update.php?action=upload-theme' ); ?>">
 	<?php wp_nonce_field( 'theme-upload' ); ?>
 	<label class="screen-reader-text" for="themezip"><?php _e( 'Theme zip file' ); ?></label>
 	<input type="file" id="themezip" name="themezip" accept=".zip"/>
+=======
+<p class="install-help"><?php _e( 'If you have a theme in a .zip format, you may install it by uploading it here.' ); ?></p>
+<form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php echo self_admin_url( 'update.php?action=upload-theme' ); ?>">
+	<?php wp_nonce_field( 'theme-upload' ); ?>
+	<label class="screen-reader-text" for="themezip"><?php _e( 'Theme zip file' ); ?></label>
+	<input type="file" id="themezip" name="themezip" />
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<?php submit_button( __( 'Install Now' ), '', 'install-theme-submit', false ); ?>
 </form>
 	<?php

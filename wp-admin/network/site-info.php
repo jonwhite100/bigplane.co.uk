@@ -8,7 +8,11 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_sites' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to edit this site.' ) );
@@ -35,7 +39,11 @@ if ( ! can_edit_network( $details->site_id ) ) {
 $parsed_scheme = parse_url( $details->siteurl, PHP_URL_SCHEME );
 $is_main_site  = is_main_site( $id );
 
+<<<<<<< HEAD
 if ( isset( $_REQUEST['action'] ) && 'update-site' === $_REQUEST['action'] ) {
+=======
+if ( isset( $_REQUEST['action'] ) && 'update-site' == $_REQUEST['action'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	check_admin_referer( 'edit-site' );
 
 	switch_to_blog( $id );
@@ -72,9 +80,14 @@ if ( isset( $_REQUEST['action'] ) && 'update-site' === $_REQUEST['action'] ) {
 
 	$existing_details     = get_site( $id );
 	$blog_data_checkboxes = array( 'public', 'archived', 'spam', 'mature', 'deleted' );
+<<<<<<< HEAD
 
 	foreach ( $blog_data_checkboxes as $c ) {
 		if ( ! in_array( (int) $existing_details->$c, array( 0, 1 ), true ) ) {
+=======
+	foreach ( $blog_data_checkboxes as $c ) {
+		if ( ! in_array( $existing_details->$c, array( 0, 1 ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$blog_data[ $c ] = $existing_details->$c;
 		} else {
 			$blog_data[ $c ] = isset( $_POST['blog'][ $c ] ) ? 1 : 0;
@@ -117,7 +130,11 @@ if ( isset( $_REQUEST['action'] ) && 'update-site' === $_REQUEST['action'] ) {
 
 if ( isset( $_GET['update'] ) ) {
 	$messages = array();
+<<<<<<< HEAD
 	if ( 'updated' === $_GET['update'] ) {
+=======
+	if ( 'updated' == $_GET['update'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$messages[] = __( 'Site info updated.' );
 	}
 }
@@ -128,7 +145,11 @@ $title = sprintf( __( 'Edit Site: %s' ), esc_html( $details->blogname ) );
 $parent_file  = 'sites.php';
 $submenu_file = 'sites.php';
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ?>
 
@@ -195,7 +216,11 @@ if ( ! empty( $messages ) ) {
 			<fieldset>
 			<legend class="screen-reader-text"><?php _e( 'Set site attributes' ); ?></legend>
 			<?php foreach ( $attribute_fields as $field_key => $field_label ) : ?>
+<<<<<<< HEAD
 				<label><input type="checkbox" name="blog[<?php echo $field_key; ?>]" value="1" <?php checked( (bool) $details->$field_key, true ); ?> <?php disabled( ! in_array( (int) $details->$field_key, array( 0, 1 ), true ) ); ?> />
+=======
+				<label><input type="checkbox" name="blog[<?php echo $field_key; ?>]" value="1" <?php checked( (bool) $details->$field_key, true ); ?> <?php disabled( ! in_array( $details->$field_key, array( 0, 1 ) ) ); ?> />
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				<?php echo $field_label; ?></label><br/>
 			<?php endforeach; ?>
 			<fieldset>
@@ -207,4 +232,8 @@ if ( ! empty( $messages ) ) {
 
 </div>
 <?php
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+require( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

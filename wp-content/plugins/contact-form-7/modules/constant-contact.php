@@ -316,10 +316,14 @@ class WPCF7_ConstantContact extends WPCF7_Service_OAuth2 {
 
 	public function email_exists( $email ) {
 		$endpoint = add_query_arg(
+<<<<<<< HEAD
 			array(
 				'email' => $email,
 				'status' => 'all',
 			),
+=======
+			array( 'email' => $email ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'https://api.cc.email/v3/contacts'
 		);
 
@@ -466,7 +470,11 @@ class WPCF7_ConstantContact extends WPCF7_Service_OAuth2 {
 			case 'failed':
 				echo sprintf(
 					'<div class="error notice notice-error is-dismissible"><p><strong>%1$s</strong>: %2$s</p></div>',
+<<<<<<< HEAD
 					esc_html( __( "Error", 'contact-form-7' ) ),
+=======
+					esc_html( __( "ERROR", 'contact-form-7' ) ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					esc_html( __( "Failed to establish connection. Please double-check your configuration.", 'contact-form-7' ) )
 				);
 				break;
@@ -887,10 +895,16 @@ class WPCF7_ConstantContact_ContactPostRequest {
 	public function add_phone_number( $phone_number, $kind = 'home' ) {
 		$phone_number = trim( $phone_number );
 
+<<<<<<< HEAD
 		if ( empty( $phone_number )
 		or ! wpcf7_is_tel( $phone_number )
 		or 25 < $this->strlen( $phone_number )
 		or 2 <= count( $this->phone_numbers )
+=======
+		if ( 2 <= count( $this->phone_numbers )
+		or ! wpcf7_is_tel( $phone_number )
+		or 25 < $this->strlen( $phone_number )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		or ! in_array( $kind, array( 'home', 'work', 'other' ) ) ) {
 			return false;
 		}

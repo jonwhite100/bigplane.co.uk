@@ -5,7 +5,11 @@
  * A PHP-Based RSS and Atom Feed Framework.
  * Takes the hard work out of managing a complete RSS/Atom solution.
  *
+<<<<<<< HEAD
  * Copyright (c) 2004-2016, Ryan Parman, Sam Sneddon, Ryan McCue, and contributors
+=======
+ * Copyright (c) 2004-2012, Ryan Parman, Geoffrey Sneddon, Ryan McCue, and contributors
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are
@@ -33,9 +37,16 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @package SimplePie
+<<<<<<< HEAD
  * @copyright 2004-2016 Ryan Parman, Sam Sneddon, Ryan McCue
  * @author Ryan Parman
  * @author Sam Sneddon
+=======
+ * @version 1.3.1
+ * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
+ * @author Ryan Parman
+ * @author Geoffrey Sneddon
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
@@ -46,10 +57,17 @@
  *
  * @package SimplePie
  * @subpackage HTTP
+<<<<<<< HEAD
  * @author Sam Sneddon
  * @author Steve Minutillo
  * @author Ryan McCue
  * @copyright 2007-2012 Sam Sneddon, Steve Minutillo, Ryan McCue
+=======
+ * @author Geoffrey Sneddon
+ * @author Steve Minutillo
+ * @author Ryan McCue
+ * @copyright 2007-2012 Geoffrey Sneddon, Steve Minutillo, Ryan McCue
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 class SimplePie_IRI
@@ -211,8 +229,15 @@ class SimplePie_IRI
 		{
 			return $this->normalization[$this->scheme][$name];
 		}
+<<<<<<< HEAD
 
 		return $return;
+=======
+		else
+		{
+			return $return;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -223,7 +248,18 @@ class SimplePie_IRI
 	 */
 	public function __isset($name)
 	{
+<<<<<<< HEAD
 		return method_exists($this, 'get_' . $name) || isset($this->$name);
+=======
+		if (method_exists($this, 'get_' . $name) || isset($this->$name))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -250,6 +286,7 @@ class SimplePie_IRI
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Clean up
 	 */
 	public function __destruct() {
@@ -259,6 +296,8 @@ class SimplePie_IRI
 	}
 
 	/**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * Create a new IRI object by resolving a relative IRI
 	 *
 	 * Returns false if $base is not absolute, otherwise an IRI.
@@ -347,8 +386,15 @@ class SimplePie_IRI
 				$target->scheme_normalization();
 				return $target;
 			}
+<<<<<<< HEAD
 
 			return false;
+=======
+			else
+			{
+				return false;
+			}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	}
 
@@ -385,9 +431,17 @@ class SimplePie_IRI
 			}
 			return $match;
 		}
+<<<<<<< HEAD
 
 		// This can occur when a paragraph is accidentally parsed as a URI
 		return false;
+=======
+		else
+		{
+			// This can occur when a paragraph is accidentally parsed as a URI
+			return false;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -763,6 +817,7 @@ class SimplePie_IRI
 	 */
 	public function is_valid()
 	{
+<<<<<<< HEAD
 		if ($this->ipath === '') return true;
 
 		$isauthority = $this->iuserinfo !== null || $this->ihost !== null ||
@@ -777,6 +832,26 @@ class SimplePie_IRI
 		    strpos($this->ipath, ':') !== false &&
 		    strpos($this->ipath, '/', 1) !== false &&
 		    strpos($this->ipath, ':') < strpos($this->ipath, '/', 1)) return false;
+=======
+		$isauthority = $this->iuserinfo !== null || $this->ihost !== null || $this->port !== null;
+		if ($this->ipath !== '' &&
+			(
+				$isauthority && (
+					$this->ipath[0] !== '/' ||
+					substr($this->ipath, 0, 2) === '//'
+				) ||
+				(
+					$this->scheme === null &&
+					!$isauthority &&
+					strpos($this->ipath, ':') !== false &&
+					(strpos($this->ipath, '/') === false ? true : strpos($this->ipath, ':') < strpos($this->ipath, '/'))
+				)
+			)
+		)
+		{
+			return false;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		return true;
 	}
@@ -788,6 +863,7 @@ class SimplePie_IRI
 	 * @param string $iri
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	public function set_iri($iri, $clear_cache = false)
 	{
 		static $cache;
@@ -796,6 +872,11 @@ class SimplePie_IRI
 			$cache = null;
 			return;
 		}
+=======
+	public function set_iri($iri)
+	{
+		static $cache;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if (!$cache)
 		{
 			$cache = array();
@@ -817,6 +898,7 @@ class SimplePie_IRI
 				 $return) = $cache[$iri];
 			return $return;
 		}
+<<<<<<< HEAD
 
 		$parsed = $this->parse_iri((string) $iri);
 		if (!$parsed)
@@ -839,6 +921,32 @@ class SimplePie_IRI
 							 $this->ifragment,
 							 $return);
 		return $return;
+=======
+		else
+		{
+			$parsed = $this->parse_iri((string) $iri);
+			if (!$parsed)
+			{
+				return false;
+			}
+
+			$return = $this->set_scheme($parsed['scheme'])
+				&& $this->set_authority($parsed['authority'])
+				&& $this->set_path($parsed['path'])
+				&& $this->set_query($parsed['query'])
+				&& $this->set_fragment($parsed['fragment']);
+
+			$cache[$iri] = array($this->scheme,
+								 $this->iuserinfo,
+								 $this->ihost,
+								 $this->port,
+								 $this->ipath,
+								 $this->iquery,
+								 $this->ifragment,
+								 $return);
+			return $return;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -873,6 +981,7 @@ class SimplePie_IRI
 	 * @param string $authority
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	public function set_authority($authority, $clear_cache = false)
 	{
 		static $cache;
@@ -881,6 +990,11 @@ class SimplePie_IRI
 			$cache = null;
 			return;
 		}
+=======
+	public function set_authority($authority)
+	{
+		static $cache;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if (!$cache)
 			$cache = array();
 
@@ -900,6 +1014,7 @@ class SimplePie_IRI
 
 			return $return;
 		}
+<<<<<<< HEAD
 
 		$remaining = $authority;
 		if (($iuserinfo_end = strrpos($remaining, '@')) !== false)
@@ -934,6 +1049,44 @@ class SimplePie_IRI
 								   $return);
 
 		return $return;
+=======
+		else
+		{
+			$remaining = $authority;
+			if (($iuserinfo_end = strrpos($remaining, '@')) !== false)
+			{
+				$iuserinfo = substr($remaining, 0, $iuserinfo_end);
+				$remaining = substr($remaining, $iuserinfo_end + 1);
+			}
+			else
+			{
+				$iuserinfo = null;
+			}
+			if (($port_start = strpos($remaining, ':', strpos($remaining, ']'))) !== false)
+			{
+				if (($port = substr($remaining, $port_start + 1)) === false)
+				{
+					$port = null;
+				}
+				$remaining = substr($remaining, 0, $port_start);
+			}
+			else
+			{
+				$port = null;
+			}
+
+			$return = $this->set_userinfo($iuserinfo) &&
+					  $this->set_host($remaining) &&
+					  $this->set_port($port);
+
+			$cache[$authority] = array($this->iuserinfo,
+									   $this->ihost,
+									   $this->port,
+									   $return);
+
+			return $return;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -1033,9 +1186,17 @@ class SimplePie_IRI
 			$this->scheme_normalization();
 			return true;
 		}
+<<<<<<< HEAD
 
 		$this->port = null;
 		return false;
+=======
+		else
+		{
+			$this->port = null;
+			return false;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -1044,6 +1205,7 @@ class SimplePie_IRI
 	 * @param string $ipath
 	 * @return bool
 	 */
+<<<<<<< HEAD
 	public function set_path($ipath, $clear_cache = false)
 	{
 		static $cache;
@@ -1052,6 +1214,11 @@ class SimplePie_IRI
 			$cache = null;
 			return;
 		}
+=======
+	public function set_path($ipath)
+	{
+		static $cache;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if (!$cache)
 		{
 			$cache = array();
@@ -1166,7 +1333,11 @@ class SimplePie_IRI
 		{
 			$iri .= $this->ipath;
 		}
+<<<<<<< HEAD
         elseif (!empty($this->normalization[$this->scheme]['ipath']) && $iauthority !== null && $iauthority !== '')
+=======
+		elseif (!empty($this->normalization[$this->scheme]['ipath']) && $iauthority !== null && $iauthority !== '')
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		{
 			$iri .= $this->normalization[$this->scheme]['ipath'];
 		}
@@ -1210,14 +1381,25 @@ class SimplePie_IRI
 			{
 				$iauthority .= $this->ihost;
 			}
+<<<<<<< HEAD
             if ($this->port !== null && $this->port !== 0)
+=======
+			if ($this->port !== null)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			{
 				$iauthority .= ':' . $this->port;
 			}
 			return $iauthority;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -1230,7 +1412,12 @@ class SimplePie_IRI
 		$iauthority = $this->get_iauthority();
 		if (is_string($iauthority))
 			return $this->to_uri($iauthority);
+<<<<<<< HEAD
 
 		return $iauthority;
+=======
+		else
+			return $iauthority;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 }

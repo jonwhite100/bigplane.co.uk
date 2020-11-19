@@ -96,8 +96,13 @@ class WP_Tax_Query {
 	 *
 	 *     @type string $relation Optional. The MySQL keyword used to join
 	 *                            the clauses of the query. Accepts 'AND', or 'OR'. Default 'AND'.
+<<<<<<< HEAD
 	 *     @type array  ...$0 {
 	 *         An array of first-order clause parameters, or another fully-formed tax query.
+=======
+	 *     @type array {
+	 *         Optional. An array of first-order clause parameters, or another fully-formed tax query.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 *         @type string           $taxonomy         Taxonomy being queried. Optional when field=term_taxonomy_id.
 	 *         @type string|int|array $terms            Term or terms to filter by.
@@ -400,7 +405,11 @@ class WP_Tax_Query {
 		$terms    = $clause['terms'];
 		$operator = strtoupper( $clause['operator'] );
 
+<<<<<<< HEAD
 		if ( 'IN' === $operator ) {
+=======
+		if ( 'IN' == $operator ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			if ( empty( $terms ) ) {
 				return self::$no_results;
@@ -430,7 +439,11 @@ class WP_Tax_Query {
 
 			$where = "$alias.term_taxonomy_id $operator ($terms)";
 
+<<<<<<< HEAD
 		} elseif ( 'NOT IN' === $operator ) {
+=======
+		} elseif ( 'NOT IN' == $operator ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			if ( empty( $terms ) ) {
 				return $sql;
@@ -444,7 +457,11 @@ class WP_Tax_Query {
 				WHERE term_taxonomy_id IN ($terms)
 			)";
 
+<<<<<<< HEAD
 		} elseif ( 'AND' === $operator ) {
+=======
+		} elseif ( 'AND' == $operator ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			if ( empty( $terms ) ) {
 				return $sql;
@@ -497,14 +514,23 @@ class WP_Tax_Query {
 	 *
 	 * @since 4.1.0
 	 *
+<<<<<<< HEAD
 	 * @param array $clause       Query clause.
 	 * @param array $parent_query Parent query of $clause.
+=======
+	 * @param array       $clause       Query clause.
+	 * @param array       $parent_query Parent query of $clause.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return string|false Table alias if found, otherwise false.
 	 */
 	protected function find_compatible_table_alias( $clause, $parent_query ) {
 		$alias = false;
 
+<<<<<<< HEAD
 		// Sanity check. Only IN queries use the JOIN syntax.
+=======
+		// Sanity check. Only IN queries use the JOIN syntax .
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! isset( $clause['operator'] ) || 'IN' !== $clause['operator'] ) {
 			return $alias;
 		}
@@ -526,7 +552,11 @@ class WP_Tax_Query {
 			}
 
 			// The sibling must both have compatible operator to share its alias.
+<<<<<<< HEAD
 			if ( in_array( strtoupper( $sibling['operator'] ), $compatible_operators, true ) ) {
+=======
+			if ( in_array( strtoupper( $sibling['operator'] ), $compatible_operators ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$alias = $sibling['alias'];
 				break;
 			}
@@ -549,7 +579,11 @@ class WP_Tax_Query {
 				return;
 			}
 
+<<<<<<< HEAD
 			// So long as there are shared terms, 'include_children' requires that a taxonomy is set.
+=======
+			// so long as there are shared terms, include_children requires that a taxonomy is set
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$query['include_children'] = false;
 		} elseif ( ! taxonomy_exists( $query['taxonomy'] ) ) {
 			$query = new WP_Error( 'invalid_taxonomy', __( 'Invalid taxonomy.' ) );
@@ -641,7 +675,11 @@ class WP_Tax_Query {
 			return;
 		}
 
+<<<<<<< HEAD
 		if ( 'AND' === $query['operator'] && count( $term_list ) < count( $query['terms'] ) ) {
+=======
+		if ( 'AND' == $query['operator'] && count( $term_list ) < count( $query['terms'] ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$query = new WP_Error( 'inexistent_terms', __( 'Inexistent terms.' ) );
 			return;
 		}

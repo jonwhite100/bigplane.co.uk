@@ -106,16 +106,24 @@ abstract class WP_Widget_Media extends WP_Widget {
 		}
 		$this->registered = true;
 
+<<<<<<< HEAD
 		// Note that the widgets component in the customizer will also do
 		// the 'admin_print_scripts-widgets.php' action in WP_Customize_Widgets::print_scripts().
+=======
+		// Note that the widgets component in the customizer will also do the 'admin_print_scripts-widgets.php' action in WP_Customize_Widgets::print_scripts().
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		add_action( 'admin_print_scripts-widgets.php', array( $this, 'enqueue_admin_scripts' ) );
 
 		if ( $this->is_preview() ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_preview_scripts' ) );
 		}
 
+<<<<<<< HEAD
 		// Note that the widgets component in the customizer will also do
 		// the 'admin_footer-widgets.php' action in WP_Customize_Widgets::print_footer_scripts().
+=======
+		// Note that the widgets component in the customizer will also do the 'admin_footer-widgets.php' action in WP_Customize_Widgets::print_footer_scripts().
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		add_action( 'admin_footer-widgets.php', array( $this, 'render_control_template_scripts' ) );
 
 		add_filter( 'display_media_states', array( $this, 'display_media_state' ), 10, 2 );
@@ -129,7 +137,10 @@ abstract class WP_Widget_Media extends WP_Widget {
 	 * @see WP_REST_Controller::get_item_schema()
 	 * @see WP_REST_Controller::get_additional_fields()
 	 * @link https://core.trac.wordpress.org/ticket/35574
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return array Schema for properties.
 	 */
 	public function get_instance_schema() {
@@ -276,10 +287,14 @@ abstract class WP_Widget_Media extends WP_Widget {
 			}
 			$value = $new_instance[ $field ];
 
+<<<<<<< HEAD
 			/*
 			 * Workaround for rest_validate_value_from_schema() due to the fact that
 			 * rest_is_boolean( '' ) === false, while rest_is_boolean( '1' ) is true.
 			 */
+=======
+			// Workaround for rest_validate_value_from_schema() due to the fact that rest_is_boolean( '' ) === false, while rest_is_boolean( '1' ) is true.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( 'boolean' === $field_schema['type'] && '' === $value ) {
 				$value = false;
 			}
@@ -326,8 +341,13 @@ abstract class WP_Widget_Media extends WP_Widget {
 	 * @since 4.8.0
 	 *
 	 * @see \WP_Widget_Media::render_control_template_scripts() Where the JS template is located.
+<<<<<<< HEAD
 	 *
 	 * @param array $instance Current settings.
+=======
+	 * @param array $instance Current settings.
+	 * @return void
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	final public function form( $instance ) {
 		$instance_schema = $this->get_instance_schema();

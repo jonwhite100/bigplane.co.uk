@@ -3,7 +3,11 @@
  */
 
 /* global tinymce, wpCookies, autosaveL10n, switchEditors */
+<<<<<<< HEAD
 // Back-compat.
+=======
+// Back-compat
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 window.autosave = function() {
 	return true;
 };
@@ -23,7 +27,11 @@ window.autosave = function() {
 	 *
 	 * @since 3.9.0
 	 *
+<<<<<<< HEAD
 	 * @return {Object}
+=======
+	 * @returns {Object}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * 	{{
 	 * 		getPostData: getPostData,
 	 * 		getCompareString: getCompareString,
@@ -46,7 +54,11 @@ window.autosave = function() {
 		 *
 		 * @param {string} type The type of autosave either local or remote.
 		 *
+<<<<<<< HEAD
 		 * @return {Object} Object containing the post data.
+=======
+		 * @returns {Object} Object containing the post data.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		function getPostData( type ) {
 			var post_name, parent_id, data,
@@ -110,7 +122,11 @@ window.autosave = function() {
 		 *
 		 * @param {Object} postData The object containing the post data.
 		 *
+<<<<<<< HEAD
 		 * @return {string} A concatenated string with title, content and excerpt.
+=======
+		 * @returns {string} A concatenated string with title, content and excerpt.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		function getCompareString( postData ) {
 			if ( typeof postData === 'object' ) {
@@ -125,7 +141,11 @@ window.autosave = function() {
 		 *
 		 * @since 3.9.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		function disableButtons() {
 			$document.trigger('autosave-disable-buttons');
@@ -139,7 +159,11 @@ window.autosave = function() {
 		 *
 		 * @since 3.9.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		function enableButtons() {
 			$document.trigger( 'autosave-enable-buttons' );
@@ -150,8 +174,13 @@ window.autosave = function() {
 		 *
 		 * @since 4.6.0
 		 *
+<<<<<<< HEAD
 		 * @return {boolean|*} Returns either false if the editor is undefined,
 		 *                     or the instance of the content editor.
+=======
+		 * @returns {boolean|*} Returns either false if the editor is undefined,
+		 * 						or the instance of the content editor.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		function getEditor() {
 			return typeof tinymce !== 'undefined' && tinymce.get('content');
@@ -162,7 +191,11 @@ window.autosave = function() {
 		 *
 		 * @since 3.9.0
 		 *
+<<<<<<< HEAD
 		 * @return {
+=======
+		 * @returns {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * {
 		 * 	hasStorage: *,
 		 * 	getSavedPostData: getSavedPostData,
@@ -183,7 +216,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {boolean} True if the sessionStorage is supported and enabled.
+=======
+			 * @returns {boolean} True if the sessionStorage is supported and enabled.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function checkStorage() {
 				var test = Math.random().toString(),
@@ -204,12 +241,21 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {boolean|Object} False if no sessionStorage in the browser or an Object
 			 *                          containing all postData for this blog.
 			 */
 			function getStorage() {
 				var stored_obj = false;
 				// Separate local storage containers for each blog_id.
+=======
+			 * @returns {boolean|Object} False if no sessionStorage in the browser or an Object
+			 *                           containing all postData for this blog.
+			 */
+			function getStorage() {
+				var stored_obj = false;
+				// Separate local storage containers for each blog_id
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( hasStorage && blog_id ) {
 					stored_obj = sessionStorage.getItem( 'wp-autosave-' + blog_id );
 
@@ -229,7 +275,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {boolean} True if the data was saved successfully, false if it wasn't saved.
+=======
+			 * @returns {boolean} True if the data was saved successfully, false if it wasn't saved.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function setStorage( stored_obj ) {
 				var key;
@@ -248,7 +298,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {boolean|Object} False if no storage or no data or the postData as an Object.
+=======
+			 * @returns {boolean|Object} False if no storage or no data or the postData as an Object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function getSavedPostData() {
 				var stored = getStorage();
@@ -269,7 +323,11 @@ window.autosave = function() {
 			 *
 			 * @param {Object|boolean|null} stored_data The post data to store or null/false/empty to delete the key.
 			 *
+<<<<<<< HEAD
 			 * @return {boolean} True if data is stored, false if data was removed.
+=======
+			 * @returns {boolean} True if data is stored, false if data was removed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function setData( stored_data ) {
 				var stored = getStorage();
@@ -294,7 +352,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function suspend() {
 				isSuspended = true;
@@ -305,7 +367,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function resume() {
 				isSuspended = false;
@@ -314,14 +380,22 @@ window.autosave = function() {
 			/**
 			 * Saves post data for the current post.
 			 *
+<<<<<<< HEAD
 			 * Runs on a 15 seconds interval, saves when there are differences in the post title or content.
+=======
+			 * Runs on a 15 sec. interval, saves when there are differences in the post title or content.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 * When the optional data is provided, updates the last saved post data.
 			 *
 			 * @since 3.9.0
 			 *
 			 * @param {Object} data The post data for saving, minimum 'post_title' and 'content'.
 			 *
+<<<<<<< HEAD
 			 * @return {boolean} Returns true when data has been saved, otherwise it returns false.
+=======
+			 * @returns {boolean} Returns true when data has been saved, otherwise it returns false.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function save( data ) {
 				var postData, compareString,
@@ -370,7 +444,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function run() {
 				post_id = $('#post_ID').val() || 0;
@@ -378,11 +456,17 @@ window.autosave = function() {
 				// Check if the local post data is different than the loaded post data.
 				if ( $( '#wp-content-wrap' ).hasClass( 'tmce-active' ) ) {
 
+<<<<<<< HEAD
 					/*
 					 * If TinyMCE loads first, check the post 1.5 seconds after it is ready.
 					 * By this time the content has been loaded in the editor and 'saved' to the textarea.
 					 * This prevents false positives.
 					 */
+=======
+					// If TinyMCE loads first, check the post 1.5 sec. after it is ready.
+					// By this time the content has been loaded in the editor and 'saved' to the textarea.
+					// This prevents false positives.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$document.on( 'tinymce-editor-init.autosave', function() {
 						window.setTimeout( function() {
 							checkPost();
@@ -392,7 +476,11 @@ window.autosave = function() {
 					checkPost();
 				}
 
+<<<<<<< HEAD
 				// Save every 15 seconds.
+=======
+				// Save every 15 sec.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				intervalTimer = window.setInterval( save, 15000 );
 
 				$( 'form#post' ).on( 'submit.autosave-local', function() {
@@ -429,7 +517,11 @@ window.autosave = function() {
 			 *
 			 * @param {string} str1 The first string.
 			 * @param {string} str2 The second string.
+<<<<<<< HEAD
 			 * @return {boolean} True if the strings are the same.
+=======
+			 * @returns {boolean} True if the strings are the same.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function compare( str1, str2 ) {
 				function removeSpaces( string ) {
@@ -447,7 +539,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function checkPost() {
 				var content, post_title, excerpt, $notice,
@@ -458,7 +554,11 @@ window.autosave = function() {
 
 				if ( cookie === post_id + '-saved' ) {
 					wpCookies.remove( 'wp-saving-post' );
+<<<<<<< HEAD
 					// The post was saved properly, remove old data and bail.
+=======
+					// The post was saved properly, remove old data and bail
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					setData( false );
 					return;
 				}
@@ -515,13 +615,21 @@ window.autosave = function() {
 			 *
 			 * @param {Object} postData The object containing all post data.
 			 *
+<<<<<<< HEAD
 			 * @return {boolean} True if the post is restored.
+=======
+			 * @returns {boolean} True if the post is restored.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function restorePost( postData ) {
 				var editor;
 
 				if ( postData ) {
+<<<<<<< HEAD
 					// Set the last saved data.
+=======
+					// Set the last saved data
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					lastCompareString = getCompareString( postData );
 
 					if ( $( '#title' ).val() !== postData.post_title ) {
@@ -536,14 +644,22 @@ window.autosave = function() {
 							postData.content = switchEditors.wpautop( postData.content );
 						}
 
+<<<<<<< HEAD
 						// Make sure there's an undo level in the editor.
+=======
+						// Make sure there's an undo level in the editor
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						editor.undoManager.transact( function() {
 							editor.setContent( postData.content || '' );
 							editor.nodeChanged();
 						});
 					} else {
 
+<<<<<<< HEAD
 						// Make sure the Text editor is selected.
+=======
+						// Make sure the Text editor is selected
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$( '#content-html' ).click();
 						$( '#content' ).focus();
 
@@ -560,11 +676,17 @@ window.autosave = function() {
 
 			blog_id = typeof window.autosaveL10n !== 'undefined' && window.autosaveL10n.blog_id;
 
+<<<<<<< HEAD
 			/*
 			 * Check if the browser supports sessionStorage and it's not disabled,
 			 * then initialize and run checkPost().
 			 * Don't run if the post type supports neither 'editor' (textarea#content) nor 'excerpt'.
 			 */
+=======
+			// Check if the browser supports sessionStorage and it's not disabled,
+			// then initialize and run checkPost().
+			// Don't run if the post type supports neither 'editor' (textarea#content) nor 'excerpt'.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( checkStorage() && blog_id && ( $('#content').length || $('#excerpt').length ) ) {
 				$document.ready( run );
 			}
@@ -583,7 +705,11 @@ window.autosave = function() {
 		 *
 		 * @since 3.9.0
 		 *
+<<<<<<< HEAD
 		 * @return {Object} {
+=======
+		 * @returns {Object} {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * 	{
 		 * 		tempBlockSave: tempBlockSave,
 		 * 		triggerSave: triggerSave,
@@ -604,7 +730,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function tempBlockSave() {
 				_blockSave = true;
@@ -620,7 +750,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function suspend() {
 				isSuspended = true;
@@ -631,7 +765,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function resume() {
 				isSuspended = false;
@@ -644,7 +782,11 @@ window.autosave = function() {
 			 *
 			 * @param {Object} data The post data.
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function response( data ) {
 				_schedule();
@@ -656,7 +798,11 @@ window.autosave = function() {
 				enableButtons();
 
 				if ( data.success ) {
+<<<<<<< HEAD
 					// No longer an auto-draft.
+=======
+					// No longer an auto-draft
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$( '#auto_draft' ).val('');
 				}
 			}
@@ -668,7 +814,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function triggerSave() {
 				nextRun = 0;
@@ -697,12 +847,20 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {Object} Returns the post data.
+=======
+			 * @returns {Object} Returns the post data.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function save() {
 				var postData, compareString;
 
+<<<<<<< HEAD
 				// window.autosave() used for back-compat.
+=======
+				// window.autosave() used for back-compat
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( isSuspended || _blockSave || ! window.autosave() ) {
 					return false;
 				}
@@ -714,12 +872,20 @@ window.autosave = function() {
 				postData = getPostData();
 				compareString = getCompareString( postData );
 
+<<<<<<< HEAD
 				// First check.
+=======
+				// First check
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( typeof lastCompareString === 'undefined' ) {
 					lastCompareString = initialCompareString;
 				}
 
+<<<<<<< HEAD
 				// No change.
+=======
+				// No change
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( compareString === lastCompareString ) {
 					return false;
 				}
@@ -743,7 +909,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			function _schedule() {
 				nextRun = ( new Date() ).getTime() + ( autosaveL10n.autosaveInterval * 1000 ) || 60000;
@@ -754,7 +924,11 @@ window.autosave = function() {
 			 *
 			 * @since 3.9.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			$document.on( 'heartbeat-send.autosave', function( event, data ) {
 				var autosaveData = save();
@@ -769,7 +943,11 @@ window.autosave = function() {
 				 *
 				 * @since 3.9.0
 				 *
+<<<<<<< HEAD
 				 * @return {void}
+=======
+				 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 			}).on( 'heartbeat-tick.autosave', function( event, data ) {
 				if ( data.wp_autosave ) {
@@ -780,7 +958,11 @@ window.autosave = function() {
 				 *
 				 * @since 3.9.0
 				 *
+<<<<<<< HEAD
 				 * @return {void}
+=======
+				 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 			}).on( 'heartbeat-connection-lost.autosave', function( event, error, status ) {
 
@@ -801,7 +983,11 @@ window.autosave = function() {
 				 *
 				 * @since 3.9.0
 				 *
+<<<<<<< HEAD
 				 * @return {void}
+=======
+				 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 			}).on( 'heartbeat-connection-restored.autosave', function() {
 				$('#lost-connection-notice').hide();
@@ -829,7 +1015,11 @@ window.autosave = function() {
 		 *
 		 * @since 3.9.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$document.on( 'tinymce-editor-init.autosave', function( event, editor ) {
 			if ( editor.id === 'content' ) {
@@ -840,7 +1030,11 @@ window.autosave = function() {
 			}
 		}).ready( function() {
 
+<<<<<<< HEAD
 			// Set the initial compare string in case TinyMCE is not used or not loaded first.
+=======
+			// Set the initial compare string in case TinyMCE is not used or not loaded first
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			initialCompareString = getCompareString();
 		});
 

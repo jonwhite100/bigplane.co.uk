@@ -56,22 +56,34 @@
 		}
 
 		if ( isWin8 ) {
+<<<<<<< HEAD
 			/*
 			 * Windows 8+ emoji can be "typed" with the onscreen keyboard.
 			 * That triggers the normal keyboard events, but not the 'input' event.
 			 * Thankfully it sets keyCode 231 when the onscreen keyboard inserts any emoji.
 			 */
+=======
+			// Windows 8+ emoji can be "typed" with the onscreen keyboard.
+			// That triggers the normal keyboard events, but not the 'input' event.
+			// Thankfully it sets keyCode 231 when the onscreen keyboard inserts any emoji.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			editor.on( 'keyup', function( event ) {
 				if ( event.keyCode === 231 ) {
 					parseNode( editor.selection.getNode() );
 				}
 			} );
 		} else if ( ! isWin ) {
+<<<<<<< HEAD
 			/*
 			 * In MacOS inserting emoji doesn't trigger the stanradr keyboard events.
 			 * Thankfully it triggers the 'input' event.
 			 * This works in Android and iOS as well.
 			 */
+=======
+			// In MacOS inserting emoji doesn't trigger the stanradr keyboard events.
+			// Thankfully it triggers the 'input' event.
+			// This works in Android and iOS as well.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			editor.on( 'keydown keyup', function( event ) {
 				typing = ( event.type === 'keydown' );
 			} );

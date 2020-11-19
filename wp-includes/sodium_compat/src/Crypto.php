@@ -778,6 +778,7 @@ abstract class ParagonIE_Sodium_Crypto
     }
 
     /**
+<<<<<<< HEAD
      * Initialize a hashing context for BLAKE2b.
      *
      * @internal Do not use this directly. Use ParagonIE_Sodium_Compat.
@@ -825,6 +826,8 @@ abstract class ParagonIE_Sodium_Crypto
     }
 
     /**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
      * Update a hashing context for BLAKE2b with $message
      *
      * @internal Do not use this directly. Use ParagonIE_Sodium_Compat.
@@ -1233,6 +1236,7 @@ abstract class ParagonIE_Sodium_Crypto
     }
 
     /**
+<<<<<<< HEAD
      * @param string $key
      * @return array<int, string> Returns a state and a header.
      * @throws Exception
@@ -1589,6 +1593,8 @@ abstract class ParagonIE_Sodium_Crypto
     }
 
     /**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
      * Detached Ed25519 signature.
      *
      * @internal Do not use this directly. Use ParagonIE_Sodium_Compat.

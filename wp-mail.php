@@ -8,7 +8,11 @@
  */
 
 /** Make sure that the WordPress bootstrap has run before continuing. */
+<<<<<<< HEAD
 require __DIR__ . '/wp-load.php';
+=======
+require( dirname( __FILE__ ) . '/wp-load.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /** This filter is documented in wp-admin/options.php */
 if ( ! apply_filters( 'enable_post_by_email_configuration', true ) ) {
@@ -29,11 +33,19 @@ if ( 'mail.example.com' === $mailserver_url || empty( $mailserver_url ) ) {
 do_action( 'wp-mail.php' ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
 /** Get the POP3 class with which to access the mailbox. */
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/class-pop3.php';
 
 /** Only check at this interval for new messages. */
 if ( ! defined( 'WP_MAIL_INTERVAL' ) ) {
 	define( 'WP_MAIL_INTERVAL', 5 * MINUTE_IN_SECONDS );
+=======
+require_once( ABSPATH . WPINC . '/class-pop3.php' );
+
+/** Only check at this interval for new messages. */
+if ( ! defined( 'WP_MAIL_INTERVAL' ) ) {
+	define( 'WP_MAIL_INTERVAL', 300 ); // 5 minutes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 $last_checked = get_transient( 'mailserver_last_checked' );
@@ -101,7 +113,11 @@ for ( $i = 1; $i <= $count; $i++ ) {
 				$content_transfer_encoding = explode( ';', $content_transfer_encoding );
 				$content_transfer_encoding = $content_transfer_encoding[0];
 			}
+<<<<<<< HEAD
 			if ( ( 'multipart/alternative' === $content_type ) && ( false !== strpos( $line, 'boundary="' ) ) && ( '' === $boundary ) ) {
+=======
+			if ( ( $content_type == 'multipart/alternative' ) && ( false !== strpos( $line, 'boundary="' ) ) && ( '' == $boundary ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$boundary = trim( $line );
 				$boundary = explode( '"', $boundary );
 				$boundary = $boundary[1];
@@ -109,7 +125,11 @@ for ( $i = 1; $i <= $count; $i++ ) {
 			if ( preg_match( '/Subject: /i', $line ) ) {
 				$subject = trim( $line );
 				$subject = substr( $subject, 9, strlen( $subject ) - 9 );
+<<<<<<< HEAD
 				// Captures any text in the subject before $phone_delim as the subject.
+=======
+				// Captures any text in the subject before $phone_delim as the subject
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( function_exists( 'iconv_mime_decode' ) ) {
 					$subject = iconv_mime_decode( $subject, 2, get_option( 'blog_charset' ) );
 				} else {
@@ -141,6 +161,7 @@ for ( $i = 1; $i <= $count; $i++ ) {
 				}
 			}
 
+<<<<<<< HEAD
 			if ( preg_match( '/Date: /i', $line ) ) { // Of the form '20 Mar 2002 20:32:37 +0100'.
 				$ddate = str_replace( 'Date: ', '', trim( $line ) );
 				// Remove parenthesised timezone string if it exists, as this confuses strtotime().
@@ -148,11 +169,23 @@ for ( $i = 1; $i <= $count; $i++ ) {
 				$ddate_timestamp = strtotime( $ddate );
 				$post_date       = gmdate( 'Y-m-d H:i:s', $ddate_timestamp + $time_difference );
 				$post_date_gmt   = gmdate( 'Y-m-d H:i:s', $ddate_timestamp );
+=======
+			if ( preg_match( '/Date: /i', $line ) ) { // of the form '20 Mar 2002 20:32:37 +0100'
+				$ddate         = str_replace( 'Date: ', '', trim( $line ) );
+				$ddate         = preg_replace( '!\s*\(.+\)\s*$!', '', $ddate ); // remove parenthesised timezone string if it exists, as this confuses strtotime
+				$ddate_U       = strtotime( $ddate );
+				$post_date     = gmdate( 'Y-m-d H:i:s', $ddate_U + $time_difference );
+				$post_date_gmt = gmdate( 'Y-m-d H:i:s', $ddate_U );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 	}
 
+<<<<<<< HEAD
 	// Set $post_status based on $author_found and on author's publish_posts capability.
+=======
+	// Set $post_status based on $author_found and on author's publish_posts capability
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $author_found ) {
 		$user        = new WP_User( $post_author );
 		$post_status = ( $user->has_cap( 'publish_posts' ) ) ? 'publish' : 'pending';
@@ -163,7 +196,11 @@ for ( $i = 1; $i <= $count; $i++ ) {
 
 	$subject = trim( $subject );
 
+<<<<<<< HEAD
 	if ( 'multipart/alternative' === $content_type ) {
+=======
+	if ( $content_type == 'multipart/alternative' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$content = explode( '--' . $boundary, $content );
 		$content = $content[2];
 
@@ -196,7 +233,11 @@ for ( $i = 1; $i <= $count; $i++ ) {
 		$content = iconv( $charset, get_option( 'blog_charset' ), $content );
 	}
 
+<<<<<<< HEAD
 	// Captures any text in the body after $phone_delim as the body.
+=======
+	// Captures any text in the body after $phone_delim as the body
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$content = explode( $phone_delim, $content );
 	$content = empty( $content[1] ) ? $content[0] : $content[1];
 
@@ -213,7 +254,11 @@ for ( $i = 1; $i <= $count; $i++ ) {
 
 	$post_title = xmlrpc_getposttitle( $content );
 
+<<<<<<< HEAD
 	if ( '' === trim( $post_title ) ) {
+=======
+	if ( $post_title == '' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$post_title = $subject;
 	}
 

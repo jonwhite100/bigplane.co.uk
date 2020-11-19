@@ -1,0 +1,66 @@
+.carousel {
+	.jumbotron-carousel & {
+		width: 100%;
+		height: $s-jumbotron-height;
+	}
+}
+
+.carousel-inner {
+    .section-testimonials & {
+        min-height: 10rem;
+    }
+}
+
+.carousel-item {
+	.jumbotron-carousel & {
+		position: relative;
+		width: 100%;
+		height: $s-jumbotron-height;
+	}
+
+    .section-testimonials & {
+        text-align: center;
+
+        i {
+            color: $primary;
+			font-size: $h1-font-size * 1.5;
+        }
+
+        p {
+            width: 66%;
+			margin: 0 auto 1rem;
+        }
+
+        .position {
+            color: $secondary;
+			font-size: $font-size-base * .85;
+        }
+    }
+}
+
+.carousel-indicators {
+    .section-testimonials & {
+        bottom: -30px;
+        margin-bottom: 0;
+    }
+}
+
+.carousel-caption {
+	.jumbotron-carousel & {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+
+		.animated {
+			&.bounce {
+				animation-duration: 5s;
+			}
+		}
+
+		a {
+			color: $white;
+		}
+	}
+}

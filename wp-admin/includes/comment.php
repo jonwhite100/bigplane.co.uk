@@ -21,7 +21,12 @@
  * @param string $comment_author Author of the comment.
  * @param string $comment_date   Date of the comment.
  * @param string $timezone       Timezone. Accepts 'blog' or 'gmt'. Default 'blog'.
+<<<<<<< HEAD
  * @return string|null Comment post ID on success.
+=======
+ *
+ * @return mixed Comment post ID on success.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function comment_exists( $comment_author, $comment_date, $timezone = 'blog' ) {
 	global $wpdb;
@@ -45,10 +50,13 @@ function comment_exists( $comment_author, $comment_date, $timezone = 'blog' ) {
  * Update a comment with values provided in $_POST.
  *
  * @since 2.0.0
+<<<<<<< HEAD
  * @since 5.5.0 A return value was added.
  *
  * @return int|WP_Error The value 1 if the comment was updated, 0 if not updated.
  *                      A WP_Error object on failure.
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function edit_comment() {
 	if ( ! current_user_can( 'edit_comment', (int) $_POST['comment_ID'] ) ) {
@@ -82,6 +90,7 @@ function edit_comment() {
 	}
 
 	if ( ! empty( $_POST['edit_date'] ) ) {
+<<<<<<< HEAD
 		$aa = $_POST['aa'];
 		$mm = $_POST['mm'];
 		$jj = $_POST['jj'];
@@ -97,6 +106,22 @@ function edit_comment() {
 	}
 
 	return wp_update_comment( $_POST, true );
+=======
+		$aa                    = $_POST['aa'];
+		$mm                    = $_POST['mm'];
+		$jj                    = $_POST['jj'];
+		$hh                    = $_POST['hh'];
+		$mn                    = $_POST['mn'];
+		$ss                    = $_POST['ss'];
+		$jj                    = ( $jj > 31 ) ? 31 : $jj;
+		$hh                    = ( $hh > 23 ) ? $hh - 24 : $hh;
+		$mn                    = ( $mn > 59 ) ? $mn - 60 : $mn;
+		$ss                    = ( $ss > 59 ) ? $ss - 60 : $ss;
+		$_POST['comment_date'] = "$aa-$mm-$jj $hh:$mn:$ss";
+	}
+
+	wp_update_comment( $_POST );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -122,7 +147,11 @@ function get_comment_to_edit( $id ) {
 	 *
 	 * @since 2.0.0
 	 *
+<<<<<<< HEAD
 	 * @param string $comment_content Comment content.
+=======
+	 * @param string $comment->comment_content Comment content.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	$comment->comment_content = apply_filters( 'comment_edit_pre', $comment->comment_content );
 
@@ -169,7 +198,11 @@ function get_pending_comments_num( $post_id ) {
 
 	$pending_keyed = array();
 
+<<<<<<< HEAD
 	// Default to zero pending for all posts in request.
+=======
+	// Default to zero pending for all posts in request
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	foreach ( $post_id_array as $id ) {
 		$pending_keyed[ $id ] = 0;
 	}
@@ -184,12 +217,20 @@ function get_pending_comments_num( $post_id ) {
 }
 
 /**
+<<<<<<< HEAD
  * Adds avatars to relevant places in admin.
+=======
+ * Add avatars to relevant places in admin, or try to.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 2.5.0
  *
  * @param string $name User name.
+<<<<<<< HEAD
  * @return string Avatar with the user name.
+=======
+ * @return string Avatar with Admin name.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function floated_admin_avatar( $name ) {
 	$avatar = get_avatar( get_comment(), 32, 'mystery' );
@@ -200,7 +241,11 @@ function floated_admin_avatar( $name ) {
  * @since 2.7.0
  */
 function enqueue_comment_hotkeys_js() {
+<<<<<<< HEAD
 	if ( 'true' === get_user_option( 'comment_shortcuts' ) ) {
+=======
+	if ( 'true' == get_user_option( 'comment_shortcuts' ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		wp_enqueue_script( 'jquery-table-hotkeys' );
 	}
 }
@@ -212,6 +257,10 @@ function enqueue_comment_hotkeys_js() {
  */
 function comment_footer_die( $msg ) {
 	echo "<div class='wrap'><p>$msg</p></div>";
+<<<<<<< HEAD
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+	include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	die;
 }

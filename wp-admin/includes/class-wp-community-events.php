@@ -77,8 +77,11 @@ class WP_Community_Events {
 	 * mitigates possible privacy concerns.
 	 *
 	 * @since 4.8.0
+<<<<<<< HEAD
 	 * @since 5.5.2 Response no longer contains formatted date field. They're added
 	 *              in `wp.communityEvents.populateDynamicEventFields()` now.
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @param string $location_search Optional. City name to help determine the location.
 	 *                                e.g., "Seattle". Default empty string.
@@ -94,8 +97,13 @@ class WP_Community_Events {
 			return $cached_events;
 		}
 
+<<<<<<< HEAD
 		// Include an unmodified $wp_version.
 		require ABSPATH . WPINC . '/version.php';
+=======
+		// include an unmodified $wp_version
+		include( ABSPATH . WPINC . '/version.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$api_url                    = 'http://api.wordpress.org/events/1.0/';
 		$request_args               = $this->get_request_args( $location_search, $timezone );
@@ -116,7 +124,11 @@ class WP_Community_Events {
 			$response_error = new WP_Error(
 				'api-error',
 				/* translators: %d: Numeric HTTP status code, e.g. 400, 403, 500, 504, etc. */
+<<<<<<< HEAD
 				sprintf( __( 'Invalid API response code (%d).' ), $response_code )
+=======
+				sprintf( __( 'Invalid API response code (%d)' ), $response_code )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			);
 		} elseif ( ! isset( $response_body['location'], $response_body['events'] ) ) {
 			$response_error = new WP_Error(
@@ -160,6 +172,7 @@ class WP_Community_Events {
 				$response_body['location']['description'] = $this->user_location['description'];
 			}
 
+<<<<<<< HEAD
 			/*
 			 * Store the raw response, because events will expire before the cache does.
 			 * The response will need to be processed every page load.
@@ -167,6 +180,12 @@ class WP_Community_Events {
 			$this->cache_events( $response_body, $expiration );
 
 			$response_body['events'] = $this->trim_events( $response_body['events'] );
+=======
+			$this->cache_events( $response_body, $expiration );
+
+			$response_body = $this->trim_events( $response_body );
+			$response_body = $this->format_event_data_time( $response_body );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			return $response_body;
 		}
@@ -234,7 +253,11 @@ class WP_Community_Events {
 	 *
 	 * @since 4.8.0
 	 *
+<<<<<<< HEAD
 	 * @return string|false The anonymized address on success; the given address
+=======
+	 * @return false|string The anonymized address on success; the given address
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *                      or false on failure.
 	 */
 	public static function get_unsafe_client_ip() {
@@ -305,7 +328,11 @@ class WP_Community_Events {
 	 *
 	 * @since 4.8.0
 	 *
+<<<<<<< HEAD
 	 * @param array $location Should contain 'latitude' and 'longitude' indexes.
+=======
+	 * @param  array $location Should contain 'latitude' and 'longitude' indexes.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool|string false on failure, or a string on success.
 	 */
 	protected function get_events_transient_key( $location ) {
@@ -345,6 +372,7 @@ class WP_Community_Events {
 	 * Gets cached events.
 	 *
 	 * @since 4.8.0
+<<<<<<< HEAD
 	 * @since 5.5.2 Response no longer contains formatted date field. They're added
 	 *              in `wp.communityEvents.populateDynamicEventFields()` now.
 	 *
@@ -359,6 +387,17 @@ class WP_Community_Events {
 		}
 
 		return $cached_response;
+=======
+	 *
+	 * @return false|array false on failure; an array containing `location`
+	 *                     and `events` items on success.
+	 */
+	public function get_cached_events() {
+		$cached_response = get_site_transient( $this->get_events_transient_key( $this->user_location ) );
+		$cached_response = $this->trim_events( $cached_response );
+
+		return $this->format_event_data_time( $cached_response );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -370,6 +409,7 @@ class WP_Community_Events {
 	 * of the user who triggered the cache refresh, rather than their own.
 	 *
 	 * @since 4.8.0
+<<<<<<< HEAD
 	 * @deprecated 5.6.0 No longer used in core.
 	 *
 	 * @param array $response_body The response which contains the events.
@@ -382,6 +422,13 @@ class WP_Community_Events {
 			'This is no longer used by core, and only kept for backward compatibility.'
 		);
 
+=======
+	 *
+	 * @param  array $response_body The response which contains the events.
+	 * @return array The response with dates and times formatted.
+	 */
+	protected function format_event_data_time( $response_body ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( isset( $response_body['events'] ) ) {
 			foreach ( $response_body['events'] as $key => $event ) {
 				$timestamp = strtotime( $event['date'] );
@@ -392,6 +439,7 @@ class WP_Community_Events {
 				 * so that users can tell at a glance if the event is on a day they
 				 * are available, without having to open the link.
 				 */
+<<<<<<< HEAD
 				/* translators: Date format for upcoming events on the dashboard. Include the day of the week. See https://www.php.net/date */
 				$formatted_date = date_i18n( __( 'l, M j, Y' ), $timestamp );
 				$formatted_time = date_i18n( get_option( 'time_format' ), $timestamp );
@@ -434,6 +482,11 @@ class WP_Community_Events {
 
 				$response_body['events'][ $key ]['formatted_date'] = $formatted_date;
 				$response_body['events'][ $key ]['formatted_time'] = $formatted_time;
+=======
+				/* translators: Date format for upcoming events on the dashboard. Include the day of the week. See https://secure.php.net/date */
+				$response_body['events'][ $key ]['formatted_date'] = date_i18n( __( 'l, M j, Y' ), $timestamp );
+				$response_body['events'][ $key ]['formatted_time'] = date_i18n( get_option( 'time_format' ), $timestamp );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 
@@ -452,6 +505,7 @@ class WP_Community_Events {
 	 *
 	 * @since 4.8.0
 	 * @since 4.9.7 Stick a WordCamp to the final list.
+<<<<<<< HEAD
 	 * @since 5.5.2 Accepts and returns only the events, rather than an entire HTTP response.
 	 *
 	 * @param array $events The events that will be prepared.
@@ -490,6 +544,46 @@ class WP_Community_Events {
 		}
 
 		return $trimmed_events;
+=======
+	 *
+	 * @param  array $response_body The response body which contains the events.
+	 * @return array The response body with events trimmed.
+	 */
+	protected function trim_events( $response_body ) {
+		if ( isset( $response_body['events'] ) ) {
+			$wordcamps = array();
+			$today     = current_time( 'Y-m-d' );
+
+			foreach ( $response_body['events'] as $key => $event ) {
+				/*
+				 * Skip WordCamps, because they might be multi-day events.
+				 * Save a copy so they can be pinned later.
+				 */
+				if ( 'wordcamp' === $event['type'] ) {
+					$wordcamps[] = $event;
+					continue;
+				}
+
+				// We don't get accurate time with timezone from API, so we only take the date part (Y-m-d).
+				$event_date = substr( $event['date'], 0, 10 );
+
+				if ( $today > $event_date ) {
+					unset( $response_body['events'][ $key ] );
+				}
+			}
+
+			$response_body['events'] = array_slice( $response_body['events'], 0, 3 );
+			$trimmed_event_types     = wp_list_pluck( $response_body['events'], 'type' );
+
+			// Make sure the soonest upcoming WordCamp is pinned in the list.
+			if ( ! in_array( 'wordcamp', $trimmed_event_types ) && $wordcamps ) {
+				array_pop( $response_body['events'] );
+				array_push( $response_body['events'], $wordcamps[0] );
+			}
+		}
+
+		return $response_body;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**

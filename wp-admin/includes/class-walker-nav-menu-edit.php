@@ -22,11 +22,19 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 	 *
 	 * @since 3.0.0
 	 *
+<<<<<<< HEAD
 	 * @param string   $output Passed by reference.
 	 * @param int      $depth  Depth of menu item. Used for padding.
 	 * @param stdClass $args   Not used.
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = null ) {}
+=======
+	 * @param string $output Passed by reference.
+	 * @param int    $depth  Depth of menu item. Used for padding.
+	 * @param array  $args   Not used.
+	 */
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Ends the list of after the elements are added.
@@ -35,11 +43,19 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 	 *
 	 * @since 3.0.0
 	 *
+<<<<<<< HEAD
 	 * @param string   $output Passed by reference.
 	 * @param int      $depth  Depth of menu item. Used for padding.
 	 * @param stdClass $args   Not used.
 	 */
 	public function end_lvl( &$output, $depth = 0, $args = null ) {}
+=======
+	 * @param string $output Passed by reference.
+	 * @param int    $depth  Depth of menu item. Used for padding.
+	 * @param array  $args   Not used.
+	 */
+	public function end_lvl( &$output, $depth = 0, $args = array() ) {}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Start the element output.
@@ -49,6 +65,7 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 	 *
 	 * @global int $_wp_nav_menu_max_depth
 	 *
+<<<<<<< HEAD
 	 * @param string   $output Used to append additional content (passed by reference).
 	 * @param WP_Post  $item   Menu item data object.
 	 * @param int      $depth  Depth of menu item. Used for padding.
@@ -56,6 +73,15 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 	 * @param int      $id     Not used.
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+=======
+	 * @param string $output Used to append additional content (passed by reference).
+	 * @param object $item   Menu item data object.
+	 * @param int    $depth  Depth of menu item. Used for padding.
+	 * @param array  $args   Not used.
+	 * @param int    $id     Not used.
+	 */
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		global $_wp_nav_menu_max_depth;
 		$_wp_nav_menu_max_depth = $depth > $_wp_nav_menu_max_depth ? $depth : $_wp_nav_menu_max_depth;
 
@@ -72,17 +98,30 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 
 		$original_title = false;
 
+<<<<<<< HEAD
 		if ( 'taxonomy' === $item->type ) {
 			$original_object = get_term( (int) $item->object_id, $item->object );
 			if ( $original_object && ! is_wp_error( $original_object ) ) {
 				$original_title = $original_object->name;
 			}
 		} elseif ( 'post_type' === $item->type ) {
+=======
+		if ( 'taxonomy' == $item->type ) {
+			$original_object = get_term( (int) $item->object_id, $item->object );
+			if ( $original_object && ! is_wp_error( $original_title ) ) {
+				$original_title = $original_object->name;
+			}
+		} elseif ( 'post_type' == $item->type ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$original_object = get_post( $item->object_id );
 			if ( $original_object ) {
 				$original_title = get_the_title( $original_object->ID );
 			}
+<<<<<<< HEAD
 		} elseif ( 'post_type_archive' === $item->type ) {
+=======
+		} elseif ( 'post_type_archive' == $item->type ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$original_object = get_post_type_object( $item->object );
 			if ( $original_object ) {
 				$original_title = $original_object->labels->archives;
@@ -101,13 +140,21 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 			$classes[] = 'menu-item-invalid';
 			/* translators: %s: Title of an invalid menu item. */
 			$title = sprintf( __( '%s (Invalid)' ), $item->title );
+<<<<<<< HEAD
 		} elseif ( isset( $item->post_status ) && 'draft' === $item->post_status ) {
+=======
+		} elseif ( isset( $item->post_status ) && 'draft' == $item->post_status ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$classes[] = 'pending';
 			/* translators: %s: Title of a menu item in draft status. */
 			$title = sprintf( __( '%s (Pending)' ), $item->title );
 		}
 
+<<<<<<< HEAD
 		$title = ( ! isset( $item->label ) || '' === $item->label ) ? $title : $item->label;
+=======
+		$title = ( ! isset( $item->label ) || '' == $item->label ) ? $title : $item->label;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$submenu_text = '';
 		if ( 0 == $depth ) {
@@ -181,7 +228,11 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 			</div>
 
 			<div class="menu-item-settings wp-clearfix" id="menu-item-settings-<?php echo $item_id; ?>">
+<<<<<<< HEAD
 				<?php if ( 'custom' === $item->type ) : ?>
+=======
+				<?php if ( 'custom' == $item->type ) : ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<p class="field-url description description-wide">
 						<label for="edit-menu-item-url-<?php echo $item_id; ?>">
 							<?php _e( 'URL' ); ?><br />
@@ -227,6 +278,7 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 					</label>
 				</p>
 
+<<<<<<< HEAD
 				<?php
 				/**
 				 * Fires just before the move buttons of a nav menu item in the menu editor.
@@ -242,6 +294,8 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 				do_action( 'wp_nav_menu_item_custom_fields', $item_id, $item, $depth, $args, $id );
 				?>
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				<fieldset class="field-move hide-if-no-js description description-wide">
 					<span class="field-move-visual-label" aria-hidden="true"><?php _e( 'Move' ); ?></span>
 					<button type="button" class="button-link menus-move menus-move-up" data-dir="up"><?php _e( 'Up one' ); ?></button>
@@ -310,4 +364,8 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 		$output .= ob_get_clean();
 	}
 
+<<<<<<< HEAD
 }
+=======
+} // Walker_Nav_Menu_Edit
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

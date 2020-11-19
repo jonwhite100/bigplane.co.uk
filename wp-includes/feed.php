@@ -18,7 +18,10 @@
  * are retrieved for use in the feeds.
  *
  * @since 1.5.1
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @see get_bloginfo() For the list of possible values to display.
  *
  * @param string $show See get_bloginfo() for possible values.
@@ -48,7 +51,10 @@ function get_bloginfo_rss( $show = '' ) {
  * are retrieved for use in the feeds.
  *
  * @since 0.71
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @see get_bloginfo() For the list of possible values to display.
  *
  * @param string $show See get_bloginfo() for possible values.
@@ -87,8 +93,12 @@ function get_default_feed() {
 	 *                          Default 'rss2'.
 	 */
 	$default_feed = apply_filters( 'default_feed', 'rss2' );
+<<<<<<< HEAD
 
 	return ( 'rss' === $default_feed ) ? 'rss2' : $default_feed;
+=======
+	return 'rss' == $default_feed ? 'rss2' : $default_feed;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -163,7 +173,12 @@ function get_the_title_rss() {
 	 *
 	 * @param string $title The current post title.
 	 */
+<<<<<<< HEAD
 	return apply_filters( 'the_title_rss', $title );
+=======
+	$title = apply_filters( 'the_title_rss', $title );
+	return $title;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -179,7 +194,10 @@ function the_title_rss() {
  * Retrieve the post content for feeds.
  *
  * @since 2.9.0
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @see get_the_content()
  *
  * @param string $feed_type The type of feed. rss2 | atom | rss | rdf
@@ -193,7 +211,10 @@ function get_the_content_feed( $feed_type = null ) {
 	/** This filter is documented in wp-includes/post-template.php */
 	$content = apply_filters( 'the_content', get_the_content() );
 	$content = str_replace( ']]>', ']]&gt;', $content );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	/**
 	 * Filters the post content for use in feeds.
 	 *
@@ -254,6 +275,10 @@ function the_permalink_rss() {
  * Outputs the link to the comments for the current post in an xml safe way
  *
  * @since 3.0.0
+<<<<<<< HEAD
+=======
+ * @return none
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function comments_link_feed() {
 	/**
@@ -272,7 +297,11 @@ function comments_link_feed() {
  *
  * @since 2.5.0
  *
+<<<<<<< HEAD
  * @param int|WP_Comment $comment_id Optional comment object or ID. Defaults to global comment object.
+=======
+ * @param int|WP_Comment $comment_id Optional comment object or id. Defaults to global comment object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function comment_guid( $comment_id = null ) {
 	echo esc_url( get_comment_guid( $comment_id ) );
@@ -283,8 +312,13 @@ function comment_guid( $comment_id = null ) {
  *
  * @since 2.5.0
  *
+<<<<<<< HEAD
  * @param int|WP_Comment $comment_id Optional comment object or ID. Defaults to global comment object.
  * @return string|false GUID for comment on success, false on failure.
+=======
+ * @param int|WP_Comment $comment_id Optional comment object or id. Defaults to global comment object.
+ * @return false|string false on failure or guid for comment on success.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_comment_guid( $comment_id = null ) {
 	$comment = get_comment( $comment_id );
@@ -302,7 +336,11 @@ function get_comment_guid( $comment_id = null ) {
  * @since 1.5.0
  * @since 4.4.0 Introduced the `$comment` argument.
  *
+<<<<<<< HEAD
  * @param int|WP_Comment $comment Optional. Comment object or ID. Defaults to global comment object.
+=======
+ * @param int|WP_Comment $comment Optional. Comment object or id. Defaults to global comment object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function comment_link( $comment = null ) {
 	/**
@@ -386,7 +424,11 @@ function get_the_category_rss( $type = null ) {
 	$cat_names  = array();
 
 	$filter = 'rss';
+<<<<<<< HEAD
 	if ( 'atom' === $type ) {
+=======
+	if ( 'atom' == $type ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$filter = 'raw';
 	}
 
@@ -405,9 +447,15 @@ function get_the_category_rss( $type = null ) {
 	$cat_names = array_unique( $cat_names );
 
 	foreach ( $cat_names as $cat_name ) {
+<<<<<<< HEAD
 		if ( 'rdf' === $type ) {
 			$the_list .= "\t\t<dc:subject><![CDATA[$cat_name]]></dc:subject>\n";
 		} elseif ( 'atom' === $type ) {
+=======
+		if ( 'rdf' == $type ) {
+			$the_list .= "\t\t<dc:subject><![CDATA[$cat_name]]></dc:subject>\n";
+		} elseif ( 'atom' == $type ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$the_list .= sprintf( '<category scheme="%1$s" term="%2$s" />', esc_attr( get_bloginfo_rss( 'url' ) ), esc_attr( $cat_name ) );
 		} else {
 			$the_list .= "\t\t<category><![CDATA[" . html_entity_decode( $cat_name, ENT_COMPAT, get_option( 'blog_charset' ) ) . "]]></category>\n";
@@ -430,7 +478,10 @@ function get_the_category_rss( $type = null ) {
  * Display the post categories in the feed.
  *
  * @since 0.71
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @see get_the_category_rss() For better explanation.
  *
  * @param string $type Optional, default is the type returned by get_default_feed().
@@ -476,11 +527,19 @@ function rss_enclosure() {
 	}
 
 	foreach ( (array) get_post_custom() as $key => $val ) {
+<<<<<<< HEAD
 		if ( 'enclosure' === $key ) {
 			foreach ( (array) $val as $enc ) {
 				$enclosure = explode( "\n", $enc );
 
 				// Only get the first element, e.g. 'audio/mpeg' from 'audio/mpeg mpga mp2 mp3'.
+=======
+		if ( $key == 'enclosure' ) {
+			foreach ( (array) $val as $enc ) {
+				$enclosure = explode( "\n", $enc );
+
+				// only get the first element, e.g. audio/mpeg from 'audio/mpeg mpga mp2 mp3'
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$t    = preg_split( '/[ \t]/', trim( $enclosure[2] ) );
 				$type = $t[0];
 
@@ -516,6 +575,7 @@ function atom_enclosure() {
 	}
 
 	foreach ( (array) get_post_custom() as $key => $val ) {
+<<<<<<< HEAD
 		if ( 'enclosure' === $key ) {
 			foreach ( (array) $val as $enc ) {
 				$enclosure = explode( "\n", $enc );
@@ -549,6 +609,11 @@ function atom_enclosure() {
 					esc_attr( $type )
 				);
 
+=======
+		if ( $key == 'enclosure' ) {
+			foreach ( (array) $val as $enc ) {
+				$enclosure = explode( "\n", $enc );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				/**
 				 * Filters the atom enclosure HTML link tag for the current post.
 				 *
@@ -556,7 +621,11 @@ function atom_enclosure() {
 				 *
 				 * @param string $html_link_tag The HTML link tag with a URI and other attributes.
 				 */
+<<<<<<< HEAD
 				echo apply_filters( 'atom_enclosure', $html_link_tag );
+=======
+				echo apply_filters( 'atom_enclosure', '<link href="' . esc_url( trim( $enclosure[0] ) ) . '" rel="enclosure" length="' . absint( trim( $enclosure[1] ) ) . '" type="' . esc_attr( trim( $enclosure[2] ) ) . '" />' . "\n" );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 	}
@@ -565,12 +634,21 @@ function atom_enclosure() {
 /**
  * Determine the type of a string of data with the data formatted.
  *
+<<<<<<< HEAD
  * Tell whether the type is text, HTML, or XHTML, per RFC 4287 section 3.1.
  *
  * In the case of WordPress, text is defined as containing no markup,
  * XHTML is defined as "well formed", and HTML as tag soup (i.e., the rest).
  *
  * Container div tags are added to XHTML values, per section 3.1.1.3.
+=======
+ * Tell whether the type is text, html, or xhtml, per RFC 4287 section 3.1.
+ *
+ * In the case of WordPress, text is defined as containing no markup,
+ * xhtml is defined as "well formed", and html as tag soup (i.e., the rest).
+ *
+ * Container div tags are added to xhtml values, per section 3.1.1.3.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @link http://www.atomenabled.org/developers/syndication/atom-format-spec.php#rfc.section.3.1
  *
@@ -594,7 +672,10 @@ function prep_atom_text_construct( $data ) {
 	xml_parse( $parser, '<div>' . $data . '</div>', true );
 	$code = xml_get_error_code( $parser );
 	xml_parser_free( $parser );
+<<<<<<< HEAD
 	unset( $parser );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( ! $code ) {
 		if ( strpos( $data, '<' ) === false ) {
@@ -658,7 +739,11 @@ function rss2_site_icon() {
  * @return string Correct link for the atom:self element.
  */
 function get_self_link() {
+<<<<<<< HEAD
 	$host = parse_url( home_url() );
+=======
+	$host = @parse_url( home_url() );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return set_url_scheme( 'http://' . $host['host'] . wp_unslash( $_SERVER['REQUEST_URI'] ) );
 }
 
@@ -684,21 +769,34 @@ function self_link() {
 }
 
 /**
+<<<<<<< HEAD
  * Get the UTC time of the most recently modified post from WP_Query.
  *
  * If viewing a comment feed, the time of the most recently modified
+=======
+ * Get the timestamp of the most recently modified post from WP_Query.
+ *
+ * If viewing a comment feed, the timestamp of the most recently modified
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * comment will be returned.
  *
  * @global WP_Query $wp_query WordPress Query object.
  *
  * @since 5.2.0
  *
+<<<<<<< HEAD
  * @param string $format Date format string to return the time in.
  * @return string|false The time in requested format, or false on failure.
+=======
+ * @param string $format Format of the timestamp to return, passed to mysql2date.
+ *
+ * @return string The timestamp.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_feed_build_date( $format ) {
 	global $wp_query;
 
+<<<<<<< HEAD
 	$datetime          = false;
 	$max_modified_time = false;
 	$utc               = new DateTimeZone( 'UTC' );
@@ -728,15 +826,41 @@ function get_feed_build_date( $format ) {
 	if ( false !== $datetime ) {
 		$max_modified_time = $datetime->format( $format );
 	}
+=======
+	if ( empty( $wp_query ) || ! $wp_query->have_posts() ) {
+		// Fallback to last time any post was modified or published.
+		return get_lastpostmodified( 'GMT' );
+	}
+
+	// Extract the post modified times from the posts.
+	$modified_times = wp_list_pluck( $wp_query->posts, 'post_modified_gmt' );
+
+	// If this is a comment feed, check those objects too.
+	if ( $wp_query->is_comment_feed() && $wp_query->comment_count ) {
+		// Extract the comment modified times from the comments.
+		$comment_times = wp_list_pluck( $wp_query->comments, 'comment_date_gmt' );
+
+		// Add the comment times to the post times for comparison.
+		$modified_times = array_merge( $modified_times, $comment_times );
+	}
+
+	// Determine the maximum modified time.
+	$max_modified_time = mysql2date( $format, max( $modified_times ), false );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Filters the date the last post or comment in the query was modified.
 	 *
 	 * @since 5.2.0
 	 *
+<<<<<<< HEAD
 	 * @param string|false $max_modified_time Date the last post or comment was modified in the query, in UTC.
 	 *                                        False on failure.
 	 * @param string       $format            The date format requested in get_feed_build_date().
+=======
+	 * @param string $max_modified_time Date the last post or comment was modified in the query.
+	 * @param string $format            The date format requested in get_feed_build_date.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	return apply_filters( 'get_feed_build_date', $max_modified_time, $format );
 }
@@ -779,6 +903,7 @@ function feed_content_type( $type = '' ) {
  *
  * @since 2.8.0
  *
+<<<<<<< HEAD
  * @param string|string[] $url URL of feed to retrieve. If an array of URLs, the feeds are merged
  *                             using SimplePie's multifeed feature.
  *                             See also {@link http://simplepie.org/wiki/faq/typical_multifeed_gotchas}
@@ -793,12 +918,33 @@ function fetch_feed( $url ) {
 	require_once ABSPATH . WPINC . '/class-wp-feed-cache-transient.php';
 	require_once ABSPATH . WPINC . '/class-wp-simplepie-file.php';
 	require_once ABSPATH . WPINC . '/class-wp-simplepie-sanitize-kses.php';
+=======
+ * @param mixed $url URL of feed to retrieve. If an array of URLs, the feeds are merged
+ * using SimplePie's multifeed feature.
+ * See also {@link http://simplepie.org/wiki/faq/typical_multifeed_gotchas}
+ *
+ * @return WP_Error|SimplePie WP_Error object on failure or SimplePie object on success
+ */
+function fetch_feed( $url ) {
+	if ( ! class_exists( 'SimplePie', false ) ) {
+		require_once( ABSPATH . WPINC . '/class-simplepie.php' );
+	}
+
+	require_once( ABSPATH . WPINC . '/class-wp-feed-cache.php' );
+	require_once( ABSPATH . WPINC . '/class-wp-feed-cache-transient.php' );
+	require_once( ABSPATH . WPINC . '/class-wp-simplepie-file.php' );
+	require_once( ABSPATH . WPINC . '/class-wp-simplepie-sanitize-kses.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$feed = new SimplePie();
 
 	$feed->set_sanitize_class( 'WP_SimplePie_Sanitize_KSES' );
 	// We must manually overwrite $feed->sanitize because SimplePie's
+<<<<<<< HEAD
 	// constructor sets it before we have a chance to set the sanitization class.
+=======
+	// constructor sets it before we have a chance to set the sanitization class
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$feed->sanitize = new WP_SimplePie_Sanitize_KSES();
 
 	$feed->set_cache_class( 'WP_Feed_Cache' );
@@ -807,17 +953,27 @@ function fetch_feed( $url ) {
 	$feed->set_feed_url( $url );
 	/** This filter is documented in wp-includes/class-wp-feed-cache-transient.php */
 	$feed->set_cache_duration( apply_filters( 'wp_feed_cache_transient_lifetime', 12 * HOUR_IN_SECONDS, $url ) );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	/**
 	 * Fires just before processing the SimplePie feed object.
 	 *
 	 * @since 3.0.0
 	 *
+<<<<<<< HEAD
 	 * @param SimplePie       $feed SimplePie feed object (passed by reference).
 	 * @param string|string[] $url  URL of feed or array of URLs of feeds to retrieve.
 	 */
 	do_action_ref_array( 'wp_feed_options', array( &$feed, $url ) );
 
+=======
+	 * @param object $feed SimplePie feed object (passed by reference).
+	 * @param mixed  $url  URL of feed to retrieve. If an array of URLs, the feeds are merged.
+	 */
+	do_action_ref_array( 'wp_feed_options', array( &$feed, $url ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$feed->init();
 	$feed->set_output_encoding( get_option( 'blog_charset' ) );
 

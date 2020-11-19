@@ -9,8 +9,13 @@
 	/**
 	 * Replaces emoji with images when browsers don't support emoji.
 	 *
+<<<<<<< HEAD
 	 * @since 4.2.0
 	 * @access private
+=======
+	 * @since      4.2.0
+	 * @access     private
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @class
 	 *
@@ -22,10 +27,17 @@
 	function wpEmoji() {
 		var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver,
 
+<<<<<<< HEAD
 		// Compression and maintain local scope.
 		document = window.document,
 
 		// Private.
+=======
+		// Compression and maintain local scope
+		document = window.document,
+
+		// Private
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		twemoji, timer,
 		loaded = false,
 		count = 0,
@@ -69,7 +81,11 @@
 
 			// Ensure twemoji is available on the global window before proceeding.
 			if ( typeof window.twemoji === 'undefined' ) {
+<<<<<<< HEAD
 				// Break if waiting for longer than 30 seconds.
+=======
+				// Break if waiting for longer than 30 sec.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( count > 600 ) {
 					return;
 				}
@@ -245,8 +261,13 @@
 					}
 
 					if ( settings.supports.everythingExceptFlag &&
+<<<<<<< HEAD
 						! /^1f1(?:e[6-9a-f]|f[0-9a-f])-1f1(?:e[6-9a-f]|f[0-9a-f])$/.test( icon ) && // Country flags.
 						! /^(1f3f3-fe0f-200d-1f308|1f3f4-200d-2620-fe0f)$/.test( icon )             // Rainbow and pirate flags.
+=======
+						! /^1f1(?:e[6-9a-f]|f[0-9a-f])-1f1(?:e[6-9a-f]|f[0-9a-f])$/.test( icon ) && // Country flags
+						! /^(1f3f3-fe0f-200d-1f308|1f3f4-200d-2620-fe0f)$/.test( icon )             // Rainbow and pirate flags
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					) {
 						return false;
 					}

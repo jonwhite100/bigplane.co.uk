@@ -59,6 +59,10 @@ class WP_oEmbed {
 			'#https?://(www\.)?flickr\.com/.*#i'           => array( 'https://www.flickr.com/services/oembed/', true ),
 			'#https?://flic\.kr/.*#i'                      => array( 'https://www.flickr.com/services/oembed/', true ),
 			'#https?://(.+\.)?smugmug\.com/.*#i'           => array( 'https://api.smugmug.com/services/oembed/', true ),
+<<<<<<< HEAD
+=======
+			'#https?://(www\.)?hulu\.com/watch/.*#i'       => array( 'https://www.hulu.com/api/oembed.{format}', true ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'#https?://(www\.)?scribd\.com/(doc|document)/.*#i' => array( 'https://www.scribd.com/services/oembed', true ),
 			'#https?://wordpress\.tv/.*#i'                 => array( 'https://wordpress.tv/oembed/', true ),
 			'#https?://(.+\.)?polldaddy\.com/.*#i'         => array( 'https://api.crowdsignal.com/oembed', true ),
@@ -72,10 +76,18 @@ class WP_oEmbed {
 			'#https?://(www\.)?twitter\.com/i/moments/.*#i' => array( 'https://publish.twitter.com/oembed', true ),
 			'#https?://(www\.)?soundcloud\.com/.*#i'       => array( 'https://soundcloud.com/oembed', true ),
 			'#https?://(.+?\.)?slideshare\.net/.*#i'       => array( 'https://www.slideshare.net/api/oembed/2', true ),
+<<<<<<< HEAD
+=======
+			'#https?://(www\.)?instagr(\.am|am\.com)/(p|tv)/.*#i' => array( 'https://api.instagram.com/oembed', true ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'#https?://(open|play)\.spotify\.com/.*#i'     => array( 'https://embed.spotify.com/oembed/', true ),
 			'#https?://(.+\.)?imgur\.com/.*#i'             => array( 'https://api.imgur.com/oembed', true ),
 			'#https?://(www\.)?meetu(\.ps|p\.com)/.*#i'    => array( 'https://api.meetup.com/oembed', true ),
 			'#https?://(www\.)?issuu\.com/.+/docs/.+#i'    => array( 'https://issuu.com/oembed_wp', true ),
+<<<<<<< HEAD
+=======
+			'#https?://(www\.)?collegehumor\.com/video/.*#i' => array( 'https://www.collegehumor.com/oembed.{format}', true ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'#https?://(www\.)?mixcloud\.com/.*#i'         => array( 'https://www.mixcloud.com/oembed', true ),
 			'#https?://(www\.|embed\.)?ted\.com/talks/.*#i' => array( 'https://www.ted.com/services/v1/oembed.{format}', true ),
 			'#https?://(www\.)?(animoto|video214)\.com/play/.*#i' => array( 'https://animoto.com/oembeds/create', true ),
@@ -87,6 +99,19 @@ class WP_oEmbed {
 			'#https?://videopress\.com/v/.*#'              => array( 'https://public-api.wordpress.com/oembed/?for=' . $host, true ),
 			'#https?://(www\.)?reddit\.com/r/[^/]+/comments/.*#i' => array( 'https://www.reddit.com/oembed', true ),
 			'#https?://(www\.)?speakerdeck\.com/.*#i'      => array( 'https://speakerdeck.com/oembed.{format}', true ),
+<<<<<<< HEAD
+=======
+			'#https?://www\.facebook\.com/.*/posts/.*#i'   => array( 'https://www.facebook.com/plugins/post/oembed.json/', true ),
+			'#https?://www\.facebook\.com/.*/activity/.*#i' => array( 'https://www.facebook.com/plugins/post/oembed.json/', true ),
+			'#https?://www\.facebook\.com/.*/photos/.*#i'  => array( 'https://www.facebook.com/plugins/post/oembed.json/', true ),
+			'#https?://www\.facebook\.com/photo(s/|\.php).*#i' => array( 'https://www.facebook.com/plugins/post/oembed.json/', true ),
+			'#https?://www\.facebook\.com/permalink\.php.*#i' => array( 'https://www.facebook.com/plugins/post/oembed.json/', true ),
+			'#https?://www\.facebook\.com/media/.*#i'      => array( 'https://www.facebook.com/plugins/post/oembed.json/', true ),
+			'#https?://www\.facebook\.com/questions/.*#i'  => array( 'https://www.facebook.com/plugins/post/oembed.json/', true ),
+			'#https?://www\.facebook\.com/notes/.*#i'      => array( 'https://www.facebook.com/plugins/post/oembed.json/', true ),
+			'#https?://www\.facebook\.com/.*/videos/.*#i'  => array( 'https://www.facebook.com/plugins/video/oembed.json/', true ),
+			'#https?://www\.facebook\.com/video\.php.*#i'  => array( 'https://www.facebook.com/plugins/video/oembed.json/', true ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'#https?://(www\.)?screencast\.com/.*#i'       => array( 'https://api.screencast.com/external/oembed', true ),
 			'#https?://([a-z0-9-]+\.)?amazon\.(com|com\.mx|com\.br|ca)/.*#i' => array( 'https://read.amazon.com/kp/api/oembed', true ),
 			'#https?://([a-z0-9-]+\.)?amazon\.(co\.uk|de|fr|it|es|in|nl|ru)/.*#i' => array( 'https://read.amazon.co.uk/kp/api/oembed', true ),
@@ -101,7 +126,10 @@ class WP_oEmbed {
 			'#https?://www\.someecards\.com/.+-cards/.+#i' => array( 'https://www.someecards.com/v2/oembed/', true ),
 			'#https?://www\.someecards\.com/usercards/viewcard/.+#i' => array( 'https://www.someecards.com/v2/oembed/', true ),
 			'#https?://some\.ly\/.+#i'                     => array( 'https://www.someecards.com/v2/oembed/', true ),
+<<<<<<< HEAD
 			'#https?://(www\.)?tiktok\.com/.*/video/.*#i'  => array( 'https://www.tiktok.com/oembed', true ),
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		);
 
 		if ( ! empty( self::$early_providers['add'] ) ) {
@@ -119,10 +147,17 @@ class WP_oEmbed {
 		self::$early_providers = array();
 
 		/**
+<<<<<<< HEAD
 		 * Filters the list of sanctioned oEmbed providers.
 		 *
 		 * Since WordPress 4.4, oEmbed discovery is enabled for all users and allows embedding of sanitized
 		 * iframes. The providers in this list are sanctioned, meaning they are trusted and allowed to
+=======
+		 * Filters the list of whitelisted oEmbed providers.
+		 *
+		 * Since WordPress 4.4, oEmbed discovery is enabled for all users and allows embedding of sanitized
+		 * iframes. The providers in this list are whitelisted, meaning they are trusted and allowed to
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * embed any content, such as iframes, videos, JavaScript, and arbitrary HTML.
 		 *
 		 * Supported providers:
@@ -131,6 +166,10 @@ class WP_oEmbed {
 		 * | ------------ | ----------------------------------------- | ------- |
 		 * | Dailymotion  | dailymotion.com                           | 2.9.0   |
 		 * | Flickr       | flickr.com                                | 2.9.0   |
+<<<<<<< HEAD
+=======
+		 * | Hulu         | hulu.com                                  | 2.9.0   |
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * | Scribd       | scribd.com                                | 2.9.0   |
 		 * | Vimeo        | vimeo.com                                 | 2.9.0   |
 		 * | WordPress.tv | wordpress.tv                              | 2.9.0   |
@@ -139,6 +178,11 @@ class WP_oEmbed {
 		 * | SmugMug      | smugmug.com                               | 3.0.0   |
 		 * | YouTube      | youtu.be                                  | 3.0.0   |
 		 * | Twitter      | twitter.com                               | 3.4.0   |
+<<<<<<< HEAD
+=======
+		 * | Instagram    | instagram.com                             | 3.5.0   |
+		 * | Instagram    | instagr.am                                | 3.5.0   |
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * | Slideshare   | slideshare.net                            | 3.5.0   |
 		 * | SoundCloud   | soundcloud.com                            | 3.5.0   |
 		 * | Dailymotion  | dai.ly                                    | 3.6.0   |
@@ -149,6 +193,10 @@ class WP_oEmbed {
 		 * | Meetup.com   | meetu.ps                                  | 3.9.0   |
 		 * | Animoto      | animoto.com                               | 4.0.0   |
 		 * | Animoto      | video214.com                              | 4.0.0   |
+<<<<<<< HEAD
+=======
+		 * | CollegeHumor | collegehumor.com                          | 4.0.0   |
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * | Issuu        | issuu.com                                 | 4.0.0   |
 		 * | Mixcloud     | mixcloud.com                              | 4.0.0   |
 		 * | Crowdsignal  | poll.fm                                   | 4.0.0   |
@@ -164,6 +212,10 @@ class WP_oEmbed {
 		 * | Speaker Deck | speakerdeck.com                           | 4.4.0   |
 		 * | Twitter      | twitter.com/timelines                     | 4.5.0   |
 		 * | Twitter      | twitter.com/moments                       | 4.5.0   |
+<<<<<<< HEAD
+=======
+		 * | Facebook     | facebook.com                              | 4.7.0   |
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * | Twitter      | twitter.com/user                          | 4.7.0   |
 		 * | Twitter      | twitter.com/likes                         | 4.7.0   |
 		 * | Twitter      | twitter.com/lists                         | 4.7.0   |
@@ -178,7 +230,12 @@ class WP_oEmbed {
 		 * | Someecards   | someecards.com                            | 4.9.0   |
 		 * | Someecards   | some.ly                                   | 4.9.0   |
 		 * | Crowdsignal  | survey.fm                                 | 5.1.0   |
+<<<<<<< HEAD
 		 * | TikTok       | tiktok.com                                | 5.4.0   |
+=======
+		 * | Instagram TV | instagram.com                             | 5.1.0   |
+		 * | Instagram TV | instagr.am                                | 5.1.0   |
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * No longer supported providers:
 		 *
@@ -193,6 +250,7 @@ class WP_oEmbed {
 		 * | Vine         | vine.co              | 4.1.0     | 4.9.0     |
 		 * | Photobucket  | photobucket.com      | 2.9.0     | 5.1.0     |
 		 * | Funny or Die | funnyordie.com       | 3.0.0     | 5.1.0     |
+<<<<<<< HEAD
 		 * | CollegeHumor | collegehumor.com     | 4.0.0     | 5.3.1     |
 		 * | Hulu         | hulu.com             | 2.9.0     | 5.5.0     |
 		 * | Instagram    | instagram.com        | 3.5.0     | 5.5.2     |
@@ -200,6 +258,8 @@ class WP_oEmbed {
 		 * | Instagram TV | instagram.com        | 5.1.0     | 5.5.2     |
 		 * | Instagram TV | instagr.am           | 5.1.0     | 5.5.2     |
 		 * | Facebook     | facebook.com         | 4.7.0     | 5.5.2     |
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * @see wp_oembed_add_provider()
 		 *
@@ -218,12 +278,21 @@ class WP_oEmbed {
 	 *
 	 * @since 4.0.0
 	 *
+<<<<<<< HEAD
 	 * @param string $name      Method to call.
 	 * @param array  $arguments Arguments to pass when calling.
 	 * @return mixed|bool Return value of the callback, false otherwise.
 	 */
 	public function __call( $name, $arguments ) {
 		if ( in_array( $name, $this->compat_methods, true ) ) {
+=======
+	 * @param string   $name      Method to call.
+	 * @param array    $arguments Arguments to pass when calling.
+	 * @return mixed|bool Return value of the callback, false otherwise.
+	 */
+	public function __call( $name, $arguments ) {
+		if ( in_array( $name, $this->compat_methods ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return $this->$name( ...$arguments );
 		}
 		return false;
@@ -236,9 +305,15 @@ class WP_oEmbed {
 	 *
 	 * @see WP_oEmbed::discover()
 	 *
+<<<<<<< HEAD
 	 * @param string       $url  The URL to the content.
 	 * @param string|array $args Optional provider arguments.
 	 * @return string|false The oEmbed provider URL on success, false on failure.
+=======
+	 * @param string        $url  The URL to the content.
+	 * @param string|array  $args Optional provider arguments.
+	 * @return false|string False on failure, otherwise the oEmbed provider URL.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function get_provider( $url, $args = '' ) {
 		$args = wp_parse_args( $args );
@@ -252,14 +327,22 @@ class WP_oEmbed {
 		foreach ( $this->providers as $matchmask => $data ) {
 			list( $providerurl, $regex ) = $data;
 
+<<<<<<< HEAD
 			// Turn the asterisk-type provider URLs into regex.
+=======
+			// Turn the asterisk-type provider URLs into regex
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( ! $regex ) {
 				$matchmask = '#' . str_replace( '___wildcard___', '(.+)', preg_quote( str_replace( '*', '___wildcard___', $matchmask ), '#' ) ) . '#i';
 				$matchmask = preg_replace( '|^#http\\\://|', '#https?\://', $matchmask );
 			}
 
 			if ( preg_match( $matchmask, $url ) ) {
+<<<<<<< HEAD
 				$provider = str_replace( '{format}', 'json', $providerurl ); // JSON is easier to deal with than XML.
+=======
+				$provider = str_replace( '{format}', 'json', $providerurl ); // JSON is easier to deal with than XML
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				break;
 			}
 		}
@@ -329,7 +412,11 @@ class WP_oEmbed {
 	 *
 	 * @param string       $url  The URL to the content that should be attempted to be embedded.
 	 * @param array|string $args Optional. Arguments, usually passed from a shortcode. Default empty.
+<<<<<<< HEAD
 	 * @return object|false The result in the form of an object on success, false on failure.
+=======
+	 * @return false|object False on failure, otherwise the result in the form of an object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function get_data( $url, $args = '' ) {
 		$args = wp_parse_args( $args );
@@ -359,8 +446,12 @@ class WP_oEmbed {
 	 *
 	 * @param string       $url  The URL to the content that should be attempted to be embedded.
 	 * @param array|string $args Optional. Arguments, usually passed from a shortcode. Default empty.
+<<<<<<< HEAD
 	 * @return string|false The UNSANITIZED (and potentially unsafe) HTML that should be used to embed on success,
 	 *                      false on failure.
+=======
+	 * @return false|string False on failure, otherwise the UNSANITIZED (and potentially unsafe) HTML that should be used to embed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function get_html( $url, $args = '' ) {
 		/**
@@ -369,6 +460,7 @@ class WP_oEmbed {
 		 * This allows one to short-circuit the default logic, perhaps by
 		 * replacing it with a routine that is more optimal for your setup.
 		 *
+<<<<<<< HEAD
 		 * Returning a non-null value from the filter will effectively short-circuit retrieval
 		 * and return the passed value instead.
 		 *
@@ -376,6 +468,14 @@ class WP_oEmbed {
 		 *
 		 * @param null|string $result The UNSANITIZED (and potentially unsafe) HTML that should be used to embed.
 		 *                            Default null to continue retrieving the result.
+=======
+		 * Passing a non-null value to the filter will effectively short-circuit retrieval,
+		 * returning the passed value instead.
+		 *
+		 * @since 4.5.3
+		 *
+		 * @param null|string $result The UNSANITIZED (and potentially unsafe) HTML that should be used to embed. Default null.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @param string      $url    The URL to the content that should be attempted to be embedded.
 		 * @param array       $args   Optional. Arguments, usually passed from a shortcode. Default empty.
 		 */
@@ -409,7 +509,11 @@ class WP_oEmbed {
 	 * @since 2.9.0
 	 *
 	 * @param string $url The URL that should be inspected for discovery `<link>` tags.
+<<<<<<< HEAD
 	 * @return string|false The oEmbed provider URL on success, false on failure.
+=======
+	 * @return false|string False on failure, otherwise the oEmbed provider URL.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function discover( $url ) {
 		$providers = array();
@@ -429,7 +533,11 @@ class WP_oEmbed {
 		 */
 		$args = apply_filters( 'oembed_remote_get_args', $args, $url );
 
+<<<<<<< HEAD
 		// Fetch URL content.
+=======
+		// Fetch URL content
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$request = wp_safe_remote_get( $url, $args );
 		$html    = wp_remote_retrieve_body( $request );
 		if ( $html ) {
@@ -452,13 +560,21 @@ class WP_oEmbed {
 				)
 			);
 
+<<<<<<< HEAD
 			// Strip <body>.
+=======
+			// Strip <body>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$html_head_end = stripos( $html, '</head>' );
 			if ( $html_head_end ) {
 				$html = substr( $html, 0, $html_head_end );
 			}
 
+<<<<<<< HEAD
 			// Do a quick check.
+=======
+			// Do a quick check
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$tagfound = false;
 			foreach ( $linktypes as $linktype => $format ) {
 				if ( stripos( $html, $linktype ) ) {
@@ -474,8 +590,13 @@ class WP_oEmbed {
 					if ( ! empty( $atts['type'] ) && ! empty( $linktypes[ $atts['type'] ] ) && ! empty( $atts['href'] ) ) {
 						$providers[ $linktypes[ $atts['type'] ] ] = htmlspecialchars_decode( $atts['href'] );
 
+<<<<<<< HEAD
 						// Stop here if it's JSON (that's all we need).
 						if ( 'json' === $linktypes[ $atts['type'] ] ) {
+=======
+						// Stop here if it's JSON (that's all we need)
+						if ( 'json' == $linktypes[ $atts['type'] ] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							break;
 						}
 					}
@@ -483,7 +604,11 @@ class WP_oEmbed {
 			}
 		}
 
+<<<<<<< HEAD
 		// JSON is preferred to XML.
+=======
+		// JSON is preferred to XML
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! empty( $providers['json'] ) ) {
 			return $providers['json'];
 		} elseif ( ! empty( $providers['xml'] ) ) {
@@ -501,7 +626,11 @@ class WP_oEmbed {
 	 * @param string       $provider The URL to the oEmbed provider.
 	 * @param string       $url      The URL to the content that is desired to be embedded.
 	 * @param array|string $args     Optional. Arguments, usually passed from a shortcode. Default empty.
+<<<<<<< HEAD
 	 * @return object|false The result in the form of an object on success, false on failure.
+=======
+	 * @return false|object False on failure, otherwise the result in the form of an object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function fetch( $provider, $url, $args = '' ) {
 		$args = wp_parse_args( $args, wp_embed_defaults( $url ) );
@@ -525,7 +654,11 @@ class WP_oEmbed {
 
 		foreach ( array( 'json', 'xml' ) as $format ) {
 			$result = $this->_fetch_with_format( $provider, $format );
+<<<<<<< HEAD
 			if ( is_wp_error( $result ) && 'not-implemented' === $result->get_error_code() ) {
+=======
+			if ( is_wp_error( $result ) && 'not-implemented' == $result->get_error_code() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				continue;
 			}
 			return ( $result && ! is_wp_error( $result ) ) ? $result : false;
@@ -539,8 +672,13 @@ class WP_oEmbed {
 	 * @since 3.0.0
 	 *
 	 * @param string $provider_url_with_args URL to the provider with full arguments list (url, maxheight, etc.)
+<<<<<<< HEAD
 	 * @param string $format                 Format to use.
 	 * @return object|false|WP_Error The result in the form of an object on success, false on failure.
+=======
+	 * @param string $format Format to use
+	 * @return false|object|WP_Error False on failure, otherwise the result in the form of an object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	private function _fetch_with_format( $provider_url_with_args, $format ) {
 		$provider_url_with_args = add_query_arg( 'format', $format, $provider_url_with_args );
@@ -645,8 +783,13 @@ class WP_oEmbed {
 	 * @since 2.9.0
 	 *
 	 * @param object $data A data object result from an oEmbed provider.
+<<<<<<< HEAD
 	 * @param string $url  The URL to the content that is desired to be embedded.
 	 * @return string|false The HTML needed to embed on success, false on failure.
+=======
+	 * @param string $url The URL to the content that is desired to be embedded.
+	 * @return false|string False on error, otherwise the HTML needed to embed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function data2html( $data, $url ) {
 		if ( ! is_object( $data ) || empty( $data->type ) ) {

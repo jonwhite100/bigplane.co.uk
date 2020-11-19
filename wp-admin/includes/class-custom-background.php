@@ -124,7 +124,11 @@ class Custom_Background {
 		}
 
 		if ( isset( $_POST['remove-background'] ) ) {
+<<<<<<< HEAD
 			// @todo Uploaded files are not removed here.
+=======
+			// @TODO: Uploaded files are not removed here.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			check_admin_referer( 'custom-background-remove', '_wpnonce-custom-background-remove' );
 			set_theme_mod( 'background_image', '' );
 			set_theme_mod( 'background_image_thumb', '' );
@@ -284,7 +288,11 @@ class Custom_Background {
 				. " background-attachment: $background_attachment;";
 			}
 			?>
+<<<<<<< HEAD
 	<div id="custom-background-image" style="<?php echo $background_styles; ?>"><?php // Must be double quote, see above. ?>
+=======
+	<div id="custom-background-image" style="<?php echo $background_styles; ?>"><?php // must be double quote, see above ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<?php if ( $background_image_thumb ) { ?>
 		<img class="custom-background-image" src="<?php echo $background_image_thumb; ?>" style="visibility:hidden;" alt="" /><br />
 		<img class="custom-background-image" src="<?php echo $background_image_thumb; ?>" style="visibility:hidden;" alt="" />
@@ -503,7 +511,11 @@ class Custom_Background {
 		$file     = $file['file'];
 		$filename = wp_basename( $file );
 
+<<<<<<< HEAD
 		// Construct the object array.
+=======
+		// Construct the object array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$object = array(
 			'post_title'     => $filename,
 			'post_content'   => $url,
@@ -512,10 +524,17 @@ class Custom_Background {
 			'context'        => 'custom-background',
 		);
 
+<<<<<<< HEAD
 		// Save the data.
 		$id = wp_insert_attachment( $object, $file );
 
 		// Add the metadata.
+=======
+		// Save the data
+		$id = wp_insert_attachment( $object, $file );
+
+		// Add the meta-data
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $file ) );
 		update_post_meta( $id, '_wp_attachment_is_custom_background', get_option( 'stylesheet' ) );
 
@@ -525,7 +544,11 @@ class Custom_Background {
 		set_theme_mod( 'background_image_thumb', esc_url_raw( $thumbnail[0] ) );
 
 		/** This action is documented in wp-admin/includes/class-custom-image-header.php */
+<<<<<<< HEAD
 		do_action( 'wp_create_file_in_uploads', $file, $id ); // For replication.
+=======
+		do_action( 'wp_create_file_in_uploads', $file, $id ); // For replication
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$this->updated = true;
 	}
 
@@ -581,8 +604,11 @@ class Custom_Background {
 	 * @deprecated 3.5.0
 	 */
 	public function wp_set_background_image() {
+<<<<<<< HEAD
 		check_ajax_referer( 'custom-background' );
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! current_user_can( 'edit_theme_options' ) || ! isset( $_POST['attachment_id'] ) ) {
 			exit;
 		}
@@ -603,7 +629,11 @@ class Custom_Background {
 		);
 
 		$size = 'thumbnail';
+<<<<<<< HEAD
 		if ( in_array( $_POST['size'], $sizes, true ) ) {
+=======
+		if ( in_array( $_POST['size'], $sizes ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$size = esc_attr( $_POST['size'] );
 		}
 

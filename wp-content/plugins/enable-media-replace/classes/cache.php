@@ -1,8 +1,11 @@
 <?php
 namespace EnableMediaReplace;
 
+<<<<<<< HEAD
 use EnableMediaReplace\ShortPixelLogger\ShortPixelLogger as Log;
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 class emrCache
 {
     protected $has_supercache  = false; // supercache seems to replace quite fine, without our help. @todo Test if this is needed
@@ -10,7 +13,10 @@ class emrCache
     protected $has_wpengine = false;
     protected $has_fastestcache = false;
     protected $has_siteground = false;
+<<<<<<< HEAD
     protected $has_litespeed = false;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
     public function __construct()
     {
@@ -38,11 +44,14 @@ class emrCache
 	        $this->has_siteground = true;
       }
 
+<<<<<<< HEAD
       if (defined( 'LSCWP_DIR' ))
       {
           $this->has_litespeed = true;
       }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       // @todo WpRocket?
       // @todo BlueHost Caching?
     }
@@ -86,10 +95,13 @@ class emrCache
         if ($this->has_fastestcache)
             $this->removeFastestCache();
 
+<<<<<<< HEAD
         if ($this->has_litespeed)
             $this->litespeedReset($post_id);
 
         do_action('emr/cache/flush', $post_id);
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     }
 
     protected function removeSuperCache()
@@ -130,9 +142,12 @@ class emrCache
     		sg_cachepress_purge_cache();
     }
 
+<<<<<<< HEAD
     protected function litespeedReset($post_id)
     {
       do_action('litespeed_media_reset', $post_id);
     }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

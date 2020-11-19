@@ -58,6 +58,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	 * @return true|WP_Error True if the request has read access for the item, otherwise WP_Error object.
 	 */
 	public function get_items_permissions_check( $request ) {
+<<<<<<< HEAD
 		if ( current_user_can( 'edit_posts' ) ) {
 			return true;
 		}
@@ -73,6 +74,13 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 			__( 'Sorry, you are not allowed to view themes.' ),
 			array( 'status' => rest_authorization_required_code() )
 		);
+=======
+		if ( ! is_user_logged_in() || ! current_user_can( 'edit_posts' ) ) {
+			return new WP_Error( 'rest_user_cannot_view', __( 'Sorry, you are not allowed to view themes.' ), array( 'status' => rest_authorization_required_code() ) );
+		}
+
+		return true;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -115,6 +123,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 		$data   = array();
 		$fields = $this->get_fields_for_response( $request );
 
+<<<<<<< HEAD
 		if ( rest_is_field_included( 'stylesheet', $fields ) ) {
 			$data['stylesheet'] = $theme->get_stylesheet();
 		}
@@ -198,6 +207,22 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 				}
 
 				$data['theme_supports'][ $name ] = $prepared;
+=======
+		if ( in_array( 'theme_supports', $fields, true ) ) {
+			$formats                           = get_theme_support( 'post-formats' );
+			$formats                           = is_array( $formats ) ? array_values( $formats[0] ) : array();
+			$formats                           = array_merge( array( 'standard' ), $formats );
+			$data['theme_supports']['formats'] = $formats;
+
+			$data['theme_supports']['post-thumbnails']   = false;
+			$data['theme_supports']['responsive-embeds'] = (bool) get_theme_support( 'responsive-embeds' );
+			$post_thumbnails                             = get_theme_support( 'post-thumbnails' );
+
+			if ( $post_thumbnails ) {
+				// $post_thumbnails can contain a nested array of post types.
+				// e.g. array( array( 'post', 'page' ) ).
+				$data['theme_supports']['post-thumbnails'] = is_array( $post_thumbnails ) ? $post_thumbnails[0] : true;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 
@@ -219,6 +244,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Prepares the theme support value for inclusion in the REST API response.
 	 *
 	 * @since 5.5.0
@@ -244,6 +270,8 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	}
 
 	/**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * Retrieves the theme's schema, conforming to JSON Schema.
 	 *
 	 * @since 5.0.0
@@ -260,6 +288,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 			'title'      => 'theme',
 			'type'       => 'object',
 			'properties' => array(
+<<<<<<< HEAD
 				'stylesheet'     => array(
 					'description' => __( 'The theme\'s stylesheet. This uniquely identifies the theme.' ),
 					'type'        => 'string',
@@ -414,6 +443,34 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 
 		$this->schema = $schema;
 
+=======
+				'theme_supports' => array(
+					'description' => __( 'Features supported by this theme.' ),
+					'type'        => 'array',
+					'readonly'    => true,
+					'properties'  => array(
+						'formats'           => array(
+							'description' => __( 'Post formats supported.' ),
+							'type'        => 'array',
+							'readonly'    => true,
+						),
+						'post-thumbnails'   => array(
+							'description' => __( 'Whether the theme supports post thumbnails.' ),
+							'type'        => array( 'array', 'bool' ),
+							'readonly'    => true,
+						),
+						'responsive-embeds' => array(
+							'description' => __( 'Whether the theme supports responsive embedded content.' ),
+							'type'        => 'bool',
+							'readonly'    => true,
+						),
+					),
+				),
+			),
+		);
+
+		$this->schema = $schema;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $this->add_additional_fields_schema( $this->schema );
 	}
 

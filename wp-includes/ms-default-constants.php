@@ -23,7 +23,11 @@ function ms_upload_constants() {
 		return;
 	}
 
+<<<<<<< HEAD
 	// Base uploads dir relative to ABSPATH.
+=======
+	// Base uploads dir relative to ABSPATH
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! defined( 'UPLOADBLOGSDIR' ) ) {
 		define( 'UPLOADBLOGSDIR', 'wp-content/blogs.dir' );
 	}
@@ -35,8 +39,13 @@ function ms_upload_constants() {
 
 		define( 'UPLOADS', UPLOADBLOGSDIR . '/' . $site_id . '/files/' );
 
+<<<<<<< HEAD
 		// Uploads dir relative to ABSPATH.
 		if ( 'wp-content/blogs.dir' === UPLOADBLOGSDIR && ! defined( 'BLOGUPLOADDIR' ) ) {
+=======
+		// Uploads dir relative to ABSPATH
+		if ( 'wp-content/blogs.dir' == UPLOADBLOGSDIR && ! defined( 'BLOGUPLOADDIR' ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			define( 'BLOGUPLOADDIR', WP_CONTENT_DIR . '/blogs.dir/' . $site_id . '/files/' );
 		}
 	}
@@ -124,6 +133,12 @@ function ms_file_constants() {
  * we will have translations loaded and can trigger warnings easily.
  *
  * @since 3.0.0
+<<<<<<< HEAD
+=======
+ *
+ * @staticvar bool $subdomain_error
+ * @staticvar bool $subdomain_error_warn
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function ms_subdomain_constants() {
 	static $subdomain_error      = null;
@@ -152,7 +167,11 @@ function ms_subdomain_constants() {
 
 	if ( defined( 'SUBDOMAIN_INSTALL' ) && defined( 'VHOST' ) ) {
 		$subdomain_error = true;
+<<<<<<< HEAD
 		if ( SUBDOMAIN_INSTALL !== ( 'yes' === VHOST ) ) {
+=======
+		if ( SUBDOMAIN_INSTALL !== ( 'yes' == VHOST ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$subdomain_error_warn = true;
 		}
 	} elseif ( defined( 'SUBDOMAIN_INSTALL' ) ) {
@@ -160,7 +179,11 @@ function ms_subdomain_constants() {
 		define( 'VHOST', SUBDOMAIN_INSTALL ? 'yes' : 'no' );
 	} elseif ( defined( 'VHOST' ) ) {
 		$subdomain_error = true;
+<<<<<<< HEAD
 		define( 'SUBDOMAIN_INSTALL', 'yes' === VHOST );
+=======
+		define( 'SUBDOMAIN_INSTALL', 'yes' == VHOST );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	} else {
 		$subdomain_error = false;
 		define( 'SUBDOMAIN_INSTALL', false );

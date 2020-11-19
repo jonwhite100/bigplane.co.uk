@@ -5,7 +5,11 @@
  * A PHP-Based RSS and Atom Feed Framework.
  * Takes the hard work out of managing a complete RSS/Atom solution.
  *
+<<<<<<< HEAD
  * Copyright (c) 2004-2016, Ryan Parman, Sam Sneddon, Ryan McCue, and contributors
+=======
+ * Copyright (c) 2004-2012, Ryan Parman, Geoffrey Sneddon, Ryan McCue, and contributors
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are
@@ -33,9 +37,16 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @package SimplePie
+<<<<<<< HEAD
  * @copyright 2004-2016 Ryan Parman, Sam Sneddon, Ryan McCue
  * @author Ryan Parman
  * @author Sam Sneddon
+=======
+ * @version 1.3.1
+ * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
+ * @author Ryan Parman
+ * @author Geoffrey Sneddon
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
@@ -94,8 +105,15 @@ class SimplePie_Cache_Memcache implements SimplePie_Cache_Base
 				'prefix' => 'simplepie_',
 			),
 		);
+<<<<<<< HEAD
 		$this->options = SimplePie_Misc::array_merge_recursive($this->options, SimplePie_Cache::parse_URL($location));
 
+=======
+		$parsed = SimplePie_Cache::parse_URL($location);
+		$this->options['host'] = empty($parsed['host']) ? $this->options['host'] : $parsed['host'];
+		$this->options['port'] = empty($parsed['port']) ? $this->options['port'] : $parsed['port'];
+		$this->options['extras'] = array_merge($this->options['extras'], $parsed['extras']);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$this->name = $this->options['extras']['prefix'] . md5("$name:$type");
 
 		$this->cache = new Memcache();
@@ -144,7 +162,11 @@ class SimplePie_Cache_Memcache implements SimplePie_Cache_Base
 
 		if ($data !== false)
 		{
+<<<<<<< HEAD
 			// essentially ignore the mtime because Memcache expires on its own
+=======
+			// essentially ignore the mtime because Memcache expires on it's own
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return time();
 		}
 
@@ -162,7 +184,11 @@ class SimplePie_Cache_Memcache implements SimplePie_Cache_Base
 
 		if ($data !== false)
 		{
+<<<<<<< HEAD
 			return $this->cache->set($this->name, $data, MEMCACHE_COMPRESSED, (int) $this->options['extras']['timeout']);
+=======
+			return $this->cache->set($this->name, $data, MEMCACHE_COMPRESSED, (int) $this->duration);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		return false;

@@ -54,7 +54,11 @@
     "paragonie/random_compat": ">=1"
   },
   "require-dev": {
+<<<<<<< HEAD
     "phpunit/phpunit": "^3|^4|^5|^6|^7"
+=======
+    "phpunit/phpunit": "^3|^4|^5"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   },
   "suggest": {
     "ext-libsodium": "PHP < 7.0: Better performance, password hashing (Argon2i), secure memory management (memzero), and better security.",

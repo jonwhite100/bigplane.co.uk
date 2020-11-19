@@ -82,11 +82,16 @@ this["wp"] = this["wp"] || {}; this["wp"]["priorityQueue"] =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 467);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 330);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /******/ })
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
 /***/ 467:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -163,6 +168,15 @@ function createRequestIdleCallback() {
  * @property {WPPriorityQueueReset} reset Reset queue.
  */
 
+=======
+/***/ 330:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createQueue", function() { return createQueue; });
+var requestIdleCallback = window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /**
  * Creates a context-aware queue that only executes
  * the last task of a given context.
@@ -183,6 +197,7 @@ function createRequestIdleCallback() {
  * queue.add( ctx2, () => console.log( 'This will be printed second' ) );
  *```
  *
+<<<<<<< HEAD
  * @return {WPPriorityQueue} Queue object with `add`, `flush` and `reset` methods.
  */
 
@@ -211,12 +226,24 @@ var build_module_createQueue = function createQueue() {
       return deadline.timeRemaining() > 0;
     };
 
+=======
+ * @return {Object} Queue object with `add` and `flush` methods.
+ */
+
+var createQueue = function createQueue() {
+  var waitingList = [];
+  var elementsMap = new WeakMap();
+  var isRunning = false;
+
+  var runWaitingList = function runWaitingList(deadline) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     do {
       if (waitingList.length === 0) {
         isRunning = false;
         return;
       }
 
+<<<<<<< HEAD
       var nextElement =
       /** @type {WPPriorityQueueContext} */
       waitingList.shift();
@@ -238,6 +265,15 @@ var build_module_createQueue = function createQueue() {
    * @param {WPPriorityQueueCallback} item    Callback function.
    */
 
+=======
+      var nextElement = waitingList.shift();
+      elementsMap.get(nextElement)();
+      elementsMap.delete(nextElement);
+    } while (deadline && deadline.timeRemaining && deadline.timeRemaining() > 0);
+
+    requestIdleCallback(runWaitingList);
+  };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
   var add = function add(element, item) {
     if (!elementsMap.has(element)) {
@@ -248,6 +284,7 @@ var build_module_createQueue = function createQueue() {
 
     if (!isRunning) {
       isRunning = true;
+<<<<<<< HEAD
       request_idle_callback(runWaitingList);
     }
   };
@@ -262,12 +299,18 @@ var build_module_createQueue = function createQueue() {
    * @return {boolean} Whether flush was performed.
    */
 
+=======
+      requestIdleCallback(runWaitingList);
+    }
+  };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
   var flush = function flush(element) {
     if (!elementsMap.has(element)) {
       return false;
     }
 
+<<<<<<< HEAD
     var index = waitingList.indexOf(element);
     waitingList.splice(index, 1);
     var callback =
@@ -294,6 +337,17 @@ var build_module_createQueue = function createQueue() {
     add: add,
     flush: flush,
     reset: reset
+=======
+    elementsMap.delete(element);
+    var index = waitingList.indexOf(element);
+    waitingList.splice(index, 1);
+    return true;
+  };
+
+  return {
+    add: add,
+    flush: flush
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   };
 };
 

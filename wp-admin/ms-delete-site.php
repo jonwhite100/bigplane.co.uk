@@ -7,7 +7,11 @@
  * @since 3.0.0
  */
 
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! is_multisite() ) {
 	wp_die( __( 'Multisite support is not enabled.' ) );
@@ -17,7 +21,11 @@ if ( ! current_user_can( 'delete_site' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to delete this site.' ) );
 }
 
+<<<<<<< HEAD
 if ( isset( $_GET['h'] ) && '' !== $_GET['h'] && false !== get_option( 'delete_blog_hash' ) ) {
+=======
+if ( isset( $_GET['h'] ) && $_GET['h'] != '' && get_option( 'delete_blog_hash' ) != false ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( hash_equals( get_option( 'delete_blog_hash' ), $_GET['h'] ) ) {
 		wpmu_delete_blog( get_current_blog_id() );
 		wp_die(
@@ -37,12 +45,20 @@ $user = wp_get_current_user();
 
 $title       = __( 'Delete Site' );
 $parent_file = 'tools.php';
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 echo '<div class="wrap">';
 echo '<h1>' . esc_html( $title ) . '</h1>';
 
+<<<<<<< HEAD
 if ( isset( $_POST['action'] ) && 'deleteblog' === $_POST['action'] && isset( $_POST['confirmdelete'] ) && '1' === $_POST['confirmdelete'] ) {
+=======
+if ( isset( $_POST['action'] ) && $_POST['action'] == 'deleteblog' && isset( $_POST['confirmdelete'] ) && $_POST['confirmdelete'] == '1' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	check_admin_referer( 'delete-blog' );
 
 	$hash = wp_generate_password( 20, false );
@@ -52,7 +68,11 @@ if ( isset( $_POST['action'] ) && 'deleteblog' === $_POST['action'] && isset( $_
 
 	$switched_locale = switch_to_locale( get_locale() );
 
+<<<<<<< HEAD
 	/* translators: Do not translate USERNAME, URL_DELETE, SITENAME, SITEURL: those are placeholders. */
+=======
+	/* translators: Do not translate USERNAME, URL_DELETE, SITE_NAME: those are placeholders. */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$content = __(
 		"Howdy ###USERNAME###,
 
@@ -68,8 +88,13 @@ some time in the future! (But remember your current site and username
 are gone forever.)
 
 Thanks for using the site,
+<<<<<<< HEAD
 All at ###SITENAME###
 ###SITEURL###"
+=======
+Webmaster
+###SITE_NAME###"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	);
 	/**
 	 * Filters the email content sent when a site in a Multisite network is deleted.
@@ -82,8 +107,12 @@ All at ###SITENAME###
 
 	$content = str_replace( '###USERNAME###', $user->user_login, $content );
 	$content = str_replace( '###URL_DELETE###', $url_delete, $content );
+<<<<<<< HEAD
 	$content = str_replace( '###SITENAME###', get_network()->site_name, $content );
 	$content = str_replace( '###SITEURL###', network_home_url(), $content );
+=======
+	$content = str_replace( '###SITE_NAME###', get_network()->site_name, $content );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	wp_mail(
 		get_option( 'admin_email' ),
@@ -123,7 +152,11 @@ All at ###SITENAME###
 		<?php
 			printf(
 				/* translators: %s: Site address. */
+<<<<<<< HEAD
 				__( "I'm sure I want to permanently delete my site, and I am aware I can never get it back or use %s again." ),
+=======
+				__( "I'm sure I want to permanently disable my site, and I am aware I can never get it back or use %s again." ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$blog->domain . $blog->path
 			);
 		?>
@@ -134,4 +167,8 @@ All at ###SITENAME###
 }
 echo '</div>';
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

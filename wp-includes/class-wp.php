@@ -14,7 +14,11 @@ class WP {
 	 * @since 2.0.0
 	 * @var string[]
 	 */
+<<<<<<< HEAD
 	public $public_query_vars = array( 'm', 'p', 'posts', 'w', 'cat', 'withcomments', 'withoutcomments', 's', 'search', 'exact', 'sentence', 'calendar', 'page', 'paged', 'more', 'tb', 'pb', 'author', 'order', 'orderby', 'year', 'monthnum', 'day', 'hour', 'minute', 'second', 'name', 'category_name', 'tag', 'feed', 'author_name', 'pagename', 'page_id', 'error', 'attachment', 'attachment_id', 'subpost', 'subpost_id', 'preview', 'robots', 'favicon', 'taxonomy', 'term', 'cpage', 'post_type', 'embed' );
+=======
+	public $public_query_vars = array( 'm', 'p', 'posts', 'w', 'cat', 'withcomments', 'withoutcomments', 's', 'search', 'exact', 'sentence', 'calendar', 'page', 'paged', 'more', 'tb', 'pb', 'author', 'order', 'orderby', 'year', 'monthnum', 'day', 'hour', 'minute', 'second', 'name', 'category_name', 'tag', 'feed', 'author_name', 'pagename', 'page_id', 'error', 'attachment', 'attachment_id', 'subpost', 'subpost_id', 'preview', 'robots', 'taxonomy', 'term', 'cpage', 'post_type', 'embed' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Private query variables.
@@ -90,7 +94,11 @@ class WP {
 	 * @param string $qv Query variable name.
 	 */
 	public function add_query_var( $qv ) {
+<<<<<<< HEAD
 		if ( ! in_array( $qv, $this->public_query_vars, true ) ) {
+=======
+		if ( ! in_array( $qv, $this->public_query_vars ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->public_query_vars[] = $qv;
 		}
 	}
@@ -111,8 +119,13 @@ class WP {
 	 *
 	 * @since 2.3.0
 	 *
+<<<<<<< HEAD
 	 * @param string $key   Query variable name.
 	 * @param mixed  $value Query variable value.
+=======
+	 * @param string $key Query variable name.
+	 * @param mixed $value Query variable value.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function set_query_var( $key, $value ) {
 		$this->query_vars[ $key ] = $value;
@@ -173,11 +186,18 @@ class WP {
 			$home_path       = trim( parse_url( home_url(), PHP_URL_PATH ), '/' );
 			$home_path_regex = sprintf( '|^%s|i', preg_quote( $home_path, '|' ) );
 
+<<<<<<< HEAD
 			/*
 			 * Trim path info from the end and the leading home path from the front.
 			 * For path info requests, this leaves us with the requesting filename, if any.
 			 * For 404 requests, this leaves us with the requested permalink.
 			 */
+=======
+			// Trim path info from the end and the leading home path from the
+			// front. For path info requests, this leaves us with the requesting
+			// filename, if any. For 404 requests, this leaves us with the
+			// requested permalink.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$req_uri  = str_replace( $pathinfo, '', $req_uri );
 			$req_uri  = trim( $req_uri, '/' );
 			$req_uri  = preg_replace( $home_path_regex, '', $req_uri );
@@ -190,7 +210,11 @@ class WP {
 			$self     = trim( $self, '/' );
 
 			// The requested permalink is in $pathinfo for path info requests and
+<<<<<<< HEAD
 			// $req_uri for other requests.
+=======
+			//  $req_uri for other requests.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( ! empty( $pathinfo ) && ! preg_match( '|^.*' . $wp_rewrite->index . '$|', $pathinfo ) ) {
 				$requested_path = $pathinfo;
 			} else {
@@ -207,7 +231,11 @@ class WP {
 			// Look for matches.
 			$request_match = $requested_path;
 			if ( empty( $request_match ) ) {
+<<<<<<< HEAD
 				// An empty request could only match against ^$ regex.
+=======
+				// An empty request could only match against ^$ regex
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( isset( $rewrite['$'] ) ) {
 					$this->matched_rule = '$';
 					$query              = $rewrite['$'];
@@ -275,7 +303,11 @@ class WP {
 		}
 
 		/**
+<<<<<<< HEAD
 		 * Filters the query variables allowed before processing.
+=======
+		 * Filters the query variables whitelist before processing.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * Allows (publicly allowed) query vars to be added, removed, or changed prior
 		 * to executing the query. Needed to allow custom rewrite rules using your own arguments
@@ -283,7 +315,11 @@ class WP {
 		 *
 		 * @since 1.5.0
 		 *
+<<<<<<< HEAD
 		 * @param string[] $public_query_vars The array of allowed query variable names.
+=======
+		 * @param string[] $public_query_vars The array of whitelisted query variable names.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$this->public_query_vars = apply_filters( 'query_vars', $this->public_query_vars );
 
@@ -324,7 +360,11 @@ class WP {
 			}
 		}
 
+<<<<<<< HEAD
 		// Convert urldecoded spaces back into '+'.
+=======
+		// Convert urldecoded spaces back into +
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( get_taxonomies( array(), 'objects' ) as $taxonomy => $t ) {
 			if ( $t->query_var && isset( $this->query_vars[ $t->query_var ] ) ) {
 				$this->query_vars[ $t->query_var ] = str_replace( ' ', '+', $this->query_vars[ $t->query_var ] );
@@ -344,11 +384,19 @@ class WP {
 			}
 		}
 
+<<<<<<< HEAD
 		// Limit publicly queried post_types to those that are 'publicly_queryable'.
 		if ( isset( $this->query_vars['post_type'] ) ) {
 			$queryable_post_types = get_post_types( array( 'publicly_queryable' => true ) );
 			if ( ! is_array( $this->query_vars['post_type'] ) ) {
 				if ( ! in_array( $this->query_vars['post_type'], $queryable_post_types, true ) ) {
+=======
+		// Limit publicly queried post_types to those that are publicly_queryable
+		if ( isset( $this->query_vars['post_type'] ) ) {
+			$queryable_post_types = get_post_types( array( 'publicly_queryable' => true ) );
+			if ( ! is_array( $this->query_vars['post_type'] ) ) {
+				if ( ! in_array( $this->query_vars['post_type'], $queryable_post_types ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					unset( $this->query_vars['post_type'] );
 				}
 			} else {
@@ -404,10 +452,13 @@ class WP {
 
 		if ( is_user_logged_in() ) {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
+<<<<<<< HEAD
 		} elseif ( ! empty( $_GET['unapproved'] ) && ! empty( $_GET['moderation-hash'] ) ) {
 			// Unmoderated comments are only visible for one minute via the moderation hash.
 			$headers['Expires']       = gmdate( 'D, d M Y H:i:s', time() + MINUTE_IN_SECONDS );
 			$headers['Cache-Control'] = 'max-age=60, must-revalidate';
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		if ( ! empty( $this->query_vars['error'] ) ) {
 			$status = (int) $this->query_vars['error'];
@@ -416,15 +467,25 @@ class WP {
 					$headers = array_merge( $headers, wp_get_nocache_headers() );
 				}
 				$headers['Content-Type'] = get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' );
+<<<<<<< HEAD
 			} elseif ( in_array( $status, array( 403, 500, 502, 503 ), true ) ) {
+=======
+			} elseif ( in_array( $status, array( 403, 500, 502, 503 ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$exit_required = true;
 			}
 		} elseif ( empty( $this->query_vars['feed'] ) ) {
 			$headers['Content-Type'] = get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' );
 		} else {
+<<<<<<< HEAD
 			// Set the correct content type for feeds.
 			$type = $this->query_vars['feed'];
 			if ( 'feed' === $this->query_vars['feed'] ) {
+=======
+			// Set the correct content type for feeds
+			$type = $this->query_vars['feed'];
+			if ( 'feed' == $this->query_vars['feed'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$type = get_default_feed();
 			}
 			$headers['Content-Type'] = feed_content_type( $type ) . '; charset=' . get_option( 'blog_charset' );
@@ -457,7 +518,11 @@ class WP {
 			$headers['Last-Modified'] = $wp_last_modified;
 			$headers['ETag']          = $wp_etag;
 
+<<<<<<< HEAD
 			// Support for conditional GET.
+=======
+			// Support for Conditional GET
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( isset( $_SERVER['HTTP_IF_NONE_MATCH'] ) ) {
 				$client_etag = wp_unslash( $_SERVER['HTTP_IF_NONE_MATCH'] );
 			} else {
@@ -465,10 +530,17 @@ class WP {
 			}
 
 			$client_last_modified = empty( $_SERVER['HTTP_IF_MODIFIED_SINCE'] ) ? '' : trim( $_SERVER['HTTP_IF_MODIFIED_SINCE'] );
+<<<<<<< HEAD
 			// If string is empty, return 0. If not, attempt to parse into a timestamp.
 			$client_modified_timestamp = $client_last_modified ? strtotime( $client_last_modified ) : 0;
 
 			// Make a timestamp for our most recent modification..
+=======
+			// If string is empty, return 0. If not, attempt to parse into a timestamp
+			$client_modified_timestamp = $client_last_modified ? strtotime( $client_last_modified ) : 0;
+
+			// Make a timestamp for our most recent modification...
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$wp_modified_timestamp = strtotime( $wp_last_modified );
 
 			if ( ( $client_last_modified && $client_etag ) ?
@@ -509,7 +581,11 @@ class WP {
 		}
 
 		if ( $exit_required ) {
+<<<<<<< HEAD
 			exit;
+=======
+			exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		/**
@@ -547,6 +623,7 @@ class WP {
 			 * Filters the query string before parsing.
 			 *
 			 * @since 1.5.0
+<<<<<<< HEAD
 			 * @deprecated 2.1.0 Use {@see 'query_vars'} or {@see 'request'} filters instead.
 			 *
 			 * @param string $query_string The query string to modify.
@@ -557,6 +634,13 @@ class WP {
 				'2.1.0',
 				'query_vars, request'
 			);
+=======
+			 * @deprecated 2.1.0 Use 'query_vars' or 'request' filters instead.
+			 *
+			 * @param string $query_string The query string to modify.
+			 */
+			$this->query_string = apply_filters( 'query_string', $this->query_string );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			parse_str( $this->query_string, $this->query_vars );
 		}
 	}
@@ -627,6 +711,7 @@ class WP {
 	/**
 	 * Set the Headers for 404, if nothing is found for requested URL.
 	 *
+<<<<<<< HEAD
 	 * Issue a 404 if a request doesn't match any posts and doesn't match any object
 	 * (e.g. an existing-but-empty category, tag, author) and a 404 was not already issued,
 	 * and if the request was not a search or the homepage.
@@ -634,6 +719,15 @@ class WP {
 	 * Otherwise, issue a 200.
 	 *
 	 * This sets headers after posts have been queried. handle_404() really means "handle status".
+=======
+	 * Issue a 404 if a request doesn't match any posts and doesn't match
+	 * any object (e.g. an existing-but-empty category, tag, author) and a 404 was not already
+	 * issued, and if the request was not a search or the homepage.
+	 *
+	 * Otherwise, issue a 200.
+	 *
+	 * This sets headers after posts have been queried. handle_404() really means "handle status."
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * By inspecting the result of querying posts, seemingly successful requests can be switched to
 	 * a 404 so that canonical redirection logic can kick in.
 	 *
@@ -664,6 +758,7 @@ class WP {
 			return;
 		}
 
+<<<<<<< HEAD
 		$set_404 = true;
 
 		// Never 404 for the admin, robots, or favicon.
@@ -727,6 +822,65 @@ class WP {
 		} else {
 			status_header( 200 );
 		}
+=======
+		// Never 404 for the admin, robots, or if we found posts.
+		if ( is_admin() || is_robots() || $wp_query->posts ) {
+
+			$success = true;
+			if ( is_singular() ) {
+				$p = false;
+
+				if ( $wp_query->post instanceof WP_Post ) {
+					$p = clone $wp_query->post;
+				}
+
+				// Only set X-Pingback for single posts that allow pings.
+				if ( $p && pings_open( $p ) && ! headers_sent() ) {
+					header( 'X-Pingback: ' . get_bloginfo( 'pingback_url', 'display' ) );
+				}
+
+				// check for paged content that exceeds the max number of pages
+				$next = '<!--nextpage-->';
+				if ( $p && false !== strpos( $p->post_content, $next ) && ! empty( $this->query_vars['page'] ) ) {
+					$page    = trim( $this->query_vars['page'], '/' );
+					$success = (int) $page <= ( substr_count( $p->post_content, $next ) + 1 );
+				}
+			}
+
+			if ( $success ) {
+				status_header( 200 );
+				return;
+			}
+		}
+
+		// We will 404 for paged queries, as no posts were found.
+		if ( ! is_paged() ) {
+
+			// Don't 404 for authors without posts as long as they matched an author on this site.
+			$author = get_query_var( 'author' );
+			if ( is_author() && is_numeric( $author ) && $author > 0 && is_user_member_of_blog( $author ) ) {
+				status_header( 200 );
+				return;
+			}
+
+			// Don't 404 for these queries if they matched an object.
+			if ( ( is_tag() || is_category() || is_tax() || is_post_type_archive() ) && get_queried_object() ) {
+				status_header( 200 );
+				return;
+			}
+
+			// Don't 404 for these queries either.
+			if ( is_home() || is_search() || is_feed() ) {
+				status_header( 200 );
+				return;
+			}
+		}
+
+		// Guess it's time to 404.
+		$wp_query->set_404();
+		status_header( 404 );
+		nocache_headers();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**

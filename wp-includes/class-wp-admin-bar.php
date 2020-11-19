@@ -82,22 +82,30 @@ class WP_Admin_Bar {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Add a node (menu item) to the Admin Bar menu.
 	 *
 	 * @since 3.3.0
 	 *
 	 * @param array $node The attributes that define the node.
+=======
+	 * @param array $node
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function add_menu( $node ) {
 		$this->add_node( $node );
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Remove a node from the admin bar.
 	 *
 	 * @since 3.1.0
 	 *
 	 * @param string $id The menu slug to remove.
+=======
+	 * @param string $id
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function remove_menu( $id ) {
 		$this->remove_node( $id );
@@ -122,7 +130,11 @@ class WP_Admin_Bar {
 	 * }
 	 */
 	public function add_node( $args ) {
+<<<<<<< HEAD
 		// Shim for old method signature: add_node( $parent_id, $menu_obj, $args ).
+=======
+		// Shim for old method signature: add_node( $parent_id, $menu_obj, $args )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( func_num_args() >= 3 && is_string( $args ) ) {
 			$args = array_merge( array( 'parent' => $args ), func_get_arg( 2 ) );
 		}
@@ -318,7 +330,11 @@ class WP_Admin_Bar {
 		}
 
 		foreach ( $this->_get_nodes() as $node ) {
+<<<<<<< HEAD
 			if ( 'root' === $node->id ) {
+=======
+			if ( 'root' == $node->id ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				continue;
 			}
 
@@ -329,9 +345,15 @@ class WP_Admin_Bar {
 			}
 
 			// Generate the group class (we distinguish between top level and other level groups).
+<<<<<<< HEAD
 			$group_class = ( 'root' === $node->parent ) ? 'ab-top-menu' : 'ab-submenu';
 
 			if ( 'group' === $node->type ) {
+=======
+			$group_class = ( $node->parent == 'root' ) ? 'ab-top-menu' : 'ab-submenu';
+
+			if ( $node->type == 'group' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( empty( $node->meta['class'] ) ) {
 					$node->meta['class'] = $group_class;
 				} else {
@@ -340,7 +362,11 @@ class WP_Admin_Bar {
 			}
 
 			// Items in items aren't allowed. Wrap nested items in 'default' groups.
+<<<<<<< HEAD
 			if ( 'item' === $parent->type && 'item' === $node->type ) {
+=======
+			if ( $parent->type == 'item' && $node->type == 'item' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$default_id = $parent->id . '-default';
 				$default    = $this->_get_node( $default_id );
 
@@ -369,7 +395,11 @@ class WP_Admin_Bar {
 
 				// Groups in groups aren't allowed. Add a special 'container' node.
 				// The container will invisibly wrap both groups.
+<<<<<<< HEAD
 			} elseif ( 'group' === $parent->type && 'group' === $node->type ) {
+=======
+			} elseif ( $parent->type == 'group' && $node->type == 'group' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$container_id = $parent->id . '-container';
 				$container    = $this->_get_node( $container_id );
 
@@ -398,7 +428,11 @@ class WP_Admin_Bar {
 						$container->parent = $grandparent->id;
 
 						$index = array_search( $parent, $grandparent->children, true );
+<<<<<<< HEAD
 						if ( false === $index ) {
+=======
+						if ( $index === false ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							$grandparent->children[] = $container;
 						} else {
 							array_splice( $grandparent->children, $index, 1, array( $container ) );
@@ -424,6 +458,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param object $root
 	 */
 	final protected function _render( $root ) {
@@ -431,6 +466,26 @@ class WP_Admin_Bar {
 		// We have to do this here since admin bar shows on the front end.
 		$class = 'nojq nojs';
 		if ( wp_is_mobile() ) {
+=======
+	 * @global bool $is_IE
+	 * @param object $root
+	 */
+	final protected function _render( $root ) {
+		global $is_IE;
+
+		// Add browser classes.
+		// We have to do this here since admin bar shows on the front end.
+		$class = 'nojq nojs';
+		if ( $is_IE ) {
+			if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE 7' ) ) {
+				$class .= ' ie7';
+			} elseif ( strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE 8' ) ) {
+				$class .= ' ie8';
+			} elseif ( strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE 9' ) ) {
+				$class .= ' ie9';
+			}
+		} elseif ( wp_is_mobile() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$class .= ' mobile';
 		}
 
@@ -458,7 +513,11 @@ class WP_Admin_Bar {
 	 * @param object $node
 	 */
 	final protected function _render_container( $node ) {
+<<<<<<< HEAD
 		if ( 'container' !== $node->type || empty( $node->children ) ) {
+=======
+		if ( $node->type != 'container' || empty( $node->children ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return;
 		}
 
@@ -473,11 +532,19 @@ class WP_Admin_Bar {
 	 * @param object $node
 	 */
 	final protected function _render_group( $node ) {
+<<<<<<< HEAD
 		if ( 'container' === $node->type ) {
 			$this->_render_container( $node );
 			return;
 		}
 		if ( 'group' !== $node->type || empty( $node->children ) ) {
+=======
+		if ( $node->type == 'container' ) {
+			$this->_render_container( $node );
+			return;
+		}
+		if ( $node->type != 'group' || empty( $node->children ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return;
 		}
 
@@ -498,7 +565,11 @@ class WP_Admin_Bar {
 	 * @param object $node
 	 */
 	final protected function _render_item( $node ) {
+<<<<<<< HEAD
 		if ( 'item' !== $node->type ) {
+=======
+		if ( $node->type != 'item' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return;
 		}
 
@@ -537,12 +608,19 @@ class WP_Admin_Bar {
 		if ( $has_link ) {
 			$attributes = array( 'onclick', 'target', 'title', 'rel', 'lang', 'dir' );
 			echo "<a class='ab-item'$aria_attributes href='" . esc_url( $node->href ) . "'";
+<<<<<<< HEAD
+=======
+			if ( ! empty( $node->meta['onclick'] ) ) {
+				echo ' onclick="' . esc_js( $node->meta['onclick'] ) . '"';
+			}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		} else {
 			$attributes = array( 'onclick', 'target', 'title', 'rel', 'lang', 'dir' );
 			echo '<div class="ab-item ab-empty-item"' . $aria_attributes;
 		}
 
 		foreach ( $attributes as $attribute ) {
+<<<<<<< HEAD
 			if ( empty( $node->meta[ $attribute ] ) ) {
 				continue;
 			}
@@ -550,6 +628,9 @@ class WP_Admin_Bar {
 			if ( 'onclick' === $attribute ) {
 				echo " $attribute='" . esc_js( $node->meta[ $attribute ] ) . "'";
 			} else {
+=======
+			if ( ! empty( $node->meta[ $attribute ] ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				echo " $attribute='" . esc_attr( $node->meta[ $attribute ] ) . "'";
 			}
 		}
@@ -596,13 +677,21 @@ class WP_Admin_Bar {
 	/**
 	 */
 	public function add_menus() {
+<<<<<<< HEAD
 		// User-related, aligned right.
+=======
+		// User related, aligned right.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		add_action( 'admin_bar_menu', 'wp_admin_bar_my_account_menu', 0 );
 		add_action( 'admin_bar_menu', 'wp_admin_bar_search_menu', 4 );
 		add_action( 'admin_bar_menu', 'wp_admin_bar_my_account_item', 7 );
 		add_action( 'admin_bar_menu', 'wp_admin_bar_recovery_mode_menu', 8 );
 
+<<<<<<< HEAD
 		// Site-related.
+=======
+		// Site related.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		add_action( 'admin_bar_menu', 'wp_admin_bar_sidebar_toggle', 0 );
 		add_action( 'admin_bar_menu', 'wp_admin_bar_wp_menu', 10 );
 		add_action( 'admin_bar_menu', 'wp_admin_bar_my_sites_menu', 20 );
@@ -610,7 +699,11 @@ class WP_Admin_Bar {
 		add_action( 'admin_bar_menu', 'wp_admin_bar_customize_menu', 40 );
 		add_action( 'admin_bar_menu', 'wp_admin_bar_updates_menu', 50 );
 
+<<<<<<< HEAD
 		// Content-related.
+=======
+		// Content related.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! is_network_admin() && ! is_user_admin() ) {
 			add_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
 			add_action( 'admin_bar_menu', 'wp_admin_bar_new_content_menu', 70 );

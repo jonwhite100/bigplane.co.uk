@@ -15,10 +15,17 @@
 class getid3_lib
 {
 	/**
+<<<<<<< HEAD
 	 * @param string      $string
 	 * @param bool        $hex
 	 * @param bool        $spaces
 	 * @param string|bool $htmlencoding
+=======
+	 * @param string $string
+	 * @param bool   $hex
+	 * @param bool   $spaces
+	 * @param string $htmlencoding
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @return string
 	 */
@@ -114,7 +121,11 @@ class getid3_lib
 			}
 		}
 		// if integers are 64-bit - no other check required
+<<<<<<< HEAD
 		if ($hasINT64 || (($num <= PHP_INT_MAX) && ($num >= PHP_INT_MIN))) { // phpcs:ignore PHPCompatibility.Constants.NewConstants.php_int_minFound
+=======
+		if ($hasINT64 || (($num <= PHP_INT_MAX) && ($num >= PHP_INT_MIN))) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return true;
 		}
 		return false;
@@ -216,6 +227,10 @@ class getid3_lib
 
 			default:
 				return false;
+<<<<<<< HEAD
+=======
+				break;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		if ($floatvalue >= 0) {
 			$signbit = '0';
@@ -283,9 +298,17 @@ class getid3_lib
 					$floatvalue *= -1;
 				}
 				return $floatvalue;
+<<<<<<< HEAD
 
 			default:
 				return false;
+=======
+				break;
+
+			default:
+				return false;
+				break;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		$exponentstring = substr($bitword, 1, $exponentbits);
 		$fractionstring = substr($bitword, $exponentbits + 1, $fractionbits);
@@ -497,8 +520,13 @@ class getid3_lib
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param mixed $array1
 	 * @param mixed $array2
+=======
+	 * @param array $array1
+	 * @param array $array2
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @return array|false
 	 */
@@ -520,8 +548,13 @@ class getid3_lib
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param mixed $array1
 	 * @param mixed $array2
+=======
+	 * @param array $array1
+	 * @param array $array2
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @return array|false
 	 */
@@ -541,8 +574,13 @@ class getid3_lib
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param mixed $array1
 	 * @param mixed $array2
+=======
+	 * @param array $array1
+	 * @param array $array2
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @return array|false|null
 	 */
@@ -681,10 +719,17 @@ class getid3_lib
 	 */
 	public static function array_max($arraydata, $returnkey=false) {
 		$maxvalue = false;
+<<<<<<< HEAD
 		$maxkey   = false;
 		foreach ($arraydata as $key => $value) {
 			if (!is_array($value)) {
 				if (($maxvalue === false) || ($value > $maxvalue)) {
+=======
+		$maxkey = false;
+		foreach ($arraydata as $key => $value) {
+			if (!is_array($value)) {
+				if ($value > $maxvalue) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$maxvalue = $value;
 					$maxkey = $key;
 				}
@@ -701,10 +746,17 @@ class getid3_lib
 	 */
 	public static function array_min($arraydata, $returnkey=false) {
 		$minvalue = false;
+<<<<<<< HEAD
 		$minkey   = false;
 		foreach ($arraydata as $key => $value) {
 			if (!is_array($value)) {
 				if (($minvalue === false) || ($value < $minvalue)) {
+=======
+		$minkey = false;
+		foreach ($arraydata as $key => $value) {
+			if (!is_array($value)) {
+				if ($value > $minvalue) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$minvalue = $value;
 					$minkey = $key;
 				}
@@ -732,9 +784,15 @@ class getid3_lib
 	}
 
 	/**
+<<<<<<< HEAD
 	* @param SimpleXMLElement|array|mixed $XMLobject
 	*
 	* @return mixed
+=======
+	* @param SimpleXMLElement|array $XMLobject
+	*
+	* @return array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	*/
 	public static function SimpleXMLelement2array($XMLobject) {
 		if (!is_object($XMLobject) && !is_array($XMLobject)) {
@@ -1476,6 +1534,7 @@ class getid3_lib
 	 * @return array|false
 	 */
 	public static function GetDataImageSize($imgData, &$imageinfo=array()) {
+<<<<<<< HEAD
 		if (PHP_VERSION_ID >= 50400) {
 			$GetDataImageSize = @getimagesizefromstring($imgData, $imageinfo);
 			if ($GetDataImageSize === false || !isset($GetDataImageSize[0], $GetDataImageSize[1])) {
@@ -1485,6 +1544,8 @@ class getid3_lib
 			$GetDataImageSize['width'] = $GetDataImageSize[1];
 			return $GetDataImageSize;
 		}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		static $tempdir = '';
 		if (empty($tempdir)) {
 			if (function_exists('sys_get_temp_dir')) {
@@ -1493,11 +1554,20 @@ class getid3_lib
 
 			// yes this is ugly, feel free to suggest a better way
 			if (include_once(dirname(__FILE__).'/getid3.php')) {
+<<<<<<< HEAD
 				$getid3_temp = new getID3();
 				if ($getid3_temp_tempdir = $getid3_temp->tempdir) {
 					$tempdir = $getid3_temp_tempdir;
 				}
 				unset($getid3_temp, $getid3_temp_tempdir);
+=======
+				if ($getid3_temp = new getID3()) {
+					if ($getid3_temp_tempdir = $getid3_temp->tempdir) {
+						$tempdir = $getid3_temp_tempdir;
+					}
+					unset($getid3_temp, $getid3_temp_tempdir);
+				}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 		$GetDataImageSize = false;
@@ -1529,6 +1599,7 @@ class getid3_lib
 
 	/**
 	 * @param array $ThisFileInfo
+<<<<<<< HEAD
 	 * @param bool  $option_tags_html default true (just as in the main getID3 class)
 	 *
 	 * @return bool
@@ -1543,6 +1614,15 @@ class getid3_lib
 				$ThisFileInfo['tags']['id3v1'] = $ID3v1;
 				unset($ID3v1);
 			}
+=======
+	 *
+	 * @return bool
+	 */
+	public static function CopyTagsToComments(&$ThisFileInfo) {
+
+		// Copy all entries from ['tags'] into common ['comments']
+		if (!empty($ThisFileInfo['tags'])) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			foreach ($ThisFileInfo['tags'] as $tagtype => $tagarray) {
 				foreach ($tagarray as $tagname => $tagdata) {
 					foreach ($tagdata as $key => $value) {
@@ -1561,6 +1641,7 @@ class getid3_lib
 										break 2;
 									}
 								}
+<<<<<<< HEAD
 								if (function_exists('mb_convert_encoding')) {
 									if (trim($value) == trim(substr(mb_convert_encoding($existingvalue, $ThisFileInfo['id3v1']['encoding'], $ThisFileInfo['encoding']), 0, 30))) {
 										// value stored in ID3v1 appears to be probably the multibyte value transliterated (badly) into ISO-8859-1 in ID3v1.
@@ -1568,6 +1649,8 @@ class getid3_lib
 										break 2;
 									}
 								}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 							} elseif (!is_array($value)) {
 
@@ -1576,6 +1659,10 @@ class getid3_lib
 									$oldvaluelength = strlen(trim($existingvalue));
 									if ((strlen($existingvalue) > 10) && ($newvaluelength > $oldvaluelength) && (substr(trim($value), 0, strlen($existingvalue)) == $existingvalue)) {
 										$ThisFileInfo['comments'][$tagname][$existingkey] = trim($value);
+<<<<<<< HEAD
+=======
+										//break 2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 										break;
 									}
 								}
@@ -1586,7 +1673,11 @@ class getid3_lib
 								if (!is_int($key) && !ctype_digit($key)) {
 									$ThisFileInfo['comments'][$tagname][$key] = $value;
 								} else {
+<<<<<<< HEAD
 									if (!isset($ThisFileInfo['comments'][$tagname])) {
+=======
+									if (isset($ThisFileInfo['comments'][$tagname])) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 										$ThisFileInfo['comments'][$tagname] = array($value);
 									} else {
 										$ThisFileInfo['comments'][$tagname][] = $value;
@@ -1610,6 +1701,7 @@ class getid3_lib
 				}
 			}
 
+<<<<<<< HEAD
 			if ($option_tags_html) {
 				// Copy ['comments'] to ['comments_html']
 				if (!empty($ThisFileInfo['comments'])) {
@@ -1625,6 +1717,21 @@ class getid3_lib
 							} else {
 								$ThisFileInfo['comments_html'][$field][$index] = str_replace('&#0;', '', self::MultiByteCharString2HTML($value, $ThisFileInfo['encoding']));
 							}
+=======
+			// Copy to ['comments_html']
+			if (!empty($ThisFileInfo['comments'])) {
+				foreach ($ThisFileInfo['comments'] as $field => $values) {
+					if ($field == 'picture') {
+						// pictures can take up a lot of space, and we don't need multiple copies of them
+						// let there be a single copy in [comments][picture], and not elsewhere
+						continue;
+					}
+					foreach ($values as $index => $value) {
+						if (is_array($value)) {
+							$ThisFileInfo['comments_html'][$field][$index] = $value;
+						} else {
+							$ThisFileInfo['comments_html'][$field][$index] = str_replace('&#0;', '', self::MultiByteCharString2HTML($value, $ThisFileInfo['encoding']));
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						}
 					}
 				}

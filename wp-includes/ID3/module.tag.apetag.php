@@ -14,10 +14,13 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
 if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
 	exit;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 class getid3_apetag extends getid3_handler
 {
 	/**

@@ -5,9 +5,15 @@
  * @package WordPress
  */
 
+<<<<<<< HEAD
 if ( 'POST' !== $_SERVER['REQUEST_METHOD'] ) {
 	$protocol = $_SERVER['SERVER_PROTOCOL'];
 	if ( ! in_array( $protocol, array( 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0' ), true ) ) {
+=======
+if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
+	$protocol = $_SERVER['SERVER_PROTOCOL'];
+	if ( ! in_array( $protocol, array( 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$protocol = 'HTTP/1.0';
 	}
 
@@ -18,7 +24,11 @@ if ( 'POST' !== $_SERVER['REQUEST_METHOD'] ) {
 }
 
 /** Sets up the WordPress Environment. */
+<<<<<<< HEAD
 require __DIR__ . '/wp-load.php';
+=======
+require( dirname( __FILE__ ) . '/wp-load.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 nocache_headers();
 
@@ -50,14 +60,23 @@ $cookies_consent = ( isset( $_POST['wp-comment-cookies-consent'] ) );
  *
  * @param WP_Comment $comment         Comment object.
  * @param WP_User    $user            Comment author's user object. The user may not exist.
+<<<<<<< HEAD
  * @param bool       $cookies_consent Comment author's consent to store cookies.
+=======
+ * @param boolean    $cookies_consent Comment author's consent to store cookies.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 do_action( 'set_comment_cookies', $comment, $user, $cookies_consent );
 
 $location = empty( $_POST['redirect_to'] ) ? get_comment_link( $comment ) : $_POST['redirect_to'] . '#comment-' . $comment->comment_ID;
 
+<<<<<<< HEAD
 // If user didn't consent to cookies, add specific query arguments to display the awaiting moderation message.
 if ( ! $cookies_consent && 'unapproved' === wp_get_comment_status( $comment ) && ! empty( $comment->comment_author_email ) ) {
+=======
+// Add specific query arguments to display the awaiting moderation message.
+if ( 'unapproved' === wp_get_comment_status( $comment ) && ! empty( $comment->comment_author_email ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$location = add_query_arg(
 		array(
 			'unapproved'      => $comment->comment_ID,

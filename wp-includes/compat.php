@@ -6,7 +6,11 @@
  * @access private
  */
 
+<<<<<<< HEAD
 // If gettext isn't available.
+=======
+// If gettext isn't available
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( ! function_exists( '_' ) ) {
 	function _( $string ) {
 		return $string;
@@ -20,6 +24,11 @@ if ( ! function_exists( '_' ) ) {
  * @since 4.2.2
  * @access private
  *
+<<<<<<< HEAD
+=======
+ * @staticvar string $utf8_pcre
+ *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param bool $set - Used for testing only
  *             null   : default - get PCRE/u capability
  *             false  : Used for testing - return false for future calls to this function
@@ -87,7 +96,11 @@ function _mb_substr( $str, $start, $length = null, $encoding = null ) {
 	 * The solution below works only for UTF-8, so in case of a different
 	 * charset just use built-in substr().
 	 */
+<<<<<<< HEAD
 	if ( ! in_array( $encoding, array( 'utf8', 'utf-8', 'UTF8', 'UTF-8' ), true ) ) {
+=======
+	if ( ! in_array( $encoding, array( 'utf8', 'utf-8', 'UTF8', 'UTF-8' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return is_null( $length ) ? substr( $str, $start ) : substr( $str, $start, $length );
 	}
 
@@ -171,7 +184,11 @@ function _mb_strlen( $str, $encoding = null ) {
 	 * The solution below works only for UTF-8, so in case of a different charset
 	 * just use built-in strlen().
 	 */
+<<<<<<< HEAD
 	if ( ! in_array( $encoding, array( 'utf8', 'utf-8', 'UTF8', 'UTF-8' ), true ) ) {
+=======
+	if ( ! in_array( $encoding, array( 'utf8', 'utf-8', 'UTF8', 'UTF-8' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return strlen( $str );
 	}
 
@@ -310,7 +327,11 @@ if ( ! function_exists( 'hash_equals' ) ) :
 	 */
 	function hash_equals( $a, $b ) {
 		$a_length = strlen( $a );
+<<<<<<< HEAD
 		if ( strlen( $b ) !== $a_length ) {
+=======
+		if ( $a_length !== strlen( $b ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return false;
 		}
 		$result = 0;
@@ -320,6 +341,7 @@ if ( ! function_exists( 'hash_equals' ) ) :
 			$result |= ord( $a[ $i ] ) ^ ord( $b[ $i ] );
 		}
 
+<<<<<<< HEAD
 		return 0 === $result;
 	}
 endif;
@@ -329,6 +351,17 @@ if ( ! function_exists( 'random_int' ) ) {
 	require ABSPATH . WPINC . '/random_compat/random.php';
 }
 // sodium_crypto_box() was introduced in PHP 7.2.
+=======
+		return $result === 0;
+	}
+endif;
+
+// random_int was introduced in PHP 7.0
+if ( ! function_exists( 'random_int' ) ) {
+	require ABSPATH . WPINC . '/random_compat/random.php';
+}
+// sodium_crypto_box was introduced in PHP 7.2
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( ! function_exists( 'sodium_crypto_box' ) ) {
 	require ABSPATH . WPINC . '/sodium_compat/autoload.php';
 }
@@ -343,6 +376,10 @@ if ( ! function_exists( 'is_countable' ) ) {
 	 * @since 4.9.6
 	 *
 	 * @param mixed $var The value to check.
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool True if `$var` is countable, false otherwise.
 	 */
 	function is_countable( $var ) {
@@ -364,6 +401,10 @@ if ( ! function_exists( 'is_iterable' ) ) {
 	 * @since 4.9.6
 	 *
 	 * @param mixed $var The value to check.
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool True if `$var` is iterable, false otherwise.
 	 */
 	function is_iterable( $var ) {

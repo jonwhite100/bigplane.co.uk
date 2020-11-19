@@ -47,7 +47,11 @@ if ( ! defined( 'CUSTOM_TAGS' ) ) {
 
 // Ensure that these variables are added to the global namespace
 // (e.g. if using namespaces / autoload in the current PHP environment).
+<<<<<<< HEAD
 global $allowedposttags, $allowedtags, $allowedentitynames, $allowedxmlentitynames;
+=======
+global $allowedposttags, $allowedtags, $allowedentitynames;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! CUSTOM_TAGS ) {
 	/**
@@ -230,7 +234,10 @@ if ( ! CUSTOM_TAGS ) {
 			'border'   => true,
 			'height'   => true,
 			'hspace'   => true,
+<<<<<<< HEAD
 			'loading'  => true,
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'longdesc' => true,
 			'vspace'   => true,
 			'src'      => true,
@@ -398,6 +405,7 @@ if ( ! CUSTOM_TAGS ) {
 		),
 		'var'        => array(),
 		'video'      => array(
+<<<<<<< HEAD
 			'autoplay'    => true,
 			'controls'    => true,
 			'height'      => true,
@@ -408,6 +416,17 @@ if ( ! CUSTOM_TAGS ) {
 			'preload'     => true,
 			'src'         => true,
 			'width'       => true,
+=======
+			'autoplay' => true,
+			'controls' => true,
+			'height'   => true,
+			'loop'     => true,
+			'muted'    => true,
+			'poster'   => true,
+			'preload'  => true,
+			'src'      => true,
+			'width'    => true,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		),
 	);
 
@@ -705,6 +724,7 @@ if ( ! CUSTOM_TAGS ) {
 		'there4',
 	);
 
+<<<<<<< HEAD
 	/**
 	 * @var string[] $allowedxmlentitynames Array of KSES allowed XML entitity names.
 	 * @since 5.5.0
@@ -717,6 +737,8 @@ if ( ! CUSTOM_TAGS ) {
 		'quot',
 	);
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$allowedposttags = array_map( '_wp_add_global_attributes', $allowedposttags );
 } else {
 	$allowedtags     = wp_kses_array_lc( $allowedtags );
@@ -737,9 +759,14 @@ if ( ! CUSTOM_TAGS ) {
  * @since 1.0.0
  *
  * @param string         $string            Text content to filter.
+<<<<<<< HEAD
  * @param array[]|string $allowed_html      An array of allowed HTML elements and attributes,
  *                                          or a context name such as 'post'. See wp_kses_allowed_html()
  *                                          for the list of accepted context names.
+=======
+ * @param array[]|string $allowed_html      An array of allowed HTML elements and attributes, or a
+ *                                          context name such as 'post'.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string[]       $allowed_protocols Array of allowed URL protocols.
  * @return string Filtered content containing only the allowed HTML.
  */
@@ -747,11 +774,17 @@ function wp_kses( $string, $allowed_html, $allowed_protocols = array() ) {
 	if ( empty( $allowed_protocols ) ) {
 		$allowed_protocols = wp_allowed_protocols();
 	}
+<<<<<<< HEAD
 
 	$string = wp_kses_no_null( $string, array( 'slash_zero' => 'keep' ) );
 	$string = wp_kses_normalize_entities( $string );
 	$string = wp_kses_hook( $string, $allowed_html, $allowed_protocols );
 
+=======
+	$string = wp_kses_no_null( $string, array( 'slash_zero' => 'keep' ) );
+	$string = wp_kses_normalize_entities( $string );
+	$string = wp_kses_hook( $string, $allowed_html, $allowed_protocols );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return wp_kses_split( $string, $allowed_html, $allowed_protocols );
 }
 
@@ -792,12 +825,20 @@ function wp_kses_one_attr( $string, $element ) {
 
 		// Remove quotes surrounding $value.
 		// Also guarantee correct quoting in $string for this one attribute.
+<<<<<<< HEAD
 		if ( '' === $value ) {
+=======
+		if ( '' == $value ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$quote = '';
 		} else {
 			$quote = $value[0];
 		}
+<<<<<<< HEAD
 		if ( '"' === $quote || "'" === $quote ) {
+=======
+		if ( '"' == $quote || "'" == $quote ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( substr( $value, -1 ) != $quote ) {
 				return '';
 			}
@@ -810,7 +851,11 @@ function wp_kses_one_attr( $string, $element ) {
 		$value = esc_attr( $value );
 
 		// Sanitize URI values.
+<<<<<<< HEAD
 		if ( in_array( strtolower( $name ), $uris, true ) ) {
+=======
+		if ( in_array( strtolower( $name ), $uris ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$value = wp_kses_bad_protocol( $value, $allowed_protocols );
 		}
 
@@ -913,15 +958,22 @@ function wp_kses_allowed_html( $context = '' ) {
  *
  * @since 1.0.0
  *
+<<<<<<< HEAD
  * @param string         $string            Content to filter through KSES.
  * @param array[]|string $allowed_html      An array of allowed HTML elements and attributes,
  *                                          or a context name such as 'post'. See wp_kses_allowed_html()
  *                                          for the list of accepted context names.
  * @param string[]       $allowed_protocols Array of allowed URL protocols.
+=======
+ * @param string          $string            Content to filter through KSES.
+ * @param array[]|string  $allowed_html      List of allowed HTML elements.
+ * @param string[]        $allowed_protocols Array of allowed URL protocols.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string Filtered content through {@see 'pre_kses'} hook.
  */
 function wp_kses_hook( $string, $allowed_html, $allowed_protocols ) {
 	/**
+<<<<<<< HEAD
 	 * Filters content to be run through KSES.
 	 *
 	 * @since 2.3.0
@@ -931,6 +983,15 @@ function wp_kses_hook( $string, $allowed_html, $allowed_protocols ) {
 	 *                                          or a context name such as 'post'. See wp_kses_allowed_html()
 	 *                                          for the list of accepted context names.
 	 * @param string[]       $allowed_protocols Array of allowed URL protocols.
+=======
+	 * Filters content to be run through kses.
+	 *
+	 * @since 2.3.0
+	 *
+	 * @param string          $string            Content to run through KSES.
+	 * @param array[]|string  $allowed_html      Allowed HTML elements.
+	 * @param string[]        $allowed_protocols Array of allowed URL protocols.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	return apply_filters( 'pre_kses', $string, $allowed_html, $allowed_protocols );
 }
@@ -953,6 +1014,7 @@ function wp_kses_version() {
  *
  * @since 1.0.0
  *
+<<<<<<< HEAD
  * @global array[]|string $pass_allowed_html      An array of allowed HTML elements and attributes,
  *                                                or a context name such as 'post'.
  * @global string[]       $pass_allowed_protocols Array of allowed URL protocols.
@@ -962,19 +1024,36 @@ function wp_kses_version() {
  *                                          or a context name such as 'post'. See wp_kses_allowed_html()
  *                                          for the list of accepted context names.
  * @param string[]       $allowed_protocols Array of allowed URL protocols.
+=======
+ * @global array $pass_allowed_html
+ * @global array $pass_allowed_protocols
+ *
+ * @param string   $string            Content to filter.
+ * @param array    $allowed_html      Allowed HTML elements.
+ * @param string[] $allowed_protocols Array of allowed URL protocols.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string Content with fixed HTML tags
  */
 function wp_kses_split( $string, $allowed_html, $allowed_protocols ) {
 	global $pass_allowed_html, $pass_allowed_protocols;
+<<<<<<< HEAD
 
 	$pass_allowed_html      = $allowed_html;
 	$pass_allowed_protocols = $allowed_protocols;
 
+=======
+	$pass_allowed_html      = $allowed_html;
+	$pass_allowed_protocols = $allowed_protocols;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return preg_replace_callback( '%(<!--.*?(-->|$))|(<[^>]*(>|$)|>)%', '_wp_kses_split_callback', $string );
 }
 
 /**
+<<<<<<< HEAD
  * Returns an array of HTML attribute names whose value contains a URL.
+=======
+ * Helper function listing HTML attributes containing a URL.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * This function returns a list of all HTML attributes that must contain
  * a URL according to the HTML specification.
@@ -985,7 +1064,11 @@ function wp_kses_split( $string, $allowed_html, $allowed_protocols ) {
  *
  * @since 5.0.1
  *
+<<<<<<< HEAD
  * @return string[] HTML attribute names whose value contains a URL.
+=======
+ * @return array HTML attributes that must include a URL.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_kses_uri_attributes() {
 	$uri_attributes = array(
@@ -1016,7 +1099,11 @@ function wp_kses_uri_attributes() {
 	 *
 	 * @since 5.0.1
 	 *
+<<<<<<< HEAD
 	 * @param string[] $uri_attributes HTML attribute names whose value contains a URL.
+=======
+	 * @param array $uri_attributes HTML attributes requiring validation as a URL.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	$uri_attributes = apply_filters( 'wp_kses_uri_attributes', $uri_attributes );
 
@@ -1030,16 +1117,25 @@ function wp_kses_uri_attributes() {
  * @access private
  * @ignore
  *
+<<<<<<< HEAD
  * @global array[]|string $pass_allowed_html      An array of allowed HTML elements and attributes,
  *                                                or a context name such as 'post'.
  * @global string[]       $pass_allowed_protocols Array of allowed URL protocols.
  *
  * @param array $matches preg_replace regexp matches
+=======
+ * @global array $pass_allowed_html
+ * @global array $pass_allowed_protocols
+ *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string
  */
 function _wp_kses_split_callback( $match ) {
 	global $pass_allowed_html, $pass_allowed_protocols;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return wp_kses_split2( $match[0], $pass_allowed_html, $pass_allowed_protocols );
 }
 
@@ -1059,22 +1155,33 @@ function _wp_kses_split_callback( $match ) {
  * @ignore
  * @since 1.0.0
  *
+<<<<<<< HEAD
  * @param string         $string            Content to filter.
  * @param array[]|string $allowed_html      An array of allowed HTML elements and attributes,
  *                                          or a context name such as 'post'. See wp_kses_allowed_html()
  *                                          for the list of accepted context names.
  * @param string[]       $allowed_protocols Array of allowed URL protocols.
+=======
+ * @param string   $string            Content to filter.
+ * @param array    $allowed_html      Allowed HTML elements.
+ * @param string[] $allowed_protocols Array of allowed URL protocols.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string Fixed HTML element
  */
 function wp_kses_split2( $string, $allowed_html, $allowed_protocols ) {
 	$string = wp_kses_stripslashes( $string );
 
 	// It matched a ">" character.
+<<<<<<< HEAD
 	if ( '<' !== substr( $string, 0, 1 ) ) {
+=======
+	if ( substr( $string, 0, 1 ) != '<' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return '&gt;';
 	}
 
 	// Allow HTML comments.
+<<<<<<< HEAD
 	if ( '<!--' === substr( $string, 0, 4 ) ) {
 		$string = str_replace( array( '<!--', '-->' ), '', $string );
 		while ( ( $newstring = wp_kses( $string, $allowed_html, $allowed_protocols ) ) != $string ) {
@@ -1086,6 +1193,19 @@ function wp_kses_split2( $string, $allowed_html, $allowed_protocols ) {
 		// Prevent multiple dashes in comments.
 		$string = preg_replace( '/--+/', '-', $string );
 		// Prevent three dashes closing a comment.
+=======
+	if ( '<!--' == substr( $string, 0, 4 ) ) {
+		$string = str_replace( array( '<!--', '-->' ), '', $string );
+		while ( $string != ( $newstring = wp_kses( $string, $allowed_html, $allowed_protocols ) ) ) {
+			$string = $newstring;
+		}
+		if ( $string == '' ) {
+			return '';
+		}
+		// prevent multiple dashes in comments
+		$string = preg_replace( '/--+/', '-', $string );
+		// prevent three dashes closing a comment
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$string = preg_replace( '/-$/', '', $string );
 		return "<!--{$string}-->";
 	}
@@ -1109,7 +1229,11 @@ function wp_kses_split2( $string, $allowed_html, $allowed_protocols ) {
 	}
 
 	// No attributes are allowed for closing elements.
+<<<<<<< HEAD
 	if ( '' !== $slash ) {
+=======
+	if ( $slash != '' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return "</$elem>";
 	}
 
@@ -1127,12 +1251,19 @@ function wp_kses_split2( $string, $allowed_html, $allowed_protocols ) {
  *
  * @since 1.0.0
  *
+<<<<<<< HEAD
  * @param string         $element           HTML element/tag.
  * @param string         $attr              HTML attributes from HTML element to closing HTML element tag.
  * @param array[]|string $allowed_html      An array of allowed HTML elements and attributes,
  *                                          or a context name such as 'post'. See wp_kses_allowed_html()
  *                                          for the list of accepted context names.
  * @param string[]       $allowed_protocols Array of allowed URL protocols.
+=======
+ * @param string   $element           HTML element/tag.
+ * @param string   $attr              HTML attributes from HTML element to closing HTML element tag.
+ * @param array    $allowed_html      Allowed HTML elements.
+ * @param string[] $allowed_protocols Array of allowed URL protocols.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string Sanitized HTML element.
  */
 function wp_kses_attr( $element, $attr, $allowed_html, $allowed_protocols ) {
@@ -1152,11 +1283,19 @@ function wp_kses_attr( $element, $attr, $allowed_html, $allowed_protocols ) {
 		return "<$element$xhtml_slash>";
 	}
 
+<<<<<<< HEAD
 	// Split it.
 	$attrarr = wp_kses_hair( $attr, $allowed_protocols );
 
 	// Go through $attrarr, and save the allowed attributes for this element
 	// in $attr2.
+=======
+	// Split it
+	$attrarr = wp_kses_hair( $attr, $allowed_protocols );
+
+	// Go through $attrarr, and save the allowed attributes for this element
+	// in $attr2
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$attr2 = '';
 	foreach ( $attrarr as $arreach ) {
 		if ( wp_kses_attr_check( $arreach['name'], $arreach['value'], $arreach['whole'], $arreach['vless'], $element, $allowed_html ) ) {
@@ -1164,7 +1303,11 @@ function wp_kses_attr( $element, $attr, $allowed_html, $allowed_protocols ) {
 		}
 	}
 
+<<<<<<< HEAD
 	// Remove any "<" or ">" characters.
+=======
+	// Remove any "<" or ">" characters
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$attr2 = preg_replace( '/[<>]/', '', $attr2 );
 
 	return "<$element$attr2$xhtml_slash>";
@@ -1185,6 +1328,7 @@ function wp_kses_attr( $element, $attr, $allowed_html, $allowed_protocols ) {
  * @return bool Whether or not the attribute is allowed.
  */
 function wp_kses_attr_check( &$name, &$value, &$whole, $vless, $element, $allowed_html ) {
+<<<<<<< HEAD
 	$name_low    = strtolower( $name );
 	$element_low = strtolower( $element );
 
@@ -1198,6 +1342,12 @@ function wp_kses_attr_check( &$name, &$value, &$whole, $vless, $element, $allowe
 	$allowed_attr = $allowed_html[ $element_low ];
 
 	if ( ! isset( $allowed_attr[ $name_low ] ) || '' === $allowed_attr[ $name_low ] ) {
+=======
+	$allowed_attr = $allowed_html[ strtolower( $element ) ];
+
+	$name_low = strtolower( $name );
+	if ( ! isset( $allowed_attr[ $name_low ] ) || '' == $allowed_attr[ $name_low ] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		/*
 		 * Allow `data-*` attributes.
 		 *
@@ -1222,7 +1372,11 @@ function wp_kses_attr_check( &$name, &$value, &$whole, $vless, $element, $allowe
 		}
 	}
 
+<<<<<<< HEAD
 	if ( 'style' === $name_low ) {
+=======
+	if ( 'style' == $name_low ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$new_value = safecss_filter_attr( $value );
 
 		if ( empty( $new_value ) ) {
@@ -1237,7 +1391,11 @@ function wp_kses_attr_check( &$name, &$value, &$whole, $vless, $element, $allowe
 	}
 
 	if ( is_array( $allowed_attr[ $name_low ] ) ) {
+<<<<<<< HEAD
 		// There are some checks.
+=======
+		// there are some checks
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $allowed_attr[ $name_low ] as $currkey => $currval ) {
 			if ( ! wp_kses_check_attr_val( $value, $vless, $currkey, $currval ) ) {
 				$name  = '';
@@ -1274,31 +1432,51 @@ function wp_kses_hair( $attr, $allowed_protocols ) {
 	$attrname = '';
 	$uris     = wp_kses_uri_attributes();
 
+<<<<<<< HEAD
 	// Loop through the whole attribute list.
+=======
+	// Loop through the whole attribute list
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	while ( strlen( $attr ) != 0 ) {
 		$working = 0; // Was the last operation successful?
 
 		switch ( $mode ) {
 			case 0:
+<<<<<<< HEAD
 				if ( preg_match( '/^([_a-zA-Z][-_a-zA-Z0-9:.]*)/', $attr, $match ) ) {
 					$attrname = $match[1];
 					$working  = 1;
 					$mode     = 1;
 					$attr     = preg_replace( '/^[_a-zA-Z][-_a-zA-Z0-9:.]*/', '', $attr );
+=======
+				if ( preg_match( '/^([-a-zA-Z:]+)/', $attr, $match ) ) {
+					$attrname = $match[1];
+					$working  = 1;
+					$mode     = 1;
+					$attr     = preg_replace( '/^[-a-zA-Z:]+/', '', $attr );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 
 				break;
 
 			case 1:
+<<<<<<< HEAD
 				if ( preg_match( '/^\s*=\s*/', $attr ) ) { // Equals sign.
+=======
+				if ( preg_match( '/^\s*=\s*/', $attr ) ) { // equals sign
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$working = 1;
 					$mode    = 2;
 					$attr    = preg_replace( '/^\s*=\s*/', '', $attr );
 					break;
 				}
 
+<<<<<<< HEAD
 				if ( preg_match( '/^\s+/', $attr ) ) { // Valueless.
+=======
+				if ( preg_match( '/^\s+/', $attr ) ) { // valueless
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$working = 1;
 					$mode    = 0;
 					if ( false === array_key_exists( $attrname, $attrarr ) ) {
@@ -1318,7 +1496,11 @@ function wp_kses_hair( $attr, $allowed_protocols ) {
 				if ( preg_match( '%^"([^"]*)"(\s+|/?$)%', $attr, $match ) ) {
 					// "value"
 					$thisval = $match[1];
+<<<<<<< HEAD
 					if ( in_array( strtolower( $attrname ), $uris, true ) ) {
+=======
+					if ( in_array( strtolower( $attrname ), $uris ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$thisval = wp_kses_bad_protocol( $thisval, $allowed_protocols );
 					}
 
@@ -1339,7 +1521,11 @@ function wp_kses_hair( $attr, $allowed_protocols ) {
 				if ( preg_match( "%^'([^']*)'(\s+|/?$)%", $attr, $match ) ) {
 					// 'value'
 					$thisval = $match[1];
+<<<<<<< HEAD
 					if ( in_array( strtolower( $attrname ), $uris, true ) ) {
+=======
+					if ( in_array( strtolower( $attrname ), $uris ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$thisval = wp_kses_bad_protocol( $thisval, $allowed_protocols );
 					}
 
@@ -1360,7 +1546,11 @@ function wp_kses_hair( $attr, $allowed_protocols ) {
 				if ( preg_match( "%^([^\s\"']+)(\s+|/?$)%", $attr, $match ) ) {
 					// value
 					$thisval = $match[1];
+<<<<<<< HEAD
 					if ( in_array( strtolower( $attrname ), $uris, true ) ) {
+=======
+					if ( in_array( strtolower( $attrname ), $uris ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$thisval = wp_kses_bad_protocol( $thisval, $allowed_protocols );
 					}
 
@@ -1379,6 +1569,7 @@ function wp_kses_hair( $attr, $allowed_protocols ) {
 				}
 
 				break;
+<<<<<<< HEAD
 		} // End switch.
 
 		if ( 0 == $working ) { // Not well-formed, remove and try again.
@@ -1390,6 +1581,19 @@ function wp_kses_hair( $attr, $allowed_protocols ) {
 	if ( 1 == $mode && false === array_key_exists( $attrname, $attrarr ) ) {
 		// Special case, for when the attribute list ends with a valueless
 		// attribute like "selected".
+=======
+		} // switch
+
+		if ( $working == 0 ) { // not well formed, remove and try again
+			$attr = wp_kses_html_error( $attr );
+			$mode = 0;
+		}
+	} // while
+
+	if ( $mode == 1 && false === array_key_exists( $attrname, $attrarr ) ) {
+		// special case, for when the attribute list ends with a valueless
+		// attribute like "selected"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$attrarr[ $attrname ] = array(
 			'name'  => $attrname,
 			'value' => '',
@@ -1438,7 +1642,11 @@ function wp_kses_attr_parse( $element ) {
 		$xhtml_slash = '';
 	}
 
+<<<<<<< HEAD
 	// Split it.
+=======
+	// Split it
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$attrarr = wp_kses_hair_parse( $attr );
 	if ( false === $attrarr ) {
 		return false;
@@ -1471,6 +1679,7 @@ function wp_kses_hair_parse( $attr ) {
 
 	// phpcs:disable Squiz.Strings.ConcatenationSpacing.PaddingFound -- don't remove regex indentation
 	$regex =
+<<<<<<< HEAD
 		'(?:'
 		.     '[_a-zA-Z][-_a-zA-Z0-9:.]*' // Attribute name.
 		. '|'
@@ -1490,6 +1699,27 @@ function wp_kses_hair_parse( $attr ) {
 		.     '(?:\s|$)'      // If attribute has no value, space is required.
 		. ')'
 		. '\s*';              // Trailing space is optional except as mentioned above.
+=======
+	'(?:'
+	.     '[-a-zA-Z:]+'   // Attribute name.
+	. '|'
+	.     '\[\[?[^\[\]]+\]\]?' // Shortcode in the name position implies unfiltered_html.
+	. ')'
+	. '(?:'               // Attribute value.
+	.     '\s*=\s*'       // All values begin with '='
+	.     '(?:'
+	.         '"[^"]*"'   // Double-quoted
+	.     '|'
+	.         "'[^']*'"   // Single-quoted
+	.     '|'
+	.         '[^\s"\']+' // Non-quoted
+	.         '(?:\s|$)'  // Must have a space
+	.     ')'
+	. '|'
+	.     '(?:\s|$)'      // If attribute has no value, space is required.
+	. ')'
+	. '\s*';              // Trailing space is optional except as mentioned above.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	// phpcs:enable
 
 	// Although it is possible to reduce this procedure to a single regexp,
@@ -1525,11 +1755,17 @@ function wp_kses_check_attr_val( $value, $vless, $checkname, $checkvalue ) {
 
 	switch ( strtolower( $checkname ) ) {
 		case 'maxlen':
+<<<<<<< HEAD
 			/*
 			 * The maxlen check makes sure that the attribute value has a length not
 			 * greater than the given value. This can be used to avoid Buffer Overflows
 			 * in WWW clients and various Internet servers.
 			 */
+=======
+			// The maxlen check makes sure that the attribute value has a length not
+			// greater than the given value. This can be used to avoid Buffer Overflows
+			// in WWW clients and various Internet servers.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			if ( strlen( $value ) > $checkvalue ) {
 				$ok = false;
@@ -1537,10 +1773,15 @@ function wp_kses_check_attr_val( $value, $vless, $checkname, $checkvalue ) {
 			break;
 
 		case 'minlen':
+<<<<<<< HEAD
 			/*
 			 * The minlen check makes sure that the attribute value has a length not
 			 * smaller than the given value.
 			 */
+=======
+			// The minlen check makes sure that the attribute value has a length not
+			// smaller than the given value.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			if ( strlen( $value ) < $checkvalue ) {
 				$ok = false;
@@ -1548,6 +1789,7 @@ function wp_kses_check_attr_val( $value, $vless, $checkname, $checkvalue ) {
 			break;
 
 		case 'maxval':
+<<<<<<< HEAD
 			/*
 			 * The maxval check does two things: it checks that the attribute value is
 			 * an integer from 0 and up, without an excessive amount of zeroes or
@@ -1555,6 +1797,13 @@ function wp_kses_check_attr_val( $value, $vless, $checkname, $checkvalue ) {
 			 * value is not greater than the given value.
 			 * This check can be used to avoid Denial of Service attacks.
 			 */
+=======
+			// The maxval check does two things: it checks that the attribute value is
+			// an integer from 0 and up, without an excessive amount of zeroes or
+			// whitespace (to avoid Buffer Overflows). It also checks that the attribute
+			// value is not greater than the given value.
+			// This check can be used to avoid Denial of Service attacks.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			if ( ! preg_match( '/^\s{0,6}[0-9]{1,6}\s{0,6}$/', $value ) ) {
 				$ok = false;
@@ -1565,10 +1814,15 @@ function wp_kses_check_attr_val( $value, $vless, $checkname, $checkvalue ) {
 			break;
 
 		case 'minval':
+<<<<<<< HEAD
 			/*
 			 * The minval check makes sure that the attribute value is a positive integer,
 			 * and that it is not smaller than the given value.
 			 */
+=======
+			// The minval check makes sure that the attribute value is a positive integer,
+			// and that it is not smaller than the given value.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			if ( ! preg_match( '/^\s{0,6}[0-9]{1,6}\s{0,6}$/', $value ) ) {
 				$ok = false;
@@ -1579,18 +1833,29 @@ function wp_kses_check_attr_val( $value, $vless, $checkname, $checkvalue ) {
 			break;
 
 		case 'valueless':
+<<<<<<< HEAD
 			/*
 			 * The valueless check makes sure if the attribute has a value
 			 * (like `<a href="blah">`) or not (`<option selected>`). If the given value
 			 * is a "y" or a "Y", the attribute must not have a value.
 			 * If the given value is an "n" or an "N", the attribute must have a value.
 			 */
+=======
+			// The valueless check makes sure if the attribute has a value
+			// (like `<a href="blah">`) or not (`<option selected>`). If the given value
+			// is a "y" or a "Y", the attribute must not have a value.
+			// If the given value is an "n" or an "N", the attribute must have a value.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			if ( strtolower( $checkvalue ) != $vless ) {
 				$ok = false;
 			}
 			break;
+<<<<<<< HEAD
 	} // End switch.
+=======
+	} // switch
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return $ok;
 }
@@ -1642,7 +1907,11 @@ function wp_kses_no_null( $string, $options = null ) {
 	}
 
 	$string = preg_replace( '/[\x00-\x08\x0B\x0C\x0E-\x1F]/', '', $string );
+<<<<<<< HEAD
 	if ( 'remove' === $options['slash_zero'] ) {
+=======
+	if ( 'remove' == $options['slash_zero'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$string = preg_replace( '/\\\\+0+/', '', $string );
 	}
 
@@ -1713,16 +1982,27 @@ function wp_kses_html_error( $string ) {
  *
  * @param string   $string            Content to check for bad protocols.
  * @param string[] $allowed_protocols Array of allowed URL protocols.
+<<<<<<< HEAD
  * @param int      $count             Depth of call recursion to this function.
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string Sanitized content.
  */
 function wp_kses_bad_protocol_once( $string, $allowed_protocols, $count = 1 ) {
 	$string  = preg_replace( '/(&#0*58(?![;0-9])|&#x0*3a(?![;a-f0-9]))/i', '$1;', $string );
+<<<<<<< HEAD
 	$string2 = preg_split( '/:|&#0*58;|&#x0*3a;|&colon;/i', $string, 2 );
 	if ( isset( $string2[1] ) && ! preg_match( '%/\?%', $string2[0] ) ) {
 		$string   = trim( $string2[1] );
 		$protocol = wp_kses_bad_protocol_once2( $string2[0], $allowed_protocols );
 		if ( 'feed:' === $protocol ) {
+=======
+	$string2 = preg_split( '/:|&#0*58;|&#x0*3a;/i', $string, 2 );
+	if ( isset( $string2[1] ) && ! preg_match( '%/\?%', $string2[0] ) ) {
+		$string   = trim( $string2[1] );
+		$protocol = wp_kses_bad_protocol_once2( $string2[0], $allowed_protocols );
+		if ( 'feed:' == $protocol ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( $count > 2 ) {
 				return '';
 			}
@@ -1741,14 +2021,22 @@ function wp_kses_bad_protocol_once( $string, $allowed_protocols, $count = 1 ) {
  * Callback for `wp_kses_bad_protocol_once()` regular expression.
  *
  * This function processes URL protocols, checks to see if they're in the
+<<<<<<< HEAD
  * list of allowed protocols or not, and returns different data depending
  * on the answer.
+=======
+ * whitelist or not, and returns different data depending on the answer.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @access private
  * @ignore
  * @since 1.0.0
  *
+<<<<<<< HEAD
  * @param string   $string            URI scheme to check against the list of allowed protocols.
+=======
+ * @param string   $string            URI scheme to check against the whitelist.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string[] $allowed_protocols Array of allowed URL protocols.
  * @return string Sanitized content.
  */
@@ -1779,6 +2067,7 @@ function wp_kses_bad_protocol_once2( $string, $allowed_protocols ) {
  * This function normalizes HTML entities. It will convert `AT&T` to the correct
  * `AT&amp;T`, `&#00058;` to `&#58;`, `&#XYZZY;` to `&amp;#XYZZY;` and so on.
  *
+<<<<<<< HEAD
  * When `$context` is set to 'xml', HTML entities are converted to their code points.  For
  * example, `AT&T&hellip;&#XYZZY;` is converted to `AT&amp;T…&amp;#XYZZY;`.
  *
@@ -1800,6 +2089,19 @@ function wp_kses_normalize_entities( $string, $context = 'html' ) {
 	} else {
 		$string = preg_replace_callback( '/&amp;([A-Za-z]{2,8}[0-9]{0,2});/', 'wp_kses_named_entities', $string );
 	}
+=======
+ * @since 1.0.0
+ *
+ * @param string $string Content to normalize entities.
+ * @return string Content with normalized entities.
+ */
+function wp_kses_normalize_entities( $string ) {
+	// Disarm all entities by converting & to &amp;
+	$string = str_replace( '&', '&amp;', $string );
+
+	// Change back the allowed entities in our entity whitelist
+	$string = preg_replace_callback( '/&amp;([A-Za-z]{2,8}[0-9]{0,2});/', 'wp_kses_named_entities', $string );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$string = preg_replace_callback( '/&amp;#(0*[0-9]{1,7});/', 'wp_kses_normalize_entities2', $string );
 	$string = preg_replace_callback( '/&amp;#[Xx](0*[0-9A-Fa-f]{1,6});/', 'wp_kses_normalize_entities3', $string );
 
@@ -1827,6 +2129,7 @@ function wp_kses_named_entities( $matches ) {
 	}
 
 	$i = $matches[1];
+<<<<<<< HEAD
 	return ( ! in_array( $i, $allowedentitynames, true ) ) ? "&amp;$i;" : "&$i;";
 }
 
@@ -1861,6 +2164,9 @@ function wp_kses_xml_named_entities( $matches ) {
 	}
 
 	return "&amp;$i;";
+=======
+	return ( ! in_array( $i, $allowedentitynames ) ) ? "&amp;$i;" : "&$i;";
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -1923,10 +2229,17 @@ function wp_kses_normalize_entities3( $matches ) {
  * @return bool Whether or not the codepoint is a valid Unicode codepoint.
  */
 function valid_unicode( $i ) {
+<<<<<<< HEAD
 	return ( 0x9 == $i || 0xa == $i || 0xd == $i ||
 			( 0x20 <= $i && $i <= 0xd7ff ) ||
 			( 0xe000 <= $i && $i <= 0xfffd ) ||
 			( 0x10000 <= $i && $i <= 0x10ffff ) );
+=======
+	return ( $i == 0x9 || $i == 0xa || $i == 0xd ||
+			( $i >= 0x20 && $i <= 0xd7ff ) ||
+			( $i >= 0xe000 && $i <= 0xfffd ) ||
+			( $i >= 0x10000 && $i <= 0x10ffff ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -1934,7 +2247,11 @@ function valid_unicode( $i ) {
  *
  * This function decodes numeric HTML entities (`&#65;` and `&#x41;`).
  * It doesn't do anything with named entities like `&auml;`, but we don't
+<<<<<<< HEAD
  * need them in the allowed URL protocols system anyway.
+=======
+ * need them in the URL protocol whitelisting system anyway.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 1.0.0
  *
@@ -2079,17 +2396,28 @@ function wp_filter_nohtml_kses( $data ) {
  * @since 2.0.0
  */
 function kses_init_filters() {
+<<<<<<< HEAD
 	// Normal filtering.
 	add_filter( 'title_save_pre', 'wp_filter_kses' );
 
 	// Comment filtering.
+=======
+	// Normal filtering
+	add_filter( 'title_save_pre', 'wp_filter_kses' );
+
+	// Comment filtering
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( current_user_can( 'unfiltered_html' ) ) {
 		add_filter( 'pre_comment_content', 'wp_filter_post_kses' );
 	} else {
 		add_filter( 'pre_comment_content', 'wp_filter_kses' );
 	}
 
+<<<<<<< HEAD
 	// Post filtering.
+=======
+	// Post filtering
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	add_filter( 'content_save_pre', 'wp_filter_post_kses' );
 	add_filter( 'excerpt_save_pre', 'wp_filter_post_kses' );
 	add_filter( 'content_filtered_save_pre', 'wp_filter_post_kses' );
@@ -2108,6 +2436,7 @@ function kses_init_filters() {
  * @since 2.0.6
  */
 function kses_remove_filters() {
+<<<<<<< HEAD
 	// Normal filtering.
 	remove_filter( 'title_save_pre', 'wp_filter_kses' );
 
@@ -2116,6 +2445,16 @@ function kses_remove_filters() {
 	remove_filter( 'pre_comment_content', 'wp_filter_kses' );
 
 	// Post filtering.
+=======
+	// Normal filtering
+	remove_filter( 'title_save_pre', 'wp_filter_kses' );
+
+	// Comment filtering
+	remove_filter( 'pre_comment_content', 'wp_filter_post_kses' );
+	remove_filter( 'pre_comment_content', 'wp_filter_kses' );
+
+	// Post filtering
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	remove_filter( 'content_save_pre', 'wp_filter_post_kses' );
 	remove_filter( 'excerpt_save_pre', 'wp_filter_post_kses' );
 	remove_filter( 'content_filtered_save_pre', 'wp_filter_post_kses' );
@@ -2149,7 +2488,11 @@ function kses_init() {
  */
 function safecss_filter_attr( $css, $deprecated = '' ) {
 	if ( ! empty( $deprecated ) ) {
+<<<<<<< HEAD
 		_deprecated_argument( __FUNCTION__, '2.8.1' ); // Never implemented.
+=======
+		_deprecated_argument( __FUNCTION__, '2.8.1' ); // Never implemented
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$css = wp_kses_no_null( $css );
@@ -2167,10 +2510,16 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 	 * @since 4.6.0 Added support for `list-style-type`.
 	 * @since 5.0.0 Added support for `background-image`.
 	 * @since 5.1.0 Added support for `text-transform`.
+<<<<<<< HEAD
 	 * @since 5.2.0 Added support for `background-position` and `grid-template-columns`.
 	 * @since 5.3.0 Added support for `grid`, `flex` and `column` layout properties.
 	 *              Extend `background-*` support of individual properties.
 	 * @since 5.3.1 Added support for gradient backgrounds.
+=======
+	 * @since 5.2.0 Added support for `background-position` and `grid-template-columns`
+	 * @since 5.3.0 Added support for `grid`, `flex` and `column` layout properties.
+	 *              Extend `background-*` support of individual properties.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @param string[] $attr Array of allowed CSS attributes.
 	 */
@@ -2283,9 +2632,15 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 			'cursor',
 			'direction',
 			'float',
+<<<<<<< HEAD
 			'list-style-type',
 			'overflow',
 			'vertical-align',
+=======
+			'overflow',
+			'vertical-align',
+			'list-style-type',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		)
 	);
 
@@ -2307,6 +2662,7 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 		'list-style-image',
 	);
 
+<<<<<<< HEAD
 	/*
 	 * CSS attributes that accept gradient data types.
 	 *
@@ -2316,13 +2672,19 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 		'background-image',
 	);
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( empty( $allowed_attr ) ) {
 		return $css;
 	}
 
 	$css = '';
 	foreach ( $css_array as $css_item ) {
+<<<<<<< HEAD
 		if ( '' === $css_item ) {
+=======
+		if ( $css_item == '' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			continue;
 		}
 
@@ -2330,7 +2692,10 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 		$css_test_string = $css_item;
 		$found           = false;
 		$url_attr        = false;
+<<<<<<< HEAD
 		$gradient_attr   = false;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		if ( strpos( $css_item, ':' ) === false ) {
 			$found = true;
@@ -2339,9 +2704,14 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 			$css_selector = trim( $parts[0] );
 
 			if ( in_array( $css_selector, $allowed_attr, true ) ) {
+<<<<<<< HEAD
 				$found         = true;
 				$url_attr      = in_array( $css_selector, $css_url_data_types, true );
 				$gradient_attr = in_array( $css_selector, $css_gradient_data_types, true );
+=======
+				$found    = true;
+				$url_attr = in_array( $css_selector, $css_url_data_types, true );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 
@@ -2360,7 +2730,11 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 
 				$url = trim( $url_pieces[2] );
 
+<<<<<<< HEAD
 				if ( empty( $url ) || wp_kses_bad_protocol( $url, $allowed_protocols ) !== $url ) {
+=======
+				if ( empty( $url ) || $url !== wp_kses_bad_protocol( $url, $allowed_protocols ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$found = false;
 					break;
 				} else {
@@ -2370,6 +2744,7 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 			}
 		}
 
+<<<<<<< HEAD
 		if ( $found && $gradient_attr ) {
 			$css_value = trim( $parts[1] );
 			if ( preg_match( '/^(repeating-)?(linear|radial|conic)-gradient\(([^()]|rgb[a]?\([^()]*\))*\)$/', $css_value ) ) {
@@ -2404,6 +2779,15 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 
 				$css .= $css_item;
 			}
+=======
+		// Remove any CSS containing containing \ ( & } = or comments, except for url() useage checked above.
+		if ( $found && ! preg_match( '%[\\\(&=}]|/\*%', $css_test_string ) ) {
+			if ( $css != '' ) {
+				$css .= ';';
+			}
+
+			$css .= $css_item;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	}
 
@@ -2411,7 +2795,11 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 }
 
 /**
+<<<<<<< HEAD
  * Helper function to add global attributes to a tag in the allowed HTML list.
+=======
+ * Helper function to add global attributes to a tag in the allowed html list.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 3.5.0
  * @since 5.0.0 Add support for `data-*` wildcard attributes.

@@ -7,8 +7,13 @@
  * @subpackage translations
  */
 
+<<<<<<< HEAD
 require_once __DIR__ . '/plural-forms.php';
 require_once __DIR__ . '/entry.php';
+=======
+require_once dirname( __FILE__ ) . '/plural-forms.php';
+require_once dirname( __FILE__ ) . '/entry.php';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! class_exists( 'Translations', false ) ) :
 	class Translations {
@@ -113,7 +118,11 @@ if ( ! class_exists( 'Translations', false ) ) :
 		 * Here, in the base Translations class, the common logic for English is implemented:
 		 *  0 if there is one element, 1 otherwise
 		 *
+<<<<<<< HEAD
 		 * This function should be overridden by the subclasses. For example MO/PO can derive the logic
+=======
+		 * This function should be overridden by the sub-classes. For example MO/PO can derive the logic
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * from their headers.
 		 *
 		 * @param integer $count number of items
@@ -268,7 +277,11 @@ if ( ! class_exists( 'Translations', false ) ) :
 		 */
 		function make_headers( $translation ) {
 			$headers = array();
+<<<<<<< HEAD
 			// Sometimes \n's are used instead of real new lines.
+=======
+			// sometimes \ns are used instead of real new lines
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$translation = str_replace( '\n', "\n", $translation );
 			$lines       = explode( "\n", $translation );
 			foreach ( $lines as $line ) {
@@ -287,7 +300,11 @@ if ( ! class_exists( 'Translations', false ) ) :
 		 */
 		function set_header( $header, $value ) {
 			parent::set_header( $header, $value );
+<<<<<<< HEAD
 			if ( 'Plural-Forms' === $header ) {
+=======
+			if ( 'Plural-Forms' == $header ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				list( $nplurals, $expression )     = $this->nplurals_and_expression_from_header( $this->get_header( 'Plural-Forms' ) );
 				$this->_nplurals                   = $nplurals;
 				$this->_gettext_select_plural_form = $this->make_plural_form_function( $nplurals, $expression );

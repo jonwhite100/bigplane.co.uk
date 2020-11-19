@@ -8,8 +8,11 @@
  */
 
 class WP_Site_Health {
+<<<<<<< HEAD
 	private static $instance = null;
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	private $mysql_min_version_check;
 	private $mysql_rec_version_check;
 
@@ -18,8 +21,11 @@ class WP_Site_Health {
 	private $health_check_mysql_required_version = '5.5';
 	private $health_check_mysql_rec_version      = '';
 
+<<<<<<< HEAD
 	public $php_memory_limit;
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	public $schedules;
 	public $crons;
 	public $last_missed_cron     = null;
@@ -33,10 +39,14 @@ class WP_Site_Health {
 	 * @since 5.2.0
 	 */
 	public function __construct() {
+<<<<<<< HEAD
 		$this->maybe_create_scheduled_event();
 
 		// Save memory limit before it's affected by wp_raise_memory_limit( 'admin' ).
 		$this->php_memory_limit = ini_get( 'memory_limit' );
+=======
+		$this->prepare_sql_data();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$this->timeout_late_cron   = 0;
 		$this->timeout_missed_cron = - 5 * MINUTE_IN_SECONDS;
@@ -49,6 +59,7 @@ class WP_Site_Health {
 		add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+<<<<<<< HEAD
 		add_action( 'wp_site_health_scheduled_check', array( $this, 'wp_cron_scheduled_check' ) );
 	}
 
@@ -65,6 +76,8 @@ class WP_Site_Health {
 		}
 
 		return self::$instance;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -74,7 +87,11 @@ class WP_Site_Health {
 	 */
 	public function enqueue_scripts() {
 		$screen = get_current_screen();
+<<<<<<< HEAD
 		if ( 'site-health' !== $screen->id && 'dashboard' !== $screen->id ) {
+=======
+		if ( 'site-health' !== $screen->id ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return;
 		}
 
@@ -106,7 +123,11 @@ class WP_Site_Health {
 		if ( 'site-health' === $screen->id && ! isset( $_GET['tab'] ) ) {
 			$tests = WP_Site_Health::get_tests();
 
+<<<<<<< HEAD
 			// Don't run https test on localhost.
+=======
+			// Don't run https test on localhost
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( 'localhost' === preg_replace( '|https?://|', '', get_site_url() ) ) {
 				unset( $tests['direct']['https_status'] );
 			}
@@ -119,13 +140,43 @@ class WP_Site_Health {
 					);
 
 					if ( method_exists( $this, $test_function ) && is_callable( array( $this, $test_function ) ) ) {
+<<<<<<< HEAD
 						$health_check_js_variables['site_status']['direct'][] = $this->perform_test( array( $this, $test_function ) );
+=======
+						/**
+						 * Filter the output of a finished Site Health test.
+						 *
+						 * @since 5.3.0
+						 *
+						 * @param array $test_result {
+						 *     An associated array of test result data.
+						 *
+						 *     @param string $label  A label describing the test, and is used as a header in the output.
+						 *     @param string $status The status of the test, which can be a value of `good`, `recommended` or `critical`.
+						 *     @param array  $badge {
+						 *         Tests are put into categories which have an associated badge shown, these can be modified and assigned here.
+						 *
+						 *         @param string $label The test label, for example `Performance`.
+						 *         @param string $color Default `blue`. A string representing a color to use for the label.
+						 *     }
+						 *     @param string $description A more descriptive explanation of what the test looks for, and why it is important for the end user.
+						 *     @param string $actions     An action to direct the user to where they can resolve the issue, if one exists.
+						 *     @param string $test        The name of the test being ran, used as a reference point.
+						 * }
+						 */
+						$health_check_js_variables['site_status']['direct'][] = apply_filters( 'site_status_test_result', call_user_func( array( $this, $test_function ) ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						continue;
 					}
 				}
 
 				if ( is_callable( $test['test'] ) ) {
+<<<<<<< HEAD
 					$health_check_js_variables['site_status']['direct'][] = $this->perform_test( $test['test'] );
+=======
+					/** This filter is documented in wp-admin/includes/class-wp-site-health.php */
+					$health_check_js_variables['site_status']['direct'][] = apply_filters( 'site_status_test_result', call_user_func( $test['test'] ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 			}
 
@@ -143,6 +194,7 @@ class WP_Site_Health {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Run a Site Health test directly.
 	 *
 	 * @since 5.4.0
@@ -180,6 +232,12 @@ class WP_Site_Health {
 	 *
 	 * These values are used in later tests, but the part of preparing them is more easily managed
 	 * early in the class for ease of access and discovery.
+=======
+	 * Run the SQL version checks.
+	 *
+	 * These values are used in later tests, but the part of preparing them is more easily managed early
+	 * in the class for ease of access and discovery.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
@@ -212,11 +270,19 @@ class WP_Site_Health {
 	/**
 	 * Test if `wp_version_check` is blocked.
 	 *
+<<<<<<< HEAD
 	 * It's possible to block updates with the `wp_version_check` filter, but this can't be checked
 	 * during an Ajax call, as the filter is never introduced then.
 	 *
 	 * This filter overrides a standard page request if it's made by an admin through the Ajax call
 	 * with the right query argument to check for this.
+=======
+	 * It's possible to block updates with the `wp_version_check` filter, but this can't be checked during an
+	 * AJAX call, as the filter is never introduced then.
+	 *
+	 * This filter overrides a normal page request if it's made by an admin through the AJAX call with the
+	 * right query argument to check for this.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 */
@@ -233,8 +299,13 @@ class WP_Site_Health {
 	/**
 	 * Tests for WordPress version and outputs it.
 	 *
+<<<<<<< HEAD
 	 * Gives various results depending on what kind of updates are available, if any, to encourage
 	 * the user to install security updates as a priority.
+=======
+	 * Gives various results depending on what kind of updates are available, if any, to encourage the
+	 * user to install security updates as a priority.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
@@ -334,8 +405,12 @@ class WP_Site_Health {
 	/**
 	 * Test if plugins are outdated, or unnecessary.
 	 *
+<<<<<<< HEAD
 	 * The tests checks if your plugins are up to date, and encourages you to remove any
 	 * that are not in use.
+=======
+	 * The tests checks if your plugins are up to date, and encourages you to remove any that are not in use.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
@@ -466,9 +541,14 @@ class WP_Site_Health {
 	/**
 	 * Test if themes are outdated, or unnecessary.
 	 *
+<<<<<<< HEAD
 	 * Сhecks if your site has a default theme (to fall back on if there is a need),
 	 * if your themes are up to date and, finally, encourages you to remove any themes
 	 * that are not needed.
+=======
+	 * The tests checks if your site has a default theme (to fall back on if there is a need), if your themes
+	 * are up to date and, finally, encourages you to remove any themes that are not needed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
@@ -597,7 +677,11 @@ class WP_Site_Health {
 		if ( $has_unused_themes && $show_unused_themes && ! is_multisite() ) {
 
 			// This is a child theme, so we want to be a bit more explicit in our messages.
+<<<<<<< HEAD
 			if ( $active_theme->parent() ) {
+=======
+			if ( is_child_theme() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				// Recommend removing inactive themes, except a default theme, your current one, and the parent theme.
 				$result['status'] = 'recommended';
 
@@ -692,7 +776,11 @@ class WP_Site_Health {
 
 			$result['description'] .= sprintf(
 				'<p>%s</p>',
+<<<<<<< HEAD
 				__( 'Your site does not have any default theme. Default themes are used by WordPress automatically if anything is wrong with your chosen theme.' )
+=======
+				__( 'Your site does not have any default theme. Default themes are used by WordPress automatically if anything is wrong with your normal theme.' )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			);
 		}
 
@@ -712,7 +800,11 @@ class WP_Site_Health {
 		$result = array(
 			'label'       => sprintf(
 				/* translators: %s: The current PHP version. */
+<<<<<<< HEAD
 				__( 'Your site is running the current version of PHP (%s)' ),
+=======
+				__( 'Your version of PHP (%s) is up to date' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				PHP_VERSION
 			),
 			'status'      => 'good',
@@ -725,7 +817,11 @@ class WP_Site_Health {
 				sprintf(
 					/* translators: %s: The minimum recommended PHP version. */
 					__( 'PHP is the programming language used to build and maintain WordPress. Newer versions of PHP are faster and more secure, so staying up to date will help your site&#8217;s overall performance and security. The minimum recommended version of PHP is %s.' ),
+<<<<<<< HEAD
 					$response ? $response['recommended_version'] : ''
+=======
+					$response['recommended_version']
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				)
 			),
 			'actions'     => sprintf(
@@ -747,7 +843,11 @@ class WP_Site_Health {
 		if ( $response['is_supported'] ) {
 			$result['label'] = sprintf(
 				/* translators: %s: The server PHP version. */
+<<<<<<< HEAD
 				__( 'Your site is running an older version of PHP (%s)' ),
+=======
+				__( 'Your version of PHP (%s) is out of date' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				PHP_VERSION
 			);
 			$result['status'] = 'recommended';
@@ -759,7 +859,11 @@ class WP_Site_Health {
 		if ( $response['is_secure'] ) {
 			$result['label'] = sprintf(
 				/* translators: %s: The server PHP version. */
+<<<<<<< HEAD
 				__( 'Your site is running an older version of PHP (%s), which should be updated' ),
+=======
+				__( 'Your version of PHP (%s) should be updated' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				PHP_VERSION
 			);
 			$result['status'] = 'recommended';
@@ -770,7 +874,11 @@ class WP_Site_Health {
 		// Anything no longer secure must be updated.
 		$result['label'] = sprintf(
 			/* translators: %s: The server PHP version. */
+<<<<<<< HEAD
 			__( 'Your site is running an outdated version of PHP (%s), which requires an update' ),
+=======
+			__( 'Your version of PHP (%s) requires an update' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			PHP_VERSION
 		);
 		$result['status']         = 'critical';
@@ -791,6 +899,10 @@ class WP_Site_Health {
 	 * @param string $function  Optional. The function name to test. Default null.
 	 * @param string $constant  Optional. The constant name to test for. Default null.
 	 * @param string $class     Optional. The class name to test for. Default null.
+<<<<<<< HEAD
+=======
+	 *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool Whether or not the extension and function are available.
 	 */
 	private function test_php_extension_availability( $extension = null, $function = null, $constant = null, $class = null ) {
@@ -953,6 +1065,7 @@ class WP_Site_Health {
 		 * @since 5.3.0 The `$constant` and `$class` parameters were added.
 		 *
 		 * @param array $modules {
+<<<<<<< HEAD
 		 *     An associative array of modules to test for.
 		 *
 		 *     @type array ...$0 {
@@ -965,6 +1078,20 @@ class WP_Site_Health {
 		 *         @type string $class        Optional. A class name to check for to verify an extension exists.
 		 *         @type bool   $required     Is this a required feature or not.
 		 *         @type string $fallback_for Optional. The module this module replaces as a fallback.
+=======
+		 *     An associated array of modules to test for.
+		 *
+		 *     array $module {
+		 *         An associated array of module properties used during testing.
+		 *         One of either `$function` or `$extension` must be provided, or they will fail by default.
+		 *
+		 *         string $function     Optional. A function name to test for the existence of.
+		 *         string $extension    Optional. An extension to check if is loaded in PHP.
+		 *         string $constant     Optional. A constant name to check for to verify an extension exists.
+		 *         string $class        Optional. A class name to check for to verify an extension exists.
+		 *         bool   $required     Is this a required feature or not.
+		 *         string $fallback_for Optional. The module this module replaces as a fallback.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *     }
 		 * }
 		 */
@@ -981,7 +1108,11 @@ class WP_Site_Health {
 			// If this module is a fallback for another function, check if that other function passed.
 			if ( isset( $module['fallback_for'] ) ) {
 				/*
+<<<<<<< HEAD
 				 * If that other function has a failure, mark this module as required for usual operations.
+=======
+				 * If that other function has a failure, mark this module as required for normal operations.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 * If that other function hasn't failed, skip this test as it's only a fallback.
 				 */
 				if ( isset( $failures[ $module['fallback_for'] ] ) ) {
@@ -1041,6 +1172,7 @@ class WP_Site_Health {
 				$result['label'] = __( 'One or more required modules are missing' );
 			}
 
+<<<<<<< HEAD
 			$result['description'] .= $output;
 		}
 
@@ -1128,6 +1260,11 @@ class WP_Site_Health {
 					'<code>session_start()</code>',
 					'<code>session_write_close()</code>'
 				)
+=======
+			$result['description'] .= sprintf(
+				'<p>%s</p>',
+				$output
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			);
 		}
 
@@ -1142,10 +1279,13 @@ class WP_Site_Health {
 	 * @return array The test results.
 	 */
 	public function get_test_sql_server() {
+<<<<<<< HEAD
 		if ( ! $this->mysql_server_version ) {
 			$this->prepare_sql_data();
 		}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$result = array(
 			'label'       => __( 'SQL server is up to date' ),
 			'status'      => 'good',
@@ -1233,10 +1373,13 @@ class WP_Site_Health {
 	public function get_test_utf8mb4_support() {
 		global $wpdb;
 
+<<<<<<< HEAD
 		if ( ! $this->mysql_server_version ) {
 			$this->prepare_sql_data();
 		}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$result = array(
 			'label'       => __( 'UTF8MB4 is supported' ),
 			'status'      => 'good',
@@ -1272,7 +1415,11 @@ class WP_Site_Health {
 					__( 'Your MySQL version supports utf8mb4.' )
 				);
 			}
+<<<<<<< HEAD
 		} else { // MariaDB introduced utf8mb4 support in 5.5.0.
+=======
+		} else { // MariaDB introduced utf8mb4 support in 5.5.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( version_compare( $this->mysql_server_version, '5.5.0', '<' ) ) {
 				$result['status'] = 'recommended';
 
@@ -1410,11 +1557,19 @@ class WP_Site_Health {
 	/**
 	 * Test if debug information is enabled.
 	 *
+<<<<<<< HEAD
 	 * When WP_DEBUG is enabled, errors and information may be disclosed to site visitors,
 	 * or logged to a publicly accessible file.
 	 *
 	 * Debugging is also frequently left enabled after looking for errors on a site,
 	 * as site owners do not understand the implications of this.
+=======
+	 * When WP_DEBUG is enabled, errors and information may be disclosed to site visitors, or it may be
+	 * logged to a publicly accessible file.
+	 *
+	 * Debugging is also frequently left enabled after looking for errors on a site, as site owners do
+	 * not understand the implications of this.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
@@ -1447,13 +1602,21 @@ class WP_Site_Health {
 			if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
 				$result['label'] = __( 'Your site is set to log errors to a potentially public file.' );
 
+<<<<<<< HEAD
 				$result['status'] = ( 0 === strpos( ini_get( 'error_log' ), ABSPATH ) ) ? 'critical' : 'recommended';
+=======
+				$result['status'] = 'critical';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 				$result['description'] .= sprintf(
 					'<p>%s</p>',
 					sprintf(
 						/* translators: %s: WP_DEBUG_LOG */
+<<<<<<< HEAD
 						__( 'The value, %s, has been added to this website&#8217;s configuration file. This means any errors on the site will be written to a file which is potentially available to all users.' ),
+=======
+						__( 'The value, %s, has been added to this website&#8217;s configuration file. This means any errors on the site will be written to a file which is potentially available to normal users.' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						'<code>WP_DEBUG_LOG</code>'
 					)
 				);
@@ -1591,8 +1754,13 @@ class WP_Site_Health {
 	/**
 	 * Test if scheduled events run as intended.
 	 *
+<<<<<<< HEAD
 	 * If scheduled events are not running, this may indicate something with WP_Cron is not working
 	 * as intended, or that there are orphaned events hanging around from older code.
+=======
+	 * If scheduled events are not running, this may indicate something with WP_Cron is not working as intended,
+	 * or that there are orphaned events hanging around from older code.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
@@ -1663,9 +1831,14 @@ class WP_Site_Health {
 	/**
 	 * Test if WordPress can run automated background updates.
 	 *
+<<<<<<< HEAD
 	 * Background updates in WordPress are primarily used for minor releases and security updates.
 	 * It's important to either have these working, or be aware that they are intentionally disabled
 	 * for whatever reason.
+=======
+	 * Background updates in WordPress are primarily used for minor releases and security updates. It's important
+	 * to either have these working, or be aware that they are intentionally disabled for whatever reason.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
@@ -1688,7 +1861,11 @@ class WP_Site_Health {
 		);
 
 		if ( ! class_exists( 'WP_Site_Health_Auto_Updates' ) ) {
+<<<<<<< HEAD
 			require_once ABSPATH . 'wp-admin/includes/class-wp-site-health-auto-updates.php';
+=======
+			require_once( ABSPATH . 'wp-admin/includes/class-wp-site-health-auto-updates.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		// Run the auto-update tests in a separate class,
@@ -1728,6 +1905,7 @@ class WP_Site_Health {
 		$output .= '</ul>';
 
 		if ( 'good' !== $result['status'] ) {
+<<<<<<< HEAD
 			$result['description'] .= $output;
 		}
 
@@ -1767,6 +1945,11 @@ class WP_Site_Health {
 			$result['description'] .= sprintf(
 				'<p>%s</p>',
 				$check_plugin_theme_updates->message
+=======
+			$result['description'] .= sprintf(
+				'<p>%s</p>',
+				$output
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			);
 		}
 
@@ -1776,9 +1959,14 @@ class WP_Site_Health {
 	/**
 	 * Test if loopbacks work as expected.
 	 *
+<<<<<<< HEAD
 	 * A loopback is when WordPress queries itself, for example to start a new WP_Cron instance,
 	 * or when editing a plugin or theme. This has shown itself to be a recurring issue,
 	 * as code can very easily break this interaction.
+=======
+	 * A loopback is when WordPress queries itself, for example to start a new WP_Cron instance, or when editing a
+	 * plugin or theme. This has shown itself to be a recurring issue as code can very easily break this interaction.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
@@ -1804,7 +1992,11 @@ class WP_Site_Health {
 
 		$result['status'] = $check_loopback->status;
 
+<<<<<<< HEAD
 		if ( 'good' !== $result['status'] ) {
+=======
+		if ( 'good' !== $check_loopback->status ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$result['label'] = __( 'Your site could not complete a loopback request' );
 
 			$result['description'] .= sprintf(
@@ -1819,9 +2011,14 @@ class WP_Site_Health {
 	/**
 	 * Test if HTTP requests are blocked.
 	 *
+<<<<<<< HEAD
 	 * It's possible to block all outgoing communication (with the possibility of allowing certain
 	 * hosts) via the HTTP API. This may create problems for users as many features are running as
 	 * services these days.
+=======
+	 * It's possible to block all outgoing communication (with the possibility of whitelisting hosts) via the
+	 * HTTP API. This may create problems for users as many features are running as services these days.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
@@ -1877,8 +2074,13 @@ class WP_Site_Health {
 			$result['description'] .= sprintf(
 				'<p>%s</p>',
 				sprintf(
+<<<<<<< HEAD
 					/* translators: 1: Name of the constant used. 2: List of allowed hostnames. */
 					__( 'HTTP requests have been blocked by the %1$s constant, with some allowed hosts: %2$s.' ),
+=======
+					/* translators: 1: Name of the constant used. 2: List of hostnames whitelisted. */
+					__( 'HTTP requests have been blocked by the %1$s constant, with some hosts whitelisted: %2$s.' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					'<code>WP_HTTP_BLOCK_EXTERNAL</code>',
 					implode( ',', $hosts )
 				)
@@ -1951,10 +2153,17 @@ class WP_Site_Health {
 					'%s<br>%s',
 					__( 'The REST API request failed due to an error.' ),
 					sprintf(
+<<<<<<< HEAD
 						/* translators: 1: The WordPress error message. 2: The WordPress error code. */
 						__( 'Error: %1$s (%2$s)' ),
 						$r->get_error_message(),
 						$r->get_error_code()
+=======
+						/* translators: 1: The HTTP response code. 2: The error message returned. */
+						__( 'Error: [%1$s] %2$s' ),
+						wp_remote_retrieve_response_code( $r ),
+						$r->get_error_message()
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					)
 				)
 			);
@@ -1966,10 +2175,17 @@ class WP_Site_Health {
 			$result['description'] .= sprintf(
 				'<p>%s</p>',
 				sprintf(
+<<<<<<< HEAD
 					/* translators: 1: The HTTP error code. 2: The HTTP error message. */
 					__( 'The REST API call gave the following unexpected result: (%1$d) %2$s.' ),
 					wp_remote_retrieve_response_code( $r ),
 					esc_html( wp_remote_retrieve_body( $r ) )
+=======
+					/* translators: 1: The HTTP response code returned. 2: The error message returned. */
+					__( 'The REST API call gave the following unexpected result: (%1$d) %2$s.' ),
+					wp_remote_retrieve_response_code( $r ),
+					wp_remote_retrieve_body( $r )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				)
 			);
 		} else {
@@ -1995,6 +2211,7 @@ class WP_Site_Health {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Test if 'file_uploads' directive in PHP.ini is turned off.
 	 *
 	 * @since 5.5.0
@@ -2073,6 +2290,8 @@ class WP_Site_Health {
 	}
 
 	/**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * Return a set of tests that belong to the site status page.
 	 *
 	 * Each site status test is defined here, they may be `direct` tests, that run on page load, or `async` tests
@@ -2086,6 +2305,7 @@ class WP_Site_Health {
 	public static function get_tests() {
 		$tests = array(
 			'direct' => array(
+<<<<<<< HEAD
 				'wordpress_version'         => array(
 					'label' => __( 'WordPress Version' ),
 					'test'  => 'wordpress_version',
@@ -2150,6 +2370,56 @@ class WP_Site_Health {
 					'label' => __( 'Plugin and theme auto-updates' ),
 					'test'  => 'plugin_theme_auto_updates',
 				),
+=======
+				'wordpress_version' => array(
+					'label' => __( 'WordPress Version' ),
+					'test'  => 'wordpress_version',
+				),
+				'plugin_version'    => array(
+					'label' => __( 'Plugin Versions' ),
+					'test'  => 'plugin_version',
+				),
+				'theme_version'     => array(
+					'label' => __( 'Theme Versions' ),
+					'test'  => 'theme_version',
+				),
+				'php_version'       => array(
+					'label' => __( 'PHP Version' ),
+					'test'  => 'php_version',
+				),
+				'sql_server'        => array(
+					'label' => __( 'Database Server version' ),
+					'test'  => 'sql_server',
+				),
+				'php_extensions'    => array(
+					'label' => __( 'PHP Extensions' ),
+					'test'  => 'php_extensions',
+				),
+				'utf8mb4_support'   => array(
+					'label' => __( 'MySQL utf8mb4 support' ),
+					'test'  => 'utf8mb4_support',
+				),
+				'https_status'      => array(
+					'label' => __( 'HTTPS status' ),
+					'test'  => 'https_status',
+				),
+				'ssl_support'       => array(
+					'label' => __( 'Secure communication' ),
+					'test'  => 'ssl_support',
+				),
+				'scheduled_events'  => array(
+					'label' => __( 'Scheduled events' ),
+					'test'  => 'scheduled_events',
+				),
+				'http_requests'     => array(
+					'label' => __( 'HTTP Requests' ),
+					'test'  => 'http_requests',
+				),
+				'debug_enabled'     => array(
+					'label' => __( 'Debugging enabled' ),
+					'test'  => 'is_in_debug_mode',
+				),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			),
 			'async'  => array(
 				'dotorg_communication' => array(
@@ -2192,7 +2462,11 @@ class WP_Site_Health {
 		 *
 		 * @param array $test_type {
 		 *     An associative array, where the `$test_type` is either `direct` or
+<<<<<<< HEAD
 		 *     `async`, to declare if the test should run via Ajax calls after page load.
+=======
+		 *     `async`, to declare if the test should run via AJAX calls after page load.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 *     @type array $identifier {
 		 *         `$identifier` should be a unique identifier for the test that should run.
@@ -2200,13 +2474,18 @@ class WP_Site_Health {
 		 *         to avoid any collisions between tests.
 		 *
 		 *         @type string $label A friendly label for your test to identify it by.
+<<<<<<< HEAD
 		 *         @type mixed  $test  A callable to perform a direct test, or a string Ajax action to be called
+=======
+		 *         @type mixed  $test  A callable to perform a direct test, or a string AJAX action to be called
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *                             to perform an async test.
 		 *     }
 		 * }
 		 */
 		$tests = apply_filters( 'site_status_tests', $tests );
 
+<<<<<<< HEAD
 		// Ensure that the filtered tests contain the required array keys.
 		$tests = array_merge(
 			array(
@@ -2216,6 +2495,8 @@ class WP_Site_Health {
 			$tests
 		);
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $tests;
 	}
 
@@ -2230,11 +2511,14 @@ class WP_Site_Health {
 	 * @return string The modified body class string.
 	 */
 	public function admin_body_class( $body_class ) {
+<<<<<<< HEAD
 		$screen = get_current_screen();
 		if ( 'site-health' !== $screen->id ) {
 			return $body_class;
 		}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$body_class .= ' site-health';
 
 		return $body_class;
@@ -2286,9 +2570,14 @@ class WP_Site_Health {
 	/**
 	 * Check if any scheduled tasks have been missed.
 	 *
+<<<<<<< HEAD
 	 * Returns a boolean value of `true` if a scheduled task has been missed and ends processing.
 	 *
 	 * If the list of crons is an instance of WP_Error, returns the instance instead of a boolean value.
+=======
+	 * Returns a boolean value of `true` if a scheduled task has been missed and ends processing. If the list of
+	 * crons is an instance of WP_Error, return the instance instead of a boolean value.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
@@ -2312,9 +2601,14 @@ class WP_Site_Health {
 	/**
 	 * Check if any scheduled tasks are late.
 	 *
+<<<<<<< HEAD
 	 * Returns a boolean value of `true` if a scheduled task is late and ends processing.
 	 *
 	 * If the list of crons is an instance of WP_Error, returns the instance instead of a boolean value.
+=======
+	 * Returns a boolean value of `true` if a scheduled task is late and ends processing. If the list of
+	 * crons is an instance of WP_Error, return the instance instead of a boolean value.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.3.0
 	 *
@@ -2328,9 +2622,15 @@ class WP_Site_Health {
 		foreach ( $this->crons as $id => $cron ) {
 			$cron_offset = $cron->time - time();
 			if (
+<<<<<<< HEAD
 				$cron_offset >= $this->timeout_missed_cron &&
 				$cron_offset < $this->timeout_late_cron
 			) {
+=======
+					$cron_offset >= $this->timeout_missed_cron &&
+					$cron_offset < $this->timeout_late_cron
+				) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$this->last_late_cron = $cron->hook;
 				return true;
 			}
@@ -2340,6 +2640,7 @@ class WP_Site_Health {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Check for potential issues with plugin and theme auto-updates.
 	 *
 	 * Though there is no way to 100% determine if plugin and theme auto-updates are configured
@@ -2429,6 +2730,8 @@ class WP_Site_Health {
 	}
 
 	/**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * Run a loopback test on our site.
 	 *
 	 * Loopbacks are what WordPress uses to communicate with itself to start up WP_Cron, scheduled posts,
@@ -2463,10 +2766,17 @@ class WP_Site_Health {
 					'%s<br>%s',
 					__( 'The loopback request to your site failed, this means features relying on them are not currently working as expected.' ),
 					sprintf(
+<<<<<<< HEAD
 						/* translators: 1: The WordPress error message. 2: The WordPress error code. */
 						__( 'Error: %1$s (%2$s)' ),
 						$r->get_error_message(),
 						$r->get_error_code()
+=======
+						/* translators: 1: The HTTP response code. 2: The error message returned. */
+						__( 'Error: [%1$s] %2$s' ),
+						wp_remote_retrieve_response_code( $r ),
+						$r->get_error_message()
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					)
 				),
 			);
@@ -2488,6 +2798,7 @@ class WP_Site_Health {
 			'message' => __( 'The loopback request to your site completed successfully.' ),
 		);
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Create a weekly cron event, if one does not already exist.
@@ -2595,4 +2906,6 @@ class WP_Site_Health {
 
 		set_transient( 'health-check-site-status-result', wp_json_encode( $site_status ) );
 	}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

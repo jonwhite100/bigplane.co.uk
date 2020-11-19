@@ -87,12 +87,16 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 			} else {
 				$taxonomies = get_taxonomies( '', 'objects' );
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			foreach ( $taxonomies as $taxonomy ) {
 				if ( ! empty( $taxonomy->show_in_rest ) && current_user_can( $taxonomy->cap->assign_terms ) ) {
 					return true;
 				}
 			}
+<<<<<<< HEAD
 
 			return new WP_Error(
 				'rest_cannot_view',
@@ -101,6 +105,10 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 			);
 		}
 
+=======
+			return new WP_Error( 'rest_cannot_view', __( 'Sorry, you are not allowed to manage terms in this taxonomy.' ), array( 'status' => rest_authorization_required_code() ) );
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return true;
 	}
 
@@ -122,14 +130,21 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 		} else {
 			$taxonomies = get_taxonomies( '', 'objects' );
 		}
+<<<<<<< HEAD
 
 		$data = array();
 
+=======
+		$data = array();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $taxonomies as $tax_type => $value ) {
 			if ( empty( $value->show_in_rest ) || ( 'edit' === $request['context'] && ! current_user_can( $value->cap->assign_terms ) ) ) {
 				continue;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$tax               = $this->prepare_item_for_response( $value, $request );
 			$tax               = $this->prepare_response_for_collection( $tax );
 			$data[ $tax_type ] = $tax;
@@ -159,6 +174,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 			if ( empty( $tax_obj->show_in_rest ) ) {
 				return false;
 			}
+<<<<<<< HEAD
 
 			if ( 'edit' === $request['context'] && ! current_user_can( $tax_obj->cap->assign_terms ) ) {
 				return new WP_Error(
@@ -166,6 +182,10 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 					__( 'Sorry, you are not allowed to manage terms in this taxonomy.' ),
 					array( 'status' => rest_authorization_required_code() )
 				);
+=======
+			if ( 'edit' === $request['context'] && ! current_user_can( $tax_obj->cap->assign_terms ) ) {
+				return new WP_Error( 'rest_forbidden_context', __( 'Sorry, you are not allowed to manage terms in this taxonomy.' ), array( 'status' => rest_authorization_required_code() ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 
@@ -182,6 +202,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 */
 	public function get_item( $request ) {
 		$tax_obj = get_taxonomy( $request['taxonomy'] );
+<<<<<<< HEAD
 
 		if ( empty( $tax_obj ) ) {
 			return new WP_Error(
@@ -193,6 +214,12 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 
 		$data = $this->prepare_item_for_response( $tax_obj, $request );
 
+=======
+		if ( empty( $tax_obj ) ) {
+			return new WP_Error( 'rest_taxonomy_invalid', __( 'Invalid taxonomy.' ), array( 'status' => 404 ) );
+		}
+		$data = $this->prepare_item_for_response( $tax_obj, $request );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return rest_ensure_response( $data );
 	}
 
@@ -201,7 +228,11 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_Taxonomy     $taxonomy Taxonomy data.
+=======
+	 * @param stdClass        $taxonomy Taxonomy data.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @param WP_REST_Request $request  Full details about the request.
 	 * @return WP_REST_Response Response object.
 	 */
@@ -284,7 +315,11 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 		 * @since 4.7.0
 		 *
 		 * @param WP_REST_Response $response The response object.
+<<<<<<< HEAD
 		 * @param WP_Taxonomy      $item     The original taxonomy object.
+=======
+		 * @param object           $item     The original taxonomy object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @param WP_REST_Request  $request  Request used to generate the response.
 		 */
 		return apply_filters( 'rest_prepare_taxonomy', $response, $taxonomy, $request );
@@ -401,7 +436,10 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 		);
 
 		$this->schema = $schema;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $this->add_additional_fields_schema( $this->schema );
 	}
 

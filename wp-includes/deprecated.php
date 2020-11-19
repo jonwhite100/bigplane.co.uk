@@ -270,7 +270,11 @@ function user_can_edit_post($user_id, $post_id, $blog_id = 1) {
 function user_can_delete_post($user_id, $post_id, $blog_id = 1) {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
+<<<<<<< HEAD
 	// Right now if one can edit, one can delete.
+=======
+	// right now if one can edit, one can delete
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return user_can_edit_post($user_id, $post_id, $blog_id);
 }
 
@@ -327,7 +331,11 @@ function user_can_edit_post_date($user_id, $post_id, $blog_id = 1) {
 function user_can_edit_post_comments($user_id, $post_id, $blog_id = 1) {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
+<<<<<<< HEAD
 	// Right now if one can edit a post, one can edit comments made on it.
+=======
+	// right now if one can edit a post, one can edit comments made on it
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return user_can_edit_post($user_id, $post_id, $blog_id);
 }
 
@@ -346,7 +354,11 @@ function user_can_edit_post_comments($user_id, $post_id, $blog_id = 1) {
 function user_can_delete_post_comments($user_id, $post_id, $blog_id = 1) {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
+<<<<<<< HEAD
 	// Right now if one can edit comments, one can delete comments.
+=======
+	// right now if one can edit comments, one can delete comments
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return user_can_edit_post_comments($user_id, $post_id, $blog_id);
 }
 
@@ -379,6 +391,7 @@ function user_can_edit_user($user_id, $other_user) {
  * @deprecated 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
+<<<<<<< HEAD
  * @param string $cat_name         Optional. The category name to use. If no match is found, uses all.
  *                                 Default 'noname'.
  * @param string $before           Optional. The HTML to output before the link. Default empty.
@@ -396,6 +409,20 @@ function user_can_edit_user($user_id, $other_user) {
  * @param int    $limit            Optional. Limit to X entries. If not specified, all entries are shown.
  *                                 Default -1.
  * @param int    $show_updated     Optional. Whether to show last updated timestamp. Default 0.
+=======
+ * @param string $cat_name Optional. The category name to use. If no match is found uses all.
+ * @param string $before Optional. The html to output before the link.
+ * @param string $after Optional. The html to output after the link.
+ * @param string $between Optional. The html to output between the link/image and its description. Not used if no image or $show_images is true.
+ * @param bool $show_images Optional. Whether to show images (if defined).
+ * @param string $orderby Optional. The order to output the links. E.g. 'id', 'name', 'url', 'description' or 'rating'. Or maybe owner.
+ *		If you start the name with an underscore the order will be reversed. You can also specify 'rand' as the order which will return links in a
+ *		random order.
+ * @param bool $show_description Optional. Whether to show the description if show_images=false/not defined.
+ * @param bool $show_rating Optional. Show rating stars/chars.
+ * @param int $limit		Optional. Limit to X entries. If not specified, all entries are shown.
+ * @param int $show_updated Optional. Whether to show last updated timestamp
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_linksbyname($cat_name = "noname", $before = '', $after = '<br />', $between = " ", $show_images = true, $orderby = 'id',
 						$show_description = true, $show_rating = false,
@@ -452,6 +479,7 @@ function wp_get_linksbyname($category, $args = '') {
  * @deprecated 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
+<<<<<<< HEAD
  * @param string $cat_name Optional. The category name to use. If no match is found, uses all.
  *                         Default 'noname'.
  * @param string $orderby  Optional. The order to output the links. E.g. 'id', 'name', 'url',
@@ -460,6 +488,13 @@ function wp_get_linksbyname($category, $args = '') {
  *                         Specifying 'rand' as the order will return links in a random order.
  * @param int    $limit    Optional. Limit to X entries. If not specified, all entries are shown.
  *                         Default -1.
+=======
+ * @param string $cat_name The category name to use. If no match is found uses all.
+ * @param string $orderby The order to output the links. E.g. 'id', 'name', 'url', 'description', or 'rating'.
+ *		Or maybe owner. If you start the name with an underscore the order will be reversed. You can also
+ *		specify 'rand' as the order which will return links in a random order.
+ * @param int $limit Limit to X entries. If not specified, all entries are shown.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return array
  */
 function get_linkobjectsbyname($cat_name = "noname" , $orderby = 'name', $limit = -1) {
@@ -505,6 +540,7 @@ function get_linkobjectsbyname($cat_name = "noname" , $orderby = 'name', $limit 
  * @deprecated 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
+<<<<<<< HEAD
  * @param int    $category Optional. The category to use. If no category supplied, uses all.
  *                         Default 0.
  * @param string $orderby  Optional. The order to output the links. E.g. 'id', 'name', 'url',
@@ -513,6 +549,14 @@ function get_linkobjectsbyname($cat_name = "noname" , $orderby = 'name', $limit 
  *                         Specifying 'rand' as the order will return links in a random order.
  * @param int    $limit    Optional. Limit to X entries. If not specified, all entries are shown.
  *                         Default 0.
+=======
+ * @param int $category The category to use. If no category supplied uses all
+ * @param string $orderby the order to output the links. E.g. 'id', 'name', 'url',
+ *		'description', or 'rating'. Or maybe owner. If you start the name with an
+ *		underscore the order will be reversed. You can also specify 'rand' as the
+ *		order which will return links in a random order.
+ * @param int $limit Limit to X entries. If not specified, all entries are shown.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return array
  */
 function get_linkobjects($category = 0, $orderby = 'name', $limit = 0) {
@@ -534,6 +578,7 @@ function get_linkobjects($category = 0, $orderby = 'name', $limit = 0) {
  * @deprecated 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
+<<<<<<< HEAD
  * @param string $cat_name         Optional. The category name to use. If no match is found, uses all.
  *                                 Default 'noname'.
  * @param string $before           Optional. The HTML to output before the link. Default empty.
@@ -550,6 +595,20 @@ function get_linkobjects($category = 0, $orderby = 'name', $limit = 0) {
  * @param int    $limit		       Optional. Limit to X entries. If not specified, all entries are shown.
  *                                 Default -1.
  * @param int    $show_updated     Optional. Whether to show last updated timestamp. Default 0.
+=======
+ * @param string $cat_name The category name to use. If no match is found uses all
+ * @param string $before The html to output before the link
+ * @param string $after The html to output after the link
+ * @param string $between The html to output between the link/image and its description. Not used if no image or show_images is true
+ * @param bool $show_images Whether to show images (if defined).
+ * @param string $orderby the order to output the links. E.g. 'id', 'name', 'url',
+ *		'description', or 'rating'. Or maybe owner. If you start the name with an
+ *		underscore the order will be reversed. You can also specify 'rand' as the
+ *		order which will return links in a random order.
+ * @param bool $show_description Whether to show the description if show_images=false/not defined
+ * @param int $limit Limit to X entries. If not specified, all entries are shown.
+ * @param int $show_updated Whether to show last updated timestamp
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_linksbyname_withrating($cat_name = "noname", $before = '', $after = '<br />', $between = " ",
 									$show_images = true, $orderby = 'id', $show_description = true, $limit = -1, $show_updated = 0) {
@@ -565,6 +624,7 @@ function get_linksbyname_withrating($cat_name = "noname", $before = '', $after =
  * @deprecated 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
+<<<<<<< HEAD
  * @param int    $category         Optional. The category to use. If no category supplied, uses all.
  *                                 Default 0.
  * @param string $before           Optional. The HTML to output before the link. Default empty.
@@ -581,6 +641,20 @@ function get_linksbyname_withrating($cat_name = "noname", $before = '', $after =
  * @param int    $limit		       Optional. Limit to X entries. If not specified, all entries are shown.
  *                                 Default -1.
  * @param int    $show_updated     Optional. Whether to show last updated timestamp. Default 0.
+=======
+ * @param int $category The category to use. If no category supplied uses all
+ * @param string $before The html to output before the link
+ * @param string $after The html to output after the link
+ * @param string $between The html to output between the link/image and its description. Not used if no image or show_images == true
+ * @param bool $show_images Whether to show images (if defined).
+ * @param string $orderby The order to output the links. E.g. 'id', 'name', 'url',
+ *		'description', or 'rating'. Or maybe owner. If you start the name with an
+ *		underscore the order will be reversed. You can also specify 'rand' as the
+ *		order which will return links in a random order.
+ * @param bool $show_description Whether to show the description if show_images=false/not defined.
+ * @param int $limit Limit to X entries. If not specified, all entries are shown.
+ * @param int $show_updated Whether to show last updated timestamp
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_links_withrating($category = -1, $before = '', $after = '<br />', $between = " ", $show_images = true,
 							$orderby = 'id', $show_description = true, $limit = -1, $show_updated = 0) {
@@ -628,7 +702,11 @@ function get_autotoggle($id = 0) {
  * @param string $feed_image
  * @param string $exclude
  * @param bool $hierarchical
+<<<<<<< HEAD
  * @return null|false
+=======
+ * @return false|null
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function list_cats($optionall = 1, $all = 'All', $sort_column = 'ID', $sort_order = 'asc', $file = '', $list = true, $optiondates = 0,
 				$optioncount = 0, $hide_empty = 1, $use_desc_for_title = 1, $children=false, $child_of=0, $categories=0,
@@ -648,7 +726,11 @@ function list_cats($optionall = 1, $all = 'All', $sort_column = 'ID', $sort_orde
  * @see wp_list_categories()
  *
  * @param string|array $args
+<<<<<<< HEAD
  * @return null|string|false
+=======
+ * @return false|null|string
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_list_cats($args = '') {
 	_deprecated_function( __FUNCTION__, '2.1.0', 'wp_list_categories()' );
@@ -750,7 +832,11 @@ function wp_get_post_cats($blogid = '1', $post_ID = 0) {
 }
 
 /**
+<<<<<<< HEAD
  * Sets the categories that the post ID belongs to.
+=======
+ * Sets the categories that the post id belongs to.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 1.0.1
  * @deprecated 2.1.0
@@ -916,12 +1002,17 @@ function wp_get_links($args = '') {
 }
 
 /**
+<<<<<<< HEAD
  * Gets the links associated with category by ID.
+=======
+ * Gets the links associated with category by id.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 0.71
  * @deprecated 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
+<<<<<<< HEAD
  * @param int    $category         Optional. The category to use. If no category supplied uses all.
  *                                 Default 0.
  * @param string $before           Optional. The HTML to output before the link. Default empty.
@@ -940,6 +1031,23 @@ function wp_get_links($args = '') {
  *                                 Default -1.
  * @param int    $show_updated     Optional. Whether to show last updated timestamp. Default 1.
  * @param bool   $echo             Whether to echo the results, or return them instead.
+=======
+ * @param int $category The category to use. If no category supplied uses all
+ * @param string $before the html to output before the link
+ * @param string $after the html to output after the link
+ * @param string $between the html to output between the link/image and its description.
+ *		Not used if no image or show_images == true
+ * @param bool $show_images whether to show images (if defined).
+ * @param string $orderby the order to output the links. E.g. 'id', 'name', 'url',
+ *		'description', or 'rating'. Or maybe owner. If you start the name with an
+ *		underscore the order will be reversed. You can also specify 'rand' as the order
+ *		which will return links in a random order.
+ * @param bool $show_description whether to show the description if show_images=false/not defined.
+ * @param bool $show_rating show rating stars/chars
+ * @param int $limit Limit to X entries. If not specified, all entries are shown.
+ * @param int $show_updated whether to show last updated timestamp
+ * @param bool $echo whether to echo the results, or return them instead
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return null|string
  */
 function get_links($category = -1, $before = '', $after = '<br />', $between = ' ', $show_images = true, $orderby = 'name',
@@ -952,7 +1060,11 @@ function get_links($category = -1, $before = '', $after = '<br />', $between = '
 		$orderby = substr($orderby, 1);
 	}
 
+<<<<<<< HEAD
 	if ( $category == -1 ) // get_bookmarks() uses '' to signify all categories.
+=======
+	if ( $category == -1 ) //get_bookmarks uses '' to signify all categories
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$category = '';
 
 	$results = get_bookmarks(array('category' => $category, 'orderby' => $orderby, 'order' => $order, 'show_updated' => $show_updated, 'limit' => $limit));
@@ -997,7 +1109,11 @@ function get_links($category = -1, $before = '', $after = '<br />', $between = '
 		if ( $row->link_image != null && $show_images ) {
 			if ( strpos($row->link_image, 'http') !== false )
 				$output .= "<img src=\"$row->link_image\" $alt $title />";
+<<<<<<< HEAD
 			else // If it's a relative path.
+=======
+			else // If it's a relative path
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$output .= "<img src=\"" . get_option('siteurl') . "$row->link_image\" $alt $title />";
 		} else {
 			$output .= $name;
@@ -1016,7 +1132,11 @@ function get_links($category = -1, $before = '', $after = '<br />', $between = '
 		}
 
 		$output .= "$after\n";
+<<<<<<< HEAD
 	} // End while.
+=======
+	} // end while
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( !$echo )
 		return $output;
@@ -1040,7 +1160,11 @@ function get_links_list($order = 'name') {
 
 	$order = strtolower($order);
 
+<<<<<<< HEAD
 	// Handle link category sorting.
+=======
+	// Handle link category sorting
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$direction = 'ASC';
 	if ( '_' == substr($order,0,1) ) {
 		$direction = 'DESC';
@@ -1052,17 +1176,30 @@ function get_links_list($order = 'name') {
 
 	$cats = get_categories(array('type' => 'link', 'orderby' => $order, 'order' => $direction, 'hierarchical' => 0));
 
+<<<<<<< HEAD
 	// Display each category.
+=======
+	// Display each category
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( $cats ) {
 		foreach ( (array) $cats as $cat ) {
 			// Handle each category.
 
+<<<<<<< HEAD
 			// Display the category name.
 			echo '  <li id="linkcat-' . $cat->term_id . '" class="linkcat"><h2>' . apply_filters('link_category', $cat->name ) . "</h2>\n\t<ul>\n";
 			// Call get_links() with all the appropriate params.
 			get_links($cat->term_id, '<li>', "</li>", "\n", true, 'name', false);
 
 			// Close the last category.
+=======
+			// Display the category name
+			echo '  <li id="linkcat-' . $cat->term_id . '" class="linkcat"><h2>' . apply_filters('link_category', $cat->name ) . "</h2>\n\t<ul>\n";
+			// Call get_links() with all the appropriate params
+			get_links($cat->term_id, '<li>', "</li>", "\n", true, 'name', false);
+
+			// Close the last category
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			echo "\n\t</ul>\n</li>\n";
 		}
 	}
@@ -1100,7 +1237,11 @@ function get_linkrating( $link ) {
 }
 
 /**
+<<<<<<< HEAD
  * Gets the name of category by ID.
+=======
+ * Gets the name of category by id.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 0.71
  * @deprecated 2.1.0 Use get_category()
@@ -1263,11 +1404,18 @@ function get_catname( $cat_ID ) {
  * @deprecated 2.8.0 Use get_term_children()
  * @see get_term_children()
  *
+<<<<<<< HEAD
  * @param int    $id      Category ID to retrieve children.
  * @param string $before  Optional. Prepend before category term ID. Default '/'.
  * @param string $after   Optional. Append after category term ID. Default empty string.
  * @param array  $visited Optional. Category Term IDs that have already been added.
  *                        Default empty array.
+=======
+ * @param int $id Category ID to retrieve children.
+ * @param string $before Optional. Prepend before category term ID.
+ * @param string $after Optional, default is empty string. Append after category term ID.
+ * @param array $visited Optional. Category Term IDs that have already been added.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string
  */
 function get_category_children( $id, $before = '/', $after = '', $visited = array() ) {
@@ -1276,7 +1424,11 @@ function get_category_children( $id, $before = '/', $after = '', $visited = arra
 		return '';
 
 	$chain = '';
+<<<<<<< HEAD
 	/** TODO: Consult hierarchy */
+=======
+	/** TODO: consult hierarchy */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$cat_ids = get_all_category_ids();
 	foreach ( (array) $cat_ids as $cat_id ) {
 		if ( $cat_id == $id )
@@ -1308,6 +1460,7 @@ function get_category_children( $id, $before = '/', $after = '', $visited = arra
 function get_all_category_ids() {
 	_deprecated_function( __FUNCTION__, '4.0.0', 'get_terms()' );
 
+<<<<<<< HEAD
 	$cat_ids = get_terms(
 		array(
 			'taxonomy' => 'category',
@@ -1315,6 +1468,18 @@ function get_all_category_ids() {
 			'get'      => 'all',
 		)
 	);
+=======
+	if ( ! $cat_ids = wp_cache_get( 'all_category_ids', 'category' ) ) {
+		$cat_ids = get_terms(
+			array(
+				'taxonomy' => 'category',
+				'fields'   => 'ids',
+				'get'      => 'all',
+			)
+		);
+		wp_cache_add( 'all_category_ids', $cat_ids, 'category' );
+	}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return $cat_ids;
 }
@@ -1649,6 +1814,7 @@ function the_author_ID() {
 /**
  * Display the post content for the feed.
  *
+<<<<<<< HEAD
  * For encoding the HTML or the $encode_html parameter, there are three possible values:
  * - '0' will make urls footnotes and use make_url_footnote().
  * - '1' will encode special characters and automatically display all of the content.
@@ -1662,18 +1828,41 @@ function the_author_ID() {
  * If the content is less than the amount, then there won't be any dots added to the end.
  * If there is content left over, then dots will be added and the rest of the content
  * will be removed.
+=======
+ * For encoding the html or the $encode_html parameter, there are three possible
+ * values. '0' will make urls footnotes and use make_url_footnote(). '1' will
+ * encode special characters and automatically display all of the content. The
+ * value of '2' will strip all HTML tags from the content.
+ *
+ * Also note that you cannot set the amount of words and not set the html
+ * encoding. If that is the case, then the html encoding will default to 2,
+ * which will strip all HTML tags.
+ *
+ * To restrict the amount of words of the content, you can use the cut
+ * parameter. If the content is less than the amount, then there won't be any
+ * dots added to the end. If there is content left over, then dots will be added
+ * and the rest of the content will be removed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 0.71
  *
  * @deprecated 2.9.0 Use the_content_feed()
  * @see the_content_feed()
  *
+<<<<<<< HEAD
  * @param string $more_link_text Optional. Text to display when more content is available
  *                               but not displayed. Default '(more...)'.
  * @param int    $stripteaser    Optional. Default 0.
  * @param string $more_file      Optional.
  * @param int    $cut            Optional. Amount of words to keep for the content.
  * @param int    $encode_html    Optional. How to encode the content.
+=======
+ * @param string $more_link_text Optional. Text to display when more content is available but not displayed.
+ * @param int $stripteaser Optional. Default is 0.
+ * @param string $more_file Optional.
+ * @param int $cut Optional. Amount of words to keep for the content.
+ * @param int $encode_html Optional. How to encode the content.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function the_content_rss($more_link_text='(more...)', $stripteaser=0, $more_file='', $cut = 0, $encode_html = 0) {
 	_deprecated_function( __FUNCTION__, '2.9.0', 'the_content_feed()' );
@@ -1726,7 +1915,11 @@ function the_content_rss($more_link_text='(more...)', $stripteaser=0, $more_file
  * @since 0.71
  * @deprecated 2.9.0
  *
+<<<<<<< HEAD
  * @param string $content Content to get links.
+=======
+ * @param string $content Content to get links
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string HTML stripped out of content with links at the bottom.
  */
 function make_url_footnote( $content ) {
@@ -1764,9 +1957,15 @@ function make_url_footnote( $content ) {
  * @deprecated 2.9.0 Use _x()
  * @see _x()
  *
+<<<<<<< HEAD
  * @param string $text Text to translate.
  * @param string $domain Optional. Domain to retrieve the translated text.
  * @return string Translated context string without pipe.
+=======
+ * @param string $text Text to translate
+ * @param string $domain Optional. Domain to retrieve the translated text
+ * @return string Translated context string without pipe
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function _c( $text, $domain = 'default' ) {
 	_deprecated_function( __FUNCTION__, '2.9.0', '_x()' );
@@ -1781,9 +1980,15 @@ function _c( $text, $domain = 'default' ) {
  * @deprecated 3.0.0 Use _x()
  * @see _x()
  *
+<<<<<<< HEAD
  * @param string $text Text to translate.
  * @param string $domain Domain to retrieve the translated text.
  * @return string Translated text.
+=======
+ * @param string $text Text to translate
+ * @param string $domain Domain to retrieve the translated text
+ * @return string Translated text
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function translate_with_context( $text, $domain = 'default' ) {
 	_deprecated_function( __FUNCTION__, '2.9.0', '_x()' );
@@ -1857,10 +2062,17 @@ function get_alloptions() {
  * @deprecated 2.5.0 Use wp_get_attachment_link()
  * @see wp_get_attachment_link()
  *
+<<<<<<< HEAD
  * @param int   $id       Optional. Post ID.
  * @param bool  $fullsize Optional. Whether to use full size image. Default false.
  * @param array $max_dims Optional. Max image dimensions.
  * @param bool $permalink Optional. Whether to include permalink to image. Default false.
+=======
+ * @param int $id Optional. Post ID.
+ * @param bool $fullsize Optional, default is false. Whether to use full size image.
+ * @param array $max_dims Optional. Max image dimensions.
+ * @param bool $permalink Optional, default is false. Whether to include permalink to image.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string
  */
 function get_the_attachment_link($id = 0, $fullsize = false, $max_dims = false, $permalink = false) {
@@ -1887,8 +2099,13 @@ function get_the_attachment_link($id = 0, $fullsize = false, $max_dims = false, 
  * @deprecated 2.5.0 Use wp_get_attachment_image_src()
  * @see wp_get_attachment_image_src()
  *
+<<<<<<< HEAD
  * @param int  $id       Optional. Post ID.
  * @param bool $fullsize Optional. Whether to have full image. Default false.
+=======
+ * @param int $id Optional. Post ID.
+ * @param bool $fullsize Optional, default to false. Whether to have full image.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return array Icon URL and full path to file, respectively.
  */
 function get_attachment_icon_src( $id = 0, $fullsize = false ) {
@@ -1900,11 +2117,19 @@ function get_attachment_icon_src( $id = 0, $fullsize = false ) {
 	$file = get_attached_file( $post->ID );
 
 	if ( !$fullsize && $src = wp_get_attachment_thumb_url( $post->ID ) ) {
+<<<<<<< HEAD
 		// We have a thumbnail desired, specified and existing.
 
 		$src_file = wp_basename($src);
 	} elseif ( wp_attachment_is_image( $post->ID ) ) {
 		// We have an image without a thumbnail.
+=======
+		// We have a thumbnail desired, specified and existing
+
+		$src_file = wp_basename($src);
+	} elseif ( wp_attachment_is_image( $post->ID ) ) {
+		// We have an image without a thumbnail
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$src = wp_get_attachment_url( $post->ID );
 		$src_file = & $file;
@@ -1928,10 +2153,17 @@ function get_attachment_icon_src( $id = 0, $fullsize = false ) {
  * @deprecated 2.5.0 Use wp_get_attachment_image()
  * @see wp_get_attachment_image()
  *
+<<<<<<< HEAD
  * @param int   $id       Optional. Post ID.
  * @param bool  $fullsize Optional. Whether to have full size image. Default false.
  * @param array $max_dims Optional. Dimensions of image.
  * @return string|false HTML content.
+=======
+ * @param int $id Optional. Post ID.
+ * @param bool $fullsize Optional, default to false. Whether to have full size image.
+ * @param array $max_dims Optional. Dimensions of image.
+ * @return false|string HTML content.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_attachment_icon( $id = 0, $fullsize = false, $max_dims = false ) {
 	_deprecated_function( __FUNCTION__, '2.5.0', 'wp_get_attachment_image()' );
@@ -1984,10 +2216,17 @@ function get_attachment_icon( $id = 0, $fullsize = false, $max_dims = false ) {
  * @deprecated 2.5.0 Use wp_get_attachment_image()
  * @see wp_get_attachment_image()
  *
+<<<<<<< HEAD
  * @param int   $id       Optional. Post ID.
  * @param bool  $fullsize Optional. Whether to have full size image. Default false.
  * @param array $max_dims Optional. Dimensions of image.
  * @return string|false
+=======
+ * @param int $id Optional. Post ID.
+ * @param bool $fullsize Optional, default to false. Whether to have full size image.
+ * @param array $max_dims Optional. Dimensions of image.
+ * @return false|string
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_attachment_innerHTML($id = 0, $fullsize = false, $max_dims = false) {
 	_deprecated_function( __FUNCTION__, '2.5.0', 'wp_get_attachment_image()' );
@@ -2136,7 +2375,11 @@ function attribute_escape( $text ) {
  */
 function register_sidebar_widget($name, $output_callback, $classname = '', ...$params) {
 	_deprecated_function( __FUNCTION__, '2.8.0', 'wp_register_sidebar_widget()' );
+<<<<<<< HEAD
 	// Compat.
+=======
+	// Compat
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( is_array( $name ) ) {
 		if ( count( $name ) === 3 ) {
 			$name = sprintf( $name[0], $name[2] );
@@ -2190,7 +2433,11 @@ function unregister_sidebar_widget($id) {
  */
 function register_widget_control($name, $control_callback, $width = '', $height = '', ...$params) {
 	_deprecated_function( __FUNCTION__, '2.8.0', 'wp_register_widget_control()' );
+<<<<<<< HEAD
 	// Compat.
+=======
+	// Compat
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( is_array( $name ) ) {
 		if ( count( $name ) === 3 ) {
 			$name = sprintf( $name[0], $name[2] );
@@ -2234,7 +2481,11 @@ function unregister_widget_control($id) {
  *
  * @param int $user_id User ID.
  * @param string $meta_key Metadata key.
+<<<<<<< HEAD
  * @param mixed $meta_value Optional. Metadata value. Default empty.
+=======
+ * @param mixed $meta_value Metadata value.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return bool True deletion completed and false if user_id is not a number.
  */
 function delete_usermeta( $user_id, $meta_key, $meta_value = '' ) {
@@ -2280,7 +2531,11 @@ function delete_usermeta( $user_id, $meta_key, $meta_value = '' ) {
  * @see get_user_meta()
  *
  * @param int $user_id User ID
+<<<<<<< HEAD
  * @param string $meta_key Optional. Metadata key. Default empty.
+=======
+ * @param string $meta_key Optional. Metadata key.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return mixed
  */
 function get_usermeta( $user_id, $meta_key = '' ) {
@@ -2294,7 +2549,11 @@ function get_usermeta( $user_id, $meta_key = '' ) {
 	if ( !empty($meta_key) ) {
 		$meta_key = preg_replace('|[^a-z0-9_]|i', '', $meta_key);
 		$user = wp_cache_get($user_id, 'users');
+<<<<<<< HEAD
 		// Check the cached user object.
+=======
+		// Check the cached user object
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( false !== $user && isset($user->$meta_key) )
 			$metas = array($user->$meta_key);
 		else
@@ -2409,7 +2668,11 @@ function get_users_of_blog( $id = '' ) {
  * @deprecated 3.0.0 Use add_theme_support()
  * @see add_theme_support()
  *
+<<<<<<< HEAD
  * @param bool $add Optional. Add or remove links. Default true.
+=======
+ * @param bool $add Optional, default is true. Add or remove links. Defaults to true.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function automatic_feed_links( $add = true ) {
 	_deprecated_function( __FUNCTION__, '3.0.0', "add_theme_support( 'automatic-feed-links' )" );
@@ -2417,7 +2680,11 @@ function automatic_feed_links( $add = true ) {
 	if ( $add )
 		add_theme_support( 'automatic-feed-links' );
 	else
+<<<<<<< HEAD
 		remove_action( 'wp_head', 'feed_links_extra', 3 ); // Just do this yourself in 3.0+.
+=======
+		remove_action( 'wp_head', 'feed_links_extra', 3 ); // Just do this yourself in 3.0+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -2428,7 +2695,11 @@ function automatic_feed_links( $add = true ) {
  * @see get_the_author_meta()
  *
  * @param string    $field User meta field.
+<<<<<<< HEAD
  * @param false|int $user  Optional. User ID to retrieve the field for. Default false (current user).
+=======
+ * @param false|int $user Optional. User ID to retrieve the field for. Default false (current user).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string The author's field from the current author's DB object.
  */
 function get_profile( $field, $user = false ) {
@@ -2521,7 +2792,11 @@ function is_taxonomy( $taxonomy ) {
  * @param int|string $term The term to check
  * @param string $taxonomy The taxonomy name to use
  * @param int $parent ID of parent term under which to confine the exists search.
+<<<<<<< HEAD
  * @return mixed Get the term ID or term object, if exists.
+=======
+ * @return mixed Get the term id or Term Object, if exists.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function is_term( $term, $taxonomy = '', $parent = 0 ) {
 	_deprecated_function( __FUNCTION__, '3.0.0', 'term_exists()' );
@@ -2532,11 +2807,19 @@ function is_term( $term, $taxonomy = '', $parent = 0 ) {
  * Determines whether the current admin page is generated by a plugin.
  *
  * Use global $plugin_page and/or get_plugin_page_hookname() hooks.
+<<<<<<< HEAD
  *
  * For more information on this and similar theme functions, check out
  * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
  * Conditional Tags} article in the Theme Developer Handbook.
  *
+=======
+ * 
+ * For more information on this and similar theme functions, check out
+ * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/ 
+ * Conditional Tags} article in the Theme Developer Handbook.
+ * 
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @since 1.5.0
  * @deprecated 3.1.0
  *
@@ -2646,9 +2929,15 @@ function get_user_metavalues($ids) {
  * @since 2.3.0
  * @deprecated 3.3.0
  *
+<<<<<<< HEAD
  * @param object|array $user    The user object or array.
  * @param string       $context Optional. How to sanitize user fields. Default 'display'.
  * @return object|array The now sanitized user object or array (will be the same type as $user).
+=======
+ * @param object|array $user The User Object or Array
+ * @param string $context Optional, default is 'display'. How to sanitize user fields.
+ * @return object|array The now sanitized User Object or Array (will be the same type as $user)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function sanitize_user_object($user, $context = 'display') {
 	_deprecated_function( __FUNCTION__, '3.3.0' );
@@ -2683,23 +2972,38 @@ function sanitize_user_object($user, $context = 'display') {
  * @since 2.8.0
  * @deprecated 3.3.0
  *
+<<<<<<< HEAD
  * @param string $title               Optional. Link title format. Default '%title'.
  * @param bool   $in_same_cat         Optional. Whether link should be in a same category.
  *                                    Default false.
  * @param string $excluded_categories Optional. Excluded categories IDs. Default empty.
  * @param bool   $start               Optional. Whether to display link to first or last post.
  *                                    Default true.
+=======
+ * @param string $title Optional. Link title format.
+ * @param bool $in_same_cat Optional. Whether link should be in a same category.
+ * @param string $excluded_categories Optional. Excluded categories IDs.
+ * @param bool $start Optional, default is true. Whether to display link to first or last post.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string
  */
 function get_boundary_post_rel_link($title = '%title', $in_same_cat = false, $excluded_categories = '', $start = true) {
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	$posts = get_boundary_post($in_same_cat, $excluded_categories, $start);
+<<<<<<< HEAD
 	// If there is no post, stop.
 	if ( empty($posts) )
 		return;
 
 	// Even though we limited get_posts() to return only 1 item it still returns an array of objects.
+=======
+	// If there is no post stop.
+	if ( empty($posts) )
+		return;
+
+	// Even though we limited get_posts to return only 1 item it still returns an array of objects.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$post = $posts[0];
 
 	if ( empty($post->post_title) )
@@ -2853,7 +3157,11 @@ function is_blog_user( $blog_id = 0 ) {
  * @deprecated 3.4.0 Use error_log()
  * @see error_log()
  *
+<<<<<<< HEAD
  * @link https://www.php.net/manual/en/function.error-log.php
+=======
+ * @link https://secure.php.net/manual/en/function.error-log.php
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @param string $filename File name.
  * @param string $mode     Type of access you required to the stream.
@@ -2871,7 +3179,11 @@ function debug_fopen( $filename, $mode ) {
  * @deprecated 3.4.0 Use error_log()
  * @see error_log()
  *
+<<<<<<< HEAD
  * @link https://www.php.net/manual/en/function.error-log.php
+=======
+ * @link https://secure.php.net/manual/en/function.error-log.php
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @param mixed  $fp     Unused.
  * @param string $string Message to log.
@@ -2889,7 +3201,11 @@ function debug_fwrite( $fp, $string ) {
  * @deprecated 3.4.0 Use error_log()
  * @see error_log()
  *
+<<<<<<< HEAD
  * @link https://www.php.net/manual/en/function.error-log.php
+=======
+ * @link https://secure.php.net/manual/en/function.error-log.php
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @param mixed $fp Unused.
  */
@@ -2972,13 +3288,21 @@ function get_current_theme() {
  * Accepts matches array from preg_replace_callback in wpautop() or a string.
  *
  * Ensures that the contents of a `<pre>...</pre>` HTML block are not
+<<<<<<< HEAD
  * converted into paragraphs or line breaks.
+=======
+ * converted into paragraphs or line-breaks.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 1.2.0
  * @deprecated 3.4.0
  *
  * @param array|string $matches The array or string
+<<<<<<< HEAD
  * @return string The pre block without paragraph/line break conversion.
+=======
+ * @return string The pre block without paragraph/line-break conversion.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function clean_pre($matches) {
 	_deprecated_function( __FUNCTION__, '3.4.0' );
@@ -3240,6 +3564,7 @@ function wp_load_image( $file ) {
  * @deprecated 3.5.0 Use wp_get_image_editor()
  * @see wp_get_image_editor()
  *
+<<<<<<< HEAD
  * @param string $file         Image file path.
  * @param int    $max_w        Maximum width to resize to.
  * @param int    $max_h        Maximum height to resize to.
@@ -3247,6 +3572,15 @@ function wp_load_image( $file ) {
  * @param string $suffix       Optional. File suffix. Default null.
  * @param string $dest_path    Optional. New image file path. Default null.
  * @param int    $jpeg_quality Optional. Image quality percentage. Default 90.
+=======
+ * @param string $file Image file path.
+ * @param int $max_w Maximum width to resize to.
+ * @param int $max_h Maximum height to resize to.
+ * @param bool $crop Optional. Whether to crop image or resize.
+ * @param string $suffix Optional. File suffix.
+ * @param string $dest_path Optional. New image file path.
+ * @param int $jpeg_quality Optional, default is 90. Image quality percentage.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return mixed WP_Error on failure. String with new destination path.
  */
 function image_resize( $file, $max_w, $max_h, $crop = false, $suffix = null, $dest_path = null, $jpeg_quality = 90 ) {
@@ -3621,7 +3955,11 @@ function wp_htmledit_pre($output) {
 	_deprecated_function( __FUNCTION__, '4.3.0', 'format_for_editor()' );
 
 	if ( !empty($output) )
+<<<<<<< HEAD
 		$output = htmlspecialchars($output, ENT_NOQUOTES, get_option( 'blog_charset' ) ); // Convert only '< > &'.
+=======
+		$output = htmlspecialchars($output, ENT_NOQUOTES, get_option( 'blog_charset' ) ); // convert only < > &
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Filters the text before it is formatted for the HTML editor.
@@ -3698,7 +4036,11 @@ function wp_get_http( $url, $file_path = false, $red = 1 ) {
 	if ( false == $file_path )
 		return $headers;
 
+<<<<<<< HEAD
 	// GET request - write it to the supplied filename.
+=======
+	// GET request - write it to the supplied filename
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$out_fp = fopen($file_path, 'w');
 	if ( !$out_fp )
 		return $headers;
@@ -3741,6 +4083,7 @@ function get_comments_popup_template() {
 
 /**
  * Determines whether the current URL is within the comments popup window.
+<<<<<<< HEAD
  *
  * For more information on this and similar theme functions, check out
  * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
@@ -3750,6 +4093,17 @@ function get_comments_popup_template() {
  * @deprecated 4.5.0
  *
  * @return false Always returns false.
+=======
+ * 
+ * For more information on this and similar theme functions, check out
+ * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/ 
+ * Conditional Tags} article in the Theme Developer Handbook.
+ * 
+ * @since 1.5.0
+ * @deprecated 4.5.0
+ *
+ * @return bool
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function is_comments_popup() {
 	_deprecated_function( __FUNCTION__, '4.5.0' );
@@ -3951,7 +4305,11 @@ function get_shortcut_link() {
 function wp_ajax_press_this_save_post() {
 	_deprecated_function( __FUNCTION__, '4.9.0' );
 	if ( is_plugin_active( 'press-this/press-this-plugin.php' ) ) {
+<<<<<<< HEAD
 		include WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php';
+=======
+		include( WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$wp_press_this = new WP_Press_This_Plugin();
 		$wp_press_this->save_post();
 	} else {
@@ -3968,13 +4326,18 @@ function wp_ajax_press_this_save_post() {
 function wp_ajax_press_this_add_category() {
 	_deprecated_function( __FUNCTION__, '4.9.0' );
 	if ( is_plugin_active( 'press-this/press-this-plugin.php' ) ) {
+<<<<<<< HEAD
 		include WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php';
+=======
+		include( WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$wp_press_this = new WP_Press_This_Plugin();
 		$wp_press_this->add_category();
 	} else {
 		wp_send_json_error( array( 'errorMessage' => __( 'The Press This plugin is required.' ) ) );
 	}
 }
+<<<<<<< HEAD
 
 /**
  * Return the user request object for the specified request ID.
@@ -4100,3 +4463,5 @@ function remove_option_whitelist( $del_options, $options = '' ) {
 
 	return remove_allowed_options( $del_options, $options );
 }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

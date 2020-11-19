@@ -52,10 +52,13 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <?php wp_footer(); ?>
 <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+<<<<<<< HEAD
 <!-- Google review -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  -->
 <!-- <script src="/js/google-places.js "></script>  -->
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyAkUX99XARyLj3jfkhPIMBjJhmLqZaAGD0"></script>
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 </body>
 
 </html>

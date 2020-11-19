@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /* rtl:ignore */
 .wp-color-picker {
 	width: 80px;
@@ -11,7 +14,11 @@
 
 /* Needs higher specificiity. */
 .wp-picker-container .wp-color-result.button {
+<<<<<<< HEAD
 	min-height: 30px;
+=======
+	min-height: 28px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	margin: 0 0px 6px 6px;
 	padding: 0 30px 0 0;
 	font-size: 11px;
@@ -23,7 +30,11 @@
 	border-right: 1px solid #ccc;
 	color: #555;
 	display: block;
+<<<<<<< HEAD
 	line-height: 2.54545455; /* 28px */
+=======
+	line-height: 2.36363636; /* 26px */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	padding: 0 6px;
 	text-align: center;
 }
@@ -72,6 +83,7 @@
 }
 
 .wp-picker-input-wrap .button.wp-picker-default,
+<<<<<<< HEAD
 .wp-picker-input-wrap .button.wp-picker-clear,
 .wp-customizer .wp-picker-input-wrap .button.wp-picker-default,
 .wp-customizer .wp-picker-input-wrap .button.wp-picker-clear {
@@ -79,6 +91,11 @@
 	padding: 0 8px;
 	line-height: 2.54545455; /* 28px */
 	min-height: 30px;
+=======
+.wp-customizer .wp-picker-input-wrap .button.wp-picker-default {
+	margin-right: 6px;
+	padding: 2px 8px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .wp-picker-container .iris-square-slider .ui-slider-handle:focus {
@@ -92,6 +109,7 @@
 }
 
 .wp-picker-container input[type="text"].wp-color-picker {
+<<<<<<< HEAD
 	width: 4rem;
 	font-size: 12px;
 	font-family: monospace;
@@ -100,6 +118,16 @@
 	padding: 0 5px;
 	vertical-align: top;
 	min-height: 30px;
+=======
+	width: 65px;
+	font-size: 12px;
+	font-family: monospace;
+	line-height: 1.33333333; /* 16px */
+	margin: 0;
+	padding: 5px;
+	vertical-align: top;
+	min-height: 28px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .wp-color-picker::-webkit-input-placeholder {
@@ -123,6 +151,7 @@
 
 .iris-picker .ui-square-handle:focus,
 .iris-picker .iris-strip .ui-slider-handle:focus {
+<<<<<<< HEAD
 	border-color: #007cba;
 	border-style: solid;
 	box-shadow: 0 0 0 1px #007cba;
@@ -131,10 +160,23 @@
 
 .iris-picker .iris-palette:focus {
 	box-shadow: 0 0 0 2px #007cba;
+=======
+	box-shadow:
+		0 0 0 1px #5b9dd9,
+		0 0 2px 1px rgba(30, 140, 190, 0.8);
+}
+
+.iris-picker .iris-palette:focus {
+	box-shadow:
+		inset 0 0 5px rgba(0, 0, 0, 0.4),
+		0 0 0 1px #5b9dd9,
+		0 0 2px 1px rgba(30, 140, 190, 0.8);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 @media screen and (max-width: 782px) {
 	.wp-picker-container input[type="text"].wp-color-picker {
+<<<<<<< HEAD
 		width: 5rem;
 		font-size: 16px;
 		line-height: 1.875; /* 30px */
@@ -169,6 +211,28 @@
 	.wp-customizer .wp-picker-container .wp-color-result.button {
 		font-size: 14px;
 		line-height: 2.14285714; /* 30px */
+=======
+		width: 80px;
+		padding: 6px 5px 5px;
+		font-size: 16px;
+		line-height: 1.15;
+	}
+
+	.wp-customizer .wp-picker-container input[type="text"].wp-color-picker {
+		padding: 5px 5px 4px;
+	}
+
+	.wp-picker-container .wp-color-result.button {
+		height: auto;
+		padding: 0 40px 0 0;
+		font-size: 14px;
+		line-height: 2.1;
+	}
+
+	.wp-customizer .wp-picker-container .wp-color-result.button {
+		font-size: 13px;
+		line-height: 2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	.wp-picker-container .wp-color-result-text {
@@ -181,3 +245,17 @@
 		padding: 0 10px;
 	}
 }
+<<<<<<< HEAD
+=======
+
+@media screen and (max-width: 640px) {
+	.wp-customizer .wp-picker-container .wp-color-result.button {
+		font-size: 14px;
+		line-height: 2.1;
+	}
+
+	.wp-customizer .wp-picker-container input[type="text"].wp-color-picker {
+		padding: 6px 5px;
+	}
+}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

@@ -7,14 +7,22 @@
  */
 
 /** Load WordPress Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'export' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to export the content of this site.' ) );
 }
 
 /** Load WordPress export API */
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/includes/export.php';
+=======
+require_once( ABSPATH . 'wp-admin/includes/export.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $title = __( 'Export' );
 
 /**
@@ -62,9 +70,15 @@ get_current_screen()->set_help_sidebar(
 if ( isset( $_GET['download'] ) ) {
 	$args = array();
 
+<<<<<<< HEAD
 	if ( ! isset( $_GET['content'] ) || 'all' === $_GET['content'] ) {
 		$args['content'] = 'all';
 	} elseif ( 'posts' === $_GET['content'] ) {
+=======
+	if ( ! isset( $_GET['content'] ) || 'all' == $_GET['content'] ) {
+		$args['content'] = 'all';
+	} elseif ( 'posts' == $_GET['content'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$args['content'] = 'post';
 
 		if ( $_GET['cat'] ) {
@@ -83,7 +97,11 @@ if ( isset( $_GET['download'] ) ) {
 		if ( $_GET['post_status'] ) {
 			$args['status'] = $_GET['post_status'];
 		}
+<<<<<<< HEAD
 	} elseif ( 'pages' === $_GET['content'] ) {
+=======
+	} elseif ( 'pages' == $_GET['content'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$args['content'] = 'page';
 
 		if ( $_GET['page_author'] ) {
@@ -98,7 +116,11 @@ if ( isset( $_GET['download'] ) ) {
 		if ( $_GET['page_status'] ) {
 			$args['status'] = $_GET['page_status'];
 		}
+<<<<<<< HEAD
 	} elseif ( 'attachment' === $_GET['content'] ) {
+=======
+	} elseif ( 'attachment' == $_GET['content'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$args['content'] = 'attachment';
 
 		if ( $_GET['attachment_start_date'] || $_GET['attachment_end_date'] ) {
@@ -122,7 +144,11 @@ if ( isset( $_GET['download'] ) ) {
 	die();
 }
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
  * Create the date options fields for exporting a given post type.
@@ -144,18 +170,30 @@ function export_date_options( $post_type = 'post' ) {
 		FROM $wpdb->posts
 		WHERE post_type = %s AND post_status != 'auto-draft'
 		ORDER BY post_date DESC
+<<<<<<< HEAD
 			",
+=======
+	",
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$post_type
 		)
 	);
 
 	$month_count = count( $months );
+<<<<<<< HEAD
 	if ( ! $month_count || ( 1 === $month_count && 0 === (int) $months[0]->month ) ) {
+=======
+	if ( ! $month_count || ( 1 == $month_count && 0 == $months[0]->month ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return;
 	}
 
 	foreach ( $months as $date ) {
+<<<<<<< HEAD
 		if ( 0 === (int) $date->year ) {
+=======
+		if ( 0 == $date->year ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			continue;
 		}
 
@@ -180,7 +218,11 @@ function export_date_options( $post_type = 'post' ) {
 <p><label><input type="radio" name="content" value="all" checked="checked" aria-describedby="all-content-desc" /> <?php _e( 'All content' ); ?></label></p>
 <p class="description" id="all-content-desc"><?php _e( 'This will contain all of your posts, pages, comments, custom fields, terms, navigation menus, and custom posts.' ); ?></p>
 
+<<<<<<< HEAD
 <p><label><input type="radio" name="content" value="posts" /> <?php _ex( 'Posts', 'post type general name' ); ?></label></p>
+=======
+<p><label><input type="radio" name="content" value="posts" /> <?php _e( 'Posts' ); ?></label></p>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 <ul id="post-filters" class="export-filters">
 	<li>
 		<label><span class="label-responsive"><?php _e( 'Categories:' ); ?></span>
@@ -321,4 +363,8 @@ do_action( 'export_filters' );
 </form>
 </div>
 
+<<<<<<< HEAD
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

@@ -51,7 +51,10 @@ class WP_Widget_Media_Gallery extends WP_Widget_Media {
 	 * @see WP_REST_Controller::get_item_schema()
 	 * @see WP_REST_Controller::get_additional_fields()
 	 * @link https://core.trac.wordpress.org/ticket/35574
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return array Schema for properties.
 	 */
 	public function get_instance_schema() {
@@ -109,6 +112,10 @@ class WP_Widget_Media_Gallery extends WP_Widget_Media {
 	 * @since 4.9.0
 	 *
 	 * @param array $instance Widget instance props.
+<<<<<<< HEAD
+=======
+	 * @return void
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function render_media( $instance ) {
 		$instance = array_merge( wp_list_pluck( $this->get_instance_schema(), 'default' ), $instance );

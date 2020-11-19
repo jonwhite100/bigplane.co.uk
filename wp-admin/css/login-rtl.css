@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 html,
 body {
 	height: 100%;
@@ -28,7 +31,11 @@ a {
 
 a:hover,
 a:active {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 a:focus {
@@ -140,6 +147,7 @@ p {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
+<<<<<<< HEAD
 .login form.shake {
 	animation: shake 0.2s cubic-bezier(.19,.49,.38,.79) both;
 	animation-iteration-count: 3;
@@ -168,15 +176,22 @@ p {
 .login-action-confirm_admin_email #login {
 	width: 60vw;
 	max-width: 650px;
+=======
+.login-action-confirm_admin_email #login {
+	width: 60vw;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	margin-top: -2vh;
 }
 
 @media screen and (max-width: 782px) {
 	.login-action-confirm_admin_email #login {
+<<<<<<< HEAD
 		box-sizing: border-box;
 		margin-top: 0;
 		padding-right: 4vw;
 		padding-left: 4vw;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		width: 100vw;
 	}
 }
@@ -297,7 +312,11 @@ p {
 .login #nav a:hover,
 .login #backtoblog a:hover,
 .login h1 a:hover {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .login #nav a:focus,

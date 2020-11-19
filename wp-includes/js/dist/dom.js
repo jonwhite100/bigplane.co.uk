@@ -82,11 +82,51 @@ this["wp"] = this["wp"] || {}; this["wp"]["dom"] =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 462);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 364);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /******/ })
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
+=======
+/***/ 17:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  }
+}
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/iterableToArray.js
+var iterableToArray = __webpack_require__(30);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _toConsumableArray; });
+
+
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || Object(iterableToArray["a" /* default */])(arr) || _nonIterableSpread();
+}
+
+/***/ }),
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /***/ 2:
 /***/ (function(module, exports) {
 
@@ -94,6 +134,7 @@ this["wp"] = this["wp"] || {}; this["wp"]["dom"] =
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 462:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -131,14 +172,45 @@ __webpack_require__.r(focusable_namespaceObject);
 __webpack_require__.d(focusable_namespaceObject, "find", function() { return find; });
 
 // NAMESPACE OBJECT: ./node_modules/@wordpress/dom/build-module/tabbable.js
+=======
+/***/ 30:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _iterableToArray; });
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+/***/ }),
+
+/***/ 364:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var focusable_namespaceObject = {};
+__webpack_require__.r(focusable_namespaceObject);
+__webpack_require__.d(focusable_namespaceObject, "find", function() { return find; });
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 var tabbable_namespaceObject = {};
 __webpack_require__.r(tabbable_namespaceObject);
 __webpack_require__.d(tabbable_namespaceObject, "isTabbableIndex", function() { return isTabbableIndex; });
 __webpack_require__.d(tabbable_namespaceObject, "find", function() { return tabbable_find; });
+<<<<<<< HEAD
 __webpack_require__.d(tabbable_namespaceObject, "findPrevious", function() { return findPrevious; });
 __webpack_require__.d(tabbable_namespaceObject, "findNext", function() { return findNext; });
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/focusable.js
+=======
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js + 2 modules
+var toConsumableArray = __webpack_require__(17);
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/focusable.js
+
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /**
  * References:
  *
@@ -171,6 +243,7 @@ function isVisible(element) {
   return element.offsetWidth > 0 || element.offsetHeight > 0 || element.getClientRects().length > 0;
 }
 /**
+<<<<<<< HEAD
  * Returns true if the specified element should be skipped from focusable elements.
  * For now it rather specific for `iframes` and  if tabindex attribute is set to -1.
  *
@@ -184,6 +257,8 @@ function skipFocus(element) {
   return element.nodeName.toLowerCase() === 'iframe' && element.getAttribute('tabindex') === '-1';
 }
 /**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * Returns true if the specified area element is a valid focusable element, or
  * false otherwise. Area is only focusable if within a map where a named map
  * referenced by an image somewhere in the document.
@@ -215,8 +290,13 @@ function isValidFocusableArea(element) {
 
 function find(context) {
   var elements = context.querySelectorAll(SELECTOR);
+<<<<<<< HEAD
   return Array.from(elements).filter(function (element) {
     if (!isVisible(element) || skipFocus(element)) {
+=======
+  return Object(toConsumableArray["a" /* default */])(elements).filter(function (element) {
+    if (!isVisible(element)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       return false;
     }
 
@@ -230,8 +310,13 @@ function find(context) {
   });
 }
 
+<<<<<<< HEAD
 // EXTERNAL MODULE: external {"this":"lodash"}
 var external_this_lodash_ = __webpack_require__(2);
+=======
+// EXTERNAL MODULE: external "lodash"
+var external_lodash_ = __webpack_require__(2);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/tabbable.js
 /**
@@ -306,7 +391,11 @@ function createStatefulCollapseRadioGroup() {
 
     if (hasChosen) {
       var hadChosenElement = CHOSEN_RADIO_BY_NAME[name];
+<<<<<<< HEAD
       result = Object(external_this_lodash_["without"])(result, hadChosenElement);
+=======
+      result = Object(external_lodash_["without"])(result, hadChosenElement);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     }
 
     CHOSEN_RADIO_BY_NAME[name] = element;
@@ -367,6 +456,7 @@ function compareObjectTabbables(a, b) {
 
   return aTabIndex - bTabIndex;
 }
+<<<<<<< HEAD
 /**
  * Givin focusable elements, filters out tabbable element.
  *
@@ -414,6 +504,11 @@ function findNext() {
     return !element.contains(node);
   });
   return Object(external_this_lodash_["first"])(filterTabbable(remaining));
+=======
+
+function tabbable_find(context) {
+  return find(context).filter(isTabbableIndex).map(mapElementToObjectTabbable).sort(compareObjectTabbables).map(mapObjectTabbableToElement).reduce(createStatefulCollapseRadioGroup(), []);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/dom.js
@@ -426,7 +521,10 @@ function findNext() {
  */
 
 var _window = window,
+<<<<<<< HEAD
     DOMParser = _window.DOMParser,
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     getComputedStyle = _window.getComputedStyle;
 var _window$Node = window.Node,
     TEXT_NODE = _window$Node.TEXT_NODE,
@@ -489,7 +587,11 @@ function isSelectionForward(selection) {
 
 
 function isEdge(container, isReverse, onlyVertical) {
+<<<<<<< HEAD
   if (Object(external_this_lodash_["includes"])(['INPUT', 'TEXTAREA'], container.tagName)) {
+=======
+  if (Object(external_lodash_["includes"])(['INPUT', 'TEXTAREA'], container.tagName)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     if (container.selectionStart !== container.selectionEnd) {
       return false;
     }
@@ -511,8 +613,12 @@ function isEdge(container, isReverse, onlyVertical) {
     return false;
   }
 
+<<<<<<< HEAD
   var originalRange = selection.getRangeAt(0);
   var range = originalRange.cloneRange();
+=======
+  var range = selection.getRangeAt(0).cloneRange();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   var isForward = isSelectionForward(selection);
   var isCollapsed = selection.isCollapsed; // Collapse in direction of selection.
 
@@ -541,8 +647,12 @@ function isEdge(container, isReverse, onlyVertical) {
 
   var buffer = 3 * parseInt(lineHeight, 10) / 4;
   var containerRect = container.getBoundingClientRect();
+<<<<<<< HEAD
   var originalRangeRect = getRectangleFromRange(originalRange);
   var verticalEdge = isReverse ? containerRect.top + padding > originalRangeRect.top - buffer : containerRect.bottom - padding < originalRangeRect.bottom + buffer;
+=======
+  var verticalEdge = isReverse ? containerRect.top + padding > rangeRect.top - buffer : containerRect.bottom - padding < rangeRect.bottom + buffer;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
   if (!verticalEdge) {
     return false;
@@ -670,7 +780,11 @@ function placeCaretAtHorizontalEdge(container, isReverse) {
     return;
   }
 
+<<<<<<< HEAD
   if (Object(external_this_lodash_["includes"])(['INPUT', 'TEXTAREA'], container.tagName)) {
+=======
+  if (Object(external_lodash_["includes"])(['INPUT', 'TEXTAREA'], container.tagName)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     container.focus();
 
     if (isReverse) {
@@ -834,6 +948,7 @@ function placeCaretAtVerticalEdge(container, isReverse, rect) {
  */
 
 function isTextField(element) {
+<<<<<<< HEAD
   var nodeName = element.nodeName,
       contentEditable = element.contentEditable;
   var nonTextInputs = ['button', 'checkbox', 'hidden', 'file', 'radio', 'image', 'range', 'reset', 'submit', 'number'];
@@ -892,6 +1007,13 @@ function inputFieldHasUncollapsedSelection(element) {
     var selectionStart = element.selectionStart,
         selectionEnd = element.selectionEnd;
     return selectionStart !== null && selectionStart !== selectionEnd;
+=======
+  try {
+    var nodeName = element.nodeName,
+        selectionStart = element.selectionStart,
+        contentEditable = element.contentEditable;
+    return nodeName === 'INPUT' && selectionStart !== null || nodeName === 'TEXTAREA' || contentEditable === 'true';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   } catch (error) {
     // Safari throws an exception when trying to get `selectionStart`
     // on non-text <input> elements (which, understandably, don't
@@ -905,6 +1027,7 @@ function inputFieldHasUncollapsedSelection(element) {
   }
 }
 /**
+<<<<<<< HEAD
  * Check whether the current document has any sort of selection. This includes
  * ranges of text across elements and any selection inside <input> and
  * <textarea> elements.
@@ -919,12 +1042,26 @@ function documentHasUncollapsedSelection() {
 /**
  * Check whether the current document has a selection. This checks for both
  * focus in an input field and general text selection.
+=======
+ * Check wether the current document has a selection.
+ * This checks both for focus in an input field and general text selection.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @return {boolean} True if there is selection, false if not.
  */
 
 function documentHasSelection() {
+<<<<<<< HEAD
   return isTextField(document.activeElement) || isNumberInput(document.activeElement) || documentHasTextSelection();
+=======
+  if (isTextField(document.activeElement)) {
+    return true;
+  }
+
+  var selection = window.getSelection();
+  var range = selection.rangeCount ? selection.getRangeAt(0) : null;
+  return range && !range.collapsed;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 /**
  * Check whether the contents of the element have been entirely selected.
@@ -936,7 +1073,11 @@ function documentHasSelection() {
  */
 
 function isEntirelySelected(element) {
+<<<<<<< HEAD
   if (Object(external_this_lodash_["includes"])(['INPUT', 'TEXTAREA'], element.nodeName)) {
+=======
+  if (Object(external_lodash_["includes"])(['INPUT', 'TEXTAREA'], element.nodeName)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     return element.selectionStart === 0 && element.value.length === element.selectionEnd;
   }
 
@@ -1107,6 +1248,7 @@ function wrap(newNode, referenceNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode);
   newNode.appendChild(referenceNode);
 }
+<<<<<<< HEAD
 /**
  * Removes any HTML tags from the provided string.
  *
@@ -1121,6 +1263,28 @@ function __unstableStripHTML(html) {
 }
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/index.js
+=======
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/dom/build-module/index.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "focus", function() { return build_module_focus; });
+/* concated harmony reexport isHorizontalEdge */__webpack_require__.d(__webpack_exports__, "isHorizontalEdge", function() { return isHorizontalEdge; });
+/* concated harmony reexport isVerticalEdge */__webpack_require__.d(__webpack_exports__, "isVerticalEdge", function() { return isVerticalEdge; });
+/* concated harmony reexport getRectangleFromRange */__webpack_require__.d(__webpack_exports__, "getRectangleFromRange", function() { return getRectangleFromRange; });
+/* concated harmony reexport computeCaretRect */__webpack_require__.d(__webpack_exports__, "computeCaretRect", function() { return computeCaretRect; });
+/* concated harmony reexport placeCaretAtHorizontalEdge */__webpack_require__.d(__webpack_exports__, "placeCaretAtHorizontalEdge", function() { return placeCaretAtHorizontalEdge; });
+/* concated harmony reexport placeCaretAtVerticalEdge */__webpack_require__.d(__webpack_exports__, "placeCaretAtVerticalEdge", function() { return placeCaretAtVerticalEdge; });
+/* concated harmony reexport isTextField */__webpack_require__.d(__webpack_exports__, "isTextField", function() { return isTextField; });
+/* concated harmony reexport documentHasSelection */__webpack_require__.d(__webpack_exports__, "documentHasSelection", function() { return documentHasSelection; });
+/* concated harmony reexport isEntirelySelected */__webpack_require__.d(__webpack_exports__, "isEntirelySelected", function() { return isEntirelySelected; });
+/* concated harmony reexport getScrollContainer */__webpack_require__.d(__webpack_exports__, "getScrollContainer", function() { return getScrollContainer; });
+/* concated harmony reexport getOffsetParent */__webpack_require__.d(__webpack_exports__, "getOffsetParent", function() { return getOffsetParent; });
+/* concated harmony reexport replace */__webpack_require__.d(__webpack_exports__, "replace", function() { return replace; });
+/* concated harmony reexport remove */__webpack_require__.d(__webpack_exports__, "remove", function() { return remove; });
+/* concated harmony reexport insertAfter */__webpack_require__.d(__webpack_exports__, "insertAfter", function() { return insertAfter; });
+/* concated harmony reexport unwrap */__webpack_require__.d(__webpack_exports__, "unwrap", function() { return unwrap; });
+/* concated harmony reexport replaceTag */__webpack_require__.d(__webpack_exports__, "replaceTag", function() { return replaceTag; });
+/* concated harmony reexport wrap */__webpack_require__.d(__webpack_exports__, "wrap", function() { return wrap; });
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /**
  * Internal dependencies
  */

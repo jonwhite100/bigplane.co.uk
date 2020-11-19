@@ -5,7 +5,11 @@
  * A PHP-Based RSS and Atom Feed Framework.
  * Takes the hard work out of managing a complete RSS/Atom solution.
  *
+<<<<<<< HEAD
  * Copyright (c) 2004-2016, Ryan Parman, Sam Sneddon, Ryan McCue, and contributors
+=======
+ * Copyright (c) 2004-2012, Ryan Parman, Geoffrey Sneddon, Ryan McCue, and contributors
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are
@@ -33,9 +37,16 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @package SimplePie
+<<<<<<< HEAD
  * @copyright 2004-2016 Ryan Parman, Sam Sneddon, Ryan McCue
  * @author Ryan Parman
  * @author Sam Sneddon
+=======
+ * @version 1.3.1
+ * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
+ * @author Ryan Parman
+ * @author Geoffrey Sneddon
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
@@ -63,18 +74,29 @@ class SimplePie_File
 	var $redirects = 0;
 	var $error;
 	var $method = SIMPLEPIE_FILE_SOURCE_NONE;
+<<<<<<< HEAD
 	var $permanent_url;
 
 	public function __construct($url, $timeout = 10, $redirects = 5, $headers = null, $useragent = null, $force_fsockopen = false, $curl_options = array())
+=======
+
+	public function __construct($url, $timeout = 10, $redirects = 5, $headers = null, $useragent = null, $force_fsockopen = false)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	{
 		if (class_exists('idna_convert'))
 		{
 			$idn = new idna_convert();
 			$parsed = SimplePie_Misc::parse_url($url);
+<<<<<<< HEAD
 			$url = SimplePie_Misc::compress_parse_url($parsed['scheme'], $idn->encode($parsed['authority']), $parsed['path'], $parsed['query'], NULL);
 		}
 		$this->url = $url;
 		$this->permanent_url = $url;
+=======
+			$url = SimplePie_Misc::compress_parse_url($parsed['scheme'], $idn->encode($parsed['authority']), $parsed['path'], $parsed['query'], $parsed['fragment']);
+		}
+		$this->url = $url;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$this->useragent = $useragent;
 		if (preg_match('/^http(s)?:\/\//i', $url))
 		{
@@ -103,20 +125,30 @@ class SimplePie_File
 				curl_setopt($fp, CURLOPT_URL, $url);
 				curl_setopt($fp, CURLOPT_HEADER, 1);
 				curl_setopt($fp, CURLOPT_RETURNTRANSFER, 1);
+<<<<<<< HEAD
 				curl_setopt($fp, CURLOPT_FAILONERROR, 1);
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				curl_setopt($fp, CURLOPT_TIMEOUT, $timeout);
 				curl_setopt($fp, CURLOPT_CONNECTTIMEOUT, $timeout);
 				curl_setopt($fp, CURLOPT_REFERER, $url);
 				curl_setopt($fp, CURLOPT_USERAGENT, $useragent);
 				curl_setopt($fp, CURLOPT_HTTPHEADER, $headers2);
+<<<<<<< HEAD
 				if (!ini_get('open_basedir') && version_compare(SimplePie_Misc::get_curl_version(), '7.15.2', '>='))
+=======
+				if (!ini_get('open_basedir') && !ini_get('safe_mode') && version_compare(SimplePie_Misc::get_curl_version(), '7.15.2', '>='))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				{
 					curl_setopt($fp, CURLOPT_FOLLOWLOCATION, 1);
 					curl_setopt($fp, CURLOPT_MAXREDIRS, $redirects);
 				}
+<<<<<<< HEAD
 				foreach ($curl_options as $curl_param => $curl_value) {
 					curl_setopt($fp, $curl_param, $curl_value);
 				}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 				$this->headers = curl_exec($fp);
 				if (curl_errno($fp) === 23 || curl_errno($fp) === 61)
@@ -131,26 +163,41 @@ class SimplePie_File
 				}
 				else
 				{
+<<<<<<< HEAD
 					// Use the updated url provided by curl_getinfo after any redirects.
 					if ($info = curl_getinfo($fp)) {
 						$this->url = $info['url'];
 					}
 					curl_close($fp);
 					$this->headers = SimplePie_HTTP_Parser::prepareHeaders($this->headers, $info['redirect_count'] + 1);
+=======
+					$info = curl_getinfo($fp);
+					curl_close($fp);
+					$this->headers = explode("\r\n\r\n", $this->headers, $info['redirect_count'] + 1);
+					$this->headers = array_pop($this->headers);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$parser = new SimplePie_HTTP_Parser($this->headers);
 					if ($parser->parse())
 					{
 						$this->headers = $parser->headers;
+<<<<<<< HEAD
 						$this->body = trim($parser->body);
+=======
+						$this->body = $parser->body;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$this->status_code = $parser->status_code;
 						if ((in_array($this->status_code, array(300, 301, 302, 303, 307)) || $this->status_code > 307 && $this->status_code < 400) && isset($this->headers['location']) && $this->redirects < $redirects)
 						{
 							$this->redirects++;
 							$location = SimplePie_Misc::absolutize_url($this->headers['location'], $url);
+<<<<<<< HEAD
 							$previousStatusCode = $this->status_code;
 							$this->__construct($location, $timeout, $redirects, $headers, $useragent, $force_fsockopen);
 							$this->permanent_url = ($previousStatusCode == 301) ? $location : $url;
 							return;
+=======
+							return $this->__construct($location, $timeout, $redirects, $headers, $useragent, $force_fsockopen);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						}
 					}
 				}
@@ -232,10 +279,14 @@ class SimplePie_File
 							{
 								$this->redirects++;
 								$location = SimplePie_Misc::absolutize_url($this->headers['location'], $url);
+<<<<<<< HEAD
 								$previousStatusCode = $this->status_code;
 								$this->__construct($location, $timeout, $redirects, $headers, $useragent, $force_fsockopen);
 								$this->permanent_url = ($previousStatusCode == 301) ? $location : $url;
 								return;
+=======
+								return $this->__construct($location, $timeout, $redirects, $headers, $useragent, $force_fsockopen);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							}
 							if (isset($this->headers['content-encoding']))
 							{
@@ -252,7 +303,11 @@ class SimplePie_File
 										}
 										else
 										{
+<<<<<<< HEAD
 											$this->body = trim($decoder->data);
+=======
+											$this->body = $decoder->data;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 										}
 										break;
 
@@ -295,7 +350,11 @@ class SimplePie_File
 		else
 		{
 			$this->method = SIMPLEPIE_FILE_SOURCE_LOCAL | SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS;
+<<<<<<< HEAD
 			if (empty($url) || !($this->body = trim(file_get_contents($url))))
+=======
+			if (!$this->body = file_get_contents($url))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			{
 				$this->error = 'file_get_contents could not read the file';
 				$this->success = false;

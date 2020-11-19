@@ -2,6 +2,10 @@
  * @output wp-admin/js/color-picker.js
  */
 
+<<<<<<< HEAD
+=======
+/* global wpColorPickerL10n */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ( function( $, undef ) {
 
 	var ColorPicker,
@@ -10,8 +14,12 @@
 		_wrap = '<div class="wp-picker-container" />',
 		_button = '<input type="button" class="button button-small" />',
 		_wrappingLabel = '<label></label>',
+<<<<<<< HEAD
 		_wrappingLabelText = '<span class="screen-reader-text"></span>',
 		__ = wp.i18n.__;
+=======
+		_wrappingLabelText = '<span class="screen-reader-text"></span>';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Creates a jQuery UI color picker that is used in the theme customizer.
@@ -36,9 +44,16 @@
 		 * Creates a color picker that only allows you to adjust the hue.
 		 *
 		 * @since 3.5.0
+<<<<<<< HEAD
 		 * @access private
 		 *
 		 * @return {void}
+=======
+		 *
+		 * @access private
+		 *
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		_createHueOnly: function() {
 			var self = this,
@@ -64,7 +79,11 @@
 				 * @param {Event} event    The event that's being called.
 				 * @param {HTMLElement} ui The HTMLElement containing the color picker.
 				 *
+<<<<<<< HEAD
 				 * @return {void}
+=======
+				 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 				change: function( event, ui ) {
 					if ( $.isFunction( self.options.change ) ) {
@@ -79,9 +98,16 @@
 		 * Creates the color picker, sets default values, css classes and wraps it all in HTML.
 		 *
 		 * @since 3.5.0
+<<<<<<< HEAD
 		 * @access private
 		 *
 		 * @return {void}
+=======
+		 *
+		 * @access private
+		 *
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		_create: function() {
 			// Return early if Iris support is missing.
@@ -118,7 +144,11 @@
 				// Insert the default label text.
 				self.wrappingLabelText = $( _wrappingLabelText )
 					.insertBefore( el )
+<<<<<<< HEAD
 					.text( __( 'Color value' ) );
+=======
+					.text( wpColorPickerL10n.defaultLabel );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 
 			/*
@@ -136,7 +166,11 @@
 				.insertBefore( self.wrappingLabel )
 				.css( { backgroundColor: self.initialValue } );
 			// Set the toggle button span element text.
+<<<<<<< HEAD
 			self.toggler.find( '.wp-color-result-text' ).text( __( 'Select Color' ) );
+=======
+			self.toggler.find( '.wp-color-result-text' ).text( wpColorPickerL10n.pick );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			// Set up the Iris container and insert it after the wrapping label.
 			self.pickerContainer = $( _after ).insertAfter( self.wrappingLabel );
 			// Store a reference to the Clear/Default button.
@@ -146,6 +180,7 @@
 			if ( self.options.defaultColor ) {
 				self.button
 					.addClass( 'wp-picker-default' )
+<<<<<<< HEAD
 					.val( __( 'Default' ) )
 					.attr( 'aria-label', __( 'Select default color' ) );
 			} else {
@@ -153,6 +188,15 @@
 					.addClass( 'wp-picker-clear' )
 					.val( __( 'Clear' ) )
 					.attr( 'aria-label', __( 'Clear color' ) );
+=======
+					.val( wpColorPickerL10n.defaultString )
+					.attr( 'aria-label', wpColorPickerL10n.defaultAriaLabel );
+			} else {
+				self.button
+					.addClass( 'wp-picker-clear' )
+					.val( wpColorPickerL10n.clear )
+					.attr( 'aria-label', wpColorPickerL10n.clearAriaLabel );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 
 			// Wrap the wrapping label in its wrapper and append the Clear/Default button.
@@ -184,7 +228,11 @@
 				 * @param {Event} event    The event that's being called.
 				 * @param {HTMLElement} ui The HTMLElement containing the color picker.
 				 *
+<<<<<<< HEAD
 				 * @return {void}
+=======
+				 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 				change: function( event, ui ) {
 					self.toggler.css( { backgroundColor: ui.color.toString() } );
@@ -207,9 +255,16 @@
 		 * Binds event listeners to the color picker.
 		 *
 		 * @since 3.5.0
+<<<<<<< HEAD
 		 * @access private
 		 *
 		 * @return {void}
+=======
+		 *
+		 * @access private
+		 *
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		_addListeners: function() {
 			var self = this;
@@ -221,7 +276,11 @@
 			 *
 			 * @param {Event} event The event that's being called.
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returs {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			self.wrap.on( 'click.wpcolorpicker', function( event ) {
 				event.stopPropagation();
@@ -230,7 +289,11 @@
 			/**
 			 * Open or close the color picker depending on the class.
 			 *
+<<<<<<< HEAD
 			 * @since 3.5.0
+=======
+			 * @since 3.5
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			self.toggler.click( function(){
 				if ( self.toggler.hasClass( 'wp-picker-open' ) ) {
@@ -248,7 +311,11 @@
 			 *
 			 * @param {Event} event The event that's being called.
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			self.element.change( function( event ) {
 				var me = $( this ),
@@ -270,7 +337,11 @@
 			 *
 			 * @param {Event} event The event that's being called.
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			self.button.click( function( event ) {
 				var me = $( this );
@@ -290,7 +361,11 @@
 		 *
 		 * @since 3.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		open: function() {
 			this.element.iris( 'toggle' );
@@ -306,7 +381,11 @@
 		 *
 		 * @since 3.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		close: function() {
 			this.element.iris( 'toggle' );
@@ -324,7 +403,11 @@
 		 *
 		 * @since 3.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {string} The element's color.
+=======
+		 * @returns {string} The element's color
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		color: function( newColor ) {
 			if ( newColor === undef ) {
@@ -340,7 +423,11 @@
 		 *
 		 * @since 3.5.0
 		 *
+<<<<<<< HEAD
 		 * @return {boolean|string} The element's color.
+=======
+		 * @returns {boolean|string} The element's color.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		defaultColor: function( newDefaultColor ) {
 			if ( newDefaultColor === undef ) {

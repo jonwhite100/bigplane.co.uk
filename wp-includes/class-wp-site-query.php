@@ -59,7 +59,11 @@ class WP_Site_Query {
 	 * Date query container.
 	 *
 	 * @since 4.6.0
+<<<<<<< HEAD
 	 * @var WP_Date_Query A date query instance.
+=======
+	 * @var object WP_Date_Query
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $date_query = false;
 
@@ -198,7 +202,11 @@ class WP_Site_Query {
 			'search'                 => '',
 			'search_columns'         => array(),
 			'count'                  => false,
+<<<<<<< HEAD
 			'date_query'             => null, // See WP_Date_Query.
+=======
+			'date_query'             => null, // See WP_Date_Query
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'update_site_cache'      => true,
 			'update_site_meta_cache' => true,
 			'meta_query'             => '',
@@ -245,7 +253,11 @@ class WP_Site_Query {
 	 * @since 4.6.0
 	 *
 	 * @param string|array $query Array or URL query string of parameters.
+<<<<<<< HEAD
 	 * @return array|int List of WP_Site objects, a list of site IDs when 'fields' is set to 'ids',
+=======
+	 * @return array|int List of WP_Site objects, a list of site ids when 'fields' is set to 'ids',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *                   or the number of sites when 'count' is passed as a query var.
 	 */
 	public function query( $query ) {
@@ -261,7 +273,11 @@ class WP_Site_Query {
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
+<<<<<<< HEAD
 	 * @return array|int List of WP_Site objects, a list of site IDs when 'fields' is set to 'ids',
+=======
+	 * @return array|int List of WP_Site objects, a list of site ids when 'fields' is set to 'ids',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *                   or the number of sites when 'count' is passed as a query var.
 	 */
 	public function get_sites() {
@@ -297,7 +313,11 @@ class WP_Site_Query {
 		 *
 		 * The expected return type from this filter depends on the value passed in the request query_vars:
 		 * When `$this->query_vars['count']` is set, the filter should return the site count as an int.
+<<<<<<< HEAD
 		 * When `'ids' === $this->query_vars['fields']`, the filter should return an array of site IDs.
+=======
+		 * When `'ids' == $this->query_vars['fields']`, the filter should return an array of site ids.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * Otherwise the filter should return an array of WP_Site objects.
 		 *
 		 * @since 5.2.0
@@ -353,7 +373,11 @@ class WP_Site_Query {
 
 		$site_ids = array_map( 'intval', $site_ids );
 
+<<<<<<< HEAD
 		if ( 'ids' === $this->query_vars['fields'] ) {
+=======
+		if ( 'ids' == $this->query_vars['fields'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->sites = $site_ids;
 
 			return $this->sites;

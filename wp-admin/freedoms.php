@@ -7,7 +7,11 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // This file was used to also display the Privacy tab on the About screen from 4.9.6 until 5.3.0.
 if ( isset( $_GET['privacy-notice'] ) ) {
@@ -19,11 +23,16 @@ $title = __( 'Freedoms' );
 
 list( $display_version ) = explode( '-', get_bloginfo( 'version' ) );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+include( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 <div class="wrap about__container">
 
 	<div class="about__header">
+<<<<<<< HEAD
 		<div class="about__header-text">
 			<?php _e( 'Speed. Search. Security.' ); ?>
 		</div>
@@ -32,6 +41,26 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<p>
 				<?php _e( 'WordPress' ); ?>
 				<span><?php echo $display_version; ?></span>
+=======
+		<div class="about__header-title">
+			<h1>
+				<span><?php echo $display_version; ?></span>
+				<?php _e( 'WordPress' ); ?>
+			</h1>
+		</div>
+
+		<div class="about__header-badge"></div>
+
+		<div class="about__header-text">
+			<p>
+				<?php
+				printf(
+					/* translators: %s: The current WordPress version number. */
+					__( 'Introducing our most refined user experience with the improved block editor in WordPress %s!' ),
+					$display_version
+				);
+				?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			</p>
 		</div>
 
@@ -44,7 +73,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	</div>
 
 	<div class="about__section has-subtle-background-color is-feature">
+<<<<<<< HEAD
 		<h1><?php _e( 'Freedoms' ); ?></h1>
+=======
+		<h2><?php _e( 'Freedoms' ); ?></h2>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		<p class="about-description">
 		<?php
@@ -62,28 +95,47 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	<div class="about__section has-4-columns">
 		<div class="column">
 			<div class="freedoms-image"></div>
+<<<<<<< HEAD
 			<h2 class="is-smaller-heading"><?php _e( 'The 1st Freedom' ); ?></h2>
+=======
+			<h3><?php _e( 'The 1st Freedom' ); ?></h3>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<p><?php _e( 'To run the program for any purpose.' ); ?></p>
 		</div>
 		<div class="column">
 			<div class="freedoms-image"></div>
+<<<<<<< HEAD
 			<h2 class="is-smaller-heading"><?php _e( 'The 2nd Freedom' ); ?></h2>
+=======
+			<h3><?php _e( 'The 2nd Freedom' ); ?></h3>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<p><?php _e( 'To study how the program works and change it to make it do what you wish.' ); ?></p>
 		</div>
 		<div class="column">
 			<div class="freedoms-image"></div>
+<<<<<<< HEAD
 			<h2 class="is-smaller-heading"><?php _e( 'The 3rd Freedom' ); ?></h2>
+=======
+			<h3><?php _e( 'The 3rd Freedom' ); ?></h3>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<p><?php _e( 'To redistribute.' ); ?></p>
 		</div>
 		<div class="column">
 			<div class="freedoms-image"></div>
+<<<<<<< HEAD
 			<h2 class="is-smaller-heading"><?php _e( 'The 4th Freedom' ); ?></h2>
+=======
+			<h3><?php _e( 'The 4th Freedom' ); ?></h3>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<p><?php _e( 'To distribute copies of your modified versions to others.' ); ?></p>
 		</div>
 	</div>
 
+<<<<<<< HEAD
 	<hr />
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<div class="about__section">
 		<div class="column">
 			<p>
@@ -115,4 +167,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	</div>
 
 </div>
+<<<<<<< HEAD
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

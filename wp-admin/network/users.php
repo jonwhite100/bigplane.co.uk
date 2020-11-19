@@ -8,7 +8,11 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_network_users' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
@@ -27,6 +31,7 @@ if ( isset( $_GET['action'] ) ) {
 			check_admin_referer( 'deleteuser' );
 
 			$id = intval( $_GET['id'] );
+<<<<<<< HEAD
 			if ( $id > 1 ) {
 				$_POST['allusers'] = array( $id ); // confirm_delete_users() can only handle arrays.
 				$title             = __( 'Users' );
@@ -40,6 +45,21 @@ if ( isset( $_GET['action'] ) ) {
 				wp_redirect( network_admin_url( 'users.php' ) );
 			}
 			exit;
+=======
+			if ( $id != '0' && $id != '1' ) {
+				$_POST['allusers'] = array( $id ); // confirm_delete_users() can only handle with arrays
+				$title             = __( 'Users' );
+				$parent_file       = 'users.php';
+				require_once( ABSPATH . 'wp-admin/admin-header.php' );
+				echo '<div class="wrap">';
+				confirm_delete_users( $_POST['allusers'] );
+				echo '</div>';
+				require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+			} else {
+				wp_redirect( network_admin_url( 'users.php' ) );
+			}
+			exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		case 'allusers':
 			if ( ! current_user_can( 'manage_network_users' ) ) {
@@ -49,7 +69,11 @@ if ( isset( $_GET['action'] ) ) {
 			if ( ( isset( $_POST['action'] ) || isset( $_POST['action2'] ) ) && isset( $_POST['allusers'] ) ) {
 				check_admin_referer( 'bulk-users-network' );
 
+<<<<<<< HEAD
 				$doaction     = -1 != $_POST['action'] ? $_POST['action'] : $_POST['action2'];
+=======
+				$doaction     = $_POST['action'] != -1 ? $_POST['action'] : $_POST['action2'];
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$userfunction = '';
 
 				foreach ( (array) $_POST['allusers'] as $user_id ) {
@@ -61,12 +85,21 @@ if ( isset( $_GET['action'] ) ) {
 								}
 								$title       = __( 'Users' );
 								$parent_file = 'users.php';
+<<<<<<< HEAD
 								require_once ABSPATH . 'wp-admin/admin-header.php';
 								echo '<div class="wrap">';
 								confirm_delete_users( $_POST['allusers'] );
 								echo '</div>';
 								require_once ABSPATH . 'wp-admin/admin-footer.php';
 								exit;
+=======
+								require_once( ABSPATH . 'wp-admin/admin-header.php' );
+								echo '<div class="wrap">';
+								confirm_delete_users( $_POST['allusers'] );
+								echo '</div>';
+								require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+								exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 							case 'spam':
 								$user = get_userdata( $user_id );
@@ -84,7 +117,11 @@ if ( isset( $_GET['action'] ) ) {
 								$blogs        = get_blogs_of_user( $user_id, true );
 
 								foreach ( (array) $blogs as $details ) {
+<<<<<<< HEAD
 									if ( get_network()->site_id != $details->userblog_id ) { // Main blog is not a spam!
+=======
+									if ( $details->userblog_id != get_network()->site_id ) { // main blog not a spam !
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 										update_blog_status( $details->userblog_id, 'spam', '1' );
 									}
 								}
@@ -116,13 +153,22 @@ if ( isset( $_GET['action'] ) ) {
 
 				if ( ! in_array( $doaction, array( 'delete', 'spam', 'notspam' ), true ) ) {
 					$sendback = wp_get_referer();
+<<<<<<< HEAD
 					$user_ids = (array) $_POST['allusers'];
 
+=======
+
+					$user_ids = (array) $_POST['allusers'];
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					/** This action is documented in wp-admin/network/site-themes.php */
 					$sendback = apply_filters( 'handle_network_bulk_actions-' . get_current_screen()->id, $sendback, $doaction, $user_ids ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
 					wp_safe_redirect( $sendback );
+<<<<<<< HEAD
 					exit;
+=======
+					exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 
 				wp_safe_redirect(
@@ -142,7 +188,11 @@ if ( isset( $_GET['action'] ) ) {
 				}
 				wp_redirect( $location );
 			}
+<<<<<<< HEAD
 			exit;
+=======
+			exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		case 'dodelete':
 			check_admin_referer( 'ms-users-delete' );
@@ -157,17 +207,26 @@ if ( isset( $_GET['action'] ) ) {
 							continue;
 						}
 
+<<<<<<< HEAD
 						if ( ! empty( $_POST['delete'] ) && 'reassign' === $_POST['delete'][ $blogid ][ $id ] ) {
 							remove_user_from_blog( $id, $blogid, (int) $user_id );
+=======
+						if ( ! empty( $_POST['delete'] ) && 'reassign' == $_POST['delete'][ $blogid ][ $id ] ) {
+							remove_user_from_blog( $id, $blogid, $user_id );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						} else {
 							remove_user_from_blog( $id, $blogid );
 						}
 					}
 				}
 			}
+<<<<<<< HEAD
 
 			$i = 0;
 
+=======
+			$i = 0;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( is_array( $_POST['user'] ) && ! empty( $_POST['user'] ) ) {
 				foreach ( $_POST['user'] as $id ) {
 					if ( ! current_user_can( 'delete_user', $id ) ) {
@@ -178,7 +237,11 @@ if ( isset( $_GET['action'] ) ) {
 				}
 			}
 
+<<<<<<< HEAD
 			if ( 1 === $i ) {
+=======
+			if ( $i == 1 ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$deletefunction = 'delete';
 			} else {
 				$deletefunction = 'all_delete';
@@ -193,7 +256,11 @@ if ( isset( $_GET['action'] ) ) {
 					network_admin_url( 'users.php' )
 				)
 			);
+<<<<<<< HEAD
 			exit;
+=======
+			exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 }
 
@@ -239,9 +306,15 @@ get_current_screen()->set_screen_reader_content(
 	)
 );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
 
 if ( isset( $_REQUEST['updated'] ) && 'true' == $_REQUEST['updated'] && ! empty( $_REQUEST['action'] ) ) {
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+
+if ( isset( $_REQUEST['updated'] ) && $_REQUEST['updated'] == 'true' && ! empty( $_REQUEST['action'] ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	?>
 	<div id="message" class="updated notice is-dismissible"><p>
 		<?php
@@ -296,4 +369,8 @@ if ( isset( $_REQUEST['updated'] ) && 'true' == $_REQUEST['updated'] && ! empty(
 	</form>
 </div>
 
+<<<<<<< HEAD
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php require_once( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

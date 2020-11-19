@@ -4,7 +4,11 @@
  * @output wp-admin/js/inline-edit-tax.js
  */
 
+<<<<<<< HEAD
 /* global ajaxurl, inlineEditTax */
+=======
+/* global inlineEditL10n, ajaxurl, inlineEditTax */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 window.wp = window.wp || {};
 
@@ -29,7 +33,11 @@ window.inlineEditTax = {
 	 *
 	 * @this inlineEditTax
 	 * @memberof inlineEditTax
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	init : function() {
 		var t = this, row = $('#inline-edit');
@@ -43,12 +51,20 @@ window.inlineEditTax = {
 		});
 
 		/**
+<<<<<<< HEAD
 		 * Cancels inline editing when pressing Escape inside the inline editor.
+=======
+		 * Cancels inline editing when pressing escape inside the inline editor.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 *
 		 * @param {Object} e The keyup event that has been triggered.
 		 */
 		row.keyup( function( e ) {
+<<<<<<< HEAD
 			// 27 = [Escape].
+=======
+			// 27 = [escape]
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( e.which === 27 ) {
 				return inlineEditTax.revert();
 			}
@@ -69,10 +85,17 @@ window.inlineEditTax = {
 		});
 
 		/**
+<<<<<<< HEAD
 		 * Saves the inline edits when pressing Enter inside the inline editor.
 		 */
 		$( 'input, select', row ).keydown( function( e ) {
 			// 13 = [Enter].
+=======
+		 * Saves the inline edits when pressing enter inside the inline editor.
+		 */
+		$( 'input, select', row ).keydown( function( e ) {
+			// 13 = [enter]
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( e.which === 13 ) {
 				return inlineEditTax.save( this );
 			}
@@ -96,7 +119,11 @@ window.inlineEditTax = {
 	 *
 	 * @param {HTMLElement} el An element within the table row or the table row
 	 *                         itself that we want to quick edit.
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	toggle : function(el) {
 		var t = this;
@@ -115,7 +142,11 @@ window.inlineEditTax = {
 	 * @param {string|HTMLElement} id The ID of the term we want to quick edit or an
 	 *                                element within the table row or the
 	 * table row itself.
+<<<<<<< HEAD
 	 * @return {boolean} Always returns false.
+=======
+	 * @returns {boolean} Always returns false.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	edit : function(id) {
 		var editRow, rowData, val,
@@ -162,7 +193,11 @@ window.inlineEditTax = {
 	 * @param {string|HTMLElement} id The ID of the term we want to quick edit or an
 	 *                                element within the table row or the
 	 * table row itself.
+<<<<<<< HEAD
 	 * @return {boolean} Always returns false.
+=======
+	 * @returns {boolean} Always returns false.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	save : function(id) {
 		var params, fields, tax = $('input[name="taxonomy"]').val() || '';
@@ -184,7 +219,11 @@ window.inlineEditTax = {
 		fields = $('#edit-'+id).find(':input').serialize();
 		params = fields + '&' + $.param(params);
 
+<<<<<<< HEAD
 		// Do the Ajax request to save the data to the server.
+=======
+		// Do the ajax request to save the data to the server.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$.post( ajaxurl, params,
 			/**
 			 * Handles the response from the server
@@ -224,7 +263,11 @@ window.inlineEditTax = {
 							row.find( '.editinline' )
 								.attr( 'aria-expanded', 'false' )
 								.focus();
+<<<<<<< HEAD
 							wp.a11y.speak( wp.i18n.__( 'Changes saved.' ) );
+=======
+							wp.a11y.speak( inlineEditL10n.saved );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						});
 
 					} else {
@@ -238,8 +281,13 @@ window.inlineEditTax = {
 					}
 				} else {
 					$errorNotice.removeClass( 'hidden' );
+<<<<<<< HEAD
 					$error.text( wp.i18n.__( 'Error while saving the changes.' ) );
 					wp.a11y.speak( wp.i18n.__( 'Error while saving the changes.' ) );
+=======
+					$error.html( inlineEditL10n.error );
+					wp.a11y.speak( inlineEditL10n.error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 			}
 		);
@@ -255,7 +303,11 @@ window.inlineEditTax = {
 	 *
 	 * @this inlineEditTax
 	 * @memberof inlineEditTax
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	revert : function() {
 		var id = $('table.widefat tr.inline-editor').attr('id');
@@ -280,7 +332,11 @@ window.inlineEditTax = {
 	 * @memberof inlineEditTax
 	 *
 	 * @param {HTMLElement} o An element within the table row or the table row itself.
+<<<<<<< HEAD
 	 * @return {string} The ID of the term based on the element.
+=======
+	 * @returns {string} The ID of the term based on the element.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	getId : function(o) {
 		var id = o.tagName === 'TR' ? o.id : $(o).parents('tr').attr('id'), parts = id.split('-');

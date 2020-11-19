@@ -21,6 +21,7 @@ class WPCF7_ContactFormTemplate {
 	public static function form() {
 		$template = sprintf(
 			'
+<<<<<<< HEAD
 <label> %2$s
     [text* your-name] </label>
 
@@ -41,12 +42,34 @@ class WPCF7_ContactFormTemplate {
 			__( 'Your message', 'contact-form-7' ),
 			__( 'Submit', 'contact-form-7' )
 		);
+=======
+<label> %2$s %1$s
+    [text* your-name] </label>
+
+<label> %3$s %1$s
+    [email* your-email] </label>
+
+<label> %4$s
+    [text your-subject] </label>
+
+<label> %5$s
+    [textarea your-message] </label>
+
+[submit "%6$s"]',
+			__( '(required)', 'contact-form-7' ),
+			__( 'Your Name', 'contact-form-7' ),
+			__( 'Your Email', 'contact-form-7' ),
+			__( 'Subject', 'contact-form-7' ),
+			__( 'Your Message', 'contact-form-7' ),
+			__( 'Send', 'contact-form-7' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		return trim( $template );
 	}
 
 	public static function mail() {
 		$template = array(
+<<<<<<< HEAD
 			'subject' => sprintf(
 				/* translators: 1: blog name, 2: [your-subject] */
 				_x( '%1$s "%2$s"', 'mail subject', 'contact-form-7' ),
@@ -71,14 +94,41 @@ class WPCF7_ContactFormTemplate {
 				) . "\n\n"
 				. __( 'Message Body:', 'contact-form-7' )
 				. "\n" . '[your-message]' . "\n\n"
+=======
+			'subject' =>
+				sprintf(
+					/* translators: 1: blog name, 2: [your-subject] */
+					_x( '%1$s "%2$s"', 'mail subject', 'contact-form-7' ),
+					get_bloginfo( 'name' ),
+					'[your-subject]'
+				),
+			'sender' => sprintf( '%s <%s>',
+				get_bloginfo( 'name' ), self::from_email() ),
+			'body' =>
+				/* translators: %s: [your-name] <[your-email]> */
+				sprintf( __( 'From: %s', 'contact-form-7' ),
+					'[your-name] <[your-email]>' ) . "\n"
+				/* translators: %s: [your-subject] */
+				. sprintf( __( 'Subject: %s', 'contact-form-7' ),
+					'[your-subject]' ) . "\n\n"
+				. __( 'Message Body:', 'contact-form-7' )
+					. "\n" . '[your-message]' . "\n\n"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				. '-- ' . "\n"
 				. sprintf(
 					/* translators: 1: blog name, 2: blog URL */
 					__( 'This e-mail was sent from a contact form on %1$s (%2$s)', 'contact-form-7' ),
+<<<<<<< HEAD
 					'[_site_title]',
 					'[_site_url]'
 				),
 			'recipient' => '[_site_admin_email]',
+=======
+					get_bloginfo( 'name' ),
+					get_bloginfo( 'url' )
+				),
+			'recipient' => get_option( 'admin_email' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'additional_headers' => 'Reply-To: [your-email]',
 			'attachments' => '',
 			'use_html' => 0,
@@ -91,6 +141,7 @@ class WPCF7_ContactFormTemplate {
 	public static function mail_2() {
 		$template = array(
 			'active' => false,
+<<<<<<< HEAD
 			'subject' => sprintf(
 				/* translators: 1: blog name, 2: [your-subject] */
 				_x( '%1$s "%2$s"', 'mail subject', 'contact-form-7' ),
@@ -105,10 +156,25 @@ class WPCF7_ContactFormTemplate {
 			'body' =>
 				__( 'Message Body:', 'contact-form-7' )
 				. "\n" . '[your-message]' . "\n\n"
+=======
+			'subject' =>
+				sprintf(
+					/* translators: 1: blog name, 2: [your-subject] */
+					_x( '%1$s "%2$s"', 'mail subject', 'contact-form-7' ),
+					get_bloginfo( 'name' ),
+					'[your-subject]'
+				),
+			'sender' => sprintf( '%s <%s>',
+				get_bloginfo( 'name' ), self::from_email() ),
+			'body' =>
+				__( 'Message Body:', 'contact-form-7' )
+					. "\n" . '[your-message]' . "\n\n"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				. '-- ' . "\n"
 				. sprintf(
 					/* translators: 1: blog name, 2: blog URL */
 					__( 'This e-mail was sent from a contact form on %1$s (%2$s)', 'contact-form-7' ),
+<<<<<<< HEAD
 					'[_site_title]',
 					'[_site_url]'
 				),
@@ -117,6 +183,14 @@ class WPCF7_ContactFormTemplate {
 				'Reply-To: %s',
 				'[_site_admin_email]'
 			),
+=======
+					get_bloginfo( 'name' ),
+					get_bloginfo( 'url' )
+				),
+			'recipient' => '[your-email]',
+			'additional_headers' => sprintf( 'Reply-To: %s',
+				get_option( 'admin_email' ) ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'attachments' => '',
 			'use_html' => 0,
 			'exclude_blank' => 0,

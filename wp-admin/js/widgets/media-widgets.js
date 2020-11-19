@@ -45,7 +45,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 *
 		 * @param {Object} options - Options.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		initialize: function initialize( options ) {
 			_.bindAll( this, 'handleDisplaySettingChange' );
@@ -56,7 +60,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 * Sync changes to the current display settings back into the current customized.
 		 *
 		 * @param {Backbone.Model} displaySettings - Modified display settings.
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		handleDisplaySettingChange: function handleDisplaySettingChange( displaySettings ) {
 			this.get( 'selectedDisplaySettings' ).set( displaySettings.attributes );
@@ -71,7 +79,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 * settings.
 		 *
 		 * @param {Backbone.Model} model - Display settings model.
+<<<<<<< HEAD
 		 * @return {Backbone.Model} Display settings model.
+=======
+		 * @returns {Backbone.Model} Display settings model.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		display: function getDisplaySettingsModel( model ) {
 			var display, selectedDisplaySettings = this.get( 'selectedDisplaySettings' );
@@ -100,8 +112,13 @@ wp.mediaWidgets = ( function( $ ) {
 		 *
 		 * @since 4.9.0
 		 *
+<<<<<<< HEAD
 		 * @param {Object} options - Options.
 		 * @return {void}
+=======
+		 * @param {object} options - Options.
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		initialize: function( options ) {
 			var view = this, embedController; // eslint-disable-line consistent-this
@@ -117,7 +134,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 *
 		 * Forked override of {wp.media.view.Embed#refresh()} to suppress irrelevant "link text" field.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		refresh: function refresh() {
 			/**
@@ -136,7 +157,11 @@ wp.mediaWidgets = ( function( $ ) {
 					 * Set the disabled state on the Add to Widget button.
 					 *
 					 * @param {boolean} disabled - Disabled.
+<<<<<<< HEAD
 					 * @return {void}
+=======
+					 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					 */
 					setAddToWidgetButtonDisabled: function setAddToWidgetButtonDisabled( disabled ) {
 						this.views.parent.views.parent.views.get( '.media-frame-toolbar' )[0].$el.find( '.media-button-select' ).prop( 'disabled', disabled );
@@ -146,7 +171,11 @@ wp.mediaWidgets = ( function( $ ) {
 					 * Set or clear an error notice.
 					 *
 					 * @param {string} notice - Notice.
+<<<<<<< HEAD
 					 * @return {void}
+=======
+					 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					 */
 					setErrorNotice: function setErrorNotice( notice ) {
 						var embedLinkView = this, noticeContainer; // eslint-disable-line consistent-this
@@ -175,7 +204,11 @@ wp.mediaWidgets = ( function( $ ) {
 					 *
 					 * @since 4.9.0
 					 *
+<<<<<<< HEAD
 					 * @return {void}
+=======
+					 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					 */
 					updateoEmbed: function() {
 						var embedLinkView = this, url; // eslint-disable-line consistent-this
@@ -200,7 +233,11 @@ wp.mediaWidgets = ( function( $ ) {
 					/**
 					 * Fetch media.
 					 *
+<<<<<<< HEAD
 					 * @return {void}
+=======
+					 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					 */
 					fetch: function() {
 						var embedLinkView = this, fetchSuccess, matches, fileExt, urlParser, url, re, youTubeEmbedMatch; // eslint-disable-line consistent-this
@@ -276,7 +313,11 @@ wp.mediaWidgets = ( function( $ ) {
 					 * The element is getting display:none in the stylesheet, but the underlying method uses
 					 * uses {jQuery.fn.show()} which adds an inline style. This avoids the need for !important.
 					 *
+<<<<<<< HEAD
 					 * @return {void}
+=======
+					 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					 */
 					renderFail: function renderFail() {
 						var embedLinkView = this; // eslint-disable-line consistent-this
@@ -306,7 +347,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Create the default states.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		createStates: function createStates() {
 			var mime = this.options.mimeType, specificMimes = [];
@@ -358,7 +403,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 *
 		 * @param {wp.Backbone.View} view - Toolbar view.
 		 * @this {wp.media.controller.Library}
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		mainInsertToolbar: function mainInsertToolbar( view ) {
 			var controller = this; // eslint-disable-line consistent-this
@@ -374,7 +423,11 @@ wp.mediaWidgets = ( function( $ ) {
 				 * @ignore
 				 *
 				 * @fires wp.media.controller.State#insert()
+<<<<<<< HEAD
 				 * @return {void}
+=======
+				 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 				click: function onClick() {
 					var state = controller.state(),
@@ -393,7 +446,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 *
 		 * @param {wp.Backbone.View} toolbar - Toolbar view.
 		 * @this {wp.media.controller.Library}
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		mainEmbedToolbar: function mainEmbedToolbar( toolbar ) {
 			toolbar.view = new wp.media.view.Toolbar.Embed({
@@ -408,7 +465,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 *
 		 * Forked override of {wp.media.view.MediaFrame.Post#embedContent()} to suppress irrelevant "link text" field.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		embedContent: function embedContent() {
 			var view = new component.MediaEmbedView({
@@ -417,6 +478,13 @@ wp.mediaWidgets = ( function( $ ) {
 			}).render();
 
 			this.content.set( view );
+<<<<<<< HEAD
+=======
+
+			if ( ! wp.media.isTouchDevice ) {
+				view.url.focus();
+			}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	});
 
@@ -489,7 +557,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 * @param {jQuery}         options.el - Control field container element.
 		 * @param {jQuery}         options.syncContainer - Container element where fields are synced for the server.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		initialize: function initialize( options ) {
 			var control = this;
@@ -593,7 +665,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Update the selected attachment if necessary.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		updateSelectedAttachment: function updateSelectedAttachment() {
 			var control = this, attachment;
@@ -619,7 +695,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Sync the model attributes to the hidden inputs, and update previewTemplateProps.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		syncModelToPreviewProps: function syncModelToPreviewProps() {
 			var control = this;
@@ -629,7 +709,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Sync the model attributes to the hidden inputs, and update previewTemplateProps.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		syncModelToInputs: function syncModelToInputs() {
 			var control = this;
@@ -659,7 +743,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Get template.
 		 *
+<<<<<<< HEAD
 		 * @return {Function} Template.
+=======
+		 * @returns {Function} Template.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		template: function template() {
 			var control = this;
@@ -672,7 +760,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Render template.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		render: function render() {
 			var control = this, titleInput;
@@ -695,7 +787,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 * Render media preview.
 		 *
 		 * @abstract
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		renderPreview: function renderPreview() {
 			throw new Error( 'renderPreview must be implemented' );
@@ -704,7 +800,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Whether a media item is selected.
 		 *
+<<<<<<< HEAD
 		 * @return {boolean} Whether selected and no error.
+=======
+		 * @returns {boolean} Whether selected and no error.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		isSelected: function isSelected() {
 			var control = this;
@@ -720,7 +820,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 * Handle click on link to Media Library to open modal, such as the link that appears when in the missing attachment error notice.
 		 *
 		 * @param {jQuery.Event} event - Event.
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		handleMediaLibraryLinkClick: function handleMediaLibraryLinkClick( event ) {
 			var control = this;
@@ -731,7 +835,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Open the media select frame to chose an item.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		selectMedia: function selectMedia() {
 			var control = this, selection, mediaFrame, defaultSync, mediaFrameProps, selectionModels = [];
@@ -818,7 +926,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 * Get the instance props from the media selection frame.
 		 *
 		 * @param {wp.media.view.MediaFrame.Select} mediaFrame - Select frame.
+<<<<<<< HEAD
 		 * @return {Object} Props.
+=======
+		 * @returns {Object} Props.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		getModelPropsFromMediaFrame: function getModelPropsFromMediaFrame( mediaFrame ) {
 			var control = this, state, mediaFrameProps, modelProps;
@@ -867,7 +979,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 * Map media frame props to model props.
 		 *
 		 * @param {Object} mediaFrameProps - Media frame props.
+<<<<<<< HEAD
 		 * @return {Object} Model props.
+=======
+		 * @returns {Object} Model props.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		mapMediaToModelProps: function mapMediaToModelProps( mediaFrameProps ) {
 			var control = this, mediaFramePropToModelPropMap = {}, modelProps = {}, extension;
@@ -918,7 +1034,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 * Map model props to media frame props.
 		 *
 		 * @param {Object} modelProps - Model props.
+<<<<<<< HEAD
 		 * @return {Object} Media frame props.
+=======
+		 * @returns {Object} Media frame props.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		mapModelToMediaFrameProps: function mapModelToMediaFrameProps( modelProps ) {
 			var control = this, mediaFrameProps = {};
@@ -942,7 +1062,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Map model props to previewTemplateProps.
 		 *
+<<<<<<< HEAD
 		 * @return {Object} Preview Template Props.
+=======
+		 * @returns {Object} Preview Template Props.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		mapModelToPreviewTemplateProps: function mapModelToPreviewTemplateProps() {
 			var control = this, previewTemplateProps = {};
@@ -961,7 +1085,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 * Open the media frame to modify the selected item.
 		 *
 		 * @abstract
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		editMedia: function editMedia() {
 			throw new Error( 'editMedia not implemented' );
@@ -1009,7 +1137,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Get default attribute values.
 		 *
+<<<<<<< HEAD
 		 * @return {Object} Mapping of property names to their default values.
+=======
+		 * @returns {Object} Mapping of property names to their default values.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		defaults: function() {
 			var defaults = {};
@@ -1029,7 +1161,11 @@ wp.mediaWidgets = ( function( $ ) {
 		 * @param {string|Object} key - Attribute name or attribute pairs.
 		 * @param {mixed|Object}  [val] - Attribute value or options object.
 		 * @param {Object}        [options] - Options when attribute name and value are passed separately.
+<<<<<<< HEAD
 		 * @return {wp.mediaWidgets.MediaWidgetModel} This model.
+=======
+		 * @returns {wp.mediaWidgets.MediaWidgetModel} This model.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		set: function set( key, val, options ) {
 			var model = this, attrs, opts, castedAttrs; // eslint-disable-line consistent-this
@@ -1083,7 +1219,11 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Get props which are merged on top of the model when an embed is chosen (as opposed to an attachment).
 		 *
+<<<<<<< HEAD
 		 * @return {Object} Reset/override props.
+=======
+		 * @returns {Object} Reset/override props.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		getEmbedResetProps: function getEmbedResetProps() {
 			return {
@@ -1120,7 +1260,11 @@ wp.mediaWidgets = ( function( $ ) {
 	 * @param {jQuery.Event} event - Event.
 	 * @param {jQuery}       widgetContainer - Widget container element.
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	component.handleWidgetAdded = function handleWidgetAdded( event, widgetContainer ) {
 		var fieldContainer, syncContainer, widgetForm, idBase, ControlConstructor, ModelConstructor, modelAttributes, widgetControl, widgetModel, widgetId, animatedCheckDelay = 50, renderWhenAnimationDone;
@@ -1203,7 +1347,11 @@ wp.mediaWidgets = ( function( $ ) {
 	 *
 	 * @memberOf wp.mediaWidgets
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	component.setupAccessibleMode = function setupAccessibleMode() {
 		var widgetForm, widgetId, idBase, widgetControl, ControlConstructor, ModelConstructor, modelAttributes, fieldContainer, syncContainer;
@@ -1257,7 +1405,11 @@ wp.mediaWidgets = ( function( $ ) {
 	 * @param {jQuery.Event} event - Event.
 	 * @param {jQuery}       widgetContainer - Widget container element.
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	component.handleWidgetUpdated = function handleWidgetUpdated( event, widgetContainer ) {
 		var widgetForm, widgetContent, widgetId, widgetControl, attributes = {};
@@ -1291,7 +1443,11 @@ wp.mediaWidgets = ( function( $ ) {
 	 *
 	 * @memberOf wp.mediaWidgets
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	component.init = function init() {
 		var $document = $( document );

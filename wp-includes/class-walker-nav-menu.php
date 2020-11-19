@@ -270,4 +270,8 @@ class Walker_Nav_Menu extends Walker {
 		$output .= "</li>{$n}";
 	}
 
+<<<<<<< HEAD
 }
+=======
+} // Walker_Nav_Menu
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

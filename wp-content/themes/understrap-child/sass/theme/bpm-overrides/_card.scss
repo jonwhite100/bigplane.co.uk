@@ -1,0 +1,44 @@
+// about page etc uses a card as a design feature
+.card-article {
+	.wp-block-image {
+		img {
+			width: 100%;
+		}
+	}
+}
+
+.card-subtitle {
+    sup {
+		top: -1.2rem;
+    }
+}
+
+// align buttons to the bottom of the card in pricing
+.section-jobs,
+.card-body {
+	display: flex;
+	flex-direction: column;
+
+	.btn {
+		margin: auto;
+	}
+}
+
+.listing-item {
+	.excerpt {
+		display: flex;
+		flex-direction: column;
+
+		p {
+			margin-top: auto;
+		}
+
+		.btn {
+			margin-top: 0;
+		}
+	}
+}
+
+.bg-grenston {
+	background-color: $c-primary-grenston;
+}

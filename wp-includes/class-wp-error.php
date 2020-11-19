@@ -47,9 +47,15 @@ class WP_Error {
 	 *
 	 * @since 2.1.0
 	 *
+<<<<<<< HEAD
 	 * @param string|int $code    Error code.
 	 * @param string     $message Error message.
 	 * @param mixed      $data    Optional. Error data.
+=======
+	 * @param string|int $code Error code
+	 * @param string $message Error message
+	 * @param mixed $data Optional. Error data.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( $code = '', $message = '', $data = '' ) {
 		if ( empty( $code ) ) {
@@ -180,9 +186,15 @@ class WP_Error {
 	 *
 	 * @since 2.1.0
 	 *
+<<<<<<< HEAD
 	 * @param string|int $code    Error code.
 	 * @param string     $message Error message.
 	 * @param mixed      $data    Optional. Error data.
+=======
+	 * @param string|int $code Error code.
+	 * @param string $message Error message.
+	 * @param mixed $data Optional. Error data.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function add( $code, $message, $data = '' ) {
 		$this->errors[ $code ][] = $message;
@@ -198,7 +210,11 @@ class WP_Error {
 	 *
 	 * @since 2.1.0
 	 *
+<<<<<<< HEAD
 	 * @param mixed      $data Error data.
+=======
+	 * @param mixed $data Error data.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @param string|int $code Error code.
 	 */
 	public function add_data( $data, $code = '' ) {

@@ -7,7 +7,11 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 $title = __( 'Site Health Info' );
 
@@ -19,6 +23,7 @@ wp_enqueue_style( 'site-health' );
 wp_enqueue_script( 'site-health' );
 
 if ( ! class_exists( 'WP_Debug_Data' ) ) {
+<<<<<<< HEAD
 	require_once ABSPATH . 'wp-admin/includes/class-wp-debug-data.php';
 }
 if ( ! class_exists( 'WP_Site_Health' ) ) {
@@ -28,6 +33,17 @@ if ( ! class_exists( 'WP_Site_Health' ) ) {
 $health_check_site_status = WP_Site_Health::get_instance();
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+	require_once( ABSPATH . 'wp-admin/includes/class-wp-debug-data.php' );
+}
+if ( ! class_exists( 'WP_Site_Health' ) ) {
+	require_once( ABSPATH . 'wp-admin/includes/class-wp-site-health.php' );
+}
+
+$health_check_site_status = new WP_Site_Health();
+
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 <div class="health-check-header">
 	<div class="health-check-title-section">
@@ -99,7 +115,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<button type="button" class="button copy-button" data-clipboard-text="<?php echo esc_attr( WP_Debug_Data::format( $info, 'debug' ) ); ?>">
 				<?php _e( 'Copy site info to clipboard' ); ?>
 			</button>
+<<<<<<< HEAD
 			<span class="success hidden" aria-hidden="true"><?php _e( 'Copied!' ); ?></span>
+=======
+			<span class="success" aria-hidden="true"><?php _e( 'Copied!' ); ?></span>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		</div>
 	</div>
 
@@ -181,4 +201,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 </div>
 
 <?php
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

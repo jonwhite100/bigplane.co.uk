@@ -82,12 +82,20 @@ this["wp"] = this["wp"] || {}; this["wp"]["isShallowEqual"] =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 423);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 327);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /******/ })
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
 /***/ 423:
+=======
+/***/ 327:
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96,12 +104,18 @@ this["wp"] = this["wp"] || {}; this["wp"]["isShallowEqual"] =
 /**
  * Internal dependencies;
  */
+<<<<<<< HEAD
 var isShallowEqualObjects = __webpack_require__( 424 );
 var isShallowEqualArrays = __webpack_require__( 425 );
+=======
+var isShallowEqualObjects = __webpack_require__( 328 );
+var isShallowEqualArrays = __webpack_require__( 329 );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 var isArray = Array.isArray;
 
 /**
+<<<<<<< HEAD
  * @typedef {Record<string, any>} ComparableObject
  */
 
@@ -111,6 +125,13 @@ var isArray = Array.isArray;
  *
  * @param {any[]|ComparableObject} a First object or array to compare.
  * @param {any[]|ComparableObject} b Second object or array to compare.
+=======
+ * Returns true if the two arrays or objects are shallow equal, or false
+ * otherwise.
+ *
+ * @param {(Array|Object)} a First object or array to compare.
+ * @param {(Array|Object)} b Second object or array to compare.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @return {boolean} Whether the two values are shallow equal.
  */
@@ -133,7 +154,11 @@ module.exports.isShallowEqualArrays = isShallowEqualArrays;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 424:
+=======
+/***/ 328:
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -144,8 +169,13 @@ var keys = Object.keys;
 /**
  * Returns true if the two objects are shallow equal, or false otherwise.
  *
+<<<<<<< HEAD
  * @param {import('.').ComparableObject} a First object to compare.
  * @param {import('.').ComparableObject} b Second object to compare.
+=======
+ * @param {Object} a First object to compare.
+ * @param {Object} b Second object to compare.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @return {boolean} Whether the two objects are shallow equal.
  */
@@ -192,7 +222,11 @@ module.exports = isShallowEqualObjects;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 425:
+=======
+/***/ 329:
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -201,8 +235,13 @@ module.exports = isShallowEqualObjects;
 /**
  * Returns true if the two arrays are shallow equal, or false otherwise.
  *
+<<<<<<< HEAD
  * @param {any[]} a First array to compare.
  * @param {any[]} b Second array to compare.
+=======
+ * @param {Array} a First array to compare.
+ * @param {Array} b Second array to compare.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @return {boolean} Whether the two arrays are shallow equal.
  */

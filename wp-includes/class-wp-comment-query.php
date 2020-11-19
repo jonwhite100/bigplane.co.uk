@@ -28,7 +28,11 @@ class WP_Comment_Query {
 	 * Metadata query container
 	 *
 	 * @since 3.5.0
+<<<<<<< HEAD
 	 * @var WP_Meta_Query A meta query instance.
+=======
+	 * @var object WP_Meta_Query
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $meta_query = false;
 
@@ -69,7 +73,11 @@ class WP_Comment_Query {
 	 * Date query container
 	 *
 	 * @since 3.7.0
+<<<<<<< HEAD
 	 * @var WP_Date_Query A date query instance.
+=======
+	 * @var object WP_Date_Query
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $date_query = false;
 
@@ -118,8 +126,13 @@ class WP_Comment_Query {
 	 *
 	 * @since 4.0.0
 	 *
+<<<<<<< HEAD
 	 * @param string $name      Method to call.
 	 * @param array  $arguments Arguments to pass when calling.
+=======
+	 * @param string   $name      Method to call.
+	 * @param array    $arguments Arguments to pass when calling.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return mixed|false Return value of the callback, false otherwise.
 	 */
 	public function __call( $name, $arguments ) {
@@ -292,7 +305,11 @@ class WP_Comment_Query {
 			'meta_key'                  => '',
 			'meta_value'                => '',
 			'meta_query'                => '',
+<<<<<<< HEAD
 			'date_query'                => null, // See WP_Date_Query.
+=======
+			'date_query'                => null, // See WP_Date_Query
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'hierarchical'              => false,
 			'cache_domain'              => 'core',
 			'update_comment_meta_cache' => true,
@@ -360,7 +377,11 @@ class WP_Comment_Query {
 
 		$this->parse_query();
 
+<<<<<<< HEAD
 		// Parse meta query.
+=======
+		// Parse meta query
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$this->meta_query = new WP_Meta_Query();
 		$this->meta_query->parse_query_vars( $this->query_vars );
 
@@ -388,7 +409,11 @@ class WP_Comment_Query {
 		 *
 		 * The expected return type from this filter depends on the value passed in the request query_vars.
 		 * When `$this->query_vars['count']` is set, the filter should return the comment count as an int.
+<<<<<<< HEAD
 		 * When `'ids' === $this->query_vars['fields']`, the filter should return an array of comment IDs.
+=======
+		 * When `'ids' == $this->query_vars['fields']`, the filter should return an array of comment ids.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * Otherwise the filter should return an array of WP_Comment objects.
 		 *
 		 * @since 5.3.0
@@ -444,7 +469,11 @@ class WP_Comment_Query {
 
 		$comment_ids = array_map( 'intval', $comment_ids );
 
+<<<<<<< HEAD
 		if ( 'ids' === $this->query_vars['fields'] ) {
+=======
+		if ( 'ids' == $this->query_vars['fields'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->comments = $comment_ids;
 			return $this->comments;
 		}
@@ -480,7 +509,11 @@ class WP_Comment_Query {
 		 */
 		$_comments = apply_filters_ref_array( 'the_comments', array( $_comments, &$this ) );
 
+<<<<<<< HEAD
 		// Convert to WP_Comment instances.
+=======
+		// Convert to WP_Comment instances
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$comments = array_map( 'get_comment', $_comments );
 
 		if ( $this->query_vars['hierarchical'] ) {
@@ -516,7 +549,11 @@ class WP_Comment_Query {
 		}
 
 		// 'any' overrides other statuses.
+<<<<<<< HEAD
 		if ( ! in_array( 'any', $statuses, true ) ) {
+=======
+		if ( ! in_array( 'any', $statuses ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			foreach ( $statuses as $status ) {
 				switch ( $status ) {
 					case 'hold':
@@ -550,6 +587,7 @@ class WP_Comment_Query {
 			$unapproved_ids    = array();
 			$unapproved_emails = array();
 			foreach ( $include_unapproved as $unapproved_identifier ) {
+<<<<<<< HEAD
 				// Numeric values are assumed to be user IDs.
 				if ( is_numeric( $unapproved_identifier ) ) {
 					$approved_clauses[] = $wpdb->prepare( "( user_id = %d AND comment_approved = '0' )", $unapproved_identifier );
@@ -562,6 +600,15 @@ class WP_Comment_Query {
 						// Include all of the author's unapproved comments.
 						$approved_clauses[] = $wpdb->prepare( "( comment_author_email = %s AND comment_approved = '0' )", $unapproved_identifier );
 					}
+=======
+				// Numeric values are assumed to be user ids.
+				if ( is_numeric( $unapproved_identifier ) ) {
+					$approved_clauses[] = $wpdb->prepare( "( user_id = %d AND comment_approved = '0' )", $unapproved_identifier );
+
+					// Otherwise we match against email addresses.
+				} else {
+					$approved_clauses[] = $wpdb->prepare( "( comment_author_email = %s AND comment_approved = '0' )", $unapproved_identifier );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 			}
 		}
@@ -575,7 +622,11 @@ class WP_Comment_Query {
 			}
 		}
 
+<<<<<<< HEAD
 		$order = ( 'ASC' === strtoupper( $this->query_vars['order'] ) ) ? 'ASC' : 'DESC';
+=======
+		$order = ( 'ASC' == strtoupper( $this->query_vars['order'] ) ) ? 'ASC' : 'DESC';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		// Disable ORDER BY with 'none', an empty array, or boolean false.
 		if ( in_array( $this->query_vars['orderby'], array( 'none', array(), false ), true ) ) {
@@ -600,7 +651,11 @@ class WP_Comment_Query {
 					$_order   = $_value;
 				}
 
+<<<<<<< HEAD
 				if ( ! $found_orderby_comment_id && in_array( $_orderby, array( 'comment_ID', 'comment__in' ), true ) ) {
+=======
+				if ( ! $found_orderby_comment_id && in_array( $_orderby, array( 'comment_ID', 'comment__in' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$found_orderby_comment_id = true;
 				}
 
@@ -739,7 +794,11 @@ class WP_Comment_Query {
 
 			foreach ( $_raw_types as $type ) {
 				switch ( $type ) {
+<<<<<<< HEAD
 					// An empty translates to 'all', for backward compatibility.
+=======
+					// An empty translates to 'all', for backward compatibility
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					case '':
 					case 'all':
 						break;
@@ -747,7 +806,10 @@ class WP_Comment_Query {
 					case 'comment':
 					case 'comments':
 						$comment_types[ $operator ][] = "''";
+<<<<<<< HEAD
 						$comment_types[ $operator ][] = "'comment'";
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						break;
 
 					case 'pings':
@@ -782,7 +844,11 @@ class WP_Comment_Query {
 			$this->sql_clauses['where']['user_id'] = $wpdb->prepare( 'user_id = %d', $this->query_vars['user_id'] );
 		}
 
+<<<<<<< HEAD
 		// Falsey search strings are ignored.
+=======
+		// Falsy search strings are ignored.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( strlen( $this->query_vars['search'] ) ) {
 			$search_sql = $this->get_search_sql(
 				$this->query_vars['search'],
@@ -1085,7 +1151,11 @@ class WP_Comment_Query {
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
 	 * @param string $string
+<<<<<<< HEAD
 	 * @param array  $cols
+=======
+	 * @param array $cols
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return string
 	 */
 	protected function get_search_sql( $string, $cols ) {
@@ -1144,6 +1214,7 @@ class WP_Comment_Query {
 		}
 
 		$parsed = false;
+<<<<<<< HEAD
 		if ( $this->query_vars['meta_key'] === $orderby || 'meta_value' === $orderby ) {
 			$parsed = "$wpdb->commentmeta.meta_value";
 		} elseif ( 'meta_value_num' === $orderby ) {
@@ -1152,6 +1223,16 @@ class WP_Comment_Query {
 			$comment__in = implode( ',', array_map( 'absint', $this->query_vars['comment__in'] ) );
 			$parsed      = "FIELD( {$wpdb->comments}.comment_ID, $comment__in )";
 		} elseif ( in_array( $orderby, $allowed_keys, true ) ) {
+=======
+		if ( $orderby == $this->query_vars['meta_key'] || $orderby == 'meta_value' ) {
+			$parsed = "$wpdb->commentmeta.meta_value";
+		} elseif ( $orderby == 'meta_value_num' ) {
+			$parsed = "$wpdb->commentmeta.meta_value+0";
+		} elseif ( $orderby == 'comment__in' ) {
+			$comment__in = implode( ',', array_map( 'absint', $this->query_vars['comment__in'] ) );
+			$parsed      = "FIELD( {$wpdb->comments}.comment_ID, $comment__in )";
+		} elseif ( in_array( $orderby, $allowed_keys ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			if ( isset( $meta_query_clauses[ $orderby ] ) ) {
 				$meta_clause = $meta_query_clauses[ $orderby ];

@@ -12,6 +12,7 @@
  *
  * @since 5.0.0
  *
+<<<<<<< HEAD
  * @param string|WP_Block_Type $name Block type name including namespace, or alternatively
  *                                   a complete WP_Block_Type instance. In case a WP_Block_Type
  *                                   is provided, the $args parameter will be ignored.
@@ -19,6 +20,14 @@
  *     Optional. Array of block type arguments. Accepts any public property of `WP_Block_Type`.
  *     Any arguments may be defined, however the ones described below are supported by default.
  *     Default empty array.
+=======
+ * @param string|WP_Block_Type $name Block type name including namespace, or alternatively a
+ *                                   complete WP_Block_Type instance. In case a WP_Block_Type
+ *                                   is provided, the $args parameter will be ignored.
+ * @param array                $args {
+ *     Optional. Array of block type arguments. Any arguments may be defined, however the
+ *     ones described below are supported by default. Default empty array.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  *     @type callable $render_callback Callback used to render blocks of this block type.
  * }
@@ -33,8 +42,13 @@ function register_block_type( $name, $args = array() ) {
  *
  * @since 5.0.0
  *
+<<<<<<< HEAD
  * @param string|WP_Block_Type $name Block type name including namespace, or alternatively
  *                                   a complete WP_Block_Type instance.
+=======
+ * @param string|WP_Block_Type $name Block type name including namespace, or alternatively a
+ *                                   complete WP_Block_Type instance.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return WP_Block_Type|false The unregistered block type on success, or false on failure.
  */
 function unregister_block_type( $name ) {
@@ -42,6 +56,7 @@ function unregister_block_type( $name ) {
 }
 
 /**
+<<<<<<< HEAD
  * Removes the block asset's path prefix if provided.
  *
  * @since 5.5.0
@@ -253,6 +268,8 @@ function register_block_type_from_metadata( $file_or_folder, $args = array() ) {
 }
 
 /**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * Determine whether a post or content string has blocks.
  *
  * This test optimizes for performance rather than strict accuracy, detecting
@@ -260,7 +277,10 @@ function register_block_type_from_metadata( $file_or_folder, $args = array() ) {
  * you should use the block parser on post content.
  *
  * @since 5.0.0
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @see parse_blocks()
  *
  * @param int|string|WP_Post|null $post Optional. Post content, post ID, or post object. Defaults to global $post.
@@ -285,6 +305,7 @@ function has_blocks( $post = null ) {
  * you should use the block parser on post content.
  *
  * @since 5.0.0
+<<<<<<< HEAD
  *
  * @see parse_blocks()
  *
@@ -293,6 +314,15 @@ function has_blocks( $post = null ) {
  * @return bool Whether the post content contains the specified block.
  */
 function has_block( $block_name, $post = null ) {
+=======
+ * @see parse_blocks()
+ *
+ * @param string                  $block_type Full Block type to look for.
+ * @param int|string|WP_Post|null $post Optional. Post content, post ID, or post object. Defaults to global $post.
+ * @return bool Whether the post content contains the specified block.
+ */
+function has_block( $block_type, $post = null ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! has_blocks( $post ) ) {
 		return false;
 	}
@@ -304,6 +334,7 @@ function has_block( $block_name, $post = null ) {
 		}
 	}
 
+<<<<<<< HEAD
 	/*
 	 * Normalize block name to include namespace, if provided as non-namespaced.
 	 * This matches behavior for WordPress 5.0.0 - 5.3.0 in matching blocks by
@@ -328,6 +359,9 @@ function has_block( $block_name, $post = null ) {
 	}
 
 	return $has_block;
+=======
+	return false !== strpos( $post, '<!-- wp:' . $block_type . ' ' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -335,7 +369,11 @@ function has_block( $block_name, $post = null ) {
  *
  * @since 5.0.0
  *
+<<<<<<< HEAD
  * @return string[] Array of dynamic block names.
+=======
+ * @return array Array of dynamic block names.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_dynamic_block_names() {
 	$dynamic_block_names = array();
@@ -351,6 +389,7 @@ function get_dynamic_block_names() {
 }
 
 /**
+<<<<<<< HEAD
  * Given an array of attributes, returns a string in the serialized attributes
  * format prepared for post content.
  *
@@ -552,6 +591,8 @@ function filter_block_kses_value( $value, $allowed_html, $allowed_protocols = ar
 }
 
 /**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * Parses blocks out of a content string, and renders those appropriate for the excerpt.
  *
  * As the excerpt should be a small string of text relevant to the full post content,
@@ -650,6 +691,7 @@ function _excerpt_render_inner_columns_blocks( $columns, $allowed_blocks ) {
  *
  * @since 5.0.0
  *
+<<<<<<< HEAD
  * @global WP_Post  $post     The post to edit.
  * @global WP_Query $wp_query WordPress Query object.
  *
@@ -668,17 +710,41 @@ function render_block( $parsed_block ) {
 	 * @param array       $parsed_block The block being rendered.
 	 */
 	$pre_render = apply_filters( 'pre_render_block', null, $parsed_block );
+=======
+ * @global WP_Post $post The post to edit.
+ *
+ * @param array $block A single parsed block object.
+ * @return string String of rendered HTML.
+ */
+function render_block( $block ) {
+	global $post;
+
+	/**
+	 * Allows render_block() to be shortcircuited, by returning a non-null value.
+	 *
+	 * @since 5.1.0
+	 *
+	 * @param string|null $pre_render The pre-rendered content. Default null.
+	 * @param array       $block      The block being rendered.
+	 */
+	$pre_render = apply_filters( 'pre_render_block', null, $block );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! is_null( $pre_render ) ) {
 		return $pre_render;
 	}
 
+<<<<<<< HEAD
 	$source_block = $parsed_block;
+=======
+	$source_block = $block;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Filters the block being rendered in render_block(), before it's processed.
 	 *
 	 * @since 5.1.0
 	 *
+<<<<<<< HEAD
 	 * @param array $parsed_block The block being rendered.
 	 * @param array $source_block An un-modified copy of $parsed_block, as it appeared in the source content.
 	 */
@@ -718,6 +784,41 @@ function render_block( $parsed_block ) {
 	$block = new WP_Block( $parsed_block, $context );
 
 	return $block->render();
+=======
+	 * @param array $block        The block being rendered.
+	 * @param array $source_block An un-modified copy of $block, as it appeared in the source content.
+	 */
+	$block = apply_filters( 'render_block_data', $block, $source_block );
+
+	$block_type    = WP_Block_Type_Registry::get_instance()->get_registered( $block['blockName'] );
+	$is_dynamic    = $block['blockName'] && null !== $block_type && $block_type->is_dynamic();
+	$block_content = '';
+	$index         = 0;
+
+	foreach ( $block['innerContent'] as $chunk ) {
+		$block_content .= is_string( $chunk ) ? $chunk : render_block( $block['innerBlocks'][ $index++ ] );
+	}
+
+	if ( ! is_array( $block['attrs'] ) ) {
+		$block['attrs'] = array();
+	}
+
+	if ( $is_dynamic ) {
+		$global_post   = $post;
+		$block_content = $block_type->render( $block['attrs'], $block_content );
+		$post          = $global_post;
+	}
+
+	/**
+	 * Filters the content of a single block.
+	 *
+	 * @since 5.0.0
+	 *
+	 * @param string $block_content The block content about to be appended.
+	 * @param array  $block         The full block, including name and attributes.
+	 */
+	return apply_filters( 'render_block', $block_content, $block );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -726,7 +827,11 @@ function render_block( $parsed_block ) {
  * @since 5.0.0
  *
  * @param string $content Post content.
+<<<<<<< HEAD
  * @return array[] Array of parsed block objects.
+=======
+ * @return array Array of parsed block objects.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function parse_blocks( $content ) {
 	/**
@@ -808,9 +913,14 @@ function block_version( $content ) {
  * @since 5.3.0
  *
  * @param string $block_name       Block type name including namespace.
+<<<<<<< HEAD
  * @param array  $style_properties Array containing the properties of the style name,
  *                                 label, style (name of the stylesheet to be enqueued),
  *                                 inline_style (string containing the CSS to be added).
+=======
+ * @param array  $style_properties Array containing the properties of the style name, label, style (name of the stylesheet to be enqueued), inline_style (string containing the CSS to be added).
+ *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return boolean True if the block style was registered with success and false otherwise.
  */
 function register_block_style( $block_name, $style_properties ) {
@@ -824,6 +934,10 @@ function register_block_style( $block_name, $style_properties ) {
  *
  * @param string $block_name       Block type name including namespace.
  * @param array  $block_style_name Block style name.
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return boolean True if the block style was unregistered with success and false otherwise.
  */
 function unregister_block_style( $block_name, $block_style_name ) {

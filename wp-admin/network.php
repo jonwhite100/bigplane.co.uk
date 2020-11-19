@@ -13,7 +13,11 @@
 define( 'WP_INSTALLING_NETWORK', true );
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'setup_network' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage options for this site.' ) );
@@ -30,7 +34,11 @@ if ( is_multisite() ) {
 	}
 }
 
+<<<<<<< HEAD
 require_once __DIR__ . '/includes/network.php';
+=======
+require_once( dirname( __FILE__ ) . '/includes/network.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // We need to create references to ms global tables to enable Network.
 foreach ( $wpdb->tables( 'ms_global' ) as $table => $prefixed_table ) {
@@ -81,7 +89,11 @@ get_current_screen()->set_help_sidebar(
 	'<p>' . __( '<a href="https://wordpress.org/support/">Support</a>' ) . '</p>'
 );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+include( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 <div class="wrap">
 <h1><?php echo esc_html( $title ); ?></h1>
@@ -91,7 +103,11 @@ if ( $_POST ) {
 
 	check_admin_referer( 'install-network-1' );
 
+<<<<<<< HEAD
 	require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+=======
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	// Create network tables.
 	install_network();
 	$base              = parse_url( trailingslashit( get_option( 'home' ) ), PHP_URL_PATH );
@@ -99,7 +115,11 @@ if ( $_POST ) {
 	if ( ! network_domain_check() ) {
 		$result = populate_network( 1, get_clean_basedomain(), sanitize_email( $_POST['email'] ), wp_unslash( $_POST['sitename'] ), $base, $subdomain_install );
 		if ( is_wp_error( $result ) ) {
+<<<<<<< HEAD
 			if ( 1 === count( $result->get_error_codes() ) && 'no_wildcard_dns' === $result->get_error_code() ) {
+=======
+			if ( 1 == count( $result->get_error_codes() ) && 'no_wildcard_dns' == $result->get_error_code() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				network_step2( $result );
 			} else {
 				network_step1( $result );
@@ -118,4 +138,8 @@ if ( $_POST ) {
 ?>
 </div>
 
+<<<<<<< HEAD
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

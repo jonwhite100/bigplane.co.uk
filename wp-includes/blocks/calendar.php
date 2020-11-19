@@ -52,9 +52,30 @@ function render_block_core_calendar( $attributes ) {
  * Registers the `core/calendar` block on server.
  */
 function register_block_core_calendar() {
+<<<<<<< HEAD
 	register_block_type_from_metadata(
 		__DIR__ . '/calendar',
 		array(
+=======
+	register_block_type(
+		'core/calendar',
+		array(
+			'attributes'      => array(
+				'align'     => array(
+					'type' => 'string',
+					'enum' => array( 'left', 'center', 'right', 'wide', 'full' ),
+				),
+				'className' => array(
+					'type' => 'string',
+				),
+				'month'     => array(
+					'type' => 'integer',
+				),
+				'year'      => array(
+					'type' => 'integer',
+				),
+			),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'render_callback' => 'render_block_core_calendar',
 		)
 	);

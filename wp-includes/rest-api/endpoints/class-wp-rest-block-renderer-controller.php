@@ -30,6 +30,7 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 	 * Registers the necessary REST API routes, one for each dynamic block.
 	 *
 	 * @since 5.0.0
+<<<<<<< HEAD
 	 *
 	 * @see register_rest_route()
 	 */
@@ -96,6 +97,51 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 				'schema' => array( $this, 'get_public_item_schema' ),
 			)
 		);
+=======
+	 */
+	public function register_routes() {
+		$block_types = WP_Block_Type_Registry::get_instance()->get_all_registered();
+
+		foreach ( $block_types as $block_type ) {
+			if ( ! $block_type->is_dynamic() ) {
+				continue;
+			}
+
+			register_rest_route(
+				$this->namespace,
+				'/' . $this->rest_base . '/(?P<name>' . $block_type->name . ')',
+				array(
+					'args'   => array(
+						'name' => array(
+							'description' => __( 'Unique registered name for the block.' ),
+							'type'        => 'string',
+						),
+					),
+					array(
+						'methods'             => WP_REST_Server::READABLE,
+						'callback'            => array( $this, 'get_item' ),
+						'permission_callback' => array( $this, 'get_item_permissions_check' ),
+						'args'                => array(
+							'context'    => $this->get_context_param( array( 'default' => 'view' ) ),
+							'attributes' => array(
+								/* translators: %s: The name of the block. */
+								'description'          => sprintf( __( 'Attributes for %s block' ), $block_type->name ),
+								'type'                 => 'object',
+								'additionalProperties' => false,
+								'properties'           => $block_type->get_attributes(),
+								'default'              => array(),
+							),
+							'post_id'    => array(
+								'description' => __( 'ID of the post context.' ),
+								'type'        => 'integer',
+							),
+						),
+					),
+					'schema' => array( $this, 'get_public_item_schema' ),
+				)
+			);
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -157,11 +203,18 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 			// Set up postdata since this will be needed if post_id was set.
 			setup_postdata( $post );
 		}
+<<<<<<< HEAD
 
 		$registry   = WP_Block_Type_Registry::get_instance();
 		$registered = $registry->get_registered( $request['name'] );
 
 		if ( null === $registered || ! $registered->is_dynamic() ) {
+=======
+		$registry = WP_Block_Type_Registry::get_instance();
+		$block    = $registry->get_registered( $request['name'] );
+
+		if ( null === $block ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return new WP_Error(
 				'block_invalid',
 				__( 'Invalid block.' ),
@@ -171,6 +224,7 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 			);
 		}
 
+<<<<<<< HEAD
 		$attributes = $request->get_param( 'attributes' );
 
 		// Create an array representation simulating the output of parse_blocks.
@@ -186,6 +240,11 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 			'rendered' => render_block( $block ),
 		);
 
+=======
+		$data = array(
+			'rendered' => $block->render( $request->get_param( 'attributes' ) ),
+		);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return rest_ensure_response( $data );
 	}
 
@@ -214,7 +273,10 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 				),
 			),
 		);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $this->schema;
 	}
 }

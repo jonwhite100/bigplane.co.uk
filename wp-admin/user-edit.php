@@ -7,7 +7,11 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 wp_reset_vars( array( 'action', 'user_id', 'wp_http_referer' ) );
 
@@ -127,7 +131,11 @@ switch ( $action ) {
 
 		if ( IS_PROFILE_PAGE ) {
 			/**
+<<<<<<< HEAD
 			 * Fires before the page loads on the 'Profile' editing screen.
+=======
+			 * Fires before the page loads on the 'Your Profile' editing screen.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 *
 			 * The action only fires if the current user is editing their own profile.
 			 *
@@ -184,7 +192,11 @@ switch ( $action ) {
 		$title    = sprintf( $title, $profileuser->display_name );
 		$sessions = WP_Session_Tokens::get_instance( $profileuser->ID );
 
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+		include( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		?>
 
 		<?php if ( ! IS_PROFILE_PAGE && is_super_admin( $profileuser->ID ) && current_user_can( 'manage_network_options' ) ) { ?>
@@ -204,7 +216,11 @@ switch ( $action ) {
 		<?php endif; ?>
 		<?php if ( isset( $_GET['error'] ) ) : ?>
 <div class="notice notice-error">
+<<<<<<< HEAD
 			<?php if ( 'new-email' === $_GET['error'] ) : ?>
+=======
+			<?php if ( 'new-email' == $_GET['error'] ) : ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<p><?php _e( 'Error while saving the new email address. Please try again.' ); ?></p>
 	<?php endif; ?>
 </div>
@@ -235,6 +251,7 @@ switch ( $action ) {
 <hr class="wp-header-end">
 
 <form id="your-profile" action="<?php echo esc_url( self_admin_url( IS_PROFILE_PAGE ? 'profile.php' : 'user-edit.php' ) ); ?>" method="post" novalidate="novalidate"
+<<<<<<< HEAD
 		<?php
 		/**
 		 * Fires inside the your-profile form tag on the user editing screen.
@@ -243,6 +260,16 @@ switch ( $action ) {
 		 */
 		do_action( 'user_edit_form_tag' );
 		?>
+=======
+											<?php
+											/**
+											 * Fires inside the your-profile form tag on the user editing screen.
+											 *
+											 * @since 3.0.0
+											 */
+											do_action( 'user_edit_form_tag' );
+											?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	>
 		<?php wp_nonce_field( 'update-user_' . $user_id ); ?>
 		<?php if ( $wp_http_referer ) : ?>
@@ -310,9 +337,16 @@ switch ( $action ) {
 			?>
 		</td>
 	</tr>
+<<<<<<< HEAD
 		<?php endif; // End if count ( $_wp_admin_css_colors ) > 1 ?>
 
 		<?php if ( ! ( IS_PROFILE_PAGE && ! $user_can_edit ) ) : ?>
+=======
+			<?php
+endif; // $_wp_admin_css_colors
+		if ( ! ( IS_PROFILE_PAGE && ! $user_can_edit ) ) :
+			?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<tr class="user-comment-shortcuts-wrap">
 		<th scope="row"><?php _e( 'Keyboard Shortcuts' ); ?></th>
 		<td>
@@ -386,7 +420,11 @@ endif;
 		<?php
 		if ( IS_PROFILE_PAGE ) {
 			/**
+<<<<<<< HEAD
 			 * Fires after the 'Personal Options' settings table on the 'Profile' editing screen.
+=======
+			 * Fires after the 'Personal Options' settings table on the 'Your Profile' editing screen.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 *
 			 * The action only fires if the current user is editing their own profile.
 			 *
@@ -410,6 +448,7 @@ endif;
 <tr class="user-role-wrap"><th><label for="role"><?php _e( 'Role' ); ?></label></th>
 <td><select name="role" id="role">
 			<?php
+<<<<<<< HEAD
 			// Compare user role against currently editable roles.
 			$user_roles = array_intersect( array_values( $profileuser->roles ), array_keys( get_editable_roles() ) );
 			$user_role  = reset( $user_roles );
@@ -418,6 +457,16 @@ endif;
 			wp_dropdown_roles( $user_role );
 
 			// Print the 'no role' option. Make it selected if the user has no role yet.
+=======
+			// Compare user role against currently editable roles
+			$user_roles = array_intersect( array_values( $profileuser->roles ), array_keys( get_editable_roles() ) );
+			$user_role  = reset( $user_roles );
+
+			// print the full list of roles with the primary one selected.
+			wp_dropdown_roles( $user_role );
+
+			// print the 'no role' option. Make it selected if the user has no role yet.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( $user_role ) {
 				echo '<option value="">' . __( '&mdash; No role for this site &mdash;' ) . '</option>';
 			} else {
@@ -426,7 +475,11 @@ endif;
 			?>
 </select></td></tr>
 			<?php
+<<<<<<< HEAD
 		endif; // End if ! IS_PROFILE_PAGE.
+=======
+endif; //!IS_PROFILE_PAGE
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		if ( is_multisite() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_can( 'manage_network_options' ) && ! isset( $super_admins ) ) {
 			?>
@@ -477,7 +530,11 @@ endif;
 			$public_display['display_lastfirst'] = $profileuser->last_name . ' ' . $profileuser->first_name;
 		}
 
+<<<<<<< HEAD
 		if ( ! in_array( $profileuser->display_name, $public_display, true ) ) { // Only add this if it isn't duplicated elsewhere.
+=======
+		if ( ! in_array( $profileuser->display_name, $public_display ) ) { // Only add this if it isn't duplicated elsewhere
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$public_display = array( 'display_displayname' => $profileuser->display_name ) + $public_display;
 		}
 
@@ -505,7 +562,11 @@ endif;
 		if ( $profileuser->ID == $current_user->ID ) :
 			?>
 		<p class="description" id="email-description">
+<<<<<<< HEAD
 			<?php _e( 'If you change this, we will send you an email at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>' ); ?>
+=======
+			<?php _e( 'If you change this we will send you an email at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		</p>
 			<?php
 		endif;
@@ -705,7 +766,11 @@ endif;
 		<?php
 		if ( IS_PROFILE_PAGE ) {
 			/**
+<<<<<<< HEAD
 			 * Fires after the 'About Yourself' settings table on the 'Profile' editing screen.
+=======
+			 * Fires after the 'About Yourself' settings table on the 'Your Profile' editing screen.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 *
 			 * The action only fires if the current user is editing their own profile.
 			 *
@@ -757,7 +822,11 @@ endif;
 					}
 
 					if ( $value ) {
+<<<<<<< HEAD
 						$output .= $cap;
+=======
+						$output .= $value;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					} else {
 						/* translators: %s: Capability name. */
 						$output .= sprintf( __( 'Denied: %s' ), $cap );
@@ -788,4 +857,8 @@ endif;
 	}
 </script>
 <?php
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

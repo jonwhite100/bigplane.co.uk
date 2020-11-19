@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /*------------------------------------------------------------------------------
  TinyMCE and Quicklinks toolbars
 ------------------------------------------------------------------------------*/
@@ -83,7 +86,11 @@
 
 .mce-window-head .mce-close:hover .mce-i-remove:before,
 .mce-window-head .mce-close:focus .mce-i-remove:before {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .mce-window-head .mce-close:focus .mce-i-remove,
@@ -1202,10 +1209,16 @@ i.mce-i-wp_code:before {
 
 .wp-media-buttons span.wp-media-buttons-icon {
 	display: inline-block;
+<<<<<<< HEAD
 	width: 20px;
 	height: 20px;
 	line-height: 1;
 	vertical-align: middle;
+=======
+	width: 18px;
+	height: 18px;
+	vertical-align: text-top;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	margin: 0 2px;
 }
 
@@ -1447,7 +1460,11 @@ i.mce-i-wp_code:before {
 
 #wp-link-close:hover,
 #wp-link-close:focus {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 #wp-link-close:focus {
@@ -1778,9 +1795,13 @@ div.wp-link-input input {
 	width: 300px;
 	padding: 3px;
 	box-sizing: border-box;
+<<<<<<< HEAD
 	line-height: 1.28571429; /* 18px */
 	/* Override value inherited from default input fields. */
 	min-height: 26px;
+=======
+	line-height: 1.28571429;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .mce-toolbar div.wp-link-preview ~ .mce-btn,

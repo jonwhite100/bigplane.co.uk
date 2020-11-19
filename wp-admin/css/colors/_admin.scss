@@ -31,6 +31,7 @@ span.wp-media-buttons-icon:before {
 	color: currentColor;
 }
 
+<<<<<<< HEAD
 .wp-core-ui .button-link {
 	color: $link;
 
@@ -58,6 +59,8 @@ span.wp-media-buttons-icon:before {
 .wp-core-ui .button-link-delete:focus {
 	color: #dc3232;
 }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /* Forms */
 
@@ -102,13 +105,21 @@ textarea:focus {
 
 .wp-core-ui {
 
+<<<<<<< HEAD
 	.button {
 		border-color: #7e8993;
 		color: #32373c;
+=======
+	.button,
+	.button-secondary {
+		color: $button-color;
+		border-color: $button-color;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	.button.hover,
 	.button:hover,
+<<<<<<< HEAD
 	.button.focus,
 	.button:focus {
 		border-color: darken( #7e8993, 5% );
@@ -126,11 +137,33 @@ textarea:focus {
 		border-color: #7e8993;
 		color: darken( #32373c, 5% );
 		box-shadow: none;
+=======
+	.button-secondary:hover,
+	.button.focus,
+	.button:focus,
+	.button-secondary:focus {
+		border-color: darken( $button-color, 5% );
+		color: darken( $button-color, 5% );
+	}
+
+	.button.focus,
+	.button:focus,
+	.button-secondary:focus {
+		border-color: $button-color;
+		color: darken( $button-color, 5% );
+		box-shadow: 0 0 0 1px $button-color;
+	}
+
+	.button:active {
+		background: darken( $button-color, 5% );
+		border-color: darken( $button-color, 5% );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	.button.active,
 	.button.active:focus,
 	.button.active:hover {
+<<<<<<< HEAD
 		border-color: $button-color;
 		color: darken( #32373c, 5% );
 		box-shadow: inset 0 2px 5px -3px $button-color;
@@ -167,6 +200,11 @@ textarea:focus {
 				color: #fff;
 			}
 		}
+=======
+		border-color: darken( $button-color, 5% );
+		color: darken( $button-color, 5% );
+		box-shadow: inset 0 2px 5px -3px darken( $button-color, 5% );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	.button-primary {
@@ -208,6 +246,7 @@ textarea:focus {
 
 
 /* List tables */
+<<<<<<< HEAD
 @if $low-contrast-theme == "true" {
 	.wrap .page-title-action:hover {
 		color: $menu-text;
@@ -230,6 +269,13 @@ textarea:focus {
 		color: darken($highlight-color, 20);;
 		box-shadow: 0 0 0 1px lighten($highlight-color, 10);
 	}
+=======
+
+.wrap .add-new-h2:hover, /* deprecated */
+.wrap .page-title-action:hover {
+	color: $menu-text;
+	background-color: $menu-background;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .view-switch a.current:before {
@@ -343,7 +389,12 @@ ul#adminmenu > li.current > a.current:after {
 #adminmenu li.wp-has-current-submenu.opensub div.wp-menu-image:before,
 #adminmenu li:hover div.wp-menu-image:before,
 #adminmenu li a:focus div.wp-menu-image:before,
+<<<<<<< HEAD
 #adminmenu li.opensub div.wp-menu-image:before {
+=======
+#adminmenu li.opensub div.wp-menu-image:before,
+.ie8 #adminmenu li.opensub div.wp-menu-image:before {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	color: $menu-current-icon;
 }
 
@@ -651,6 +702,7 @@ div#wp-responsive-toggle a:before {
 .mce-container.mce-menu .mce-menu-item-preview.mce-active {
 	background: $highlight-color;
 }
+<<<<<<< HEAD
 
 /* Customizer */
 #customize-controls .control-section:hover > .accordion-section-title,
@@ -759,3 +811,5 @@ div#wp-responsive-toggle a:before {
 .wp-full-overlay-footer .devices button:focus:before {
 	color: $highlight-color;
 }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

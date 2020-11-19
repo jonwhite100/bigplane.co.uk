@@ -42,6 +42,7 @@ function wp_dashboard_setup() {
 		wp_add_dashboard_widget( 'dashboard_php_nag', __( 'PHP Update Required' ), 'wp_dashboard_php_nag' );
 	}
 
+<<<<<<< HEAD
 	// Site Health.
 	if ( current_user_can( 'view_site_health_checks' ) && ! is_network_admin() ) {
 		if ( ! class_exists( 'WP_Site_Health' ) ) {
@@ -57,6 +58,9 @@ function wp_dashboard_setup() {
 	}
 
 	// Right Now.
+=======
+	// Right Now
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( is_blog_admin() && current_user_can( 'edit_posts' ) ) {
 		wp_add_dashboard_widget( 'dashboard_right_now', __( 'At a Glance' ), 'wp_dashboard_right_now' );
 	}
@@ -65,18 +69,30 @@ function wp_dashboard_setup() {
 		wp_add_dashboard_widget( 'network_dashboard_right_now', __( 'Right Now' ), 'wp_network_dashboard_right_now' );
 	}
 
+<<<<<<< HEAD
 	// Activity Widget.
+=======
+	// Activity Widget
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( is_blog_admin() ) {
 		wp_add_dashboard_widget( 'dashboard_activity', __( 'Activity' ), 'wp_dashboard_site_activity' );
 	}
 
+<<<<<<< HEAD
 	// QuickPress Widget.
+=======
+	// QuickPress Widget
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( is_blog_admin() && current_user_can( get_post_type_object( 'post' )->cap->create_posts ) ) {
 		$quick_draft_title = sprintf( '<span class="hide-if-no-js">%1$s</span> <span class="hide-if-js">%2$s</span>', __( 'Quick Draft' ), __( 'Your Recent Drafts' ) );
 		wp_add_dashboard_widget( 'dashboard_quick_press', $quick_draft_title, 'wp_dashboard_quick_press' );
 	}
 
+<<<<<<< HEAD
 	// WordPress Events and News.
+=======
+	// WordPress Events and News
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	wp_add_dashboard_widget( 'dashboard_primary', __( 'WordPress Events and News' ), 'wp_dashboard_events_news' );
 
 	if ( is_network_admin() ) {
@@ -137,9 +153,15 @@ function wp_dashboard_setup() {
 		wp_add_dashboard_widget( $widget_id, $name, $wp_registered_widgets[ $widget_id ]['callback'], $wp_registered_widget_controls[ $widget_id ]['callback'] );
 	}
 
+<<<<<<< HEAD
 	if ( 'POST' === $_SERVER['REQUEST_METHOD'] && isset( $_POST['widget_id'] ) ) {
 		check_admin_referer( 'edit-dashboard-widget_' . $_POST['widget_id'], 'dashboard-widget-nonce' );
 		ob_start(); // Hack - but the same hack wp-admin/widgets.php uses.
+=======
+	if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['widget_id'] ) ) {
+		check_admin_referer( 'edit-dashboard-widget_' . $_POST['widget_id'], 'dashboard-widget-nonce' );
+		ob_start(); // hack - but the same hack wp-admin/widgets.php uses
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		wp_dashboard_trigger_widget_control( $_POST['widget_id'] );
 		ob_end_clean();
 		wp_redirect( remove_query_arg( 'edit' ) );
@@ -195,7 +217,11 @@ function wp_add_dashboard_widget( $widget_id, $widget_name, $callback, $control_
 	$side_widgets = array( 'dashboard_quick_press', 'dashboard_primary' );
 
 	$location = 'normal';
+<<<<<<< HEAD
 	if ( in_array( $widget_id, $side_widgets, true ) ) {
+=======
+	if ( in_array( $widget_id, $side_widgets ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$location = 'side';
 	}
 
@@ -263,7 +289,11 @@ function wp_dashboard() {
 }
 
 //
+<<<<<<< HEAD
 // Dashboard Widgets.
+=======
+// Dashboard Widgets
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 //
 
 /**
@@ -278,11 +308,19 @@ function wp_dashboard_right_now() {
 	<div class="main">
 	<ul>
 	<?php
+<<<<<<< HEAD
 	// Posts and Pages.
 	foreach ( array( 'post', 'page' ) as $post_type ) {
 		$num_posts = wp_count_posts( $post_type );
 		if ( $num_posts && $num_posts->publish ) {
 			if ( 'post' === $post_type ) {
+=======
+	// Posts and Pages
+	foreach ( array( 'post', 'page' ) as $post_type ) {
+		$num_posts = wp_count_posts( $post_type );
+		if ( $num_posts && $num_posts->publish ) {
+			if ( 'post' == $post_type ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				/* translators: %s: Number of posts. */
 				$text = _n( '%s Post', '%s Posts', $num_posts->publish );
 			} else {
@@ -298,7 +336,11 @@ function wp_dashboard_right_now() {
 			}
 		}
 	}
+<<<<<<< HEAD
 	// Comments.
+=======
+	// Comments
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$num_comm = wp_count_comments();
 	if ( $num_comm && ( $num_comm->approved || $num_comm->moderated ) ) {
 		/* translators: %s: Number of comments. */
@@ -346,7 +388,11 @@ function wp_dashboard_right_now() {
 	if ( ! is_network_admin() && ! is_user_admin() && current_user_can( 'manage_options' ) && '0' == get_option( 'blog_public' ) ) {
 
 		/**
+<<<<<<< HEAD
 		 * Filters the link title attribute for the 'Search engines discouraged'
+=======
+		 * Filters the link title attribute for the 'Search Engines Discouraged'
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * message displayed in the 'At a Glance' dashboard widget.
 		 *
 		 * Prior to 3.8.0, the widget was named 'Right Now'.
@@ -359,7 +405,11 @@ function wp_dashboard_right_now() {
 		$title = apply_filters( 'privacy_on_link_title', '' );
 
 		/**
+<<<<<<< HEAD
 		 * Filters the link label for the 'Search engines discouraged' message
+=======
+		 * Filters the link label for the 'Search Engines Discouraged' message
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * displayed in the 'At a Glance' dashboard widget.
 		 *
 		 * Prior to 3.8.0, the widget was named 'Right Now'.
@@ -368,10 +418,17 @@ function wp_dashboard_right_now() {
 		 *
 		 * @param string $content Default text.
 		 */
+<<<<<<< HEAD
 		$content    = apply_filters( 'privacy_on_link_text', __( 'Search engines discouraged' ) );
 		$title_attr = '' === $title ? '' : " title='$title'";
 
 		echo "<p class='search-engines-info'><a href='options-reading.php'$title_attr>$content</a></p>";
+=======
+		$content    = apply_filters( 'privacy_on_link_text', __( 'Search Engines Discouraged' ) );
+		$title_attr = '' === $title ? '' : " title='$title'";
+
+		echo "<p><a href='options-reading.php'$title_attr>$content</a></p>";
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 	?>
 	</div>
@@ -506,6 +563,7 @@ function wp_dashboard_quick_press( $error_msg = false ) {
 	}
 
 	/* Check if a new auto-draft (= no new post_ID) is needed or if the old can be used */
+<<<<<<< HEAD
 	$last_post_id = (int) get_user_option( 'dashboard_quick_press_last_post_id' ); // Get the last post_ID.
 	if ( $last_post_id ) {
 		$post = get_post( $last_post_id );
@@ -514,13 +572,28 @@ function wp_dashboard_quick_press( $error_msg = false ) {
 			update_user_option( get_current_user_id(), 'dashboard_quick_press_last_post_id', (int) $post->ID ); // Save post_ID.
 		} else {
 			$post->post_title = ''; // Remove the auto draft title.
+=======
+	$last_post_id = (int) get_user_option( 'dashboard_quick_press_last_post_id' ); // Get the last post_ID
+	if ( $last_post_id ) {
+		$post = get_post( $last_post_id );
+		if ( empty( $post ) || $post->post_status != 'auto-draft' ) { // auto-draft doesn't exists anymore
+			$post = get_default_post_to_edit( 'post', true );
+			update_user_option( get_current_user_id(), 'dashboard_quick_press_last_post_id', (int) $post->ID ); // Save post_ID
+		} else {
+			$post->post_title = ''; // Remove the auto draft title
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	} else {
 		$post    = get_default_post_to_edit( 'post', true );
 		$user_id = get_current_user_id();
 		// Don't create an option if this is a super admin who does not belong to this site.
+<<<<<<< HEAD
 		if ( in_array( get_current_blog_id(), array_keys( get_blogs_of_user( $user_id ) ), true ) ) {
 			update_user_option( $user_id, 'dashboard_quick_press_last_post_id', (int) $post->ID ); // Save post_ID.
+=======
+		if ( in_array( get_current_blog_id(), array_keys( get_blogs_of_user( $user_id ) ) ) ) {
+			update_user_option( $user_id, 'dashboard_quick_press_last_post_id', (int) $post->ID ); // Save post_ID
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	}
 
@@ -756,6 +829,7 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
 		$actions = apply_filters( 'comment_row_actions', array_filter( $actions ), $comment );
 
 		$i = 0;
+<<<<<<< HEAD
 
 		foreach ( $actions as $action => $link ) {
 			++$i;
@@ -770,13 +844,24 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
 
 			// Reply and quickedit need a hide-if-no-js span.
 			if ( 'reply' === $action || 'quickedit' === $action ) {
+=======
+		foreach ( $actions as $action => $link ) {
+			++$i;
+			( ( ( 'approve' == $action || 'unapprove' == $action ) && 2 === $i ) || 1 === $i ) ? $sep = '' : $sep = ' | ';
+
+			// Reply and quickedit need a hide-if-no-js span
+			if ( 'reply' == $action || 'quickedit' == $action ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$action .= ' hide-if-no-js';
 			}
 
 			if ( 'view' === $action && '1' !== $comment->comment_approved ) {
 				$action .= ' hidden';
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$actions_string .= "<span class='$action'>$sep$link</span>";
 		}
 	}
@@ -784,6 +869,7 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
 
 		<li id="comment-<?php echo $comment->comment_ID; ?>" <?php comment_class( array( 'comment-item', wp_get_comment_status( $comment ) ), $comment ); ?>>
 
+<<<<<<< HEAD
 			<?php
 			$comment_row_class = '';
 
@@ -796,6 +882,13 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
 			<?php if ( ! $comment->comment_type || 'comment' === $comment->comment_type ) : ?>
 
 			<div class="dashboard-comment-wrap has-row-actions <?php echo $comment_row_class; ?>">
+=======
+			<?php echo get_avatar( $comment, 50, 'mystery' ); ?>
+
+			<?php if ( ! $comment->comment_type || 'comment' == $comment->comment_type ) : ?>
+
+			<div class="dashboard-comment-wrap has-row-actions">
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<p class="comment-meta">
 				<?php
 				// Comments might not have a post they relate to, e.g. programmatically created ones.
@@ -899,6 +992,10 @@ function wp_dashboard_site_activity() {
 
 	if ( ! $future_posts && ! $recent_posts && ! $recent_comments ) {
 		echo '<div class="no-activity">';
+<<<<<<< HEAD
+=======
+		echo '<p class="smiley" aria-hidden="true"></p>';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		echo '<p>' . __( 'No activity yet!' ) . '</p>';
 		echo '</div>';
 	}
@@ -965,10 +1062,17 @@ function wp_dashboard_recent_posts( $args ) {
 			} elseif ( gmdate( 'Y-m-d', $time ) == $tomorrow ) {
 				$relative = __( 'Tomorrow' );
 			} elseif ( gmdate( 'Y', $time ) !== $year ) {
+<<<<<<< HEAD
 				/* translators: Date and time format for recent posts on the dashboard, from a different calendar year, see https://www.php.net/date */
 				$relative = date_i18n( __( 'M jS Y' ), $time );
 			} else {
 				/* translators: Date and time format for recent posts on the dashboard, see https://www.php.net/date */
+=======
+				/* translators: Date and time format for recent posts on the dashboard, from a different calendar year, see https://secure.php.net/date */
+				$relative = date_i18n( __( 'M jS Y' ), $time );
+			} else {
+				/* translators: Date and time format for recent posts on the dashboard, see https://secure.php.net/date */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$relative = date_i18n( __( 'M jS' ), $time );
 			}
 
@@ -1088,10 +1192,17 @@ function wp_dashboard_rss_output( $widget_id ) {
  *              by adding it to the function signature.
  *
  * @param string   $widget_id  The widget ID.
+<<<<<<< HEAD
  * @param callable $callback   The callback function used to display each feed.
  * @param array    $check_urls RSS feeds.
  * @param mixed    ...$args    Optional additional parameters to pass to the callback function.
  * @return bool True on success, false on failure.
+=======
+ * @param callable $callback   The callback funtion used to display each feed.
+ * @param array    $check_urls RSS feeds
+ * @param mixed    ...$args    Optional additional parameters to pass to the callback function when it's called.
+ * @return bool False on failure. True on success.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_dashboard_cached_rss_widget( $widget_id, $callback, $check_urls = array(), ...$args ) {
 	$loading    = '<p class="widget-loading hide-if-no-js">' . __( 'Loading&hellip;' ) . '</p><div class="hide-if-js notice notice-error inline"><p>' . __( 'This widget requires JavaScript.' ) . '</p></div>';
@@ -1123,15 +1234,23 @@ function wp_dashboard_cached_rss_widget( $widget_id, $callback, $check_urls = ar
 		array_unshift( $args, $widget_id, $check_urls );
 		ob_start();
 		call_user_func_array( $callback, $args );
+<<<<<<< HEAD
 		// Default lifetime in cache of 12 hours (same as the feeds).
 		set_transient( $cache_key, ob_get_flush(), 12 * HOUR_IN_SECONDS );
+=======
+		set_transient( $cache_key, ob_get_flush(), 12 * HOUR_IN_SECONDS ); // Default lifetime in cache of 12 hours (same as the feeds)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	return true;
 }
 
 //
+<<<<<<< HEAD
 // Dashboard Widgets Controls.
+=======
+// Dashboard Widgets Controls
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 //
 
 /**
@@ -1167,7 +1286,11 @@ function wp_dashboard_trigger_widget_control( $widget_control_id = false ) {
  * @since 2.5.0
  *
  * @param string $widget_id
+<<<<<<< HEAD
  * @param array  $form_inputs
+=======
+ * @param array $form_inputs
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_dashboard_rss_control( $widget_id, $form_inputs = array() ) {
 	$widget_options = get_option( 'dashboard_widget_options' );
@@ -1179,11 +1302,18 @@ function wp_dashboard_rss_control( $widget_id, $form_inputs = array() ) {
 		$widget_options[ $widget_id ] = array();
 	}
 
+<<<<<<< HEAD
 	$number = 1; // Hack to use wp_widget_rss_form().
 
 	$widget_options[ $widget_id ]['number'] = $number;
 
 	if ( 'POST' === $_SERVER['REQUEST_METHOD'] && isset( $_POST['widget-rss'][ $number ] ) ) {
+=======
+	$number                                 = 1; // Hack to use wp_widget_rss_form()
+	$widget_options[ $widget_id ]['number'] = $number;
+
+	if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['widget-rss'][ $number ] ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$_POST['widget-rss'][ $number ]         = wp_unslash( $_POST['widget-rss'][ $number ] );
 		$widget_options[ $widget_id ]           = wp_widget_rss_process( $_POST['widget-rss'][ $number ] );
 		$widget_options[ $widget_id ]['number'] = $number;
@@ -1379,11 +1509,17 @@ function wp_print_community_events_templates() {
 				</div>
 
 				<div class="event-date-time">
+<<<<<<< HEAD
 					<span class="event-date">{{ event.user_formatted_date }}</span>
 					<# if ( 'meetup' === event.type ) { #>
 						<span class="event-time">
 							{{ event.user_formatted_time }} {{ event.timeZoneAbbreviation }}
 						</span>
+=======
+					<span class="event-date">{{ event.formatted_date }}</span>
+					<# if ( 'meetup' === event.type ) { #>
+						<span class="event-time">{{ event.formatted_time }}</span>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<# } #>
 				</div>
 			</li>
@@ -1396,7 +1532,11 @@ function wp_print_community_events_templates() {
 				<?php
 				printf(
 					/* translators: 1: The city the user searched for, 2: Meetup organization documentation URL. */
+<<<<<<< HEAD
 					__( 'There aren&#8217;t any events scheduled near %1$s at the moment. Would you like to <a href="%2$s">organize a WordPress event</a>?' ),
+=======
+					__( 'There aren&#8217;t any events scheduled near %1$s at the moment. Would you like to <a href="%2$s">organize one</a>?' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					'{{ data.location.description }}',
 					__( 'https://make.wordpress.org/community/handbook/meetup-organizer/welcome/' )
 				);
@@ -1406,7 +1546,11 @@ function wp_print_community_events_templates() {
 				<?php
 				printf(
 					/* translators: %s: Meetup organization documentation URL. */
+<<<<<<< HEAD
 					__( 'There aren&#8217;t any events scheduled near you at the moment. Would you like to <a href="%s">organize a WordPress event</a>?' ),
+=======
+					__( 'There aren&#8217;t any events scheduled near you at the moment. Would you like to <a href="%s">organize one</a>?' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					__( 'https://make.wordpress.org/community/handbook/meetup-organizer/welcome/' )
 				);
 				?>
@@ -1504,7 +1648,11 @@ function wp_dashboard_primary() {
 }
 
 /**
+<<<<<<< HEAD
  * Displays the WordPress events and news feeds.
+=======
+ * Display the WordPress events and news feeds.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 3.8.0
  * @since 4.8.0 Removed popular plugins feed.
@@ -1522,7 +1670,11 @@ function wp_dashboard_primary_output( $widget_id, $feeds ) {
 }
 
 /**
+<<<<<<< HEAD
  * Displays file upload quota on dashboard.
+=======
+ * Display file upload quota on dashboard.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * Runs on the {@see 'activity_box_end'} hook in wp_dashboard_right_now().
  *
@@ -1586,11 +1738,15 @@ function wp_dashboard_quota() {
 	<?php
 }
 
+<<<<<<< HEAD
 /**
  * Displays the browser update nag.
  *
  * @since 3.2.0
  */
+=======
+// Display Browser Nag Meta Box
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 function wp_dashboard_browser_nag() {
 	$notice   = '';
 	$response = wp_check_browser_version();
@@ -1644,6 +1800,7 @@ function wp_dashboard_browser_nag() {
 	 * @param string $notice   The notice content.
 	 * @param array  $response An array containing web browser information. See `wp_check_browser_version()`.
 	 */
+<<<<<<< HEAD
 	echo apply_filters( 'browse-happy-notice', $notice, $response ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 }
 
@@ -1654,6 +1811,16 @@ function wp_dashboard_browser_nag() {
  *
  * @param string[] $classes Array of meta box classes.
  * @return string[] Modified array of meta box classes.
+=======
+	echo apply_filters( 'browse-happy-notice', $notice, $response );  // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+}
+
+/**
+ * @since 3.2.0
+ *
+ * @param array $classes
+ * @return array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function dashboard_browser_nag_class( $classes ) {
 	$response = wp_check_browser_version();
@@ -1666,11 +1833,19 @@ function dashboard_browser_nag_class( $classes ) {
 }
 
 /**
+<<<<<<< HEAD
  * Checks if the user needs a browser update.
  *
  * @since 3.2.0
  *
  * @return array|bool Array of browser data on success, false on failure.
+=======
+ * Check if the user needs a browser update
+ *
+ * @since 3.2.0
+ *
+ * @return array|bool False on failure, array of browser data on success.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_check_browser_version() {
 	if ( empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
@@ -1681,8 +1856,13 @@ function wp_check_browser_version() {
 
 	$response = get_site_transient( 'browser_' . $key );
 	if ( false === $response ) {
+<<<<<<< HEAD
 		// Include an unmodified $wp_version.
 		require ABSPATH . WPINC . '/version.php';
+=======
+		// include an unmodified $wp_version
+		include( ABSPATH . WPINC . '/version.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$url     = 'http://api.wordpress.org/core/browse-happy/1.1/';
 		$options = array(
@@ -1770,8 +1950,13 @@ function wp_dashboard_php_nag() {
  *
  * @since 5.1.0
  *
+<<<<<<< HEAD
  * @param string[] $classes Array of meta box classes.
  * @return string[] Modified array of meta box classes.
+=======
+ * @param array $classes Metabox classes.
+ * @return array Modified metabox classes.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function dashboard_php_nag_class( $classes ) {
 	$response = wp_check_php_version();
@@ -1784,6 +1969,7 @@ function dashboard_php_nag_class( $classes ) {
 }
 
 /**
+<<<<<<< HEAD
  * Displays the Site Health Status widget.
  *
  * @since 5.4.0
@@ -1869,6 +2055,9 @@ function wp_dashboard_site_health() {
  * Empty function usable by plugins to output empty dashboard widget (to be populated later by JS).
  *
  * @since 2.5.0
+=======
+ * Empty function usable by plugins to output empty dashboard widget (to be populated later by JS).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_dashboard_empty() {}
 
@@ -1902,10 +2091,17 @@ function wp_welcome_panel() {
 	<div class="welcome-panel-column">
 		<h3><?php _e( 'Next Steps' ); ?></h3>
 		<ul>
+<<<<<<< HEAD
 		<?php if ( 'page' === get_option( 'show_on_front' ) && ! get_option( 'page_for_posts' ) ) : ?>
 			<li><?php printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
 			<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
 		<?php elseif ( 'page' === get_option( 'show_on_front' ) ) : ?>
+=======
+		<?php if ( 'page' == get_option( 'show_on_front' ) && ! get_option( 'page_for_posts' ) ) : ?>
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
+		<?php elseif ( 'page' == get_option( 'show_on_front' ) ) : ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<li><?php printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
 			<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
 			<li><?php printf( '<a href="%s" class="welcome-icon welcome-write-blog">' . __( 'Add a blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
@@ -1920,16 +2116,39 @@ function wp_welcome_panel() {
 	<div class="welcome-panel-column welcome-panel-last">
 		<h3><?php _e( 'More Actions' ); ?></h3>
 		<ul>
+<<<<<<< HEAD
 		<?php if ( current_theme_supports( 'widgets' ) ) : ?>
 			<li><?php printf( '<a href="%s" class="welcome-icon welcome-widgets">' . __( 'Manage widgets' ) . '</a>', admin_url( 'widgets.php' ) ); ?></li>
 		<?php endif; ?>
 		<?php if ( current_theme_supports( 'menus' ) ) : ?>
 			<li><?php printf( '<a href="%s" class="welcome-icon welcome-menus">' . __( 'Manage menus' ) . '</a>', admin_url( 'nav-menus.php' ) ); ?></li>
+=======
+		<?php
+		if ( current_theme_supports( 'widgets' ) || current_theme_supports( 'menus' ) ) :
+			if ( current_theme_supports( 'widgets' ) && current_theme_supports( 'menus' ) ) {
+				$widgets_menus_link = sprintf(
+					/* translators: 1: URL to Widgets screen, 2: URL to Menus screen. */
+					__( 'Manage <a href="%1$s">widgets</a> or <a href="%2$s">menus</a>' ),
+					admin_url( 'widgets.php' ),
+					admin_url( 'nav-menus.php' )
+				);
+			} elseif ( current_theme_supports( 'widgets' ) ) {
+				$widgets_menus_link = '<a href="' . admin_url( 'widgets.php' ) . '">' . __( 'Manage widgets' ) . '</a>';
+			} else {
+				$widgets_menus_link = '<a href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Manage menus' ) . '</a>';
+			}
+			?>
+			<li><div class="welcome-icon welcome-widgets-menus"><?php echo $widgets_menus_link; ?></div></li>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		<?php endif; ?>
 		<?php if ( current_user_can( 'manage_options' ) ) : ?>
 			<li><?php printf( '<a href="%s" class="welcome-icon welcome-comments">' . __( 'Turn comments on or off' ) . '</a>', admin_url( 'options-discussion.php' ) ); ?></li>
 		<?php endif; ?>
+<<<<<<< HEAD
 			<li><?php printf( '<a href="%s" class="welcome-icon welcome-learn-more">' . __( 'Learn more about getting started' ) . '</a>', __( 'https://wordpress.org/support/article/first-steps-with-wordpress/' ) ); ?></li>
+=======
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-learn-more">' . __( 'Learn more about getting started' ) . '</a>', __( 'https://wordpress.org/support/article/first-steps-with-wordpress-b/' ) ); ?></li>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		</ul>
 	</div>
 	</div>

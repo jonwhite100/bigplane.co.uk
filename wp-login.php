@@ -9,16 +9,27 @@
  */
 
 /** Make sure that the WordPress bootstrap has run before continuing. */
+<<<<<<< HEAD
 require __DIR__ . '/wp-load.php';
+=======
+require( dirname( __FILE__ ) . '/wp-load.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // Redirect to HTTPS login if forced to use SSL.
 if ( force_ssl_admin() && ! is_ssl() ) {
 	if ( 0 === strpos( $_SERVER['REQUEST_URI'], 'http' ) ) {
 		wp_safe_redirect( set_url_scheme( $_SERVER['REQUEST_URI'], 'https' ) );
+<<<<<<< HEAD
 		exit;
 	} else {
 		wp_safe_redirect( 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 		exit;
+=======
+		exit();
+	} else {
+		wp_safe_redirect( 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+		exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 }
 
@@ -27,12 +38,15 @@ if ( force_ssl_admin() && ! is_ssl() ) {
  *
  * @since 2.1.0
  *
+<<<<<<< HEAD
  * @global string      $error         Login error message set by deprecated pluggable wp_login() function
  *                                    or plugins replacing it.
  * @global bool|string $interim_login Whether interim login modal is being displayed. String 'success'
  *                                    upon successful login.
  * @global string      $action        The action that brought the visitor to the login page.
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string   $title    Optional. WordPress login Page title to display in the `<title>` element.
  *                           Default 'Log In'.
  * @param string   $message  Optional. Message to display in header. Default empty.
@@ -41,7 +55,11 @@ if ( force_ssl_admin() && ! is_ssl() ) {
 function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 	global $error, $interim_login, $action;
 
+<<<<<<< HEAD
 	// Don't index any of these forms.
+=======
+	// Don't index any of these forms
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	add_action( 'login_head', 'wp_sensitive_page_meta' );
 
 	add_action( 'login_head', 'wp_login_viewport_meta' );
@@ -62,7 +80,11 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 	$shake_error_codes = apply_filters( 'shake_error_codes', $shake_error_codes );
 
 	if ( $shake_error_codes && $wp_error->has_errors() && in_array( $wp_error->get_error_code(), $shake_error_codes, true ) ) {
+<<<<<<< HEAD
 		add_action( 'login_footer', 'wp_shake_js', 12 );
+=======
+		add_action( 'login_head', 'wp_shake_js', 12 );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	$login_title = get_bloginfo( 'name', 'display' );
@@ -86,7 +108,16 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 	$login_title = apply_filters( 'login_title', $login_title, $title );
 
 	?><!DOCTYPE html>
+<<<<<<< HEAD
 	<html <?php language_attributes(); ?>>
+=======
+	<!--[if IE 8]>
+		<html xmlns="http://www.w3.org/1999/xhtml" class="ie8" <?php language_attributes(); ?>>
+	<![endif]-->
+	<!--[if !(IE 8) ]><!-->
+		<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
+	<!--<![endif]-->
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<head>
 	<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
 	<title><?php echo $login_title; ?></title>
@@ -136,7 +167,11 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 	 * Filters the title attribute of the header logo above login form.
 	 *
 	 * @since 2.1.0
+<<<<<<< HEAD
 	 * @deprecated 5.2.0 Use {@see 'login_headertext'} instead.
+=======
+	 * @deprecated 5.2.0 Use login_headertext
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @param string $login_header_title Login header logo title attribute.
 	 */
@@ -263,16 +298,23 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 			echo '<p class="message">' . apply_filters( 'login_messages', $messages ) . "</p>\n";
 		}
 	}
+<<<<<<< HEAD
 } // End of login_header().
+=======
+} // End of login_header()
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
  * Outputs the footer for the login page.
  *
  * @since 3.1.0
  *
+<<<<<<< HEAD
  * @global bool|string $interim_login Whether interim login modal is being displayed. String 'success'
  *                                    upon successful login.
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param string $input_id Which input to auto-focus.
  */
 function login_footer( $input_id = '' ) {
@@ -295,7 +337,11 @@ function login_footer( $input_id = '' ) {
 	}
 
 	?>
+<<<<<<< HEAD
 	</div><?php // End of <div id="login">. ?>
+=======
+	</div><?php // End of <div id="login"> ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	<?php
 
@@ -330,7 +376,15 @@ function login_footer( $input_id = '' ) {
 function wp_shake_js() {
 	?>
 	<script type="text/javascript">
+<<<<<<< HEAD
 	document.querySelector('form').classList.add('shake');
+=======
+	addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
+	function s(id,pos){g(id).left=pos+'px';}
+	function g(id){return document.getElementById(id).style;}
+	function shake(id,a,d){c=a.shift();s(id,c);if(a.length>0){setTimeout(function(){shake(id,a,d);},d);}else{try{g(id).position='static';wp_attempt_focus();}catch(e){}}}
+	addLoadEvent(function(){ var p=new Array(15,30,15,0,-15,-30,-15,0);p=p.concat(p.concat(p));var i=document.forms[0].id;g(i).position='relative';shake(i,p,20);});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	</script>
 	<?php
 }
@@ -354,6 +408,7 @@ function wp_login_viewport_meta() {
  * @return bool|WP_Error True: when finish. WP_Error on error
  */
 function retrieve_password() {
+<<<<<<< HEAD
 	$errors    = new WP_Error();
 	$user_data = false;
 
@@ -366,6 +421,19 @@ function retrieve_password() {
 		}
 	} else {
 		$login     = trim( wp_unslash( $_POST['user_login'] ) );
+=======
+	$errors = new WP_Error();
+
+	if ( empty( $_POST['user_login'] ) || ! is_string( $_POST['user_login'] ) ) {
+		$errors->add( 'empty_username', __( '<strong>ERROR</strong>: Enter a username or email address.' ) );
+	} elseif ( strpos( $_POST['user_login'], '@' ) ) {
+		$user_data = get_user_by( 'email', trim( wp_unslash( $_POST['user_login'] ) ) );
+		if ( empty( $user_data ) ) {
+			$errors->add( 'invalid_email', __( '<strong>ERROR</strong>: There is no account with that username or email address.' ) );
+		}
+	} else {
+		$login     = trim( $_POST['user_login'] );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$user_data = get_user_by( 'login', $login );
 	}
 
@@ -374,6 +442,7 @@ function retrieve_password() {
 	 *
 	 * @since 2.1.0
 	 * @since 4.4.0 Added the `$errors` parameter.
+<<<<<<< HEAD
 	 * @since 5.4.0 Added the `$user_data` parameter.
 	 *
 	 * @param WP_Error      $errors    A WP_Error object containing any errors generated
@@ -398,13 +467,24 @@ function retrieve_password() {
 	 * @param WP_User|false $user_data WP_User object if found, false if the user does not exist.
 	 */
 	$errors = apply_filters( 'lostpassword_errors', $errors, $user_data );
+=======
+	 *
+	 * @param WP_Error $errors A WP_Error object containing any errors generated
+	 *                         by using invalid credentials.
+	 */
+	do_action( 'lostpassword_post', $errors );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( $errors->has_errors() ) {
 		return $errors;
 	}
 
 	if ( ! $user_data ) {
+<<<<<<< HEAD
 		$errors->add( 'invalidcombo', __( '<strong>Error</strong>: There is no account with that username or email address.' ) );
+=======
+		$errors->add( 'invalidcombo', __( '<strong>ERROR</strong>: There is no account with that username or email address.' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $errors;
 	}
 
@@ -434,7 +514,11 @@ function retrieve_password() {
 	$message .= sprintf( __( 'Username: %s' ), $user_login ) . "\r\n\r\n";
 	$message .= __( 'If this was a mistake, just ignore this email and nothing will happen.' ) . "\r\n\r\n";
 	$message .= __( 'To reset your password, visit the following address:' ) . "\r\n\r\n";
+<<<<<<< HEAD
 	$message .= network_site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $user_login ), 'login' ) . "\r\n";
+=======
+	$message .= '<' . network_site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $user_login ), 'login' ) . ">\r\n";
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/* translators: Password reset notification email subject. %s: Site title. */
 	$title = sprintf( __( '[%s] Password Reset' ), $site_name );
@@ -471,7 +555,11 @@ function retrieve_password() {
 			'retrieve_password_email_failure',
 			sprintf(
 				/* translators: %s: Documentation URL. */
+<<<<<<< HEAD
 				__( '<strong>Error</strong>: The email could not be sent. Your site may not be correctly configured to send emails. <a href="%s">Get support for resetting your password</a>.' ),
+=======
+				__( '<strong>ERROR</strong>: The email could not be sent. Your site may not be correctly configured to send emails. <a href="%s">Get support for resetting your password</a>.' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				esc_url( __( 'https://wordpress.org/support/article/resetting-your-password/' ) )
 			)
 		);
@@ -492,10 +580,13 @@ if ( isset( $_GET['key'] ) ) {
 	$action = 'resetpass';
 }
 
+<<<<<<< HEAD
 if ( isset( $_GET['checkemail'] ) ) {
 	$action = 'checkemail';
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $default_actions = array(
 	'confirm_admin_email',
 	'postpass',
@@ -505,9 +596,14 @@ $default_actions = array(
 	'resetpass',
 	'rp',
 	'register',
+<<<<<<< HEAD
 	'checkemail',
 	'confirmaction',
 	'login',
+=======
+	'login',
+	'confirmaction',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	WP_Recovery_Mode_Link_Service::LOGIN_ACTION_ENTERED,
 );
 
@@ -520,23 +616,39 @@ nocache_headers();
 
 header( 'Content-Type: ' . get_bloginfo( 'html_type' ) . '; charset=' . get_bloginfo( 'charset' ) );
 
+<<<<<<< HEAD
 if ( defined( 'RELOCATE' ) && RELOCATE ) { // Move flag is set.
+=======
+if ( defined( 'RELOCATE' ) && RELOCATE ) { // Move flag is set
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( isset( $_SERVER['PATH_INFO'] ) && ( $_SERVER['PATH_INFO'] !== $_SERVER['PHP_SELF'] ) ) {
 		$_SERVER['PHP_SELF'] = str_replace( $_SERVER['PATH_INFO'], '', $_SERVER['PHP_SELF'] );
 	}
 
 	$url = dirname( set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ) );
 
+<<<<<<< HEAD
 	if ( get_option( 'siteurl' ) !== $url ) {
+=======
+	if ( $url !== get_option( 'siteurl' ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		update_option( 'siteurl', $url );
 	}
 }
 
+<<<<<<< HEAD
 // Set a cookie now to see if they are supported by the browser.
 $secure = ( 'https' === parse_url( wp_login_url(), PHP_URL_SCHEME ) );
 setcookie( TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN, $secure );
 
 if ( SITECOOKIEPATH !== COOKIEPATH ) {
+=======
+//Set a cookie now to see if they are supported by the browser.
+$secure = ( 'https' === parse_url( wp_login_url(), PHP_URL_SCHEME ) );
+setcookie( TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN, $secure );
+
+if ( SITECOOKIEPATH != COOKIEPATH ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	setcookie( TEST_COOKIE, 'WP Cookie check', 0, SITECOOKIEPATH, COOKIE_DOMAIN, $secure );
 }
 
@@ -573,11 +685,17 @@ $login_link_separator = apply_filters( 'login_link_separator', ' | ' );
 switch ( $action ) {
 
 	case 'confirm_admin_email':
+<<<<<<< HEAD
 		/*
 		 * Note that `is_user_logged_in()` will return false immediately after logging in
 		 * as the current user is not set, see wp-includes/pluggable.php.
 		 * However this action runs on a redirect after logging in.
 		 */
+=======
+		// Note that `is_user_logged_in()` will return false immediately after logging in
+		// as the current user is not set, see wp-includes/pluggable.php.
+		// However this action runs on a redirect after logging in.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! is_user_logged_in() ) {
 			wp_safe_redirect( wp_login_url() );
 			exit;
@@ -596,6 +714,7 @@ switch ( $action ) {
 			exit;
 		}
 
+<<<<<<< HEAD
 		/**
 		 * Filters the interval for dismissing the admin email confirmation screen.
 		 *
@@ -607,17 +726,25 @@ switch ( $action ) {
 		 */
 		$remind_interval = (int) apply_filters( 'admin_email_remind_interval', 3 * DAY_IN_SECONDS );
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! empty( $_GET['remind_me_later'] ) ) {
 			if ( ! wp_verify_nonce( $_GET['remind_me_later'], 'remind_me_later_nonce' ) ) {
 				wp_safe_redirect( wp_login_url() );
 				exit;
 			}
 
+<<<<<<< HEAD
 			if ( $remind_interval > 0 ) {
 				update_option( 'admin_email_lifespan', time() + $remind_interval );
 			}
 
 			$redirect_to = add_query_arg( 'admin_email_remind_later', 1, $redirect_to );
+=======
+			// "Remind me later" is a bit ambiguous. Three days later?
+			update_option( 'admin_email_lifespan', time() + 3 * DAY_IN_SECONDS );
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			wp_safe_redirect( $redirect_to );
 			exit;
 		}
@@ -630,12 +757,19 @@ switch ( $action ) {
 
 			/**
 			 * Filters the interval for redirecting the user to the admin email confirmation screen.
+<<<<<<< HEAD
 			 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 * If `0` (zero) is returned, the user will not be redirected.
 			 *
 			 * @since 5.3.0
 			 *
+<<<<<<< HEAD
 			 * @param int $interval Interval time (in seconds). Default is 6 months.
+=======
+			 * @param int Interval time (in seconds).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			$admin_email_check_interval = (int) apply_filters( 'admin_email_check_interval', 6 * MONTH_IN_SECONDS );
 
@@ -650,6 +784,7 @@ switch ( $action ) {
 		login_header( __( 'Confirm your administration email' ), '', $errors );
 
 		/**
+<<<<<<< HEAD
 		 * Fires before the admin email confirm form.
 		 *
 		 * @since 5.3.0
@@ -657,6 +792,14 @@ switch ( $action ) {
 		 * @param WP_Error $errors A `WP_Error` object containing any errors generated by using invalid
 		 *                         credentials. Note that the error object may not contain any errors.
 		 */
+=======
+		* Fires before the admin email confirm form.
+		*
+		* @since 5.3.0
+		*
+		* @param WP_Error $errors A `WP_Error` object containing any errors generated by using invalid credentials. Note that the error object may not contain any errors.
+		*/
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		do_action( 'admin_email_confirm', $errors );
 
 		?>
@@ -664,10 +807,17 @@ switch ( $action ) {
 		<form class="admin-email-confirm-form" name="admin-email-confirm-form" action="<?php echo esc_url( site_url( 'wp-login.php?action=confirm_admin_email', 'login_post' ) ); ?>" method="post">
 			<?php
 			/**
+<<<<<<< HEAD
 			 * Fires inside the admin-email-confirm-form form tags, before the hidden fields.
 			 *
 			 * @since 5.3.0
 			 */
+=======
+			* Fires inside the admin-email-confirm-form form tags, before the hidden fields.
+			*
+			* @since 5.3.0
+			*/
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			do_action( 'admin_email_confirm_form' );
 
 			wp_nonce_field( 'confirm_admin_email', 'confirm_admin_email_nonce' );
@@ -723,6 +873,7 @@ switch ( $action ) {
 					<a class="button button-large" href="<?php echo esc_url( $change_link ); ?>"><?php _e( 'Update' ); ?></a>
 					<input type="submit" name="correct-admin-email" id="correct-admin-email" class="button button-primary button-large" value="<?php esc_attr_e( 'The email is correct' ); ?>" />
 				</div>
+<<<<<<< HEAD
 				<?php if ( $remind_interval > 0 ) : ?>
 					<div class="admin-email__actions-secondary">
 						<?php
@@ -740,6 +891,23 @@ switch ( $action ) {
 						<a href="<?php echo esc_url( $remind_me_link ); ?>"><?php _e( 'Remind me later' ); ?></a>
 					</div>
 				<?php endif; ?>
+=======
+				<div class="admin-email__actions-secondary">
+					<?php
+
+					$remind_me_link = wp_login_url( $redirect_to );
+					$remind_me_link = add_query_arg(
+						array(
+							'action'          => 'confirm_admin_email',
+							'remind_me_later' => wp_create_nonce( 'remind_me_later_nonce' ),
+						),
+						$remind_me_link
+					);
+
+					?>
+					<a href="<?php echo esc_url( $remind_me_link ); ?>"><?php _e( 'Remind me later' ); ?></a>
+				</div>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			</div>
 		</form>
 
@@ -779,7 +947,11 @@ switch ( $action ) {
 		setcookie( 'wp-postpass_' . COOKIEHASH, $hasher->HashPassword( wp_unslash( $_POST['post_password'] ) ), $expire, COOKIEPATH, COOKIE_DOMAIN, $secure );
 
 		wp_safe_redirect( wp_get_referer() );
+<<<<<<< HEAD
 		exit;
+=======
+		exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	case 'logout':
 		check_admin_referer( 'log-out' );
@@ -815,7 +987,11 @@ switch ( $action ) {
 		$redirect_to = apply_filters( 'logout_redirect', $redirect_to, $requested_redirect_to, $user );
 
 		wp_safe_redirect( $redirect_to );
+<<<<<<< HEAD
 		exit;
+=======
+		exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	case 'lostpassword':
 	case 'retrievepassword':
@@ -825,7 +1001,11 @@ switch ( $action ) {
 			if ( ! is_wp_error( $errors ) ) {
 				$redirect_to = ! empty( $_REQUEST['redirect_to'] ) ? $_REQUEST['redirect_to'] : 'wp-login.php?checkemail=confirm';
 				wp_safe_redirect( $redirect_to );
+<<<<<<< HEAD
 				exit;
+=======
+				exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 
@@ -858,7 +1038,11 @@ switch ( $action ) {
 		 */
 		do_action( 'lost_password', $errors );
 
+<<<<<<< HEAD
 		login_header( __( 'Lost Password' ), '<p class="message">' . __( 'Please enter your username or email address. You will receive an email message with instructions on how to reset your password.' ) . '</p>', $errors );
+=======
+		login_header( __( 'Lost Password' ), '<p class="message">' . __( 'Please enter your username or email address. You will receive a link to create a new password via email.' ) . '</p>', $errors );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$user_login = '';
 
@@ -948,7 +1132,11 @@ switch ( $action ) {
 
 		$errors = new WP_Error();
 
+<<<<<<< HEAD
 		if ( isset( $_POST['pass1'] ) && $_POST['pass1'] !== $_POST['pass2'] ) {
+=======
+		if ( isset( $_POST['pass1'] ) && $_POST['pass1'] != $_POST['pass2'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$errors->add( 'password_reset_mismatch', __( 'The passwords do not match.' ) );
 		}
 
@@ -957,7 +1145,11 @@ switch ( $action ) {
 		 *
 		 * @since 3.5.0
 		 *
+<<<<<<< HEAD
 		 * @param WP_Error         $errors WP Error object.
+=======
+		 * @param object           $errors WP Error object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @param WP_User|WP_Error $user   WP_User object if the login and reset key match. WP_Error object otherwise.
 		 */
 		do_action( 'validate_password_reset', $errors, $user );
@@ -1059,7 +1251,11 @@ switch ( $action ) {
 
 		if ( ! get_option( 'users_can_register' ) ) {
 			wp_redirect( site_url( 'wp-login.php?registration=disabled' ) );
+<<<<<<< HEAD
 			exit;
+=======
+			exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		$user_login = '';
@@ -1067,7 +1263,11 @@ switch ( $action ) {
 
 		if ( $http_post ) {
 			if ( isset( $_POST['user_login'] ) && is_string( $_POST['user_login'] ) ) {
+<<<<<<< HEAD
 				$user_login = wp_unslash( $_POST['user_login'] );
+=======
+				$user_login = $_POST['user_login'];
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 
 			if ( isset( $_POST['user_email'] ) && is_string( $_POST['user_email'] ) ) {
@@ -1079,7 +1279,11 @@ switch ( $action ) {
 			if ( ! is_wp_error( $errors ) ) {
 				$redirect_to = ! empty( $_POST['redirect_to'] ) ? $_POST['redirect_to'] : 'wp-login.php?checkemail=registered';
 				wp_safe_redirect( $redirect_to );
+<<<<<<< HEAD
 				exit;
+=======
+				exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 		}
 
@@ -1136,6 +1340,7 @@ switch ( $action ) {
 		login_footer( 'user_login' );
 		break;
 
+<<<<<<< HEAD
 	case 'checkemail':
 		$redirect_to = admin_url();
 		$errors      = new WP_Error();
@@ -1169,6 +1374,8 @@ switch ( $action ) {
 		login_footer();
 		break;
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	case 'confirmaction':
 		if ( ! isset( $_GET['request_id'] ) ) {
 			wp_die( __( 'Missing request ID.' ) );
@@ -1218,7 +1425,11 @@ switch ( $action ) {
 
 		// If the user wants SSL but the session is not SSL, force a secure cookie.
 		if ( ! empty( $_POST['log'] ) && ! force_ssl_admin() ) {
+<<<<<<< HEAD
 			$user_name = sanitize_user( wp_unslash( $_POST['log'] ) );
+=======
+			$user_name = sanitize_user( $_POST['log'] );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$user      = get_user_by( 'login', $user_name );
 
 			if ( ! $user && strpos( $user_name, '@' ) ) {
@@ -1253,18 +1464,30 @@ switch ( $action ) {
 					'test_cookie',
 					sprintf(
 						/* translators: 1: Browser cookie documentation URL, 2: Support forums URL. */
+<<<<<<< HEAD
 						__( '<strong>Error</strong>: Cookies are blocked due to unexpected output. For help, please see <a href="%1$s">this documentation</a> or try the <a href="%2$s">support forums</a>.' ),
+=======
+						__( '<strong>ERROR</strong>: Cookies are blocked due to unexpected output. For help, please see <a href="%1$s">this documentation</a> or try the <a href="%2$s">support forums</a>.' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						__( 'https://wordpress.org/support/article/cookies/' ),
 						__( 'https://wordpress.org/support/forums/' )
 					)
 				);
 			} elseif ( isset( $_POST['testcookie'] ) && empty( $_COOKIE[ TEST_COOKIE ] ) ) {
+<<<<<<< HEAD
 				// If cookies are disabled, we can't log in even with a valid user and password.
+=======
+				// If cookies are disabled we can't log in even with a valid user+pass
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$user = new WP_Error(
 					'test_cookie',
 					sprintf(
 						/* translators: %s: Browser cookie documentation URL. */
+<<<<<<< HEAD
 						__( '<strong>Error</strong>: Cookies are blocked or not supported by your browser. You must <a href="%s">enable cookies</a> to use WordPress.' ),
+=======
+						__( '<strong>ERROR</strong>: Cookies are blocked or not supported by your browser. You must <a href="%s">enable cookies</a> to use WordPress.' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						__( 'https://wordpress.org/support/article/cookies/#enable-cookies-in-your-browser' )
 					)
 				);
@@ -1319,6 +1542,7 @@ switch ( $action ) {
 				$admin_email_check_interval = (int) apply_filters( 'admin_email_check_interval', 6 * MONTH_IN_SECONDS );
 
 				if ( $admin_email_check_interval > 0 && time() > $admin_email_lifespan ) {
+<<<<<<< HEAD
 					$redirect_to = add_query_arg(
 						array(
 							'action'  => 'confirm_admin_email',
@@ -1330,6 +1554,13 @@ switch ( $action ) {
 			}
 
 			if ( ( empty( $redirect_to ) || 'wp-admin/' === $redirect_to || admin_url() === $redirect_to ) ) {
+=======
+					$redirect_to = add_query_arg( 'action', 'confirm_admin_email', wp_login_url( $redirect_to ) );
+				}
+			}
+
+			if ( ( empty( $redirect_to ) || $redirect_to === 'wp-admin/' || $redirect_to === admin_url() ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				// If the user doesn't belong to a blog, send them to user admin. If the user can't edit posts, send them to their profile.
 				if ( is_multisite() && ! get_active_blog_for_user( $user->ID ) && ! is_super_admin( $user->ID ) ) {
 					$redirect_to = user_admin_url();
@@ -1367,6 +1598,15 @@ switch ( $action ) {
 				$errors->add( 'loggedout', __( 'You are now logged out.' ), 'message' );
 			} elseif ( isset( $_GET['registration'] ) && 'disabled' === $_GET['registration'] ) {
 				$errors->add( 'registerdisabled', __( 'User registration is currently not allowed.' ) );
+<<<<<<< HEAD
+=======
+			} elseif ( isset( $_GET['checkemail'] ) && 'confirm' === $_GET['checkemail'] ) {
+				$errors->add( 'confirm', __( 'Check your email for the confirmation link.' ), 'message' );
+			} elseif ( isset( $_GET['checkemail'] ) && 'newpass' === $_GET['checkemail'] ) {
+				$errors->add( 'newpass', __( 'Check your email for your new password.' ), 'message' );
+			} elseif ( isset( $_GET['checkemail'] ) && 'registered' === $_GET['checkemail'] ) {
+				$errors->add( 'registered', __( 'Registration complete. Please check your email.' ), 'message' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			} elseif ( strpos( $redirect_to, 'about.php?updated' ) ) {
 				$errors->add( 'updated', __( '<strong>You have successfully updated WordPress!</strong> Please log back in to see what&#8217;s new.' ), 'message' );
 			} elseif ( WP_Recovery_Mode_Link_Service::LOGIN_ACTION_ENTERED === $action ) {
@@ -1379,8 +1619,13 @@ switch ( $action ) {
 		 *
 		 * @since 3.6.0
 		 *
+<<<<<<< HEAD
 		 * @param WP_Error $errors      WP Error object.
 		 * @param string   $redirect_to Redirect destination URL.
+=======
+		 * @param object $errors      WP Error object.
+		 * @param string $redirect_to Redirect destination URL.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$errors = apply_filters( 'wp_login_errors', $errors, $redirect_to );
 
@@ -1464,6 +1709,7 @@ switch ( $action ) {
 			<p id="nav">
 				<?php
 
+<<<<<<< HEAD
 				if ( get_option( 'users_can_register' ) ) {
 					$registration_url = sprintf( '<a href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register' ) );
 
@@ -1475,6 +1721,24 @@ switch ( $action ) {
 
 				?>
 				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
+=======
+				if ( ! isset( $_GET['checkemail'] ) || ! in_array( $_GET['checkemail'], array( 'confirm', 'newpass' ), true ) ) {
+					if ( get_option( 'users_can_register' ) ) {
+						$registration_url = sprintf( '<a href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register' ) );
+
+						/** This filter is documented in wp-includes/general-template.php */
+						echo apply_filters( 'register', $registration_url );
+
+						echo esc_html( $login_link_separator );
+					}
+
+					?>
+					<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
+					<?php
+				}
+
+				?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			</p>
 			<?php
 		}

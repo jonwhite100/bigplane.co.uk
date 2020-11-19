@@ -110,11 +110,15 @@ class IXR_Message
         $chunk_size = apply_filters( 'xmlrpc_chunk_parsing_size', $chunk_size );
 
         $final = false;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         do {
             if (strlen($this->message) <= $chunk_size) {
                 $final = true;
             }
+<<<<<<< HEAD
 
             $part = substr($this->message, 0, $chunk_size);
             $this->message = substr($this->message, $chunk_size);
@@ -125,13 +129,24 @@ class IXR_Message
                 return false;
             }
 
+=======
+            $part = substr($this->message, 0, $chunk_size);
+            $this->message = substr($this->message, $chunk_size);
+            if (!xml_parse($this->_parser, $part, $final)) {
+                return false;
+            }
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
             if ($final) {
                 break;
             }
         } while (true);
+<<<<<<< HEAD
 
         xml_parser_free($this->_parser);
         unset($this->_parser);
+=======
+        xml_parser_free($this->_parser);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
         // Grab the error messages, if any
         if ($this->messageType == 'fault') {

@@ -36,16 +36,38 @@ class WP_Widget_Factory {
 	 * PHP4 constructor.
 	 *
 	 * @since 2.8.0
+<<<<<<< HEAD
 	 * @deprecated 4.3.0 Use __construct() instead.
 	 *
 	 * @see WP_Widget_Factory::__construct()
 	 */
 	public function WP_Widget_Factory() {
 		_deprecated_constructor( 'WP_Widget_Factory', '4.3.0' );
+=======
+	 */
+	public function WP_Widget_Factory() {
+		_deprecated_constructor( 'WP_Widget_Factory', '4.2.0' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		self::__construct();
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Memory for the number of times unique class instances have been hashed.
+	 *
+	 * This can be eliminated in favor of straight spl_object_hash() when 5.3
+	 * is the minimum requirement for PHP.
+	 *
+	 * @since 4.6.0
+	 * @var array
+	 *
+	 * @see WP_Widget_Factory::hash_object()
+	 */
+	private $hashed_class_counts = array();
+
+	/**
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * Registers a widget subclass.
 	 *
 	 * @since 2.8.0
@@ -93,7 +115,11 @@ class WP_Widget_Factory {
 		$registered = array_map( '_get_widget_id_base', $registered );
 
 		foreach ( $keys as $key ) {
+<<<<<<< HEAD
 			// Don't register new widget if old widget with the same id is already registered.
+=======
+			// don't register new widget if old widget with the same id is already registered
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( in_array( $this->widgets[ $key ]->id_base, $registered, true ) ) {
 				unset( $this->widgets[ $key ] );
 				continue;

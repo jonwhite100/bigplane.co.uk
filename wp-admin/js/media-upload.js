@@ -22,9 +22,15 @@
  * @global
  *
  * @param {string} html The HTML to be sent to the editor.
+<<<<<<< HEAD
  * @return {void|boolean} Returns false when both TinyMCE and QTags instances
  *                        are unavailable. This means that the HTML was not
  *                        sent to the editor.
+=======
+ * @returns {void|boolean} Returns false when both TinyMCE and QTags instances
+ *                         are unavailable. This means that the HTML was not
+ *                         sent to the editor.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 window.send_to_editor = function( html ) {
 	var editor,
@@ -43,16 +49,26 @@ window.send_to_editor = function( html ) {
 		editor = tinymce.get( wpActiveEditor );
 	}
 
+<<<<<<< HEAD
 	// If the editor is set and not hidden,
 	// insert the HTML into the content of the editor.
+=======
+	// If the editor is set and not hidden, insert the HTML into the content of the
+	// editor.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( editor && ! editor.isHidden() ) {
 		editor.execCommand( 'mceInsertContent', false, html );
 	} else if ( hasQuicktags ) {
 		// If quick tags are available, insert the HTML into its content.
 		QTags.insertContent( html );
 	} else {
+<<<<<<< HEAD
 		// If neither the TinyMCE editor and the quick tags are available,
 		// add the HTML to the current active editor.
+=======
+		// If neither the TinyMCE editor and the quick tags are available, add the HTML
+		// to the current active editor.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		document.getElementById( wpActiveEditor ).value += html;
 	}
 
@@ -71,8 +87,13 @@ window.send_to_editor = function( html ) {
 	 *
 	 * @global
 	 *
+<<<<<<< HEAD
 	 * @return {Object[]} Array containing jQuery objects for all the found
 	 *                    ThickBox anchors.
+=======
+	 * @returns {Object[]} Array containing jQuery objects for all the found
+	 *                     ThickBox anchors.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	window.tb_position = function() {
 		var tbWindow = $('#TB_window'),

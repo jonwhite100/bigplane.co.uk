@@ -209,6 +209,7 @@ function wpcf7_is_url( $url ) {
 }
 
 function wpcf7_is_tel( $tel ) {
+<<<<<<< HEAD
 	$pattern = '%^[+]?' // + sign
 		. '(?:\([0-9]+\)|[0-9]+)' // (1234) or 1234
 		. '(?:[/ -]*' // delimiter
@@ -216,6 +217,9 @@ function wpcf7_is_tel( $tel ) {
 		. ')*$%';
 
 	$result = preg_match( $pattern, trim( $tel ) );
+=======
+	$result = preg_match( '%^[+]?[0-9()/ -]*$%', $tel );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return apply_filters( 'wpcf7_is_tel', $result, $tel );
 }
 
@@ -338,7 +342,11 @@ function wpcf7_is_email_in_site_domain( $email ) {
 }
 
 function wpcf7_antiscript_file_name( $filename ) {
+<<<<<<< HEAD
 	$filename = wp_basename( $filename );
+=======
+	$filename = basename( $filename );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$parts = explode( '.', $filename );
 
 	if ( count( $parts ) < 2 ) {

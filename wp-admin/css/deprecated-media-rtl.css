@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /* Styles for the media library iframe (not used on the Library screen) */
 
 div#media-upload-header {
@@ -108,6 +111,7 @@ th {
 /* specific to the image upload form */
 
 .image-align-none-label {
+<<<<<<< HEAD
 	background: url(../images/align-none.png) no-repeat center right;
 }
 
@@ -121,6 +125,21 @@ th {
 
 .image-align-right-label {
 	background: url(../images/align-right.png) no-repeat center right;
+=======
+	background: url(../images/align-none.png) no-repeat center left;
+}
+
+.image-align-left-label {
+	background: url(../images/align-left.png) no-repeat center left;
+}
+
+.image-align-center-label {
+	background: url(../images/align-center.png) no-repeat center left;
+}
+
+.image-align-right-label {
+	background: url(../images/align-right.png) no-repeat center left;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 tr.image-size td {

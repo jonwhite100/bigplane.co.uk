@@ -13,7 +13,11 @@
 	 * wp.customize.HeaderTool.ImageModel
 	 *
 	 * A header image. This is where saves via the Customizer API are
+<<<<<<< HEAD
 	 * abstracted away, plus our own Ajax calls to add images to and remove
+=======
+	 * abstracted away, plus our own AJAX calls to add images to and remove
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * images from the user's recently uploaded images setting on the server.
 	 * These calls are made regardless of whether the user actually saves new
 	 * Customizer settings.
@@ -53,8 +57,13 @@
 			var data = this.get('header'),
 				curr = api.HeaderTool.currentHeader.get('header').attachment_id;
 
+<<<<<<< HEAD
 			// If the image we're removing is also the current header,
 			// unset the latter.
+=======
+			// If the image we're removing is also the current header, unset
+			// the latter
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if (curr && data.attachment_id === curr) {
 				api.HeaderTool.currentHeader.trigger('hide');
 			}
@@ -142,7 +151,11 @@
 	api.HeaderTool.ChoiceList = Backbone.Collection.extend({
 		model: api.HeaderTool.ImageModel,
 
+<<<<<<< HEAD
 		// Ordered from most recently used to least.
+=======
+		// Ordered from most recently used to least
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		comparator: function(model) {
 			return -model.get('header').timestamp;
 		},
@@ -151,18 +164,30 @@
 			var current = api.HeaderTool.currentHeader.get('choice').replace(/^https?:\/\//, ''),
 				isRandom = this.isRandomChoice(api.get().header_image);
 
+<<<<<<< HEAD
 			// Overridable by an extending class.
+=======
+			// Overridable by an extending class
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if (!this.type) {
 				this.type = 'uploaded';
 			}
 
+<<<<<<< HEAD
 			// Overridable by an extending class.
+=======
+			// Overridable by an extending class
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if (typeof this.data === 'undefined') {
 				this.data = _wpCustomizeHeader.uploads;
 			}
 
 			if (isRandom) {
+<<<<<<< HEAD
 				// So that when adding data we don't hide regular images.
+=======
+				// So that when adding data we don't hide regular images
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				current = api.get().header_image;
 			}
 

@@ -69,10 +69,17 @@ class WP_Customize_Panel {
 	public $capability = 'edit_theme_options';
 
 	/**
+<<<<<<< HEAD
 	 * Theme features required to support the panel.
 	 *
 	 * @since 4.0.0
 	 * @var string|string[]
+=======
+	 * Theme feature support for the panel.
+	 *
+	 * @since 4.0.0
+	 * @var string|array
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public $theme_supports = '';
 
@@ -138,6 +145,7 @@ class WP_Customize_Panel {
 	 * @since 4.0.0
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+<<<<<<< HEAD
 	 * @param string               $id      A specific ID for the panel.
 	 * @param array                $args    {
 	 *     Optional. Array of properties for the new Panel object. Default empty array.
@@ -152,6 +160,10 @@ class WP_Customize_Panel {
 	 *     @type string          $type            Type of the panel.
 	 *     @type callable        $active_callback Active callback.
 	 * }
+=======
+	 * @param string               $id      An specific ID for the panel.
+	 * @param array                $args    Panel arguments.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		$keys = array_keys( get_object_vars( $this ) );
@@ -371,7 +383,11 @@ class WP_Customize_Panel {
 				<span class="preview-notice">
 				<?php
 					/* translators: %s: The site/panel title in the Customizer. */
+<<<<<<< HEAD
 					printf( __( 'You are customizing %s' ), '<strong class="panel-title">{{ data.title }}</strong>' );
+=======
+					echo sprintf( __( 'You are customizing %s' ), '<strong class="panel-title">{{ data.title }}</strong>' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				?>
 				</span>
 				<# if ( data.description ) { #>
@@ -391,4 +407,8 @@ class WP_Customize_Panel {
 }
 
 /** WP_Customize_Nav_Menus_Panel class */
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/customize/class-wp-customize-nav-menus-panel.php';
+=======
+require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menus-panel.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

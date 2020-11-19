@@ -8,7 +8,11 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'create_users' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to add users to this network.' ) );
@@ -30,7 +34,11 @@ get_current_screen()->set_help_sidebar(
 	'<p>' . __( '<a href="https://wordpress.org/support/forum/multisite/">Support Forums</a>' ) . '</p>'
 );
 
+<<<<<<< HEAD
 if ( isset( $_REQUEST['action'] ) && 'add-user' === $_REQUEST['action'] ) {
+=======
+if ( isset( $_REQUEST['action'] ) && 'add-user' == $_REQUEST['action'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	check_admin_referer( 'add-user', '_wpnonce_add-user' );
 
 	if ( ! current_user_can( 'manage_network_users' ) ) {
@@ -44,7 +52,10 @@ if ( isset( $_REQUEST['action'] ) && 'add-user' === $_REQUEST['action'] ) {
 	$user = wp_unslash( $_POST['user'] );
 
 	$user_details = wpmu_validate_user_signup( $user['username'], $user['email'] );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( is_wp_error( $user_details['errors'] ) && $user_details['errors']->has_errors() ) {
 		$add_user_errors = $user_details['errors'];
 	} else {
@@ -62,7 +73,10 @@ if ( isset( $_REQUEST['action'] ) && 'add-user' === $_REQUEST['action'] ) {
 			 * @param int $user_id ID of the newly created user.
 			 */
 			do_action( 'network_user_new_created_user', $user_id );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			wp_redirect(
 				add_query_arg(
 					array(
@@ -79,7 +93,11 @@ if ( isset( $_REQUEST['action'] ) && 'add-user' === $_REQUEST['action'] ) {
 
 if ( isset( $_GET['update'] ) ) {
 	$messages = array();
+<<<<<<< HEAD
 	if ( 'added' === $_GET['update'] ) {
+=======
+	if ( 'added' == $_GET['update'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$edit_link = '';
 		if ( isset( $_GET['user_id'] ) ) {
 			$user_id_new = absint( $_GET['user_id'] );
@@ -101,7 +119,11 @@ if ( isset( $_GET['update'] ) ) {
 $title       = __( 'Add New User' );
 $parent_file = 'users.php';
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php'; ?>
+=======
+require( ABSPATH . 'wp-admin/admin-header.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 <div class="wrap">
 <h1 id="add-new-user"><?php _e( 'Add New User' ); ?></h1>
@@ -150,4 +172,8 @@ if ( isset( $add_user_errors ) && is_wp_error( $add_user_errors ) ) {
 	</form>
 </div>
 <?php
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+require( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

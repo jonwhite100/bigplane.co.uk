@@ -18,7 +18,11 @@
 
 /** Define ABSPATH as this file's directory */
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
 	define( 'ABSPATH', __DIR__ . '/' );
+=======
+	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
@@ -34,11 +38,16 @@ error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_W
 if ( file_exists( ABSPATH . 'wp-config.php' ) ) {
 
 	/** The config file resides in ABSPATH */
+<<<<<<< HEAD
 	require_once ABSPATH . 'wp-config.php';
+=======
+	require_once( ABSPATH . 'wp-config.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 } elseif ( @file_exists( dirname( ABSPATH ) . '/wp-config.php' ) && ! @file_exists( dirname( ABSPATH ) . '/wp-settings.php' ) ) {
 
 	/** The config file resides one level above ABSPATH but is not part of another installation */
+<<<<<<< HEAD
 	require_once dirname( ABSPATH ) . '/wp-config.php';
 
 } else {
@@ -47,11 +56,25 @@ if ( file_exists( ABSPATH . 'wp-config.php' ) ) {
 
 	define( 'WPINC', 'wp-includes' );
 	require_once ABSPATH . WPINC . '/load.php';
+=======
+	require_once( dirname( ABSPATH ) . '/wp-config.php' );
+
+} else {
+
+	// A config file doesn't exist
+
+	define( 'WPINC', 'wp-includes' );
+	require_once( ABSPATH . WPINC . '/load.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	// Standardize $_SERVER variables across setups.
 	wp_fix_server_vars();
 
+<<<<<<< HEAD
 	require_once ABSPATH . WPINC . '/functions.php';
+=======
+	require_once( ABSPATH . WPINC . '/functions.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$path = wp_guess_url() . '/wp-admin/setup-config.php';
 
@@ -66,7 +89,11 @@ if ( file_exists( ABSPATH . 'wp-config.php' ) ) {
 	}
 
 	define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
+<<<<<<< HEAD
 	require_once ABSPATH . WPINC . '/version.php';
+=======
+	require_once( ABSPATH . WPINC . '/version.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	wp_check_php_mysql_versions();
 	wp_load_translations_early();

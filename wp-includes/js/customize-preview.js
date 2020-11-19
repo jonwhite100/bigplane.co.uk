@@ -28,7 +28,11 @@
 		 * @access private
 		 *
 		 * @param {string} url URL.
+<<<<<<< HEAD
 		 * @return {string} URL with customized state.
+=======
+		 * @returns {string} URL with customized state.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		injectUrlWithState = function( url ) {
 			var urlParser, oldQueryParams, newQueryParams;
@@ -102,8 +106,13 @@
 	 */
 	api.Preview = api.Messenger.extend(/** @lends wp.customize.Preview.prototype */{
 		/**
+<<<<<<< HEAD
 		 * @param {Object} params  - Parameters to configure the messenger.
 		 * @param {Object} options - Extend any instance parameter or method with this object.
+=======
+		 * @param {object} params  - Parameters to configure the messenger.
+		 * @param {object} options - Extend any instance parameter or method with this object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		initialize: function( params, options ) {
 			var preview = this, urlParser = document.createElement( 'a' );
@@ -232,9 +241,15 @@
 	 *
 	 * @since 4.7.0
 	 * @access protected
+<<<<<<< HEAD
 	 * @access private
 	 *
 	 * @return {void}
+=======
+	 *
+	 * @access private
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	api.addLinkPreviewing = function addLinkPreviewing() {
 		var linkSelectors = 'a[href], area[href]';
@@ -276,9 +291,15 @@
 	 * @param {string} element.search Query string.
 	 * @param {string} element.pathname Path.
 	 * @param {string} element.host Host.
+<<<<<<< HEAD
 	 * @param {Object} [options]
 	 * @param {Object} [options.allowAdminAjax=false] Allow admin-ajax.php requests.
 	 * @return {boolean} Is appropriate for changeset link.
+=======
+	 * @param {object} [options]
+	 * @param {object} [options.allowAdminAjax=false] Allow admin-ajax.php requests.
+	 * @returns {boolean} Is appropriate for changeset link.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	api.isLinkPreviewable = function isLinkPreviewable( element, options ) {
 		var matchesAllowedUrl, parsedAllowedUrl, args, elementHost;
@@ -332,12 +353,20 @@
 	 * @param {string} element.search Query string.
 	 * @param {string} element.host Host.
 	 * @param {string} element.protocol Protocol.
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	api.prepareLinkPreview = function prepareLinkPreview( element ) {
 		var queryParams, $element = $( element );
 
+<<<<<<< HEAD
         // Skip elements with no href attribute. Check first to avoid more expensive checks down the road.
+=======
+        // Skip elements with no href attribute. Check first to avoid more expensive checks down the road
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         if ( ! element.hasAttribute( 'href' ) ) {
             return;
         }
@@ -357,7 +386,11 @@
 			element.protocol = 'https:';
 		}
 
+<<<<<<< HEAD
 		// Ignore links with class wp-playlist-caption.
+=======
+		// Ignore links with class wp-playlist-caption
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( $element.hasClass( 'wp-playlist-caption' ) ) {
 			return;
 		}
@@ -399,12 +432,21 @@
 		/**
 		 * Rewrite Ajax requests to inject customizer state.
 		 *
+<<<<<<< HEAD
 		 * @param {Object} options Options.
 		 * @param {string} options.type Type.
 		 * @param {string} options.url URL.
 		 * @param {Object} originalOptions Original options.
 		 * @param {XMLHttpRequest} xhr XHR.
 		 * @return {void}
+=======
+		 * @param {object} options Options.
+		 * @param {string} options.type Type.
+		 * @param {string} options.url URL.
+		 * @param {object} originalOptions Original options.
+		 * @param {XMLHttpRequest} xhr XHR.
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		var prefilterAjax = function( options, originalOptions, xhr ) {
 			var urlParser, queryParams, requestMethod, dirtyValues = {};
@@ -470,7 +512,11 @@
 	 * @since 4.7.0
 	 * @access protected
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	api.addFormPreviewing = function addFormPreviewing() {
 
@@ -502,7 +548,11 @@
 	 * @access protected
 	 *
 	 * @param {HTMLFormElement} form Form.
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	api.prepareFormPreview = function prepareFormPreview( form ) {
 		var urlParser, stateParams = {};
@@ -626,7 +676,11 @@
 		 * Preview changes to custom logo.
 		 *
 		 * @param {number} attachmentId Attachment ID for custom logo.
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		custom_logo: function( attachmentId ) {
 			$( 'body' ).toggleClass( 'wp-custom-logo', !! attachmentId );
@@ -636,7 +690,11 @@
 		 * Preview changes to custom css.
 		 *
 		 * @param {string} value Custom CSS..
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		custom_css: function( value ) {
 			$( '#wp-custom-css' ).text( value );
@@ -645,7 +703,11 @@
 		/**
 		 * Preview changes to any of the background settings.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		background: function() {
 			var css = '', settings = {};
@@ -775,7 +837,11 @@
 		 * Handle update to changeset UUID.
 		 *
 		 * @param {string} uuid - UUID.
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		handleUpdatedChangesetUuid = function( uuid ) {
 			api.settings.changeset.uuid = uuid;

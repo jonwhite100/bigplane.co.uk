@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(_dereq_,module,exports){
+=======
+(function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(_dereq_,module,exports){
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 "use strict";
 
 _dereq_(2);
 
 var _global = _interopRequireDefault(_dereq_(15));
 
+<<<<<<< HEAD
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 if (_global["default"]._babelPolyfill && typeof console !== "undefined" && console.warn) {
@@ -12,6 +17,15 @@ if (_global["default"]._babelPolyfill && typeof console !== "undefined" && conso
 }
 
 _global["default"]._babelPolyfill = true;
+=======
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+if (_global.default._babelPolyfill && typeof console !== "undefined" && console.warn) {
+  console.warn("@babel/polyfill is loaded more than once on this page. This is probably not desirable/intended " + "and may have consequences if different versions of the polyfills are applied sequentially. " + "If you do need to load the polyfill more than once, use @babel/polyfill/noConflict " + "instead to bypass the warning.");
+}
+
+_global.default._babelPolyfill = true;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 },{"15":15,"2":2}],2:[function(_dereq_,module,exports){
 "use strict";
 
@@ -247,7 +261,11 @@ module.exports = function (it) {
 };
 
 },{"28":28}],18:[function(_dereq_,module,exports){
+<<<<<<< HEAD
 var core = module.exports = { version: '2.6.11' };
+=======
+var core = module.exports = { version: '2.6.5' };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 },{}],19:[function(_dereq_,module,exports){
@@ -1782,7 +1800,10 @@ module.exports.f = function (C) {
 },{"33":33}],97:[function(_dereq_,module,exports){
 'use strict';
 // 19.1.2.1 Object.assign(target, source, ...)
+<<<<<<< HEAD
 var DESCRIPTORS = _dereq_(58);
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 var getKeys = _dereq_(107);
 var gOPS = _dereq_(104);
 var pIE = _dereq_(108);
@@ -1812,6 +1833,7 @@ module.exports = !$assign || _dereq_(64)(function () {
     var length = keys.length;
     var j = 0;
     var key;
+<<<<<<< HEAD
     while (length > j) {
       key = keys[j++];
       if (!DESCRIPTORS || isEnum.call(S, key)) T[key] = S[key];
@@ -1820,6 +1842,13 @@ module.exports = !$assign || _dereq_(64)(function () {
 } : $assign;
 
 },{"104":104,"107":107,"108":108,"142":142,"58":58,"64":64,"77":77}],98:[function(_dereq_,module,exports){
+=======
+    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
+  } return T;
+} : $assign;
+
+},{"104":104,"107":107,"108":108,"142":142,"64":64,"77":77}],98:[function(_dereq_,module,exports){
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = _dereq_(38);
 var dPs = _dereq_(100);
@@ -1989,7 +2018,10 @@ module.exports = function (KEY, exec) {
 };
 
 },{"52":52,"62":62,"64":64}],110:[function(_dereq_,module,exports){
+<<<<<<< HEAD
 var DESCRIPTORS = _dereq_(58);
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 var getKeys = _dereq_(107);
 var toIObject = _dereq_(140);
 var isEnum = _dereq_(108).f;
@@ -2001,6 +2033,7 @@ module.exports = function (isEntries) {
     var i = 0;
     var result = [];
     var key;
+<<<<<<< HEAD
     while (length > i) {
       key = keys[i++];
       if (!DESCRIPTORS || isEnum.call(O, key)) {
@@ -2012,6 +2045,15 @@ module.exports = function (isEntries) {
 };
 
 },{"107":107,"108":108,"140":140,"58":58}],111:[function(_dereq_,module,exports){
+=======
+    while (length > i) if (isEnum.call(O, key = keys[i++])) {
+      result.push(isEntries ? [key, O[key]] : O[key]);
+    } return result;
+  };
+};
+
+},{"107":107,"108":108,"140":140}],111:[function(_dereq_,module,exports){
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 // all object keys, includes non-enumerable and symbols
 var gOPN = _dereq_(103);
 var gOPS = _dereq_(104);
@@ -5791,14 +5833,20 @@ var enumKeys = _dereq_(61);
 var isArray = _dereq_(79);
 var anObject = _dereq_(38);
 var isObject = _dereq_(81);
+<<<<<<< HEAD
 var toObject = _dereq_(142);
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 var toIObject = _dereq_(140);
 var toPrimitive = _dereq_(143);
 var createDesc = _dereq_(116);
 var _create = _dereq_(98);
 var gOPNExt = _dereq_(102);
 var $GOPD = _dereq_(101);
+<<<<<<< HEAD
 var $GOPS = _dereq_(104);
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 var $DP = _dereq_(99);
 var $keys = _dereq_(107);
 var gOPD = $GOPD.f;
@@ -5815,7 +5863,11 @@ var SymbolRegistry = shared('symbol-registry');
 var AllSymbols = shared('symbols');
 var OPSymbols = shared('op-symbols');
 var ObjectProto = Object[PROTOTYPE];
+<<<<<<< HEAD
 var USE_NATIVE = typeof $Symbol == 'function' && !!$GOPS.f;
+=======
+var USE_NATIVE = typeof $Symbol == 'function';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 var QObject = global.QObject;
 // Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
 var setter = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
@@ -5925,7 +5977,11 @@ if (!USE_NATIVE) {
   $DP.f = $defineProperty;
   _dereq_(103).f = gOPNExt.f = $getOwnPropertyNames;
   _dereq_(108).f = $propertyIsEnumerable;
+<<<<<<< HEAD
   $GOPS.f = $getOwnPropertySymbols;
+=======
+  _dereq_(104).f = $getOwnPropertySymbols;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
   if (DESCRIPTORS && !_dereq_(89)) {
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
@@ -5976,6 +6032,7 @@ $export($export.S + $export.F * !USE_NATIVE, 'Object', {
   getOwnPropertySymbols: $getOwnPropertySymbols
 });
 
+<<<<<<< HEAD
 // Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
 // https://bugs.chromium.org/p/v8/issues/detail?id=3443
 var FAILS_ON_PRIMITIVES = $fails(function () { $GOPS.f(1); });
@@ -5986,6 +6043,8 @@ $export($export.S + $export.F * FAILS_ON_PRIMITIVES, 'Object', {
   }
 });
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 // 24.3.2 JSON.stringify(value [, replacer [, space]])
 $JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
   var S = $Symbol();
@@ -6019,7 +6078,11 @@ setToStringTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setToStringTag(global.JSON, 'JSON', true);
 
+<<<<<<< HEAD
 },{"101":101,"102":102,"103":103,"104":104,"107":107,"108":108,"116":116,"118":118,"124":124,"126":126,"140":140,"142":142,"143":143,"147":147,"150":150,"151":151,"152":152,"38":38,"58":58,"61":61,"62":62,"64":64,"70":70,"71":71,"72":72,"79":79,"81":81,"89":89,"94":94,"98":98,"99":99}],279:[function(_dereq_,module,exports){
+=======
+},{"101":101,"102":102,"103":103,"104":104,"107":107,"108":108,"116":116,"118":118,"124":124,"126":126,"140":140,"143":143,"147":147,"150":150,"151":151,"152":152,"38":38,"58":58,"61":61,"62":62,"64":64,"70":70,"71":71,"72":72,"79":79,"81":81,"89":89,"94":94,"98":98,"99":99}],279:[function(_dereq_,module,exports){
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 'use strict';
 var $export = _dereq_(62);
 var $typed = _dereq_(146);
@@ -6602,7 +6665,11 @@ var runtime = (function (exports) {
     return { __await: arg };
   };
 
+<<<<<<< HEAD
   function AsyncIterator(generator, PromiseImpl) {
+=======
+  function AsyncIterator(generator) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     function invoke(method, arg, resolve, reject) {
       var record = tryCatch(generator[method], generator, arg);
       if (record.type === "throw") {
@@ -6613,14 +6680,22 @@ var runtime = (function (exports) {
         if (value &&
             typeof value === "object" &&
             hasOwn.call(value, "__await")) {
+<<<<<<< HEAD
           return PromiseImpl.resolve(value.__await).then(function(value) {
+=======
+          return Promise.resolve(value.__await).then(function(value) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
             invoke("next", value, resolve, reject);
           }, function(err) {
             invoke("throw", err, resolve, reject);
           });
         }
 
+<<<<<<< HEAD
         return PromiseImpl.resolve(value).then(function(unwrapped) {
+=======
+        return Promise.resolve(value).then(function(unwrapped) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
           // When a yielded Promise is resolved, its final value becomes
           // the .value of the Promise<{value,done}> result for the
           // current iteration.
@@ -6638,7 +6713,11 @@ var runtime = (function (exports) {
 
     function enqueue(method, arg) {
       function callInvokeWithMethodAndArg() {
+<<<<<<< HEAD
         return new PromiseImpl(function(resolve, reject) {
+=======
+        return new Promise(function(resolve, reject) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
           invoke(method, arg, resolve, reject);
         });
       }
@@ -6678,12 +6757,18 @@ var runtime = (function (exports) {
   // Note that simple async functions are implemented on top of
   // AsyncIterator objects; they just return a Promise for the value of
   // the final result produced by the iterator.
+<<<<<<< HEAD
   exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
     if (PromiseImpl === void 0) PromiseImpl = Promise;
 
     var iter = new AsyncIterator(
       wrap(innerFn, outerFn, self, tryLocsList),
       PromiseImpl
+=======
+  exports.async = function(innerFn, outerFn, self, tryLocsList) {
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     );
 
     return exports.isGeneratorFunction(outerFn)

@@ -10,11 +10,15 @@ add_action( 'wpcf7_init', 'wpcf7_add_form_tag_date', 10, 0 );
 
 function wpcf7_add_form_tag_date() {
 	wpcf7_add_form_tag( array( 'date', 'date*' ),
+<<<<<<< HEAD
 		'wpcf7_date_form_tag_handler',
 		array(
 			'name-attr' => true,
 		)
 	);
+=======
+		'wpcf7_date_form_tag_handler', array( 'name-attr' => true ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 function wpcf7_date_form_tag_handler( $tag ) {
@@ -49,6 +53,7 @@ function wpcf7_date_form_tag_handler( $tag ) {
 		$atts['aria-required'] = 'true';
 	}
 
+<<<<<<< HEAD
 	if ( $validation_error ) {
 		$atts['aria-invalid'] = 'true';
 		$atts['aria-describedby'] = wpcf7_get_validation_error_reference(
@@ -57,6 +62,9 @@ function wpcf7_date_form_tag_handler( $tag ) {
 	} else {
 		$atts['aria-invalid'] = 'false';
 	}
+=======
+	$atts['aria-invalid'] = $validation_error ? 'true' : 'false';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$value = (string) reset( $tag->values );
 
@@ -68,6 +76,7 @@ function wpcf7_date_form_tag_handler( $tag ) {
 
 	$value = $tag->get_default_option( $value );
 
+<<<<<<< HEAD
 	if ( $value ) {
 		$datetime_obj = date_create_immutable(
 			preg_replace( '/[_]+/', ' ', $value ),
@@ -79,6 +88,8 @@ function wpcf7_date_form_tag_handler( $tag ) {
 		}
 	}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$value = wpcf7_get_hangover( $tag->name, $value );
 
 	$atts['value'] = $value;
@@ -95,8 +106,12 @@ function wpcf7_date_form_tag_handler( $tag ) {
 
 	$html = sprintf(
 		'<span class="wpcf7-form-control-wrap %1$s"><input %2$s />%3$s</span>',
+<<<<<<< HEAD
 		sanitize_html_class( $tag->name ), $atts, $validation_error
 	);
+=======
+		sanitize_html_class( $tag->name ), $atts, $validation_error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return $html;
 }
@@ -117,6 +132,7 @@ function wpcf7_date_validation_filter( $result, $tag ) {
 		? trim( strtr( (string) $_POST[$name], "\n", " " ) )
 		: '';
 
+<<<<<<< HEAD
 	if ( $tag->is_required() and '' === $value ) {
 		$result->invalidate( $tag, wpcf7_get_message( 'invalid_required' ) );
 	} elseif ( '' !== $value and ! wpcf7_is_date( $value ) ) {
@@ -124,6 +140,15 @@ function wpcf7_date_validation_filter( $result, $tag ) {
 	} elseif ( '' !== $value and ! empty( $min ) and $value < $min ) {
 		$result->invalidate( $tag, wpcf7_get_message( 'date_too_early' ) );
 	} elseif ( '' !== $value and ! empty( $max ) and $max < $value ) {
+=======
+	if ( $tag->is_required() and '' == $value ) {
+		$result->invalidate( $tag, wpcf7_get_message( 'invalid_required' ) );
+	} elseif ( '' != $value and ! wpcf7_is_date( $value ) ) {
+		$result->invalidate( $tag, wpcf7_get_message( 'invalid_date' ) );
+	} elseif ( '' != $value and ! empty( $min ) and $value < $min ) {
+		$result->invalidate( $tag, wpcf7_get_message( 'date_too_early' ) );
+	} elseif ( '' != $value and ! empty( $max ) and $max < $value ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$result->invalidate( $tag, wpcf7_get_message( 'date_too_late' ) );
 	}
 
@@ -139,17 +164,29 @@ function wpcf7_date_messages( $messages ) {
 	return array_merge( $messages, array(
 		'invalid_date' => array(
 			'description' => __( "Date format that the sender entered is invalid", 'contact-form-7' ),
+<<<<<<< HEAD
 			'default' => __( "The date format is incorrect.", 'contact-form-7' ),
+=======
+			'default' => __( "The date format is incorrect.", 'contact-form-7' )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		),
 
 		'date_too_early' => array(
 			'description' => __( "Date is earlier than minimum limit", 'contact-form-7' ),
+<<<<<<< HEAD
 			'default' => __( "The date is before the earliest one allowed.", 'contact-form-7' ),
+=======
+			'default' => __( "The date is before the earliest one allowed.", 'contact-form-7' )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		),
 
 		'date_too_late' => array(
 			'description' => __( "Date is later than maximum limit", 'contact-form-7' ),
+<<<<<<< HEAD
 			'default' => __( "The date is after the latest one allowed.", 'contact-form-7' ),
+=======
+			'default' => __( "The date is after the latest one allowed.", 'contact-form-7' )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		),
 	) );
 }
@@ -171,7 +208,11 @@ function wpcf7_tag_generator_date( $contact_form, $args = '' ) {
 
 	$description = __( "Generate a form-tag for a date input field. For more details, see %s.", 'contact-form-7' );
 
+<<<<<<< HEAD
 	$desc_link = wpcf7_link( __( 'https://contactform7.com/date-field/', 'contact-form-7' ), __( 'Date field', 'contact-form-7' ) );
+=======
+	$desc_link = wpcf7_link( __( 'https://contactform7.com/date-field/', 'contact-form-7' ), __( 'Date Field', 'contact-form-7' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ?>
 <div class="control-box">

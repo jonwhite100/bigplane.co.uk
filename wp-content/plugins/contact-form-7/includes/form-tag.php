@@ -35,7 +35,11 @@ class WPCF7_FormTag implements ArrayAccess {
 
 	public function get_option( $opt, $pattern = '', $single = false ) {
 		$preset_patterns = array(
+<<<<<<< HEAD
 			'date' => '[0-9]{4}-[0-9]{2}-[0-9]{2}',
+=======
+			'date' => '([0-9]{4}-[0-9]{2}-[0-9]{2}|today(.*))',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'int' => '[0-9]+',
 			'signed_int' => '-?[0-9]+',
 			'class' => '[-0-9a-zA-Z_]+',
@@ -183,6 +187,7 @@ class WPCF7_FormTag implements ArrayAccess {
 	}
 
 	public function get_date_option( $opt ) {
+<<<<<<< HEAD
 		$option_value = $this->get_option( $opt, '', true );
 
 		if ( empty( $option_value ) ) {
@@ -210,6 +215,25 @@ class WPCF7_FormTag implements ArrayAccess {
 			if ( $datetime_obj ) {
 				return $datetime_obj->format( 'Y-m-d' );
 			}
+=======
+		$option = $this->get_option( $opt, 'date', true );
+
+		if ( preg_match( '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $option ) ) {
+			return $option;
+		}
+
+		if ( preg_match( '/^today(?:([+-][0-9]+)([a-z]*))?/', $option, $matches ) ) {
+			$number = isset( $matches[1] ) ? (int) $matches[1] : 0;
+			$unit = isset( $matches[2] ) ? $matches[2] : '';
+
+			if ( ! preg_match( '/^(day|month|year|week)s?$/', $unit ) ) {
+				$unit = 'days';
+			}
+
+			$date = gmdate( 'Y-m-d',
+				strtotime( sprintf( 'today %1$s %2$s', $number, $unit ) ) );
+			return $date;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		return false;
@@ -332,7 +356,11 @@ class WPCF7_FormTag implements ArrayAccess {
 		return apply_filters( 'wpcf7_form_tag_data_option', null, $options, $args );
 	}
 
+<<<<<<< HEAD
 	public function get_limit_option( $default = MB_IN_BYTES ) {
+=======
+	public function get_limit_option( $default = 1048576 ) { // 1048576 = 1 MB
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$pattern = '/^limit:([1-9][0-9]*)([kKmM]?[bB])?$/';
 
 		$matches = $this->get_first_match_option( $pattern );
@@ -344,9 +372,15 @@ class WPCF7_FormTag implements ArrayAccess {
 				$kbmb = strtolower( $matches[2] );
 
 				if ( 'kb' == $kbmb ) {
+<<<<<<< HEAD
 					$size *= KB_IN_BYTES;
 				} elseif ( 'mb' == $kbmb ) {
 					$size *= MB_IN_BYTES;
+=======
+					$size *= 1024;
+				} elseif ( 'mb' == $kbmb ) {
+					$size *= 1024 * 1024;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 			}
 

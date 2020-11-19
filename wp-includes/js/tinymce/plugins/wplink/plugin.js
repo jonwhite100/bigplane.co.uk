@@ -37,9 +37,15 @@
 					url = this.url;
 				}
 
+<<<<<<< HEAD
 				// If the URL is longer that 40 chars, concatenate the beginning (after the domain) and ending with '...'.
 				if ( url.length > 40 && ( index = url.indexOf( '/' ) ) !== -1 && ( lastIndex = url.lastIndexOf( '/' ) ) !== -1 && lastIndex !== index ) {
 					// If the beginning + ending are shorter that 40 chars, show more of the ending.
+=======
+				// If the URL is longer that 40 chars, concatenate the beginning (after the domain) and ending with ...
+				if ( url.length > 40 && ( index = url.indexOf( '/' ) ) !== -1 && ( lastIndex = url.lastIndexOf( '/' ) ) !== -1 && lastIndex !== index ) {
+					// If the beginning + ending are shorter that 40 chars, show more of the ending
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( index + url.length - lastIndex < 40 ) {
 						lastIndex = -( 40 - ( index + 1 ) );
 					}
@@ -297,10 +303,17 @@
 			editor.execCommand( 'wp_link_cancel' );
 		} );
 
+<<<<<<< HEAD
 		// WP default shortcuts.
 		editor.addShortcut( 'access+a', '', 'WP_Link' );
 		editor.addShortcut( 'access+s', '', 'wp_unlink' );
 		// The "de-facto standard" shortcut, see #27305.
+=======
+		// WP default shortcuts
+		editor.addShortcut( 'access+a', '', 'WP_Link' );
+		editor.addShortcut( 'access+s', '', 'wp_unlink' );
+		// The "de-facto standard" shortcut, see #27305
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		editor.addShortcut( 'meta+k', '', 'WP_Link' );
 
 		editor.addButton( 'link', {
@@ -565,7 +578,11 @@
 		} );
 
 		editor.addButton( 'wp_link_edit', {
+<<<<<<< HEAD
 			tooltip: 'Edit|button', // '|button' is not displayed, only used for context.
+=======
+			tooltip: 'Edit|button', // '|button' is not displayed, only used for context
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			icon: 'dashicon dashicons-edit',
 			cmd: 'WP_Link'
 		} );

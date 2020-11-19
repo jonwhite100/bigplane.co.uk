@@ -24,7 +24,11 @@ if ( wp_using_themes() ) {
  * @param bool $exit Whether to exit without generating any content for 'HEAD' requests. Default true.
  */
 if ( 'HEAD' === $_SERVER['REQUEST_METHOD'] && apply_filters( 'exit_on_http_head', true ) ) {
+<<<<<<< HEAD
 	exit;
+=======
+	exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 // Process feeds and trackbacks even if not using themes.
@@ -36,6 +40,7 @@ if ( is_robots() ) {
 	 */
 	do_action( 'do_robots' );
 	return;
+<<<<<<< HEAD
 } elseif ( is_favicon() ) {
 	/**
 	 * Fired when the template loader determines a favicon.ico request.
@@ -44,11 +49,17 @@ if ( is_robots() ) {
 	 */
 	do_action( 'do_favicon' );
 	return;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 } elseif ( is_feed() ) {
 	do_feed();
 	return;
 } elseif ( is_trackback() ) {
+<<<<<<< HEAD
 	require ABSPATH . 'wp-trackback.php';
+=======
+	include( ABSPATH . 'wp-trackback.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	return;
 }
 
@@ -103,7 +114,11 @@ if ( wp_using_themes() ) {
 	 */
 	$template = apply_filters( 'template_include', $template );
 	if ( $template ) {
+<<<<<<< HEAD
 		include $template;
+=======
+		include( $template );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	} elseif ( current_user_can( 'switch_themes' ) ) {
 		$theme = wp_get_theme();
 		if ( $theme->errors() ) {

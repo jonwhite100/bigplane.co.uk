@@ -4,7 +4,11 @@
  * @package phpass
  * @since 2.5.0
  * @version 0.3 / WordPress
+<<<<<<< HEAD
  * @link https://www.openwall.com/phpass/
+=======
+ * @link http://www.openwall.com/phpass/
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 
 #
@@ -30,7 +34,11 @@
  *
  * @package phpass
  * @version 0.3 / WordPress
+<<<<<<< HEAD
  * @link https://www.openwall.com/phpass/
+=======
+ * @link http://www.openwall.com/phpass/
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @since 2.5.0
  */
 class PasswordHash {

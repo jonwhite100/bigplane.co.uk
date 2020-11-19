@@ -7,7 +7,11 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_options' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage options for this site.' ) );
@@ -38,7 +42,11 @@ get_current_screen()->set_help_sidebar(
 	'<p>' . __( '<a href="https://wordpress.org/support/">Support</a>' ) . '</p>'
 );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+include( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ?>
 
@@ -107,11 +115,15 @@ if ( isset( $GLOBALS['wp_settings']['media']['embeds'] ) ) :
 <h2 class="title"><?php _e( 'Uploading Files' ); ?></h2>
 <table class="form-table" role="presentation">
 	<?php
+<<<<<<< HEAD
 	/*
 	 * If upload_url_path is not the default (empty),
 	 * or upload_path is not the default ('wp-content/uploads' or empty),
 	 * they can be edited, otherwise they're locked.
 	 */
+=======
+	// If upload_url_path is not the default (empty), and upload_path is not the default ('wp-content/uploads' or empty)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( get_option( 'upload_url_path' ) || ( get_option( 'upload_path' ) != 'wp-content/uploads' && get_option( 'upload_path' ) ) ) :
 		?>
 <tr>
@@ -157,4 +169,8 @@ if ( isset( $GLOBALS['wp_settings']['media']['embeds'] ) ) :
 
 </div>
 
+<<<<<<< HEAD
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

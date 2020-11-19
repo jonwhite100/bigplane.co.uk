@@ -15,9 +15,12 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
 if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
 	exit;
 }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio.mp3.php', __FILE__, true);
 getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.tag.id3v2.php', __FILE__, true); // needed for ISO 639-2 language code lookup
 
@@ -58,6 +61,7 @@ class getid3_quicktime extends getid3_handler
 				$atomsize = getid3_lib::BigEndian2Int($this->fread(8));
 			}
 
+<<<<<<< HEAD
 			if (($offset + $atomsize) > $info['avdataend']) {
 				$info['quicktime'][$atomname]['name']   = $atomname;
 				$info['quicktime'][$atomname]['size']   = $atomsize;
@@ -65,10 +69,22 @@ class getid3_quicktime extends getid3_handler
 				$this->error('Atom at offset '.$offset.' claims to go beyond end-of-file (length: '.$atomsize.' bytes)');
 				return false;
 			}
+=======
+			$info['quicktime'][$atomname]['name']   = $atomname;
+			$info['quicktime'][$atomname]['size']   = $atomsize;
+			$info['quicktime'][$atomname]['offset'] = $offset;
+
+			if (($offset + $atomsize) > $info['avdataend']) {
+				$this->error('Atom at offset '.$offset.' claims to go beyond end-of-file (length: '.$atomsize.' bytes)');
+				return false;
+			}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ($atomsize == 0) {
 				// Furthermore, for historical reasons the list of atoms is optionally
 				// terminated by a 32-bit integer set to 0. If you are writing a program
 				// to read user data atoms, you should allow for the terminating 0.
+<<<<<<< HEAD
 				$info['quicktime'][$atomname]['name']   = $atomname;
 				$info['quicktime'][$atomname]['size']   = $atomsize;
 				$info['quicktime'][$atomname]['offset'] = $offset;
@@ -85,6 +101,12 @@ class getid3_quicktime extends getid3_handler
 			} else {
 				$info['quicktime'][$atomname] = $parsedAtomData;
 			}
+=======
+				break;
+			}
+			$atomHierarchy = array();
+			$info['quicktime'][$atomname] = $this->QuicktimeParseAtom($atomname, $atomsize, $this->fread(min($atomsize, $atom_data_read_buffer_size)), $offset, $atomHierarchy, $this->ParseAllPossibleAtoms);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			$offset += $atomsize;
 			$atomcounter++;
@@ -125,6 +147,7 @@ class getid3_quicktime extends getid3_handler
 		if (!empty($info['quicktime']['comments']['location.ISO6709'])) {
 			// https://en.wikipedia.org/wiki/ISO_6709
 			foreach ($info['quicktime']['comments']['location.ISO6709'] as $ISO6709string) {
+<<<<<<< HEAD
 				$ISO6709parsed = array('latitude'=>false, 'longitude'=>false, 'altitude'=>false);
 				if (preg_match('#^([\\+\\-])([0-9]{2}|[0-9]{4}|[0-9]{6})(\\.[0-9]+)?([\\+\\-])([0-9]{3}|[0-9]{5}|[0-9]{7})(\\.[0-9]+)?(([\\+\\-])([0-9]{3}|[0-9]{5}|[0-9]{7})(\\.[0-9]+)?)?/$#', $ISO6709string, $matches)) {
 					// phpcs:ignore PHPCompatibility.Lists.AssignmentOrder.Affected
@@ -164,6 +187,49 @@ class getid3_quicktime extends getid3_handler
 					}
 				}
 				if ($ISO6709parsed['latitude'] === false) {
+=======
+				$latitude  = false;
+				$longitude = false;
+				$altitude  = false;
+				if (preg_match('#^([\\+\\-])([0-9]{2}|[0-9]{4}|[0-9]{6})(\\.[0-9]+)?([\\+\\-])([0-9]{3}|[0-9]{5}|[0-9]{7})(\\.[0-9]+)?(([\\+\\-])([0-9]{3}|[0-9]{5}|[0-9]{7})(\\.[0-9]+)?)?/$#', $ISO6709string, $matches)) {
+					@list($dummy, $lat_sign, $lat_deg, $lat_deg_dec, $lon_sign, $lon_deg, $lon_deg_dec, $dummy, $alt_sign, $alt_deg, $alt_deg_dec) = $matches;
+
+					if (strlen($lat_deg) == 2) {        // [+-]DD.D
+						$latitude = floatval(ltrim($lat_deg, '0').$lat_deg_dec);
+					} elseif (strlen($lat_deg) == 4) {  // [+-]DDMM.M
+						$latitude = floatval(ltrim(substr($lat_deg, 0, 2), '0')) + floatval(ltrim(substr($lat_deg, 2, 2), '0').$lat_deg_dec / 60);
+					} elseif (strlen($lat_deg) == 6) {  // [+-]DDMMSS.S
+						$latitude = floatval(ltrim(substr($lat_deg, 0, 2), '0')) + floatval(ltrim(substr($lat_deg, 2, 2), '0') / 60) + floatval(ltrim(substr($lat_deg, 4, 2), '0').$lat_deg_dec / 3600);
+					}
+
+					if (strlen($lon_deg) == 3) {        // [+-]DDD.D
+						$longitude = floatval(ltrim($lon_deg, '0').$lon_deg_dec);
+					} elseif (strlen($lon_deg) == 5) {  // [+-]DDDMM.M
+						$longitude = floatval(ltrim(substr($lon_deg, 0, 2), '0')) + floatval(ltrim(substr($lon_deg, 2, 2), '0').$lon_deg_dec / 60);
+					} elseif (strlen($lon_deg) == 7) {  // [+-]DDDMMSS.S
+						$longitude = floatval(ltrim(substr($lon_deg, 0, 2), '0')) + floatval(ltrim(substr($lon_deg, 2, 2), '0') / 60) + floatval(ltrim(substr($lon_deg, 4, 2), '0').$lon_deg_dec / 3600);
+					}
+
+					if (strlen($alt_deg) == 3) {        // [+-]DDD.D
+						$altitude = floatval(ltrim($alt_deg, '0').$alt_deg_dec);
+					} elseif (strlen($alt_deg) == 5) {  // [+-]DDDMM.M
+						$altitude = floatval(ltrim(substr($alt_deg, 0, 2), '0')) + floatval(ltrim(substr($alt_deg, 2, 2), '0').$alt_deg_dec / 60);
+					} elseif (strlen($alt_deg) == 7) {  // [+-]DDDMMSS.S
+						$altitude = floatval(ltrim(substr($alt_deg, 0, 2), '0')) + floatval(ltrim(substr($alt_deg, 2, 2), '0') / 60) + floatval(ltrim(substr($alt_deg, 4, 2), '0').$alt_deg_dec / 3600);
+					}
+
+					if ($latitude !== false) {
+						$info['quicktime']['comments']['gps_latitude'][]  = (($lat_sign == '-') ? -1 : 1) * floatval($latitude);
+					}
+					if ($longitude !== false) {
+						$info['quicktime']['comments']['gps_longitude'][] = (($lon_sign == '-') ? -1 : 1) * floatval($longitude);
+					}
+					if ($altitude !== false) {
+						$info['quicktime']['comments']['gps_altitude'][]  = (($alt_sign == '-') ? -1 : 1) * floatval($altitude);
+					}
+				}
+				if ($latitude === false) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$this->warning('location.ISO6709 string not parsed correctly: "'.$ISO6709string.'", please submit as a bug');
 				}
 				break;
@@ -235,7 +301,10 @@ class getid3_quicktime extends getid3_handler
 
 		$atom_parent = end($atomHierarchy); // not array_pop($atomHierarchy); see https://www.getid3.org/phpBB3/viewtopic.php?t=1717
 		array_push($atomHierarchy, $atomname);
+<<<<<<< HEAD
 		$atom_structure              = array();
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$atom_structure['hierarchy'] = implode(' ', $atomHierarchy);
 		$atom_structure['name']      = $atomname;
 		$atom_structure['size']      = $atomsize;
@@ -256,7 +325,10 @@ class getid3_quicktime extends getid3_handler
 				case 'mdia': // MeDIA container atom
 				case 'minf': // Media INFormation container atom
 				case 'dinf': // Data INFormation container atom
+<<<<<<< HEAD
 				case 'nmhd': // Null Media HeaDer container atom
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				case 'udta': // User DaTA container atom
 				case 'cmov': // Compressed MOVie container atom
 				case 'rmra': // Reference Movie Record Atom
@@ -541,7 +613,10 @@ class getid3_quicktime extends getid3_handler
 														} elseif (preg_match('#^GIF#', $atom_structure['data'])) {
 															$atom_structure['image_mime'] = 'image/gif';
 														}
+<<<<<<< HEAD
 														$info['quicktime']['comments']['picture'][] = array('image_mime'=>$atom_structure['image_mime'], 'data'=>$atom_structure['data'], 'description'=>'cover');
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 														break;
 
 													case 'atID':
@@ -568,7 +643,10 @@ class getid3_quicktime extends getid3_handler
 													} elseif (preg_match('#^GIF#', $atom_structure['data'])) {
 														$atom_structure['image_mime'] = 'image/gif';
 													}
+<<<<<<< HEAD
 													$info['quicktime']['comments']['picture'][] = array('image_mime'=>$atom_structure['image_mime'], 'data'=>$atom_structure['data'], 'description'=>'cover');
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 												}
 												break;
 
@@ -772,6 +850,7 @@ class getid3_quicktime extends getid3_handler
 						$atom_structure['sample_description_table'][$i]['data']             =                           substr($atom_data, $stsdEntriesDataOffset, ($atom_structure['sample_description_table'][$i]['size'] - 4 - 4 - 6 - 2));
 						$stsdEntriesDataOffset += ($atom_structure['sample_description_table'][$i]['size'] - 4 - 4 - 6 - 2);
 
+<<<<<<< HEAD
 						if (substr($atom_structure['sample_description_table'][$i]['data'],  1, 54) == 'application/octet-stream;type=com.parrot.videometadata') {
 							// special handling for apparently-malformed (TextMetaDataSampleEntry?) data for some version of Parrot drones
 							$atom_structure['sample_description_table'][$i]['parrot_frame_metadata']['mime_type']        =       substr($atom_structure['sample_description_table'][$i]['data'],  1, 55);
@@ -781,6 +860,8 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 							continue;
 						}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$atom_structure['sample_description_table'][$i]['encoder_version']  = getid3_lib::BigEndian2Int(substr($atom_structure['sample_description_table'][$i]['data'],  0, 2));
 						$atom_structure['sample_description_table'][$i]['encoder_revision'] = getid3_lib::BigEndian2Int(substr($atom_structure['sample_description_table'][$i]['data'],  2, 2));
 						$atom_structure['sample_description_table'][$i]['encoder_vendor']   =                           substr($atom_structure['sample_description_table'][$i]['data'],  4, 4);
@@ -1068,7 +1149,10 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 
 
 				case 'stco': // Sample Table Chunk Offset atom
+<<<<<<< HEAD
 //					if (true) {
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ($ParseAllPossibleAtoms) {
 						$atom_structure['version']        = getid3_lib::BigEndian2Int(substr($atom_data,  0, 1));
 						$atom_structure['flags_raw']      = getid3_lib::BigEndian2Int(substr($atom_data,  1, 3)); // hardcoded: 0x0000
@@ -1158,7 +1242,11 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					$atom_structure['component_manufacturer'] =                           substr($atom_data, 12, 4);
 					$atom_structure['component_flags_raw']    = getid3_lib::BigEndian2Int(substr($atom_data, 16, 4));
 					$atom_structure['component_flags_mask']   = getid3_lib::BigEndian2Int(substr($atom_data, 20, 4));
+<<<<<<< HEAD
 					$atom_structure['component_name']         = $this->MaybePascal2String(substr($atom_data, 24));
+=======
+					$atom_structure['component_name']         =      $this->Pascal2String(substr($atom_data, 24));
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 					if (($atom_structure['component_subtype'] == 'STpn') && ($atom_structure['component_manufacturer'] == 'zzzz')) {
 						$info['video']['dataformat'] = 'quicktimevr';
@@ -1189,8 +1277,11 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					if (empty($info['comments']['language']) || (!in_array($atom_structure['language'], $info['comments']['language']))) {
 						$info['comments']['language'][] = $atom_structure['language'];
 					}
+<<<<<<< HEAD
 					$info['quicktime']['timestamps_unix']['create'][$atom_structure['hierarchy']] = $atom_structure['creation_time_unix'];
 					$info['quicktime']['timestamps_unix']['modify'][$atom_structure['hierarchy']] = $atom_structure['modify_time_unix'];
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					break;
 
 
@@ -1201,7 +1292,10 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					$atom_structure['atom_index']             = getid3_lib::BigEndian2Int(substr($atom_data, 10, 2)); // usually: 0x01
 
 					$atom_structure['modification_date_unix'] = getid3_lib::DateMac2Unix($atom_structure['modification_date']);
+<<<<<<< HEAD
 					$info['quicktime']['timestamps_unix']['modify'][$atom_structure['hierarchy']] = $atom_structure['modification_date_unix'];
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					break;
 
 
@@ -1299,8 +1393,11 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					}
 					$atom_structure['creation_time_unix']        = getid3_lib::DateMac2Unix($atom_structure['creation_time']);
 					$atom_structure['modify_time_unix']          = getid3_lib::DateMac2Unix($atom_structure['modify_time']);
+<<<<<<< HEAD
 					$info['quicktime']['timestamps_unix']['create'][$atom_structure['hierarchy']] = $atom_structure['creation_time_unix'];
 					$info['quicktime']['timestamps_unix']['modify'][$atom_structure['hierarchy']] = $atom_structure['modify_time_unix'];
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$info['quicktime']['time_scale']    = ((isset($info['quicktime']['time_scale']) && ($info['quicktime']['time_scale'] < 1000)) ? max($info['quicktime']['time_scale'], $atom_structure['time_scale']) : $atom_structure['time_scale']);
 					$info['quicktime']['display_scale'] = $atom_structure['matrix_a'];
 					$info['playtime_seconds']           = $atom_structure['duration'] / $atom_structure['time_scale'];
@@ -1339,8 +1436,11 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					$atom_structure['flags']['in_poster']  = (bool) ($atom_structure['flags_raw'] & 0x0008);
 					$atom_structure['creation_time_unix']  = getid3_lib::DateMac2Unix($atom_structure['creation_time']);
 					$atom_structure['modify_time_unix']    = getid3_lib::DateMac2Unix($atom_structure['modify_time']);
+<<<<<<< HEAD
 					$info['quicktime']['timestamps_unix']['create'][$atom_structure['hierarchy']] = $atom_structure['creation_time_unix'];
 					$info['quicktime']['timestamps_unix']['modify'][$atom_structure['hierarchy']] = $atom_structure['modify_time_unix'];
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 					// https://www.getid3.org/phpBB3/viewtopic.php?t=1908
 					// attempt to compute rotation from matrix values
@@ -1482,7 +1582,11 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 						$info['avdataend']    = $atom_structure['offset'] + $atom_structure['size']; // $info['quicktime'][$atomname]['offset'] + $info['quicktime'][$atomname]['size'];
 
 						$getid3_temp = new getID3();
+<<<<<<< HEAD
 						$getid3_temp->openfile($this->getid3->filename, $this->getid3->info['filesize'], $this->getid3->fp);
+=======
+						$getid3_temp->openfile($this->getid3->filename);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$getid3_temp->info['avdataoffset'] = $info['avdataoffset'];
 						$getid3_temp->info['avdataend']    = $info['avdataend'];
 						$getid3_mp3 = new getid3_mp3($getid3_temp);
@@ -1671,6 +1775,7 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					}
 					break;
 
+<<<<<<< HEAD
 				case 'uuid': // user-defined atom often seen containing XML data, also used for potentially many other purposes, only a few specifically handled by getID3 (e.g. 360fly spatial data)
 					//Get the UUID ID in first 16 bytes
 					$uuid_bytes_read = unpack('H8time_low/H4time_mid/H4time_hi/H4clock_seq_hi/H12clock_seq_low', substr($atom_data, 0, 16));
@@ -1811,6 +1916,8 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					}
 					break;
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				case 'gps ':
 					// https://dashcamtalk.com/forum/threads/script-to-extract-gps-data-from-novatek-mp4.20808/page-2#post-291730
 					// The 'gps ' contains simple look up table made up of 8byte rows, that point to the 'free' atoms that contains the actual GPS data.
@@ -1855,6 +1962,7 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 								// $GPRMC,094347.000,A,5342.0061,N,00737.9908,W,0.01,156.75,140217,,,A*7D
 								if (preg_match('#\\$GPRMC,([0-9\\.]*),([AV]),([0-9\\.]*),([NS]),([0-9\\.]*),([EW]),([0-9\\.]*),([0-9\\.]*),([0-9]*),([0-9\\.]*),([EW]?)(,[A])?(\\*[0-9A-F]{2})#', $GPS_free_data, $matches)) {
 									$GPS_this_GPRMC = array();
+<<<<<<< HEAD
 									$GPS_this_GPRMC_raw = array();
 									list(
 										$GPS_this_GPRMC_raw['gprmc'],
@@ -1873,6 +1981,24 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 										$GPS_this_GPRMC_raw['checksum'],
 									) = $matches;
 									$GPS_this_GPRMC['raw'] = $GPS_this_GPRMC_raw;
+=======
+									list(
+										$GPS_this_GPRMC['raw']['gprmc'],
+										$GPS_this_GPRMC['raw']['timestamp'],
+										$GPS_this_GPRMC['raw']['status'],
+										$GPS_this_GPRMC['raw']['latitude'],
+										$GPS_this_GPRMC['raw']['latitude_direction'],
+										$GPS_this_GPRMC['raw']['longitude'],
+										$GPS_this_GPRMC['raw']['longitude_direction'],
+										$GPS_this_GPRMC['raw']['knots'],
+										$GPS_this_GPRMC['raw']['angle'],
+										$GPS_this_GPRMC['raw']['datestamp'],
+										$GPS_this_GPRMC['raw']['variation'],
+										$GPS_this_GPRMC['raw']['variation_direction'],
+										$dummy,
+										$GPS_this_GPRMC['raw']['checksum'],
+									) = $matches;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 									$hour   = substr($GPS_this_GPRMC['raw']['timestamp'], 0, 2);
 									$minute = substr($GPS_this_GPRMC['raw']['timestamp'], 2, 2);
@@ -1880,7 +2006,11 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 									$ms     = substr($GPS_this_GPRMC['raw']['timestamp'], 6);    // may contain decimal seconds
 									$day    = substr($GPS_this_GPRMC['raw']['datestamp'], 0, 2);
 									$month  = substr($GPS_this_GPRMC['raw']['datestamp'], 2, 2);
+<<<<<<< HEAD
 									$year   = (int) substr($GPS_this_GPRMC['raw']['datestamp'], 4, 2);
+=======
+									$year   = substr($GPS_this_GPRMC['raw']['datestamp'], 4, 2);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 									$year += (($year > 90) ? 1900 : 2000); // complete lack of foresight: datestamps are stored with 2-digit years, take best guess
 									$GPS_this_GPRMC['timestamp'] = $year.'-'.$month.'-'.$day.' '.$hour.':'.$minute.':'.$second.$ms;
 
@@ -2003,13 +2133,18 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 				case 'thma': // subatom to "frea" -- "ThumbnailImage"
 					// https://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/Kodak.html#frea
 					if (strlen($atom_data) > 0) {
+<<<<<<< HEAD
 						$info['quicktime']['comments']['picture'][] = array('data'=>$atom_data, 'image_mime'=>'image/jpeg', 'description'=>'ThumbnailImage');
+=======
+						$info['quicktime']['comments']['picture'][] = array('data'=>$atom_data, 'image_mime'=>'image/jpeg');
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					}
 					break;
 				case 'scra': // subatom to "frea" -- "PreviewImage"
 					// https://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/Kodak.html#frea
 					// but the only sample file I've seen has no useful data here
 					if (strlen($atom_data) > 0) {
+<<<<<<< HEAD
 						$info['quicktime']['comments']['picture'][] = array('data'=>$atom_data, 'image_mime'=>'image/jpeg', 'description'=>'PreviewImage');
 					}
 					break;
@@ -2019,6 +2154,12 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 					// Metadata tracks are linked to the tracks they describe using a track-reference of type 'cdsc'. The metadata track holds the 'cdsc' track reference.
 					$atom_structure['track_number'] = getid3_lib::BigEndian2Int($atom_data);
 					break;
+=======
+						$info['quicktime']['comments']['picture'][] = array('data'=>$atom_data, 'image_mime'=>'image/jpeg');
+					}
+					break;
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 				default:
 					$this->warning('Unknown QuickTime atom type: "'.preg_replace('#[^a-zA-Z0-9 _\\-]#', '?', $atomname).'" ('.trim(getid3_lib::PrintHexBytes($atomname)).'), '.$atomsize.' bytes at offset '.$baseoffset);
@@ -2059,12 +2200,15 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 				}
 				return $atom_structure;
 			}
+<<<<<<< HEAD
 			if (strlen($subatomdata) < ($subatomsize - 8)) {
 			    // we don't have enough data to decode the subatom.
 			    // this may be because we are refusing to parse large subatoms, or it may be because this atom had its size set too large
 			    // so we passed in the start of a following atom incorrectly?
 			    return $atom_structure;
 			}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$atom_structure[$subatomcounter++] = $this->QuicktimeParseAtom($subatomname, $subatomsize, $subatomdata, $baseoffset + $subatomoffset, $atomHierarchy, $ParseAllPossibleAtoms);
 			$subatomoffset += $subatomsize;
 		}
@@ -2905,8 +3049,24 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 		}
 		if ($comment_key) {
 			if ($comment_key == 'picture') {
+<<<<<<< HEAD
 				// already copied directly into [comments][picture] elsewhere, do not re-copy here
 				return true;
+=======
+				if (!is_array($data)) {
+					$image_mime = '';
+					if (preg_match('#^\x89\x50\x4E\x47\x0D\x0A\x1A\x0A#', $data)) {
+						$image_mime = 'image/png';
+					} elseif (preg_match('#^\xFF\xD8\xFF#', $data)) {
+						$image_mime = 'image/jpeg';
+					} elseif (preg_match('#^GIF#', $data)) {
+						$image_mime = 'image/gif';
+					} elseif (preg_match('#^BM#', $data)) {
+						$image_mime = 'image/bmp';
+					}
+					$data = array('data'=>$data, 'image_mime'=>$image_mime);
+				}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 			$gooddata = array($data);
 			if ($comment_key == 'genre') {
@@ -2914,10 +3074,13 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 				$gooddata = explode(';', $data);
 			}
 			foreach ($gooddata as $data) {
+<<<<<<< HEAD
 				if (!empty($info['quicktime']['comments'][$comment_key]) && in_array($data, $info['quicktime']['comments'][$comment_key], true)) {
 					// avoid duplicate copies of identical data
 					continue;
 				}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$info['quicktime']['comments'][$comment_key][] = $data;
 			}
 		}
@@ -2983,6 +3146,7 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 		return substr($pascalstring, 1);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param string $pascalstring
 	 *
@@ -3000,6 +3164,8 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 		return $pascalstring;
 	}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Helper functions for m4b audiobook chapters

@@ -38,6 +38,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	public $bulk = false;
 
 	/**
+<<<<<<< HEAD
 	 * New theme info.
 	 *
 	 * @since 5.5.0
@@ -48,6 +49,8 @@ class Theme_Upgrader extends WP_Upgrader {
 	public $new_theme_data = array();
 
 	/**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * Initialize the upgrade strings.
 	 *
 	 * @since 2.8.0
@@ -75,8 +78,11 @@ class Theme_Upgrader extends WP_Upgrader {
 		$this->strings['downloading_package'] = sprintf( __( 'Downloading installation package from %s&#8230;' ), '<span class="code">%s</span>' );
 		$this->strings['unpack_package']      = __( 'Unpacking the package&#8230;' );
 		$this->strings['installing_package']  = __( 'Installing the theme&#8230;' );
+<<<<<<< HEAD
 		$this->strings['remove_old']          = __( 'Removing the old version of the theme&#8230;' );
 		$this->strings['remove_old_failed']   = __( 'Could not remove the old theme.' );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$this->strings['no_files']            = __( 'The theme contains no files.' );
 		$this->strings['process_failed']      = __( 'Theme installation failed.' );
 		$this->strings['process_success']     = __( 'Theme installed successfully.' );
@@ -91,6 +97,7 @@ class Theme_Upgrader extends WP_Upgrader {
 		$this->strings['parent_theme_install_success'] = __( 'Successfully installed the parent theme, <strong>%1$s %2$s</strong>.' );
 		/* translators: %s: Theme name. */
 		$this->strings['parent_theme_not_found'] = sprintf( __( '<strong>The parent theme could not be found.</strong> You will need to install the parent theme, %s, before you can use this child theme.' ), '<strong>%s</strong>' );
+<<<<<<< HEAD
 		/* translators: %s: Theme error. */
 		$this->strings['current_theme_has_errors'] = __( 'The current theme has the following error: "%s".' );
 
@@ -107,6 +114,8 @@ class Theme_Upgrader extends WP_Upgrader {
 				$this->strings['process_success']    = __( 'Theme downgraded successfully.' );
 			}
 		}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -119,10 +128,17 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @param bool  $install_result
 	 * @param array $hook_extra
 	 * @param array $child_result
+<<<<<<< HEAD
 	 * @return bool
 	 */
 	public function check_parent_theme_filter( $install_result, $hook_extra, $child_result ) {
 		// Check to see if we need to install a parent theme.
+=======
+	 * @return type
+	 */
+	public function check_parent_theme_filter( $install_result, $hook_extra, $child_result ) {
+		// Check to see if we need to install a parent theme
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$theme_info = $this->theme_info();
 
 		if ( ! $theme_info->parent() ) {
@@ -147,11 +163,19 @@ class Theme_Upgrader extends WP_Upgrader {
 					'tags'     => false,
 				),
 			)
+<<<<<<< HEAD
 		); // Save on a bit of bandwidth.
 
 		if ( ! $api || is_wp_error( $api ) ) {
 			$this->skin->feedback( 'parent_theme_not_found', $theme_info->get( 'Template' ) );
 			// Don't show activate or preview actions after installation.
+=======
+		); //Save on a bit of bandwidth.
+
+		if ( ! $api || is_wp_error( $api ) ) {
+			$this->skin->feedback( 'parent_theme_not_found', $theme_info->get( 'Template' ) );
+			// Don't show activate or preview actions after installation
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			add_filter( 'install_theme_complete_actions', array( $this, 'hide_activate_preview_actions' ) );
 			return $install_result;
 		}
@@ -160,21 +184,35 @@ class Theme_Upgrader extends WP_Upgrader {
 		$child_api             = $this->skin->api;
 		$child_success_message = $this->strings['process_success'];
 
+<<<<<<< HEAD
 		// Override them.
 		$this->skin->api = $api;
 
 		$this->strings['process_success_specific'] = $this->strings['parent_theme_install_success'];
+=======
+		// Override them
+		$this->skin->api                           = $api;
+		$this->strings['process_success_specific'] = $this->strings['parent_theme_install_success'];//, $api->name, $api->version);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$this->skin->feedback( 'parent_theme_prepare_install', $api->name, $api->version );
 
 		add_filter( 'install_theme_complete_actions', '__return_false', 999 ); // Don't show any actions after installing the theme.
 
+<<<<<<< HEAD
 		// Install the parent theme.
+=======
+		// Install the parent theme
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$parent_result = $this->run(
 			array(
 				'package'           => $api->download_link,
 				'destination'       => get_theme_root(),
+<<<<<<< HEAD
 				'clear_destination' => false, // Do not overwrite files.
+=======
+				'clear_destination' => false, //Do not overwrite files.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				'clear_working'     => true,
 			)
 		);
@@ -183,10 +221,17 @@ class Theme_Upgrader extends WP_Upgrader {
 			add_filter( 'install_theme_complete_actions', array( $this, 'hide_activate_preview_actions' ) );
 		}
 
+<<<<<<< HEAD
 		// Start cleaning up after the parent's installation.
 		remove_filter( 'install_theme_complete_actions', '__return_false', 999 );
 
 		// Reset child's result and data.
+=======
+		// Start cleaning up after the parents installation
+		remove_filter( 'install_theme_complete_actions', '__return_false', 999 );
+
+		// Reset child's result and data
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$this->result                     = $child_result;
 		$this->skin->api                  = $child_api;
 		$this->strings['process_success'] = $child_success_message;
@@ -228,9 +273,15 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @return bool|WP_Error True if the installation was successful, false or a WP_Error object otherwise.
 	 */
 	public function install( $package, $args = array() ) {
+<<<<<<< HEAD
 		$defaults    = array(
 			'clear_update_cache' => true,
 			'overwrite_package'  => false, // Do not overwrite files.
+=======
+
+		$defaults    = array(
+			'clear_update_cache' => true,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		);
 		$parsed_args = wp_parse_args( $args, $defaults );
 
@@ -239,7 +290,10 @@ class Theme_Upgrader extends WP_Upgrader {
 
 		add_filter( 'upgrader_source_selection', array( $this, 'check_package' ) );
 		add_filter( 'upgrader_post_install', array( $this, 'check_parent_theme_filter' ), 10, 3 );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( $parsed_args['clear_update_cache'] ) {
 			// Clear cache so wp_update_themes() knows about the new theme.
 			add_action( 'upgrader_process_complete', 'wp_clean_themes_cache', 9, 0 );
@@ -249,7 +303,11 @@ class Theme_Upgrader extends WP_Upgrader {
 			array(
 				'package'           => $package,
 				'destination'       => get_theme_root(),
+<<<<<<< HEAD
 				'clear_destination' => $parsed_args['overwrite_package'],
+=======
+				'clear_destination' => false, //Do not overwrite files.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				'clear_working'     => true,
 				'hook_extra'        => array(
 					'type'   => 'theme',
@@ -266,6 +324,7 @@ class Theme_Upgrader extends WP_Upgrader {
 			return $this->result;
 		}
 
+<<<<<<< HEAD
 		// Refresh the Theme Update information.
 		wp_clean_themes_cache( $parsed_args['clear_update_cache'] );
 
@@ -283,6 +342,11 @@ class Theme_Upgrader extends WP_Upgrader {
 			do_action( 'upgrader_overwrote_package', $package, $this->new_theme_data, 'theme' );
 		}
 
+=======
+		// Refresh the Theme Update information
+		wp_clean_themes_cache( $parsed_args['clear_update_cache'] );
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return true;
 	}
 
@@ -302,6 +366,10 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @return bool|WP_Error True if the upgrade was successful, false or a WP_Error object otherwise.
 	 */
 	public function upgrade( $theme, $args = array() ) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$defaults    = array(
 			'clear_update_cache' => true,
 		);
@@ -355,6 +423,7 @@ class Theme_Upgrader extends WP_Upgrader {
 
 		wp_clean_themes_cache( $parsed_args['clear_update_cache'] );
 
+<<<<<<< HEAD
 		// Ensure any future auto-update failures trigger a failure email by removing
 		// the last failure notification from the list when themes update successfully.
 		$past_failure_emails = get_option( 'auto_plugin_theme_update_emails', array() );
@@ -364,6 +433,8 @@ class Theme_Upgrader extends WP_Upgrader {
 			update_option( 'auto_plugin_theme_update_emails', $past_failure_emails );
 		}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return true;
 	}
 
@@ -383,6 +454,10 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @return array[]|false An array of results, or false if unable to connect to the filesystem.
 	 */
 	public function bulk_upgrade( $themes, $args = array() ) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$defaults    = array(
 			'clear_update_cache' => true,
 		);
@@ -400,7 +475,11 @@ class Theme_Upgrader extends WP_Upgrader {
 
 		$this->skin->header();
 
+<<<<<<< HEAD
 		// Connect to the filesystem first.
+=======
+		// Connect to the Filesystem first.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$res = $this->fs_connect( array( WP_CONTENT_DIR ) );
 		if ( ! $res ) {
 			$this->skin->footer();
@@ -409,6 +488,7 @@ class Theme_Upgrader extends WP_Upgrader {
 
 		$this->skin->bulk_header();
 
+<<<<<<< HEAD
 		/*
 		 * Only start maintenance mode if:
 		 * - running Multisite and there are one or more themes specified, OR
@@ -418,6 +498,15 @@ class Theme_Upgrader extends WP_Upgrader {
 		$maintenance = ( is_multisite() && ! empty( $themes ) );
 		foreach ( $themes as $theme ) {
 			$maintenance = $maintenance || get_stylesheet() === $theme || get_template() === $theme;
+=======
+		// Only start maintenance mode if:
+		// - running Multisite and there are one or more themes specified, OR
+		// - a theme with an update available is currently in use.
+		// @TODO: For multisite, maintenance mode should only kick in for individual sites if at all possible.
+		$maintenance = ( is_multisite() && ! empty( $themes ) );
+		foreach ( $themes as $theme ) {
+			$maintenance = $maintenance || $theme == get_stylesheet() || $theme == get_template();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		if ( $maintenance ) {
 			$this->maintenance_mode( true );
@@ -441,7 +530,11 @@ class Theme_Upgrader extends WP_Upgrader {
 				continue;
 			}
 
+<<<<<<< HEAD
 			// Get the URL to the zip file.
+=======
+			// Get the URL to the zip file
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$r = $current->response[ $theme ];
 
 			$result = $this->run(
@@ -459,6 +552,7 @@ class Theme_Upgrader extends WP_Upgrader {
 
 			$results[ $theme ] = $this->result;
 
+<<<<<<< HEAD
 			// Prevent credentials auth screen from displaying multiple times.
 			if ( false === $result ) {
 				break;
@@ -468,6 +562,17 @@ class Theme_Upgrader extends WP_Upgrader {
 		$this->maintenance_mode( false );
 
 		// Refresh the Theme Update information.
+=======
+			// Prevent credentials auth screen from displaying multiple times
+			if ( false === $result ) {
+				break;
+			}
+		} //end foreach $plugins
+
+		$this->maintenance_mode( false );
+
+		// Refresh the Theme Update information
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		wp_clean_themes_cache( $parsed_args['clear_update_cache'] );
 
 		/** This action is documented in wp-admin/includes/class-wp-upgrader.php */
@@ -491,6 +596,7 @@ class Theme_Upgrader extends WP_Upgrader {
 		remove_filter( 'upgrader_post_install', array( $this, 'current_after' ) );
 		remove_filter( 'upgrader_clear_destination', array( $this, 'delete_old_theme' ) );
 
+<<<<<<< HEAD
 		// Ensure any future auto-update failures trigger a failure email by removing
 		// the last failure notification from the list when themes update successfully.
 		$past_failure_emails = get_option( 'auto_plugin_theme_update_emails', array() );
@@ -506,6 +612,8 @@ class Theme_Upgrader extends WP_Upgrader {
 
 		update_option( 'auto_plugin_theme_update_emails', $past_failure_emails );
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $results;
 	}
 
@@ -526,19 +634,30 @@ class Theme_Upgrader extends WP_Upgrader {
 	public function check_package( $source ) {
 		global $wp_filesystem;
 
+<<<<<<< HEAD
 		$this->new_theme_data = array();
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( is_wp_error( $source ) ) {
 			return $source;
 		}
 
+<<<<<<< HEAD
 		// Check that the folder contains a valid theme.
+=======
+		// Check the folder contains a valid theme
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$working_directory = str_replace( $wp_filesystem->wp_content_dir(), trailingslashit( WP_CONTENT_DIR ), $source );
 		if ( ! is_dir( $working_directory ) ) { // Sanity check, if the above fails, let's not prevent installation.
 			return $source;
 		}
 
+<<<<<<< HEAD
 		// A proper archive should have a style.css file in the single subdirectory.
+=======
+		// A proper archive should have a style.css file in the single subdirectory
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! file_exists( $working_directory . 'style.css' ) ) {
 			return new WP_Error(
 				'incompatible_archive_theme_no_style',
@@ -551,6 +670,7 @@ class Theme_Upgrader extends WP_Upgrader {
 			);
 		}
 
+<<<<<<< HEAD
 		// All these headers are needed on Theme_Installer_Skin::do_overwrite().
 		$info = get_file_data(
 			$working_directory . 'style.css',
@@ -561,6 +681,13 @@ class Theme_Upgrader extends WP_Upgrader {
 				'Template'    => 'Template',
 				'RequiresWP'  => 'Requires at least',
 				'RequiresPHP' => 'Requires PHP',
+=======
+		$info = get_file_data(
+			$working_directory . 'style.css',
+			array(
+				'Name'     => 'Theme Name',
+				'Template' => 'Template',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			)
 		);
 
@@ -589,6 +716,7 @@ class Theme_Upgrader extends WP_Upgrader {
 			);
 		}
 
+<<<<<<< HEAD
 		$requires_php = isset( $info['RequiresPHP'] ) ? $info['RequiresPHP'] : null;
 		$requires_wp  = isset( $info['RequiresWP'] ) ? $info['RequiresWP'] : null;
 
@@ -615,6 +743,8 @@ class Theme_Upgrader extends WP_Upgrader {
 
 		$this->new_theme_data = $info;
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $source;
 	}
 
@@ -626,9 +756,15 @@ class Theme_Upgrader extends WP_Upgrader {
 	 *
 	 * @since 2.8.0
 	 *
+<<<<<<< HEAD
 	 * @param bool|WP_Error $return Upgrade offer return.
 	 * @param array         $theme  Theme arguments.
 	 * @return bool|WP_Error The passed in $return param or WP_Error.
+=======
+	 * @param bool|WP_Error  $return
+	 * @param array          $theme
+	 * @return bool|WP_Error
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function current_before( $return, $theme ) {
 		if ( is_wp_error( $return ) ) {
@@ -637,12 +773,19 @@ class Theme_Upgrader extends WP_Upgrader {
 
 		$theme = isset( $theme['theme'] ) ? $theme['theme'] : '';
 
+<<<<<<< HEAD
 		// Only run if current theme
 		if ( get_stylesheet() !== $theme ) {
 			return $return;
 		}
 
 		// Change to maintenance mode. Bulk edit handles this separately.
+=======
+		if ( $theme != get_stylesheet() ) { //If not current
+			return $return;
+		}
+		//Change to maintenance mode now.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! $this->bulk ) {
 			$this->maintenance_mode( true );
 		}
@@ -658,9 +801,15 @@ class Theme_Upgrader extends WP_Upgrader {
 	 *
 	 * @since 2.8.0
 	 *
+<<<<<<< HEAD
 	 * @param bool|WP_Error $return Upgrade offer return.
 	 * @param array         $theme  Theme arguments.
 	 * @return bool|WP_Error The passed in $return param or WP_Error.
+=======
+	 * @param bool|WP_Error  $return
+	 * @param array          $theme
+	 * @return bool|WP_Error
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function current_after( $return, $theme ) {
 		if ( is_wp_error( $return ) ) {
@@ -669,19 +818,31 @@ class Theme_Upgrader extends WP_Upgrader {
 
 		$theme = isset( $theme['theme'] ) ? $theme['theme'] : '';
 
+<<<<<<< HEAD
 		// Only run if current theme.
 		if ( get_stylesheet() !== $theme ) {
+=======
+		if ( $theme != get_stylesheet() ) { // If not current
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return $return;
 		}
 
 		// Ensure stylesheet name hasn't changed after the upgrade:
+<<<<<<< HEAD
 		if ( get_stylesheet() === $theme && $theme !== $this->result['destination_name'] ) {
+=======
+		if ( $theme == get_stylesheet() && $theme != $this->result['destination_name'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			wp_clean_themes_cache();
 			$stylesheet = $this->result['destination_name'];
 			switch_theme( $stylesheet );
 		}
 
+<<<<<<< HEAD
 		// Time to remove maintenance mode. Bulk edit handles this separately.
+=======
+		//Time to remove maintenance mode
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! $this->bulk ) {
 			$this->maintenance_mode( false );
 		}
@@ -738,6 +899,10 @@ class Theme_Upgrader extends WP_Upgrader {
 	 *                        and the last result isn't set.
 	 */
 	public function theme_info( $theme = null ) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( empty( $theme ) ) {
 			if ( ! empty( $this->result['destination_name'] ) ) {
 				$theme = $this->result['destination_name'];
@@ -745,11 +910,15 @@ class Theme_Upgrader extends WP_Upgrader {
 				return false;
 			}
 		}
+<<<<<<< HEAD
 
 		$theme = wp_get_theme( $theme );
 		$theme->cache_delete();
 
 		return $theme;
+=======
+		return wp_get_theme( $theme );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 }

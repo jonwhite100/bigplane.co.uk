@@ -155,8 +155,11 @@ final class WP_Privacy_Policy_Content {
 	 *
 	 * @since 4.9.6
 	 * @access private
+<<<<<<< HEAD
 	 *
 	 * @param int $post_id The ID of the updated post.
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public static function _policy_page_updated( $post_id ) {
 		$policy_page_id = (int) get_option( 'wp_page_for_privacy_policy' );
@@ -320,10 +323,16 @@ final class WP_Privacy_Policy_Content {
 			return;
 		}
 
+<<<<<<< HEAD
 		$current_screen = get_current_screen();
 		$policy_page_id = (int) get_option( 'wp_page_for_privacy_policy' );
 
 		if ( 'post' !== $current_screen->base || $policy_page_id !== $post->ID ) {
+=======
+		$policy_page_id = (int) get_option( 'wp_page_for_privacy_policy' );
+
+		if ( ! $policy_page_id || $policy_page_id !== $post->ID ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return;
 		}
 
@@ -374,9 +383,18 @@ final class WP_Privacy_Policy_Content {
 	public static function privacy_policy_guide() {
 
 		$content_array = self::get_suggested_policy_text();
+<<<<<<< HEAD
 		$content       = '';
 		$toc           = array( '<li><a href="#wp-privacy-policy-guide-introduction">' . __( 'Introduction' ) . '</a></li>' );
 		$date_format   = __( 'F j, Y' );
+=======
+
+		$content       = '';
+		$toc           = array( '<li><a href="#wp-privacy-policy-guide-introduction">' . __( 'Introduction' ) . '</a></li>' );
+		$date_format   = __( 'F j, Y' );
+		$copy          = __( 'Copy this section to clipboard' );
+		$return_to_top = '<a href="#" class="return-to-top">' . __( '&uarr; Return to Top' ) . '</a>';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		foreach ( $content_array as $section ) {
 			$class   = '';
@@ -384,16 +402,26 @@ final class WP_Privacy_Policy_Content {
 			$removed = '';
 
 			if ( ! empty( $section['removed'] ) ) {
+<<<<<<< HEAD
 				$class = 'text-removed';
+=======
+				$class = ' text-removed';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$date  = date_i18n( $date_format, $section['removed'] );
 				/* translators: %s: Date of plugin deactivation. */
 				$meta = sprintf( __( 'Removed %s.' ), $date );
 
 				/* translators: %s: Date of plugin deactivation. */
 				$removed = __( 'You deactivated this plugin on %s and may no longer need this policy.' );
+<<<<<<< HEAD
 				$removed = '<div class="notice notice-info inline"><p>' . sprintf( $removed, $date ) . '</p></div>';
 			} elseif ( ! empty( $section['updated'] ) ) {
 				$class = 'text-updated';
+=======
+				$removed = '<div class="error inline"><p>' . sprintf( $removed, $date ) . '</p></div>';
+			} elseif ( ! empty( $section['updated'] ) ) {
+				$class = ' text-updated';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$date  = date_i18n( $date_format, $section['updated'] );
 				/* translators: %s: Date of privacy policy text update. */
 				$meta = sprintf( __( 'Updated %s.' ), $date );
@@ -407,13 +435,18 @@ final class WP_Privacy_Policy_Content {
 			$toc_id      = 'wp-privacy-policy-guide-' . sanitize_title( $plugin_name );
 			$toc[]       = sprintf( '<li><a href="#%1$s">%2$s</a>' . $meta . '</li>', $toc_id, $plugin_name );
 
+<<<<<<< HEAD
 			$content .= '<div class="privacy-text-section ' . $class . '">';
+=======
+			$content .= '<div class="privacy-text-section' . $class . '">';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$content .= '<a id="' . $toc_id . '">&nbsp;</a>';
 			/* translators: %s: Plugin name. */
 			$content .= '<h2>' . sprintf( __( 'Source: %s' ), $plugin_name ) . '</h2>';
 			$content .= $removed;
 
 			$content .= '<div class="policy-text">' . $section['policy_text'] . '</div>';
+<<<<<<< HEAD
 
 			if ( empty( $section['removed'] ) ) {
 				$content .= '<div class="privacy-text-actions">';
@@ -427,14 +460,38 @@ final class WP_Privacy_Policy_Content {
 			$content .= '<a href="#wpbody" class="return-to-top"><span aria-hidden="true">&uarr; </span> ' . __( 'Return to top' ) . '</a>';
 
 			$content .= '</div>'; // End of .privacy-text-section.
+=======
+			$content .= $return_to_top;
+
+			if ( empty( $section['removed'] ) ) {
+				$content         .= '<div class="privacy-text-actions">';
+					$content     .= '<button type="button" class="privacy-text-copy button">';
+						$content .= $copy;
+						$content .= '<span class="screen-reader-text">';
+						/* translators: %s: Plugin name. */
+						$content .= sprintf( __( 'Copy suggested policy text from %s.' ), $plugin_name );
+						$content .= '</span>';
+					$content     .= '</button>';
+				$content         .= '</div>';
+			}
+
+			$content .= "</div>\n"; // End of .privacy-text-section.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		if ( count( $toc ) > 2 ) {
 			?>
+<<<<<<< HEAD
 			<div class="privacy-text-box-toc">
 				<p><?php _e( 'Table of Contents' ); ?></p>
 				<ol>
 					<?php echo implode( $toc ); ?>
+=======
+			<div  class="privacy-text-box-toc">
+				<p><?php _e( 'Table of Contents' ); ?></p>
+				<ol>
+					<?php echo implode( "\n", $toc ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				</ol>
 			</div>
 			<?php
@@ -703,10 +760,17 @@ final class WP_Privacy_Policy_Content {
 		 * @since 4.9.6
 		 * @since 5.0.0 Added the `$strings`, `$description`, and `$blocks` parameters.
 		 *
+<<<<<<< HEAD
 		 * @param string   $content     The default policy content.
 		 * @param string[] $strings     An array of privacy policy content strings.
 		 * @param bool     $description Whether policy descriptions should be included.
 		 * @param bool     $blocks      Whether the content should be formatted for the block editor.
+=======
+		 * @param string $content     The default policy content.
+		 * @param array  $strings     An array of privacy policy content strings.
+		 * @param bool   $description Whether policy descriptions should be included.
+		 * @param bool   $blocks      Whether the content should be formatted for the block editor.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		return apply_filters( 'wp_get_default_privacy_policy_content', $content, $strings, $description, $blocks );
 	}

@@ -14,9 +14,12 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
 if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
 	exit;
 }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 define('EBML_ID_CHAPTERS',                  0x0043A770); // [10][43][A7][70] -- A system to define basic menus and partition data. For more detailed information, look at the Chapters Explanation.
 define('EBML_ID_SEEKHEAD',                  0x014D9B74); // [11][4D][9B][74] -- Contains the position of other level 1 elements.
@@ -332,7 +335,11 @@ class getid3_matroska extends getid3_handler
 								break;*/
 						}
 
+<<<<<<< HEAD
 						$info['video']['streams'][$trackarray['TrackUID']] = $track_info;
+=======
+						$info['video']['streams'][] = $track_info;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						break;
 
 					case 2: // Audio
@@ -365,7 +372,11 @@ class getid3_matroska extends getid3_handler
 								// create temp instance
 								$getid3_temp = new getID3();
 								if ($track_info['dataformat'] != 'flac') {
+<<<<<<< HEAD
 									$getid3_temp->openfile($this->getid3->filename, $this->getid3->info['filesize'], $this->getid3->fp);
+=======
+									$getid3_temp->openfile($this->getid3->filename);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 								}
 								$getid3_temp->info['avdataoffset'] = $info['matroska']['track_data_offsets'][$trackarray['TrackNumber']]['offset'];
 								if ($track_info['dataformat'][0] == 'm' || $track_info['dataformat'] == 'flac') {
@@ -481,7 +492,11 @@ class getid3_matroska extends getid3_handler
 								break;
 						}
 
+<<<<<<< HEAD
 						$info['audio']['streams'][$trackarray['TrackUID']] = $track_info;
+=======
+						$info['audio']['streams'][] = $track_info;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						break;
 				}
 			}
@@ -512,6 +527,7 @@ class getid3_matroska extends getid3_handler
 			unset($info['mime_type']);
 		}
 
+<<<<<<< HEAD
 		// use _STATISTICS_TAGS if available to set audio/video bitrates
 		if (!empty($info['matroska']['tags'])) {
 			$_STATISTICS_byTrackUID = array();
@@ -536,6 +552,8 @@ class getid3_matroska extends getid3_handler
 			}
 		}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return true;
 	}
 
@@ -641,10 +659,15 @@ class getid3_matroska extends getid3_handler
 											while ($this->getEBMLelement($subelement, $track_entry['end'], array(EBML_ID_VIDEO, EBML_ID_AUDIO, EBML_ID_CONTENTENCODINGS, EBML_ID_CODECPRIVATE))) {
 												switch ($subelement['id']) {
 
+<<<<<<< HEAD
 													case EBML_ID_TRACKUID:
 														$track_entry[$subelement['id_name']] = getid3_lib::PrintHexBytes($subelement['data'], true, false);
 														break;
 													case EBML_ID_TRACKNUMBER:
+=======
+													case EBML_ID_TRACKNUMBER:
+													case EBML_ID_TRACKUID:
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 													case EBML_ID_TRACKTYPE:
 													case EBML_ID_MINCACHE:
 													case EBML_ID_MAXCACHE:
@@ -992,7 +1015,11 @@ class getid3_matroska extends getid3_handler
 																case EBML_ID_TAGEDITIONUID:
 																case EBML_ID_TAGCHAPTERUID:
 																case EBML_ID_TAGATTACHMENTUID:
+<<<<<<< HEAD
 																	$targets_entry[$sub_sub_subelement['id_name']][] = getid3_lib::PrintHexBytes($sub_sub_subelement['data'], true, false);
+=======
+																	$targets_entry[$sub_sub_subelement['id_name']][] = getid3_lib::BigEndian2Int($sub_sub_subelement['data']);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 																	break;
 
 																default:

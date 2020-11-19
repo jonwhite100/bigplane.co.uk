@@ -28,6 +28,7 @@ class WP_Embed {
 	 * Constructor
 	 */
 	public function __construct() {
+<<<<<<< HEAD
 		// Hack to get the [embed] shortcode to run before wpautop().
 		add_filter( 'the_content', array( $this, 'run_shortcode' ), 8 );
 		add_filter( 'widget_text_content', array( $this, 'run_shortcode' ), 8 );
@@ -40,6 +41,20 @@ class WP_Embed {
 		add_filter( 'widget_text_content', array( $this, 'autoembed' ), 8 );
 
 		// After a post is saved, cache oEmbed items via Ajax.
+=======
+		// Hack to get the [embed] shortcode to run before wpautop()
+		add_filter( 'the_content', array( $this, 'run_shortcode' ), 8 );
+		add_filter( 'widget_text_content', array( $this, 'run_shortcode' ), 8 );
+
+		// Shortcode placeholder for strip_shortcodes()
+		add_shortcode( 'embed', '__return_false' );
+
+		// Attempts to embed all URLs in a post
+		add_filter( 'the_content', array( $this, 'autoembed' ), 8 );
+		add_filter( 'widget_text_content', array( $this, 'autoembed' ), 8 );
+
+		// After a post is saved, cache oEmbed items via Ajax
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		add_action( 'edit_form_advanced', array( $this, 'maybe_run_ajax_cache' ) );
 		add_action( 'edit_page_form', array( $this, 'maybe_run_ajax_cache' ) );
 	}
@@ -59,16 +74,27 @@ class WP_Embed {
 	public function run_shortcode( $content ) {
 		global $shortcode_tags;
 
+<<<<<<< HEAD
 		// Back up current registered shortcodes and clear them all out.
+=======
+		// Back up current registered shortcodes and clear them all out
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$orig_shortcode_tags = $shortcode_tags;
 		remove_all_shortcodes();
 
 		add_shortcode( 'embed', array( $this, 'shortcode' ) );
 
+<<<<<<< HEAD
 		// Do the shortcode (only the [embed] one is registered).
 		$content = do_shortcode( $content, true );
 
 		// Put the original shortcodes back.
+=======
+		// Do the shortcode (only the [embed] one is registered)
+		$content = do_shortcode( $content, true );
+
+		// Put the original shortcodes back
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$shortcode_tags = $orig_shortcode_tags;
 
 		return $content;
@@ -101,12 +127,19 @@ class WP_Embed {
 	 *
 	 * This function should probably also only be used for sites that do not support oEmbed.
 	 *
+<<<<<<< HEAD
 	 * @param string   $id       An internal ID/name for the handler. Needs to be unique.
 	 * @param string   $regex    The regex that will be used to see if this handler should be used for a URL.
 	 * @param callable $callback The callback function that will be called if the regex is matched.
 	 * @param int      $priority Optional. Used to specify the order in which the registered handlers will be tested.
 	 *                           Lower numbers correspond with earlier testing, and handlers with the same priority are
 	 *                           tested in the order in which they were added to the action. Default 10.
+=======
+	 * @param string $id An internal ID/name for the handler. Needs to be unique.
+	 * @param string $regex The regex that will be used to see if this handler should be used for a URL.
+	 * @param callable $callback The callback function that will be called if the regex is matched.
+	 * @param int $priority Optional. Used to specify the order in which the registered handlers will be tested (default: 10). Lower numbers correspond with earlier testing, and handlers with the same priority are tested in the order in which they were added to the action.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function register_handler( $id, $regex, $callback, $priority = 10 ) {
 		$this->handlers[ $priority ][ $id ] = array(
@@ -120,14 +153,20 @@ class WP_Embed {
 	 *
 	 * Do not use this function directly, use wp_embed_unregister_handler() instead.
 	 *
+<<<<<<< HEAD
 	 * @param string $id       The handler ID that should be removed.
 	 * @param int    $priority Optional. The priority of the handler to be removed (default: 10).
+=======
+	 * @param string $id The handler ID that should be removed.
+	 * @param int $priority Optional. The priority of the handler to be removed (default: 10).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function unregister_handler( $id, $priority = 10 ) {
 		unset( $this->handlers[ $priority ][ $id ] );
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns embed HTML for a given URL from embed handlers.
 	 *
 	 * Attempts to convert a URL into embed HTML by checking the URL
@@ -175,13 +214,19 @@ class WP_Embed {
 	}
 
 	/**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * The do_shortcode() callback function.
 	 *
 	 * Attempts to convert a URL into embed HTML. Starts by checking the URL against the regex of
 	 * the registered embed handlers. If none of the regex matches and it's enabled, then the URL
 	 * will be given to the WP_oEmbed class.
 	 *
+<<<<<<< HEAD
 	 * @param array  $attr {
+=======
+	 * @param array $attr {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *     Shortcode attributes. Optional.
 	 *
 	 *     @type int $width  Width of the embed in pixels.
@@ -210,6 +255,7 @@ class WP_Embed {
 
 		$this->last_attr = $attr;
 
+<<<<<<< HEAD
 		// KSES converts & into &amp; and we need to undo this.
 		// See https://core.trac.wordpress.org/ticket/11311
 		$url = str_replace( '&amp;', '&', $url );
@@ -218,6 +264,34 @@ class WP_Embed {
 		$embed_handler_html = $this->get_embed_handler_html( $rawattr, $url );
 		if ( false !== $embed_handler_html ) {
 			return $embed_handler_html;
+=======
+		// kses converts & into &amp; and we need to undo this
+		// See https://core.trac.wordpress.org/ticket/11311
+		$url = str_replace( '&amp;', '&', $url );
+
+		// Look for known internal handlers
+		ksort( $this->handlers );
+		foreach ( $this->handlers as $priority => $handlers ) {
+			foreach ( $handlers as $id => $handler ) {
+				if ( preg_match( $handler['regex'], $url, $matches ) && is_callable( $handler['callback'] ) ) {
+					$return = call_user_func( $handler['callback'], $matches, $attr, $url, $rawattr );
+					if ( false !== $return ) {
+						/**
+						 * Filters the returned embed handler.
+						 *
+						 * @since 2.9.0
+						 *
+						 * @see WP_Embed::shortcode()
+						 *
+						 * @param mixed  $return The shortcode callback function to call.
+						 * @param string $url    The attempted embed URL.
+						 * @param array  $attr   An array of shortcode attributes.
+						 */
+						return apply_filters( 'embed_handler_html', $return, $url, $attr );
+					}
+				}
+			}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		$post_ID = ( ! empty( $post->ID ) ) ? $post->ID : null;
@@ -279,10 +353,17 @@ class WP_Embed {
 				 *
 				 * @see WP_Embed::shortcode()
 				 *
+<<<<<<< HEAD
 				 * @param string|false $cache   The cached HTML result, stored in post meta.
 				 * @param string       $url     The attempted embed URL.
 				 * @param array        $attr    An array of shortcode attributes.
 				 * @param int          $post_ID Post ID.
+=======
+				 * @param mixed  $cache   The cached HTML result, stored in post meta.
+				 * @param string $url     The attempted embed URL.
+				 * @param array  $attr    An array of shortcode attributes.
+				 * @param int    $post_ID Post ID.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 				return apply_filters( 'embed_oembed_html', $cache, $url, $attr, $post_ID );
 			}
@@ -370,7 +451,11 @@ class WP_Embed {
 			return apply_filters( 'embed_oembed_html', $html, $url, $attr, $post_ID );
 		}
 
+<<<<<<< HEAD
 		// Still unknown.
+=======
+		// Still unknown
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $this->maybe_make_link( $url );
 	}
 
@@ -386,7 +471,11 @@ class WP_Embed {
 		}
 
 		foreach ( $post_metas as $post_meta_key ) {
+<<<<<<< HEAD
 			if ( '_oembed_' === substr( $post_meta_key, 0, 8 ) ) {
+=======
+			if ( '_oembed_' == substr( $post_meta_key, 0, 8 ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				delete_post_meta( $post_ID, $post_meta_key );
 			}
 		}
@@ -401,7 +490,10 @@ class WP_Embed {
 		$post = get_post( $post_ID );
 
 		$post_types = get_post_types( array( 'show_ui' => true ) );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		/**
 		 * Filters the array of post types to cache oEmbed results for.
 		 *
@@ -409,6 +501,7 @@ class WP_Embed {
 		 *
 		 * @param string[] $post_types Array of post type names to cache oEmbed results for. Defaults to post types with `show_ui` set to true.
 		 */
+<<<<<<< HEAD
 		$cache_oembed_types = apply_filters( 'embed_cache_oembed_types', $post_types );
 
 		if ( empty( $post->ID ) || ! in_array( $post->post_type, $cache_oembed_types, true ) ) {
@@ -416,6 +509,13 @@ class WP_Embed {
 		}
 
 		// Trigger a caching.
+=======
+		if ( empty( $post->ID ) || ! in_array( $post->post_type, apply_filters( 'embed_cache_oembed_types', $post_types ) ) ) {
+			return;
+		}
+
+		// Trigger a caching
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! empty( $post->post_content ) ) {
 			$this->post_ID  = $post->ID;
 			$this->usecache = false;
@@ -469,7 +569,11 @@ class WP_Embed {
 	 * Conditionally makes a hyperlink based on an internal class variable.
 	 *
 	 * @param string $url URL to potentially be linked.
+<<<<<<< HEAD
 	 * @return string|false Linked URL or the original URL. False if 'return_false_on_fail' is true.
+=======
+	 * @return false|string Linked URL or the original URL. False if 'return_false_on_fail' is true.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function maybe_make_link( $url ) {
 		if ( $this->return_false_on_fail ) {
@@ -520,7 +624,11 @@ class WP_Embed {
 		);
 
 		if ( ! empty( $oembed_post_query->posts ) ) {
+<<<<<<< HEAD
 			// Note: 'fields' => 'ids' is not being used in order to cache the post object as it will be needed.
+=======
+			// Note: 'fields'=>'ids' is not being used in order to cache the post object as it will be needed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$oembed_post_id = $oembed_post_query->posts[0]->ID;
 			wp_cache_set( $cache_key, $oembed_post_id, $cache_group );
 

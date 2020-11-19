@@ -28,7 +28,11 @@ class WPCF7_Contact_Form_List_Table extends WP_List_Table {
 
 	public function prepare_items() {
 		$current_screen = get_current_screen();
+<<<<<<< HEAD
 		$per_page = $this->get_items_per_page( 'wpcf7_contact_forms_per_page' );
+=======
+		$per_page = $this->get_items_per_page( 'cfseven_contact_forms_per_page' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$args = array(
 			'posts_per_page' => $per_page,
@@ -223,6 +227,7 @@ class WPCF7_Contact_Form_List_Table extends WP_List_Table {
 	}
 
 	public function column_date( $item ) {
+<<<<<<< HEAD
 		$datetime = get_post_datetime( $item->id() );
 
 		if ( false === $datetime ) {
@@ -239,5 +244,35 @@ class WPCF7_Contact_Form_List_Table extends WP_List_Table {
 		);
 
 		return $t_time;
+=======
+		$post = get_post( $item->id() );
+
+		if ( ! $post ) {
+			return;
+		}
+
+		$t_time = mysql2date( __( 'Y/m/d g:i:s A', 'contact-form-7' ),
+			$post->post_date, true );
+		$m_time = $post->post_date;
+		$time = mysql2date( 'G', $post->post_date )
+			- get_option( 'gmt_offset' ) * 3600;
+
+		$time_diff = time() - $time;
+
+		if ( $time_diff > 0 and $time_diff < 24*60*60 ) {
+			$h_time = sprintf(
+				/* translators: %s: time since the creation of the contact form */
+				__( '%s ago', 'contact-form-7' ),
+				human_time_diff( $time )
+			);
+		} else {
+			$h_time = mysql2date( __( 'Y/m/d', 'contact-form-7' ), $m_time );
+		}
+
+		return sprintf( '<abbr title="%2$s">%1$s</abbr>',
+			esc_html( $h_time ),
+			esc_attr( $t_time )
+		);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 }

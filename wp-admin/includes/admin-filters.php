@@ -15,7 +15,10 @@ add_action( 'activity_box_end', 'wp_dashboard_quota' );
 
 // Media hooks.
 add_action( 'attachment_submitbox_misc_actions', 'attachment_submitbox_metadata' );
+<<<<<<< HEAD
 add_filter( 'plupload_init', 'wp_show_heic_upload_error' );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 add_action( 'media_upload_image', 'wp_media_upload_handler' );
 add_action( 'media_upload_audio', 'wp_media_upload_handler' );
@@ -44,8 +47,12 @@ add_action( 'login_init', 'wp_admin_headers' );
 add_action( 'admin_head', 'wp_admin_canonical_url' );
 add_action( 'admin_head', 'wp_color_scheme_settings' );
 add_action( 'admin_head', 'wp_site_icon' );
+<<<<<<< HEAD
 add_action( 'admin_head', 'wp_admin_viewport_meta' );
 add_action( 'customize_controls_head', 'wp_admin_viewport_meta' );
+=======
+add_action( 'admin_head', '_ipad_meta' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // Prerendering.
 if ( ! is_customize_preview() ) {
@@ -76,7 +83,11 @@ add_filter( 'heartbeat_settings', 'wp_heartbeat_set_suspension' );
 add_action( 'admin_head-nav-menus.php', '_wp_delete_orphaned_draft_menu_items' );
 
 // Plugin hooks.
+<<<<<<< HEAD
 add_filter( 'allowed_options', 'option_update_filter' );
+=======
+add_filter( 'whitelist_options', 'option_update_filter' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // Plugin Install hooks.
 add_action( 'install_plugins_featured', 'install_dashboard' );
@@ -130,7 +141,11 @@ add_action( 'upgrader_process_complete', 'wp_version_check', 10, 0 );
 add_action( 'upgrader_process_complete', 'wp_update_plugins', 10, 0 );
 add_action( 'upgrader_process_complete', 'wp_update_themes', 10, 0 );
 
+<<<<<<< HEAD
 // Privacy hooks.
+=======
+// Privacy hooks
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 add_filter( 'wp_privacy_personal_data_erasure_page', 'wp_privacy_process_personal_data_erasure_page', 10, 5 );
 add_filter( 'wp_privacy_personal_data_export_page', 'wp_privacy_process_personal_data_export_page', 10, 7 );
 add_action( 'wp_privacy_personal_data_export_file', 'wp_privacy_generate_personal_data_export_file', 10 );

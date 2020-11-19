@@ -34,7 +34,11 @@ function network_domain_check() {
  */
 function allow_subdomain_install() {
 	$domain = preg_replace( '|https?://([^/]+)|', '$1', get_option( 'home' ) );
+<<<<<<< HEAD
 	if ( parse_url( get_option( 'home' ), PHP_URL_PATH ) || 'localhost' === $domain || preg_match( '|^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$|', $domain ) ) {
+=======
+	if ( parse_url( get_option( 'home' ), PHP_URL_PATH ) || 'localhost' == $domain || preg_match( '|^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$|', $domain ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return false;
 	}
 
@@ -52,6 +56,7 @@ function allow_subdomain_install() {
  */
 function allow_subdirectory_install() {
 	global $wpdb;
+<<<<<<< HEAD
 
 	/**
 	 * Filters whether to enable the subdirectory installation feature in Multisite.
@@ -61,6 +66,15 @@ function allow_subdirectory_install() {
 	 * @param bool $allow Whether to enable the subdirectory installation feature in Multisite.
 	 *                    Default false.
 	 */
+=======
+		/**
+		 * Filters whether to enable the subdirectory installation feature in Multisite.
+		 *
+		 * @since 3.0.0
+		 *
+		 * @param bool $allow Whether to enable the subdirectory installation feature in Multisite. Default is false.
+		 */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( apply_filters( 'allow_subdirectory_install', false ) ) {
 		return true;
 	}
@@ -99,9 +113,14 @@ function get_clean_basedomain() {
 /**
  * Prints step 1 for Network installation process.
  *
+<<<<<<< HEAD
  * @todo Realistically, step 1 should be a welcome screen explaining what a Network is and such.
  *       Navigating to Tools > Network should not be a sudden "Welcome to a new install process!
  *       Fill this out and click here." See also contextual help todo.
+=======
+ * @todo Realistically, step 1 should be a welcome screen explaining what a Network is and such. Navigating to Tools > Network
+ *  should not be a sudden "Welcome to a new install process! Fill this out and click here." See also contextual help todo.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 3.0.0
  *
@@ -113,33 +132,54 @@ function network_step1( $errors = false ) {
 	global $is_apache;
 
 	if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
+<<<<<<< HEAD
 		echo '<div class="error"><p><strong>' . __( 'Error:' ) . '</strong> ' . sprintf(
+=======
+		echo '<div class="error"><p><strong>' . __( 'ERROR:' ) . '</strong> ' . sprintf(
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			/* translators: %s: DO_NOT_UPGRADE_GLOBAL_TABLES */
 			__( 'The constant %s cannot be defined when creating a network.' ),
 			'<code>DO_NOT_UPGRADE_GLOBAL_TABLES</code>'
 		) . '</p></div>';
 		echo '</div>';
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+		include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		die();
 	}
 
 	$active_plugins = get_option( 'active_plugins' );
 	if ( ! empty( $active_plugins ) ) {
+<<<<<<< HEAD
 		echo '<div class="notice notice-warning"><p><strong>' . __( 'Warning:' ) . '</strong> ' . sprintf(
+=======
+		echo '<div class="updated"><p><strong>' . __( 'Warning:' ) . '</strong> ' . sprintf(
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			/* translators: %s: URL to Plugins screen. */
 			__( 'Please <a href="%s">deactivate your plugins</a> before enabling the Network feature.' ),
 			admin_url( 'plugins.php?plugin_status=active' )
 		) . '</p></div>';
 		echo '<p>' . __( 'Once the network is created, you may reactivate your plugins.' ) . '</p>';
 		echo '</div>';
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+		include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		die();
 	}
 
 	$hostname  = get_clean_basedomain();
 	$has_ports = strstr( $hostname, ':' );
+<<<<<<< HEAD
 	if ( ( false !== $has_ports && ! in_array( $has_ports, array( ':80', ':443' ), true ) ) ) {
 		echo '<div class="error"><p><strong>' . __( 'Error:' ) . '</strong> ' . __( 'You cannot install a network of sites with your server address.' ) . '</p></div>';
+=======
+	if ( ( false !== $has_ports && ! in_array( $has_ports, array( ':80', ':443' ) ) ) ) {
+		echo '<div class="error"><p><strong>' . __( 'ERROR:' ) . '</strong> ' . __( 'You cannot install a network of sites with your server address.' ) . '</p></div>';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		echo '<p>' . sprintf(
 			/* translators: %s: Port number. */
 			__( 'You cannot use port numbers such as %s.' ),
@@ -147,7 +187,11 @@ function network_step1( $errors = false ) {
 		) . '</p>';
 		echo '<a href="' . esc_url( admin_url() ) . '">' . __( 'Return to Dashboard' ) . '</a>';
 		echo '</div>';
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+		include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		die();
 	}
 
@@ -157,7 +201,11 @@ function network_step1( $errors = false ) {
 
 	$error_codes = array();
 	if ( is_wp_error( $errors ) ) {
+<<<<<<< HEAD
 		echo '<div class="error"><p><strong>' . __( 'Error: The network could not be created.' ) . '</strong></p>';
+=======
+		echo '<div class="error"><p><strong>' . __( 'ERROR: The network could not be created.' ) . '</strong></p>';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $errors->get_error_messages() as $error ) {
 			echo "<p>$error</p>";
 		}
@@ -165,14 +213,22 @@ function network_step1( $errors = false ) {
 		$error_codes = $errors->get_error_codes();
 	}
 
+<<<<<<< HEAD
 	if ( ! empty( $_POST['sitename'] ) && ! in_array( 'empty_sitename', $error_codes, true ) ) {
+=======
+	if ( ! empty( $_POST['sitename'] ) && ! in_array( 'empty_sitename', $error_codes ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$site_name = $_POST['sitename'];
 	} else {
 		/* translators: %s: Default network title. */
 		$site_name = sprintf( __( '%s Sites' ), get_option( 'blogname' ) );
 	}
 
+<<<<<<< HEAD
 	if ( ! empty( $_POST['email'] ) && ! in_array( 'invalid_email', $error_codes, true ) ) {
+=======
+	if ( ! empty( $_POST['email'] ) && ! in_array( 'invalid_email', $error_codes ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$admin_email = $_POST['email'];
 	} else {
 		$admin_email = get_option( 'admin_email' );
@@ -184,14 +240,22 @@ function network_step1( $errors = false ) {
 
 	if ( isset( $_POST['subdomain_install'] ) ) {
 		$subdomain_install = (bool) $_POST['subdomain_install'];
+<<<<<<< HEAD
 	} elseif ( apache_mod_loaded( 'mod_rewrite' ) ) { // Assume nothing.
+=======
+	} elseif ( apache_mod_loaded( 'mod_rewrite' ) ) { // assume nothing
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$subdomain_install = true;
 	} elseif ( ! allow_subdirectory_install() ) {
 		$subdomain_install = true;
 	} else {
 		$subdomain_install = false;
 		$got_mod_rewrite   = got_mod_rewrite();
+<<<<<<< HEAD
 		if ( $got_mod_rewrite ) { // Dangerous assumptions.
+=======
+		if ( $got_mod_rewrite ) { // dangerous assumptions
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			echo '<div class="updated inline"><p><strong>' . __( 'Note:' ) . '</strong> ';
 			printf(
 				/* translators: %s: mod_rewrite */
@@ -209,7 +273,11 @@ function network_step1( $errors = false ) {
 			echo '</p>';
 		}
 
+<<<<<<< HEAD
 		if ( $got_mod_rewrite || $is_apache ) { // Protect against mod_rewrite mimicry (but ! Apache).
+=======
+		if ( $got_mod_rewrite || $is_apache ) { // Protect against mod_rewrite mimicry (but ! Apache)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			echo '<p>';
 			printf(
 				/* translators: 1: mod_rewrite, 2: mod_rewrite documentation URL, 3: Google search for mod_rewrite. */
@@ -228,7 +296,11 @@ function network_step1( $errors = false ) {
 		<p><?php _e( 'Please choose whether you would like sites in your WordPress network to use sub-domains or sub-directories.' ); ?>
 			<strong><?php _e( 'You cannot change this later.' ); ?></strong></p>
 		<p><?php _e( 'You will need a wildcard DNS record if you are going to use the virtual host (sub-domain) functionality.' ); ?></p>
+<<<<<<< HEAD
 		<?php // @todo Link to an MS readme? ?>
+=======
+		<?php // @todo: Link to an MS readme? ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		<table class="form-table" role="presentation">
 			<tr>
 				<th><label><input type="radio" name="subdomain_install" value="1"<?php checked( $subdomain_install ); ?> /> <?php _e( 'Sub-domains' ); ?></label></th>
@@ -259,7 +331,11 @@ function network_step1( $errors = false ) {
 		<?php
 	endif;
 
+<<<<<<< HEAD
 	if ( WP_CONTENT_DIR !== ABSPATH . 'wp-content' && ( allow_subdirectory_install() || ! allow_subdomain_install() ) ) {
+=======
+	if ( WP_CONTENT_DIR != ABSPATH . 'wp-content' && ( allow_subdirectory_install() || ! allow_subdomain_install() ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		echo '<div class="error inline"><p><strong>' . __( 'Warning:' ) . '</strong> ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</p></div>';
 	}
 
@@ -271,7 +347,11 @@ function network_step1( $errors = false ) {
 		<?php
 		printf(
 			/* translators: 1: Site URL, 2: Host name, 3: www. */
+<<<<<<< HEAD
 			__( 'We recommend you change your site domain to %1$s before enabling the network feature. It will still be possible to visit your site using the %3$s prefix with an address like %2$s but any links will not have the %3$s prefix.' ),
+=======
+			__( 'We recommend you change your siteurl to %1$s before enabling the network feature. It will still be possible to visit your site using the %3$s prefix with an address like %2$s but any links will not have the %3$s prefix.' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'<code>' . substr( $hostname, 4 ) . '</code>',
 			'<code>' . $hostname . '</code>',
 			'<code>www</code>'
@@ -296,7 +376,11 @@ function network_step1( $errors = false ) {
 
 		<h3><?php esc_html_e( 'Network Details' ); ?></h3>
 		<table class="form-table" role="presentation">
+<<<<<<< HEAD
 		<?php if ( 'localhost' === $hostname ) : ?>
+=======
+		<?php if ( 'localhost' == $hostname ) : ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<tr>
 				<th scope="row"><?php esc_html_e( 'Sub-directory Installation' ); ?></th>
 				<td>
@@ -381,13 +465,21 @@ function network_step1( $errors = false ) {
  *
  * @since 3.0.0
  *
+<<<<<<< HEAD
  * @global wpdb $wpdb     WordPress database abstraction object.
  * @global bool $is_nginx Whether the server software is Nginx or something else.
+=======
+ * @global wpdb $wpdb WordPress database abstraction object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @param WP_Error $errors
  */
 function network_step2( $errors = false ) {
+<<<<<<< HEAD
 	global $wpdb, $is_nginx;
+=======
+	global $wpdb;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$hostname          = get_clean_basedomain();
 	$slashed_home      = trailingslashit( get_option( 'home' ) );
@@ -438,7 +530,11 @@ function network_step2( $errors = false ) {
 		?>
 		<h3><?php esc_html_e( 'Enabling the Network' ); ?></h3>
 		<p><?php _e( 'Complete the following steps to enable the features for creating a network of sites.' ); ?></p>
+<<<<<<< HEAD
 		<div class="notice notice-warning inline"><p>
+=======
+		<div class="updated inline"><p>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		<?php
 		if ( file_exists( $home_path . '.htaccess' ) ) {
 			echo '<strong>' . __( 'Caution:' ) . '</strong> ';
@@ -528,7 +624,11 @@ define('BLOG_ID_CURRENT_SITE', 1);
 			?>
 		<p>
 			<?php
+<<<<<<< HEAD
 			if ( 1 === $num_keys_salts ) {
+=======
+			if ( 1 == $num_keys_salts ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				printf(
 					/* translators: %s: wp-config.php */
 					__( 'This unique authentication key is also missing from your %s file.' ),
@@ -551,7 +651,11 @@ define('BLOG_ID_CURRENT_SITE', 1);
 		</li>
 	<?php
 	if ( iis7_supports_permalinks() ) :
+<<<<<<< HEAD
 		// IIS doesn't support RewriteBase, all your RewriteBase are belong to us.
+=======
+		// IIS doesn't support RewriteBase, all your RewriteBase are belong to us
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$iis_subdir_match       = ltrim( $base, '/' ) . $subdir_match;
 		$iis_rewrite_base       = ltrim( $base, '/' ) . $rewrite_base;
 		$iis_subdir_replacement = $subdomain_install ? '' : '{R:1}';
@@ -611,7 +715,11 @@ define('BLOG_ID_CURRENT_SITE', 1);
 				'<code>' . $home_path . '</code>'
 			);
 		echo '</p>';
+<<<<<<< HEAD
 		if ( ! $subdomain_install && WP_CONTENT_DIR !== ABSPATH . 'wp-content' ) {
+=======
+		if ( ! $subdomain_install && WP_CONTENT_DIR != ABSPATH . 'wp-content' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</strong></p>';
 		}
 		?>
@@ -620,6 +728,7 @@ define('BLOG_ID_CURRENT_SITE', 1);
 	</ol>
 
 		<?php
+<<<<<<< HEAD
 	elseif ( $is_nginx ) : // End iis7_supports_permalinks(). Link to Nginx documentation instead:
 
 		echo '<li><p>';
@@ -631,6 +740,9 @@ define('BLOG_ID_CURRENT_SITE', 1);
 		echo '</p></li>';
 
 	else : // End $is_nginx. Construct an .htaccess file instead:
+=======
+	else : // end iis7_supports_permalinks(). construct an htaccess file instead:
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$ms_files_rewriting = '';
 		if ( is_multisite() && get_site_option( 'ms_files_rewriting' ) ) {
@@ -663,7 +775,11 @@ EOF;
 			'<code>' . $home_path . '</code>'
 		);
 		echo '</p>';
+<<<<<<< HEAD
 		if ( ! $subdomain_install && WP_CONTENT_DIR !== ABSPATH . 'wp-content' ) {
+=======
+		if ( ! $subdomain_install && WP_CONTENT_DIR != ABSPATH . 'wp-content' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</strong></p>';
 		}
 		?>
@@ -672,7 +788,11 @@ EOF;
 	</ol>
 
 		<?php
+<<<<<<< HEAD
 	endif; // End IIS/Nginx/Apache code branches.
+=======
+	endif; // end IIS/Apache code branches.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( ! is_multisite() ) {
 		?>

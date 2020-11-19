@@ -35,9 +35,15 @@ function delete_theme( $stylesheet, $redirect = '' ) {
 
 	if ( false === $credentials ) {
 		if ( ! empty( $data ) ) {
+<<<<<<< HEAD
 			require_once ABSPATH . 'wp-admin/admin-header.php';
 			echo $data;
 			require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+			include_once( ABSPATH . 'wp-admin/admin-header.php' );
+			echo $data;
+			include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			exit;
 		}
 		return;
@@ -45,6 +51,7 @@ function delete_theme( $stylesheet, $redirect = '' ) {
 
 	if ( ! WP_Filesystem( $credentials ) ) {
 		ob_start();
+<<<<<<< HEAD
 		// Failed to connect. Error and request again.
 		request_filesystem_credentials( $redirect, '', true );
 		$data = ob_get_clean();
@@ -53,6 +60,15 @@ function delete_theme( $stylesheet, $redirect = '' ) {
 			require_once ABSPATH . 'wp-admin/admin-header.php';
 			echo $data;
 			require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+		request_filesystem_credentials( $redirect, '', true ); // Failed to connect, Error and request again.
+		$data = ob_get_clean();
+
+		if ( ! empty( $data ) ) {
+			include_once( ABSPATH . 'wp-admin/admin-header.php' );
+			echo $data;
+			include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			exit;
 		}
 		return;
@@ -113,14 +129,22 @@ function delete_theme( $stylesheet, $redirect = '' ) {
 }
 
 /**
+<<<<<<< HEAD
  * Gets the page templates available in this theme.
+=======
+ * Get the Page Templates available in this theme
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 1.5.0
  * @since 4.7.0 Added the `$post_type` parameter.
  *
  * @param WP_Post|null $post      Optional. The post being edited, provided for context.
  * @param string       $post_type Optional. Post type to get the templates for. Default 'page'.
+<<<<<<< HEAD
  * @return string[] Array of template file names keyed by the template header name.
+=======
+ * @return array Key is the template name, value is the filename of the template
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_page_templates( $post = null, $post_type = 'page' ) {
 	return array_flip( wp_get_theme()->get_page_templates( $post, $post_type ) );
@@ -146,7 +170,10 @@ function _get_template_edit_filename( $fullpath, $containingfolder ) {
  * Will display link, if there is an update available.
  *
  * @since 2.7.0
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @see get_theme_update_available()
  *
  * @param WP_Theme $theme Theme data object.
@@ -162,8 +189,15 @@ function theme_update_available( $theme ) {
  *
  * @since 3.8.0
  *
+<<<<<<< HEAD
  * @param WP_Theme $theme WP_Theme object.
  * @return string|false HTML for the update link, or false if invalid info was passed.
+=======
+ * @staticvar object $themes_update
+ *
+ * @param WP_Theme $theme WP_Theme object.
+ * @return false|string HTML for the update link, or false if invalid info was passed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_theme_update_available( $theme ) {
 	static $themes_update = null;
@@ -194,7 +228,11 @@ function get_theme_update_available( $theme ) {
 				'height'    => 800,
 			),
 			$update['url']
+<<<<<<< HEAD
 		); // Theme browser inside WP? Replace this. Also, theme preview JS will override this on the available list.
+=======
+		); //Theme browser inside WP? replace this, Also, theme preview JS will override this on the available list.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$update_url  = wp_nonce_url( admin_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( $stylesheet ) ), 'upgrade-theme_' . $stylesheet );
 
 		if ( ! is_multisite() ) {
@@ -240,7 +278,11 @@ function get_theme_update_available( $theme ) {
 					sprintf(
 						'aria-label="%s" id="update-theme" data-slug="%s"',
 						/* translators: %s: Theme name. */
+<<<<<<< HEAD
 						esc_attr( sprintf( _x( 'Update %s now', 'theme' ), $theme_name ) ),
+=======
+						esc_attr( sprintf( __( 'Update %s now' ), $theme_name ) ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						$stylesheet
 					)
 				);
@@ -255,6 +297,7 @@ function get_theme_update_available( $theme ) {
  * Retrieve list of WordPress theme features (aka theme tags).
  *
  * @since 3.1.0
+<<<<<<< HEAD
  * @since 3.2.0 Added 'Gray' color and 'Featured Image Header', 'Featured Images',
  *              'Full Width Template', and 'Post Formats' features.
  * @since 3.5.0 Added 'Flexible Header' feature.
@@ -279,12 +322,18 @@ function get_theme_update_available( $theme ) {
  * @since 5.5.0 Added 'Block Editor Patterns', 'Block Editor Styles',
  *              and 'Full Site Editing' features.
  * @since 5.5.0 Added 'Wide Blocks' layout option.
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @param bool $api Optional. Whether try to fetch tags from the WordPress.org API. Defaults to true.
  * @return array Array of features keyed by category with translations keyed by slug.
  */
 function get_theme_feature_list( $api = true ) {
+<<<<<<< HEAD
 	// Hard-coded list is used if API is not accessible.
+=======
+	// Hard-coded list is used if api not accessible.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$features = array(
 
 		__( 'Subject' )  => array(
@@ -301,8 +350,11 @@ function get_theme_feature_list( $api = true ) {
 
 		__( 'Features' ) => array(
 			'accessibility-ready'   => __( 'Accessibility Ready' ),
+<<<<<<< HEAD
 			'block-patterns'        => __( 'Block Editor Patterns' ),
 			'block-styles'          => __( 'Block Editor Styles' ),
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'custom-background'     => __( 'Custom Background' ),
 			'custom-colors'         => __( 'Custom Colors' ),
 			'custom-header'         => __( 'Custom Header' ),
@@ -311,7 +363,10 @@ function get_theme_feature_list( $api = true ) {
 			'featured-image-header' => __( 'Featured Image Header' ),
 			'featured-images'       => __( 'Featured Images' ),
 			'footer-widgets'        => __( 'Footer Widgets' ),
+<<<<<<< HEAD
 			'full-site-editing'     => __( 'Full Site Editing' ),
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'full-width-template'   => __( 'Full Width Template' ),
 			'post-formats'          => __( 'Post Formats' ),
 			'sticky-post'           => __( 'Sticky Post' ),
@@ -326,7 +381,10 @@ function get_theme_feature_list( $api = true ) {
 			'four-columns'  => __( 'Four Columns' ),
 			'left-sidebar'  => __( 'Left Sidebar' ),
 			'right-sidebar' => __( 'Right Sidebar' ),
+<<<<<<< HEAD
 			'wide-blocks'   => __( 'Wide Blocks' ),
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		),
 
 	);
@@ -359,14 +417,22 @@ function get_theme_feature_list( $api = true ) {
 		'Subject'  => __( 'Subject' ),
 	);
 
+<<<<<<< HEAD
 	$wporg_features = array();
 
 	// Loop over the wp.org canonical list and apply translations.
+=======
+	// Loop over the wporg canonical list and apply translations
+	$wporg_features = array();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	foreach ( (array) $feature_list as $feature_category => $feature_items ) {
 		if ( isset( $category_translations[ $feature_category ] ) ) {
 			$feature_category = $category_translations[ $feature_category ];
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$wporg_features[ $feature_category ] = array();
 
 		foreach ( $feature_items as $feature ) {
@@ -463,14 +529,23 @@ function get_theme_feature_list( $api = true ) {
  *         for more information on the make-up of possible return objects depending on the value of `$action`.
  */
 function themes_api( $action, $args = array() ) {
+<<<<<<< HEAD
 	// Include an unmodified $wp_version.
 	require ABSPATH . WPINC . '/version.php';
+=======
+	// include an unmodified $wp_version
+	include( ABSPATH . WPINC . '/version.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( is_array( $args ) ) {
 		$args = (object) $args;
 	}
 
+<<<<<<< HEAD
 	if ( 'query_themes' === $action ) {
+=======
+	if ( 'query_themes' == $action ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! isset( $args->per_page ) ) {
 			$args->per_page = 24;
 		}
@@ -481,7 +556,11 @@ function themes_api( $action, $args = array() ) {
 	}
 
 	if ( ! isset( $args->wp_version ) ) {
+<<<<<<< HEAD
 		$args->wp_version = substr( $wp_version, 0, 3 ); // x.y
+=======
+		$args->wp_version = substr( $wp_version, 0, 3 ); // X.y
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -582,13 +661,21 @@ function themes_api( $action, $args = array() ) {
 		}
 
 		// Back-compat for info/1.2 API, upgrade the theme objects in query_themes to objects.
+<<<<<<< HEAD
 		if ( 'query_themes' === $action ) {
+=======
+		if ( 'query_themes' == $action ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			foreach ( $res->themes as $i => $theme ) {
 				$res->themes[ $i ] = (object) $theme;
 			}
 		}
 		// Back-compat for info/1.2 API, downgrade the feature_list result back to an array.
+<<<<<<< HEAD
 		if ( 'feature_list' === $action ) {
+=======
+		if ( 'feature_list' == $action ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$res = (array) $res;
 		}
 	}
@@ -647,24 +734,34 @@ function wp_prepare_themes_for_js( $themes = null ) {
 		}
 	}
 
+<<<<<<< HEAD
 	$updates    = array();
 	$no_updates = array();
+=======
+	$updates = array();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( current_user_can( 'update_themes' ) ) {
 		$updates_transient = get_site_transient( 'update_themes' );
 		if ( isset( $updates_transient->response ) ) {
 			$updates = $updates_transient->response;
 		}
+<<<<<<< HEAD
 		if ( isset( $updates_transient->no_update ) ) {
 			$no_updates = $updates_transient->no_update;
 		}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	WP_Theme::sort_by_name( $themes );
 
 	$parents = array();
 
+<<<<<<< HEAD
 	$auto_updates = (array) get_site_option( 'auto_update_themes', array() );
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	foreach ( $themes as $theme ) {
 		$slug         = $theme->get_stylesheet();
 		$encoded_slug = urlencode( $slug );
@@ -688,6 +785,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 			);
 		}
 
+<<<<<<< HEAD
 		$update_requires_wp  = isset( $updates[ $slug ]['requires'] ) ? $updates[ $slug ]['requires'] : null;
 		$update_requires_php = isset( $updates[ $slug ]['requires_php'] ) ? $updates[ $slug ]['requires_php'] : null;
 
@@ -752,11 +850,35 @@ function wp_prepare_themes_for_js( $themes = null ) {
 				'autoupdate' => wp_is_auto_update_enabled_for_type( 'theme' ) && ! is_multisite() && current_user_can( 'update_themes' )
 					? wp_nonce_url( admin_url( 'themes.php?action=' . $auto_update_action . '&amp;stylesheet=' . $encoded_slug ), 'updates' )
 					: null,
+=======
+		$prepared_themes[ $slug ] = array(
+			'id'           => $slug,
+			'name'         => $theme->display( 'Name' ),
+			'screenshot'   => array( $theme->get_screenshot() ), // @todo multiple
+			'description'  => $theme->display( 'Description' ),
+			'author'       => $theme->display( 'Author', false, true ),
+			'authorAndUri' => $theme->display( 'Author' ),
+			'version'      => $theme->display( 'Version' ),
+			'tags'         => $theme->display( 'Tags' ),
+			'parent'       => $parent,
+			'active'       => $slug === $current_theme,
+			'hasUpdate'    => isset( $updates[ $slug ] ),
+			'hasPackage'   => isset( $updates[ $slug ] ) && ! empty( $updates[ $slug ]['package'] ),
+			'update'       => get_theme_update_available( $theme ),
+			'actions'      => array(
+				'activate'  => current_user_can( 'switch_themes' ) ? wp_nonce_url( admin_url( 'themes.php?action=activate&amp;stylesheet=' . $encoded_slug ), 'switch-theme_' . $slug ) : null,
+				'customize' => $customize_action,
+				'delete'    => current_user_can( 'delete_themes' ) ? wp_nonce_url( admin_url( 'themes.php?action=delete&amp;stylesheet=' . $encoded_slug ), 'delete-theme_' . $slug ) : null,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			),
 		);
 	}
 
+<<<<<<< HEAD
 	// Remove 'delete' action if theme has an active child.
+=======
+	// Remove 'delete' action if theme has an active child
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! empty( $parents ) && array_key_exists( $current_theme, $parents ) ) {
 		unset( $prepared_themes[ $parents[ $current_theme ] ]['actions']['delete'] );
 	}
@@ -834,6 +956,7 @@ function customize_themes_print_templates() {
 					<# } #>
 
 					<# if ( data.hasUpdate ) { #>
+<<<<<<< HEAD
 						<# if ( data.updateResponse.compatibleWP && data.updateResponse.compatiblePHP ) { #>
 							<div class="notice notice-warning notice-alt notice-large" data-slug="{{ data.id }}">
 								<h3 class="notice-title"><?php _e( 'Update Available' ); ?></h3>
@@ -908,6 +1031,12 @@ function customize_themes_print_templates() {
 								</p>
 							</div>
 						<# } #>
+=======
+						<div class="notice notice-warning notice-alt notice-large" data-slug="{{ data.id }}">
+							<h3 class="notice-title"><?php _e( 'Update Available' ); ?></h3>
+							{{{ data.update }}}
+						</div>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<# } #>
 
 					<# if ( data.parent ) { #>
@@ -922,6 +1051,7 @@ function customize_themes_print_templates() {
 						</p>
 					<# } #>
 
+<<<<<<< HEAD
 					<# if ( ! data.compatibleWP || ! data.compatiblePHP ) { #>
 						<div class="notice notice-error notice-alt notice-large"><p>
 							<# if ( ! data.compatibleWP && ! data.compatiblePHP ) { #>
@@ -977,6 +1107,8 @@ function customize_themes_print_templates() {
 						</p></div>
 					<# } #>
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					<p class="theme-description">{{{ data.description }}}</p>
 
 					<# if ( data.tags ) { #>
@@ -994,6 +1126,7 @@ function customize_themes_print_templates() {
 							<a href="{{{ data.actions['delete'] }}}" data-slug="{{ data.id }}" class="button button-secondary delete-theme"><?php _e( 'Delete' ); ?></a>
 						<# } #>
 					<?php } ?>
+<<<<<<< HEAD
 
 					<# if ( data.compatibleWP && data.compatiblePHP ) { #>
 						<button type="button" class="button button-primary preview-theme" data-slug="{{ data.id }}"><?php _e( 'Live Preview' ); ?></button>
@@ -1008,6 +1141,12 @@ function customize_themes_print_templates() {
 						<button type="button" class="button disabled"><?php _ex( 'Cannot Install', 'theme' ); ?></button>
 						<button type="button" class="button button-primary disabled"><?php _e( 'Install &amp; Preview' ); ?></button>
 					<# } #>
+=======
+					<button type="button" class="button button-primary preview-theme" data-slug="{{ data.id }}"><?php _e( 'Live Preview' ); ?></button>
+				<# } else { #>
+					<button type="button" class="button theme-install" data-slug="{{ data.id }}"><?php _e( 'Install' ); ?></button>
+					<button type="button" class="button button-primary theme-install preview" data-slug="{{ data.id }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				<# } #>
 			</div>
 		</div>

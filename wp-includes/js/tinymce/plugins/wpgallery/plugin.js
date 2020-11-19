@@ -57,7 +57,11 @@ tinymce.PluginManager.add('wpgallery', function( editor ) {
 		}
 	}
 
+<<<<<<< HEAD
 	// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('...').
+=======
+	// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('...');
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	editor.addCommand( 'WP_Gallery', function() {
 		editMedia( editor.selection.getNode() );
 	});
@@ -71,7 +75,11 @@ tinymce.PluginManager.add('wpgallery', function( editor ) {
 		}
 
 		if ( node.nodeName === 'IMG' && dom.getAttrib( node, 'data-wp-media' ) ) {
+<<<<<<< HEAD
 			// Don't trigger on right-click.
+=======
+			// Don't trigger on right-click
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( event.button !== 2 ) {
 				if ( dom.hasClass( node, 'wp-media-selected' ) ) {
 					editMedia( node );
@@ -85,7 +93,11 @@ tinymce.PluginManager.add('wpgallery', function( editor ) {
 		}
 	});
 
+<<<<<<< HEAD
 	// Display gallery, audio or video instead of img in the element path.
+=======
+	// Display gallery, audio or video instead of img in the element path
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	editor.on( 'ResolveName', function( event ) {
 		var dom = editor.dom,
 			node = event.target;
@@ -98,7 +110,11 @@ tinymce.PluginManager.add('wpgallery', function( editor ) {
 	});
 
 	editor.on( 'BeforeSetContent', function( event ) {
+<<<<<<< HEAD
 		// 'wpview' handles the gallery shortcode when present.
+=======
+		// 'wpview' handles the gallery shortcode when present
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! editor.plugins.wpview || typeof wp === 'undefined' || ! wp.mce ) {
 			event.content = replaceGalleryShortcodes( event.content );
 		}

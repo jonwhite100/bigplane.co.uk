@@ -7,6 +7,7 @@
   # Replace http://stevegrunwell.com with your 
   # production site's domain name.
   RewriteRule (.*) http://collins-groundworks.co.uk/wp-content/uploads/$1
+<<<<<<< HEAD
 </IfModule>
 # BEGIN ShortPixelWebp
 # The directives (lines) between "BEGIN ShortPixelWebp" and "END ShortPixelWebp" are
@@ -14,3 +15,6 @@
 # Any changes to the directives between these markers will be overwritten.
 
 # END ShortPixelWebp
+=======
+</IfModule>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

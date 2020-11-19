@@ -5,7 +5,11 @@
  * A PHP-Based RSS and Atom Feed Framework.
  * Takes the hard work out of managing a complete RSS/Atom solution.
  *
+<<<<<<< HEAD
  * Copyright (c) 2004-2016, Ryan Parman, Sam Sneddon, Ryan McCue, and contributors
+=======
+ * Copyright (c) 2004-2012, Ryan Parman, Geoffrey Sneddon, Ryan McCue, and contributors
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are
@@ -33,9 +37,16 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @package SimplePie
+<<<<<<< HEAD
  * @copyright 2004-2016 Ryan Parman, Sam Sneddon, Ryan McCue
  * @author Ryan Parman
  * @author Sam Sneddon
+=======
+ * @version 1.3.1
+ * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
+ * @author Ryan Parman
+ * @author Geoffrey Sneddon
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
@@ -121,7 +132,11 @@ class SimplePie_Item
 	 */
 	public function __destruct()
 	{
+<<<<<<< HEAD
 		if (!gc_enabled())
+=======
+		if ((version_compare(PHP_VERSION, '5.3', '<') || !gc_enabled()) && !ini_get('zend.ze1_compatibility_mode'))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		{
 			unset($this->feed);
 		}
@@ -147,8 +162,15 @@ class SimplePie_Item
 		{
 			return $this->data['child'][$namespace][$tag];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -200,6 +222,7 @@ class SimplePie_Item
 	 *
 	 * Uses `<atom:id>`, `<guid>`, `<dc:identifier>` or the `about` attribute
 	 * for RDF. If none of these are supplied (or `$hash` is true), creates an
+<<<<<<< HEAD
 	 * MD5 hash based on the permalink, title and content.
 	 *
 	 * @since Beta 2
@@ -208,6 +231,16 @@ class SimplePie_Item
 	 * @return string|null
 	 */
 	public function get_id($hash = false, $fn = 'md5')
+=======
+	 * MD5 hash based on the permalink and title. If either of those are not
+	 * supplied, creates a hash based on the full feed data.
+	 *
+	 * @since Beta 2
+	 * @param boolean $hash Should we force using a hash instead of the supplied ID?
+	 * @return string
+	 */
+	public function get_id($hash = false)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	{
 		if (!$hash)
 		{
@@ -235,6 +268,7 @@ class SimplePie_Item
 			{
 				return $this->sanitize($this->data['attribs'][SIMPLEPIE_NAMESPACE_RDF]['about'], SIMPLEPIE_CONSTRUCT_TEXT);
 			}
+<<<<<<< HEAD
 		}
 		if ($fn === false)
 		{
@@ -247,6 +281,25 @@ class SimplePie_Item
 		}
 		return call_user_func($fn,
 		       $this->get_permalink().$this->get_title().$this->get_content());
+=======
+			elseif (($return = $this->get_permalink()) !== null)
+			{
+				return $return;
+			}
+			elseif (($return = $this->get_title()) !== null)
+			{
+				return $return;
+			}
+		}
+		if ($this->get_permalink() !== null || $this->get_title() !== null)
+		{
+			return md5($this->get_permalink() . $this->get_title());
+		}
+		else
+		{
+			return md5(serialize($this->data));
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -314,6 +367,7 @@ class SimplePie_Item
 	 */
 	public function get_description($description_only = false)
 	{
+<<<<<<< HEAD
 		if (($tags = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'summary')) &&
 		    ($return = $this->sanitize($tags[0]['data'], $this->registry->call('Misc', 'atom_10_construct_type', array($tags[0]['attribs'])), $this->get_base($tags[0]))))
 		{
@@ -358,14 +412,58 @@ class SimplePie_Item
 		        ($return = $this->sanitize($tags[0]['data'], SIMPLEPIE_CONSTRUCT_HTML)))
 		{
 			return $return;
+=======
+		if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'summary'))
+		{
+			return $this->sanitize($return[0]['data'], $this->registry->call('Misc', 'atom_10_construct_type', array($return[0]['attribs'])), $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'summary'))
+		{
+			return $this->sanitize($return[0]['data'], $this->registry->call('Misc', 'atom_03_construct_type', array($return[0]['attribs'])), $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'description'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_20, 'description'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'description'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'description'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'summary'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'subtitle'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'description'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		elseif (!$description_only)
 		{
 			return $this->get_content(true);
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -384,6 +482,7 @@ class SimplePie_Item
 	 */
 	public function get_content($content_only = false)
 	{
+<<<<<<< HEAD
 		if (($tags = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'content')) &&
 		    ($return = $this->sanitize($tags[0]['data'], $this->registry->call('Misc', 'atom_10_content_construct_type', array($tags[0]['attribs'])), $this->get_base($tags[0]))))
 		{
@@ -398,11 +497,25 @@ class SimplePie_Item
 		        ($return = $this->sanitize($tags[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($tags[0]))))
 		{
 			return $return;
+=======
+		if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'content'))
+		{
+			return $this->sanitize($return[0]['data'], $this->registry->call('Misc', 'atom_10_content_construct_type', array($return[0]['attribs'])), $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'content'))
+		{
+			return $this->sanitize($return[0]['data'], $this->registry->call('Misc', 'atom_03_construct_type', array($return[0]['attribs'])), $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT, 'encoded'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		elseif (!$content_only)
 		{
 			return $this->get_description(true);
 		}
+<<<<<<< HEAD
 
 		return null;
 	}
@@ -429,6 +542,12 @@ class SimplePie_Item
 			}
 		}
 		return $this->data['thumbnail'];
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -445,8 +564,15 @@ class SimplePie_Item
 		{
 			return $categories[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -455,14 +581,22 @@ class SimplePie_Item
 	 * Uses `<atom:category>`, `<category>` or `<dc:subject>`
 	 *
 	 * @since Beta 3
+<<<<<<< HEAD
 	 * @return SimplePie_Category[]|null List of {@see SimplePie_Category} objects
+=======
+	 * @return array|null List of {@see SimplePie_Category} objects
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function get_categories()
 	{
 		$categories = array();
 
+<<<<<<< HEAD
 		$type = 'category';
 		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, $type) as $category)
+=======
+		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'category') as $category)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		{
 			$term = null;
 			$scheme = null;
@@ -479,9 +613,15 @@ class SimplePie_Item
 			{
 				$label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
 			}
+<<<<<<< HEAD
 			$categories[] = $this->registry->create('Category', array($term, $scheme, $label, $type));
 		}
 		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_20, $type) as $category)
+=======
+			$categories[] = $this->registry->create('Category', array($term, $scheme, $label));
+		}
+		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_20, 'category') as $category)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		{
 			// This is really the label, but keep this as the term also for BC.
 			// Label will also work on retrieving because that falls back to term.
@@ -494,6 +634,7 @@ class SimplePie_Item
 			{
 				$scheme = null;
 			}
+<<<<<<< HEAD
 			$categories[] = $this->registry->create('Category', array($term, $scheme, null, $type));
 		}
 
@@ -505,14 +646,32 @@ class SimplePie_Item
 		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, $type) as $category)
 		{
 			$categories[] = $this->registry->create('Category', array($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null, $type));
+=======
+			$categories[] = $this->registry->create('Category', array($term, $scheme, null));
+		}
+		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
+		{
+			$categories[] = $this->registry->create('Category', array($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null));
+		}
+		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
+		{
+			$categories[] = $this->registry->create('Category', array($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null));
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		if (!empty($categories))
 		{
 			return array_unique($categories);
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -529,8 +688,15 @@ class SimplePie_Item
 		{
 			return $authors[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -547,8 +713,15 @@ class SimplePie_Item
 		{
 			return $contributors[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -557,7 +730,11 @@ class SimplePie_Item
 	 * Uses `<atom:contributor>`
 	 *
 	 * @since 1.1
+<<<<<<< HEAD
 	 * @return SimplePie_Author[]|null List of {@see SimplePie_Author} objects
+=======
+	 * @return array|null List of {@see SimplePie_Author} objects
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function get_contributors()
 	{
@@ -611,8 +788,15 @@ class SimplePie_Item
 		{
 			return array_unique($contributors);
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -621,7 +805,11 @@ class SimplePie_Item
 	 * Uses `<atom:author>`, `<author>`, `<dc:creator>` or `<itunes:author>`
 	 *
 	 * @since Beta 2
+<<<<<<< HEAD
 	 * @return SimplePie_Author[]|null List of {@see SimplePie_Author} objects
+=======
+	 * @return array|null List of {@see SimplePie_Author} objects
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function get_authors()
 	{
@@ -699,8 +887,15 @@ class SimplePie_Item
 		{
 			return $authors;
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -725,8 +920,15 @@ class SimplePie_Item
 		{
 			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -751,6 +953,7 @@ class SimplePie_Item
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
+<<<<<<< HEAD
 			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_20, 'pubDate'))
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
@@ -776,6 +979,33 @@ class SimplePie_Item
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
 			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'modified'))
+=======
+			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'updated'))
+			{
+				$this->data['date']['raw'] = $return[0]['data'];
+			}
+			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'issued'))
+			{
+				$this->data['date']['raw'] = $return[0]['data'];
+			}
+			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'created'))
+			{
+				$this->data['date']['raw'] = $return[0]['data'];
+			}
+			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'modified'))
+			{
+				$this->data['date']['raw'] = $return[0]['data'];
+			}
+			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_20, 'pubDate'))
+			{
+				$this->data['date']['raw'] = $return[0]['data'];
+			}
+			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'date'))
+			{
+				$this->data['date']['raw'] = $return[0]['data'];
+			}
+			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'date'))
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
@@ -805,8 +1035,15 @@ class SimplePie_Item
 					return date($date_format, $this->data['date']['parsed']);
 			}
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -832,7 +1069,11 @@ class SimplePie_Item
 			if (!empty($this->data['updated']['raw']))
 			{
 				$parser = $this->registry->call('Parse_Date', 'get');
+<<<<<<< HEAD
 				$this->data['updated']['parsed'] = $parser->parse($this->data['updated']['raw']);
+=======
+				$this->data['updated']['parsed'] = $parser->parse($this->data['date']['raw']);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 			else
 			{
@@ -854,8 +1095,15 @@ class SimplePie_Item
 					return date($date_format, $this->data['updated']['parsed']);
 			}
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -881,8 +1129,15 @@ class SimplePie_Item
 		{
 			return strftime($date_format, $date);
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -943,8 +1198,15 @@ class SimplePie_Item
 		{
 			return $enclosure->get_link();
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -958,12 +1220,23 @@ class SimplePie_Item
 	public function get_link($key = 0, $rel = 'alternate')
 	{
 		$links = $this->get_links($rel);
+<<<<<<< HEAD
 		if ($links && $links[$key] !== null)
 		{
 			return $links[$key];
 		}
 
 		return null;
+=======
+		if ($links[$key] !== null)
+		{
+			return $links[$key];
+		}
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -1043,8 +1316,15 @@ class SimplePie_Item
 		{
 			return $this->data['links'][$rel];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -1064,8 +1344,15 @@ class SimplePie_Item
 		{
 			return $enclosures[$key];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -1079,8 +1366,13 @@ class SimplePie_Item
 	 *
 	 * @since Beta 2
 	 * @todo Add support for end-user defined sorting of enclosures by type/handler (so we can prefer the faster-loading FLV over MP4).
+<<<<<<< HEAD
 	 * @todo If an element exists at a level, but its value is empty, we should fall back to the value from the parent (if it exists).
 	 * @return SimplePie_Enclosure[]|null List of SimplePie_Enclosure items
+=======
+	 * @todo If an element exists at a level, but it's value is empty, we should fall back to the value from the parent (if it exists).
+	 * @return array|null List of SimplePie_Enclosure items
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function get_enclosures()
 	{
@@ -2657,9 +2949,13 @@ class SimplePie_Item
 						// PLAYER
 						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player']))
 						{
+<<<<<<< HEAD
 							if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player'][0]['attribs']['']['url'])) {
 								$player = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player'][0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
 							}
+=======
+							$player = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player'][0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						}
 						else
 						{
@@ -2734,9 +3030,13 @@ class SimplePie_Item
 						{
 							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail'] as $thumbnail)
 							{
+<<<<<<< HEAD
 								if (isset($thumbnail['attribs']['']['url'])) {
 									$thumbnails[] = $this->sanitize($thumbnail['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
 								}
+=======
+								$thumbnails[] = $this->sanitize($thumbnail['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							}
 							if (is_array($thumbnails))
 							{
@@ -2792,6 +3092,7 @@ class SimplePie_Item
 					{
 						$length = ceil($link['attribs']['']['length']);
 					}
+<<<<<<< HEAD
 					if (isset($link['attribs']['']['title']))
 					{
 						$title = $this->sanitize($link['attribs']['']['title'], SIMPLEPIE_CONSTRUCT_TEXT);
@@ -2803,6 +3104,11 @@ class SimplePie_Item
 
 					// Since we don't have group or content for these, we'll just pass the '*_parent' variables directly to the constructor
 					$this->data['enclosures'][] = $this->registry->create('Enclosure', array($url, $type, $length, null, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title, $width));
+=======
+
+					// Since we don't have group or content for these, we'll just pass the '*_parent' variables directly to the constructor
+					$this->data['enclosures'][] = $this->registry->create('Enclosure', array($url, $type, $length, null, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width));
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 			}
 
@@ -2888,8 +3194,15 @@ class SimplePie_Item
 		{
 			return $this->data['enclosures'];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -2914,8 +3227,15 @@ class SimplePie_Item
 		{
 			return (float) $match[1];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -2944,8 +3264,15 @@ class SimplePie_Item
 		{
 			return (float) $match[2];
 		}
+<<<<<<< HEAD
 
 		return null;
+=======
+		else
+		{
+			return null;
+		}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -2960,7 +3287,17 @@ class SimplePie_Item
 		{
 			return $this->registry->create('Source', array($this, $return[0]));
 		}
+<<<<<<< HEAD
 
 		return null;
 	}
 }
+=======
+		else
+		{
+			return null;
+		}
+	}
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

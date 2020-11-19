@@ -249,11 +249,19 @@ var paste = (function (domGlobals) {
 
     var global$7 = tinymce.util.Tools.resolve('tinymce.html.DomParser');
 
+<<<<<<< HEAD
     var global$8 = tinymce.util.Tools.resolve('tinymce.html.Serializer');
 
     var global$9 = tinymce.util.Tools.resolve('tinymce.html.Node');
 
     var global$a = tinymce.util.Tools.resolve('tinymce.html.Schema');
+=======
+    var global$8 = tinymce.util.Tools.resolve('tinymce.html.Node');
+
+    var global$9 = tinymce.util.Tools.resolve('tinymce.html.Schema');
+
+    var global$a = tinymce.util.Tools.resolve('tinymce.html.Serializer');
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
     function filter(content, items) {
       global$4.each(items, function (v) {
@@ -266,7 +274,11 @@ var paste = (function (domGlobals) {
       return content;
     }
     function innerText(html) {
+<<<<<<< HEAD
       var schema = global$a();
+=======
+      var schema = global$9();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       var domParser = global$7({}, schema);
       var text = '';
       var shortEndedElements = schema.getShortEndedElements();
@@ -426,7 +438,11 @@ var paste = (function (domGlobals) {
         }
         if (!currentListNode || currentListNode.name !== listName) {
           prevListNode = prevListNode || currentListNode;
+<<<<<<< HEAD
           currentListNode = new global$9(listName, 1);
+=======
+          currentListNode = new global$8(listName, 1);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
           if (start > 1) {
             currentListNode.attr('start', '' + start);
           }
@@ -538,11 +554,19 @@ var paste = (function (domGlobals) {
       });
       if (/(bold)/i.test(outputStyles['font-weight'])) {
         delete outputStyles['font-weight'];
+<<<<<<< HEAD
         node.wrap(new global$9('b', 1));
       }
       if (/(italic)/i.test(outputStyles['font-style'])) {
         delete outputStyles['font-style'];
         node.wrap(new global$9('i', 1));
+=======
+        node.wrap(new global$8('b', 1));
+      }
+      if (/(italic)/i.test(outputStyles['font-style'])) {
+        delete outputStyles['font-style'];
+        node.wrap(new global$8('i', 1));
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
       outputStyles = editor.dom.serializeStyle(outputStyles, node.name);
       if (outputStyles) {
@@ -577,7 +601,11 @@ var paste = (function (domGlobals) {
         ]
       ]);
       var validElements = Settings.getWordValidElements(editor);
+<<<<<<< HEAD
       var schema = global$a({
+=======
+      var schema = global$9({
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         valid_elements: validElements,
         valid_children: '-li[p]'
       });
@@ -653,7 +681,11 @@ var paste = (function (domGlobals) {
       if (Settings.shouldConvertWordFakeLists(editor)) {
         convertFakeListsToProperLists(rootNode);
       }
+<<<<<<< HEAD
       content = global$8({ validate: editor.settings.validate }, schema).serialize(rootNode);
+=======
+      content = global$a({ validate: editor.settings.validate }, schema).serialize(rootNode);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       return content;
     };
     var preProcess = function (editor, content) {
@@ -664,6 +696,7 @@ var paste = (function (domGlobals) {
       isWordContent: isWordContent
     };
 
+<<<<<<< HEAD
     var preProcess$1 = function (editor, html) {
       var parser = global$7({}, editor.schema);
       parser.addNodeFilter('meta', function (nodes) {
@@ -677,6 +710,8 @@ var paste = (function (domGlobals) {
       });
       return global$8({ validate: editor.settings.validate }, editor.schema).serialize(fragment);
     };
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var processResult = function (content, cancelled) {
       return {
         content: content,
@@ -690,11 +725,18 @@ var paste = (function (domGlobals) {
     };
     var filterContent = function (editor, content, internal, isWordHtml) {
       var preProcessArgs = Events.firePastePreProcess(editor, content, internal, isWordHtml);
+<<<<<<< HEAD
       var filteredContent = preProcess$1(editor, preProcessArgs.content);
       if (editor.hasEventListeners('PastePostProcess') && !preProcessArgs.isDefaultPrevented()) {
         return postProcessFilter(editor, filteredContent, internal, isWordHtml);
       } else {
         return processResult(filteredContent, preProcessArgs.isDefaultPrevented());
+=======
+      if (editor.hasEventListeners('PastePostProcess') && !preProcessArgs.isDefaultPrevented()) {
+        return postProcessFilter(editor, preProcessArgs.content, internal, isWordHtml);
+      } else {
+        return processResult(preProcessArgs.content, preProcessArgs.isDefaultPrevented());
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
     };
     var process = function (editor, html, internal) {
@@ -704,8 +746,20 @@ var paste = (function (domGlobals) {
     };
     var ProcessFilters = { process: process };
 
+<<<<<<< HEAD
     var pasteHtml = function (editor, html) {
       editor.insertContent(html, {
+=======
+    var removeMeta = function (editor, html) {
+      var body = editor.dom.create('body', {}, html);
+      global$4.each(body.querySelectorAll('meta'), function (elm) {
+        return elm.parentNode.removeChild(elm);
+      });
+      return body.innerHTML;
+    };
+    var pasteHtml = function (editor, html) {
+      editor.insertContent(removeMeta(editor, html), {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         merge: Settings.shouldMergeFormats(editor),
         paste: true
       });
@@ -761,8 +815,11 @@ var paste = (function (domGlobals) {
       insertContent: insertContent
     };
 
+<<<<<<< HEAD
     var noop = function () {
     };
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var constant = function (value) {
       return function () {
         return value;
@@ -785,6 +842,11 @@ var paste = (function (domGlobals) {
     var never = constant(false);
     var always = constant(true);
 
+<<<<<<< HEAD
+=======
+    var never$1 = never;
+    var always$1 = always;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var none = function () {
       return NONE;
     };
@@ -798,18 +860,36 @@ var paste = (function (domGlobals) {
       var id = function (n) {
         return n;
       };
+<<<<<<< HEAD
+=======
+      var noop = function () {
+      };
+      var nul = function () {
+        return null;
+      };
+      var undef = function () {
+        return undefined;
+      };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       var me = {
         fold: function (n, s) {
           return n();
         },
+<<<<<<< HEAD
         is: never,
         isSome: never,
         isNone: always,
+=======
+        is: never$1,
+        isSome: never$1,
+        isNone: always$1,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         getOr: id,
         getOrThunk: call,
         getOrDie: function (msg) {
           throw new Error(msg || 'error: getOrDie called on none.');
         },
+<<<<<<< HEAD
         getOrNull: constant(null),
         getOrUndefined: constant(undefined),
         or: id,
@@ -819,6 +899,19 @@ var paste = (function (domGlobals) {
         bind: none,
         exists: never,
         forall: always,
+=======
+        getOrNull: nul,
+        getOrUndefined: undef,
+        or: id,
+        orThunk: call,
+        map: none,
+        ap: none,
+        each: noop,
+        bind: none,
+        flatten: none,
+        exists: never$1,
+        forall: always$1,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         filter: none,
         equals: eq,
         equals_: eq,
@@ -833,10 +926,22 @@ var paste = (function (domGlobals) {
       return me;
     }();
     var some = function (a) {
+<<<<<<< HEAD
       var constant_a = constant(a);
       var self = function () {
         return me;
       };
+=======
+      var constant_a = function () {
+        return a;
+      };
+      var self = function () {
+        return me;
+      };
+      var map = function (f) {
+        return some(f(a));
+      };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       var bind = function (f) {
         return f(a);
       };
@@ -847,8 +952,13 @@ var paste = (function (domGlobals) {
         is: function (v) {
           return a === v;
         },
+<<<<<<< HEAD
         isSome: always,
         isNone: never,
+=======
+        isSome: always$1,
+        isNone: never$1,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         getOr: constant_a,
         getOrThunk: constant_a,
         getOrDie: constant_a,
@@ -856,31 +966,58 @@ var paste = (function (domGlobals) {
         getOrUndefined: constant_a,
         or: self,
         orThunk: self,
+<<<<<<< HEAD
         map: function (f) {
           return some(f(a));
+=======
+        map: map,
+        ap: function (optfab) {
+          return optfab.fold(none, function (fab) {
+            return some(fab(a));
+          });
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         },
         each: function (f) {
           f(a);
         },
         bind: bind,
+<<<<<<< HEAD
+=======
+        flatten: constant_a,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         exists: bind,
         forall: bind,
         filter: function (f) {
           return f(a) ? me : NONE;
         },
+<<<<<<< HEAD
         toArray: function () {
           return [a];
         },
         toString: function () {
           return 'some(' + a + ')';
         },
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         equals: function (o) {
           return o.is(a);
         },
         equals_: function (o, elementEq) {
+<<<<<<< HEAD
           return o.fold(never, function (b) {
             return elementEq(a, b);
           });
+=======
+          return o.fold(never$1, function (b) {
+            return elementEq(a, b);
+          });
+        },
+        toArray: function () {
+          return [a];
+        },
+        toString: function () {
+          return 'some(' + a + ')';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
       };
       return me;
@@ -914,34 +1051,54 @@ var paste = (function (domGlobals) {
     };
     var isFunction = isType('function');
 
+<<<<<<< HEAD
     var nativeSlice = Array.prototype.slice;
+=======
+    var slice = Array.prototype.slice;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     var map = function (xs, f) {
       var len = xs.length;
       var r = new Array(len);
       for (var i = 0; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         r[i] = f(x, i);
+=======
+        r[i] = f(x, i, xs);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
       return r;
     };
     var each = function (xs, f) {
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         f(x, i);
+=======
+        f(x, i, xs);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
       }
     };
     var filter$1 = function (xs, pred) {
       var r = [];
       for (var i = 0, len = xs.length; i < len; i++) {
         var x = xs[i];
+<<<<<<< HEAD
         if (pred(x, i)) {
+=======
+        if (pred(x, i, xs)) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
           r.push(x);
         }
       }
       return r;
     };
     var from$1 = isFunction(Array.from) ? Array.from : function (x) {
+<<<<<<< HEAD
       return nativeSlice.call(x);
+=======
+      return slice.call(x);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     };
 
     var exports$1 = {}, module = { exports: exports$1 };
@@ -1585,10 +1742,17 @@ var paste = (function (domGlobals) {
     var par$1 = function (futures) {
       return par(futures, Future.nu);
     };
+<<<<<<< HEAD
     var traverse = function (array, fn) {
       return par$1(map(array, fn));
     };
     var mapM = traverse;
+=======
+    var mapM = function (array, fn) {
+      var futures = map(array, fn);
+      return par$1(futures);
+    };
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
     var value = function () {
       var subject = Cell(Option.none());
@@ -2033,7 +2197,11 @@ var paste = (function (domGlobals) {
       };
     };
 
+<<<<<<< HEAD
     var noop$1 = function () {
+=======
+    var noop = function () {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     };
     var hasWorkingClipboardApi = function (clipboardData) {
       return global$2.iOS === false && clipboardData !== undefined && typeof clipboardData.setData === 'function' && Utils.isMsEdge() !== true;
@@ -2116,7 +2284,11 @@ var paste = (function (domGlobals) {
     var copy = function (editor) {
       return function (evt) {
         if (hasSelectedContent(editor)) {
+<<<<<<< HEAD
           setClipboardData(evt, getData(editor), fallback(editor), noop$1);
+=======
+          setClipboardData(evt, getData(editor), fallback(editor), noop);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         }
       };
     };

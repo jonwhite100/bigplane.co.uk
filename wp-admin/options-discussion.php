@@ -6,7 +6,11 @@
  * @subpackage Administration
  */
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_options' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage options for this site.' ) );
@@ -32,7 +36,11 @@ get_current_screen()->set_help_sidebar(
 	'<p>' . __( '<a href="https://wordpress.org/support/">Support</a>' ) . '</p>'
 );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+include( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 
 <div class="wrap">
@@ -125,11 +133,19 @@ printf( __( 'Enable threaded (nested) comments %s levels deep' ), $thread_commen
 <input name="page_comments" type="checkbox" id="page_comments" value="1" <?php checked( '1', get_option( 'page_comments' ) ); ?> />
 <?php
 $default_comments_page = '</label> <label for="default_comments_page"><select name="default_comments_page" id="default_comments_page"><option value="newest"';
+<<<<<<< HEAD
 if ( 'newest' === get_option( 'default_comments_page' ) ) {
 	$default_comments_page .= ' selected="selected"';
 }
 $default_comments_page .= '>' . __( 'last' ) . '</option><option value="oldest"';
 if ( 'oldest' === get_option( 'default_comments_page' ) ) {
+=======
+if ( 'newest' == get_option( 'default_comments_page' ) ) {
+	$default_comments_page .= ' selected="selected"';
+}
+$default_comments_page .= '>' . __( 'last' ) . '</option><option value="oldest"';
+if ( 'oldest' == get_option( 'default_comments_page' ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$default_comments_page .= ' selected="selected"';
 }
 $default_comments_page .= '>' . __( 'first' ) . '</option></select>';
@@ -146,11 +162,19 @@ printf(
 <?php
 
 $comment_order = '<select name="comment_order" id="comment_order"><option value="asc"';
+<<<<<<< HEAD
 if ( 'asc' === get_option( 'comment_order' ) ) {
 	$comment_order .= ' selected="selected"';
 }
 $comment_order .= '>' . __( 'older' ) . '</option><option value="desc"';
 if ( 'desc' === get_option( 'comment_order' ) ) {
+=======
+if ( 'asc' == get_option( 'comment_order' ) ) {
+	$comment_order .= ' selected="selected"';
+}
+$comment_order .= '>' . __( 'older' ) . '</option><option value="desc"';
+if ( 'desc' == get_option( 'comment_order' ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$comment_order .= ' selected="selected"';
 }
 $comment_order .= '>' . __( 'newer' ) . '</option></select>';
@@ -181,7 +205,11 @@ printf( __( 'Comments should be displayed with the %s comments at the top of eac
 <input name="comment_moderation" type="checkbox" id="comment_moderation" value="1" <?php checked( '1', get_option( 'comment_moderation' ) ); ?> />
 <?php _e( 'Comment must be manually approved' ); ?> </label>
 <br />
+<<<<<<< HEAD
 <label for="comment_previously_approved"><input type="checkbox" name="comment_previously_approved" id="comment_previously_approved" value="1" <?php checked( '1', get_option( 'comment_previously_approved' ) ); ?> /> <?php _e( 'Comment author must have a previously approved comment' ); ?></label>
+=======
+<label for="comment_whitelist"><input type="checkbox" name="comment_whitelist" id="comment_whitelist" value="1" <?php checked( '1', get_option( 'comment_whitelist' ) ); ?> /> <?php _e( 'Comment author must have a previously approved comment' ); ?></label>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 </fieldset></td>
 </tr>
 <tr>
@@ -197,18 +225,30 @@ printf(
 ?>
 </label></p>
 
+<<<<<<< HEAD
 <p><label for="moderation_keys"><?php _e( 'When a comment contains any of these words in its content, author name, URL, email, IP address, or browser&#8217;s user agent string, it will be held in the <a href="edit-comments.php?comment_status=moderated">moderation queue</a>. One word or IP address per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;.' ); ?></label></p>
+=======
+<p><label for="moderation_keys"><?php _e( 'When a comment contains any of these words in its content, name, URL, email, or IP address, it will be held in the <a href="edit-comments.php?comment_status=moderated">moderation queue</a>. One word or IP address per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;.' ); ?></label></p>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 <p>
 <textarea name="moderation_keys" rows="10" cols="50" id="moderation_keys" class="large-text code"><?php echo esc_textarea( get_option( 'moderation_keys' ) ); ?></textarea>
 </p>
 </fieldset></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 <th scope="row"><?php _e( 'Disallowed Comment Keys' ); ?></th>
 <td><fieldset><legend class="screen-reader-text"><span><?php _e( 'Disallowed Comment Keys' ); ?></span></legend>
 <p><label for="disallowed_keys"><?php _e( 'When a comment contains any of these words in its content, author name, URL, email, IP address, or browser&#8217;s user agent string, it will be put in the Trash. One word or IP address per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;.' ); ?></label></p>
 <p>
 <textarea name="disallowed_keys" rows="10" cols="50" id="disallowed_keys" class="large-text code"><?php echo esc_textarea( get_option( 'disallowed_keys' ) ); ?></textarea>
+=======
+<th scope="row"><?php _e( 'Comment Blacklist' ); ?></th>
+<td><fieldset><legend class="screen-reader-text"><span><?php _e( 'Comment Blacklist' ); ?></span></legend>
+<p><label for="blacklist_keys"><?php _e( 'When a comment contains any of these words in its content, name, URL, email, or IP address, it will be put in the trash. One word or IP address per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;.' ); ?></label></p>
+<p>
+<textarea name="blacklist_keys" rows="10" cols="50" id="blacklist_keys" class="large-text code"><?php echo esc_textarea( get_option( 'blacklist_keys' ) ); ?></textarea>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 </p>
 </fieldset></td>
 </tr>
@@ -220,7 +260,11 @@ printf(
 <p><?php _e( 'An avatar is an image that follows you from weblog to weblog appearing beside your name when you comment on avatar enabled sites. Here you can enable the display of avatars for people who comment on your site.' ); ?></p>
 
 <?php
+<<<<<<< HEAD
 // The above would be a good place to link to the documentation on the Gravatar functions, for putting it in themes. Anything like that?
+=======
+// the above would be a good place to link to codex documentation on the gravatar functions, for putting it in themes. anything like that?
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 $show_avatars       = get_option( 'show_avatars' );
 $show_avatars_class = '';
@@ -294,7 +338,11 @@ $avatar_defaults = apply_filters( 'avatar_defaults', $avatar_defaults );
 $default         = get_option( 'avatar_default', 'mystery' );
 $avatar_list     = '';
 
+<<<<<<< HEAD
 // Force avatars on to display these choices.
+=======
+// Force avatars on to display these choices
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 add_filter( 'pre_option_show_avatars', '__return_true', 100 );
 
 foreach ( $avatar_defaults as $default_key => $default_name ) {
@@ -328,4 +376,8 @@ echo apply_filters( 'default_avatar_select', $avatar_list );
 </form>
 </div>
 
+<<<<<<< HEAD
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

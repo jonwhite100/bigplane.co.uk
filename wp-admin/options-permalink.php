@@ -7,7 +7,11 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_options' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage options for this site.' ) );
@@ -32,7 +36,11 @@ get_current_screen()->add_help_tab(
 		'title'   => __( 'Permalink Settings' ),
 		'content' => '<p>' . __( 'Permalinks can contain useful information, such as the post date, title, or other elements. You can choose from any of the suggested permalink formats, or you can craft your own if you select Custom Structure.' ) . '</p>' .
 			'<p>' . sprintf(
+<<<<<<< HEAD
 				/* translators: %s: Percent sign (%). */
+=======
+				/* translators: '%' character. */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				__( 'If you pick an option other than Plain, your general URL path with structure tags (terms surrounded by %s) will also appear in the custom structure field and your path can be further modified there.' ),
 				'<code>%</code>'
 			) . '</p>' .
@@ -151,6 +159,7 @@ if ( isset( $_POST['permalink_structure'] ) || isset( $_POST['category_base'] ) 
 
 	if ( $iis7_permalinks ) {
 		if ( $permalink_structure && ! $using_index_permalinks && ! $writable ) {
+<<<<<<< HEAD
 			$message = sprintf(
 				/* translators: %s: web.config */
 				__( 'You should update your %s file now.' ),
@@ -169,6 +178,14 @@ if ( isset( $_POST['permalink_structure'] ) || isset( $_POST['category_base'] ) 
 			__( 'You should update your %s file now.' ),
 			'<code>.htaccess</code>'
 		);
+=======
+			$message = __( 'You should update your web.config now.' );
+		} elseif ( $permalink_structure && ! $using_index_permalinks && $writable ) {
+			$message = __( 'Permalink structure updated. Remove write access on web.config file now!' );
+		}
+	} elseif ( ! $is_nginx && $permalink_structure && ! $using_index_permalinks && ! $writable && $update_required ) {
+		$message = __( 'You should update your .htaccess now.' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	if ( ! get_settings_errors() ) {
@@ -183,7 +200,11 @@ if ( isset( $_POST['permalink_structure'] ) || isset( $_POST['category_base'] ) 
 
 flush_rewrite_rules();
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 <div class="wrap">
 <h1><?php echo esc_html( $title ); ?></h1>
@@ -240,7 +261,11 @@ $structures = array(
 	</tr>
 	<tr>
 		<th scope="row">
+<<<<<<< HEAD
 			<label><input name="selection" id="custom_selection" type="radio" value="custom" <?php checked( ! in_array( $permalink_structure, $structures, true ) ); ?> />
+=======
+			<label><input name="selection" id="custom_selection" type="radio" value="custom" <?php checked( ! in_array( $permalink_structure, $structures ) ); ?> />
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<?php _e( 'Custom Structure' ); ?>
 			</label>
 		</th>
@@ -276,7 +301,11 @@ $structures = array(
 				/**
 				 * Filters the list of available permalink structure tags on the Permalinks settings page.
 				 *
+<<<<<<< HEAD
 				 * @since 4.9.0
+=======
+				 * @since 4.8.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 *
 				 * @param string[] $available_tags An array of key => value pairs of available permalink structure tags.
 				 */
@@ -419,8 +448,16 @@ else :
 </form>
 	<?php endif; ?>
 <?php endif; ?>
+<<<<<<< HEAD
 <?php } // End if ! is_multisite(). ?>
 
 </div>
 
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php } // multisite ?>
+
+</div>
+
+<?php require( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

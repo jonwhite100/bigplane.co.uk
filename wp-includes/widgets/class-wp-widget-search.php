@@ -50,7 +50,11 @@ class WP_Widget_Search extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
+<<<<<<< HEAD
 		// Use current theme search form if it exists.
+=======
+		// Use current theme search form if it exists
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		get_search_form();
 
 		echo $args['after_widget'];
@@ -67,10 +71,14 @@ class WP_Widget_Search extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
 		$title    = $instance['title'];
 		?>
+<<<<<<< HEAD
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 		</p>
+=======
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		<?php
 	}
 

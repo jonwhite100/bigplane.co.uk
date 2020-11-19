@@ -23,10 +23,16 @@ class WP_Http_Encoding {
 	 *
 	 * @since 2.8.0
 	 *
+<<<<<<< HEAD
 	 * @param string $raw      String to compress.
 	 * @param int    $level    Optional. Compression level, 9 is highest. Default 9.
 	 * @param string $supports Optional, not used. When implemented it will choose
 	 *                         the right compression based on what the server supports.
+=======
+	 * @param string $raw String to compress.
+	 * @param int $level Optional, default is 9. Compression level, 9 is highest.
+	 * @param string $supports Optional, not used. When implemented it will choose the right compression based on what the server supports.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return string|false False on failure.
 	 */
 	public static function compress( $raw, $level = 9, $supports = null ) {
@@ -44,7 +50,11 @@ class WP_Http_Encoding {
 	 * @since 2.8.0
 	 *
 	 * @param string $compressed String to decompress.
+<<<<<<< HEAD
 	 * @param int    $length     The optional length of the compressed data.
+=======
+	 * @param int $length The optional length of the compressed data.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return string|bool False on failure.
 	 */
 	public static function decompress( $compressed, $length = null ) {
@@ -92,10 +102,16 @@ class WP_Http_Encoding {
 	 * https://core.trac.wordpress.org/ticket/18273
 	 *
 	 * @since 2.8.1
+<<<<<<< HEAD
 	 *
 	 * @link https://core.trac.wordpress.org/ticket/18273
 	 * @link https://www.php.net/manual/en/function.gzinflate.php#70875
 	 * @link https://www.php.net/manual/en/function.gzinflate.php#77336
+=======
+	 * @link https://core.trac.wordpress.org/ticket/18273
+	 * @link https://secure.php.net/manual/en/function.gzinflate.php#70875
+	 * @link https://secure.php.net/manual/en/function.gzinflate.php#77336
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @param string $gzData String to decompress.
 	 * @return string|bool False on failure.
@@ -103,7 +119,11 @@ class WP_Http_Encoding {
 	public static function compatible_gzinflate( $gzData ) {
 
 		// Compressed data might contain a full header, if so strip it for gzinflate().
+<<<<<<< HEAD
 		if ( "\x1f\x8b\x08" === substr( $gzData, 0, 3 ) ) {
+=======
+		if ( substr( $gzData, 0, 3 ) == "\x1f\x8b\x08" ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$i   = 10;
 			$flg = ord( substr( $gzData, 3, 1 ) );
 			if ( $flg > 0 ) {
@@ -176,9 +196,16 @@ class WP_Http_Encoding {
 		 *
 		 * @since 3.6.0
 		 *
+<<<<<<< HEAD
 		 * @param string[] $type Array of what encoding types to accept and their priority values.
 		 * @param string   $url  URL of the HTTP request.
 		 * @param array    $args HTTP request arguments.
+=======
+		 * @param array  $type Encoding types allowed. Accepts 'gzinflate',
+		 *                     'gzuncompress', 'gzdecode'.
+		 * @param string $url  URL of the HTTP request.
+		 * @param array  $args HTTP request arguments.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		$type = apply_filters( 'wp_http_accept_encoding', $type, $url, $args );
 

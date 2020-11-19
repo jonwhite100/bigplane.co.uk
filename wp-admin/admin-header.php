@@ -8,7 +8,11 @@
 
 header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
 if ( ! defined( 'WP_ADMIN' ) ) {
+<<<<<<< HEAD
 	require_once __DIR__ . '/admin.php';
+=======
+	require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /**
@@ -32,6 +36,7 @@ if ( empty( $current_screen ) ) {
 }
 
 get_admin_page_title();
+<<<<<<< HEAD
 $title = strip_tags( $title );
 
 if ( is_network_admin() ) {
@@ -40,11 +45,25 @@ if ( is_network_admin() ) {
 } elseif ( is_user_admin() ) {
 	/* translators: User dashboard screen title. %s: Network title. */
 	$admin_title = sprintf( __( 'User Dashboard: %s' ), get_network()->site_name );
+=======
+$title = esc_html( strip_tags( $title ) );
+
+if ( is_network_admin() ) {
+	/* translators: Network admin screen title. %s: Network title. */
+	$admin_title = sprintf( __( 'Network Admin: %s' ), esc_html( get_network()->site_name ) );
+} elseif ( is_user_admin() ) {
+	/* translators: User dashboard screen title. %s: Network title. */
+	$admin_title = sprintf( __( 'User Dashboard: %s' ), esc_html( get_network()->site_name ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 } else {
 	$admin_title = get_bloginfo( 'name' );
 }
 
+<<<<<<< HEAD
 if ( $admin_title === $title ) {
+=======
+if ( $admin_title == $title ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	/* translators: Admin screen title. %s: Admin screen name. */
 	$admin_title = sprintf( __( '%s &#8212; WordPress' ), $title );
 } else {
@@ -71,16 +90,25 @@ wp_user_settings();
 
 _wp_admin_html_begin();
 ?>
+<<<<<<< HEAD
 <title><?php echo esc_html( $admin_title ); ?></title>
 <?php
 
 wp_enqueue_style( 'colors' );
+=======
+<title><?php echo $admin_title; ?></title>
+<?php
+
+wp_enqueue_style( 'colors' );
+wp_enqueue_style( 'ie' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 wp_enqueue_script( 'utils' );
 wp_enqueue_script( 'svg-painter' );
 
 $admin_body_class = preg_replace( '/[^a-z0-9_-]+/i', '-', $hook_suffix );
 ?>
 <script type="text/javascript">
+<<<<<<< HEAD
 addLoadEvent = function(func){if(typeof jQuery!=='undefined')jQuery(document).ready(func);else if(typeof wpOnload!=='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
 var ajaxurl = '<?php echo esc_js( admin_url( 'admin-ajax.php', 'relative' ) ); ?>',
 	pagenow = '<?php echo esc_js( $current_screen->id ); ?>',
@@ -90,6 +118,18 @@ var ajaxurl = '<?php echo esc_js( admin_url( 'admin-ajax.php', 'relative' ) ); ?
 	decimalPoint = '<?php echo esc_js( $wp_locale->number_format['decimal_point'] ); ?>',
 	isRtl = <?php echo (int) is_rtl(); ?>;
 </script>
+=======
+addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
+var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
+	pagenow = '<?php echo $current_screen->id; ?>',
+	typenow = '<?php echo $current_screen->post_type; ?>',
+	adminpage = '<?php echo $admin_body_class; ?>',
+	thousandsSeparator = '<?php echo addslashes( $wp_locale->number_format['thousands_sep'] ); ?>',
+	decimalPoint = '<?php echo addslashes( $wp_locale->number_format['decimal_point'] ); ?>',
+	isRtl = <?php echo (int) is_rtl(); ?>;
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 <?php
 
 /**
@@ -146,7 +186,11 @@ do_action( "admin_head-{$hook_suffix}" ); // phpcs:ignore WordPress.NamingConven
  */
 do_action( 'admin_head' );
 
+<<<<<<< HEAD
 if ( 'f' === get_user_setting( 'mfold' ) ) {
+=======
+if ( get_user_setting( 'mfold' ) == 'f' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$admin_body_class .= ' folded';
 }
 
@@ -198,6 +242,7 @@ if ( $current_screen->is_block_editor() ) {
 	}
 }
 
+<<<<<<< HEAD
 $error_get_last = error_get_last();
 
 // Print a CSS class to make PHP errors visible.
@@ -211,6 +256,8 @@ if ( $error_get_last && WP_DEBUG && WP_DEBUG_DISPLAY && ini_get( 'display_errors
 
 unset( $error_get_last );
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 </head>
 <?php
@@ -244,7 +291,11 @@ if ( current_user_can( 'customize' ) ) {
 ?>
 
 <div id="wpwrap">
+<<<<<<< HEAD
 <?php require ABSPATH . 'wp-admin/menu-header.php'; ?>
+=======
+<?php require( ABSPATH . 'wp-admin/menu-header.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 <div id="wpcontent">
 
 <?php
@@ -299,6 +350,11 @@ if ( is_network_admin() ) {
  */
 do_action( 'all_admin_notices' );
 
+<<<<<<< HEAD
 if ( 'options-general.php' === $parent_file ) {
 	require ABSPATH . 'wp-admin/options-head.php';
+=======
+if ( $parent_file == 'options-general.php' ) {
+	require( ABSPATH . 'wp-admin/options-head.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

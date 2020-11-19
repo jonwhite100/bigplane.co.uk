@@ -82,12 +82,20 @@ this["wp"] = this["wp"] || {}; this["wp"]["blob"] =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 284);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 234);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /******/ })
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
 /***/ 284:
+=======
+/***/ 234:
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -102,10 +110,13 @@ __webpack_require__.r(__webpack_exports__);
 var _window$URL = window.URL,
     createObjectURL = _window$URL.createObjectURL,
     revokeObjectURL = _window$URL.revokeObjectURL;
+<<<<<<< HEAD
 /**
  * @type {Record<string, File|undefined>}
  */
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 var cache = {};
 /**
  * Create a blob URL from a file.
@@ -127,7 +138,11 @@ function createBlobURL(file) {
  *
  * @param {string} url The blob URL.
  *
+<<<<<<< HEAD
  * @return {File|undefined} The file for the blob URL.
+=======
+ * @return {?File} The file for the blob URL.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 
 function getBlobByURL(url) {

@@ -1,7 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 require_once dirname(dirname(__FILE__)) . '/autoload.php';
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if (PHP_VERSION_ID < 50300) {
     return;
 }
@@ -38,7 +41,11 @@ spl_autoload_register(function ($class) {
     // Replace the namespace prefix with the base directory, replace namespace
     // separators with directory separators in the relative class name, append
     // with .php
+<<<<<<< HEAD
     $file = dirname(dirname(__FILE__)) . '/namespaced/' . str_replace('\\', '/', $relative_class) . '.php';
+=======
+    $file = dirname(__DIR__) . '/namespaced/' . str_replace('\\', '/', $relative_class) . '.php';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     // if the file exists, require it
     if (file_exists($file)) {
         require_once $file;

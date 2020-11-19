@@ -9,7 +9,11 @@ jQuery(document).ready( function($) {
 	var newCat, noSyncChecks = false, syncChecks, catAddAfter;
 
 	$('#link_name').focus();
+<<<<<<< HEAD
 	// Postboxes.
+=======
+	// postboxes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	postboxes.add_postbox_toggles('link');
 
 	/**
@@ -33,7 +37,11 @@ jQuery(document).ready( function($) {
 	if ( getUserSetting('cats') )
 		$('#category-tabs a[href="#categories-pop"]').click();
 
+<<<<<<< HEAD
 	// Ajax Cat.
+=======
+	// Ajax Cat
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	newCat = $('#newcat').one( 'focus', function() { $(this).val( '' ).removeClass( 'form-input-tip' ); } );
 
 	/**
@@ -122,8 +130,13 @@ jQuery(document).ready( function($) {
 	 * @ignore
 	 *
 	 * @param {Event} event The event object.
+<<<<<<< HEAD
 	 * @return {boolean} Always returns false to prevent regular link
 	 *                   functionality.
+=======
+	 * @returns {boolean} Always returns false to prevent regular link
+	 *                    functionality.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	$('#category-add-toggle').click( function() {
 		$(this).parents('div:first').toggleClass( 'wp-hidden-children' );

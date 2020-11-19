@@ -44,7 +44,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 		 * @param {jQuery} options.el - Control field container element.
 		 * @param {jQuery} options.syncContainer - Container element where fields are synced for the server.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		initialize: function initialize( options ) {
 			var control = this;
@@ -97,7 +101,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 		 * A field will only be updated if it is not currently focused, to avoid
 		 * overwriting content that the user is entering.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		updateFields: function updateFields() {
 			var control = this, syncInput;
@@ -123,7 +131,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 		 * Show linting error notice.
 		 *
 		 * @param {Array} errorAnnotations - Error annotations.
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		updateErrorNotice: function( errorAnnotations ) {
 			var control = this, errorNotice, message = '', customizeSetting;
@@ -164,7 +176,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 		/**
 		 * Initialize editor.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		initializeEditor: function initializeEditor() {
 			var control = this, settings;
@@ -180,7 +196,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 				 *
 				 * @ignore
 				 *
+<<<<<<< HEAD
 				 * @return {void}
+=======
+				 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 				onTabPrevious: function onTabPrevious() {
 					control.fields.title.focus();
@@ -191,7 +211,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 				 *
 				 * @ignore
 				 *
+<<<<<<< HEAD
 				 * @return {void}
+=======
+				 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 				onTabNext: function onTabNext() {
 					var tabbables = control.syncContainer.add( control.syncContainer.parent().find( '.widget-position, .widget-control-actions' ) ).find( ':tabbable' );
@@ -204,7 +228,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 				 * @ignore
 				 *
 				 * @param {Array} errorAnnotations - Error notifications.
+<<<<<<< HEAD
 				 * @return {void}
+=======
+				 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 				onChangeLintingErrors: function onChangeLintingErrors( errorAnnotations ) {
 					control.currentErrorAnnotations = errorAnnotations;
@@ -216,7 +244,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 				 * @ignore
 				 *
 				 * @param {Array} errorAnnotations - Error annotations.
+<<<<<<< HEAD
 				 * @return {void}
+=======
+				 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				 */
 				onUpdateErrorNotice: function onUpdateErrorNotice( errorAnnotations ) {
 					control.saveButton.toggleClass( 'validation-blocked disabled', errorAnnotations.length > 0 );
@@ -288,7 +320,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 	 * @param {jQuery.Event} event - Event.
 	 * @param {jQuery}       widgetContainer - Widget container element.
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	component.handleWidgetAdded = function handleWidgetAdded( event, widgetContainer ) {
 		var widgetForm, idBase, widgetControl, widgetId, animatedCheckDelay = 50, renderWhenAnimationDone, fieldContainer, syncContainer;
@@ -347,7 +383,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 	 *
 	 * @alias wp.customHtmlWidgets.setupAccessibleMode
 	 *
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	component.setupAccessibleMode = function setupAccessibleMode() {
 		var widgetForm, idBase, widgetControl, fieldContainer, syncContainer;
@@ -384,7 +424,11 @@ wp.customHtmlWidgets = ( function( $ ) {
 	 *
 	 * @param {jQuery.Event} event - Event.
 	 * @param {jQuery}       widgetContainer - Widget container element.
+<<<<<<< HEAD
 	 * @return {void}
+=======
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	component.handleWidgetUpdated = function handleWidgetUpdated( event, widgetContainer ) {
 		var widgetForm, widgetId, widgetControl, idBase;
@@ -413,9 +457,15 @@ wp.customHtmlWidgets = ( function( $ ) {
 	 *
 	 * @alias wp.customHtmlWidgets.init
 	 *
+<<<<<<< HEAD
 	 * @param {Object} settings - Options for code editor, exported from PHP.
 	 *
 	 * @return {void}
+=======
+	 * @param {object} settings - Options for code editor, exported from PHP.
+	 *
+	 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	component.init = function init( settings ) {
 		var $document = $( document );

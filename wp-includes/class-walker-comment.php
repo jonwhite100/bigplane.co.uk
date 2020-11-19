@@ -181,11 +181,15 @@ class Walker_Comment extends Walker {
 			return;
 		}
 
+<<<<<<< HEAD
 		if ( 'comment' === $comment->comment_type ) {
 			add_filter( 'comment_text', array( $this, 'filter_comment_text' ), 40, 2 );
 		}
 
 		if ( ( 'pingback' === $comment->comment_type || 'trackback' === $comment->comment_type ) && $args['short_ping'] ) {
+=======
+		if ( ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) && $args['short_ping'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			ob_start();
 			$this->ping( $comment, $depth, $args );
 			$output .= ob_get_clean();
@@ -198,10 +202,13 @@ class Walker_Comment extends Walker {
 			$this->comment( $comment, $depth, $args );
 			$output .= ob_get_clean();
 		}
+<<<<<<< HEAD
 
 		if ( 'comment' === $comment->comment_type ) {
 			remove_filter( 'comment_text', array( $this, 'filter_comment_text' ), 40, 2 );
 		}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -224,7 +231,11 @@ class Walker_Comment extends Walker {
 			$output .= ob_get_clean();
 			return;
 		}
+<<<<<<< HEAD
 		if ( 'div' === $args['style'] ) {
+=======
+		if ( 'div' == $args['style'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$output .= "</div><!-- #comment-## -->\n";
 		} else {
 			$output .= "</li><!-- #comment-## -->\n";
@@ -243,7 +254,11 @@ class Walker_Comment extends Walker {
 	 * @param array      $args    An array of arguments.
 	 */
 	protected function ping( $comment, $depth, $args ) {
+<<<<<<< HEAD
 		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+=======
+		$tag = ( 'div' == $args['style'] ) ? 'div' : 'li';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		?>
 		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( '', $comment ); ?>>
 			<div class="comment-body">
@@ -253,6 +268,7 @@ class Walker_Comment extends Walker {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Filters the comment text.
 	 *
 	 * Removes links from the pending comment's text if the commenter did not consent
@@ -276,6 +292,8 @@ class Walker_Comment extends Walker {
 	}
 
 	/**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * Outputs a single comment.
 	 *
 	 * @since 3.6.0
@@ -287,7 +305,11 @@ class Walker_Comment extends Walker {
 	 * @param array      $args    An array of arguments.
 	 */
 	protected function comment( $comment, $depth, $args ) {
+<<<<<<< HEAD
 		if ( 'div' === $args['style'] ) {
+=======
+		if ( 'div' == $args['style'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$tag       = 'div';
 			$add_below = 'comment';
 		} else {
@@ -295,22 +317,34 @@ class Walker_Comment extends Walker {
 			$add_below = 'div-comment';
 		}
 
+<<<<<<< HEAD
 		$commenter          = wp_get_current_commenter();
 		$show_pending_links = isset( $commenter['comment_author'] ) && $commenter['comment_author'];
 
+=======
+		$commenter = wp_get_current_commenter();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( $commenter['comment_author_email'] ) {
 			$moderation_note = __( 'Your comment is awaiting moderation.' );
 		} else {
 			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.' );
 		}
+<<<<<<< HEAD
 		?>
 		<<?php echo $tag; ?> <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?> id="comment-<?php comment_ID(); ?>">
 		<?php if ( 'div' !== $args['style'] ) : ?>
+=======
+
+		?>
+		<<?php echo $tag; ?> <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?> id="comment-<?php comment_ID(); ?>">
+		<?php if ( 'div' != $args['style'] ) : ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		<div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 		<?php endif; ?>
 		<div class="comment-author vcard">
 			<?php
 			if ( 0 != $args['avatar_size'] ) {
+<<<<<<< HEAD
 				echo get_avatar( $comment, $args['avatar_size'] );
 			}
 			?>
@@ -326,6 +360,16 @@ class Walker_Comment extends Walker {
 				__( '%s <span class="says">says:</span>' ),
 				sprintf( '<cite class="fn">%s</cite>', $comment_author )
 			);
+=======
+				echo get_avatar( $comment, $args['avatar_size'] );}
+			?>
+			<?php
+				printf(
+					/* translators: %s: Comment author link. */
+					__( '%s <span class="says">says:</span>' ),
+					sprintf( '<cite class="fn">%s</cite>', get_comment_author_link( $comment ) )
+				);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			?>
 		</div>
 		<?php if ( '0' == $comment->comment_approved ) : ?>
@@ -373,7 +417,11 @@ class Walker_Comment extends Walker {
 		);
 		?>
 
+<<<<<<< HEAD
 		<?php if ( 'div' !== $args['style'] ) : ?>
+=======
+		<?php if ( 'div' != $args['style'] ) : ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		</div>
 		<?php endif; ?>
 		<?php
@@ -393,14 +441,22 @@ class Walker_Comment extends Walker {
 	protected function html5_comment( $comment, $depth, $args ) {
 		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 
+<<<<<<< HEAD
 		$commenter          = wp_get_current_commenter();
 		$show_pending_links = ! empty( $commenter['comment_author'] );
 
+=======
+		$commenter = wp_get_current_commenter();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( $commenter['comment_author_email'] ) {
 			$moderation_note = __( 'Your comment is awaiting moderation.' );
 		} else {
 			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.' );
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		?>
 		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
@@ -412,6 +468,7 @@ class Walker_Comment extends Walker {
 						}
 						?>
 						<?php
+<<<<<<< HEAD
 						$comment_author = get_comment_author_link( $comment );
 
 						if ( '0' == $comment->comment_approved && ! $show_pending_links ) {
@@ -423,6 +480,13 @@ class Walker_Comment extends Walker {
 							__( '%s <span class="says">says:</span>' ),
 							sprintf( '<b class="fn">%s</b>', $comment_author )
 						);
+=======
+							printf(
+								/* translators: %s: Comment author link. */
+								__( '%s <span class="says">says:</span>' ),
+								sprintf( '<b class="fn">%s</b>', get_comment_author_link( $comment ) )
+							);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						?>
 					</div><!-- .comment-author -->
 
@@ -448,6 +512,7 @@ class Walker_Comment extends Walker {
 				</div><!-- .comment-content -->
 
 				<?php
+<<<<<<< HEAD
 				if ( '1' == $comment->comment_approved || $show_pending_links ) {
 					comment_reply_link(
 						array_merge(
@@ -462,6 +527,20 @@ class Walker_Comment extends Walker {
 						)
 					);
 				}
+=======
+				comment_reply_link(
+					array_merge(
+						$args,
+						array(
+							'add_below' => 'div-comment',
+							'depth'     => $depth,
+							'max_depth' => $args['max_depth'],
+							'before'    => '<div class="reply">',
+							'after'     => '</div>',
+						)
+					)
+				);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				?>
 			</article><!-- .comment-body -->
 		<?php

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /* 2 column liquid layout */
 #wpwrap {
 	height: auto;
@@ -27,7 +30,11 @@
 	padding-bottom: 65px;
 	float: right;
 	width: 100%;
+<<<<<<< HEAD
 	overflow: visible;
+=======
+	overflow: visible !important;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /* inner 2 column liquid layout */
@@ -266,7 +273,11 @@ div {
 
 a:hover,
 a:active {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 a:focus,
@@ -280,6 +291,13 @@ a:focus .media-icon img,
 		outline: 1px solid transparent;
 }
 
+<<<<<<< HEAD
+=======
+.ie8 a:focus {
+	outline: #5b9dd9 solid 1px;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #adminmenu a:focus {
 	box-shadow: none;
 	/* Only visible in Windows High Contrast mode */
@@ -305,8 +323,12 @@ q:after {
 	content: none;
 }
 
+<<<<<<< HEAD
 p,
 .wp-die-message {
+=======
+p {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	font-size: 13px;
 	line-height: 1.5;
 	margin: 1em 0;
@@ -458,6 +480,15 @@ code {
 	white-space: nowrap;
 }
 
+<<<<<<< HEAD
+=======
+.wp-die-message {
+	font-size: 13px;
+	line-height: 1.5;
+	margin: 1em 0;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /* .widefat - main style for tables */
 .widefat {
 	border-spacing: 0;
@@ -768,6 +799,10 @@ img.emoji {
 	color: #23282d;
 }
 
+<<<<<<< HEAD
+=======
+.postbox .hndle,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .stuffbox .hndle {
 	border-bottom: 1px solid #ccd0d4;
 }
@@ -851,6 +886,10 @@ strong, b {
 
 .howto {
 	color: #666;
+<<<<<<< HEAD
+=======
+	font-style: italic;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	display: block;
 }
 
@@ -914,11 +953,19 @@ span.required,
 
 #delete-action {
 	float: right;
+<<<<<<< HEAD
 	line-height: 2.30769231; /* 30px */
 }
 
 #delete-link {
 	line-height: 2.30769231; /* 30px */
+=======
+	line-height: 2.1;
+}
+
+#delete-link {
+	line-height: 2.1;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	vertical-align: middle;
 	text-align: right;
 	margin-right: 8px;
@@ -935,8 +982,12 @@ span.required,
 }
 
 #publishing-action .spinner {
+<<<<<<< HEAD
 	float: none;
 	margin-top: 5px;
+=======
+	float: right;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 #misc-publishing-actions {
@@ -1068,7 +1119,11 @@ th.action-links {
 .filter-links li > a:focus,
 .show-filters .filter-links a.current:hover,
 .show-filters .filter-links a.current:focus {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .wp-filter .search-form {
@@ -1077,15 +1132,25 @@ th.action-links {
 }
 
 .wp-filter .search-form input[type="search"] {
+<<<<<<< HEAD
 	margin: 1px 0;
 	width: 280px;
 	max-width: 100%;
+=======
+	margin: 0;
+	width: 280px;
+	max-width: 100%;
+	font-size: inherit;
+	/* inherits font size 13px */
+	line-height: 2.15384615; /* 28px */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .wp-filter .search-form select {
 	margin: 0;
 }
 
+<<<<<<< HEAD
 /* Use flexbox only on the plugins install page. The `filter-links` and search form children will become flex items. */
 .plugin-install-php .wp-filter {
 	display: flex;
@@ -1104,6 +1169,10 @@ th.action-links {
 	display: inline-block;
 	margin-top: 10px;
 	vertical-align: top;
+=======
+.wp-filter .search-form.search-plugins {
+	display: inline-block;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .wp-filter .button.drawer-toggle {
@@ -1131,7 +1200,11 @@ th.action-links {
 .wp-filter .button.drawer-toggle:focus,
 .wp-filter .drawer-toggle:focus:before {
 	background-color: transparent;
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .wp-filter .button.drawer-toggle:hover,
@@ -1286,7 +1359,11 @@ th.action-links {
 .filters-applied .filter-group,
 .filters-applied .filter-drawer .buttons,
 .filters-applied .filter-drawer br {
+<<<<<<< HEAD
 	display: none;
+=======
+	display: none !important;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .filters-applied .filtered-by {
@@ -1447,6 +1524,13 @@ div.error p,
 		0 0 2px 1px rgba(30, 140, 190, 0.8);
 }
 
+<<<<<<< HEAD
+=======
+.ie8 .notice-dismiss:focus {
+	outline: 1px solid #5b9dd9;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .notice-success,
 div.updated {
 	border-right-color: #46b450;
@@ -1534,6 +1618,7 @@ div.error {
 .updating-message p:before,
 .import-php .updating-message:before,
 .button.updating-message:before,
+<<<<<<< HEAD
 .button.installing:before,
 .plugins .column-auto-updates .dashicons-update.spin,
 .theme-overlay .theme-autoupdate .dashicons-update.spin {
@@ -1544,6 +1629,12 @@ div.error {
 	margin-left: 3px;
 }
 
+=======
+.button.installing:before {
+	animation: rotation 2s infinite linear;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /* Updated icon (check mark). */
 .updated-message p:before,
 .installed p:before,
@@ -1570,7 +1661,15 @@ div.error {
 	line-height: 1.4;
 	padding: 11px 15px;
 	font-size: 14px;
+<<<<<<< HEAD
 	margin: 25px 2px 0 20px;
+=======
+	text-align: right;
+	margin: 25px 2px 0 20px;
+	background-color: #fff;
+	border-right: 4px solid #ffba00;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 ul#dismissed-updates {
@@ -1667,7 +1766,11 @@ form.upgrade .hint {
 
 #contextual-help-wrap {
 	overflow: auto;
+<<<<<<< HEAD
 	margin-right: 0;
+=======
+	margin-right: 0 !important;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 #screen-meta-links {
@@ -1738,7 +1841,11 @@ form.upgrade .hint {
 	vertical-align: bottom;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+<<<<<<< HEAD
 	text-decoration: none;
+=======
+	text-decoration: none !important;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	color: #72777c;
 }
 
@@ -1770,6 +1877,13 @@ form.upgrade .hint {
 	font-weight: 600;
 }
 
+<<<<<<< HEAD
+=======
+.ie8 #screen-options-wrap legend {
+	color: inherit;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .metabox-prefs label {
 	display: inline-block;
 	padding-left: 15px;
@@ -1986,12 +2100,46 @@ html.wp-toolbar {
 	padding-top: 10px;
 }
 
+<<<<<<< HEAD
 .metabox-holder .postbox-container .meta-box-sortables {
 	/* The jQuery UI Sortables need some initial height to work properly. */
 	min-height: 1px;
 	position: relative;
 }
 
+=======
+.metabox-holder .postbox-container .empty-container {
+	border: 3px dashed #b4b9be;
+	height: 250px;
+	position: relative;
+}
+
+.metabox-holder .postbox-container .empty-container:after {
+	content: attr(data-emptystring);
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 1em;
+	width: 200px;
+	text-align: center;
+	color: #ccc;
+	font-size: 18px;
+	display: none;
+}
+
+.metabox-holder.columns-1 .postbox-container .empty-container,
+.columns-2 #postbox-container-3 .empty-container,
+.columns-2 #postbox-container-4 .empty-container,
+.columns-3 #postbox-container-4 .empty-container {
+	border: 0 none;
+	height: 0;
+	min-height: 0;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #post-body-content {
 	width: 100%;
 	min-width: 463px;
@@ -2011,7 +2159,11 @@ html.wp-toolbar {
 /* one column on the dash */
 @media only screen and (max-width: 799px) {
 	#wpbody-content .metabox-holder .postbox-container .empty-container {
+<<<<<<< HEAD
 		outline: none;
+=======
+		border: 0 none;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		height: 0;
 		min-height: 0;
 	}
@@ -2027,6 +2179,7 @@ html.wp-toolbar {
 	cursor: auto;
 }
 
+<<<<<<< HEAD
 /* Configurable dashboard widgets "Configure" edit-box link. */
 .hndle a {
 	font-size: 12px;
@@ -2056,6 +2209,16 @@ html.wp-toolbar {
 .postbox .handle-order-higher,
 .postbox .handle-order-lower,
 .postbox .handlediv {
+=======
+.hndle a {
+	font-size: 11px;
+	font-weight: 400;
+}
+
+.postbox .handlediv {
+	display: none;
+	float: left;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	width: 36px;
 	height: 36px;
 	margin: 0;
@@ -2065,6 +2228,7 @@ html.wp-toolbar {
 	cursor: pointer;
 }
 
+<<<<<<< HEAD
 .postbox .handle-order-higher,
 .postbox .handle-order-lower {
 	color: #72777c;
@@ -2083,6 +2247,10 @@ html.wp-toolbar {
 .postbox .handle-order-lower[aria-disabled="true"] {
 	cursor: default;
 	color: #a0a5aa;
+=======
+.js .postbox .handlediv {
+	display: block;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .sortable-placeholder {
@@ -2097,10 +2265,13 @@ html.wp-toolbar {
 	line-height: 1;
 }
 
+<<<<<<< HEAD
 .postbox.closed {
 	border-bottom: 0;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /* user-select is not a part of the CSS standard - may change behavior in the future */
 .postbox .hndle,
 .stuffbox .hndle {
@@ -2167,8 +2338,12 @@ html.wp-toolbar {
 #pass-strength-result.short,
 #ed_reply_toolbar #ed_reply_strong,
 .item-controls .item-order a,
+<<<<<<< HEAD
 .feature-filter .feature-name,
 #comment-status-display {
+=======
+.feature-filter .feature-name {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	font-weight: 600;
 }
 
@@ -2263,6 +2438,16 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 	clear: both;
 }
 
+<<<<<<< HEAD
+=======
+.ie8 .nav-tab-wrapper {
+	/* contain floats establishing a new block formatting context */
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /*------------------------------------------------------------------------------
   26.0 - Misc
 ------------------------------------------------------------------------------*/
@@ -2438,6 +2623,13 @@ body.iframe {
 	margin: 10px 0;
 }
 
+<<<<<<< HEAD
+=======
+#submitdiv h3 {
+	margin-bottom: 0 !important;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /* - Used - but could/should be deprecated with a CSS reset
 ------------------------------------------------------------------------------*/
 .zerosize {
@@ -2482,11 +2674,19 @@ div.star-holder {
 	position: relative;
 	height: 17px;
 	width: 100px;
+<<<<<<< HEAD
 	background: url(../images/stars.png?ver=20121108) repeat-x bottom right;
 }
 
 div.star-holder .star-rating {
 	background: url(../images/stars.png?ver=20121108) repeat-x top right;
+=======
+	background: url(../images/stars.png?ver=20121108) repeat-x bottom left;
+}
+
+div.star-holder .star-rating {
+	background: url(../images/stars.png?ver=20121108) repeat-x top left;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	height: 17px;
 	float: right;
 }
@@ -2678,7 +2878,11 @@ div.action-links {
 	margin-top: 10px;
 	margin-left: 250px; /* FYI box */
 	padding: 10px 26px;
+<<<<<<< HEAD
 	margin-bottom: -99932px; /* 67px less than the padding below to accommodate footer height */
+=======
+	margin-bottom: -99939px; /* 60px less than the padding below to accommodate footer */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	padding-bottom: 99999px; /* equal height column trick */
 }
 
@@ -2696,7 +2900,11 @@ div.action-links {
 	top: 0;
 	left: 0;
 	padding: 16px;
+<<<<<<< HEAD
 	margin-bottom: -99932px; /* 67px less than the padding below to accommodate footer height */
+=======
+	margin-bottom: -99939px; /* 60px less than the padding below to accommodate footer */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	padding-bottom: 99999px; /* equal height column trick */
 	width: 217px;
 	border-right: 1px solid #ddd;
@@ -2790,7 +2998,11 @@ div.action-links {
 	left: 0;
 	bottom: 0;
 	right: 0;
+<<<<<<< HEAD
 	height: 40px; /* actual height: 40+13+13+1=67 */
+=======
+	height: 33px; /* 33+13+13+1=60 */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	border-top: 1px solid #ddd;
 	background: #f3f3f3;
 }
@@ -3003,7 +3215,11 @@ div.action-links {
 
 .plugin-details-modal #TB_closeWindowButton:hover,
 .plugin-details-modal #TB_closeWindowButton:focus {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	outline: none;
 	box-shadow: none;
 }
@@ -3034,18 +3250,26 @@ img {
 }
 
 /* Metabox collapse arrow indicators */
+<<<<<<< HEAD
 .sidebar-name .toggle-indicator::before,
 .meta-box-sortables .postbox .toggle-indicator::before,
 .meta-box-sortables .postbox .order-higher-indicator::before,
 .meta-box-sortables .postbox .order-lower-indicator::before,
 .bulk-action-notice .toggle-indicator::before,
 .privacy-text-box .toggle-indicator::before {
+=======
+.sidebar-name .toggle-indicator:before,
+.js .meta-box-sortables .postbox .toggle-indicator:before,
+.bulk-action-notice .toggle-indicator:before,
+.privacy-text-box .toggle-indicator:before {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	content: "\f142";
 	display: inline-block;
 	font: normal 20px/1 dashicons;
 	speak: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+<<<<<<< HEAD
 	text-decoration: none;
 }
 
@@ -3090,11 +3314,36 @@ img {
 }
 
 .bulk-action-notice .toggle-indicator::before {
+=======
+	text-decoration: none !important;
+}
+
+.js .widgets-holder-wrap.closed .toggle-indicator:before,
+.js .meta-box-sortables .postbox.closed .handlediv .toggle-indicator:before,
+.bulk-action-notice .bulk-action-errors-collapsed .toggle-indicator:before,
+.privacy-text-box.closed .toggle-indicator:before {
+	content: "\f140";
+}
+
+.js .postbox .handlediv .toggle-indicator:before {
+	margin-top: 4px;
+	width: 20px;
+	border-radius: 50%;
+	text-indent: -1px; /* account for the dashicon alignment */
+}
+
+.rtl.js .postbox .handlediv .toggle-indicator:before {
+	text-indent: 1px; /* account for the dashicon alignment */
+}
+
+.bulk-action-notice .toggle-indicator:before {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	line-height: 16px;
 	vertical-align: top;
 	color: #72777c;
 }
 
+<<<<<<< HEAD
 .postbox .handle-order-higher:focus,
 .postbox .handle-order-lower:focus,
 .postbox .handlediv:focus {
@@ -3111,6 +3360,17 @@ img {
 	box-shadow: none;
 	/* Only visible in Windows High Contrast mode */
 	outline: 1px solid transparent;
+=======
+.js .postbox .handlediv:focus {
+	box-shadow: none;
+	outline: none;
+}
+
+.js .postbox .handlediv:focus .toggle-indicator:before {
+	box-shadow:
+		0 0 0 1px #5b9dd9,
+		0 0 2px 1px rgba(30, 140, 190, 0.8);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /* @todo: appears to be Press This only and overridden */
@@ -3400,7 +3660,11 @@ img {
 	display: block;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+<<<<<<< HEAD
 	text-decoration: none;
+=======
+	text-decoration: none !important;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .widget-top .widget-action .toggle-indicator:before {
@@ -3431,8 +3695,11 @@ img {
 .sidebar-name:hover .toggle-indicator,
 .accordion-section-title:hover:after {
 	color: #23282d;
+<<<<<<< HEAD
 	/* Only visible in Windows High Contrast mode */
 	outline: 1px solid transparent;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .widget-top .widget-action:focus .toggle-indicator:before {
@@ -3515,15 +3782,22 @@ img {
 }
 
 .accordion-section-title:focus {
+<<<<<<< HEAD
 	/* Only visible in Windows High Contrast mode */
 	outline: 1px solid transparent;
+=======
+	outline: none;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .accordion-section-title:hover:after,
 .accordion-section-title:focus:after {
 	border-color: #a0a5aa transparent;
+<<<<<<< HEAD
 	/* Only visible in Windows High Contrast mode */
 	outline: 1px solid transparent;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .cannot-expand .accordion-section-title {
@@ -3721,7 +3995,11 @@ img {
 	/* Back-compat for pre-3.8 */
 	div.star-holder,
 	div.star-holder .star-rating {
+<<<<<<< HEAD
 		background: url(../images/stars-2x.png?ver=20121108) repeat-x bottom right;
+=======
+		background: url(../images/stars-2x.png?ver=20121108) repeat-x bottom left;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		background-size: 21px 37px;
 	}
 
@@ -3729,6 +4007,22 @@ img {
 		background-image: url(../images/spinner-2x.gif);
 	}
 
+<<<<<<< HEAD
+=======
+	/* @todo: evaluate - most of these were likely replaced by dashicons */
+	.curtime #timestamp,
+	#screen-meta-links a.show-settings,
+	.widget-top .widget-action,
+	.widget-top .widget-action:hover,
+	.sidebar-name .toggle-indicator,
+	.sidebar-name:hover .toggle-indicator,
+	.meta-box-sortables .postbox:hover .handlediv,
+	#bulk-titles div a,
+	#bulk-titles div a:hover {
+		background: none !important;
+	}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 @-ms-viewport {
@@ -3950,7 +4244,12 @@ img {
 	}
 
 	.fileedit-sub input[type="submit"] {
+<<<<<<< HEAD
 		margin-bottom: 0;
+=======
+		margin-bottom: 0px;
+		padding: 4px 18px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	#documentation label[for="docs-list"] {
@@ -3964,6 +4263,10 @@ img {
 
 	#documentation input[type="button"] {
 		margin-bottom: 0;
+<<<<<<< HEAD
+=======
+		padding: 8px 18px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	#wpfooter {
@@ -4024,11 +4327,14 @@ img {
 		float: none;
 	}
 
+<<<<<<< HEAD
 	#screen-meta,
 	#screen-meta-links {
 		margin-left: 10px;
 	}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	#screen-meta-links {
 		margin-bottom: 20px; /* Add margins beneath links for better spacing between boxes and elements */
 	}
@@ -4036,11 +4342,14 @@ img {
 	.wp-filter .search-form input[type="search"] {
 		font-size: 1rem;
 	}
+<<<<<<< HEAD
 
 	.wp-filter .search-form.search-plugins {
 		/* This element is a flex item. */
 		min-width: 100%;
 	}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /* Smartphone */

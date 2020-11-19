@@ -10,7 +10,11 @@
 define( 'IFRAME_REQUEST', true );
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'customize' ) ) {
 	wp_die(
@@ -132,7 +136,14 @@ $body_class = 'wp-core-ui wp-customizer js';
 
 if ( wp_is_mobile() ) :
 	$body_class .= ' mobile';
+<<<<<<< HEAD
 	add_filter( 'admin_viewport_meta', '_customizer_mobile_viewport_meta' );
+=======
+
+	?>
+	<meta name="viewport" id="viewport-meta" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1.2" />
+	<?php
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 endif;
 
 if ( $wp_customize->is_ios() ) {
@@ -147,7 +158,11 @@ $body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( '_', '
 $admin_title = sprintf( $wp_customize->get_document_title_template(), __( 'Loading&hellip;' ) );
 
 ?>
+<<<<<<< HEAD
 <title><?php echo esc_html( $admin_title ); ?></title>
+=======
+<title><?php echo $admin_title; ?></title>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 <script type="text/javascript">
 var ajaxurl = <?php echo wp_json_encode( admin_url( 'admin-ajax.php', 'relative' ) ); ?>,
@@ -168,6 +183,7 @@ do_action( 'customize_controls_print_styles' );
  * @since 3.4.0
  */
 do_action( 'customize_controls_print_scripts' );
+<<<<<<< HEAD
 
 /**
  * Fires in head section of Customizer controls.
@@ -175,12 +191,15 @@ do_action( 'customize_controls_print_scripts' );
  * @since 5.5.0
  */
 do_action( 'customize_controls_head' );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 </head>
 <body class="<?php echo esc_attr( $body_class ); ?>">
 <div class="wp-full-overlay expanded">
 	<form id="customize-controls" class="wrap wp-full-overlay-sidebar">
 		<div id="customize-header-actions" class="wp-full-overlay-header">
+<<<<<<< HEAD
 			<?php
 			$compatible_wp  = is_wp_version_compatible( $wp_customize->theme()->get( 'RequiresWP' ) );
 			$compatible_php = is_php_version_compatible( $wp_customize->theme()->get( 'RequiresPHP' ) );
@@ -197,6 +216,13 @@ do_action( 'customize_controls_head' );
 					<button class="button button-primary disabled" aria-label="<?php esc_attr_e( 'Publish Settings' ); ?>" aria-expanded="false" disabled><?php echo $save_text; ?></button>
 				</div>
 			<?php endif; ?>
+=======
+			<?php $save_text = $wp_customize->is_theme_active() ? __( 'Publish' ) : __( 'Activate &amp; Publish' ); ?>
+			<div id="customize-save-button-wrapper" class="customize-save-button-wrapper" >
+				<?php submit_button( $save_text, 'primary save', 'save', false ); ?>
+				<button id="publish-settings" class="publish-settings button-primary button dashicons dashicons-admin-generic" aria-label="<?php esc_attr_e( 'Publish Settings' ); ?>" aria-expanded="false" disabled></button>
+			</div>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<span class="spinner"></span>
 			<button type="button" class="customize-controls-preview-toggle">
 				<span class="controls"><?php _e( 'Customize' ); ?></span>
@@ -223,7 +249,11 @@ do_action( 'customize_controls_head' );
 						<span class="preview-notice">
 						<?php
 							/* translators: %s: The site/panel title in the Customizer. */
+<<<<<<< HEAD
 							printf( __( 'You are customizing %s' ), '<strong class="panel-title site-title">' . get_bloginfo( 'name', 'display' ) . '</strong>' );
+=======
+							echo sprintf( __( 'You are customizing %s' ), '<strong class="panel-title site-title">' . get_bloginfo( 'name', 'display' ) . '</strong>' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						?>
 						</span>
 						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>

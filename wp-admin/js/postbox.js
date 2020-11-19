@@ -7,11 +7,18 @@
  * @output wp-admin/js/postbox.js
  */
 
+<<<<<<< HEAD
 /* global ajaxurl, postboxes */
 
 (function($) {
 	var $document = $( document ),
 		__ = wp.i18n.__;
+=======
+/* global ajaxurl, postBoxL10n, postboxes */
+
+(function($) {
+	var $document = $( document );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * This object contains all function to handle the behaviour of the post boxes. The post boxes are the boxes you see
@@ -33,6 +40,7 @@
 		 * if the postbox has been closed.
 		 *
 		 * @since 4.4.0
+<<<<<<< HEAD
 		 *
 		 * @memberof postboxes
 		 *
@@ -43,6 +51,16 @@
 		handle_click : function () {
 			var $el = $( this ),
 				p = $el.closest( '.postbox' ),
+=======
+		 * @memberof postboxes
+		 * @fires postboxes#postbox-toggled
+		 *
+		 * @returns {void}
+		 */
+		handle_click : function () {
+			var $el = $( this ),
+				p = $el.parent( '.postbox' ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				id = p.attr( 'id' ),
 				ariaExpandedValue;
 
@@ -51,6 +69,10 @@
 			}
 
 			p.toggleClass( 'closed' );
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			ariaExpandedValue = ! p.hasClass( 'closed' );
 
 			if ( $el.hasClass( 'handlediv' ) ) {
@@ -89,6 +111,7 @@
 		},
 
 		/**
+<<<<<<< HEAD
 		 * Handles clicks on the move up/down buttons.
 		 *
 		 * @since 5.5.0
@@ -244,26 +267,41 @@
 		 *
 		 * @since 2.7.0
 		 *
+=======
+		 * Adds event handlers to all postboxes and screen option on the current page.
+		 *
+		 * @since 2.7.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @memberof postboxes
 		 *
 		 * @param {string} page The page we are currently on.
 		 * @param {Object} [args]
 		 * @param {Function} args.pbshow A callback that is called when a postbox opens.
 		 * @param {Function} args.pbhide A callback that is called when a postbox closes.
+<<<<<<< HEAD
 		 * @return {void}
 		 */
 		add_postbox_toggles : function (page, args) {
 			var $handles = $( '.postbox .hndle, .postbox .handlediv' ),
 				$orderButtons = $( '.postbox .handle-order-higher, .postbox .handle-order-lower' );
+=======
+		 * @returns {void}
+		 */
+		add_postbox_toggles : function (page, args) {
+			var $handles = $( '.postbox .hndle, .postbox .handlediv' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			this.page = page;
 			this.init( page, args );
 
 			$handles.on( 'click.postboxes', this.handle_click );
 
+<<<<<<< HEAD
 			// Handle the order of the postboxes.
 			$orderButtons.on( 'click.postboxes', this.handleOrder );
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			/**
 			 * @since 2.7.0
 			 */
@@ -277,11 +315,17 @@
 			 * Event handler for the postbox dismiss button. After clicking the button
 			 * the postbox will be hidden.
 			 *
+<<<<<<< HEAD
 			 * As of WordPress 5.5, this is only used for the browser update nag.
 			 *
 			 * @since 3.2.0
 			 *
 			 * @return {void}
+=======
+			 * @since 3.2.0
+			 *
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			$( '.postbox a.dismiss' ).on( 'click.postboxes', function( e ) {
 				var hide_id = $(this).parents('.postbox').attr('id') + '-hide';
@@ -300,7 +344,11 @@
 			 *
 			 * @fires postboxes#postbox-toggled
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			$('.hide-postbox-tog').bind('click.postboxes', function() {
 				var $el = $(this),
@@ -334,7 +382,11 @@
 			 *
 			 * @since 2.8.0
 			 *
+<<<<<<< HEAD
 			 * @return {void}
+=======
+			 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			$('.columns-prefs input[type="radio"]').bind('click.postboxes', function(){
 				var n = parseInt($(this).val(), 10);
@@ -350,7 +402,10 @@
 		 * Initializes all the postboxes, mainly their sortable behaviour.
 		 *
 		 * @since 2.7.0
+<<<<<<< HEAD
 		 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @memberof postboxes
 		 *
 		 * @param {string} page The page we are currently on.
@@ -359,13 +414,21 @@
 		 * @param {Function} args.pbhide A callback that is called when a postbox
 		 *                               closes.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		init : function(page, args) {
 			var isMobile = $( document.body ).hasClass( 'mobile' ),
 				$handleButtons = $( '.postbox .handlediv' );
 
 			$.extend( this, args || {} );
+<<<<<<< HEAD
+=======
+			$('#wpbody-content').css('overflow','hidden');
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$('.meta-box-sortables').sortable({
 				placeholder: 'sortable-placeholder',
 				connectWith: '.meta-box-sortables',
@@ -392,6 +455,7 @@
 						.end();
 				},
 				opacity: 0.65,
+<<<<<<< HEAD
 				start: function() {
 					$( 'body' ).addClass( 'is-dragging-metaboxes' );
 					// Refresh the cached positions of all the sortable items so that the min-height set while dragging works.
@@ -402,12 +466,20 @@
 
 					$( 'body' ).removeClass( 'is-dragging-metaboxes' );
 
+=======
+				stop: function() {
+					var $el = $( this );
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( $el.find( '#dashboard_browser_nag' ).is( ':visible' ) && 'dashboard_browser_nag' != this.firstChild.id ) {
 						$el.sortable('cancel');
 						return;
 					}
 
+<<<<<<< HEAD
 					postboxes.updateOrderButtonsProperties();
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					postboxes.save_order(page);
 				},
 				receive: function(e,ui) {
@@ -426,6 +498,7 @@
 
 			this._mark_area();
 
+<<<<<<< HEAD
 			// Update the "move" buttons properties.
 			this.updateOrderButtonsProperties();
 			$document.on( 'postbox-toggled', this.updateOrderButtonsProperties );
@@ -434,6 +507,12 @@
 			$handleButtons.each( function () {
 				var $el = $( this );
 				$el.attr( 'aria-expanded', ! $el.closest( '.postbox' ).hasClass( 'closed' ) );
+=======
+			// Set the handle buttons `aria-expanded` attribute initial value on page load.
+			$handleButtons.each( function () {
+				var $el = $( this );
+				$el.attr( 'aria-expanded', ! $el.parent( '.postbox' ).hasClass( 'closed' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			});
 		},
 
@@ -444,11 +523,18 @@
 		 * hidden postboxes.
 		 *
 		 * @since 2.7.0
+<<<<<<< HEAD
 		 *
 		 * @memberof postboxes
 		 *
 		 * @param {string} page The page we are currently on.
 		 * @return {void}
+=======
+		 * @memberof postboxes
+		 *
+		 * @param {string} page The page we are currently on.
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		save_state : function(page) {
 			var closed, hidden;
@@ -476,11 +562,18 @@
 		 * Sends a list of all postboxes inside a sortable area to the server.
 		 *
 		 * @since 2.8.0
+<<<<<<< HEAD
 		 *
 		 * @memberof postboxes
 		 *
 		 * @param {string} page The page we are currently on.
 		 * @return {void}
+=======
+		 * @memberof postboxes
+		 *
+		 * @param {string} page The page we are currently on.
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		save_order : function(page) {
 			var postVars, page_columns = $('.columns-prefs input:checked').val() || 0;
@@ -496,6 +589,7 @@
 				postVars[ 'order[' + this.id.split( '-' )[0] + ']' ] = $( this ).sortable( 'toArray' ).join( ',' );
 			} );
 
+<<<<<<< HEAD
 			$.post(
 				ajaxurl,
 				postVars,
@@ -505,6 +599,9 @@
 					}
 				}
 			);
+=======
+			$.post( ajaxurl, postVars );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		},
 
 		/**
@@ -515,6 +612,7 @@
 		 * present.
 		 *
 		 * @since 3.3.0
+<<<<<<< HEAD
 		 * @access private
 		 *
 		 * @memberof postboxes
@@ -564,12 +662,41 @@
 					$( this ).attr( 'data-emptyString', emptySortableText );
 				}
 			} );
+=======
+		 * @memberof postboxes
+		 * @access private
+		 *
+		 * @returns {void}
+		 */
+		_mark_area : function() {
+			var visible = $('div.postbox:visible').length, side = $('#post-body #side-sortables');
+
+			$( '#dashboard-widgets .meta-box-sortables:visible' ).each( function() {
+				var t = $(this);
+
+				if ( visible == 1 || t.children('.postbox:visible').length ) {
+					t.removeClass('empty-container');
+				}
+				else {
+					t.addClass('empty-container');
+					t.attr('data-emptyString', postBoxL10n.postBoxEmptyString);
+				}
+			});
+
+			if ( side.length ) {
+				if ( side.children('.postbox:visible').length )
+					side.removeClass('empty-container');
+				else if ( $('#postbox-container-1').css('width') == '280px' )
+					side.addClass('empty-container');
+			}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		},
 
 		/**
 		 * Changes the amount of columns on the post edit page.
 		 *
 		 * @since 3.3.0
+<<<<<<< HEAD
 		 * @access private
 		 *
 		 * @memberof postboxes
@@ -578,6 +705,14 @@
 		 *
 		 * @param {number} n The amount of columns to divide the post edit page in.
 		 * @return {void}
+=======
+		 * @memberof postboxes
+		 * @fires postboxes#postboxes-columnchange
+		 * @access private
+		 *
+		 * @param {number} n The amount of columns to divide the post edit page in.
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		_pb_edit : function(n) {
 			var el = $('.metabox-holder').get(0);
@@ -602,11 +737,18 @@
 		 * orientation of the browser.
 		 *
 		 * @since 3.3.0
+<<<<<<< HEAD
 		 * @access private
 		 *
 		 * @memberof postboxes
 		 *
 		 * @return {void}
+=======
+		 * @memberof postboxes
+		 * @access private
+		 *
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		_pb_change : function() {
 			var check = $( 'label.columns-prefs-1 input[type="radio"]' );
@@ -619,7 +761,11 @@
 					break;
 				case 0:
 				case 180:
+<<<<<<< HEAD
 					if ( $( '#poststuff' ).length ) {
+=======
+					if ( $('#poststuff').length ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						this._pb_edit(1);
 					} else {
 						if ( !check.length || !check.is(':checked') )
@@ -633,20 +779,34 @@
 
 		/**
 		 * @since 2.7.0
+<<<<<<< HEAD
 		 * @access public
 		 *
 		 * @property {Function|boolean} pbshow A callback that is called when a postbox
 		 *                                     is opened.
 		 * @memberof postboxes
+=======
+		 * @memberof postboxes
+		 * @access public
+		 * @property {Function|boolean} pbshow A callback that is called when a postbox
+		 *                                     is opened.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		pbshow : false,
 
 		/**
 		 * @since 2.7.0
+<<<<<<< HEAD
 		 * @access public
 		 * @property {Function|boolean} pbhide A callback that is called when a postbox
 		 *                                     is closed.
 		 * @memberof postboxes
+=======
+		 * @memberof postboxes
+		 * @access public
+		 * @property {Function|boolean} pbhide A callback that is called when a postbox
+		 *                                     is closed.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		pbhide : false
 	};

@@ -74,7 +74,11 @@ class WP_Metadata_Lazyloader {
 	 */
 	public function queue_objects( $object_type, $object_ids ) {
 		if ( ! isset( $this->settings[ $object_type ] ) ) {
+<<<<<<< HEAD
 			return new WP_Error( 'invalid_object_type', __( 'Invalid object type.' ) );
+=======
+			return new WP_Error( 'invalid_object_type', __( 'Invalid object type' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		$type_settings = $this->settings[ $object_type ];
@@ -114,7 +118,11 @@ class WP_Metadata_Lazyloader {
 	 */
 	public function reset_queue( $object_type ) {
 		if ( ! isset( $this->settings[ $object_type ] ) ) {
+<<<<<<< HEAD
 			return new WP_Error( 'invalid_object_type', __( 'Invalid object type.' ) );
+=======
+			return new WP_Error( 'invalid_object_type', __( 'Invalid object type' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		$type_settings = $this->settings[ $object_type ];

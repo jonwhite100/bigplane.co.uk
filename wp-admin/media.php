@@ -7,7 +7,11 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 $parent_file  = 'upload.php';
 $submenu_file = 'upload.php';
@@ -29,7 +33,11 @@ switch ( $action ) {
 			$location = 'media.php';
 			$referer  = wp_get_original_referer();
 			if ( $referer ) {
+<<<<<<< HEAD
 				if ( false !== strpos( $referer, 'upload.php' ) || ( url_to_postid( $referer ) === $attachment_id ) ) {
+=======
+				if ( false !== strpos( $referer, 'upload.php' ) || ( url_to_postid( $referer ) == $attachment_id ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$location = $referer;
 				}
 			}
@@ -53,7 +61,11 @@ switch ( $action ) {
 
 		if ( empty( $_GET['attachment_id'] ) ) {
 			wp_redirect( admin_url( 'upload.php' ) );
+<<<<<<< HEAD
 			exit;
+=======
+			exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 		$att_id = (int) $_GET['attachment_id'];
 
@@ -69,7 +81,11 @@ switch ( $action ) {
 		if ( 'attachment' !== $att->post_type ) {
 			wp_die( __( 'You attempted to edit an item that isn&#8217;t an attachment. Please go back and try again.' ) );
 		}
+<<<<<<< HEAD
 		if ( 'trash' === $att->post_status ) {
+=======
+		if ( $att->post_status == 'trash' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			wp_die( __( 'You can&#8217;t edit this attachment because it is in the Trash. Please move it out of the Trash and try again.' ) );
 		}
 
@@ -97,7 +113,11 @@ switch ( $action ) {
 			'<p>' . __( '<a href="https://wordpress.org/support/">Support</a>' ) . '</p>'
 		);
 
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+		require( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$parent_file = 'upload.php';
 		$message     = '';
@@ -166,7 +186,11 @@ switch ( $action ) {
 
 		<?php
 
+<<<<<<< HEAD
 		require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+		require( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		exit;
 

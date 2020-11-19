@@ -14,10 +14,16 @@
  * @global wpdb $wpdb WordPress database abstraction object.
  *
  * @param int|stdClass $bookmark
+<<<<<<< HEAD
  * @param string       $output   Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which
  *                               correspond to an stdClass object, an associative array, or a numeric array,
  *                               respectively. Default OBJECT.
  * @param string       $filter   Optional. How to sanitize bookmark fields. Default 'raw'.
+=======
+ * @param string $output Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which correspond to
+ *                       an stdClass object, an associative array, or a numeric array, respectively. Default OBJECT.
+ * @param string $filter Optional, default is 'raw'.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return array|object|null Type returned depends on $output value.
  */
 function get_bookmark( $bookmark, $output = OBJECT, $filter = 'raw' ) {
@@ -53,11 +59,19 @@ function get_bookmark( $bookmark, $output = OBJECT, $filter = 'raw' ) {
 
 	$_bookmark = sanitize_bookmark( $_bookmark, $filter );
 
+<<<<<<< HEAD
 	if ( OBJECT == $output ) {
 		return $_bookmark;
 	} elseif ( ARRAY_A == $output ) {
 		return get_object_vars( $_bookmark );
 	} elseif ( ARRAY_N == $output ) {
+=======
+	if ( $output == OBJECT ) {
+		return $_bookmark;
+	} elseif ( $output == ARRAY_A ) {
+		return get_object_vars( $_bookmark );
+	} elseif ( $output == ARRAY_N ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return array_values( get_object_vars( $_bookmark ) );
 	} else {
 		return $_bookmark;
@@ -69,9 +83,15 @@ function get_bookmark( $bookmark, $output = OBJECT, $filter = 'raw' ) {
  *
  * @since 2.3.0
  *
+<<<<<<< HEAD
  * @param string $field    The name of the data field to return.
  * @param int    $bookmark The bookmark ID to get field.
  * @param string $context  Optional. The context of how the field will be used.
+=======
+ * @param string $field The name of the data field to return
+ * @param int $bookmark The bookmark ID to get field
+ * @param string $context Optional. The context of how the field will be used.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return string|WP_Error
  */
 function get_bookmark_field( $field, $bookmark, $context = 'display' ) {
@@ -117,7 +137,11 @@ function get_bookmark_field( $field, $bookmark, $context = 'display' ) {
  *                                    Accepts 'ASC' (ascending) or 'DESC' (descending). Default 'ASC'.
  *     @type int      $limit          Amount of bookmarks to display. Accepts any positive number or
  *                                    -1 for all.  Default -1.
+<<<<<<< HEAD
  *     @type string   $category       Comma-separated list of category IDs to include links from.
+=======
+ *     @type string   $category       Comma-separated list of category ids to include links from.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *                                    Default empty.
  *     @type string   $category_name  Category to retrieve links for by name. Default empty.
  *     @type int|bool $hide_invisible Whether to show or hide links marked as 'invisible'. Accepts
@@ -130,7 +154,11 @@ function get_bookmark_field( $field, $bookmark, $context = 'display' ) {
  *                                    and searched in 'link_url', 'link_name' and 'link_description'.
  *                                    Default empty.
  * }
+<<<<<<< HEAD
  * @return object[] List of bookmark row objects.
+=======
+ * @return array List of bookmark row objects.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function get_bookmarks( $args = '' ) {
 	global $wpdb;
@@ -168,8 +196,13 @@ function get_bookmarks( $args = '' ) {
 			 *
 			 * @see get_bookmarks()
 			 *
+<<<<<<< HEAD
 			 * @param array $bookmarks   List of the cached bookmarks.
 			 * @param array $parsed_args An array of bookmark query arguments.
+=======
+			 * @param array $bookmarks List of the cached bookmarks.
+			 * @param array $parsed_args         An array of bookmark query arguments.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			return apply_filters( 'get_bookmarks', $bookmarks, $parsed_args );
 		}
@@ -181,7 +214,11 @@ function get_bookmarks( $args = '' ) {
 
 	$inclusions = '';
 	if ( ! empty( $parsed_args['include'] ) ) {
+<<<<<<< HEAD
 		$parsed_args['exclude']       = '';  // Ignore exclude, category, and category_name params if using include.
+=======
+		$parsed_args['exclude']       = '';  //ignore exclude, category, and category_name params if using include
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$parsed_args['category']      = '';
 		$parsed_args['category_name'] = '';
 
@@ -280,9 +317,15 @@ function get_bookmarks( $args = '' ) {
 			foreach ( explode( ',', $orderby ) as $ordparam ) {
 				$ordparam = trim( $ordparam );
 
+<<<<<<< HEAD
 				if ( in_array( 'link_' . $ordparam, $keys, true ) ) {
 					$orderparams[] = 'link_' . $ordparam;
 				} elseif ( in_array( $ordparam, $keys, true ) ) {
+=======
+				if ( in_array( 'link_' . $ordparam, $keys ) ) {
+					$orderparams[] = 'link_' . $ordparam;
+				} elseif ( in_array( $ordparam, $keys ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$orderparams[] = $ordparam;
 				}
 			}
@@ -294,7 +337,11 @@ function get_bookmarks( $args = '' ) {
 	}
 
 	$order = strtoupper( $parsed_args['order'] );
+<<<<<<< HEAD
 	if ( '' !== $order && ! in_array( $order, array( 'ASC', 'DESC' ), true ) ) {
+=======
+	if ( '' !== $order && ! in_array( $order, array( 'ASC', 'DESC' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$order = 'ASC';
 	}
 
@@ -306,7 +353,11 @@ function get_bookmarks( $args = '' ) {
 	$query  = "SELECT * $length $recently_updated_test $get_updated FROM $wpdb->links $join WHERE 1=1 $visible $category_query";
 	$query .= " $exclusions $inclusions $search";
 	$query .= " ORDER BY $orderby $order";
+<<<<<<< HEAD
 	if ( -1 != $parsed_args['limit'] ) {
+=======
+	if ( $parsed_args['limit'] != -1 ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$query .= ' LIMIT ' . $parsed_args['limit'];
 	}
 
@@ -322,12 +373,22 @@ function get_bookmarks( $args = '' ) {
 }
 
 /**
+<<<<<<< HEAD
  * Sanitizes all bookmark fields.
  *
  * @since 2.3.0
  *
  * @param stdClass|array $bookmark Bookmark row.
  * @param string         $context  Optional. How to filter the fields. Default 'display'.
+=======
+ * Sanitizes all bookmark fields
+ *
+ * @since 2.3.0
+ *
+ * @param stdClass|array $bookmark Bookmark row
+ * @param string $context Optional, default is 'display'. How to filter the
+ *      fields
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return stdClass|array Same type as $bookmark but with fields sanitized.
  */
 function sanitize_bookmark( $bookmark, $context = 'display' ) {
@@ -404,7 +465,11 @@ function sanitize_bookmark_field( $field, $value, $bookmark_id, $context ) {
 		case 'link_category': // array( ints )
 			$value = array_map( 'absint', (array) $value );
 			// We return here so that the categories aren't filtered.
+<<<<<<< HEAD
 			// The 'link_category' filter is for the name of a link category, not an array of a link's link categories.
+=======
+			// The 'link_category' filter is for the name of a link category, not an array of a link's link categories
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return $value;
 
 		case 'link_visible': // bool stored as Y|N
@@ -412,12 +477,17 @@ function sanitize_bookmark_field( $field, $value, $bookmark_id, $context ) {
 			break;
 		case 'link_target': // "enum"
 			$targets = array( '_top', '_blank' );
+<<<<<<< HEAD
 			if ( ! in_array( $value, $targets, true ) ) {
+=======
+			if ( ! in_array( $value, $targets ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$value = '';
 			}
 			break;
 	}
 
+<<<<<<< HEAD
 	if ( 'raw' === $context ) {
 		return $value;
 	}
@@ -427,20 +497,41 @@ function sanitize_bookmark_field( $field, $value, $bookmark_id, $context ) {
 		$value = apply_filters( "edit_{$field}", $value, $bookmark_id );
 
 		if ( 'link_notes' === $field ) {
+=======
+	if ( 'raw' == $context ) {
+		return $value;
+	}
+
+	if ( 'edit' == $context ) {
+		/** This filter is documented in wp-includes/post.php */
+		$value = apply_filters( "edit_{$field}", $value, $bookmark_id );
+
+		if ( 'link_notes' == $field ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$value = esc_html( $value ); // textarea_escaped
 		} else {
 			$value = esc_attr( $value );
 		}
+<<<<<<< HEAD
 	} elseif ( 'db' === $context ) {
+=======
+	} elseif ( 'db' == $context ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		/** This filter is documented in wp-includes/post.php */
 		$value = apply_filters( "pre_{$field}", $value );
 	} else {
 		/** This filter is documented in wp-includes/post.php */
 		$value = apply_filters( "{$field}", $value, $bookmark_id, $context );
 
+<<<<<<< HEAD
 		if ( 'attribute' === $context ) {
 			$value = esc_attr( $value );
 		} elseif ( 'js' === $context ) {
+=======
+		if ( 'attribute' == $context ) {
+			$value = esc_attr( $value );
+		} elseif ( 'js' == $context ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$value = esc_js( $value );
 		}
 	}

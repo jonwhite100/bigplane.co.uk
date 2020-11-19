@@ -16,6 +16,7 @@
  * @see WP_Upgrader_Skin
  */
 class Plugin_Upgrader_Skin extends WP_Upgrader_Skin {
+<<<<<<< HEAD
 
 	/**
 	 * Holds the plugin slug in the Plugin Directory.
@@ -53,6 +54,14 @@ class Plugin_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * @param array $args Optional. The plugin upgrader skin arguments to
 	 *                    override default options. Default empty array.
+=======
+	public $plugin                = '';
+	public $plugin_active         = false;
+	public $plugin_network_active = false;
+
+	/**
+	 * @param array $args
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( $args = array() ) {
 		$defaults = array(
@@ -72,9 +81,12 @@ class Plugin_Upgrader_Skin extends WP_Upgrader_Skin {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Action to perform following a single plugin update.
 	 *
 	 * @since 2.8.0
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function after() {
 		$this->plugin = $this->upgrader->plugin_info();

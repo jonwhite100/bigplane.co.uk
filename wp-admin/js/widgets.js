@@ -16,6 +16,23 @@ window.wpWidgets = {
 	hoveredSidebar: null,
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Translations.
+	 *
+	 * Exported from PHP in wp_default_scripts().
+	 *
+	 * @var {object}
+	 */
+	l10n: {
+		save: '{save}',
+		saved: '{saved}',
+		saveAlert: '{saveAlert}',
+		widgetAdded: '{widgetAdded}'
+	},
+
+	/**
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * Lookup of which widgets have had change events triggered.
 	 *
 	 * @var {object}
@@ -95,7 +112,11 @@ window.wpWidgets = {
 					$( this ).find( '.widget-inside :tabbable:first' ).focus();
 				} );
 
+<<<<<<< HEAD
 				event.returnValue = wp.i18n.__( 'The changes you made will be lost if you navigate away from this page.' );
+=======
+				event.returnValue = wpWidgets.l10n.saveAlert;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				return event.returnValue;
 			}
 		});
@@ -113,7 +134,12 @@ window.wpWidgets = {
 		});
 
 		$(document.body).bind('click.widgets-toggle', function(e) {
+<<<<<<< HEAD
 			var target = $(e.target), css = {},
+=======
+			var target = $(e.target),
+				css = { 'z-index': 100 },
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				widget, inside, targetWidth, widgetWidth, margin, saveButton, widgetId,
 				toggleBtn = target.closest( '.widget' ).find( '.widget-top button.widget-action' );
 
@@ -127,11 +153,19 @@ window.wpWidgets = {
 				// Save button is initially disabled, but is enabled when a field is changed.
 				if ( ! widget.data( 'dirty-state-initialized' ) ) {
 					saveButton = inside.find( '.widget-control-save' );
+<<<<<<< HEAD
 					saveButton.prop( 'disabled', true ).val( wp.i18n.__( 'Saved' ) );
 					inside.on( 'input change', function() {
 						self.dirtyWidgets[ widgetId ] = true;
 						widget.addClass( 'widget-dirty' );
 						saveButton.prop( 'disabled', false ).val( wp.i18n.__( 'Save' ) );
+=======
+					saveButton.prop( 'disabled', true ).val( wpWidgets.l10n.saved );
+					inside.on( 'input change', function() {
+						self.dirtyWidgets[ widgetId ] = true;
+						widget.addClass( 'widget-dirty' );
+						saveButton.prop( 'disabled', false ).val( wpWidgets.l10n.save );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					});
 					widget.data( 'dirty-state-initialized', true );
 				}
@@ -197,7 +231,11 @@ window.wpWidgets = {
 			handle: '> .widget-top > .widget-title',
 			distance: 2,
 			helper: 'clone',
+<<<<<<< HEAD
 			zIndex: 101,
+=======
+			zIndex: 100,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			containment: '#wpwrap',
 			refreshPositions: true,
 			start: function( event, ui ) {
@@ -207,9 +245,15 @@ window.wpWidgets = {
 				the_id = this.id;
 
 				if ( chooser.length ) {
+<<<<<<< HEAD
 					// Hide the chooser and move it out of the widget.
 					$( '#wpbody-content' ).append( chooser.hide() );
 					// Delete the cloned chooser from the drag helper.
+=======
+					// Hide the chooser and move it out of the widget
+					$( '#wpbody-content' ).append( chooser.hide() );
+					// Delete the cloned chooser from the drag helper
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					ui.helper.find('.widgets-chooser').remove();
 					self.clearWidgetSelection();
 				}
@@ -234,7 +278,11 @@ window.wpWidgets = {
 			 *
 			 * @ignore
 			 *
+<<<<<<< HEAD
 			 * @param {Object} event jQuery event object.
+=======
+			 * @param {object} event jQuery event object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			over: function( event ) {
 				var $wrap = $( event.target ).parent();
@@ -259,7 +307,11 @@ window.wpWidgets = {
 			 *
 			 * @ignore
 			 *
+<<<<<<< HEAD
 			 * @param {Object} event jQuery event object.
+=======
+			 * @param {object} event jQuery event object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			out: function( event ) {
 				if ( wpWidgets.hoveredSidebar ) {
@@ -306,7 +358,11 @@ window.wpWidgets = {
 				wpWidgets.hoveredSidebar = null;
 
 				if ( $widget.hasClass('deleting') ) {
+<<<<<<< HEAD
 					wpWidgets.save( $widget, 1, 0, 1 ); // Delete widget.
+=======
+					wpWidgets.save( $widget, 1, 0, 1 ); // delete widget
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$widget.remove();
 					return;
 				}
@@ -348,7 +404,11 @@ window.wpWidgets = {
 
 					$children = $sidebar.children('.widget');
 
+<<<<<<< HEAD
 					// Make sure the dropped widget is at the top.
+=======
+					// Make sure the dropped widget is at the top
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( $children.length > 1 ) {
 						child = $children.get(0);
 						item = $widget.get(0);
@@ -371,14 +431,22 @@ window.wpWidgets = {
 			},
 
 			deactivate: function() {
+<<<<<<< HEAD
 				// Remove all min-height added on "start".
+=======
+				// Remove all min-height added on "start"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$(this).css( 'min-height', '' ).parent().removeClass( 'widget-hover' );
 			},
 
 			receive: function( event, ui ) {
 				var $sender = $( ui.sender );
 
+<<<<<<< HEAD
 				// Don't add more widgets to orphaned sidebars.
+=======
+				// Don't add more widgets to orphaned sidebars
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( this.id.indexOf('orphaned_widgets') > -1 ) {
 					$sender.sortable('cancel');
 					return;
@@ -416,7 +484,11 @@ window.wpWidgets = {
 			}
 		});
 
+<<<<<<< HEAD
 		// Area Chooser.
+=======
+		// Area Chooser
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$( '#widgets-right .widgets-holder-wrap' ).each( function( index, element ) {
 			var $element = $( element ),
 				name = $element.find( '.sidebar-name h2' ).text(),
@@ -450,7 +522,11 @@ window.wpWidgets = {
 				toggleButton.attr( 'aria-expanded', 'false' );
 				self.closeChooser();
 			} else {
+<<<<<<< HEAD
 				// Open the chooser.
+=======
+				// Open the chooser
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				self.clearWidgetSelection();
 				$( '#widgets-left' ).addClass( 'chooser' );
 				// Add CSS class and insert the chooser after the widget description.
@@ -471,7 +547,11 @@ window.wpWidgets = {
 			}
 		});
 
+<<<<<<< HEAD
 		// Add event handlers.
+=======
+		// Add event handlers
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		chooser.on( 'click.widgets-chooser', function( event ) {
 			var $target = $( event.target );
 
@@ -572,7 +652,11 @@ window.wpWidgets = {
 					wpWidgets.appendTitle( widget );
 
 					// Re-disable the save button.
+<<<<<<< HEAD
 					widget.find( '.widget-control-save' ).prop( 'disabled', true ).val( wp.i18n.__( 'Saved' ) );
+=======
+					widget.find( '.widget-control-save' ).prop( 'disabled', true ).val( wpWidgets.l10n.saved );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 					widget.removeClass( 'widget-dirty' );
 
@@ -647,7 +731,11 @@ window.wpWidgets = {
 		add = widget.find( 'input.add_new' ).val();
 		n = widget.find( 'input.multi_number' ).val();
 
+<<<<<<< HEAD
 		// Remove the cloned chooser from the widget.
+=======
+		// Remove the cloned chooser from the widget
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		widget.find('.widgets-chooser').remove();
 
 		if ( 'multi' === add ) {
@@ -674,7 +762,11 @@ window.wpWidgets = {
 		sidebar.sortable('refresh');
 
 		wpWidgets.save( widget, 0, 0, 1 );
+<<<<<<< HEAD
 		// No longer "new" widget.
+=======
+		// No longer "new" widget
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		widget.find( 'input.add_new' ).val('');
 
 		$document.trigger( 'widget-added', [ widget ] );
@@ -703,7 +795,11 @@ window.wpWidgets = {
 			// have to queue this "by hand".
 			widget.find( '.widget-title' ).trigger('click');
 			// At the end of the animation, announce the widget has been added.
+<<<<<<< HEAD
 			window.wp.a11y.speak( wp.i18n.__( 'Widget has been added to the selected sidebar' ), 'assertive' );
+=======
+			window.wp.a11y.speak( wpWidgets.l10n.widgetAdded, 'assertive' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}, 250 );
 	},
 
@@ -729,7 +825,11 @@ window.wpWidgets = {
 	 *
 	 * Used when a Widget gets dragged in/out of the Sidebar and never dropped.
 	 *
+<<<<<<< HEAD
 	 * @param {Object} event jQuery event object.
+=======
+	 * @param {object} event jQuery event object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	closeSidebar: function( event ) {
 		this.hoveredSidebar
@@ -744,6 +844,7 @@ window.wpWidgets = {
 $document.ready( function(){ wpWidgets.init(); } );
 
 })(jQuery);
+<<<<<<< HEAD
 
 /**
  * Removed in 5.5.0, needed for back-compatibility.
@@ -761,3 +862,5 @@ wpWidgets.l10n = wpWidgets.l10n || {
 };
 
 wpWidgets.l10n = window.wp.deprecateL10nObject( 'wpWidgets.l10n', wpWidgets.l10n );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

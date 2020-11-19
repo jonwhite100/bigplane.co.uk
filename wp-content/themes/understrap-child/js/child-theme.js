@@ -3977,6 +3977,7 @@
 	}
 })();
 
+<<<<<<< HEAD
 /* https://github.com/peledies/google-places */
 (function($) {
 
@@ -4355,6 +4356,8 @@
 
 })(jQuery);
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 window.addEventListener('load', function () {
 	// Animate loader off screen
 	jQuery('.se-pre-con').fadeOut('slow');
@@ -4415,6 +4418,7 @@ jQuery(document).ready(function ($) {
 
 	// using ScrollReveal
 	ScrollReveal().reveal('.card', { interval: 200 });
+<<<<<<< HEAD
 
 	// display Google Review2s on the site
 	$('#google-reviews').googlePlaces({
@@ -4423,4 +4427,6 @@ jQuery(document).ready(function ($) {
 		min_rating: 4,
 		max_rows: 4,
 	});
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 });

@@ -8,8 +8,13 @@
  * @version 1.0
  * @copyright Alexey Dotsenko
  * @author Alexey Dotsenko
+<<<<<<< HEAD
  * @link https://www.phpclasses.org/package/1743-PHP-FTP-client-in-pure-PHP.html
  * @license LGPL https://opensource.org/licenses/lgpl-license.html
+=======
+ * @link http://www.phpclasses.org/browse/package/1743.html Site
+ * @license LGPL http://www.opensource.org/licenses/lgpl-license.html
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 
 /**
@@ -22,8 +27,13 @@
  * @version 1.0
  * @copyright Alexey Dotsenko
  * @author Alexey Dotsenko
+<<<<<<< HEAD
  * @link https://www.phpclasses.org/package/1743-PHP-FTP-client-in-pure-PHP.html
  * @license LGPL https://opensource.org/licenses/lgpl-license.html
+=======
+ * @link http://www.phpclasses.org/browse/package/1743.html Site
+ * @license LGPL http://www.opensource.org/licenses/lgpl-license.html
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 class ftp_pure extends ftp_base {
 

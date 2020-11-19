@@ -47,6 +47,7 @@ function wpcf7_quiz_form_tag_handler( $tag ) {
 	$atts['tabindex'] = $tag->get_option( 'tabindex', 'signed_int', true );
 	$atts['autocomplete'] = 'off';
 	$atts['aria-required'] = 'true';
+<<<<<<< HEAD
 
 	if ( $validation_error ) {
 		$atts['aria-invalid'] = 'true';
@@ -56,6 +57,9 @@ function wpcf7_quiz_form_tag_handler( $tag ) {
 	} else {
 		$atts['aria-invalid'] = 'false';
 	}
+=======
+	$atts['aria-invalid'] = $validation_error ? 'true' : 'false';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$pipes = $tag->pipes;
 
@@ -81,8 +85,12 @@ function wpcf7_quiz_form_tag_handler( $tag ) {
 		'<span class="wpcf7-form-control-wrap %1$s"><label><span class="wpcf7-quiz-label">%2$s</span> <input %3$s /></label><input type="hidden" name="_wpcf7_quiz_answer_%4$s" value="%5$s" />%6$s</span>',
 		sanitize_html_class( $tag->name ),
 		esc_html( $question ), $atts, $tag->name,
+<<<<<<< HEAD
 		wp_hash( $answer, 'wpcf7_quiz' ), $validation_error
 	);
+=======
+		wp_hash( $answer, 'wpcf7_quiz' ), $validation_error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return $html;
 }
@@ -104,7 +112,11 @@ function wpcf7_quiz_validation_filter( $result, $tag ) {
 		? (string) $_POST['_wpcf7_quiz_answer_' . $name]
 		: '';
 
+<<<<<<< HEAD
 	if ( ! hash_equals( $expected_hash, $answer_hash ) ) {
+=======
+	if ( $answer_hash != $expected_hash ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$result->invalidate( $tag, wpcf7_get_message( 'quiz_answer_not_correct' ) );
 	}
 
@@ -114,8 +126,13 @@ function wpcf7_quiz_validation_filter( $result, $tag ) {
 
 /* Ajax echo filter */
 
+<<<<<<< HEAD
 add_filter( 'wpcf7_refill_response', 'wpcf7_quiz_ajax_refill', 10, 1 );
 add_filter( 'wpcf7_feedback_response', 'wpcf7_quiz_ajax_refill', 10, 1 );
+=======
+add_filter( 'wpcf7_ajax_onload', 'wpcf7_quiz_ajax_refill', 10, 1 );
+add_filter( 'wpcf7_ajax_json_echo', 'wpcf7_quiz_ajax_refill', 10, 1 );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 function wpcf7_quiz_ajax_refill( $items ) {
 	if ( ! is_array( $items ) ) {
@@ -162,6 +179,7 @@ function wpcf7_quiz_ajax_refill( $items ) {
 }
 
 
+<<<<<<< HEAD
 /* Mail-tag replacement */
 
 add_filter( 'wpcf7_mail_tag_replaced_quiz', 'wpcf7_quiz_mail_tag', 10, 4 );
@@ -180,6 +198,8 @@ function wpcf7_quiz_mail_tag( $replaced, $submitted, $html, $mail_tag ) {
 }
 
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /* Messages */
 
 add_filter( 'wpcf7_messages', 'wpcf7_quiz_messages', 10, 1 );

@@ -6,7 +6,11 @@
  */
 
 /**
+<<<<<<< HEAD
  * Defines initial WordPress constants.
+=======
+ * Defines initial WordPress constants
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @see wp_debug_mode()
  *
@@ -69,11 +73,16 @@ function wp_initial_constants() {
 	}
 
 	if ( ! defined( 'WP_CONTENT_DIR' ) ) {
+<<<<<<< HEAD
 		define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' ); // No trailing slash, full paths only - WP_CONTENT_URL is defined further down.
+=======
+		define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' ); // no trailing slash, full paths only - WP_CONTENT_URL is defined further down
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	// Add define( 'WP_DEBUG', true ); to wp-config.php to enable display of notices during development.
 	if ( ! defined( 'WP_DEBUG' ) ) {
+<<<<<<< HEAD
 		if ( 'development' === wp_get_environment_type() ) {
 			define( 'WP_DEBUG', true );
 		} else {
@@ -83,6 +92,13 @@ function wp_initial_constants() {
 
 	// Add define( 'WP_DEBUG_DISPLAY', null ); to wp-config.php to use the globally configured setting
 	// for 'display_errors' and not force errors to be displayed. Use false to force 'display_errors' off.
+=======
+		define( 'WP_DEBUG', false );
+	}
+
+	// Add define( 'WP_DEBUG_DISPLAY', null ); to wp-config.php use the globally configured setting for
+	// display_errors and not force errors to be displayed. Use false to force display_errors off.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! defined( 'WP_DEBUG_DISPLAY' ) ) {
 		define( 'WP_DEBUG_DISPLAY', true );
 	}
@@ -119,7 +135,11 @@ function wp_initial_constants() {
 		define( 'SHORTINIT', false );
 	}
 
+<<<<<<< HEAD
 	// Constants for features added to WP that should short-circuit their plugin implementations.
+=======
+	// Constants for features added to WP that should short-circuit their plugin implementations
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	define( 'WP_FEATURE_BETTER_PASSWORDS', true );
 
 	/**#@+
@@ -130,7 +150,11 @@ function wp_initial_constants() {
 	 * For example, MONTH_IN_SECONDS wrongly assumes every month has 30 days and
 	 * YEAR_IN_SECONDS does not take leap years into account.
 	 *
+<<<<<<< HEAD
 	 * If you need more accuracy please consider using the DateTime class (https://www.php.net/manual/en/class.datetime.php).
+=======
+	 * If you need more accuracy please consider using the DateTime class (https://secure.php.net/manual/en/class.datetime.php).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 3.5.0
 	 * @since 4.4.0 Introduced `MONTH_IN_SECONDS`.
@@ -145,15 +169,25 @@ function wp_initial_constants() {
 }
 
 /**
+<<<<<<< HEAD
  * Defines plugin directory WordPress constants.
  *
  * Defines must-use plugin directory constants, which may be overridden in the sunrise.php drop-in.
+=======
+ * Defines plugin directory WordPress constants
+ *
+ * Defines must-use plugin directory constants, which may be overridden in the sunrise.php drop-in
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 3.0.0
  */
 function wp_plugin_directory_constants() {
 	if ( ! defined( 'WP_CONTENT_URL' ) ) {
+<<<<<<< HEAD
 		define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/wp-content' ); // Full URL - WP_CONTENT_DIR is defined further up.
+=======
+		define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/wp-content' ); // full url - WP_CONTENT_DIR is defined further up
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -162,7 +196,11 @@ function wp_plugin_directory_constants() {
 	 * @since 2.6.0
 	 */
 	if ( ! defined( 'WP_PLUGIN_DIR' ) ) {
+<<<<<<< HEAD
 		define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' ); // Full path, no trailing slash.
+=======
+		define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' ); // full path, no trailing slash
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -171,7 +209,11 @@ function wp_plugin_directory_constants() {
 	 * @since 2.6.0
 	 */
 	if ( ! defined( 'WP_PLUGIN_URL' ) ) {
+<<<<<<< HEAD
 		define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins' ); // Full URL, no trailing slash.
+=======
+		define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins' ); // full url, no trailing slash
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -190,7 +232,11 @@ function wp_plugin_directory_constants() {
 	 * @since 2.8.0
 	 */
 	if ( ! defined( 'WPMU_PLUGIN_DIR' ) ) {
+<<<<<<< HEAD
 		define( 'WPMU_PLUGIN_DIR', WP_CONTENT_DIR . '/mu-plugins' ); // Full path, no trailing slash.
+=======
+		define( 'WPMU_PLUGIN_DIR', WP_CONTENT_DIR . '/mu-plugins' ); // full path, no trailing slash
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -199,7 +245,11 @@ function wp_plugin_directory_constants() {
 	 * @since 2.8.0
 	 */
 	if ( ! defined( 'WPMU_PLUGIN_URL' ) ) {
+<<<<<<< HEAD
 		define( 'WPMU_PLUGIN_URL', WP_CONTENT_URL . '/mu-plugins' ); // Full URL, no trailing slash.
+=======
+		define( 'WPMU_PLUGIN_URL', WP_CONTENT_URL . '/mu-plugins' ); // full url, no trailing slash
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -214,7 +264,11 @@ function wp_plugin_directory_constants() {
 }
 
 /**
+<<<<<<< HEAD
  * Defines cookie-related WordPress constants.
+=======
+ * Defines cookie related WordPress constants
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * Defines constants after multisite is loaded.
  *
@@ -222,7 +276,11 @@ function wp_plugin_directory_constants() {
  */
 function wp_cookie_constants() {
 	/**
+<<<<<<< HEAD
 	 * Used to guarantee unique hash cookies.
+=======
+	 * Used to guarantee unique hash cookies
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 1.5.0
 	 */
@@ -348,7 +406,11 @@ function wp_ssl_constants() {
 }
 
 /**
+<<<<<<< HEAD
  * Defines functionality-related WordPress constants.
+=======
+ * Defines functionality related WordPress constants
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 3.0.0
  */
@@ -357,7 +419,11 @@ function wp_functionality_constants() {
 	 * @since 2.5.0
 	 */
 	if ( ! defined( 'AUTOSAVE_INTERVAL' ) ) {
+<<<<<<< HEAD
 		define( 'AUTOSAVE_INTERVAL', MINUTE_IN_SECONDS );
+=======
+		define( 'AUTOSAVE_INTERVAL', 60 );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	/**
@@ -375,25 +441,41 @@ function wp_functionality_constants() {
 	 * @since 3.3.0
 	 */
 	if ( ! defined( 'WP_CRON_LOCK_TIMEOUT' ) ) {
+<<<<<<< HEAD
 		define( 'WP_CRON_LOCK_TIMEOUT', MINUTE_IN_SECONDS );
+=======
+		define( 'WP_CRON_LOCK_TIMEOUT', 60 );  // In seconds
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 }
 
 /**
+<<<<<<< HEAD
  * Defines templating-related WordPress constants.
+=======
+ * Defines templating related WordPress constants
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since 3.0.0
  */
 function wp_templating_constants() {
 	/**
+<<<<<<< HEAD
 	 * Filesystem path to the current active template directory.
+=======
+	 * Filesystem path to the current active template directory
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 1.5.0
 	 */
 	define( 'TEMPLATEPATH', get_template_directory() );
 
 	/**
+<<<<<<< HEAD
 	 * Filesystem path to the current active template stylesheet directory.
+=======
+	 * Filesystem path to the current active template stylesheet directory
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 2.1.0
 	 */
@@ -405,7 +487,10 @@ function wp_templating_constants() {
 	 * It will be used as the fallback if the current theme doesn't exist.
 	 *
 	 * @since 3.0.0
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @see WP_Theme::get_core_default_theme()
 	 */
 	if ( ! defined( 'WP_DEFAULT_THEME' ) ) {

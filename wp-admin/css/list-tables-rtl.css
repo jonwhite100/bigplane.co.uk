@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .response-links {
 	display: block;
 	margin-bottom: 1em;
@@ -63,6 +66,16 @@
 	text-align: center;
 }
 
+<<<<<<< HEAD
+=======
+.ie8 .column-response .comment-count-no-comments,
+.ie8 .column-response .comment-count-approved,
+.ie8 .column-comments .comment-count-no-comments,
+.ie8 .column-comments .comment-count-approved {
+	min-width: 0;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .column-response .post-com-count-no-comments:after,
 .column-response .post-com-count-approved:after,
 .column-comments .post-com-count-no-comments:after,
@@ -76,6 +89,7 @@
 	border-left: 5px solid transparent;
 }
 
+<<<<<<< HEAD
 .column-response a.post-com-count-approved:hover .comment-count-approved,
 .column-response a.post-com-count-approved:focus .comment-count-approved,
 .column-comments a.post-com-count-approved:hover .comment-count-approved,
@@ -87,6 +101,19 @@
 .column-response a.post-com-count-approved:focus:after,
 .column-comments a.post-com-count-approved:hover:after,
 .column-comments a.post-com-count-approved:focus:after {
+=======
+.column-response .post-com-count-approved:hover .comment-count-approved,
+.column-response .post-com-count-approved:focus .comment-count-approved,
+.column-comments .post-com-count-approved:hover .comment-count-approved,
+.column-comments .post-com-count-approved:focus .comment-count-approved {
+	background: #0073aa;
+}
+
+.column-response .post-com-count-approved:hover:after,
+.column-response .post-com-count-approved:focus:after,
+.column-comments .post-com-count-approved:hover:after,
+.column-comments .post-com-count-approved:focus:after {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	border-top-color: #0073aa;
 }
 
@@ -296,6 +323,10 @@ table.fixed {
 }
 
 .fixed .column-posts,
+<<<<<<< HEAD
+=======
+.fixed .column-date,
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .fixed .column-parent,
 .fixed .column-links,
 .fixed .column-author,
@@ -303,10 +334,13 @@ table.fixed {
 	width: 10%;
 }
 
+<<<<<<< HEAD
 .fixed .column-date {
 	width: 14%;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .column-date span[title] {
 	-webkit-text-decoration: dotted underline;
 	text-decoration: dotted underline;
@@ -394,6 +428,13 @@ table.media .column-title .filename {
 	width: 20%;
 }
 
+<<<<<<< HEAD
+=======
+#comments-form .fixed .column-date {
+	width: 14%;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #commentsdiv.postbox .inside {
 	margin: 0;
 	padding: 0;
@@ -429,6 +470,10 @@ table.media .column-title .filename {
 #commentsdiv .comments-box thead td {
 	background: transparent;
 	padding: 0 7px 4px;
+<<<<<<< HEAD
+=======
+	font-style: italic;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 #commentsdiv .comments-box tr:last-child td {
@@ -506,6 +551,13 @@ th.asc a:focus span.sorting-indicator:before {
 		0 0 2px 1px rgba(30, 140, 190, 0.8);
 }
 
+<<<<<<< HEAD
+=======
+.ie8 .wp-list-table .toggle-row:focus:before {
+	outline: #5b9dd9 solid 1px;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .wp-list-table .toggle-row:active {
 	box-shadow: none;
 }
@@ -626,7 +678,10 @@ th.asc a:focus span.sorting-indicator {
 	clear: both;
 	height: 30px;
 	margin: 6px 0 4px;
+<<<<<<< HEAD
 	padding-top: 5px;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	vertical-align: middle;
 }
 
@@ -636,7 +691,11 @@ th.asc a:focus span.sorting-indicator {
 
 .tablenav .tablenav-pages {
 	float: left;
+<<<<<<< HEAD
 	margin: 0 0 9px;
+=======
+	margin: 3px 0 9px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .tablenav .no-pages,
@@ -648,12 +707,21 @@ th.asc a:focus span.sorting-indicator {
 .tablenav .tablenav-pages .tablenav-pages-navspan {
 	display: inline-block;
 	vertical-align: baseline;
+<<<<<<< HEAD
 	min-width: 30px;
 	min-height: 30px;
 	margin: 0;
 	padding: 0 4px;
 	font-size: 16px;
 	line-height: 1.625; /* 26px */
+=======
+	min-width: 28px;
+	min-height: 28px;
+	margin: 0;
+	padding: 0 4px;
+	font-size: 16px;
+	line-height: 1.5;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	text-align: center;
 }
 
@@ -667,7 +735,12 @@ th.asc a:focus span.sorting-indicator {
 }
 
 .tablenav .actions {
+<<<<<<< HEAD
 	padding: 0 0 0 8px;
+=======
+	overflow: hidden;
+	padding: 2px 0 0 8px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .wp-filter .actions {
@@ -1008,6 +1081,14 @@ tr.inline-edit-row td,
 	text-transform: uppercase;
 }
 
+<<<<<<< HEAD
+=======
+.inline-edit-row fieldset span.title,
+.inline-edit-row fieldset span.checkbox-title {
+	font-style: italic;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /*	Specific Elements */
 .inline-edit-row fieldset .inline-edit-date {
 	float: right;
@@ -1017,9 +1098,17 @@ tr.inline-edit-row td,
 .inline-edit-row fieldset input[name=hh],
 .inline-edit-row fieldset input[name=mn],
 .inline-edit-row fieldset input[name=aa] {
+<<<<<<< HEAD
 	vertical-align: middle;
 	text-align: center;
 	padding: 0 4px;
+=======
+	font-size: 12px;
+	line-height: 1.16666666;
+	vertical-align: middle;
+	text-align: center;
+	padding: 6px 4px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .inline-edit-row fieldset label input.inline-edit-password-input {
@@ -1069,6 +1158,14 @@ ul.cat-checklist {
 	max-width: 80%;
 }
 
+<<<<<<< HEAD
+=======
+.ie8 .inline-edit-row #post_parent,
+.ie8 .inline-edit-row select[name="page_template"] {
+	width: 250px;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .quick-edit-row-post fieldset label.inline-edit-status {
 	float: right;
 }
@@ -1236,10 +1333,13 @@ ul.cat-checklist {
 	width: 85px;
 }
 
+<<<<<<< HEAD
 .plugins .column-auto-updates {
 	width: 14.2em;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .plugins .inactive .plugin-title strong {
 	font-weight: 400;
 }
@@ -1300,7 +1400,12 @@ ul.cat-checklist {
 .plugins .paused .error-display p,
 .plugins .paused .error-display code {
 	font-size: 90%;
+<<<<<<< HEAD
 	color: rgba( 0, 0, 0, 0.7 );
+=======
+	font-style: italic;
+	color: rgb( 0, 0, 0, 0.7 );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .plugins .resume-link {
@@ -1449,7 +1554,11 @@ div.action-links,
 .plugin-card .name,
 .plugin-card .desc {
 	margin-right: 148px; /* icon + margin */
+<<<<<<< HEAD
 	margin-left: 128px; /* action links + margin */
+=======
+	margin-left: 120px; /* action links */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .plugin-card .action-links {
@@ -1462,6 +1571,10 @@ div.action-links,
 .plugin-action-buttons {
 	clear: left;
 	float: left;
+<<<<<<< HEAD
+=======
+	margin-right: 2em;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	margin-bottom: 1em;
 	text-align: left;
 }
@@ -1633,6 +1746,13 @@ div.action-links,
 	.plugin-card .desc p:first-of-type {
 		margin-top: 0;
 	}
+<<<<<<< HEAD
+=======
+
+	.fixed .column-date {
+		width: 14%;
+	}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 @media screen and (max-width: 782px) {
@@ -1725,6 +1845,13 @@ div.action-links,
 		display: none;
 	}
 
+<<<<<<< HEAD
+=======
+	.comment-count {
+		font-size: 14px;
+	}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	.wp-list-table th.column-primary ~ th,
 	.wp-list-table tr:not(.inline-edit-row):not(.no-items) td.column-primary ~ td:not(.check-column) {
 		display: none;
@@ -1737,10 +1864,14 @@ div.action-links,
 	/* Checkboxes need to show */
 	.wp-list-table tr th.check-column {
 		display: table-cell;
+<<<<<<< HEAD
 	}
 
 	.wp-list-table .check-column {
 		width: 2.5em;
+=======
+		width: 35px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	.wp-list-table .column-primary .toggle-row {
@@ -1750,6 +1881,10 @@ div.action-links,
 	.wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.check-column) {
 		position: relative;
 		clear: both;
+<<<<<<< HEAD
+=======
+		display: block;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		width: auto !important; /* needs to override some columns that are more specifically targeted */
 	}
 
@@ -1870,6 +2005,13 @@ div.action-links,
 		padding-top: 10px;
 	}
 
+<<<<<<< HEAD
+=======
+	.widefat * {
+		word-wrap: normal;
+	}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	/* Make row actions more easy to select on mobile */
 	body:not(.plugins-php) .row-actions {
 		display: -ms-grid;
@@ -1925,6 +2067,7 @@ div.action-links,
 		box-sizing: border-box;
 	}
 
+<<<<<<< HEAD
 	.inline-edit-row fieldset input[name=jj],
 	.inline-edit-row fieldset input[name=hh],
 	.inline-edit-row fieldset input[name=mn],
@@ -1934,6 +2077,8 @@ div.action-links,
 		padding: 3px 4px;
 	}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	.inline-edit-row fieldset ul.cat-checklist label,
 	.inline-edit-row #bulk-titles div {
 		font-size: 16px;
@@ -2095,6 +2240,7 @@ div.action-links,
 		line-height: 1.5;
 	}
 
+<<<<<<< HEAD
 	.plugins tbody th.check-column {
 		padding: 8px 5px 0 0;
 	}
@@ -2105,6 +2251,8 @@ div.action-links,
 		padding-right: 9px;
 	}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	/* Add New plugins page */
 	table.plugin-install .column-name,
 	table.plugin-install .column-version,

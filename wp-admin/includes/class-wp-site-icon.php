@@ -154,7 +154,11 @@ class WP_Site_Icon {
 		natsort( $this->site_icon_sizes );
 		$this->site_icon_sizes = array_reverse( $this->site_icon_sizes );
 
+<<<<<<< HEAD
 		// Ensure that we only resize the image into sizes that allow cropping.
+=======
+		// ensure that we only resize the image into
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $sizes as $name => $size_array ) {
 			if ( isset( $size_array['crop'] ) ) {
 				$only_crop_sizes[ $name ] = $size_array;

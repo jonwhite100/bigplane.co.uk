@@ -13,6 +13,7 @@ class WP_HTTP_IXR_Client extends IXR_Client {
 	public $error;
 
 	/**
+<<<<<<< HEAD
 	 * @param string      $server
 	 * @param string|bool $path
 	 * @param int|bool    $port
@@ -21,13 +22,27 @@ class WP_HTTP_IXR_Client extends IXR_Client {
 	public function __construct( $server, $path = false, $port = false, $timeout = 15 ) {
 		if ( ! $path ) {
 			// Assume we have been given a URL instead.
+=======
+	 * @param string $server
+	 * @param string|bool $path
+	 * @param int|bool $port
+	 * @param int $timeout
+	 */
+	public function __construct( $server, $path = false, $port = false, $timeout = 15 ) {
+		if ( ! $path ) {
+			// Assume we have been given a URL instead
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$bits         = parse_url( $server );
 			$this->scheme = $bits['scheme'];
 			$this->server = $bits['host'];
 			$this->port   = isset( $bits['port'] ) ? $bits['port'] : $port;
 			$this->path   = ! empty( $bits['path'] ) ? $bits['path'] : '/';
 
+<<<<<<< HEAD
 			// Make absolutely sure we have a path.
+=======
+			// Make absolutely sure we have a path
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( ! $this->path ) {
 				$this->path = '/';
 			}
@@ -46,6 +61,7 @@ class WP_HTTP_IXR_Client extends IXR_Client {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @since 3.1.0
 	 * @since 5.5.0 Formalized the existing `...$args` parameter by adding it
 	 *              to the function signature.
@@ -53,6 +69,12 @@ class WP_HTTP_IXR_Client extends IXR_Client {
 	 * @return bool
 	 */
 	public function query( ...$args ) {
+=======
+	 * @return bool
+	 */
+	public function query() {
+		$args    = func_get_args();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$method  = array_shift( $args );
 		$request = new IXR_Request( $method, $args );
 		$xml     = $request->getXml();
@@ -65,7 +87,11 @@ class WP_HTTP_IXR_Client extends IXR_Client {
 			'body'       => $xml,
 		);
 
+<<<<<<< HEAD
 		// Merge Custom headers ala #8145.
+=======
+		// Merge Custom headers ala #8145
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $this->headers as $header => $value ) {
 			$args['headers'][ $header ] = $value;
 		}
@@ -79,11 +105,19 @@ class WP_HTTP_IXR_Client extends IXR_Client {
 		 */
 		$args['headers'] = apply_filters( 'wp_http_ixr_client_headers', $args['headers'] );
 
+<<<<<<< HEAD
 		if ( false !== $this->timeout ) {
 			$args['timeout'] = $this->timeout;
 		}
 
 		// Now send the request.
+=======
+		if ( $this->timeout !== false ) {
+			$args['timeout'] = $this->timeout;
+		}
+
+		// Now send the request
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( $this->debug ) {
 			echo '<pre class="ixr_request">' . htmlspecialchars( $xml ) . "\n</pre>\n\n";
 		}
@@ -106,21 +140,36 @@ class WP_HTTP_IXR_Client extends IXR_Client {
 			echo '<pre class="ixr_response">' . htmlspecialchars( wp_remote_retrieve_body( $response ) ) . "\n</pre>\n\n";
 		}
 
+<<<<<<< HEAD
 		// Now parse what we've got back.
 		$this->message = new IXR_Message( wp_remote_retrieve_body( $response ) );
 		if ( ! $this->message->parse() ) {
 			// XML error.
+=======
+		// Now parse what we've got back
+		$this->message = new IXR_Message( wp_remote_retrieve_body( $response ) );
+		if ( ! $this->message->parse() ) {
+			// XML error
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->error = new IXR_Error( -32700, 'parse error. not well formed' );
 			return false;
 		}
 
 		// Is the message a fault?
+<<<<<<< HEAD
 		if ( 'fault' === $this->message->messageType ) {
+=======
+		if ( $this->message->messageType == 'fault' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$this->error = new IXR_Error( $this->message->faultCode, $this->message->faultString );
 			return false;
 		}
 
+<<<<<<< HEAD
 		// Message must be OK.
+=======
+		// Message must be OK
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return true;
 	}
 }

@@ -8,8 +8,13 @@
  * @since MU (3.0.0)
  */
 
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/ms-site.php';
 require_once ABSPATH . WPINC . '/ms-network.php';
+=======
+require_once( ABSPATH . WPINC . '/ms-site.php' );
+require_once( ABSPATH . WPINC . '/ms-network.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /**
  * Update the last_updated field for the current site.
@@ -31,7 +36,11 @@ function wpmu_update_blogs_date() {
 }
 
 /**
+<<<<<<< HEAD
  * Get a full blog URL, given a blog ID.
+=======
+ * Get a full blog URL, given a blog id.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since MU (3.0.0)
  *
@@ -137,7 +146,11 @@ function get_blog_details( $fields = null, $get_all = true ) {
 			if ( false !== $blog ) {
 				return $blog;
 			}
+<<<<<<< HEAD
 			if ( 'www.' === substr( $fields['domain'], 0, 4 ) ) {
+=======
+			if ( substr( $fields['domain'], 0, 4 ) == 'www.' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$nowww = substr( $fields['domain'], 4 );
 				$blog  = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->blogs WHERE domain IN (%s,%s) AND path = %s ORDER BY CHAR_LENGTH(domain) DESC", $nowww, $fields['domain'], $fields['path'] ) );
 			} else {
@@ -155,7 +168,11 @@ function get_blog_details( $fields = null, $get_all = true ) {
 			if ( false !== $blog ) {
 				return $blog;
 			}
+<<<<<<< HEAD
 			if ( 'www.' === substr( $fields['domain'], 0, 4 ) ) {
+=======
+			if ( substr( $fields['domain'], 0, 4 ) == 'www.' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$nowww = substr( $fields['domain'], 4 );
 				$blog  = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->blogs WHERE domain IN (%s,%s) ORDER BY CHAR_LENGTH(domain) DESC", $nowww, $fields['domain'] ) );
 			} else {
@@ -238,6 +255,7 @@ function get_blog_details( $fields = null, $get_all = true ) {
 		return $details;
 	}
 
+<<<<<<< HEAD
 	$switched_blog = false;
 
 	if ( get_current_blog_id() !== $blog_id ) {
@@ -245,20 +263,31 @@ function get_blog_details( $fields = null, $get_all = true ) {
 		$switched_blog = true;
 	}
 
+=======
+	switch_to_blog( $blog_id );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$details->blogname   = get_option( 'blogname' );
 	$details->siteurl    = get_option( 'siteurl' );
 	$details->post_count = get_option( 'post_count' );
 	$details->home       = get_option( 'home' );
+<<<<<<< HEAD
 
 	if ( $switched_blog ) {
 		restore_current_blog();
 	}
+=======
+	restore_current_blog();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Filters a blog's details.
 	 *
 	 * @since MU (3.0.0)
+<<<<<<< HEAD
 	 * @deprecated 4.7.0 Use {@see 'site_details'} instead.
+=======
+	 * @deprecated 4.7.0 Use site_details
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @param object $details The blog details.
 	 */
@@ -289,7 +318,11 @@ function refresh_blog_details( $blog_id = 0 ) {
 }
 
 /**
+<<<<<<< HEAD
  * Update the details for a blog. Updates the blogs table for a given blog ID.
+=======
+ * Update the details for a blog. Updates the blogs table for a given blog id.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since MU (3.0.0)
  *
@@ -382,7 +415,11 @@ function get_blog_option( $id, $option, $default = false ) {
 }
 
 /**
+<<<<<<< HEAD
  * Add a new option for a given blog ID.
+=======
+ * Add a new option for a given blog id.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * You do not need to serialize values. If the value needs to be serialized, then
  * it will be serialized before it is inserted into the database. Remember,
@@ -398,7 +435,11 @@ function get_blog_option( $id, $option, $default = false ) {
  * @param int    $id     A blog ID. Can be null to refer to the current blog.
  * @param string $option Name of option to add. Expected to not be SQL-escaped.
  * @param mixed  $value  Optional. Option value, can be anything. Expected to not be SQL-escaped.
+<<<<<<< HEAD
  * @return bool True if the option was added, false otherwise.
+=======
+ * @return bool False if option was not added and true if option was added.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function add_blog_option( $id, $option, $value ) {
 	$id = (int) $id;
@@ -419,13 +460,21 @@ function add_blog_option( $id, $option, $value ) {
 }
 
 /**
+<<<<<<< HEAD
  * Removes option by name for a given blog ID. Prevents removal of protected WordPress options.
+=======
+ * Removes option by name for a given blog id. Prevents removal of protected WordPress options.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  *
  * @since MU (3.0.0)
  *
  * @param int    $id     A blog ID. Can be null to refer to the current blog.
  * @param string $option Name of option to remove. Expected to not be SQL-escaped.
+<<<<<<< HEAD
  * @return bool True if the option was deleted, false otherwise.
+=======
+ * @return bool True, if option is successfully deleted. False on failure.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function delete_blog_option( $id, $option ) {
 	$id = (int) $id;
@@ -450,11 +499,19 @@ function delete_blog_option( $id, $option ) {
  *
  * @since MU (3.0.0)
  *
+<<<<<<< HEAD
  * @param int    $id         The blog ID.
  * @param string $option     The option key.
  * @param mixed  $value      The option value.
  * @param mixed  $deprecated Not used.
  * @return bool True if the value was updated, false otherwise.
+=======
+ * @param int    $id         The blog id.
+ * @param string $option     The option key.
+ * @param mixed  $value      The option value.
+ * @param mixed  $deprecated Not used.
+ * @return bool True on success, false on failure.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function update_blog_option( $id, $option, $value, $deprecated = null ) {
 	$id = (int) $id;
@@ -517,6 +574,7 @@ function switch_to_blog( $new_blog_id, $deprecated = null ) {
 		 * Fires when the blog is switched.
 		 *
 		 * @since MU (3.0.0)
+<<<<<<< HEAD
 		 * @since 5.4.0 The `$context` parameter was added.
 		 *
 		 * @param int    $new_blog_id  New blog ID.
@@ -528,6 +586,14 @@ function switch_to_blog( $new_blog_id, $deprecated = null ) {
 
 		$GLOBALS['switched'] = true;
 
+=======
+		 *
+		 * @param int $new_blog_id  New blog ID.
+		 * @param int $prev_blog_id Previous blog ID.
+		 */
+		do_action( 'switch_blog', $new_blog_id, $prev_blog_id );
+		$GLOBALS['switched'] = true;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return true;
 	}
 
@@ -545,7 +611,10 @@ function switch_to_blog( $new_blog_id, $deprecated = null ) {
 		} else {
 			$global_groups = false;
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		wp_cache_init();
 
 		if ( function_exists( 'wp_cache_add_global_groups' ) ) {
@@ -554,14 +623,21 @@ function switch_to_blog( $new_blog_id, $deprecated = null ) {
 			} else {
 				wp_cache_add_global_groups( array( 'users', 'userlogins', 'usermeta', 'user_meta', 'useremail', 'userslugs', 'site-transient', 'site-options', 'blog-lookup', 'blog-details', 'rss', 'global-posts', 'blog-id-cache', 'networks', 'sites', 'site-details', 'blog_meta' ) );
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			wp_cache_add_non_persistent_groups( array( 'counts', 'plugins' ) );
 		}
 	}
 
 	/** This filter is documented in wp-includes/ms-blogs.php */
+<<<<<<< HEAD
 	do_action( 'switch_blog', $new_blog_id, $prev_blog_id, 'switch' );
 
+=======
+	do_action( 'switch_blog', $new_blog_id, $prev_blog_id );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$GLOBALS['switched'] = true;
 
 	return true;
@@ -594,11 +670,17 @@ function restore_current_blog() {
 
 	if ( $new_blog_id == $prev_blog_id ) {
 		/** This filter is documented in wp-includes/ms-blogs.php */
+<<<<<<< HEAD
 		do_action( 'switch_blog', $new_blog_id, $prev_blog_id, 'restore' );
 
 		// If we still have items in the switched stack, consider ourselves still 'switched'.
 		$GLOBALS['switched'] = ! empty( $GLOBALS['_wp_switched_stack'] );
 
+=======
+		do_action( 'switch_blog', $new_blog_id, $prev_blog_id );
+		// If we still have items in the switched stack, consider ourselves still 'switched'
+		$GLOBALS['switched'] = ! empty( $GLOBALS['_wp_switched_stack'] );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return true;
 	}
 
@@ -625,15 +707,24 @@ function restore_current_blog() {
 			} else {
 				wp_cache_add_global_groups( array( 'users', 'userlogins', 'usermeta', 'user_meta', 'useremail', 'userslugs', 'site-transient', 'site-options', 'blog-lookup', 'blog-details', 'rss', 'global-posts', 'blog-id-cache', 'networks', 'sites', 'site-details', 'blog_meta' ) );
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			wp_cache_add_non_persistent_groups( array( 'counts', 'plugins' ) );
 		}
 	}
 
 	/** This filter is documented in wp-includes/ms-blogs.php */
+<<<<<<< HEAD
 	do_action( 'switch_blog', $new_blog_id, $prev_blog_id, 'restore' );
 
 	// If we still have items in the switched stack, consider ourselves still 'switched'.
+=======
+	do_action( 'switch_blog', $new_blog_id, $prev_blog_id );
+
+	// If we still have items in the switched stack, consider ourselves still 'switched'
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$GLOBALS['switched'] = ! empty( $GLOBALS['_wp_switched_stack'] );
 
 	return true;
@@ -720,9 +811,13 @@ function update_blog_status( $blog_id, $pref, $value, $deprecated = null ) {
 		_deprecated_argument( __FUNCTION__, '3.1.0' );
 	}
 
+<<<<<<< HEAD
 	$allowed_field_names = array( 'site_id', 'domain', 'path', 'registered', 'last_updated', 'public', 'archived', 'mature', 'spam', 'deleted', 'lang_id' );
 
 	if ( ! in_array( $pref, $allowed_field_names, true ) ) {
+=======
+	if ( ! in_array( $pref, array( 'site_id', 'domain', 'path', 'registered', 'last_updated', 'public', 'archived', 'mature', 'spam', 'deleted', 'lang_id' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $value;
 	}
 
@@ -779,7 +874,11 @@ function get_last_updated( $deprecated = '', $start = 0, $quantity = 40 ) {
 	global $wpdb;
 
 	if ( ! empty( $deprecated ) ) {
+<<<<<<< HEAD
 		_deprecated_argument( __FUNCTION__, 'MU' ); // Never used.
+=======
+		_deprecated_argument( __FUNCTION__, 'MU' ); // never used
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 	return $wpdb->get_results( $wpdb->prepare( "SELECT blog_id, domain, path FROM $wpdb->blogs WHERE site_id = %d AND public = '1' AND archived = '0' AND mature = '0' AND spam = '0' AND deleted = '0' AND last_updated != '0000-00-00 00:00:00' ORDER BY last_updated DESC limit %d, %d", get_current_network_id(), $start, $quantity ), ARRAY_A );
@@ -791,9 +890,15 @@ function get_last_updated( $deprecated = '', $start = 0, $quantity = 40 ) {
  *
  * @since 3.3.0
  *
+<<<<<<< HEAD
  * @param string  $new_status The new post status.
  * @param string  $old_status The old post status.
  * @param WP_Post $post       Post object.
+=======
+ * @param string $new_status The new post status
+ * @param string $old_status The old post status
+ * @param object $post       Post object
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function _update_blog_date_on_post_publish( $new_status, $old_status, $post ) {
 	$post_type_obj = get_post_type_object( $post->post_type );
@@ -801,7 +906,11 @@ function _update_blog_date_on_post_publish( $new_status, $old_status, $post ) {
 		return;
 	}
 
+<<<<<<< HEAD
 	if ( 'publish' !== $new_status && 'publish' !== $old_status ) {
+=======
+	if ( 'publish' != $new_status && 'publish' != $old_status ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return;
 	}
 
@@ -826,7 +935,11 @@ function _update_blog_date_on_post_delete( $post_id ) {
 		return;
 	}
 
+<<<<<<< HEAD
 	if ( 'publish' !== $post->post_status ) {
+=======
+	if ( 'publish' != $post->post_status ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return;
 	}
 
@@ -881,6 +994,7 @@ function _update_posts_count_on_transition_post_status( $new_status, $old_status
  *
  * @since 5.3.0
  *
+<<<<<<< HEAD
  * @param int $network_id Optional. The network to get counts for. Default is the current network ID.
  * @return int[] {
  *     Numbers of sites grouped by site status.
@@ -892,6 +1006,11 @@ function _update_posts_count_on_transition_post_status( $new_status, $old_status
  *     @type int $spam     The number of spam sites.
  *     @type int $deleted  The number of deleted sites.
  * }
+=======
+ * @param int $network_id The network to get counts for.  Default is the current network id.
+ * @return array Includes a grand total 'all' and an array of counts indexed by
+ *                status strings: public, archived, mature, spam, deleted.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_count_sites( $network_id = null ) {
 	if ( empty( $network_id ) ) {

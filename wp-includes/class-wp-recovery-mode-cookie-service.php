@@ -3,7 +3,11 @@
  * Error Protection API: WP_Recovery_Mode_Cookie_Service class
  *
  * @package WordPress
+<<<<<<< HEAD
  * @since 5.2.0
+=======
+ * @since   5.2.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 
 /**

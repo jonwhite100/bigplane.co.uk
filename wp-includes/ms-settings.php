@@ -32,6 +32,7 @@
 global $current_site, $current_blog, $domain, $path, $site_id, $public;
 
 /** WP_Network class */
+<<<<<<< HEAD
 require_once ABSPATH . WPINC . '/class-wp-network.php';
 
 /** WP_Site class */
@@ -45,6 +46,21 @@ require_once ABSPATH . WPINC . '/ms-default-constants.php';
 
 if ( defined( 'SUNRISE' ) ) {
 	include_once WP_CONTENT_DIR . '/sunrise.php';
+=======
+require_once( ABSPATH . WPINC . '/class-wp-network.php' );
+
+/** WP_Site class */
+require_once( ABSPATH . WPINC . '/class-wp-site.php' );
+
+/** Multisite loader */
+require_once( ABSPATH . WPINC . '/ms-load.php' );
+
+/** Default Multisite constants */
+require_once( ABSPATH . WPINC . '/ms-default-constants.php' );
+
+if ( defined( 'SUNRISE' ) ) {
+	include_once( WP_CONTENT_DIR . '/sunrise.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /** Check for and define SUBDOMAIN_INSTALL and the deprecated VHOST constant. */
@@ -55,10 +71,17 @@ ms_subdomain_constants();
 if ( ! isset( $current_site ) || ! isset( $current_blog ) ) {
 
 	$domain = strtolower( stripslashes( $_SERVER['HTTP_HOST'] ) );
+<<<<<<< HEAD
 	if ( ':80' === substr( $domain, -3 ) ) {
 		$domain               = substr( $domain, 0, -3 );
 		$_SERVER['HTTP_HOST'] = substr( $_SERVER['HTTP_HOST'], 0, -3 );
 	} elseif ( ':443' === substr( $domain, -4 ) ) {
+=======
+	if ( substr( $domain, -3 ) == ':80' ) {
+		$domain               = substr( $domain, 0, -3 );
+		$_SERVER['HTTP_HOST'] = substr( $_SERVER['HTTP_HOST'], 0, -3 );
+	} elseif ( substr( $domain, -4 ) == ':443' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$domain               = substr( $domain, 0, -4 );
 		$_SERVER['HTTP_HOST'] = substr( $_SERVER['HTTP_HOST'], 0, -4 );
 	}
@@ -94,13 +117,21 @@ if ( ! isset( $current_site ) || ! isset( $current_blog ) ) {
 	wp_load_core_site_options( $site_id );
 }
 
+<<<<<<< HEAD
 $wpdb->set_prefix( $table_prefix, false ); // $table_prefix can be set in sunrise.php.
+=======
+$wpdb->set_prefix( $table_prefix, false ); // $table_prefix can be set in sunrise.php
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $wpdb->set_blog_id( $current_blog->blog_id, $current_blog->site_id );
 $table_prefix       = $wpdb->get_blog_prefix();
 $_wp_switched_stack = array();
 $switched           = false;
 
+<<<<<<< HEAD
 // Need to init cache again after blog_id is set.
+=======
+// need to init cache again after blog_id is set
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 wp_start_object_cache();
 
 if ( ! $current_site instanceof WP_Network ) {
@@ -111,7 +142,11 @@ if ( ! $current_blog instanceof WP_Site ) {
 	$current_blog = new WP_Site( $current_blog );
 }
 
+<<<<<<< HEAD
 // Define upload directory constants.
+=======
+// Define upload directory constants
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ms_upload_constants();
 
 /**

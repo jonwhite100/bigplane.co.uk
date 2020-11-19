@@ -115,4 +115,8 @@ unset( $update_data );
 
 $menu[99] = array( '', 'exist', 'separator-last', '', 'wp-menu-separator' );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/includes/menu.php';
+=======
+require_once( ABSPATH . 'wp-admin/includes/menu.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

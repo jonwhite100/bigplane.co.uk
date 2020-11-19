@@ -30,17 +30,25 @@ final class WP_Taxonomy {
 	public $label;
 
 	/**
+<<<<<<< HEAD
 	 * Labels object for this taxonomy.
 	 *
 	 * If not set, tag labels are inherited for non-hierarchical types
 	 * and category labels for hierarchical ones.
 	 *
 	 * @see get_taxonomy_labels()
+=======
+	 * An array of labels for this taxonomy.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 4.7.0
 	 * @var object
 	 */
+<<<<<<< HEAD
 	public $labels;
+=======
+	public $labels = array();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * A short descriptive summary of what the taxonomy is for.
@@ -210,6 +218,7 @@ final class WP_Taxonomy {
 	public $rest_controller_class;
 
 	/**
+<<<<<<< HEAD
 	 * The default term name for this taxonomy. If you pass an array you have
 	 * to set 'name' and optionally 'slug' and 'description'.
 	 *
@@ -229,6 +238,8 @@ final class WP_Taxonomy {
 	public $rest_controller;
 
 	/**
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * Whether it is a built-in taxonomy.
 	 *
 	 * @since 4.7.0
@@ -297,13 +308,20 @@ final class WP_Taxonomy {
 			'show_in_rest'          => false,
 			'rest_base'             => false,
 			'rest_controller_class' => false,
+<<<<<<< HEAD
 			'default_term'          => null,
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			'_builtin'              => false,
 		);
 
 		$args = array_merge( $defaults, $args );
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'public'.
+=======
+		// If not set, default to the setting for public.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['publicly_queryable'] ) {
 			$args['publicly_queryable'] = $args['public'];
 		}
@@ -315,11 +333,19 @@ final class WP_Taxonomy {
 				$args['query_var'] = sanitize_title_with_dashes( $args['query_var'] );
 			}
 		} else {
+<<<<<<< HEAD
 			// Force 'query_var' to false for non-public taxonomies.
 			$args['query_var'] = false;
 		}
 
 		if ( false !== $args['rewrite'] && ( is_admin() || get_option( 'permalink_structure' ) ) ) {
+=======
+			// Force query_var to false for non-public taxonomies.
+			$args['query_var'] = false;
+		}
+
+		if ( false !== $args['rewrite'] && ( is_admin() || '' != get_option( 'permalink_structure' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$args['rewrite'] = wp_parse_args(
 				$args['rewrite'],
 				array(
@@ -334,27 +360,47 @@ final class WP_Taxonomy {
 			}
 		}
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'public'.
+=======
+		// If not set, default to the setting for public.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['show_ui'] ) {
 			$args['show_ui'] = $args['public'];
 		}
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'show_ui'.
+=======
+		// If not set, default to the setting for show_ui.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['show_in_menu'] || ! $args['show_ui'] ) {
 			$args['show_in_menu'] = $args['show_ui'];
 		}
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'public'.
+=======
+		// If not set, default to the setting for public.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['show_in_nav_menus'] ) {
 			$args['show_in_nav_menus'] = $args['public'];
 		}
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'show_ui'.
+=======
+		// If not set, default to the setting for show_ui.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['show_tagcloud'] ) {
 			$args['show_tagcloud'] = $args['show_ui'];
 		}
 
+<<<<<<< HEAD
 		// If not set, default to the setting for 'show_ui'.
+=======
+		// If not set, default to the setting for show_ui.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['show_in_quick_edit'] ) {
 			$args['show_in_quick_edit'] = $args['show_ui'];
 		}
@@ -371,7 +417,11 @@ final class WP_Taxonomy {
 
 		$args['object_type'] = array_unique( (array) $object_type );
 
+<<<<<<< HEAD
 		// If not set, use the default meta box.
+=======
+		// If not set, use the default meta box
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( null === $args['meta_box_cb'] ) {
 			if ( $args['hierarchical'] ) {
 				$args['meta_box_cb'] = 'post_categories_meta_box';
@@ -396,6 +446,7 @@ final class WP_Taxonomy {
 			}
 		}
 
+<<<<<<< HEAD
 		// Default taxonomy term.
 		if ( ! empty( $args['default_term'] ) ) {
 			if ( ! is_array( $args['default_term'] ) ) {
@@ -411,6 +462,8 @@ final class WP_Taxonomy {
 			);
 		}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $args as $property_name => $property_value ) {
 			$this->$property_name = $property_value;
 		}
@@ -435,7 +488,11 @@ final class WP_Taxonomy {
 			$wp->add_query_var( $this->query_var );
 		}
 
+<<<<<<< HEAD
 		if ( false !== $this->rewrite && ( is_admin() || get_option( 'permalink_structure' ) ) ) {
+=======
+		if ( false !== $this->rewrite && ( is_admin() || '' != get_option( 'permalink_structure' ) ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( $this->hierarchical && $this->rewrite['hierarchical'] ) {
 				$tag = '(.+?)';
 			} else {
@@ -487,6 +544,7 @@ final class WP_Taxonomy {
 	public function remove_hooks() {
 		remove_filter( 'wp_ajax_add-' . $this->name, '_wp_ajax_add_hierarchical_term' );
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Gets the REST API controller for this taxonomy.
@@ -523,4 +581,6 @@ final class WP_Taxonomy {
 
 		return $this->rest_controller;
 	}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }

@@ -10,6 +10,7 @@ jQuery( document ).ready( function( $ ) {
 
 	var __ = wp.i18n.__,
 		_n = wp.i18n._n,
+<<<<<<< HEAD
 		sprintf = wp.i18n.sprintf,
 		data,
 		clipboard = new ClipboardJS( '.site-health-copy-buttons .copy-button' ),
@@ -42,6 +43,21 @@ jQuery( document ).ready( function( $ ) {
 
 		// Handle success audible feedback.
 		wp.a11y.speak( __( 'Site information has been copied to your clipboard.' ) );
+=======
+		sprintf = wp.i18n.sprintf;
+
+	var data;
+	var clipboard = new ClipboardJS( '.site-health-copy-buttons .copy-button' );
+	var isDebugTab = $( '.health-check-body.health-check-debug-tab' ).length;
+	var pathsSizesSection = $( '#health-check-accordion-block-wp-paths-sizes' );
+
+	// Debug information copy section.
+	clipboard.on( 'success', function( e ) {
+		var $wrapper = $( e.trigger ).closest( 'div' );
+		$( '.success', $wrapper ).addClass( 'visible' );
+
+		wp.a11y.speak( __( 'Site information has been added to your clipboard.' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	} );
 
 	// Accordion handling in various areas.
@@ -67,23 +83,36 @@ jQuery( document ).ready( function( $ ) {
 	} );
 
 	/**
+<<<<<<< HEAD
 	 * Appends a new issue to the issue list.
+=======
+	 * Append a new issue to the issue list.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 *
 	 * @param {Object} issue The issue data.
 	 */
+<<<<<<< HEAD
 	function appendIssue( issue ) {
+=======
+	function AppendIssue( issue ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		var template = wp.template( 'health-check-issue' ),
 			issueWrapper = $( '#health-check-issues-' + issue.status ),
 			heading,
 			count;
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		SiteHealth.site_status.issues[ issue.status ]++;
 
 		count = SiteHealth.site_status.issues[ issue.status ];
 
 		if ( 'critical' === issue.status ) {
+<<<<<<< HEAD
 			heading = sprintf(
 				_n( '%s critical issue', '%s critical issues', count ),
 				'<span class="issue-count">' + count + '</span>'
@@ -98,6 +127,13 @@ jQuery( document ).ready( function( $ ) {
 				_n( '%s item with no issues detected', '%s items with no issues detected', count ),
 				'<span class="issue-count">' + count + '</span>'
 			);
+=======
+			heading = sprintf( _n( '%s critical issue', '%s critical issues', count ), '<span class="issue-count">' + count + '</span>' );
+		} else if ( 'recommended' === issue.status ) {
+			heading = sprintf( _n( '%s recommended improvement', '%s recommended improvements', count ), '<span class="issue-count">' + count + '</span>' );
+		} else if ( 'good' === issue.status ) {
+			heading = sprintf( _n( '%s item with no issues detected', '%s items with no issues detected', count ), '<span class="issue-count">' + count + '</span>' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		if ( heading ) {
@@ -108,21 +144,34 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Updates site health status indicator as asynchronous tests are run and returned.
 	 *
 	 * @since 5.2.0
 	 */
 	function recalculateProgression() {
+=======
+	 * Update site health status indicator as asynchronous tests are run and returned.
+	 *
+	 * @since 5.2.0
+	 */
+	function RecalculateProgression() {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		var r, c, pct;
 		var $progress = $( '.site-health-progress' );
 		var $wrapper = $progress.closest( '.site-health-progress-wrapper' );
 		var $progressLabel = $( '.site-health-progress-label', $wrapper );
 		var $circle = $( '.site-health-progress svg #bar' );
+<<<<<<< HEAD
 		var totalTests = parseInt( SiteHealth.site_status.issues.good, 0 ) +
 				parseInt( SiteHealth.site_status.issues.recommended, 0 ) +
 				( parseInt( SiteHealth.site_status.issues.critical, 0 ) * 1.5 );
 		var failedTests = ( parseInt( SiteHealth.site_status.issues.recommended, 0 ) * 0.5 ) +
 				( parseInt( SiteHealth.site_status.issues.critical, 0 ) * 1.5 );
+=======
+		var totalTests = parseInt( SiteHealth.site_status.issues.good, 0 ) + parseInt( SiteHealth.site_status.issues.recommended, 0 ) + ( parseInt( SiteHealth.site_status.issues.critical, 0 ) * 1.5 );
+		var failedTests = ( parseInt( SiteHealth.site_status.issues.recommended, 0 ) * 0.5 ) + ( parseInt( SiteHealth.site_status.issues.critical, 0 ) * 1.5 );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		var val = 100 - Math.ceil( ( failedTests / totalTests ) * 100 );
 
 		if ( 0 === totalTests ) {
@@ -184,7 +233,11 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Queues the next asynchronous test when we're ready to run it.
+=======
+	 * Queue the next asynchronous test when we're ready to run it.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 5.2.0
 	 */
@@ -211,7 +264,11 @@ jQuery( document ).ready( function( $ ) {
 					data,
 					function( response ) {
 						/** This filter is documented in wp-admin/includes/class-wp-site-health.php */
+<<<<<<< HEAD
 						appendIssue( wp.hooks.applyFilters( 'site_status_test_result', response.data ) );
+=======
+						AppendIssue( wp.hooks.applyFilters( 'site_status_test_result', response.data ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						maybeRunNextAsyncTest();
 					}
 				);
@@ -221,13 +278,21 @@ jQuery( document ).ready( function( $ ) {
 		}
 
 		if ( doCalculation ) {
+<<<<<<< HEAD
 			recalculateProgression();
+=======
+			RecalculateProgression();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	}
 
 	if ( 'undefined' !== typeof SiteHealth && ! isDebugTab ) {
 		if ( 0 === SiteHealth.site_status.direct.length && 0 === SiteHealth.site_status.async.length ) {
+<<<<<<< HEAD
 			recalculateProgression();
+=======
+			RecalculateProgression();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		} else {
 			SiteHealth.site_status.issues = {
 				'good': 0,
@@ -238,7 +303,11 @@ jQuery( document ).ready( function( $ ) {
 
 		if ( 0 < SiteHealth.site_status.direct.length ) {
 			$.each( SiteHealth.site_status.direct, function() {
+<<<<<<< HEAD
 				appendIssue( this );
+=======
+				AppendIssue( this );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			} );
 		}
 
@@ -254,12 +323,20 @@ jQuery( document ).ready( function( $ ) {
 				ajaxurl,
 				data,
 				function( response ) {
+<<<<<<< HEAD
 					appendIssue( response.data );
+=======
+					AppendIssue( response.data );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					maybeRunNextAsyncTest();
 				}
 			);
 		} else {
+<<<<<<< HEAD
 			recalculateProgression();
+=======
+			RecalculateProgression();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	}
 
@@ -287,6 +364,7 @@ jQuery( document ).ready( function( $ ) {
 			var delay = ( new Date().getTime() ) - timestamp;
 
 			$( '.health-check-wp-paths-sizes.spinner' ).css( 'visibility', 'hidden' );
+<<<<<<< HEAD
 			recalculateProgression();
 
 			if ( delay > 3000  ) {
@@ -295,6 +373,14 @@ jQuery( document ).ready( function( $ ) {
 				 * Announce that we're ready after giving at least 3 seconds
 				 * for the first announcement to be read out, or the two may collide.
 				 */
+=======
+			RecalculateProgression();
+
+			if ( delay > 3000  ) {
+				// We have announced that we're waiting.
+				// Announce that we're ready after giving at least 3 seconds for the first announcement
+				// to be read out, or the two may collide.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( delay > 6000 ) {
 					delay = 0;
 				} else {
@@ -315,17 +401,29 @@ jQuery( document ).ready( function( $ ) {
 
 	function updateDirSizes( data ) {
 		var copyButton = $( 'button.button.copy-button' );
+<<<<<<< HEAD
 		var clipboardText = copyButton.attr( 'data-clipboard-text' );
+=======
+		var clipdoardText = copyButton.attr( 'data-clipboard-text' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$.each( data, function( name, value ) {
 			var text = value.debug || value.size;
 
 			if ( typeof text !== 'undefined' ) {
+<<<<<<< HEAD
 				clipboardText = clipboardText.replace( name + ': loading...', name + ': ' + text );
 			}
 		} );
 
 		copyButton.attr( 'data-clipboard-text', clipboardText );
+=======
+				clipdoardText = clipdoardText.replace( name + ': loading...', name + ': ' + text );
+			}
+		} );
+
+		copyButton.attr( 'data-clipboard-text', clipdoardText );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		pathsSizesSection.find( 'td[class]' ).each( function( i, element ) {
 			var td = $( element );
@@ -341,7 +439,11 @@ jQuery( document ).ready( function( $ ) {
 		if ( pathsSizesSection.length ) {
 			getDirectorySizes();
 		} else {
+<<<<<<< HEAD
 			recalculateProgression();
+=======
+			RecalculateProgression();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 	}
 } );

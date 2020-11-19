@@ -19,7 +19,11 @@
 		/**
 		 * Create the default states.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		createStates: function createStates() {
 			this.states.add([
@@ -70,7 +74,11 @@
 		 * Map model props to media frame props.
 		 *
 		 * @param {Object} modelProps - Model props.
+<<<<<<< HEAD
 		 * @return {Object} Media frame props.
+=======
+		 * @returns {Object} Media frame props.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		mapModelToMediaFrameProps: function mapModelToMediaFrameProps( modelProps ) {
 			var control = this, mediaFrameProps;
@@ -82,7 +90,11 @@
 		/**
 		 * Render preview.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		renderPreview: function renderPreview() {
 			var control = this, previewContainer, previewTemplate, attachmentId, attachmentUrl;
@@ -109,7 +121,11 @@
 		/**
 		 * Open the media audio-edit frame to modify the selected item.
 		 *
+<<<<<<< HEAD
 		 * @return {void}
+=======
+		 * @returns {void}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		editMedia: function editMedia() {
 			var control = this, mediaFrame, metadata, updateCallback;

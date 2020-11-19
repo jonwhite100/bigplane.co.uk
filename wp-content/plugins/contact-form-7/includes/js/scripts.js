@@ -45,8 +45,11 @@
 	wpcf7.initForm = function( form ) {
 		var $form = $( form );
 
+<<<<<<< HEAD
 		wpcf7.setStatus( $form, 'init' );
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$form.submit( function( event ) {
 			if ( ! wpcf7.supportHtml5.placeholder ) {
 				$( '[placeholder].placeheld', $form ).each( function( i, n ) {
@@ -138,7 +141,46 @@
 		}
 
 		// Character Count
+<<<<<<< HEAD
 		wpcf7.resetCounter( $form );
+=======
+		$( '.wpcf7-character-count', $form ).each( function() {
+			var $count = $( this );
+			var name = $count.attr( 'data-target-name' );
+			var down = $count.hasClass( 'down' );
+			var starting = parseInt( $count.attr( 'data-starting-value' ), 10 );
+			var maximum = parseInt( $count.attr( 'data-maximum-value' ), 10 );
+			var minimum = parseInt( $count.attr( 'data-minimum-value' ), 10 );
+
+			var updateCount = function( target ) {
+				var $target = $( target );
+				var length = $target.val().length;
+				var count = down ? starting - length : length;
+				$count.attr( 'data-current-value', count );
+				$count.text( count );
+
+				if ( maximum && maximum < length ) {
+					$count.addClass( 'too-long' );
+				} else {
+					$count.removeClass( 'too-long' );
+				}
+
+				if ( minimum && length < minimum ) {
+					$count.addClass( 'too-short' );
+				} else {
+					$count.removeClass( 'too-short' );
+				}
+			};
+
+			$( ':input[name="' + name + '"]', $form ).each( function() {
+				updateCount( this );
+
+				$( this ).keyup( function() {
+					updateCount( this );
+				} );
+			} );
+		} );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		// URL Input Correction
 		$form.on( 'change', '.wpcf7-validates-as-url', function() {
@@ -163,6 +205,10 @@
 		var $form = $( form );
 
 		$( '.ajax-loader', $form ).addClass( 'is-active' );
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		wpcf7.clearResponse( $form );
 
 		var formData = new FormData( $form.get( 0 ) );
@@ -185,6 +231,15 @@
 				detail.unitTag = field.value;
 			} else if ( '_wpcf7_container_post' == field.name ) {
 				detail.containerPostId = field.value;
+<<<<<<< HEAD
+=======
+			} else if ( field.name.match( /^_wpcf7_\w+_free_text_/ ) ) {
+				var owner = field.name.replace( /^_wpcf7_\w+_free_text_/, '' );
+				detail.inputs.push( {
+					name: owner + '-free-text',
+					value: field.value
+				} );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			} else if ( field.name.match( /^_/ ) ) {
 				// do nothing
 			} else {
@@ -199,6 +254,7 @@
 			detail.status = data.status;
 			detail.apiResponse = data;
 
+<<<<<<< HEAD
 			switch ( data.status ) {
 				case 'init':
 					wpcf7.setStatus( $form, 'init' );
@@ -212,10 +268,21 @@
 								'aria-describedby',
 								n.error_id
 							);
+=======
+			var $message = $( '.wpcf7-response-output', $form );
+
+			switch ( data.status ) {
+				case 'validation_failed':
+					$.each( data.invalidFields, function( i, n ) {
+						$( n.into, $form ).each( function() {
+							wpcf7.notValidTip( this, n.message );
+							$( '.wpcf7-form-control', this ).addClass( 'wpcf7-not-valid' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							$( '[aria-invalid]', this ).attr( 'aria-invalid', 'true' );
 						} );
 					} );
 
+<<<<<<< HEAD
 					wpcf7.setStatus( $form, 'invalid' );
 					wpcf7.triggerEvent( data.into, 'invalid', detail );
 					break;
@@ -243,6 +310,48 @@
 					wpcf7.setStatus( $form,
 						'custom-' + data.status.replace( /[^0-9a-z]+/i, '-' )
 					);
+=======
+					$message.addClass( 'wpcf7-validation-errors' );
+					$form.addClass( 'invalid' );
+
+					wpcf7.triggerEvent( data.into, 'invalid', detail );
+					break;
+				case 'acceptance_missing':
+					$message.addClass( 'wpcf7-acceptance-missing' );
+					$form.addClass( 'unaccepted' );
+
+					wpcf7.triggerEvent( data.into, 'unaccepted', detail );
+					break;
+				case 'spam':
+					$message.addClass( 'wpcf7-spam-blocked' );
+					$form.addClass( 'spam' );
+
+					wpcf7.triggerEvent( data.into, 'spam', detail );
+					break;
+				case 'aborted':
+					$message.addClass( 'wpcf7-aborted' );
+					$form.addClass( 'aborted' );
+
+					wpcf7.triggerEvent( data.into, 'aborted', detail );
+					break;
+				case 'mail_sent':
+					$message.addClass( 'wpcf7-mail-sent-ok' );
+					$form.addClass( 'sent' );
+
+					wpcf7.triggerEvent( data.into, 'mailsent', detail );
+					break;
+				case 'mail_failed':
+					$message.addClass( 'wpcf7-mail-sent-ng' );
+					$form.addClass( 'failed' );
+
+					wpcf7.triggerEvent( data.into, 'mailfailed', detail );
+					break;
+				default:
+					var customStatusClass = 'custom-'
+						+ data.status.replace( /[^0-9a-z]+/i, '-' );
+					$message.addClass( 'wpcf7-' + customStatusClass );
+					$form.addClass( customStatusClass );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 
 			wpcf7.refill( $form, data );
@@ -255,7 +364,10 @@
 				} );
 
 				wpcf7.toggleSubmit( $form );
+<<<<<<< HEAD
 				wpcf7.resetCounter( $form );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 
 			if ( ! wpcf7.supportHtml5.placeholder ) {
@@ -264,6 +376,7 @@
 				} );
 			}
 
+<<<<<<< HEAD
 			$( '.wpcf7-response-output', $form )
 				.html( '' ).append( data.message ).slideDown( 'fast' );
 
@@ -273,12 +386,26 @@
 
 				if ( data.invalid_fields ) {
 					$.each( data.invalid_fields, function( i, n ) {
+=======
+			$message.html( '' ).append( data.message ).slideDown( 'fast' );
+			$message.attr( 'role', 'alert' );
+
+			$( '.screen-reader-response', $form.closest( '.wpcf7' ) ).each( function() {
+				var $response = $( this );
+				$response.html( '' ).attr( 'role', '' ).append( data.message );
+
+				if ( data.invalidFields ) {
+					var $invalids = $( '<ul></ul>' );
+
+					$.each( data.invalidFields, function( i, n ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						if ( n.idref ) {
 							var $li = $( '<li></li>' ).append( $( '<a></a>' ).attr( 'href', '#' + n.idref ).append( n.message ) );
 						} else {
 							var $li = $( '<li></li>' ).append( n.message );
 						}
 
+<<<<<<< HEAD
 						$li.attr( 'id', n.error_id );
 
 						$( 'ul', $response ).append( $li );
@@ -290,6 +417,16 @@
 				$form.find( 'input[name="_wpcf7_posted_data_hash"]' ).first()
 					.val( data.posted_data_hash );
 			}
+=======
+						$invalids.append( $li );
+					} );
+
+					$response.append( $invalids );
+				}
+
+				$response.attr( 'role', 'alert' ).focus();
+			} );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		};
 
 		$.ajax( {
@@ -310,11 +447,18 @@
 	};
 
 	wpcf7.triggerEvent = function( target, name, detail ) {
+<<<<<<< HEAD
+=======
+		var $target = $( target );
+
+		/* DOM event */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		var event = new CustomEvent( 'wpcf7' + name, {
 			bubbles: true,
 			detail: detail
 		} );
 
+<<<<<<< HEAD
 		$( target ).get( 0 ).dispatchEvent( event );
 	};
 
@@ -330,6 +474,14 @@
 			$form.removeClass( prevStatus );
 		}
 	}
+=======
+		$target.get( 0 ).dispatchEvent( event );
+
+		/* jQuery event */
+		$target.trigger( 'wpcf7:' + name, detail );
+		$target.trigger( name + '.wpcf7', detail ); // deprecated
+	};
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	wpcf7.toggleSubmit = function( form, state ) {
 		var $form = $( form );
@@ -360,6 +512,7 @@
 		} );
 	};
 
+<<<<<<< HEAD
 	wpcf7.resetCounter = function( form ) {
 		var $form = $( form );
 
@@ -409,6 +562,13 @@
 			'class': 'wpcf7-not-valid-tip',
 			'aria-hidden': 'true',
 		} ).text( message ).appendTo( $target );
+=======
+	wpcf7.notValidTip = function( target, message ) {
+		var $target = $( target );
+		$( '.wpcf7-not-valid-tip', $target ).remove();
+		$( '<span role="alert" class="wpcf7-not-valid-tip"></span>' )
+			.text( message ).appendTo( $target );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		if ( $target.is( '.use-floating-validation-tip *' ) ) {
 			var fadeOut = function( target ) {
@@ -485,17 +645,28 @@
 
 	wpcf7.clearResponse = function( form ) {
 		var $form = $( form );
+<<<<<<< HEAD
 
 		$form.siblings( '.screen-reader-response' ).each( function() {
 			$( '[role="status"]', this ).html( '' );
 			$( 'ul', this ).html( '' );
 		} );
+=======
+		$form.removeClass( 'invalid spam sent failed' );
+		$form.siblings( '.screen-reader-response' ).html( '' ).attr( 'role', '' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		$( '.wpcf7-not-valid-tip', $form ).remove();
 		$( '[aria-invalid]', $form ).attr( 'aria-invalid', 'false' );
 		$( '.wpcf7-form-control', $form ).removeClass( 'wpcf7-not-valid' );
 
+<<<<<<< HEAD
 		$( '.wpcf7-response-output', $form ).hide().empty();
+=======
+		$( '.wpcf7-response-output', $form )
+			.hide().empty().removeAttr( 'role' )
+			.removeClass( 'wpcf7-mail-sent-ok wpcf7-mail-sent-ng wpcf7-validation-errors wpcf7-spam-blocked' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	};
 
 	wpcf7.apiSettings.getRoute = function( path ) {

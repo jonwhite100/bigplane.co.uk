@@ -2,12 +2,20 @@
 # This file is distributed under the same license as the Themes - Twenty Seventeen package.
 msgid ""
 msgstr ""
+<<<<<<< HEAD
 "PO-Revision-Date: 2020-03-31 21:25:42+0000\n"
+=======
+"PO-Revision-Date: 2019-01-12 19:53:04+0000\n"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+<<<<<<< HEAD
 "X-Generator: GlotPress/3.0.0-alpha.2\n"
+=======
+"X-Generator: GlotPress/2.4.0-alpha\n"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 "Language: en_GB\n"
 "Project-Id-Version: Themes - Twenty Seventeen\n"
 
@@ -23,11 +31,19 @@ msgstr "Twenty Seventeen"
 msgid "Footer"
 msgstr "Footer"
 
+<<<<<<< HEAD
 #: functions.php:340
 msgid "Add widgets here to appear in your sidebar on blog posts and archive pages."
 msgstr "Add widgets here to appear in your sidebar on blog posts and archive pages."
 
 #: functions.php:338 sidebar.php:18
+=======
+#: functions.php:338
+msgid "Add widgets here to appear in your sidebar on blog posts and archive pages."
+msgstr "Add widgets here to appear in your sidebar on blog posts and archive pages."
+
+#: sidebar.php:18 functions.php:336
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgid "Blog Sidebar"
 msgstr "Blog Sidebar"
 
@@ -36,17 +52,29 @@ msgstr "Blog Sidebar"
 msgid "Scroll down to content"
 msgstr "Scroll down to content"
 
+<<<<<<< HEAD
 #: functions.php:181
+=======
+#: functions.php:179
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgctxt "Theme starter content"
 msgid "Coffee"
 msgstr "Coffee"
 
+<<<<<<< HEAD
 #: functions.php:177
+=======
+#: functions.php:175
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgctxt "Theme starter content"
 msgid "Sandwich"
 msgstr "Sandwich"
 
+<<<<<<< HEAD
 #: functions.php:173
+=======
+#: functions.php:171
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgctxt "Theme starter content"
 msgid "Espresso"
 msgstr "Espresso"
@@ -59,10 +87,16 @@ msgstr "Pause background video"
 msgid "Play background video"
 msgstr "Play background video"
 
+<<<<<<< HEAD
 #. translators: %s: The section ID.
 #: inc/template-tags.php:158
 msgid "Front Page Section %s Placeholder"
 msgstr "Front Page Section %s Placeholder"
+=======
+#: inc/template-tags.php:151
+msgid "Front Page Section %1$s Placeholder"
+msgstr "Front Page Section %1$s Placeholder"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 #: inc/customizer.php:109
 msgid "When the two-column layout is assigned, the page title is in one column and content is in the other."
@@ -84,17 +118,29 @@ msgstr "Tags"
 msgid "Categories"
 msgstr "Categories"
 
+<<<<<<< HEAD
 #. translators: Used between list items, there is a space after the comma.
+=======
+#. translators: used between list items, there is a space after the comma
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: inc/template-tags.php:66
 msgid ", "
 msgstr ", "
 
+<<<<<<< HEAD
 #. translators: %s: Post date.
+=======
+#. translators: %s: post date
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: inc/template-tags.php:52
 msgid "<span class=\"screen-reader-text\">Posted on</span> %s"
 msgstr "<span class=\"screen-reader-text\">Posted on</span> %s"
 
+<<<<<<< HEAD
 #. translators: %s: Post author.
+=======
+#. translators: %s: post author
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: inc/template-tags.php:21
 msgid "by %s"
 msgstr "by %s"
@@ -111,7 +157,11 @@ msgstr "Please define default parameters in the form of an array."
 msgid "Select pages to feature in each area from the dropdowns. Add an image to a section by setting a featured image in the page editor. Empty sections will not be displayed."
 msgstr "Select pages to feature in each area from the dropdowns. Add an image to a section by setting a featured image in the page editor. Empty sections will not be displayed."
 
+<<<<<<< HEAD
 #. translators: %d: The front page section number.
+=======
+#. translators: %d is the front page section number
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: inc/customizer.php:142
 msgid "Front Page Section %d Content"
 msgstr "Front Page Section %d Content"
@@ -148,6 +198,7 @@ msgstr "Colour Scheme"
 msgid "Default Header Image"
 msgstr "Default Header Image"
 
+<<<<<<< HEAD
 #: functions.php:362
 msgid "Footer 2"
 msgstr "Footer 2"
@@ -161,12 +212,32 @@ msgid "Footer 1"
 msgstr "Footer 1"
 
 #: functions.php:290
+=======
+#: functions.php:360
+msgid "Footer 2"
+msgstr "Footer 2"
+
+#: functions.php:350 functions.php:362
+msgid "Add widgets here to appear in your footer."
+msgstr "Add widgets here to appear in your footer."
+
+#: functions.php:348
+msgid "Footer 1"
+msgstr "Footer 1"
+
+#: functions.php:289
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgctxt "Libre Franklin font: on or off"
 msgid "on"
 msgstr "on"
 
+<<<<<<< HEAD
 #: functions.php:64 functions.php:205
 #: template-parts/navigation/navigation-top.php:12
+=======
+#: template-parts/navigation/navigation-top.php:12 functions.php:64
+#: functions.php:203
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgid "Top Menu"
 msgstr "Top Menu"
 
@@ -174,6 +245,7 @@ msgstr "Top Menu"
 msgid "Reply"
 msgstr "Reply"
 
+<<<<<<< HEAD
 #: template-parts/post/content-none.php:33
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
@@ -188,6 +260,21 @@ msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
 msgstr "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
 
 #: template-parts/post/content-none.php:17 search.php:26
+=======
+#: template-parts/post/content-none.php:28
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+
+#: search.php:54
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+
+#: template-parts/post/content-none.php:24
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+
+#: template-parts/post/content-none.php:17 search.php:21
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgid "Nothing Found"
 msgstr "Nothing Found"
 
@@ -195,11 +282,19 @@ msgstr "Nothing Found"
 msgid "Previous Post"
 msgstr "Previous Post"
 
+<<<<<<< HEAD
 #: comments.php:71 single.php:33
 msgid "Previous"
 msgstr "Previous"
 
 #: comments.php:72 single.php:34
+=======
+#: single.php:33 comments.php:71
+msgid "Previous"
+msgstr "Previous"
+
+#: single.php:34 comments.php:72
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgid "Next"
 msgstr "Next"
 
@@ -218,6 +313,7 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Search for:"
 
+<<<<<<< HEAD
 #. translators: Search query.
 #: search.php:22
 msgid "Search Results for: %s"
@@ -230,6 +326,19 @@ msgstr "Search Results for: %s"
 #: template-parts/post/content-audio.php:84 template-parts/post/content.php:57
 #: template-parts/page/content-front-page-panels.php:45
 #: template-parts/page/content-front-page.php:42
+=======
+#: search.php:19
+msgid "Search Results for: %s"
+msgstr "Search Results for: %s"
+
+#. translators: %s: Name of current post
+#: template-parts/page/content-front-page-panels.php:45
+#: template-parts/page/content-front-page.php:42
+#: template-parts/post/content-audio.php:84 template-parts/post/content.php:57
+#: template-parts/post/content-gallery.php:71
+#: template-parts/post/content-video.php:83
+#: template-parts/post/content-image.php:61 functions.php:390
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 
@@ -237,22 +346,38 @@ msgstr "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgid "Dark"
 msgstr "Dark"
 
+<<<<<<< HEAD
 #. translators: %s: The current WordPress version.
 #: inc/back-compat.php:40 inc/back-compat.php:54 inc/back-compat.php:73
 msgid "Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
 msgstr "Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
 
 #. translators: %s: Post title.
+=======
+#: inc/back-compat.php:39 inc/back-compat.php:52 inc/back-compat.php:70
+msgid "Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
+msgstr "Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
+
+#. translators: %s: Name of current post
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: inc/template-tags.php:117
 msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
 
+<<<<<<< HEAD
 #: template-parts/post/content-gallery.php:78
 #: template-parts/post/content-video.php:90
 #: template-parts/post/content-image.php:68
 #: template-parts/post/content-audio.php:91 template-parts/post/content.php:64
 #: template-parts/page/content-page.php:26
 #: template-parts/page/content-front-page.php:48
+=======
+#: template-parts/page/content-page.php:26
+#: template-parts/post/content-audio.php:91 template-parts/post/content.php:64
+#: template-parts/post/content-gallery.php:78
+#: template-parts/post/content-video.php:90
+#: template-parts/post/content-image.php:68
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgid "Pages:"
 msgstr "Pages:"
 
@@ -264,6 +389,7 @@ msgstr "Menu"
 msgid "Skip to content"
 msgstr "Skip to content"
 
+<<<<<<< HEAD
 #: functions.php:484
 msgid "Collapse child menu"
 msgstr "Collapse child menu"
@@ -278,6 +404,21 @@ msgstr "Social Links Menu"
 
 #. translators: %s: WordPress
 #: template-parts/footer/site-info.php:21
+=======
+#: functions.php:482
+msgid "Collapse child menu"
+msgstr "Collapse child menu"
+
+#: functions.php:481
+msgid "Expand child menu"
+msgstr "Expand child menu"
+
+#: functions.php:65 functions.php:214
+msgid "Social Links Menu"
+msgstr "Social Links Menu"
+
+#: template-parts/footer/site-info.php:19
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgid "Proudly powered by %s"
 msgstr "Proudly powered by %s"
 
@@ -289,7 +430,11 @@ msgstr "Footer Social Links Menu"
 msgid "Comments are closed."
 msgstr "Comments are closed."
 
+<<<<<<< HEAD
 #. translators: 1: Number of comments, 2: Post title.
+=======
+#. translators: 1: number of comments, 2: post title
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: comments.php:41
 msgctxt "comments title"
 msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
@@ -297,12 +442,17 @@ msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
 msgstr[0] "%1$s Reply to &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s Replies to &ldquo;%2$s&rdquo;"
 
+<<<<<<< HEAD
 #. translators: %s: Post title.
+=======
+#. translators: %s: post title
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: comments.php:37
 msgctxt "comments title"
 msgid "One Reply to &ldquo;%s&rdquo;"
 msgstr "One Reply to &ldquo;%s&rdquo;"
 
+<<<<<<< HEAD
 #: archive.php:51 index.php:55 search.php:52
 msgid "Page"
 msgstr "Page"
@@ -314,14 +464,33 @@ msgstr "Next page"
 #: archive.php:49 index.php:53 search.php:50
 msgid "Previous page"
 msgstr "Previous page"
+=======
+#: archive.php:50 search.php:47 index.php:54
+msgid "Page"
+msgstr "Page"
+
+#: 404.php:21
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oops! That page can&rsquo;t be found."
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 #: 404.php:24
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr "It looks like nothing was found at this location. Maybe try a search?"
 
+<<<<<<< HEAD
 #: 404.php:21
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Oops! That page can&rsquo;t be found."
+=======
+#: archive.php:48 search.php:45 index.php:52
+msgid "Previous page"
+msgstr "Previous page"
+
+#: archive.php:49 search.php:46 index.php:53
+msgid "Next page"
+msgstr "Next page"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 #. Author of the theme
 msgid "the WordPress team"

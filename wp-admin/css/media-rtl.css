@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /*------------------------------------------------------------------------------
   14.0 - Media Screen
 ------------------------------------------------------------------------------*/
@@ -307,7 +310,11 @@
 
 #find-posts-close:hover,
 #find-posts-close:focus {
+<<<<<<< HEAD
 	color: #006799;
+=======
+	color: #00a0d2;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 #find-posts-close:focus {
@@ -798,6 +805,7 @@ border color while dragging a file over the uploader drop area */
 	text-decoration: none;
 }
 
+<<<<<<< HEAD
 .copy-to-clipboard-container {
 	display: flex;
 	align-items: center;
@@ -808,6 +816,8 @@ border color while dragging a file over the uploader drop area */
 .copy-to-clipboard-container .success {
 	margin-right: 8px;
 }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /*------------------------------------------------------------------------------
   14.2 - Image Editor
@@ -863,8 +873,11 @@ border color while dragging a file over the uploader drop area */
 .wp_attachment_holder .imgedit-wrap .imgedit-panel-content {
 	float: right;
 	padding: 3px 0 0 16px;
+<<<<<<< HEAD
 	min-width: 400px;
 	max-width: calc( 100% - 266px );
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .wp_attachment_holder .imgedit-wrap .imgedit-settings {
@@ -1066,11 +1079,15 @@ border color while dragging a file over the uploader drop area */
 
 .imgedit-help {
 	display: none;
+<<<<<<< HEAD
 	padding-bottom: 8px;
 }
 
 .imgedit-help.imgedit-restore {
 	padding-bottom: 0;
+=======
+	font-style: italic;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /* higher specificity than buttons */
@@ -1216,6 +1233,10 @@ audio, video {
 	.imgedit-settings .imgedit-scale input[type="text"],
 	.imgedit-settings .imgedit-crop-ratio input[type="text"],
 	.imgedit-settings .imgedit-crop-sel input[type="text"] {
+<<<<<<< HEAD
+=======
+		width: 60px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		font-size: 16px;
 		padding: 6px 10px;
 	}
@@ -1224,12 +1245,15 @@ audio, video {
 	.wp_attachment_holder .imgedit-wrap .imgedit-settings {
 		float: none;
 		width: auto;
+<<<<<<< HEAD
 		max-width: none;
 		padding-bottom: 16px;
 	}
 
 	.copy-to-clipboard-container .success {
 		font-size: 14px;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 }
 

@@ -137,7 +137,11 @@ class WP_Users_List_Table extends WP_List_Table {
 		 */
 		$args = apply_filters( 'users_list_table_query_args', $args );
 
+<<<<<<< HEAD
 		// Query the user IDs for this page.
+=======
+		// Query the user IDs for this page
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$wp_user_search = new WP_User_Query( $args );
 
 		$this->items = $wp_user_search->get_results();
@@ -166,11 +170,19 @@ class WP_Users_List_Table extends WP_List_Table {
 	 * Provides a list of roles and user count for that role for easy
 	 * Filtersing of the user table.
 	 *
+<<<<<<< HEAD
 	 * @since 3.1.0
 	 *
 	 * @global string $role
 	 *
 	 * @return string[] An array of HTML links keyed by their view.
+=======
+	 * @since  3.1.0
+	 *
+	 * @global string $role
+	 *
+	 * @return array An array of HTML links, one for each view.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	protected function get_views() {
 		global $role;
@@ -223,7 +235,11 @@ class WP_Users_List_Table extends WP_List_Table {
 
 			$name = translate_user_role( $name );
 			$name = sprintf(
+<<<<<<< HEAD
 				/* translators: 1: User role name, 2: Number of users. */
+=======
+				/* translators: User role name with count. */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				__( '%1$s <span class="count">(%2$s)</span>' ),
 				$name,
 				number_format_i18n( $avail_roles[ $this_role ] )
@@ -242,7 +258,11 @@ class WP_Users_List_Table extends WP_List_Table {
 
 			$name = __( 'No role' );
 			$name = sprintf(
+<<<<<<< HEAD
 				/* translators: 1: User role name, 2: Number of users. */
+=======
+				/* translators: User role name with count. */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				__( '%1$s <span class="count">(%2$s)</span>' ),
 				$name,
 				number_format_i18n( $avail_roles['none'] )
@@ -257,9 +277,15 @@ class WP_Users_List_Table extends WP_List_Table {
 	/**
 	 * Retrieve an associative array of bulk actions available on this table.
 	 *
+<<<<<<< HEAD
 	 * @since 3.1.0
 	 *
 	 * @return string[] Array of bulk action labels keyed by their action.
+=======
+	 * @since  3.1.0
+	 *
+	 * @return array Array of bulk actions.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	protected function get_bulk_actions() {
 		$actions = array();
@@ -330,7 +356,11 @@ class WP_Users_List_Table extends WP_List_Table {
 	 * Overridden from the base class implementation to capture
 	 * the role change drop-down.
 	 *
+<<<<<<< HEAD
 	 * @since 3.1.0
+=======
+	 * @since  3.1.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @return string The bulk action required.
 	 */
@@ -346,9 +376,16 @@ class WP_Users_List_Table extends WP_List_Table {
 	/**
 	 * Get a list of columns for the list table.
 	 *
+<<<<<<< HEAD
 	 * @since 3.1.0
 	 *
 	 * @return string[] Array of column titles keyed by their column name.
+=======
+	 * @since  3.1.0
+	 *
+	 * @return array Array in which the key is the ID of the column,
+	 *               and the value is the description.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function get_columns() {
 		$c = array(
@@ -389,7 +426,11 @@ class WP_Users_List_Table extends WP_List_Table {
 	 * @since 3.1.0
 	 */
 	public function display_rows() {
+<<<<<<< HEAD
 		// Query the post counts for this page.
+=======
+		// Query the post counts for this page
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! $this->is_site_users ) {
 			$post_counts = count_many_users_posts( array_keys( $this->items ) );
 		}
@@ -428,7 +469,11 @@ class WP_Users_List_Table extends WP_List_Table {
 
 		$user_roles = $this->get_role_list( $user_object );
 
+<<<<<<< HEAD
 		// Set up the hover actions for this user.
+=======
+		// Set up the hover actions for this user
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$actions     = array();
 		$checkbox    = '';
 		$super_admin = '';
@@ -439,9 +484,15 @@ class WP_Users_List_Table extends WP_List_Table {
 			}
 		}
 
+<<<<<<< HEAD
 		// Check if the user for this row is editable.
 		if ( current_user_can( 'list_users' ) ) {
 			// Set up the user editing link.
+=======
+		// Check if the user for this row is editable
+		if ( current_user_can( 'list_users' ) ) {
+			// Set up the user editing link
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$edit_link = esc_url( add_query_arg( 'wp_http_referer', urlencode( wp_unslash( $_SERVER['REQUEST_URI'] ) ), get_edit_user_link( $user_object->ID ) ) );
 
 			if ( current_user_can( 'edit_user', $user_object->ID ) ) {
@@ -485,7 +536,11 @@ class WP_Users_List_Table extends WP_List_Table {
 			// Role classes.
 			$role_classes = esc_attr( implode( ' ', array_keys( $user_roles ) ) );
 
+<<<<<<< HEAD
 			// Set up the checkbox (because the user is editable, otherwise it's empty).
+=======
+			// Set up the checkbox ( because the user is editable, otherwise it's empty )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$checkbox = sprintf(
 				'<label class="screen-reader-text" for="user_%1$s">%2$s</label>' .
 				'<input type="checkbox" name="users[]" id="user_%1$s" class="%3$s" value="%1$s" />',
@@ -514,10 +569,17 @@ class WP_Users_List_Table extends WP_List_Table {
 				$classes .= ' has-row-actions column-primary';
 			}
 			if ( 'posts' === $column_name ) {
+<<<<<<< HEAD
 				$classes .= ' num'; // Special case for that column.
 			}
 
 			if ( in_array( $column_name, $hidden, true ) ) {
+=======
+				$classes .= ' num'; // Special case for that column
+			}
+
+			if ( in_array( $column_name, $hidden ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$classes .= ' hidden';
 			}
 

@@ -106,7 +106,11 @@ window.wp = window.wp || {};
 		/**
 		 * Open the Customizer overlay for a specific URL.
 		 *
+<<<<<<< HEAD
 		 * @param string src URL to load in the Customizer.
+=======
+		 * @param  string src URL to load in the Customizer.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		open: function( src ) {
 
@@ -119,7 +123,11 @@ window.wp = window.wp || {};
 				return window.location = src;
 			}
 
+<<<<<<< HEAD
 			// Store the document title prior to opening the Live Preview.
+=======
+			// Store the document title prior to opening the Live Preview
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.originalDocumentTitle = document.title;
 
 			this.active = true;
@@ -170,7 +178,11 @@ window.wp = window.wp || {};
 				}
 			});
 
+<<<<<<< HEAD
 			// Prompt AYS dialog when navigating away.
+=======
+			// Prompt AYS dialog when navigating away
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$( window ).on( 'beforeunload', this.beforeunload );
 
 			this.messenger.bind( 'saved', function () {
@@ -223,13 +235,21 @@ window.wp = window.wp || {};
 					self.active = false;
 					self.trigger( 'close' );
 
+<<<<<<< HEAD
 					// Restore document title prior to opening the Live Preview.
+=======
+					// Restore document title prior to opening the Live Preview
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( self.originalDocumentTitle ) {
 						document.title = self.originalDocumentTitle;
 					}
 				} else {
 
+<<<<<<< HEAD
 					// Go forward since Customizer is exited by history.back().
+=======
+					// Go forward since Customizer is exited by history.back()
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					history.forward();
 				}
 				self.messenger.unbind( 'confirmed-close', onConfirmClose );
@@ -286,6 +306,10 @@ window.wp = window.wp || {};
 		Loader.initialize();
 	});
 
+<<<<<<< HEAD
 	// Expose the API publicly on window.wp.customize.Loader.
+=======
+	// Expose the API publicly on window.wp.customize.Loader
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	api.Loader = Loader;
 })( wp, jQuery );

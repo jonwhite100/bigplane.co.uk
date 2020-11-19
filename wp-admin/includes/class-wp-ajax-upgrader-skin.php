@@ -22,7 +22,10 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	 * Holds the WP_Error object.
 	 *
 	 * @since 4.6.0
+<<<<<<< HEAD
 	 *
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @var null|WP_Error
 	 */
 	protected $errors = null;
@@ -30,6 +33,7 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	/**
 	 * Constructor.
 	 *
+<<<<<<< HEAD
 	 * Sets up the WordPress Ajax upgrader skin.
 	 *
 	 * @since 4.6.0
@@ -39,6 +43,11 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	 * @param array $args Optional. The WordPress Ajax upgrader skin arguments to
 	 *                    override default options. See WP_Upgrader_Skin::__construct().
 	 *                    Default empty array.
+=======
+	 * @since 4.6.0
+	 *
+	 * @param array $args Options for the upgrader, see WP_Upgrader_Skin::__construct().
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function __construct( $args = array() ) {
 		parent::__construct( $args );

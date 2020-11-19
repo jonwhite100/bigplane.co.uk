@@ -19,7 +19,11 @@ window.wp = window.wp || {};
 	// Link post revisions data served from the back end.
 	revisions.settings = window._wpRevisionsSettings || {};
 
+<<<<<<< HEAD
 	// For debugging.
+=======
+	// For debugging
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	revisions.debug = false;
 
 	/**
@@ -34,7 +38,11 @@ window.wp = window.wp || {};
 		}
 	};
 
+<<<<<<< HEAD
 	// Handy functions to help with positioning.
+=======
+	// Handy functions to help with positioning
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$.fn.allOffsets = function() {
 		var offset = this.offset() || {top: 0, left: 0}, win = $(window);
 		return _.extend( offset, {
@@ -71,17 +79,29 @@ window.wp = window.wp || {};
 			this.frame = options.frame;
 			this.revisions = options.revisions;
 
+<<<<<<< HEAD
 			// Listen for changes to the revisions or mode from outside.
 			this.listenTo( this.frame, 'update:revisions', this.receiveRevisions );
 			this.listenTo( this.frame, 'change:compareTwoMode', this.updateMode );
 
 			// Listen for internal changes.
+=======
+			// Listen for changes to the revisions or mode from outside
+			this.listenTo( this.frame, 'update:revisions', this.receiveRevisions );
+			this.listenTo( this.frame, 'change:compareTwoMode', this.updateMode );
+
+			// Listen for internal changes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.on( 'change:from', this.handleLocalChanges );
 			this.on( 'change:to', this.handleLocalChanges );
 			this.on( 'change:compareTwoMode', this.updateSliderSettings );
 			this.on( 'update:revisions', this.updateSliderSettings );
 
+<<<<<<< HEAD
 			// Listen for changes to the hovered revision.
+=======
+			// Listen for changes to the hovered revision
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.on( 'change:hoveredRevision', this.hoverRevision );
 
 			this.set({
@@ -105,7 +125,11 @@ window.wp = window.wp || {};
 						this.getSliderValue( 'from', 'to' )
 					],
 					value: null,
+<<<<<<< HEAD
 					range: true // Ensures handles cannot cross.
+=======
+					range: true // ensures handles cannot cross
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				});
 			} else {
 				this.set({
@@ -117,17 +141,29 @@ window.wp = window.wp || {};
 			this.trigger( 'update:slider' );
 		},
 
+<<<<<<< HEAD
 		// Called when a revision is hovered.
+=======
+		// Called when a revision is hovered
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		hoverRevision: function( model, value ) {
 			this.trigger( 'hovered:revision', value );
 		},
 
+<<<<<<< HEAD
 		// Called when `compareTwoMode` changes.
+=======
+		// Called when `compareTwoMode` changes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		updateMode: function( model, value ) {
 			this.set({ compareTwoMode: value });
 		},
 
+<<<<<<< HEAD
 		// Called when `from` or `to` changes in the local model.
+=======
+		// Called when `from` or `to` changes in the local model
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		handleLocalChanges: function() {
 			this.frame.set({
 				from: this.get('from'),
@@ -135,9 +171,15 @@ window.wp = window.wp || {};
 			});
 		},
 
+<<<<<<< HEAD
 		// Receives revisions changes from outside the model.
 		receiveRevisions: function( from, to ) {
 			// Bail if nothing changed.
+=======
+		// Receives revisions changes from outside the model
+		receiveRevisions: function( from, to ) {
+			// Bail if nothing changed
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( this.get('from') === from && this.get('to') === to ) {
 				return;
 			}
@@ -152,8 +194,13 @@ window.wp = window.wp || {};
 		defaults: {
 			revision: null,
 			offset: {},
+<<<<<<< HEAD
 			hovering: false, // Whether the mouse is hovering.
 			scrubbing: false // Whether the mouse is scrubbing.
+=======
+			hovering: false, // Whether the mouse is hovering
+			scrubbing: false // Whether the mouse is scrubbing
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		},
 
 		initialize: function( options ) {
@@ -255,17 +302,29 @@ window.wp = window.wp || {};
 			} else {
 				this.trigger( 'ensure:load', ids, from, to, deferred.promise() );
 				_.each( ids, _.bind( function( id ) {
+<<<<<<< HEAD
 					// Remove anything that has an ongoing request.
 					if ( this.requests[ id ] ) {
 						delete ids[ id ];
 					}
 					// Remove anything we already have.
+=======
+					// Remove anything that has an ongoing request
+					if ( this.requests[ id ] ) {
+						delete ids[ id ];
+					}
+					// Remove anything we already have
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					if ( this.get( id ) ) {
 						delete ids[ id ];
 					}
 				}, this ) );
 				if ( ! request ) {
+<<<<<<< HEAD
 					// Always include the ID that started this ensure.
+=======
+					// Always include the ID that started this ensure
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					ids[ id ] = true;
 					request   = this.load( _.keys( ids ) );
 				}
@@ -280,7 +339,11 @@ window.wp = window.wp || {};
 			return deferred.promise();
 		},
 
+<<<<<<< HEAD
 		// Returns an array of proximal diffs.
+=======
+		// Returns an array of proximal diffs
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		getClosestUnloaded: function( ids, centerId ) {
 			var self = this;
 			return _.chain([0].concat( ids )).initial().zip( ids ).sortBy( function( pair ) {
@@ -303,7 +366,11 @@ window.wp = window.wp || {};
 				}).fail( function() {
 					if ( 1 === num ) { // Already tried 1. This just isn't working. Give up.
 						deferred.reject();
+<<<<<<< HEAD
 					} else { // Request fewer diffs this time.
+=======
+					} else { // Request fewer diffs this time
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						self._loadAll( allRevisionIds, centerId, Math.ceil( num / 2 ) ).done( function() {
 							deferred.resolve();
 						});
@@ -317,7 +384,11 @@ window.wp = window.wp || {};
 
 		load: function( comparisons ) {
 			wp.revisions.log( 'load', comparisons );
+<<<<<<< HEAD
 			// Our collection should only ever grow, never shrink, so `remove: false`.
+=======
+			// Our collection should only ever grow, never shrink, so remove: false
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			return this.fetch({ data: { compare: comparisons }, remove: false }).done( function() {
 				wp.revisions.log( 'load:complete', comparisons );
 			});
@@ -394,7 +465,11 @@ window.wp = window.wp || {};
 			// Set the initial diffs collection.
 			this.diffs.set( this.get( 'diffData' ) );
 
+<<<<<<< HEAD
 			// Set up internal listeners.
+=======
+			// Set up internal listeners
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.listenTo( this, 'change:from', this.changeRevisionHandler );
 			this.listenTo( this, 'change:to', this.changeRevisionHandler );
 			this.listenTo( this, 'change:compareTwoMode', this.changeMode );
@@ -410,7 +485,11 @@ window.wp = window.wp || {};
 				compareTwoMode : state.compareTwoMode
 			} );
 
+<<<<<<< HEAD
 			// Start the router if browser supports History API.
+=======
+			// Start the router if browser supports History API
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( window.history && window.history.pushState ) {
 				this.router = new revisions.Router({ model: this });
 				if ( Backbone.History.started ) {
@@ -429,7 +508,11 @@ window.wp = window.wp || {};
 			var toIndex = this.revisions.indexOf( this.get( 'to' ) );
 
 			// If we were on the first revision before switching to two-handled mode,
+<<<<<<< HEAD
 			// bump the 'to' position over one.
+=======
+			// bump the 'to' position over one
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( value && 0 === toIndex ) {
 				this.set({
 					from: this.revisions.at( toIndex ),
@@ -438,8 +521,13 @@ window.wp = window.wp || {};
 			}
 
 			// When switching back to single-handled mode, reset 'from' model to
+<<<<<<< HEAD
 			// one position before the 'to' model.
 			if ( ! value && 0 !== toIndex ) { // '! value' means switching to single-handled mode.
+=======
+			// one position before the 'to' model
+			if ( ! value && 0 !== toIndex ) { // '! value' means switching to single-handled mode
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				this.set({
 					from: this.revisions.at( toIndex - 1 ),
 					to:   this.revisions.at( toIndex )
@@ -449,7 +537,11 @@ window.wp = window.wp || {};
 
 		updatedRevisions: function( from, to ) {
 			if ( this.get( 'compareTwoMode' ) ) {
+<<<<<<< HEAD
 				// @todo Compare-two loading strategy.
+=======
+				// TODO: compare-two loading strategy
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			} else {
 				this.diffs.loadAll( this.revisions.pluck('id'), to.id, 40 );
 			}
@@ -460,11 +552,17 @@ window.wp = window.wp || {};
 			return this.diffs.get( this._diffId );
 		},
 
+<<<<<<< HEAD
 		/*
 		 * So long as `from` and `to` are changed at the same time, the diff
 		 * will only be updated once. This is because Backbone updates all of
 		 * the changed attributes in `set`, and then fires the `change` events.
 		 */
+=======
+		// So long as `from` and `to` are changed at the same time, the diff
+		// will only be updated once. This is because Backbone updates all of
+		// the changed attributes in `set`, and then fires the `change` events.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		updateDiff: function( options ) {
 			var from, to, diffId, diff;
 
@@ -511,7 +609,11 @@ window.wp = window.wp || {};
 					loading: false,
 					error: true
 				});
+<<<<<<< HEAD
 			} else if ( this._diffId === diff.id ) { // Make sure the current diff didn't change.
+=======
+			} else if ( this._diffId === diff.id ) { // Make sure the current diff didn't change
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				this.trigger( 'update:diff', diff );
 			}
 		},
@@ -595,45 +697,77 @@ window.wp = window.wp || {};
 		initialize: function() {
 			_.bindAll( this, 'setWidth' );
 
+<<<<<<< HEAD
 			// Add the button view.
+=======
+			// Add the button view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.views.add( new revisions.view.Buttons({
 				model: this.model
 			}) );
 
+<<<<<<< HEAD
 			// Add the checkbox view.
+=======
+			// Add the checkbox view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.views.add( new revisions.view.Checkbox({
 				model: this.model
 			}) );
 
+<<<<<<< HEAD
 			// Prep the slider model.
+=======
+			// Prep the slider model
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			var slider = new revisions.model.Slider({
 				frame: this.model,
 				revisions: this.model.revisions
 			}),
 
+<<<<<<< HEAD
 			// Prep the tooltip model.
+=======
+			// Prep the tooltip model
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			tooltip = new revisions.model.Tooltip({
 				frame: this.model,
 				revisions: this.model.revisions,
 				slider: slider
 			});
 
+<<<<<<< HEAD
 			// Add the tooltip view.
+=======
+			// Add the tooltip view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.views.add( new revisions.view.Tooltip({
 				model: tooltip
 			}) );
 
+<<<<<<< HEAD
 			// Add the tickmarks view.
+=======
+			// Add the tickmarks view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.views.add( new revisions.view.Tickmarks({
 				model: tooltip
 			}) );
 
+<<<<<<< HEAD
 			// Add the slider view.
+=======
+			// Add the slider view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.views.add( new revisions.view.Slider({
 				model: slider
 			}) );
 
+<<<<<<< HEAD
 			// Add the Metabox view.
+=======
+			// Add the Metabox view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.views.add( new revisions.view.Metabox({
 				model: this.model
 			}) );
@@ -674,7 +808,11 @@ window.wp = window.wp || {};
 		}
 	});
 
+<<<<<<< HEAD
 	// The tickmarks view.
+=======
+	// The tickmarks view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	revisions.view.Tickmarks = wp.Backbone.View.extend({
 		className: 'revisions-tickmarks',
 		direction: isRtl ? 'right' : 'left',
@@ -688,13 +826,21 @@ window.wp = window.wp || {};
 			thisOffset = this.$el.allOffsets();
 			parentOffset = this.$el.parent().allOffsets();
 			if ( index === this.model.revisions.length - 1 ) {
+<<<<<<< HEAD
 				// Last one.
+=======
+				// Last one
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				offset = {
 					rightPlusWidth: thisOffset.left - parentOffset.left + 1,
 					leftPlusWidth: thisOffset.right - parentOffset.right + 1
 				};
 			} else {
+<<<<<<< HEAD
 				// Normal tick.
+=======
+				// Normal tick
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				tick = this.$('div:nth-of-type(' + (index + 1) + ')');
 				offset = tick.allPositions();
 				_.extend( offset, {
@@ -721,25 +867,41 @@ window.wp = window.wp || {};
 		}
 	});
 
+<<<<<<< HEAD
 	// The metabox view.
+=======
+	// The metabox view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	revisions.view.Metabox = wp.Backbone.View.extend({
 		className: 'revisions-meta',
 
 		initialize: function() {
+<<<<<<< HEAD
 			// Add the 'from' view.
+=======
+			// Add the 'from' view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.views.add( new revisions.view.MetaFrom({
 				model: this.model,
 				className: 'diff-meta diff-meta-from'
 			}) );
 
+<<<<<<< HEAD
 			// Add the 'to' view.
+=======
+			// Add the 'to' view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.views.add( new revisions.view.MetaTo({
 				model: this.model
 			}) );
 		}
 	});
 
+<<<<<<< HEAD
 	// The revision meta view (to be extended).
+=======
+	// The revision meta view (to be extended)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	revisions.view.Meta = wp.Backbone.View.extend({
 		template: wp.template('revisions-meta'),
 
@@ -762,13 +924,21 @@ window.wp = window.wp || {};
 		}
 	});
 
+<<<<<<< HEAD
 	// The revision meta 'from' view.
+=======
+	// The revision meta 'from' view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	revisions.view.MetaFrom = revisions.view.Meta.extend({
 		className: 'diff-meta diff-meta-from',
 		type: 'from'
 	});
 
+<<<<<<< HEAD
 	// The revision meta 'to' view.
+=======
+	// The revision meta 'to' view
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	revisions.view.MetaTo = revisions.view.Meta.extend({
 		className: 'diff-meta diff-meta-to',
 		type: 'to'
@@ -882,7 +1052,11 @@ window.wp = window.wp || {};
 			this.disabledButtonCheck();
 		},
 
+<<<<<<< HEAD
 		// Go to a specific model index.
+=======
+		// Go to a specific model index
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		gotoModel: function( toIndex ) {
 			var attributes = {
 				to: this.model.revisions.at( toIndex )
@@ -897,13 +1071,21 @@ window.wp = window.wp || {};
 			this.model.set( attributes );
 		},
 
+<<<<<<< HEAD
 		// Go to the 'next' revision.
+=======
+		// Go to the 'next' revision
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		nextRevision: function() {
 			var toIndex = this.model.revisions.indexOf( this.model.get('to') ) + 1;
 			this.gotoModel( toIndex );
 		},
 
+<<<<<<< HEAD
 		// Go to the 'previous' revision.
+=======
+		// Go to the 'previous' revision
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		previousRevision: function() {
 			var toIndex = this.model.revisions.indexOf( this.model.get('to') ) - 1;
 			this.gotoModel( toIndex );
@@ -958,12 +1140,21 @@ window.wp = window.wp || {};
 		},
 
 		mouseMove: function( e ) {
+<<<<<<< HEAD
 			var zoneCount         = this.model.revisions.length - 1,       // One fewer zone than models.
 				sliderFrom        = this.$el.allOffsets()[this.direction], // "From" edge of slider.
 				sliderWidth       = this.$el.width(),                      // Width of slider.
 				tickWidth         = sliderWidth / zoneCount,               // Calculated width of zone.
 				actualX           = ( isRtl ? $(window).width() - e.pageX : e.pageX ) - sliderFrom, // Flipped for RTL - sliderFrom.
 				currentModelIndex = Math.floor( ( actualX  + ( tickWidth / 2 )  ) / tickWidth );    // Calculate the model index.
+=======
+			var zoneCount         = this.model.revisions.length - 1, // One fewer zone than models
+				sliderFrom        = this.$el.allOffsets()[this.direction], // "From" edge of slider
+				sliderWidth       = this.$el.width(), // Width of slider
+				tickWidth         = sliderWidth / zoneCount, // Calculated width of zone
+				actualX           = ( isRtl ? $(window).width() - e.pageX : e.pageX ) - sliderFrom, // Flipped for RTL - sliderFrom;
+				currentModelIndex = Math.floor( ( actualX  + ( tickWidth / 2 )  ) / tickWidth ); // Calculate the model index
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			// Ensure sane value for currentModelIndex.
 			if ( currentModelIndex < 0 ) {
@@ -972,7 +1163,11 @@ window.wp = window.wp || {};
 				currentModelIndex = this.model.revisions.length - 1;
 			}
 
+<<<<<<< HEAD
 			// Update the tooltip mode.
+=======
+			// Update the tooltip mode
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.model.set({ hoveredRevision: this.model.revisions.at( currentModelIndex ) });
 		},
 
@@ -989,7 +1184,11 @@ window.wp = window.wp || {};
 			var handles = this.$('a.ui-slider-handle');
 
 			if ( this.model.get('compareTwoMode') ) {
+<<<<<<< HEAD
 				// In RTL mode the 'left handle' is the second in the slider, 'right' is first.
+=======
+				// in RTL mode the 'left handle' is the second in the slider, 'right' is first
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				handles.first()
 					.toggleClass( 'to-handle', !! isRtl )
 					.toggleClass( 'from-handle', ! isRtl );
@@ -1021,12 +1220,19 @@ window.wp = window.wp || {};
 				// Adjust left/right boundaries and reset points.
 				if ( view.model.get('compareTwoMode') ) {
 					handles = handle.parent().find('.ui-slider-handle');
+<<<<<<< HEAD
 					if ( handle.is( handles.first() ) ) {
 						// We're the left handle.
 						rightDragBoundary = handles.last().offset().left;
 						rightDragReset    = rightDragBoundary - sliderOffset;
 					} else {
 						// We're the right handle.
+=======
+					if ( handle.is( handles.first() ) ) { // We're the left handle
+						rightDragBoundary = handles.last().offset().left;
+						rightDragReset    = rightDragBoundary - sliderOffset;
+					} else { // We're the right handle
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						leftDragBoundary = handles.first().offset().left + handles.first().width();
 						leftDragReset    = leftDragBoundary - sliderOffset;
 					}
@@ -1047,12 +1253,21 @@ window.wp = window.wp || {};
 			return isRtl ? this.model.revisions.length - position - 1: position;
 		},
 
+<<<<<<< HEAD
 		// Responds to slide events.
 		slide: function( event, ui ) {
 			var attributes, movedRevision;
 			// Compare two revisions mode.
 			if ( this.model.get('compareTwoMode') ) {
 				// Prevent sliders from occupying same spot.
+=======
+		// Responds to slide events
+		slide: function( event, ui ) {
+			var attributes, movedRevision;
+			// Compare two revisions mode
+			if ( this.model.get('compareTwoMode') ) {
+				// Prevent sliders from occupying same spot
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( ui.values[1] === ui.values[0] ) {
 					return false;
 				}
@@ -1076,7 +1291,11 @@ window.wp = window.wp || {};
 			}
 			movedRevision = this.model.revisions.at( this.getPosition( ui.value ) );
 
+<<<<<<< HEAD
 			// If we are scrubbing, a scrub to a revision is considered a hover.
+=======
+			// If we are scrubbing, a scrub to a revision is considered a hover
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( this.model.get('scrubbing') ) {
 				attributes.hoveredRevision = movedRevision;
 			}
@@ -1086,7 +1305,11 @@ window.wp = window.wp || {};
 
 		stop: function() {
 			$( window ).off('mousemove.wp.revisions');
+<<<<<<< HEAD
 			this.model.updateSliderSettings(); // To snap us back to a tick mark.
+=======
+			this.model.updateSliderSettings(); // To snap us back to a tick mark
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.model.set({ scrubbing: false });
 		}
 	});
@@ -1109,7 +1332,11 @@ window.wp = window.wp || {};
 		initialize: function( options ) {
 			this.model = options.model;
 
+<<<<<<< HEAD
 			// Maintain state and history when navigating.
+=======
+			// Maintain state and history when navigating
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.listenTo( this.model, 'update:diff', _.debounce( this.updateUrl, 250 ) );
 			this.listenTo( this.model, 'change:compareTwoMode', this.updateUrl );
 		},

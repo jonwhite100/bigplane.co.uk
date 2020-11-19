@@ -1,0 +1,7 @@
+.sr {
+	// TODO: images were hidden on first page view when no scroll needed. Why?
+	.wp-block-image,
+	.blocks-gallery-item {
+		visibility: visible;
+	}
+}

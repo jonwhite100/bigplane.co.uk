@@ -115,7 +115,11 @@ window.wpCookies = {
 		if ( typeof( expires ) === 'object' && expires.toGMTString ) {
 			expires = expires.toGMTString();
 		} else if ( parseInt( expires, 10 ) ) {
+<<<<<<< HEAD
 			d.setTime( d.getTime() + ( parseInt( expires, 10 ) * 1000 ) ); // Time must be in milliseconds.
+=======
+			d.setTime( d.getTime() + ( parseInt( expires, 10 ) * 1000 ) ); // time must be in milliseconds
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			expires = d.toGMTString();
 		} else {
 			expires = '';
@@ -153,11 +157,17 @@ window.getUserSetting = function( name, def ) {
 	return '';
 };
 
+<<<<<<< HEAD
 /*
  * Both name and value must be only ASCII letters, numbers or underscore
  * and the shorter, the better (cookies can store maximum 4KB). Not suitable to store text.
  * The value is converted and stored as string.
  */
+=======
+// Both name and value must be only ASCII letters, numbers or underscore
+// and the shorter, the better (cookies can store maximum 4KB). Not suitable to store text.
+// The value is converted and stored as string.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 window.setUserSetting = function( name, value, _del ) {
 	if ( 'object' !== typeof userSettings ) {
 		return false;
@@ -194,7 +204,11 @@ window.deleteUserSetting = function( name ) {
 	return setUserSetting( name, '', 1 );
 };
 
+<<<<<<< HEAD
 // Returns all settings as JS object.
+=======
+// Returns all settings as js object.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 window.getAllUserSettings = function() {
 	if ( 'object' !== typeof userSettings ) {
 		return {};

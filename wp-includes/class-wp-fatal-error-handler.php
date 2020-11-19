@@ -3,7 +3,11 @@
  * Error Protection API: WP_Fatal_Error_Handler class
  *
  * @package WordPress
+<<<<<<< HEAD
  * @since 5.2.0
+=======
+ * @since   5.2.0
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 
 /**
@@ -30,11 +34,14 @@ class WP_Fatal_Error_Handler {
 			return;
 		}
 
+<<<<<<< HEAD
 		// Do not trigger the fatal error handler while updates are being installed.
 		if ( wp_is_maintenance_mode() ) {
 			return;
 		}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		try {
 			// Bail if no error found.
 			$error = $this->detect_error();
@@ -192,7 +199,11 @@ class WP_Fatal_Error_Handler {
 			'<p>%s</p><p><a href="%s">%s</a></p>',
 			$message,
 			/* translators: Documentation explaining debugging in WordPress. */
+<<<<<<< HEAD
 			__( 'https://wordpress.org/support/article/debugging-in-wordpress/' ),
+=======
+			esc_url( __( 'https://wordpress.org/support/article/debugging-in-wordpress/' ) ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			__( 'Learn more about debugging in WordPress.' )
 		);
 

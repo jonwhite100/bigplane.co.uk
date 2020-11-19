@@ -10,7 +10,11 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'upload_files' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to upload files.' ) );
@@ -29,7 +33,11 @@ if ( isset( $_REQUEST['post_id'] ) ) {
 if ( $_POST ) {
 	if ( isset( $_POST['html-upload'] ) && ! empty( $_FILES ) ) {
 		check_admin_referer( 'media-form' );
+<<<<<<< HEAD
 		// Upload File button was clicked.
+=======
+		// Upload File button was clicked
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$upload_id = media_handle_upload( 'async-upload', $post_id );
 		if ( is_wp_error( $upload_id ) ) {
 			wp_die( $upload_id );
@@ -61,7 +69,11 @@ get_current_screen()->set_help_sidebar(
 	'<p>' . __( '<a href="https://wordpress.org/support/">Support</a>' ) . '</p>'
 );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 $form_class = 'media-upload-form type-form validate';
 
@@ -77,13 +89,23 @@ if ( get_user_setting( 'uploader' ) || isset( $_GET['browser-uploader'] ) ) {
 	<?php media_upload_form(); ?>
 
 	<script type="text/javascript">
+<<<<<<< HEAD
 	var post_id = <?php echo absint( $post_id ); ?>, shortform = 3;
 	</script>
 	<input type="hidden" name="post_id" id="post_id" value="<?php echo absint( $post_id ); ?>" />
+=======
+	var post_id = <?php echo $post_id; ?>, shortform = 3;
+	</script>
+	<input type="hidden" name="post_id" id="post_id" value="<?php echo $post_id; ?>" />
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	<?php wp_nonce_field( 'media-form' ); ?>
 	<div id="media-items" class="hide-if-no-js"></div>
 	</form>
 </div>
 
 <?php
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

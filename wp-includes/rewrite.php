@@ -157,8 +157,13 @@ function add_rewrite_rule( $regex, $query, $after = 'bottom' ) {
  * @param string $query Optional. String to append to the rewritten query. Must end in '='. Default empty.
  */
 function add_rewrite_tag( $tag, $regex, $query = '' ) {
+<<<<<<< HEAD
 	// Validate the tag's name.
 	if ( strlen( $tag ) < 3 || '%' !== $tag[0] || '%' !== $tag[ strlen( $tag ) - 1 ] ) {
+=======
+	// validate the tag's name
+	if ( strlen( $tag ) < 3 || $tag[0] != '%' || $tag[ strlen( $tag ) - 1 ] != '%' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return;
 	}
 
@@ -247,13 +252,21 @@ function remove_permastruct( $name ) {
 function add_feed( $feedname, $function ) {
 	global $wp_rewrite;
 
+<<<<<<< HEAD
 	if ( ! in_array( $feedname, $wp_rewrite->feeds, true ) ) {
+=======
+	if ( ! in_array( $feedname, $wp_rewrite->feeds ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$wp_rewrite->feeds[] = $feedname;
 	}
 
 	$hook = 'do_feed_' . $feedname;
 
+<<<<<<< HEAD
 	// Remove default function hook.
+=======
+	// Remove default function hook
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	remove_action( $hook, $hook );
 
 	add_action( $hook, $function, 10, 2 );
@@ -269,7 +282,11 @@ function add_feed( $feedname, $function ) {
  * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
  *
  * @param bool $hard Whether to update .htaccess (hard flush) or just update
+<<<<<<< HEAD
  *                   rewrite_rules option (soft flush). Default is true (hard).
+=======
+ *                   rewrite_rules transient (soft flush). Default is true (hard).
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function flush_rewrite_rules( $hard = true ) {
 	global $wp_rewrite;
@@ -364,7 +381,11 @@ function wp_resolve_numeric_slug_conflicts( $query_vars = array() ) {
 
 	// Identify the 'postname' position in the permastruct array.
 	$permastructs   = array_values( array_filter( explode( '/', get_option( 'permalink_structure' ) ) ) );
+<<<<<<< HEAD
 	$postname_index = array_search( '%postname%', $permastructs, true );
+=======
+	$postname_index = array_search( '%postname%', $permastructs );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( false === $postname_index ) {
 		return $query_vars;
@@ -420,7 +441,11 @@ function wp_resolve_numeric_slug_conflicts( $query_vars = array() ) {
 	} elseif ( 'monthnum' === $compare && isset( $query_vars['day'] ) ) {
 		$maybe_page = $query_vars['day'];
 	}
+<<<<<<< HEAD
 	// Bug found in #11694 - 'page' was returning '/4'.
+=======
+	// Bug found in #11694 - 'page' was returning '/4'
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$maybe_page = (int) trim( $maybe_page, '/' );
 
 	$post_page_count = substr_count( $post->post_content, '<!--nextpage-->' ) + 1;
@@ -485,7 +510,11 @@ function url_to_postid( $url ) {
 		return 0;
 	}
 
+<<<<<<< HEAD
 	// First, check to see if there is a 'p=N' or 'page_id=N' to match against.
+=======
+	// First, check to see if there is a 'p=N' or 'page_id=N' to match against
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( preg_match( '#[?&](p|page_id|attachment_id)=(\d+)#', $url, $values ) ) {
 		$id = absint( $values[2] );
 		if ( $id ) {
@@ -493,11 +522,19 @@ function url_to_postid( $url ) {
 		}
 	}
 
+<<<<<<< HEAD
 	// Get rid of the #anchor.
 	$url_split = explode( '#', $url );
 	$url       = $url_split[0];
 
 	// Get rid of URL ?query=string.
+=======
+	// Get rid of the #anchor
+	$url_split = explode( '#', $url );
+	$url       = $url_split[0];
+
+	// Get rid of URL ?query=string
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$url_split = explode( '?', $url );
 	$url       = $url_split[0];
 
@@ -505,17 +542,29 @@ function url_to_postid( $url ) {
 	$scheme = parse_url( home_url(), PHP_URL_SCHEME );
 	$url    = set_url_scheme( $url, $scheme );
 
+<<<<<<< HEAD
 	// Add 'www.' if it is absent and should be there.
+=======
+	// Add 'www.' if it is absent and should be there
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( false !== strpos( home_url(), '://www.' ) && false === strpos( $url, '://www.' ) ) {
 		$url = str_replace( '://', '://www.', $url );
 	}
 
+<<<<<<< HEAD
 	// Strip 'www.' if it is present and shouldn't be.
+=======
+	// Strip 'www.' if it is present and shouldn't be
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( false === strpos( home_url(), '://www.' ) ) {
 		$url = str_replace( '://www.', '://', $url );
 	}
 
+<<<<<<< HEAD
 	if ( trim( $url, '/' ) === home_url() && 'page' === get_option( 'show_on_front' ) ) {
+=======
+	if ( trim( $url, '/' ) === home_url() && 'page' == get_option( 'show_on_front' ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$page_on_front = get_option( 'page_on_front' );
 
 		if ( $page_on_front && get_post( $page_on_front ) instanceof WP_Post ) {
@@ -523,30 +572,52 @@ function url_to_postid( $url ) {
 		}
 	}
 
+<<<<<<< HEAD
 	// Check to see if we are using rewrite rules.
 	$rewrite = $wp_rewrite->wp_rewrite_rules();
 
 	// Not using rewrite rules, and 'p=N' and 'page_id=N' methods failed, so we're out of options.
+=======
+	// Check to see if we are using rewrite rules
+	$rewrite = $wp_rewrite->wp_rewrite_rules();
+
+	// Not using rewrite rules, and 'p=N' and 'page_id=N' methods failed, so we're out of options
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( empty( $rewrite ) ) {
 		return 0;
 	}
 
+<<<<<<< HEAD
 	// Strip 'index.php/' if we're not using path info permalinks.
+=======
+	// Strip 'index.php/' if we're not using path info permalinks
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	if ( ! $wp_rewrite->using_index_permalinks() ) {
 		$url = str_replace( $wp_rewrite->index . '/', '', $url );
 	}
 
 	if ( false !== strpos( trailingslashit( $url ), home_url( '/' ) ) ) {
+<<<<<<< HEAD
 		// Chop off http://domain.com/[path].
 		$url = str_replace( home_url(), '', $url );
 	} else {
 		// Chop off /path/to/blog.
+=======
+		// Chop off http://domain.com/[path]
+		$url = str_replace( home_url(), '', $url );
+	} else {
+		// Chop off /path/to/blog
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$home_path = parse_url( home_url( '/' ) );
 		$home_path = isset( $home_path['path'] ) ? $home_path['path'] : '';
 		$url       = preg_replace( sprintf( '#^%s#', preg_quote( $home_path ) ), '', trailingslashit( $url ) );
 	}
 
+<<<<<<< HEAD
 	// Trim leading and lagging slashes.
+=======
+	// Trim leading and lagging slashes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$url = trim( $url, '/' );
 
 	$request              = $url;
@@ -562,8 +633,13 @@ function url_to_postid( $url ) {
 	$request_match = $request;
 	foreach ( (array) $rewrite as $match => $query ) {
 
+<<<<<<< HEAD
 		// If the requesting file is the anchor of the match,
 		// prepend it to the path info.
+=======
+		// If the requesting file is the anchor of the match, prepend it
+		// to the path info.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! empty( $url ) && ( $url != $request ) && ( strpos( $match, $url ) === 0 ) ) {
 			$request_match = $url . '/' . $request;
 		}
@@ -591,12 +667,20 @@ function url_to_postid( $url ) {
 			// Substitute the substring matches into the query.
 			$query = addslashes( WP_MatchesMapRegex::apply( $query, $matches ) );
 
+<<<<<<< HEAD
 			// Filter out non-public query vars.
+=======
+			// Filter out non-public query vars
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			global $wp;
 			parse_str( $query, $query_vars );
 			$query = array();
 			foreach ( (array) $query_vars as $key => $value ) {
+<<<<<<< HEAD
 				if ( in_array( (string) $key, $wp->public_query_vars, true ) ) {
+=======
+				if ( in_array( $key, $wp->public_query_vars ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$query[ $key ] = $value;
 					if ( isset( $post_type_query_vars[ $key ] ) ) {
 						$query['post_type'] = $post_type_query_vars[ $key ];
@@ -608,7 +692,11 @@ function url_to_postid( $url ) {
 			// Resolve conflicts between posts with numeric slugs and date archive queries.
 			$query = wp_resolve_numeric_slug_conflicts( $query );
 
+<<<<<<< HEAD
 			// Do the query.
+=======
+			// Do the query
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$query = new WP_Query( $query );
 			if ( ! empty( $query->posts ) && $query->is_singular ) {
 				return $query->post->ID;

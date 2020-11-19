@@ -49,17 +49,29 @@ function options_general_add_js() {
 			$siteName.text( title );
 		});
 
+<<<<<<< HEAD
 		$( 'input[name="date_format"]' ).click( function() {
 			if ( 'date_format_custom_radio' !== $(this).attr( 'id' ) )
 				$( 'input[name="date_format_custom"]' ).val( $( this ).val() ).closest( 'fieldset' ).find( '.example' ).text( $( this ).parent( 'label' ).children( '.format-i18n' ).text() );
 		});
 
+=======
+		$("input[name='date_format']").click(function(){
+			if ( "date_format_custom_radio" != $(this).attr("id") )
+				$( 'input[name="date_format_custom"]' ).val( $( this ).val() ).closest( 'fieldset' ).find( '.example' ).text( $( this ).parent( 'label' ).children( '.format-i18n' ).text() );
+		});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$( 'input[name="date_format_custom"]' ).on( 'click input', function() {
 			$( '#date_format_custom_radio' ).prop( 'checked', true );
 		});
 
+<<<<<<< HEAD
 		$( 'input[name="time_format"]' ).click( function() {
 			if ( 'time_format_custom_radio' !== $(this).attr( 'id' ) )
+=======
+		$("input[name='time_format']").click(function(){
+			if ( "time_format_custom_radio" != $(this).attr("id") )
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$( 'input[name="time_format_custom"]' ).val( $( this ).val() ).closest( 'fieldset' ).find( '.example' ).text( $( this ).parent( 'label' ).children( '.format-i18n' ).text() );
 		});
 
@@ -81,7 +93,11 @@ function options_general_add_js() {
 					spinner.addClass( 'is-active' );
 
 					$.post( ajaxurl, {
+<<<<<<< HEAD
 						action: 'date_format_custom' === format.attr( 'name' ) ? 'date_format' : 'time_format',
+=======
+						action: 'date_format_custom' == format.attr( 'name' ) ? 'date_format' : 'time_format',
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						date 	: format.val()
 					}, function( d ) { spinner.removeClass( 'is-active' ); example.text( d ); } );
 				}

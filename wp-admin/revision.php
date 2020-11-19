@@ -10,7 +10,11 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 require ABSPATH . 'wp-admin/includes/revision.php';
 
@@ -47,19 +51,28 @@ switch ( $action ) {
 			break;
 		}
 
+<<<<<<< HEAD
 		// Don't restore if revisions are disabled and this is not an autosave.
+=======
+		// Restore if revisions are enabled or this is an autosave.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! wp_revisions_enabled( $post ) && ! wp_is_post_autosave( $revision ) ) {
 			$redirect = 'edit.php?post_type=' . $post->post_type;
 			break;
 		}
 
+<<<<<<< HEAD
 		// Don't restore if the post is locked.
+=======
+		// Don't allow revision restore when post is locked
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( wp_check_post_lock( $post->ID ) ) {
 			break;
 		}
 
 		check_admin_referer( "restore-post_{$revision->ID}" );
 
+<<<<<<< HEAD
 		/*
 		 * Ensure the global $post remains the same after revision is restored.
 		 * Because wp_insert_post() and wp_transition_post_status() are called
@@ -72,6 +85,9 @@ switch ( $action ) {
 		// Restore the global $post as it was before.
 		$post = $backup_global_post;
 
+=======
+		wp_restore_post_revision( $revision->ID );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$redirect = add_query_arg(
 			array(
 				'message'  => 5,
@@ -97,7 +113,11 @@ switch ( $action ) {
 			break;
 		}
 
+<<<<<<< HEAD
 		// Bail if revisions are disabled and this is not an autosave.
+=======
+		// Revisions disabled and we're not looking at an autosave
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! wp_revisions_enabled( $post ) && ! wp_is_post_autosave( $revision ) ) {
 			$redirect = 'edit.php?post_type=' . $post->post_type;
 			break;
@@ -158,7 +178,11 @@ $revisions_sidebar .= '<p>' . __( '<a href="https://wordpress.org/support/">Supp
 
 get_current_screen()->set_help_sidebar( $revisions_sidebar );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ?>
 
@@ -169,4 +193,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <?php
 wp_print_revision_templates();
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

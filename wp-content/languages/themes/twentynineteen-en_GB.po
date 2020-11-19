@@ -2,12 +2,20 @@
 # This file is distributed under the same license as the Themes - Twenty Nineteen package.
 msgid ""
 msgstr ""
+<<<<<<< HEAD
 "PO-Revision-Date: 2020-03-31 21:20:04+0000\n"
+=======
+"PO-Revision-Date: 2019-05-08 21:21:07+0000\n"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+<<<<<<< HEAD
 "X-Generator: GlotPress/3.0.0-alpha.2\n"
+=======
+"X-Generator: GlotPress/2.4.0-alpha\n"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 "Language: en_GB\n"
 "Project-Id-Version: Themes - Twenty Nineteen\n"
 
@@ -19,6 +27,7 @@ msgstr "Our 2019 default theme is designed to show off the power of the block Ed
 msgid "Twenty Nineteen"
 msgstr "Twenty Nineteen"
 
+<<<<<<< HEAD
 #: classes/class-twentynineteen-walker-comment.php:96
 msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
 msgstr "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
@@ -32,16 +41,28 @@ msgid "Blue"
 msgstr "Blue"
 
 #. translators: %s: Parent post link.
+=======
+#. translators: %s: parent post link
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: single.php:31
 msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</span>"
 msgstr "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</span>"
 
+<<<<<<< HEAD
+=======
+#: image.php:87
+msgctxt "Parent post link"
+msgid "<span class=\"meta-nav\">Published in</span><br><span class=\"post-title\">%title</span>"
+msgstr "<span class=\"meta-nav\">Published in</span><br><span class=\"post-title\">%title</span>"
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: template-parts/content/content.php:18
 #: template-parts/content/content-excerpt.php:18
 msgctxt "post"
 msgid "Featured"
 msgstr "Featured"
 
+<<<<<<< HEAD
 #: image.php:87
 msgctxt "Parent post link"
 msgid "<span class=\"meta-nav\">Published in</span><br><span class=\"post-title\">%title</span>"
@@ -52,6 +73,17 @@ msgid "Back"
 msgstr "Back"
 
 #: inc/template-functions.php:136
+=======
+#: inc/back-compat.php:39 inc/back-compat.php:53 inc/back-compat.php:73
+msgid "Twenty Nineteen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
+msgstr "Twenty Nineteen requires WordPress version 4.7+ or higher. You are running version %s. Upgrade it and try again."
+
+#: inc/template-functions.php:216
+msgid "Back"
+msgstr "Back"
+
+#: inc/template-functions.php:209
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgid "More"
 msgstr "More"
 
@@ -73,6 +105,7 @@ msgctxt "primary color"
 msgid "Default"
 msgstr "Default"
 
+<<<<<<< HEAD
 #: functions.php:168
 msgid "White"
 msgstr "White"
@@ -122,6 +155,56 @@ msgstr "Light grey"
 msgid "Dark Gray"
 msgstr "Dark grey"
 
+=======
+#: functions.php:166
+msgid "White"
+msgstr "White"
+
+#: functions.php:161
+msgid "Light Gray"
+msgstr "Light grey"
+
+#: functions.php:156
+msgid "Dark Gray"
+msgstr "Dark grey"
+
+#: functions.php:151
+msgid "Secondary"
+msgstr "Secondary"
+
+#: functions.php:134
+msgid "XL"
+msgstr "XL"
+
+#: functions.php:133
+msgid "Huge"
+msgstr "Huge"
+
+#: functions.php:128
+msgid "L"
+msgstr "L"
+
+#: functions.php:127
+msgid "Large"
+msgstr "Large"
+
+#: functions.php:122
+msgid "M"
+msgstr "M"
+
+#: functions.php:121
+msgid "Normal"
+msgstr "Normal"
+
+#: functions.php:115
+msgid "Small"
+msgstr "Small"
+
+#: functions.php:116
+msgid "S"
+msgstr "S"
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: functions.php:60 footer.php:37
 msgid "Footer Menu"
 msgstr "Footer menu"
@@ -135,11 +218,19 @@ msgstr "Full size"
 msgid "Page"
 msgstr "Page"
 
+<<<<<<< HEAD
 #: functions.php:192
 msgid "Add widgets here to appear in your footer."
 msgstr "Add widgets here to appear in your footer."
 
 #: functions.php:190 template-parts/footer/footer-widgets.php:12
+=======
+#: functions.php:190
+msgid "Add widgets here to appear in your footer."
+msgstr "Add widgets here to appear in your footer."
+
+#: functions.php:188 template-parts/footer/footer-widgets.php:12
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgid "Footer"
 msgstr "Footer"
 
@@ -147,6 +238,7 @@ msgstr "Footer"
 msgid "Primary Color"
 msgstr "Primary colour"
 
+<<<<<<< HEAD
 #: template-parts/content/content-none.php:39
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr "Sorry, but nothing matched your search terms. Please try again with some different keywords."
@@ -201,11 +293,17 @@ msgstr "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgid ", "
 msgstr ", "
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: template-parts/post/discussion-meta.php:18
 msgid "No comments"
 msgstr "No comments"
 
+<<<<<<< HEAD
 #. translators: %d: Number of comments.
+=======
+#. translators: %1(X comments)$s
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: template-parts/post/discussion-meta.php:16
 msgid "%d Comment"
 msgid_plural "%d Comments"
@@ -216,21 +314,77 @@ msgstr[1] "%d Comments"
 msgid "View more posts"
 msgstr "View more posts"
 
+<<<<<<< HEAD
 #. translators: %s: Post author.
+=======
+#. translators: %s: post author
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: template-parts/post/author-bio.php:17
 msgid "Published by %s"
 msgstr "Published by %s"
 
+<<<<<<< HEAD
+=======
+#: template-parts/header/site-branding.php:33
+msgid "Top Menu"
+msgstr "Top menu"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content/content.php:36
+#: template-parts/content/content-single.php:27
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: image.php:52 template-parts/content/content-page.php:27
+#: template-parts/content/content.php:49
+#: template-parts/content/content-single.php:40
+msgid "Pages:"
+msgstr "Pages:"
+
+#: template-parts/content/content-none.php:46
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+
+#: template-parts/content/content-none.php:39
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content/content-none.php:26
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+
+#: template-parts/content/content-none.php:16
+msgid "Nothing Found"
+msgstr "404 Nothing Found"
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: single.php:42
 msgid "Previous post:"
 msgstr "Previous post:"
 
+<<<<<<< HEAD
+=======
+#: single.php:41
+msgid "Previous Post"
+msgstr "Previous post"
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: single.php:39
 msgid "Next post:"
 msgstr "Next post:"
 
+<<<<<<< HEAD
 #: search.php:22
 msgid "Search results for: "
+=======
+#: single.php:38
+msgid "Next Post"
+msgstr "Next post"
+
+#: search.php:22
+msgid "Search results for:"
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 msgstr "Search results for:"
 
 #: inc/template-tags.php:234
@@ -249,7 +403,16 @@ msgstr "Tags:"
 msgid "Posted in"
 msgstr "Posted in"
 
+<<<<<<< HEAD
 #. translators: %s: Post title. Only visible to screen readers.
+=======
+#. translators: used between list items, there is a space after the comma.
+#: inc/template-tags.php:86 inc/template-tags.php:98
+msgid ", "
+msgstr ", "
+
+#. translators: %s: Name of current post. Only visible to screen readers.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: inc/template-tags.php:63
 msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
@@ -272,21 +435,95 @@ msgstr "Y"
 msgid "Archives:"
 msgstr "Archives:"
 
+<<<<<<< HEAD
 #. translators: %s: Post title. Only visible to screen readers.
+=======
+#. translators: %s: Taxonomy singular name
+#: inc/template-functions.php:90
+msgid "%s Archives:"
+msgstr "%s archives:"
+
+#: inc/template-functions.php:86
+msgid "Post Type Archives: "
+msgstr "Post type archives: "
+
+#: inc/template-functions.php:84
+msgid "Daily Archives: "
+msgstr "Daily archives: "
+
+#: inc/template-functions.php:82
+msgid "Monthly Archives: "
+msgstr "Monthly archives: "
+
+#: inc/template-functions.php:80
+msgid "Yearly Archives: "
+msgstr "Yearly archives: "
+
+#: inc/template-functions.php:78
+msgid "Author Archives: "
+msgstr "Author archives: "
+
+#: inc/template-functions.php:76
+msgid "Tag Archives: "
+msgstr "Tag archives: "
+
+#: inc/template-functions.php:74
+msgid "Category Archives: "
+msgstr "Category archives: "
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#. translators: %s: Name of current post. Only visible to screen readers.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: template-parts/content/content-page.php:41
 #: template-parts/header/entry-header.php:32 inc/template-tags.php:120
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Edit <span class=\"screen-reader-text\">%s</span>"
 
+<<<<<<< HEAD
 #: functions.php:59
 msgid "Primary"
 msgstr "Primary"
 
+=======
+#: header.php:25
+msgid "Skip to content"
+msgstr "Skip to content"
+
+#: functions.php:61 template-parts/header/site-branding.php:46
+msgid "Social Links Menu"
+msgstr "Social links menu"
+
+#: functions.php:59 functions.php:146
+msgid "Primary"
+msgstr "Primary"
+
+#. translators: %s: WordPress.
+#: footer.php:28
+msgid "Proudly powered by %s."
+msgstr "Proudly powered by %s."
+
+#: comments.php:116
+msgid "Comments are closed."
+msgstr "Comments are closed."
+
+#: comments.php:96
+msgid "Next"
+msgstr "Next"
+
+#: comments.php:95
+msgid "Previous"
+msgstr "Previous"
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: comments.php:92 comments.php:95 comments.php:96
 msgid "Comments"
 msgstr "Comments"
 
+<<<<<<< HEAD
 #. translators: 1: Number of comments, 2: Post title.
+=======
+#. translators: 1: number of comments, 2: post title
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: comments.php:44
 msgctxt "comments title"
 msgid "%1$s reply on &ldquo;%2$s&rdquo;"
@@ -294,7 +531,11 @@ msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
 msgstr[0] "%1$s reply on &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s replies on &ldquo;%2$s&rdquo;"
 
+<<<<<<< HEAD
 #. translators: %s: Post title.
+=======
+#. translators: %s: post title
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 #: comments.php:40
 msgctxt "comments title"
 msgid "One reply on &ldquo;%s&rdquo;"
@@ -304,6 +545,7 @@ msgstr "One reply on &ldquo;%s&rdquo;"
 msgid "Leave a comment"
 msgstr "Leave a comment"
 
+<<<<<<< HEAD
 #: classes/class-twentynineteen-walker-comment.php:94
 msgid "Your comment is awaiting moderation."
 msgstr "Your comment is awaiting moderation."
@@ -383,6 +625,36 @@ msgstr "Category archives: "
 #: comments.php:33
 msgid "Join the Conversation"
 msgstr "Join the conversation"
+=======
+#: comments.php:33
+msgid "Join the Conversation"
+msgstr "Join the conversation"
+
+#: classes/class-twentynineteen-walker-comment.php:99
+msgid "Your comment is awaiting moderation."
+msgstr "Your comment is awaiting moderation."
+
+#: classes/class-twentynineteen-walker-comment.php:94
+msgid "Edit"
+msgstr "Edit"
+
+#. translators: 1: comment date, 2: comment time
+#: classes/class-twentynineteen-walker-comment.php:86
+msgid "%1$s at %2$s"
+msgstr "%1$s at %2$s"
+
+#: classes/class-twentynineteen-walker-comment.php:66
+msgid "%s <span class=\"screen-reader-text says\">says:</span>"
+msgstr "%s <span class=\"screen-reader-text says\">says:</span>"
+
+#: 404.php:24
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr "It looks like nothing was found at this location. Maybe try a search?"
+
+#: 404.php:20
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oops! That page can&rsquo;t be found."
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 #. Theme URI of the theme
 msgid "https://wordpress.org/themes/twentynineteen/"

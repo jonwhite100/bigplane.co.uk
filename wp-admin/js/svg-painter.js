@@ -13,7 +13,11 @@ wp.svgPainter = ( function( $, window, document, undefined ) {
 		elements = [];
 
 	$(document).ready( function() {
+<<<<<<< HEAD
 		// Detection for browser SVG capability.
+=======
+		// detection for browser SVG capability
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( document.implementation.hasFeature( 'http://www.w3.org/TR/SVG11/feature#Image', '1.1' ) ) {
 			$( document.body ).removeClass( 'no-svg' ).addClass( 'svg' );
 			wp.svgPainter.init();
@@ -148,11 +152,16 @@ wp.svgPainter = ( function( $, window, document, undefined ) {
 		},
 
 		paint: function() {
+<<<<<<< HEAD
 			// Loop through all elements.
+=======
+			// loop through all elements
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$.each( elements, function( index, $element ) {
 				var $menuitem = $element.parent().parent();
 
 				if ( $menuitem.hasClass( 'current' ) || $menuitem.hasClass( 'wp-has-current-submenu' ) ) {
+<<<<<<< HEAD
 					// Paint icon in 'current' color.
 					painter.paintElement( $element, 'current' );
 				} else {
@@ -160,12 +169,25 @@ wp.svgPainter = ( function( $, window, document, undefined ) {
 					painter.paintElement( $element, 'base' );
 
 					// Set hover callbacks.
+=======
+					// paint icon in 'current' color
+					painter.paintElement( $element, 'current' );
+				} else {
+					// paint icon in base color
+					painter.paintElement( $element, 'base' );
+
+					// set hover callbacks
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					$menuitem.hover(
 						function() {
 							painter.paintElement( $element, 'focus' );
 						},
 						function() {
+<<<<<<< HEAD
 							// Match the delay from hoverIntent.
+=======
+							// Match the delay from hoverIntent
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 							window.setTimeout( function() {
 								painter.paintElement( $element, 'base' );
 							}, 100 );
@@ -184,7 +206,11 @@ wp.svgPainter = ( function( $, window, document, undefined ) {
 
 			color = colorscheme[ colorType ];
 
+<<<<<<< HEAD
 			// Only accept hex colors: #101 or #101010.
+=======
+			// only accept hex colors: #101 or #101010
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( ! color.match( /^(#[0-9a-f]{3}|#[0-9a-f]{6})$/i ) ) {
 				return;
 			}
@@ -212,6 +238,7 @@ wp.svgPainter = ( function( $, window, document, undefined ) {
 				} catch ( error ) {}
 
 				if ( xml ) {
+<<<<<<< HEAD
 					// Replace `fill` attributes.
 					xml = xml.replace( /fill="(.+?)"/g, 'fill="' + color + '"');
 
@@ -219,6 +246,15 @@ wp.svgPainter = ( function( $, window, document, undefined ) {
 					xml = xml.replace( /style="(.+?)"/g, 'style="fill:' + color + '"');
 
 					// Replace `fill` properties in `<style>` tags.
+=======
+					// replace `fill` attributes
+					xml = xml.replace( /fill="(.+?)"/g, 'fill="' + color + '"');
+
+					// replace `style` attributes
+					xml = xml.replace( /style="(.+?)"/g, 'style="fill:' + color + '"');
+
+					// replace `fill` properties in `<style>` tags
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					xml = xml.replace( /fill:.*?;/g, 'fill: ' + color + ';');
 
 					if ( 'btoa' in window ) {

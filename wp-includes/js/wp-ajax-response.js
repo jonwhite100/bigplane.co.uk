@@ -17,10 +17,17 @@ window.wpAjax = jQuery.extend( {
 		}
 		return r;
 	},
+<<<<<<< HEAD
 	parseAjaxResponse: function( x, r, e ) { // 1 = good, 0 = strange (bad data?), -1 = you lack permission.
 		var parsed = {}, re = jQuery('#' + r).empty(), err = '';
 
 		if ( x && typeof x === 'object' && x.getElementsByTagName('wp_ajax') ) {
+=======
+	parseAjaxResponse: function( x, r, e ) { // 1 = good, 0 = strange (bad data?), -1 = you lack permission
+		var parsed = {}, re = jQuery('#' + r).empty(), err = '';
+
+		if ( x && typeof x == 'object' && x.getElementsByTagName('wp_ajax') ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			parsed.responses = [];
 			parsed.errors = false;
 			jQuery('response', x).each( function() {
@@ -51,7 +58,11 @@ window.wpAjax = jQuery.extend( {
 		}
 		if ( isNaN(x) ) { return !re.html('<div class="error"><p>' + x + '</p></div>'); }
 		x = parseInt(x,10);
+<<<<<<< HEAD
 		if ( -1 === x ) { return !re.html('<div class="error"><p>' + wpAjax.noPerm + '</p></div>'); }
+=======
+		if ( -1 == x ) { return !re.html('<div class="error"><p>' + wpAjax.noPerm + '</p></div>'); }
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		else if ( 0 === x ) { return !re.html('<div class="error"><p>' + wpAjax.broken  + '</p></div>'); }
 		return true;
 	},
@@ -64,7 +75,11 @@ window.wpAjax = jQuery.extend( {
 	}
 }, wpAjax || { noPerm: 'Sorry, you are not allowed to do that.', broken: 'Something went wrong.' } );
 
+<<<<<<< HEAD
 // Basic form validation.
+=======
+// Basic form validation
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 jQuery(document).ready( function($){
 	$('form.validate').submit( function() { return wpAjax.validateForm( $(this) ); } );
 });

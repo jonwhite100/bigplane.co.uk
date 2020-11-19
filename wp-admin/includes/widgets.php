@@ -22,7 +22,11 @@ function wp_list_widgets() {
 	$done = array();
 
 	foreach ( $sort as $widget ) {
+<<<<<<< HEAD
 		if ( in_array( $widget['callback'], $done, true ) ) { // We already showed this multi-widget.
+=======
+		if ( in_array( $widget['callback'], $done, true ) ) { // We already showed this multi-widget
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			continue;
 		}
 
@@ -126,6 +130,11 @@ function wp_list_widget_controls( $sidebar, $sidebar_name = '' ) {
  *
  * @global array $wp_registered_widgets
  *
+<<<<<<< HEAD
+=======
+ * @staticvar int $i
+ *
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @param array $params
  * @return array
  */
@@ -140,8 +149,13 @@ function wp_list_widget_controls_dynamic_sidebar( $params ) {
 
 	$params[0]['before_widget'] = "<div id='widget-{$i}_{$id}' class='widget'$hidden>";
 	$params[0]['after_widget']  = '</div>';
+<<<<<<< HEAD
 	$params[0]['before_title']  = '%BEG_OF_TITLE%'; // Deprecated.
 	$params[0]['after_title']   = '%END_OF_TITLE%'; // Deprecated.
+=======
+	$params[0]['before_title']  = '%BEG_OF_TITLE%'; // deprecated
+	$params[0]['after_title']   = '%END_OF_TITLE%'; // deprecated
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( is_callable( $wp_registered_widgets[ $widget_id ]['callback'] ) ) {
 		$wp_registered_widgets[ $widget_id ]['_callback'] = $wp_registered_widgets[ $widget_id ]['callback'];
@@ -190,7 +204,11 @@ function wp_widget_control( $sidebar_args ) {
 
 	$widget_id  = $sidebar_args['widget_id'];
 	$sidebar_id = isset( $sidebar_args['id'] ) ? $sidebar_args['id'] : false;
+<<<<<<< HEAD
 	$key        = $sidebar_id ? array_search( $widget_id, $sidebars_widgets[ $sidebar_id ], true ) : '-1'; // Position of widget in sidebar.
+=======
+	$key        = $sidebar_id ? array_search( $widget_id, $sidebars_widgets[ $sidebar_id ] ) : '-1'; // position of widget in sidebar
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$control    = isset( $wp_registered_widget_controls[ $widget_id ] ) ? $wp_registered_widget_controls[ $widget_id ] : array();
 	$widget     = $wp_registered_widgets[ $widget_id ];
 
@@ -223,8 +241,13 @@ function wp_widget_control( $sidebar_args ) {
 	 * We aren't showing a widget control, we're outputting a template
 	 * for a multi-widget control.
 	 */
+<<<<<<< HEAD
 	if ( isset( $sidebar_args['_display'] ) && 'template' === $sidebar_args['_display'] && $widget_number ) {
 		// number == -1 implies a template where id numbers are replaced by a generic '__i__'.
+=======
+	if ( isset( $sidebar_args['_display'] ) && 'template' == $sidebar_args['_display'] && $widget_number ) {
+		// number == -1 implies a template where id numbers are replaced by a generic '__i__'
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$control['params'][0]['number'] = -1;
 		// With id_base widget id's are constructed like {$id_base}-{$id_number}.
 		if ( isset( $control['id_base'] ) ) {

@@ -16,9 +16,15 @@ window.wp = window.wp || {};
 	 *
 	 * Fetch a JavaScript template for an id, and return a templating function for it.
 	 *
+<<<<<<< HEAD
 	 * @param {string} id A string that corresponds to a DOM element with an id prefixed with "tmpl-".
 	 *                    For example, "attachment" maps to "tmpl-attachment".
 	 * @return {function} A function that lazily-compiles the template requested.
+=======
+	 * @param  {string} id   A string that corresponds to a DOM element with an id prefixed with "tmpl-".
+	 *                       For example, "attachment" maps to "tmpl-attachment".
+	 * @return {function}    A function that lazily-compiles the template requested.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	wp.template = _.memoize(function ( id ) {
 		var compiled,
@@ -41,6 +47,7 @@ window.wp = window.wp || {};
 		};
 	});
 
+<<<<<<< HEAD
 	/*
 	 * wp.ajax
 	 * ------
@@ -48,6 +55,13 @@ window.wp = window.wp || {};
 	 * Tools for sending ajax requests with JSON responses and built in error handling.
 	 * Mirrors and wraps jQuery's ajax APIs.
 	 */
+=======
+	// wp.ajax
+	// ------
+	//
+	// Tools for sending ajax requests with JSON responses and built in error handling.
+	// Mirrors and wraps jQuery's ajax APIs.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	wp.ajax = {
 		settings: settings.ajax || {},
 
@@ -56,11 +70,19 @@ window.wp = window.wp || {};
 		 *
 		 * Sends a POST request to WordPress.
 		 *
+<<<<<<< HEAD
 		 * @param {(string|Object)} action The slug of the action to fire in WordPress or options passed
 		 *                                 to jQuery.ajax.
 		 * @param {Object=}         data   Optional. The data to populate $_POST with.
 		 * @return {$.promise} A jQuery promise that represents the request,
 		 *                     decorated with an abort() method.
+=======
+		 * @param  {(string|object)} action  The slug of the action to fire in WordPress or options passed
+		 *                                   to jQuery.ajax.
+		 * @param  {object=}         data    Optional. The data to populate $_POST with.
+		 * @return {$.promise}     A jQuery promise that represents the request,
+		 *                         decorated with an abort() method.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		post: function( action, data ) {
 			return wp.ajax.send({
@@ -73,11 +95,19 @@ window.wp = window.wp || {};
 		 *
 		 * Sends a POST request to WordPress.
 		 *
+<<<<<<< HEAD
 		 * @param {(string|Object)} action  The slug of the action to fire in WordPress or options passed
 		 *                                  to jQuery.ajax.
 		 * @param {Object=}         options Optional. The options passed to jQuery.ajax.
 		 * @return {$.promise} A jQuery promise that represents the request,
 		 *                     decorated with an abort() method.
+=======
+		 * @param  {(string|object)} action  The slug of the action to fire in WordPress or options passed
+		 *                                   to jQuery.ajax.
+		 * @param  {object=}         options Optional. The options passed to jQuery.ajax.
+		 * @return {$.promise}      A jQuery promise that represents the request,
+		 *                          decorated with an abort() method.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		send: function( action, options ) {
 			var promise, deferred;
@@ -96,6 +126,7 @@ window.wp = window.wp || {};
 
 			deferred = $.Deferred( function( deferred ) {
 				// Transfer success/error callbacks.
+<<<<<<< HEAD
 				if ( options.success ) {
 					deferred.done( options.success );
 				}
@@ -103,10 +134,17 @@ window.wp = window.wp || {};
 				if ( options.error ) {
 					deferred.fail( options.error );
 				}
+=======
+				if ( options.success )
+					deferred.done( options.success );
+				if ( options.error )
+					deferred.fail( options.error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 				delete options.success;
 				delete options.error;
 
+<<<<<<< HEAD
 				// Use with PHP's wp_send_json_success() and wp_send_json_error().
 				deferred.jqXHR = $.ajax( options ).done( function( response ) {
 					// Treat a response of 1 as successful for backward compatibility with existing handlers.
@@ -119,6 +157,18 @@ window.wp = window.wp || {};
 					} else {
 						deferred.rejectWith( this, [response] );
 					}
+=======
+				// Use with PHP's wp_send_json_success() and wp_send_json_error()
+				deferred.jqXHR = $.ajax( options ).done( function( response ) {
+					// Treat a response of 1 as successful for backward compatibility with existing handlers.
+					if ( response === '1' || response === 1 )
+						response = { success: true };
+
+					if ( _.isObject( response ) && ! _.isUndefined( response.success ) )
+						deferred[ response.success ? 'resolveWith' : 'rejectWith' ]( this, [response.data] );
+					else
+						deferred.rejectWith( this, [response] );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}).fail( function() {
 					deferred.rejectWith( this, arguments );
 				});

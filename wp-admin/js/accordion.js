@@ -35,11 +35,19 @@
 
 		// Expand/Collapse accordion sections on click.
 		$( '.accordion-container' ).on( 'click keydown', '.accordion-section-title', function( e ) {
+<<<<<<< HEAD
 			if ( e.type === 'keydown' && 13 !== e.which ) { // "Return" key.
 				return;
 			}
 
 			e.preventDefault(); // Keep this AFTER the key filter above.
+=======
+			if ( e.type === 'keydown' && 13 !== e.which ) { // "return" key
+				return;
+			}
+
+			e.preventDefault(); // Keep this AFTER the key filter above
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			accordionSwitch( $( this ) );
 		});
@@ -80,7 +88,11 @@
 			section.toggleClass( 'open' );
 		}
 
+<<<<<<< HEAD
 		// We have to wait for the animations to finish.
+=======
+		// We have to wait for the animations to finish
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		setTimeout(function(){
 		    container.removeClass( 'opening' );
 		}, 150);

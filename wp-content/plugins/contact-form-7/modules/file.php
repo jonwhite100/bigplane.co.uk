@@ -9,11 +9,15 @@ add_action( 'wpcf7_init', 'wpcf7_add_form_tag_file', 10, 0 );
 
 function wpcf7_add_form_tag_file() {
 	wpcf7_add_form_tag( array( 'file', 'file*' ),
+<<<<<<< HEAD
 		'wpcf7_file_form_tag_handler',
 		array(
 			'name-attr' => true,
 		)
 	);
+=======
+		'wpcf7_file_form_tag_handler', array( 'name-attr' => true ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 function wpcf7_file_form_tag_handler( $tag ) {
@@ -43,6 +47,7 @@ function wpcf7_file_form_tag_handler( $tag ) {
 		$atts['aria-required'] = 'true';
 	}
 
+<<<<<<< HEAD
 	if ( $validation_error ) {
 		$atts['aria-invalid'] = 'true';
 		$atts['aria-describedby'] = wpcf7_get_validation_error_reference(
@@ -51,6 +56,9 @@ function wpcf7_file_form_tag_handler( $tag ) {
 	} else {
 		$atts['aria-invalid'] = 'false';
 	}
+=======
+	$atts['aria-invalid'] = $validation_error ? 'true' : 'false';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$atts['type'] = 'file';
 	$atts['name'] = $tag->name;
@@ -59,8 +67,12 @@ function wpcf7_file_form_tag_handler( $tag ) {
 
 	$html = sprintf(
 		'<span class="wpcf7-form-control-wrap %1$s"><input %2$s />%3$s</span>',
+<<<<<<< HEAD
 		sanitize_html_class( $tag->name ), $atts, $validation_error
 	);
+=======
+		sanitize_html_class( $tag->name ), $atts, $validation_error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	return $html;
 }
@@ -72,8 +84,12 @@ add_filter( 'wpcf7_form_enctype', 'wpcf7_file_form_enctype_filter', 10, 1 );
 
 function wpcf7_file_form_enctype_filter( $enctype ) {
 	$multipart = (bool) wpcf7_scan_form_tags(
+<<<<<<< HEAD
 		array( 'type' => array( 'file', 'file*' ) )
 	);
+=======
+		array( 'type' => array( 'file', 'file*' ) ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	if ( $multipart ) {
 		$enctype = 'multipart/form-data';
@@ -94,7 +110,11 @@ function wpcf7_file_validation_filter( $result, $tag ) {
 
 	$file = isset( $_FILES[$name] ) ? $_FILES[$name] : null;
 
+<<<<<<< HEAD
 	if ( ! empty( $file['error'] ) and UPLOAD_ERR_NO_FILE !== $file['error'] ) {
+=======
+	if ( $file['error'] and UPLOAD_ERR_NO_FILE != $file['error'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$result->invalidate( $tag, wpcf7_get_message( 'upload_failed_php_error' ) );
 		return $result;
 	}
@@ -104,14 +124,19 @@ function wpcf7_file_validation_filter( $result, $tag ) {
 		return $result;
 	}
 
+<<<<<<< HEAD
 	if ( empty( $file['tmp_name'] )
 	or ! is_uploaded_file( $file['tmp_name'] ) ) {
+=======
+	if ( ! is_uploaded_file( $file['tmp_name'] ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $result;
 	}
 
 	/* File type validation */
 
 	$file_type_pattern = wpcf7_acceptable_filetypes(
+<<<<<<< HEAD
 		$tag->get_option( 'filetypes' ), 'regex'
 	);
 
@@ -123,6 +148,15 @@ function wpcf7_file_validation_filter( $result, $tag ) {
 			wpcf7_get_message( 'upload_file_type_invalid' )
 		);
 
+=======
+		$tag->get_option( 'filetypes' ), 'regex' );
+
+	$file_type_pattern = '/\.(' . $file_type_pattern . ')$/i';
+
+	if ( ! preg_match( $file_type_pattern, $file['name'] ) ) {
+		$result->invalidate( $tag,
+			wpcf7_get_message( 'upload_file_type_invalid' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $result;
 	}
 
@@ -130,7 +164,11 @@ function wpcf7_file_validation_filter( $result, $tag ) {
 
 	$allowed_size = $tag->get_limit_option();
 
+<<<<<<< HEAD
 	if ( ! empty( $file['size'] ) and $allowed_size < $file['size'] ) {
+=======
+	if ( $allowed_size < $file['size'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$result->invalidate( $tag, wpcf7_get_message( 'upload_file_too_large' ) );
 		return $result;
 	}
@@ -144,8 +182,12 @@ function wpcf7_file_validation_filter( $result, $tag ) {
 	$filename = wpcf7_antiscript_file_name( $filename );
 
 	$filename = apply_filters( 'wpcf7_upload_file_name', $filename,
+<<<<<<< HEAD
 		$file['name'], $tag
 	);
+=======
+		$file['name'], $tag );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	$filename = wp_unique_filename( $uploads_dir, $filename );
 	$new_file = path_join( $uploads_dir, $filename );
@@ -165,6 +207,7 @@ function wpcf7_file_validation_filter( $result, $tag ) {
 	return $result;
 }
 
+<<<<<<< HEAD
 add_filter( 'wpcf7_mail_tag_replaced_file', 'wpcf7_file_mail_tag', 10, 4 );
 add_filter( 'wpcf7_mail_tag_replaced_file*', 'wpcf7_file_mail_tag', 10, 4 );
 
@@ -180,6 +223,8 @@ function wpcf7_file_mail_tag( $replaced, $submitted, $html, $mail_tag ) {
 	return $replaced;
 }
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 /* Messages */
 
@@ -226,7 +271,11 @@ function wpcf7_tag_generator_file( $contact_form, $args = '' ) {
 
 	$description = __( "Generate a form-tag for a file uploading field. For more details, see %s.", 'contact-form-7' );
 
+<<<<<<< HEAD
 	$desc_link = wpcf7_link( __( 'https://contactform7.com/file-uploading-and-attachment/', 'contact-form-7' ), __( 'File uploading and attachment', 'contact-form-7' ) );
+=======
+	$desc_link = wpcf7_link( __( 'https://contactform7.com/file-uploading-and-attachment/', 'contact-form-7' ), __( 'File Uploading and Attachment', 'contact-form-7' ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 ?>
 <div class="control-box">

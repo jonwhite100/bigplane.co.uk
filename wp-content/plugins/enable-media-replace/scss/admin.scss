@@ -2,6 +2,7 @@
 
 .emr_upload_form
 {
+<<<<<<< HEAD
   form
   {
     display: flex; //editor and upsell
@@ -15,6 +16,11 @@
   .wrapper
   {
 //    margin: 15px 0;
+=======
+  .wrapper
+  {
+    margin: 15px 0;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     padding: 18px;
     border: 1px solid #ccc;
 
@@ -28,6 +34,7 @@
     }
   }
 
+<<<<<<< HEAD
 
 
   .image_chooser.wrapper
@@ -73,6 +80,11 @@
           .drop-wrapper { display: none; }
       }
     }
+=======
+  .image_chooser.wrapper
+  {
+    min-height: 350px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
     .image_previews
     {
       margin: 15px 0;
@@ -81,7 +93,10 @@
         position: relative;
         display: inline-block;
         margin-right: 25px;
+<<<<<<< HEAD
         margin-bottom: 10px;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         border: 1px solid #ddd;
         vertical-align: top;
         max-height: 500px;
@@ -111,6 +126,7 @@
           opacity: 0.5;
 
         }
+<<<<<<< HEAD
         .image_size
         {
            text-align: center;
@@ -118,6 +134,8 @@
            bottom: -25px;
            width: 100%;
         }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
         &.is_image
         {
           .dashicons::before, .dashicons { display: none }
@@ -149,11 +167,15 @@
   //  display: inline-block;
     margin: 10px 0;
     display: none;
+<<<<<<< HEAD
     p {
         margin: 0;
         font-size: 12px;
         font-weight: 700;
     }
+=======
+    p { margin: 0; }
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
   }
   .form-warning
@@ -265,6 +287,7 @@
         }
       }
     } // custom_date
+<<<<<<< HEAD
     .location_option
     {
       display: none;
@@ -275,6 +298,8 @@
         margin-right: 8px;
       }
     }
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   }
 
   .form_controls.wrapper
@@ -290,17 +315,22 @@
     }
   }
 
+<<<<<<< HEAD
   .shortpixel.notice
   {
      padding: 12px;
   }
   .shortpixel-offer
+=======
+  .shortpixel-notice
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   {
     background: #fff;
     width: 250px;
     min-height: 270px;
     border: 1px solid #ccc;
     padding: 15px;
+<<<<<<< HEAD
     //margin: 0 0 10px 25px;
     margin-bottom:25px;
     float: right;
@@ -358,5 +388,12 @@
   @media (max-width: 960px)
   {
     .upsell-wrapper { display: none; }
+=======
+    margin: 0 0 10px;
+    float: right;
+    h3 {
+      line-height: 1.3em; // match size
+    }
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   }
 } // emr_upload_form

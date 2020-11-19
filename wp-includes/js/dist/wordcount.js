@@ -82,7 +82,11 @@ this["wp"] = this["wp"] || {}; this["wp"]["wordcount"] =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 450);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 352);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -94,6 +98,7 @@ this["wp"] = this["wp"] || {}; this["wp"]["wordcount"] =
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 450:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -106,6 +111,16 @@ __webpack_require__.d(__webpack_exports__, "count", function() { return /* bindi
 
 // EXTERNAL MODULE: external {"this":"lodash"}
 var external_this_lodash_ = __webpack_require__(2);
+=======
+/***/ 352:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: external "lodash"
+var external_lodash_ = __webpack_require__(2);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/defaultSettings.js
 var defaultSettings = {
@@ -179,11 +194,19 @@ var defaultSettings = {
  *
  * @return {string} The manipulated text.
  */
+<<<<<<< HEAD
 function stripTags(settings, text) {
   if (settings.HTMLRegExp) {
     return text.replace(settings.HTMLRegExp, '\n');
   }
 }
+=======
+/* harmony default export */ var stripTags = (function (settings, text) {
+  if (settings.HTMLRegExp) {
+    return text.replace(settings.HTMLRegExp, '\n');
+  }
+});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/transposeAstralsToCountableChar.js
 /**
@@ -194,13 +217,21 @@ function stripTags(settings, text) {
  *
  * @return {string} The manipulated text.
  */
+<<<<<<< HEAD
 function transposeAstralsToCountableChar(settings, text) {
+=======
+/* harmony default export */ var transposeAstralsToCountableChar = (function (settings, text) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   if (settings.astralRegExp) {
     return text.replace(settings.astralRegExp, 'a');
   }
 
   return text;
+<<<<<<< HEAD
 }
+=======
+});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripHTMLEntities.js
 /**
@@ -211,13 +242,21 @@ function transposeAstralsToCountableChar(settings, text) {
  *
  * @return {string} The manipulated text.
  */
+<<<<<<< HEAD
 function stripHTMLEntities(settings, text) {
+=======
+/* harmony default export */ var stripHTMLEntities = (function (settings, text) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   if (settings.HTMLEntityRegExp) {
     return text.replace(settings.HTMLEntityRegExp, '');
   }
 
   return text;
+<<<<<<< HEAD
 }
+=======
+});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripConnectors.js
 /**
@@ -228,13 +267,21 @@ function stripHTMLEntities(settings, text) {
  *
  * @return {string} The manipulated text.
  */
+<<<<<<< HEAD
 function stripConnectors(settings, text) {
+=======
+/* harmony default export */ var stripConnectors = (function (settings, text) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   if (settings.connectorRegExp) {
     return text.replace(settings.connectorRegExp, ' ');
   }
 
   return text;
+<<<<<<< HEAD
 }
+=======
+});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripRemovables.js
 /**
@@ -245,13 +292,21 @@ function stripConnectors(settings, text) {
  *
  * @return {string} The manipulated text.
  */
+<<<<<<< HEAD
 function stripRemovables(settings, text) {
+=======
+/* harmony default export */ var stripRemovables = (function (settings, text) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   if (settings.removeRegExp) {
     return text.replace(settings.removeRegExp, '');
   }
 
   return text;
+<<<<<<< HEAD
 }
+=======
+});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripHTMLComments.js
 /**
@@ -262,13 +317,21 @@ function stripRemovables(settings, text) {
  *
  * @return {string} The manipulated text.
  */
+<<<<<<< HEAD
 function stripHTMLComments(settings, text) {
+=======
+/* harmony default export */ var stripHTMLComments = (function (settings, text) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   if (settings.HTMLcommentRegExp) {
     return text.replace(settings.HTMLcommentRegExp, '');
   }
 
   return text;
+<<<<<<< HEAD
 }
+=======
+});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripShortcodes.js
 /**
@@ -279,13 +342,21 @@ function stripHTMLComments(settings, text) {
  *
  * @return {string} The manipulated text.
  */
+<<<<<<< HEAD
 function stripShortcodes(settings, text) {
+=======
+/* harmony default export */ var stripShortcodes = (function (settings, text) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   if (settings.shortcodesRegExp) {
     return text.replace(settings.shortcodesRegExp, '\n');
   }
 
   return text;
+<<<<<<< HEAD
 }
+=======
+});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripSpaces.js
 /**
@@ -296,11 +367,19 @@ function stripShortcodes(settings, text) {
  *
  * @return {string} The manipulated text.
  */
+<<<<<<< HEAD
 function stripSpaces(settings, text) {
   if (settings.spaceRegExp) {
     return text.replace(settings.spaceRegExp, ' ');
   }
 }
+=======
+/* harmony default export */ var stripSpaces = (function (settings, text) {
+  if (settings.spaceRegExp) {
+    return text.replace(settings.spaceRegExp, ' ');
+  }
+});
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/transposeHTMLEntitiesToCountableChars.js
 /**
@@ -311,15 +390,26 @@ function stripSpaces(settings, text) {
  *
  * @return {string} The manipulated text.
  */
+<<<<<<< HEAD
 function transposeHTMLEntitiesToCountableChars(settings, text) {
+=======
+/* harmony default export */ var transposeHTMLEntitiesToCountableChars = (function (settings, text) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   if (settings.HTMLEntityRegExp) {
     return text.replace(settings.HTMLEntityRegExp, 'a');
   }
 
   return text;
+<<<<<<< HEAD
 }
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/index.js
+=======
+});
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/index.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "count", function() { return count; });
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 /**
  * External dependencies
  */
@@ -348,7 +438,11 @@ function transposeHTMLEntitiesToCountableChars(settings, text) {
  */
 
 function loadSettings(type, userSettings) {
+<<<<<<< HEAD
   var settings = Object(external_this_lodash_["extend"])(defaultSettings, userSettings);
+=======
+  var settings = Object(external_lodash_["extend"])(defaultSettings, userSettings);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   settings.shortcodes = settings.l10n.shortcodes || {};
 
   if (settings.shortcodes && settings.shortcodes.length) {
@@ -375,7 +469,11 @@ function loadSettings(type, userSettings) {
 
 
 function matchWords(text, regex, settings) {
+<<<<<<< HEAD
   text = Object(external_this_lodash_["flow"])(stripTags.bind(this, settings), stripHTMLComments.bind(this, settings), stripShortcodes.bind(this, settings), stripSpaces.bind(this, settings), stripHTMLEntities.bind(this, settings), stripConnectors.bind(this, settings), stripRemovables.bind(this, settings))(text);
+=======
+  text = Object(external_lodash_["flow"])(stripTags.bind(this, settings), stripHTMLComments.bind(this, settings), stripShortcodes.bind(this, settings), stripSpaces.bind(this, settings), stripHTMLEntities.bind(this, settings), stripConnectors.bind(this, settings), stripRemovables.bind(this, settings))(text);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   text = text + '\n';
   return text.match(regex);
 }
@@ -391,7 +489,11 @@ function matchWords(text, regex, settings) {
 
 
 function matchCharacters(text, regex, settings) {
+<<<<<<< HEAD
   text = Object(external_this_lodash_["flow"])(stripTags.bind(this, settings), stripHTMLComments.bind(this, settings), stripShortcodes.bind(this, settings), stripSpaces.bind(this, settings), transposeAstralsToCountableChar.bind(this, settings), transposeHTMLEntitiesToCountableChars.bind(this, settings))(text);
+=======
+  text = Object(external_lodash_["flow"])(stripTags.bind(this, settings), stripHTMLComments.bind(this, settings), stripShortcodes.bind(this, settings), stripSpaces.bind(this, settings), transposeAstralsToCountableChar.bind(this, settings), transposeHTMLEntitiesToCountableChars.bind(this, settings))(text);
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
   text = text + '\n';
   return text.match(regex);
 }

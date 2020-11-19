@@ -30,11 +30,19 @@ class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
 	 *
 	 * @since 3.0.0
 	 *
+<<<<<<< HEAD
 	 * @param string   $output Used to append additional content (passed by reference).
 	 * @param int      $depth  Depth of page. Used for padding.
 	 * @param stdClass $args   Not used.
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
+=======
+	 * @param string $output Used to append additional content (passed by reference).
+	 * @param int    $depth  Depth of page. Used for padding.
+	 * @param array  $args   Not used.
+	 */
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$indent  = str_repeat( "\t", $depth );
 		$output .= "\n$indent<ul class='children'>\n";
 	}
@@ -46,11 +54,19 @@ class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
 	 *
 	 * @since 3.0.0
 	 *
+<<<<<<< HEAD
 	 * @param string   $output Used to append additional content (passed by reference).
 	 * @param int      $depth  Depth of page. Used for padding.
 	 * @param stdClass $args   Not used.
 	 */
 	public function end_lvl( &$output, $depth = 0, $args = null ) {
+=======
+	 * @param string $output Used to append additional content (passed by reference).
+	 * @param int    $depth  Depth of page. Used for padding.
+	 * @param array  $args   Not used.
+	 */
+	public function end_lvl( &$output, $depth = 0, $args = array() ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$indent  = str_repeat( "\t", $depth );
 		$output .= "\n$indent</ul>";
 	}
@@ -62,6 +78,7 @@ class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
 	 *
 	 * @since 3.0.0
 	 *
+<<<<<<< HEAD
 	 * @global int        $_nav_menu_placeholder
 	 * @global int|string $nav_menu_selected_id
 	 *
@@ -76,13 +93,32 @@ class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
 
 		$_nav_menu_placeholder = ( 0 > $_nav_menu_placeholder ) ? intval( $_nav_menu_placeholder ) - 1 : -1;
 		$possible_object_id    = isset( $item->post_type ) && 'nav_menu_item' === $item->post_type ? $item->object_id : $_nav_menu_placeholder;
+=======
+	 * @global int $_nav_menu_placeholder
+	 *
+	 * @param string $output Used to append additional content (passed by reference).
+	 * @param object $item   Menu item data object.
+	 * @param int    $depth  Depth of menu item. Used for padding.
+	 * @param array  $args   Not used.
+	 * @param int    $id     Not used.
+	 */
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+		global $_nav_menu_placeholder;
+
+		$_nav_menu_placeholder = ( 0 > $_nav_menu_placeholder ) ? intval( $_nav_menu_placeholder ) - 1 : -1;
+		$possible_object_id    = isset( $item->post_type ) && 'nav_menu_item' == $item->post_type ? $item->object_id : $_nav_menu_placeholder;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$possible_db_id        = ( ! empty( $item->ID ) ) && ( 0 < $possible_object_id ) ? (int) $item->ID : 0;
 
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
 		$output .= $indent . '<li>';
 		$output .= '<label class="menu-item-title">';
+<<<<<<< HEAD
 		$output .= '<input type="checkbox"' . wp_nav_menu_disabled_check( $nav_menu_selected_id, false ) . ' class="menu-item-checkbox';
+=======
+		$output .= '<input type="checkbox" class="menu-item-checkbox';
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		if ( ! empty( $item->front_or_home ) ) {
 			$output .= ' add-to-top';
@@ -106,7 +142,11 @@ class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
 
 		$output .= '</label>';
 
+<<<<<<< HEAD
 		// Menu item hidden fields.
+=======
+		// Menu item hidden fields
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$output .= '<input type="hidden" class="menu-item-db-id" name="menu-item[' . $possible_object_id . '][menu-item-db-id]" value="' . $possible_db_id . '" />';
 		$output .= '<input type="hidden" class="menu-item-object" name="menu-item[' . $possible_object_id . '][menu-item-object]" value="' . esc_attr( $item->object ) . '" />';
 		$output .= '<input type="hidden" class="menu-item-parent-id" name="menu-item[' . $possible_object_id . '][menu-item-parent-id]" value="' . esc_attr( $item->menu_item_parent ) . '" />';
@@ -119,4 +159,8 @@ class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
 		$output .= '<input type="hidden" class="menu-item-xfn" name="menu-item[' . $possible_object_id . '][menu-item-xfn]" value="' . esc_attr( $item->xfn ) . '" />';
 	}
 
+<<<<<<< HEAD
 }
+=======
+} // Walker_Nav_Menu_Checklist
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

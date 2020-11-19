@@ -36,24 +36,40 @@
 			inputs.submit = $( '#wp-link-submit' );
 			inputs.close = $( '#wp-link-close' );
 
+<<<<<<< HEAD
 			// Input.
+=======
+			// Input
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			inputs.text = $( '#wp-link-text' );
 			inputs.url = $( '#wp-link-url' );
 			inputs.nonce = $( '#_ajax_linking_nonce' );
 			inputs.openInNewTab = $( '#wp-link-target' );
 			inputs.search = $( '#wp-link-search' );
 
+<<<<<<< HEAD
 			// Build rivers.
+=======
+			// Build Rivers
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			rivers.search = new River( $( '#search-results' ) );
 			rivers.recent = new River( $( '#most-recent-results' ) );
 			rivers.elements = inputs.dialog.find( '.query-results' );
 
+<<<<<<< HEAD
 			// Get search notice text.
+=======
+			// Get search notice text
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			inputs.queryNotice = $( '#query-notice-message' );
 			inputs.queryNoticeTextDefault = inputs.queryNotice.find( '.query-notice-default' );
 			inputs.queryNoticeTextHint = inputs.queryNotice.find( '.query-notice-hint' );
 
+<<<<<<< HEAD
 			// Bind event handlers.
+=======
+			// Bind event handlers
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			inputs.dialog.keydown( wpLink.keydown );
 			inputs.dialog.keyup( wpLink.keyup );
 			inputs.submit.click( function( event ) {
@@ -68,7 +84,11 @@
 
 			rivers.elements.on( 'river-select', wpLink.updateFields );
 
+<<<<<<< HEAD
 			// Display 'hint' message when search field or 'query-results' box are focused.
+=======
+			// Display 'hint' message when search field or 'query-results' box are focused
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			inputs.search.on( 'focus.wplink', function() {
 				inputs.queryNoticeTextDefault.hide();
 				inputs.queryNoticeTextHint.removeClass( 'screen-reader-text' ).show();
@@ -91,7 +111,11 @@
 			inputs.url.on( 'blur', wpLink.correctURL );
 		},
 
+<<<<<<< HEAD
 		// If URL wasn't corrected last time and doesn't start with http:, https:, ? # or /, prepend http://.
+=======
+		// If URL wasn't corrected last time and doesn't start with http:, https:, ? # or /, prepend http://
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		correctURL: function () {
 			var url = $.trim( inputs.url.val() );
 
@@ -154,24 +178,40 @@
 		refresh: function( url, text ) {
 			var linkText = '';
 
+<<<<<<< HEAD
 			// Refresh rivers (clear links, check visibility).
+=======
+			// Refresh rivers (clear links, check visibility)
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			rivers.search.refresh();
 			rivers.recent.refresh();
 
 			if ( wpLink.isMCE() ) {
 				wpLink.mceRefresh( url, text );
 			} else {
+<<<<<<< HEAD
 				// For the Text editor the "Link text" field is always shown.
+=======
+				// For the Text editor the "Link text" field is always shown
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( ! inputs.wrap.hasClass( 'has-text-field' ) ) {
 					inputs.wrap.addClass( 'has-text-field' );
 				}
 
 				if ( document.selection ) {
+<<<<<<< HEAD
 					// Old IE.
 					linkText = document.selection.createRange().text || text || '';
 				} else if ( typeof this.textarea.selectionStart !== 'undefined' &&
 					( this.textarea.selectionStart !== this.textarea.selectionEnd ) ) {
 					// W3C.
+=======
+					// Old IE
+					linkText = document.selection.createRange().text || text || '';
+				} else if ( typeof this.textarea.selectionStart !== 'undefined' &&
+					( this.textarea.selectionStart !== this.textarea.selectionEnd ) ) {
+					// W3C
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					text = this.textarea.value.substring( this.textarea.selectionStart, this.textarea.selectionEnd ) || text || '';
 				}
 
@@ -180,6 +220,7 @@
 			}
 
 			if ( isTouch ) {
+<<<<<<< HEAD
 				// Close the onscreen keyboard.
 				inputs.url.focus().blur();
 			} else {
@@ -188,6 +229,14 @@
 				 * If this is moved above the selection changes,
 				 * IE will show a flashing cursor over the dialog.
 				 */
+=======
+				// Close the onscreen keyboard
+				inputs.url.focus().blur();
+			} else {
+				// Focus the URL field and highlight its contents.
+				// If this is moved above the selection changes,
+				// IE will show a flashing cursor over the dialog.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				window.setTimeout( function() {
 					inputs.url[0].select();
 					inputs.url.focus();
@@ -205,7 +254,11 @@
 		hasSelectedText: function( linkNode ) {
 			var node, nodes, i, html = editor.selection.getContent();
 
+<<<<<<< HEAD
 			// Partial html and not a fully selected anchor element.
+=======
+			// Partial html and not a fully selected anchor element
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( /</.test( html ) && ( ! /^<a [^>]+>[^<]+<\/a>$/.test( html ) || html.indexOf('href=') === -1 ) ) {
 				return false;
 			}
@@ -261,7 +314,11 @@
 					inputs.search.val( '' );
 				}
 
+<<<<<<< HEAD
 				// Always reset the search.
+=======
+				// Always reset the search
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				window.setTimeout( function() {
 					wpLink.searchInternalLinks();
 				} );
@@ -360,11 +417,19 @@
 
 			html = wpLink.buildHtml(attrs);
 
+<<<<<<< HEAD
 			// Insert HTML.
 			if ( document.selection && wpLink.range ) {
 				// IE.
 				// Note: If no text is selected, IE will not place the cursor
 				// inside the closing tag.
+=======
+			// Insert HTML
+			if ( document.selection && wpLink.range ) {
+				// IE
+				// Note: If no text is selected, IE will not place the cursor
+				//       inside the closing tag.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				textarea.focus();
 				wpLink.range.text = html + ( text || wpLink.range.text ) + '</a>';
 				wpLink.range.moveToBookmark( wpLink.range.getBookmark() );
@@ -372,7 +437,11 @@
 
 				wpLink.range = null;
 			} else if ( typeof textarea.selectionStart !== 'undefined' ) {
+<<<<<<< HEAD
 				// W3C.
+=======
+				// W3C
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				begin = textarea.selectionStart;
 				end = textarea.selectionEnd;
 				selection = text || textarea.value.substring( begin, end );
@@ -390,7 +459,11 @@
 					textarea.value.substring( end, textarea.value.length )
 				);
 
+<<<<<<< HEAD
 				// Update cursor position.
+=======
+				// Update cursor position
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				textarea.selectionStart = textarea.selectionEnd = cursor;
 			}
 
@@ -486,10 +559,17 @@
 			selection = $.trim( selection );
 
 			if ( selection && emailRegexp.test( selection ) ) {
+<<<<<<< HEAD
 				// Selection is email address.
 				return 'mailto:' + selection;
 			} else if ( selection && urlRegexp.test( selection ) ) {
 				// Selection is URL.
+=======
+				// Selection is email address
+				return 'mailto:' + selection;
+			} else if ( selection && urlRegexp.test( selection ) ) {
+				// Selection is URL
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				return selection.replace( /&amp;|&#0?38;/gi, '&' );
 			}
 
@@ -509,10 +589,16 @@
 
 		searchInternalLinks: function() {
 			var waiting,
+<<<<<<< HEAD
 				search = inputs.search.val() || '',
 				minInputLength = parseInt( wpLinkL10n.minInputLength, 10 ) || 3;
 
 			if ( search.length >= minInputLength ) {
+=======
+				search = inputs.search.val() || '';
+
+			if ( search.length > 2 ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				rivers.recent.hide();
 				rivers.search.show();
 
@@ -555,7 +641,11 @@
 				id = event.target.id;
 
 				// wp-link-submit must always be the last focusable element in the dialog.
+<<<<<<< HEAD
 				// Following focusable elements will be skipped on keyboard navigation.
+=======
+				// following focusable elements will be skipped on keyboard navigation.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				if ( id === 'wp-link-submit' && ! event.shiftKey ) {
 					inputs.close.focus();
 					event.preventDefault();
@@ -658,18 +748,31 @@
 
 			this.deselect();
 			this.selected = li.addClass( 'selected' );
+<<<<<<< HEAD
 			// Make sure the element is visible.
+=======
+			// Make sure the element is visible
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			liHeight = li.outerHeight();
 			elHeight = this.element.height();
 			liTop = li.position().top;
 			elTop = this.element.scrollTop();
 
+<<<<<<< HEAD
 			if ( liTop < 0 ) // Make first visible element.
 				this.element.scrollTop( elTop + liTop );
 			else if ( liTop + liHeight > elHeight ) // Make last visible element.
 				this.element.scrollTop( elTop + liTop - elHeight + liHeight );
 
 			// Trigger the river-select event.
+=======
+			if ( liTop < 0 ) // Make first visible element
+				this.element.scrollTop( elTop + liTop );
+			else if ( liTop + liHeight > elHeight ) // Make last visible element
+				this.element.scrollTop( elTop + liTop - elHeight + liHeight );
+
+			// Trigger the river-select event
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			this.element.trigger( 'river-select', [ li, event, this ] );
 		},
 		deselect: function() {

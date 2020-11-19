@@ -51,7 +51,11 @@ span.shortcode input {
 }
 
 #submitpost input.delete:hover {
+<<<<<<< HEAD
 	color: #dc3232;
+=======
+	color: #f00;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 #submitpost input.delete:focus {
@@ -84,7 +88,11 @@ ul.config-error li {
 }
 
 [data-config-field][aria-invalid="true"] {
+<<<<<<< HEAD
 	border-color: #dc3232;
+=======
+	border-color: #d00;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 #contact-form-editor-tabs li a .icon-in-circle,
@@ -202,27 +210,44 @@ ul.config-error li {
 }
 
 .tag-generator-panel {
+<<<<<<< HEAD
 	height: 495px;
 	display: flex;
 	flex-direction: column;
+=======
+	position: relative;
+	height: 495px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .tag-generator-panel .control-box {
 	padding: 0;
 	margin: 0;
+<<<<<<< HEAD
 	overflow: auto;
 	flex-grow: 1;
 }
 
 .tag-generator-panel .control-box > fieldset > legend {
+=======
+	height: 380px;
+	overflow: auto;
+}
+
+.tag-generator-panel .control-box > fieldset legend {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	border: 1px solid #dfdfdf;
 	border-left: 4px solid #00a0d2;
 	background: #f7fcfe;
 	padding: 4px 12px;
 	margin: 4px 0;
 	line-height: 1.4em;
+<<<<<<< HEAD
 	width: 100%;
 	box-sizing: border-box;
+=======
+	width: 95%;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .tag-generator-panel table {
@@ -275,7 +300,17 @@ ul.config-error li {
 }
 
 .tag-generator-panel .insert-box {
+<<<<<<< HEAD
 	margin: 0 -15px -15px;
+=======
+	position: absolute;
+	left: -15px;
+	right: -15px;
+	bottom: -15px;
+	width: 100%;
+	height: 84px;
+	margin: 0;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	padding: 8px 16px;
 	background-color: #fcfcfc;
 	border-top: 1px solid #dfdfdf;
@@ -283,14 +318,22 @@ ul.config-error li {
 }
 
 .tag-generator-panel .insert-box input.tag {
+<<<<<<< HEAD
 	width: 510px;
+=======
+	width: 480px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	float: left;
 	background-color: transparent;
 	box-shadow: none;
 }
 
 .tag-generator-panel .insert-box .submitbox {
+<<<<<<< HEAD
 	padding: 0;
+=======
+	padding: 2px 4px;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .tag-generator-panel .insert-box .submitbox input[type="button"] {

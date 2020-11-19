@@ -7,7 +7,11 @@
  */
 
 //
+<<<<<<< HEAD
 // Category.
+=======
+// Category
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 //
 
 /**
@@ -73,7 +77,11 @@ function wp_create_category( $cat_name, $parent = 0 ) {
  *
  * @param string[] $categories Array of category names to create.
  * @param int      $post_id    Optional. The post ID. Default empty.
+<<<<<<< HEAD
  * @return int[] Array of IDs of categories assigned to the given post.
+=======
+ * @return array List of categories to create for the given post.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  */
 function wp_create_categories( $categories, $post_id = '' ) {
 	$cat_ids = array();
@@ -129,7 +137,11 @@ function wp_insert_category( $catarr, $wp_error = false ) {
 	);
 	$catarr       = wp_parse_args( $catarr, $cat_defaults );
 
+<<<<<<< HEAD
 	if ( '' === trim( $catarr['cat_name'] ) ) {
+=======
+	if ( trim( $catarr['cat_name'] ) == '' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! $wp_error ) {
 			return 0;
 		} else {
@@ -192,7 +204,11 @@ function wp_update_category( $catarr ) {
 		return false;
 	}
 
+<<<<<<< HEAD
 	// First, get all of the original fields.
+=======
+	// First, get all of the original fields
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	$category = get_term( $cat_ID, 'category', ARRAY_A );
 	_make_cat_compat( $category );
 
@@ -206,7 +222,11 @@ function wp_update_category( $catarr ) {
 }
 
 //
+<<<<<<< HEAD
 // Tags.
+=======
+// Tags
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 //
 
 /**
@@ -300,8 +320,13 @@ function get_terms_to_edit( $post_id, $taxonomy = 'post_tag' ) {
  *
  * @since 2.8.0
  *
+<<<<<<< HEAD
  * @param string $tag_name The term name.
  * @param string $taxonomy Optional. The taxonomy within which to create the term. Default 'post_tag'.
+=======
+ * @param int|string $tag_name
+ * @param string $taxonomy Optional. The taxonomy for which to retrieve terms. Default 'post_tag'.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
  * @return array|WP_Error
  */
 function wp_create_term( $tag_name, $taxonomy = 'post_tag' ) {

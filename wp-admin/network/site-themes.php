@@ -8,7 +8,11 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_sites' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage themes for this site.' ) );
@@ -158,9 +162,15 @@ if ( $action ) {
 	exit;
 }
 
+<<<<<<< HEAD
 if ( isset( $_GET['action'] ) && 'update-site' === $_GET['action'] ) {
 	wp_safe_redirect( $referer );
 	exit;
+=======
+if ( isset( $_GET['action'] ) && 'update-site' == $_GET['action'] ) {
+	wp_safe_redirect( $referer );
+	exit();
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 add_thickbox();
@@ -172,7 +182,11 @@ $title = sprintf( __( 'Edit Site: %s' ), esc_html( $details->blogname ) );
 $parent_file  = 'sites.php';
 $submenu_file = 'sites.php';
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php'; ?>
+=======
+require( ABSPATH . 'wp-admin/admin-header.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 <div class="wrap">
 <h1 id="edit-site"><?php echo $title; ?></h1>
@@ -188,7 +202,11 @@ network_edit_site_nav(
 
 if ( isset( $_GET['enabled'] ) ) {
 	$enabled = absint( $_GET['enabled'] );
+<<<<<<< HEAD
 	if ( 1 === $enabled ) {
+=======
+	if ( 1 == $enabled ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$message = __( 'Theme enabled.' );
 	} else {
 		/* translators: %s: Number of themes. */
@@ -197,14 +215,22 @@ if ( isset( $_GET['enabled'] ) ) {
 	echo '<div id="message" class="updated notice is-dismissible"><p>' . sprintf( $message, number_format_i18n( $enabled ) ) . '</p></div>';
 } elseif ( isset( $_GET['disabled'] ) ) {
 	$disabled = absint( $_GET['disabled'] );
+<<<<<<< HEAD
 	if ( 1 === $disabled ) {
+=======
+	if ( 1 == $disabled ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$message = __( 'Theme disabled.' );
 	} else {
 		/* translators: %s: Number of themes. */
 		$message = _n( '%s theme disabled.', '%s themes disabled.', $disabled );
 	}
 	echo '<div id="message" class="updated notice is-dismissible"><p>' . sprintf( $message, number_format_i18n( $disabled ) ) . '</p></div>';
+<<<<<<< HEAD
 } elseif ( isset( $_GET['error'] ) && 'none' === $_GET['error'] ) {
+=======
+} elseif ( isset( $_GET['error'] ) && 'none' == $_GET['error'] ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	echo '<div id="message" class="error notice is-dismissible"><p>' . __( 'No theme selected.' ) . '</p></div>';
 }
 ?>
@@ -226,4 +252,8 @@ if ( isset( $_GET['enabled'] ) ) {
 </form>
 
 </div>
+<<<<<<< HEAD
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
+=======
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

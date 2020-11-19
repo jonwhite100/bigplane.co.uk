@@ -7,7 +7,11 @@
  */
 
 /** WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'erase_others_personal_data' ) || ! current_user_can( 'delete_users' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to erase data on this site.' ) );
@@ -47,7 +51,11 @@ $requests_table->screen->set_screen_reader_content(
 $requests_table->process_bulk_action();
 $requests_table->prepare_items();
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 ?>
 
 <div class="wrap nosubsub">
@@ -62,7 +70,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 		<div class="wp-privacy-request-form-field">
 			<label for="username_or_email_for_privacy_request"><?php esc_html_e( 'Username or email address' ); ?></label>
+<<<<<<< HEAD
 			<input type="text" required class="regular-text ltr" id="username_or_email_for_privacy_request" name="username_or_email_for_privacy_request" />
+=======
+			<input type="text" required class="regular-text" id="username_or_email_for_privacy_request" name="username_or_email_for_privacy_request" />
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<?php submit_button( __( 'Send Request' ), 'secondary', 'submit', false ); ?>
 		</div>
 		<?php wp_nonce_field( 'personal-data-request' ); ?>
@@ -89,4 +101,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 </div>
 
 <?php
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

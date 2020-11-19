@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /*! This file is auto-generated */
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .site-health #wpcontent,
 .site-health.auto-fold #wpcontent {
 	padding-right: 0;
@@ -204,16 +207,34 @@
 }
 
 .site-health-copy-buttons .copy-button-wrapper {
+<<<<<<< HEAD
 	display: inline-flex;
 	align-items: center;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	margin: 0.5rem 0 1rem;
 }
 
 .site-health-copy-buttons .success {
+<<<<<<< HEAD
 	color: #40860a;
 	margin-right: 0.5rem;
 }
 
+=======
+	display: none;
+	color: #40860a;
+	line-height: 1.8;
+	margin-right: 0.5rem;
+}
+
+.site-health-copy-buttons .success.visible {
+	display: inline-block;
+	height: 28px;
+	line-height: 2.2;
+}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 .site-status-has-issues.hide {
 	display: none;
 }
@@ -299,10 +320,13 @@
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
+<<<<<<< HEAD
 	-webkit-user-select: auto;
 	-moz-user-select: auto;
 	-ms-user-select: auto;
 	user-select: auto;
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .wp-core-ui .button.site-health-view-passed {
@@ -320,9 +344,14 @@
 	color: #191e23;
 	border: none;
 	box-shadow: none;
+<<<<<<< HEAD
 	outline-offset: -1px;
 	outline: 2px solid #0071a1;
 	background-color: #f8f9f9;
+=======
+	outline-offset: -2px;
+	outline: 1px dotted #555d66;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 .health-check-accordion-trigger .title {
@@ -451,10 +480,13 @@
 		padding-bottom: 0;
 		font-weight: 600;
 	}
+<<<<<<< HEAD
 
 	.wp-core-ui .site-health-copy-buttons .copy-button {
 		margin-bottom: 0;
 	}
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 }
 
 /* The breakpoint is usually at 960px, the additional space is to allow for the margin. */

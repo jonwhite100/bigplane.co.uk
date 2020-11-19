@@ -61,7 +61,11 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Registers the routes for revisions based on post types supporting revisions.
+=======
+	 * Registers routes for revisions based on post types supporting revisions.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @since 4.7.0
 	 *
@@ -138,11 +142,15 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 	 * @return WP_Post|WP_Error Post object if ID is valid, WP_Error otherwise.
 	 */
 	protected function get_parent( $parent ) {
+<<<<<<< HEAD
 		$error = new WP_Error(
 			'rest_post_invalid_parent',
 			__( 'Invalid post parent ID.' ),
 			array( 'status' => 404 )
 		);
+=======
+		$error = new WP_Error( 'rest_post_invalid_parent', __( 'Invalid post parent ID.' ), array( 'status' => 404 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( (int) $parent <= 0 ) {
 			return $error;
 		}
@@ -160,7 +168,11 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
 	 */
 	public function get_items_permissions_check( $request ) {
@@ -169,12 +181,18 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 			return $parent;
 		}
 
+<<<<<<< HEAD
 		if ( ! current_user_can( 'edit_post', $parent->ID ) ) {
 			return new WP_Error(
 				'rest_cannot_read',
 				__( 'Sorry, you are not allowed to view revisions of this post.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
+=======
+		$parent_post_type_obj = get_post_type_object( $parent->post_type );
+		if ( ! current_user_can( $parent_post_type_obj->cap->edit_post, $parent->ID ) ) {
+			return new WP_Error( 'rest_cannot_read', __( 'Sorry, you are not allowed to view revisions of this post.' ), array( 'status' => rest_authorization_required_code() ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		return true;
@@ -189,12 +207,16 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 	 * @return WP_Post|WP_Error Revision post object if ID is valid, WP_Error otherwise.
 	 */
 	protected function get_revision( $id ) {
+<<<<<<< HEAD
 		$error = new WP_Error(
 			'rest_post_invalid_id',
 			__( 'Invalid revision ID.' ),
 			array( 'status' => 404 )
 		);
 
+=======
+		$error = new WP_Error( 'rest_post_invalid_id', __( 'Invalid revision ID.' ), array( 'status' => 404 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( (int) $id <= 0 ) {
 			return $error;
 		}
@@ -212,7 +234,11 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_items( $request ) {
@@ -223,20 +249,28 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 
 		// Ensure a search string is set in case the orderby is set to 'relevance'.
 		if ( ! empty( $request['orderby'] ) && 'relevance' === $request['orderby'] && empty( $request['search'] ) ) {
+<<<<<<< HEAD
 			return new WP_Error(
 				'rest_no_search_term_defined',
 				__( 'You need to define a search term to order by relevance.' ),
 				array( 'status' => 400 )
 			);
+=======
+			return new WP_Error( 'rest_no_search_term_defined', __( 'You need to define a search term to order by relevance.' ), array( 'status' => 400 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		// Ensure an include parameter is set in case the orderby is set to 'include'.
 		if ( ! empty( $request['orderby'] ) && 'include' === $request['orderby'] && empty( $request['include'] ) ) {
+<<<<<<< HEAD
 			return new WP_Error(
 				'rest_orderby_include_missing_include',
 				__( 'You need to define an include parameter to order by include.' ),
 				array( 'status' => 400 )
 			);
+=======
+			return new WP_Error( 'rest_orderby_include_missing_include', __( 'You need to define an include parameter to order by include.' ), array( 'status' => 400 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		if ( wp_revisions_enabled( $parent ) ) {
@@ -301,6 +335,7 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 
 			if ( $total_revisions > 0 ) {
 				if ( $offset >= $total_revisions ) {
+<<<<<<< HEAD
 					return new WP_Error(
 						'rest_revision_invalid_offset_number',
 						__( 'The offset number requested is larger than or equal to the number of available revisions.' ),
@@ -312,6 +347,11 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 						__( 'The page number requested is larger than the number of pages available.' ),
 						array( 'status' => 400 )
 					);
+=======
+					return new WP_Error( 'rest_revision_invalid_offset_number', __( 'The offset number requested is larger than or equal to the number of available revisions.' ), array( 'status' => 400 ) );
+				} elseif ( ! $offset && $page > $max_pages ) {
+					return new WP_Error( 'rest_revision_invalid_page_number', __( 'The page number requested is larger than the number of pages available.' ), array( 'status' => 400 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				}
 			}
 		} else {
@@ -322,7 +362,10 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 		}
 
 		$response = array();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $revisions as $revision ) {
 			$data       = $this->prepare_item_for_response( $revision, $request );
 			$response[] = $this->prepare_response_for_collection( $data );
@@ -361,7 +404,11 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return bool|WP_Error True if the request has read access for the item, WP_Error object otherwise.
 	 */
 	public function get_item_permissions_check( $request ) {
@@ -373,7 +420,11 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 	 *
 	 * @since 4.7.0
 	 *
+<<<<<<< HEAD
 	 * @param WP_REST_Request $request Full details about the request.
+=======
+	 * @param WP_REST_Request $request Full data about the request.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_item( $request ) {
@@ -382,6 +433,14 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 			return $parent;
 		}
 
+<<<<<<< HEAD
+=======
+		$parent_post_type = get_post_type_object( $parent->post_type );
+		if ( ! current_user_can( $parent_post_type->cap->delete_post, $parent->ID ) ) {
+			return new WP_Error( 'rest_cannot_delete', __( 'Sorry, you are not allowed to delete revisions of this post.' ), array( 'status' => rest_authorization_required_code() ) );
+		}
+
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$revision = $this->get_revision( $request['id'] );
 		if ( is_wp_error( $revision ) ) {
 			return $revision;
@@ -405,6 +464,7 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 			return $parent;
 		}
 
+<<<<<<< HEAD
 		$parent_post_type = get_post_type_object( $parent->post_type );
 
 		if ( ! current_user_can( 'delete_post', $parent->ID ) ) {
@@ -415,6 +475,8 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 			);
 		}
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$revision = $this->get_revision( $request['id'] );
 		if ( is_wp_error( $revision ) ) {
 			return $revision;
@@ -425,12 +487,19 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 			return $response;
 		}
 
+<<<<<<< HEAD
 		if ( ! current_user_can( 'delete_post', $revision->ID ) ) {
 			return new WP_Error(
 				'rest_cannot_delete',
 				__( 'Sorry, you are not allowed to delete this revision.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
+=======
+		$post_type = get_post_type_object( 'revision' );
+
+		if ( ! current_user_can( $post_type->cap->delete_post, $revision->ID ) ) {
+			return new WP_Error( 'rest_cannot_delete', __( 'Sorry, you are not allowed to delete this revision.' ), array( 'status' => rest_authorization_required_code() ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		return true;
@@ -442,7 +511,11 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 	 * @since 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
+<<<<<<< HEAD
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
+=======
+	 * @return true|WP_Error True on success, or WP_Error object on failure.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	public function delete_item( $request ) {
 		$revision = $this->get_revision( $request['id'] );
@@ -454,12 +527,17 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 
 		// We don't support trashing for revisions.
 		if ( ! $force ) {
+<<<<<<< HEAD
 			return new WP_Error(
 				'rest_trash_not_supported',
 				/* translators: %s: force=true */
 				sprintf( __( "Revisions do not support trashing. Set '%s' to delete." ), 'force=true' ),
 				array( 'status' => 501 )
 			);
+=======
+			/* translators: %s: force=true */
+			return new WP_Error( 'rest_trash_not_supported', sprintf( __( "Revisions do not support trashing. Set '%s' to delete." ), 'force=true' ), array( 'status' => 501 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		$previous = $this->prepare_item_for_response( $revision, $request );
@@ -471,19 +549,29 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 		 *
 		 * @since 4.7.0
 		 *
+<<<<<<< HEAD
 		 * @param WP_Post|false|null $result The revision object (if it was deleted or moved to the Trash successfully)
 		 *                                   or false or null (failure). If the revision was moved to the Trash, $result represents
 		 *                                   its new state; if it was deleted, $result represents its state before deletion.
+=======
+		 * @param (mixed) $result The revision object (if it was deleted or moved to the trash successfully)
+		 *                        or false (failure). If the revision was moved to the trash, $result represents
+		 *                        its new state; if it was deleted, $result represents its state before deletion.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 * @param WP_REST_Request $request The request sent to the API.
 		 */
 		do_action( 'rest_delete_revision', $result, $request );
 
 		if ( ! $result ) {
+<<<<<<< HEAD
 			return new WP_Error(
 				'rest_cannot_delete',
 				__( 'The post cannot be deleted.' ),
 				array( 'status' => 500 )
 			);
+=======
+			return new WP_Error( 'rest_cannot_delete', __( 'The post cannot be deleted.' ), array( 'status' => 500 ) );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		}
 
 		$response = new WP_REST_Response();
@@ -745,7 +833,10 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 		}
 
 		$this->schema = $schema;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		return $this->add_additional_fields_schema( $this->schema );
 	}
 

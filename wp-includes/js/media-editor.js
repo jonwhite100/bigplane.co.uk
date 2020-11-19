@@ -19,9 +19,15 @@
 	 *   passed as an input that expects booleans. If key is undefined in the map,
 	 *   but has a default value, set it.
 	 *
+<<<<<<< HEAD
 	 * @param {Object} attrs Map of props from a shortcode or settings.
 	 * @param {string} key The key within the passed map to check for a value.
 	 * @return {mixed|undefined} The original or coerced value of key within attrs.
+=======
+	 * @param {object} attrs Map of props from a shortcode or settings.
+	 * @param {string} key The key within the passed map to check for a value.
+	 * @returns {mixed|undefined} The original or coerced value of key within attrs
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 */
 	wp.media.coerce = function ( attrs, key ) {
 		if ( _.isUndefined( attrs[ key ] ) && ! _.isUndefined( this.defaults[ key ] ) ) {
@@ -43,7 +49,11 @@
 		 *
 		 * @param {Object} [props={}] Attachment details (align, link, size, etc).
 		 * @param {Object} attachment The attachment object, media version of Post.
+<<<<<<< HEAD
 		 * @return {Object} Joined props
+=======
+		 * @returns {Object} Joined props
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		props: function( props, attachment ) {
 			var link, linkUrl, size, sizes,
@@ -109,7 +119,11 @@
 		 *
 		 * @param {Object} props Attachment details (align, link, size, etc).
 		 * @param {Object} attachment The attachment object, media version of Post.
+<<<<<<< HEAD
 		 * @return {string} The link markup
+=======
+		 * @returns {string} The link markup
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		link: function( props, attachment ) {
 			var options;
@@ -135,7 +149,11 @@
 		 *
 		 * @param {Object} props Attachment details (align, link, size, etc).
 		 * @param {Object} attachment The attachment object, media version of Post.
+<<<<<<< HEAD
 		 * @return {string} The audio shortcode
+=======
+		 * @returns {string} The audio shortcode
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		audio: function( props, attachment ) {
 			return wp.media.string._audioVideo( 'audio', props, attachment );
@@ -145,7 +163,11 @@
 		 *
 		 * @param {Object} props Attachment details (align, link, size, etc).
 		 * @param {Object} attachment The attachment object, media version of Post.
+<<<<<<< HEAD
 		 * @return {string} The video shortcode
+=======
+		 * @returns {string} The video shortcode
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		video: function( props, attachment ) {
 			return wp.media.string._audioVideo( 'video', props, attachment );
@@ -158,15 +180,24 @@
 		 * @param {string} type The shortcode tag name: 'audio' or 'video'.
 		 * @param {Object} props Attachment details (align, link, size, etc).
 		 * @param {Object} attachment The attachment object, media version of Post.
+<<<<<<< HEAD
 		 * @return {string} The media shortcode
+=======
+		 * @returns {string} The media shortcode
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		_audioVideo: function( type, props, attachment ) {
 			var shortcode, html, extension;
 
 			props = wp.media.string.props( props, attachment );
+<<<<<<< HEAD
 			if ( props.link !== 'embed' ) {
 				return wp.media.string.link( props );
 			}
+=======
+			if ( props.link !== 'embed' )
+				return wp.media.string.link( props );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 			shortcode = {};
 
@@ -206,7 +237,11 @@
 		 *
 		 * @param {Object} props Attachment details (align, link, size, etc).
 		 * @param {Object} attachment The attachment object, media version of Post.
+<<<<<<< HEAD
 		 * @return {string}
+=======
+		 * @returns {string}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		image: function( props, attachment ) {
 			var img = {},
@@ -346,10 +381,17 @@
 			 * Retrieve attachments based on the properties of the passed shortcode
 			 *
 			 * @param {wp.shortcode} shortcode An instance of wp.shortcode().
+<<<<<<< HEAD
 			 * @return {wp.media.model.Attachments} A Backbone.Collection containing
 			 *                                      the media items belonging to a collection.
 			 *                                      The query[ this.tag ] property is a Backbone.Model
 			 *                                      containing the 'props' for the collection.
+=======
+			 * @returns {wp.media.model.Attachments} A Backbone.Collection containing
+			 *      the media items belonging to a collection.
+			 *      The query[ this.tag ] property is a Backbone.Model
+			 *          containing the 'props' for the collection.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			attachments: function( shortcode ) {
 				var shortcodeString = shortcode.string(),
@@ -415,7 +457,11 @@
 			 *      the media items belonging to a collection.
 			 *      The query[ this.tag ] property is a Backbone.Model
 			 *          containing the 'props' for the collection.
+<<<<<<< HEAD
 			 * @return {wp.shortcode}
+=======
+			 * @returns {wp.shortcode}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			shortcode: function( attachments ) {
 				var props = attachments.props.toJSON(),
@@ -431,11 +477,17 @@
 					_.extend( attrs, attachments[this.tag].toJSON() );
 				}
 
+<<<<<<< HEAD
 				/*
 				 * Convert all gallery shortcodes to use the `ids` property.
 				 * Ignore `post__in` and `post__not_in`; the attachments in
 				 * the collection will already reflect those properties.
 				 */
+=======
+				// Convert all gallery shortcodes to use the `ids` property.
+				// Ignore `post__in` and `post__not_in`; the attachments in
+				// the collection will already reflect those properties.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				attrs.ids = attachments.pluck('id');
 
 				// Copy the `uploadedTo` post ID.
@@ -447,7 +499,11 @@
 
 				if ( attrs._orderbyRandom ) {
 					attrs.orderby = 'rand';
+<<<<<<< HEAD
 				} else if ( attrs._orderByField && 'rand' !== attrs._orderByField ) {
+=======
+				} else if ( attrs._orderByField && attrs._orderByField != 'rand' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					attrs.orderby = attrs._orderByField;
 				}
 
@@ -486,7 +542,11 @@
 			 *
 			 * @this wp.media.{prop}
 			 *
+<<<<<<< HEAD
 			 * @return {wp.media.view.MediaFrame.Select} A media workflow.
+=======
+			 * @returns {wp.media.view.MediaFrame.Select} A media workflow.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			edit: function( content ) {
 				var shortcode = wp.shortcode.next( this.tag, content ),
@@ -606,7 +666,11 @@
 		/**
 		 * Get the featured image post ID
 		 *
+<<<<<<< HEAD
 		 * @return {wp.media.view.settings.post.featuredImageId|number}
+=======
+		 * @returns {wp.media.view.settings.post.featuredImageId|number}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		get: function() {
 			return wp.media.view.settings.post.featuredImageId;
@@ -626,8 +690,13 @@
 				thumbnail_id: settings.post.featuredImageId,
 				_wpnonce:     settings.post.nonce
 			}).done( function( html ) {
+<<<<<<< HEAD
 				if ( '0' === html ) {
 					window.alert( wp.i18n.__( 'Could not set that as the thumbnail image. Try a different attachment.' ) );
+=======
+				if ( html == '0' ) {
+					window.alert( window.setPostThumbnailL10n.error );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					return;
 				}
 				$( '.inside', '#postimagediv' ).html( html );
@@ -645,7 +714,11 @@
 		 *
 		 * @this wp.media.featuredImage
 		 *
+<<<<<<< HEAD
 		 * @return {wp.media.view.MediaFrame.Select} A media workflow.
+=======
+		 * @returns {wp.media.view.MediaFrame.Select} A media workflow.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		frame: function() {
 			if ( this._frame ) {
@@ -673,7 +746,11 @@
 
 				this.content.set( view );
 
+<<<<<<< HEAD
 				// After bringing in the frame, load the actual editor via an Ajax call.
+=======
+				// after bringing in the frame, load the actual editor via an ajax call
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				view.loadEditor();
 
 			}, this._frame );
@@ -736,11 +813,17 @@
 				wpActiveEditor = window.wpActiveEditor;
 			}
 
+<<<<<<< HEAD
 			/*
 			 * Delegate to the global `send_to_editor` if it exists.
 			 * This attempts to play nice with any themes/plugins
 			 * that have overridden the insert functionality.
 			 */
+=======
+			// Delegate to the global `send_to_editor` if it exists.
+			// This attempts to play nice with any themes/plugins that have
+			// overridden the insert functionality.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( window.send_to_editor ) {
 				return window.send_to_editor.apply( this, arguments );
 			}
@@ -780,12 +863,20 @@
 		 *
 		 * @this wp.media.editor
 		 *
+<<<<<<< HEAD
 		 * @return {wp.media.view.MediaFrame.Select} A media workflow.
+=======
+		 * @returns {wp.media.view.MediaFrame.Select} A media workflow.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		add: function( id, options ) {
 			var workflow = this.get( id );
 
+<<<<<<< HEAD
 			// Only add once: if exists return existing.
+=======
+			// only add once: if exists return existing
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( workflow ) {
 				return workflow;
 			}
@@ -802,9 +893,14 @@
 
 				selection = selection || state.get('selection');
 
+<<<<<<< HEAD
 				if ( ! selection ) {
 					return;
 				}
+=======
+				if ( ! selection )
+					return;
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 				$.when.apply( $, selection.map( function( attachment ) {
 					var display = state.display( attachment ).toJSON();
@@ -885,7 +981,11 @@
 		 *
 		 * @param {string} [id=''] A slug used to identify the workflow.
 		 *
+<<<<<<< HEAD
 		 * @return {wpActiveEditor|string|tinymce.activeEditor.id}
+=======
+		 * @returns {wpActiveEditor|string|tinymce.activeEditor.id}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		id: function( id ) {
 			if ( id ) {
@@ -911,7 +1011,11 @@
 		 *
 		 * @this wp.media.editor
 		 *
+<<<<<<< HEAD
 		 * @return {wp.media.view.MediaFrame} A media workflow.
+=======
+		 * @returns {wp.media.view.MediaFrame} A media workflow.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		get: function( id ) {
 			id = this.id( id );
@@ -936,7 +1040,11 @@
 			 *
 			 * @param {Object} props Attachment details (align, link, size, etc).
 			 * @param {Object} attachment The attachment object, media version of Post.
+<<<<<<< HEAD
 			 * @return {Promise}
+=======
+			 * @returns {Promise}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			attachment: function( props, attachment ) {
 				var caption = attachment.caption,
@@ -967,9 +1075,14 @@
 						size:  'image-size',
 						alt:   'image_alt'
 					}, function( option, prop ) {
+<<<<<<< HEAD
 						if ( props[ prop ] ) {
 							options[ option ] = props[ prop ];
 						}
+=======
+						if ( props[ prop ] )
+							options[ option ] = props[ prop ];
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					});
 				} else if ( 'video' === attachment.type ) {
 					html = wp.media.string.video( props, attachment );
@@ -991,7 +1104,11 @@
 			 * Called when 'Insert From URL' source is not an image. Example: YouTube url.
 			 *
 			 * @param {Object} embed
+<<<<<<< HEAD
 			 * @return {Promise}
+=======
+			 * @returns {Promise}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			 */
 			link: function( embed ) {
 				return wp.media.post( 'send-link-to-editor', {
@@ -1011,7 +1128,11 @@
 		 *
 		 * @this wp.media.editor
 		 *
+<<<<<<< HEAD
 		 * @return {wp.media.view.MediaFrame}
+=======
+		 * @returns {wp.media.view.MediaFrame}
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		 */
 		open: function( id, options ) {
 			var workflow;
@@ -1023,7 +1144,11 @@
 
 			workflow = this.get( id );
 
+<<<<<<< HEAD
 			// Redo workflow if state has changed.
+=======
+			// Redo workflow if state has changed
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( ! workflow || ( workflow.options && options.state !== workflow.options.state ) ) {
 				workflow = this.add( id, options );
 			}

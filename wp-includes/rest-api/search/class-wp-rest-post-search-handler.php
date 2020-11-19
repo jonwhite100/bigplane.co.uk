@@ -148,7 +148,11 @@ class WP_REST_Post_Search_Handler extends WP_REST_Search_Handler {
 
 		$links = array();
 
+<<<<<<< HEAD
 		$item_route = rest_get_route_for_post( $post );
+=======
+		$item_route = $this->detect_rest_item_route( $post );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! empty( $item_route ) ) {
 			$links['self'] = array(
 				'href'       => rest_url( $item_route ),
@@ -182,16 +186,36 @@ class WP_REST_Post_Search_Handler extends WP_REST_Search_Handler {
 	 * Attempts to detect the route to access a single item.
 	 *
 	 * @since 5.0.0
+<<<<<<< HEAD
 	 * @deprecated 5.5.0 Use rest_get_route_for_post()
 	 * @see rest_get_route_for_post()
+=======
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	 *
 	 * @param WP_Post $post Post object.
 	 * @return string REST route relative to the REST base URI, or empty string if unknown.
 	 */
 	protected function detect_rest_item_route( $post ) {
+<<<<<<< HEAD
 		_deprecated_function( __METHOD__, '5.5.0', 'rest_get_route_for_post()' );
 
 		return rest_get_route_for_post( $post );
+=======
+		$post_type = get_post_type_object( $post->post_type );
+		if ( ! $post_type ) {
+			return '';
+		}
+
+		// It's currently impossible to detect the REST URL from a custom controller.
+		if ( ! empty( $post_type->rest_controller_class ) && 'WP_REST_Posts_Controller' !== $post_type->rest_controller_class ) {
+			return '';
+		}
+
+		$namespace = 'wp/v2';
+		$rest_base = ! empty( $post_type->rest_base ) ? $post_type->rest_base : $post_type->name;
+
+		return sprintf( '%s/%s/%d', $namespace, $rest_base, $post->ID );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 
 }

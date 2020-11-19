@@ -61,13 +61,21 @@ tinymce.PluginManager.add( 'wpautoresize', function( editor ) {
 		if ( ! body || ( e && e.type === 'setcontent' && e.initial ) || isFullscreen() ) {
 			if ( body && docElm ) {
 				body.style.overflowY = 'auto';
+<<<<<<< HEAD
 				docElm.style.overflowY = 'auto'; // Old IE.
+=======
+				docElm.style.overflowY = 'auto'; // Old IE
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			}
 
 			return;
 		}
 
+<<<<<<< HEAD
 		// Calculate outer height of the body element using CSS styles.
+=======
+		// Calculate outer height of the body element using CSS styles
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		marginTop = editor.dom.getStyle( body, 'margin-top', true );
 		marginBottom = editor.dom.getStyle( body, 'margin-bottom', true );
 		paddingTop = editor.dom.getStyle( body, 'padding-top', true );
@@ -83,6 +91,7 @@ tinymce.PluginManager.add( 'wpautoresize', function( editor ) {
 			myHeight = docElm.offsetHeight;
 		}
 
+<<<<<<< HEAD
 		// Make sure we have a valid height.
 		if ( isNaN( myHeight ) || myHeight <= 0 ) {
 			// Get height differently depending on the browser used.
@@ -90,10 +99,20 @@ tinymce.PluginManager.add( 'wpautoresize', function( editor ) {
 		}
 
 		// Don't make it smaller than the minimum height.
+=======
+		// Make sure we have a valid height
+		if ( isNaN( myHeight ) || myHeight <= 0 ) {
+			// Get height differently depending on the browser used
+			myHeight = tinymce.Env.ie ? body.scrollHeight : ( tinymce.Env.webkit && body.clientHeight === 0 ? 0 : body.offsetHeight );
+		}
+
+		// Don't make it smaller than the minimum height
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( myHeight > settings.autoresize_min_height ) {
 			resizeHeight = myHeight;
 		}
 
+<<<<<<< HEAD
 		// If a maximum height has been defined don't exceed this height.
 		if ( settings.autoresize_max_height && myHeight > settings.autoresize_max_height ) {
 			resizeHeight = settings.autoresize_max_height;
@@ -106,13 +125,32 @@ tinymce.PluginManager.add( 'wpautoresize', function( editor ) {
 		}
 
 		// Resize content element.
+=======
+		// If a maximum height has been defined don't exceed this height
+		if ( settings.autoresize_max_height && myHeight > settings.autoresize_max_height ) {
+			resizeHeight = settings.autoresize_max_height;
+			body.style.overflowY = 'auto';
+			docElm.style.overflowY = 'auto'; // Old IE
+		} else {
+			body.style.overflowY = 'hidden';
+			docElm.style.overflowY = 'hidden'; // Old IE
+			body.scrollTop = 0;
+		}
+
+		// Resize content element
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if (resizeHeight !== oldSize) {
 			deltaSize = resizeHeight - oldSize;
 			DOM.setStyle( editor.iframeElement, 'height', resizeHeight + 'px' );
 			oldSize = resizeHeight;
 
+<<<<<<< HEAD
 			// WebKit doesn't decrease the size of the body element until the iframe gets resized.
 			// So we need to continue to resize the iframe down until the size gets fixed.
+=======
+			// WebKit doesn't decrease the size of the body element until the iframe gets resized
+			// So we need to continue to resize the iframe down until the size gets fixed
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			if ( tinymce.isWebKit && deltaSize < 0 ) {
 				resize( e );
 			}
@@ -137,17 +175,28 @@ tinymce.PluginManager.add( 'wpautoresize', function( editor ) {
 		}, interval );
 	}
 
+<<<<<<< HEAD
 	// Define minimum height.
 	settings.autoresize_min_height = parseInt(editor.getParam( 'autoresize_min_height', editor.getElement().offsetHeight), 10 );
 
 	// Define maximum height.
+=======
+	// Define minimum height
+	settings.autoresize_min_height = parseInt(editor.getParam( 'autoresize_min_height', editor.getElement().offsetHeight), 10 );
+
+	// Define maximum height
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	settings.autoresize_max_height = parseInt(editor.getParam( 'autoresize_max_height', 0), 10 );
 
 	function on() {
 		if ( ! editor.dom.hasClass( editor.getBody(), 'wp-autoresize' ) ) {
 			isActive = true;
 			editor.dom.addClass( editor.getBody(), 'wp-autoresize' );
+<<<<<<< HEAD
 			// Add appropriate listeners for resizing the content area.
+=======
+			// Add appropriate listeners for resizing the content area
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			editor.on( 'nodechange setcontent keyup FullscreenStateChanged', resize );
 			resize();
 		}
@@ -156,20 +205,32 @@ tinymce.PluginManager.add( 'wpautoresize', function( editor ) {
 	function off() {
 		var doc;
 
+<<<<<<< HEAD
 		// Don't turn off if the setting is 'on'.
+=======
+		// Don't turn off if the setting is 'on'
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		if ( ! settings.wp_autoresize_on ) {
 			isActive = false;
 			doc = editor.getDoc();
 			editor.dom.removeClass( editor.getBody(), 'wp-autoresize' );
 			editor.off( 'nodechange setcontent keyup FullscreenStateChanged', resize );
 			doc.body.style.overflowY = 'auto';
+<<<<<<< HEAD
 			doc.documentElement.style.overflowY = 'auto'; // Old IE.
+=======
+			doc.documentElement.style.overflowY = 'auto'; // Old IE
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			oldSize = 0;
 		}
 	}
 
 	if ( settings.wp_autoresize_on ) {
+<<<<<<< HEAD
 		// Turn resizing on when the editor loads.
+=======
+		// Turn resizing on when the editor loads
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		isActive = true;
 
 		editor.on( 'init', function() {
@@ -184,24 +245,41 @@ tinymce.PluginManager.add( 'wpautoresize', function( editor ) {
 
 		if ( editor.getParam( 'autoresize_on_init', true ) ) {
 			editor.on( 'init', function() {
+<<<<<<< HEAD
 				// Hit it 10 times in 200 ms intervals.
 				wait( 10, 200, function() {
 					// Hit it 5 times in 1 sec intervals.
+=======
+				// Hit it 10 times in 200 ms intervals
+				wait( 10, 200, function() {
+					// Hit it 5 times in 1 sec intervals
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 					wait( 5, 1000 );
 				});
 			});
 		}
 	}
 
+<<<<<<< HEAD
 	// Reset the stored size.
+=======
+	// Reset the stored size
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	editor.on( 'show', function() {
 		oldSize = 0;
 	});
 
+<<<<<<< HEAD
 	// Register the command.
 	editor.addCommand( 'wpAutoResize', resize );
 
 	// On/off.
+=======
+	// Register the command
+	editor.addCommand( 'wpAutoResize', resize );
+
+	// On/off
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	editor.addCommand( 'wpAutoResizeOn', on );
 	editor.addCommand( 'wpAutoResizeOff', off );
 });

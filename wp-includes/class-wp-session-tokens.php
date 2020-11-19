@@ -143,7 +143,11 @@ abstract class WP_Session_Tokens {
 			$session['ua'] = wp_unslash( $_SERVER['HTTP_USER_AGENT'] );
 		}
 
+<<<<<<< HEAD
 		// Timestamp.
+=======
+		// Timestamp
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		$session['login'] = time();
 
 		$token = wp_generate_password( 43, false, false );

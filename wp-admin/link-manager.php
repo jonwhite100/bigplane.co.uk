@@ -7,14 +7,22 @@
  */
 
 /** Load WordPress Administration Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 if ( ! current_user_can( 'manage_links' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to edit the links for this site.' ) );
 }
 
 $wp_list_table = _get_list_table( 'WP_Links_List_Table' );
 
+<<<<<<< HEAD
 // Handle bulk deletes.
+=======
+// Handle bulk deletes
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $doaction = $wp_list_table->current_action();
 
 if ( $doaction && isset( $_REQUEST['linkcheck'] ) ) {
@@ -23,7 +31,11 @@ if ( $doaction && isset( $_REQUEST['linkcheck'] ) ) {
 	$redirect_to = admin_url( 'link-manager.php' );
 	$bulklinks   = (array) $_REQUEST['linkcheck'];
 
+<<<<<<< HEAD
 	if ( 'delete' === $doaction ) {
+=======
+	if ( 'delete' == $doaction ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		foreach ( $bulklinks as $link_id ) {
 			$link_id = (int) $link_id;
 
@@ -32,10 +44,15 @@ if ( $doaction && isset( $_REQUEST['linkcheck'] ) ) {
 
 		$redirect_to = add_query_arg( 'deleted', count( $bulklinks ), $redirect_to );
 	} else {
+<<<<<<< HEAD
 		$screen = get_current_screen()->id;
 
 		/** This action is documented in wp-admin/edit.php */
 		$redirect_to = apply_filters( "handle_bulk_actions-{$screen}", $redirect_to, $doaction, $bulklinks ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+=======
+		/** This action is documented in wp-admin/edit-comments.php */
+		$redirect_to = apply_filters( 'handle_bulk_actions-' . get_current_screen()->id, $redirect_to, $doaction, $bulklinks ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 	}
 	wp_redirect( $redirect_to );
 	exit;
@@ -85,7 +102,11 @@ get_current_screen()->set_screen_reader_content(
 	)
 );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+include_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'manage_links' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to edit the links for this site.' ) );
@@ -134,4 +155,8 @@ if ( isset( $_REQUEST['deleted'] ) ) {
 </div>
 
 <?php
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664

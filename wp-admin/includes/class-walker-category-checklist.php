@@ -21,7 +21,11 @@ class Walker_Category_Checklist extends Walker {
 	public $db_fields = array(
 		'parent' => 'parent',
 		'id'     => 'term_id',
+<<<<<<< HEAD
 	); // TODO: Decouple this.
+=======
+	); //TODO: decouple this
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 	/**
 	 * Starts the list before the elements are added.
@@ -75,23 +79,38 @@ class Walker_Category_Checklist extends Walker {
 			$taxonomy = $args['taxonomy'];
 		}
 
+<<<<<<< HEAD
 		if ( 'category' === $taxonomy ) {
+=======
+		if ( $taxonomy == 'category' ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			$name = 'post_category';
 		} else {
 			$name = 'tax_input[' . $taxonomy . ']';
 		}
 
+<<<<<<< HEAD
 		$args['popular_cats'] = ! empty( $args['popular_cats'] ) ? array_map( 'intval', $args['popular_cats'] ) : array();
 
 		$class = in_array( $category->term_id, $args['popular_cats'], true ) ? ' class="popular-category"' : '';
 
 		$args['selected_cats'] = ! empty( $args['selected_cats'] ) ? array_map( 'intval', $args['selected_cats'] ) : array();
+=======
+		$args['popular_cats'] = empty( $args['popular_cats'] ) ? array() : $args['popular_cats'];
+		$class                = in_array( $category->term_id, $args['popular_cats'] ) ? ' class="popular-category"' : '';
+
+		$args['selected_cats'] = empty( $args['selected_cats'] ) ? array() : $args['selected_cats'];
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 		if ( ! empty( $args['list_only'] ) ) {
 			$aria_checked = 'false';
 			$inner_class  = 'category';
 
+<<<<<<< HEAD
 			if ( in_array( $category->term_id, $args['selected_cats'], true ) ) {
+=======
+			if ( in_array( $category->term_id, $args['selected_cats'] ) ) {
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				$inner_class .= ' selected';
 				$aria_checked = 'true';
 			}
@@ -102,6 +121,7 @@ class Walker_Category_Checklist extends Walker {
 				/** This filter is documented in wp-includes/category-template.php */
 				esc_html( apply_filters( 'the_category', $category->name, '', '' ) ) . '</div>';
 		} else {
+<<<<<<< HEAD
 			$is_selected = in_array( $category->term_id, $args['selected_cats'], true );
 			$is_disabled = ! empty( $args['disabled'] );
 
@@ -109,6 +129,12 @@ class Walker_Category_Checklist extends Walker {
 				'<label class="selectit"><input value="' . $category->term_id . '" type="checkbox" name="' . $name . '[]" id="in-' . $taxonomy . '-' . $category->term_id . '"' .
 				checked( $is_selected, true, false ) .
 				disabled( $is_disabled, true, false ) . ' /> ' .
+=======
+			$output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" .
+				'<label class="selectit"><input value="' . $category->term_id . '" type="checkbox" name="' . $name . '[]" id="in-' . $taxonomy . '-' . $category->term_id . '"' .
+				checked( in_array( $category->term_id, $args['selected_cats'] ), true, false ) .
+				disabled( empty( $args['disabled'] ), false, false ) . ' /> ' .
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 				/** This filter is documented in wp-includes/category-template.php */
 				esc_html( apply_filters( 'the_category', $category->name, '', '' ) ) . '</label>';
 		}

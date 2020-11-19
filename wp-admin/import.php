@@ -9,7 +9,11 @@
 define( 'WP_LOAD_IMPORTERS', true );
 
 /** Load WordPress Bootstrap */
+<<<<<<< HEAD
 require_once __DIR__ . '/admin.php';
+=======
+require_once( dirname( __FILE__ ) . '/admin.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 
 if ( ! current_user_can( 'import' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to import content into this site.' ) );
@@ -39,10 +43,17 @@ if ( current_user_can( 'install_plugins' ) ) {
 	$popular_importers = array();
 }
 
+<<<<<<< HEAD
 // Detect and redirect invalid importers like 'movabletype', which is registered as 'mt'.
 if ( ! empty( $_GET['invalid'] ) && isset( $popular_importers[ $_GET['invalid'] ] ) ) {
 	$importer_id = $popular_importers[ $_GET['invalid'] ]['importer-id'];
 	if ( $importer_id !== $_GET['invalid'] ) { // Prevent redirect loops.
+=======
+// Detect and redirect invalid importers like 'movabletype', which is registered as 'mt'
+if ( ! empty( $_GET['invalid'] ) && isset( $popular_importers[ $_GET['invalid'] ] ) ) {
+	$importer_id = $popular_importers[ $_GET['invalid'] ]['importer-id'];
+	if ( $importer_id != $_GET['invalid'] ) { // Prevent redirect loops.
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 		wp_redirect( admin_url( 'admin.php?import=' . $importer_id ) );
 		exit;
 	}
@@ -53,7 +64,11 @@ add_thickbox();
 wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'updates' );
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-header.php';
+=======
+require_once( ABSPATH . 'wp-admin/admin-header.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 $parent_file = 'tools.php';
 ?>
 
@@ -61,7 +76,11 @@ $parent_file = 'tools.php';
 <h1><?php echo esc_html( $title ); ?></h1>
 <?php if ( ! empty( $_GET['invalid'] ) ) : ?>
 	<div class="error">
+<<<<<<< HEAD
 		<p><strong><?php _e( 'Error:' ); ?></strong>
+=======
+		<p><strong><?php _e( 'ERROR:' ); ?></strong>
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 			<?php
 			/* translators: %s: Importer slug. */
 			printf( __( 'The %s importer is invalid or is not installed.' ), '<strong>' . esc_html( $_GET['invalid'] ) . '</strong>' );
@@ -93,7 +112,11 @@ foreach ( $popular_importers as $pop_importer => $pop_data ) {
 }
 
 if ( empty( $importers ) ) {
+<<<<<<< HEAD
 	echo '<p>' . __( 'No importers are available.' ) . '</p>'; // TODO: Make more helpful.
+=======
+	echo '<p>' . __( 'No importers are available.' ) . '</p>'; // TODO: make more helpful
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 } else {
 	uasort( $importers, '_usort_by_first_member' );
 	?>
@@ -156,12 +179,20 @@ if ( empty( $importers ) ) {
 						esc_attr( $plugin_slug ),
 						esc_attr( $data[0] ),
 						/* translators: %s: Importer name. */
+<<<<<<< HEAD
 						esc_attr( sprintf( _x( 'Install %s now', 'plugin' ), $data[0] ) ),
+=======
+						esc_attr( sprintf( __( 'Install %s now' ), $data[0] ) ),
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						__( 'Install Now' )
 					);
 				} else {
 					$action = sprintf(
+<<<<<<< HEAD
 						/* translators: %s: URL to Import screen on the main site. */
+=======
+						/* translators: URL to Import screen on the main site. */
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
 						__( 'This importer is not installed. Please install importers from <a href="%s">the main site</a>.' ),
 						get_admin_url( get_current_network_id(), 'import.php' )
 					);
@@ -237,4 +268,8 @@ if ( current_user_can( 'install_plugins' ) ) {
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 
+<<<<<<< HEAD
 require_once ABSPATH . 'wp-admin/admin-footer.php';
+=======
+include( ABSPATH . 'wp-admin/admin-footer.php' );
+>>>>>>> 046da9b56784140cae8bc7eed79f683177ce7664
