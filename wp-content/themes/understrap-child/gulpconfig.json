@@ -1,6 +1,6 @@
 {
   "browserSyncOptions" : {
-    "proxy": "localhost/bigplanemedia.com",
+    "proxy": "localhost/bigplane.co.uk",
     "notify": false
   },
   "browserSyncWatchFiles" : [
