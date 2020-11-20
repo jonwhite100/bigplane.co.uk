@@ -1,3 +1,69 @@
+$c_icon_fill: $body-color !default;
+$c_icon_stroke: $secondary !default;
+$c_icon_button_color_1: $white !default;
+$c_icon_button_color_2: $primary !default;
+$c_icon_solid_fill: $secondary !default;
+$c_icon_outline_fill: $gray-200 !default;
+
+/// All icons to have the following class applied to the svg tag.
+/// Exception is .loader
+
+@mixin maintainValue($property, $value) {
+    #{$property}: $value / 0.875;
+
+    // @include breakpoint('sm') {
+    //     #{$property}: $value;
+    // }
+    // @include breakpoint('xl') {
+    //     #{$property}: $value / 1.125;
+    // }
+}
+
+.icon {
+    @include maintainValue(width, $s-md);
+    @include maintainValue(height, $s-md);
+    overflow: visible;
+    vertical-align: baseline;
+    fill: $c_icon_fill;
+    stroke: $c_icon_stroke;
+    stroke-width: 0.5;
+
+    &-xs {
+        @include maintainValue(width, $s-xs);
+        @include maintainValue(height, $s-xs);
+    }
+
+    &-sm {
+        @include maintainValue(width, $s-sm);
+        @include maintainValue(height, $s-sm);
+    }
+
+    &-lg {
+        @include maintainValue(width, $s-lg);
+        @include maintainValue(height, $s-lg);
+    }
+
+    &-xl {
+        @include maintainValue(width, $s-xl);
+        @include maintainValue(height, $s-xl);
+    }
+
+    .button &,
+    .button--secondary.button--on-dark & {
+        fill: $c_icon_button_color_1;
+        stroke: $c_icon_button_color_1;
+    }
+    .button--secondary &,
+    .button--on-dark &,
+    .button--secondary.button--on-light & {
+        fill: $c_icon_button_color_2;
+        stroke: $c_icon_button_color_2;
+    }
+}
+
+
+
+
 ///
 //  Flaticon icon font: Flaticon
 //  Creation date: 08/09/2018 00:19

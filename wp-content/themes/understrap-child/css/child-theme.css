@@ -1649,64 +1649,16 @@ pre {
     outline: 0;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(18, 106, 180, 0.25);
             box-shadow: 0 0 0 0.2rem rgba(18, 106, 180, 0.25); }
-  .form-control::-webkit-input-placeholder, .wpcf7 input[type=text]::-webkit-input-placeholder,
-  .wpcf7 input[type=search]::-webkit-input-placeholder,
-  .wpcf7 input[type=url]::-webkit-input-placeholder,
-  .wpcf7 input[type=tel]::-webkit-input-placeholder,
-  .wpcf7 input[type=number]::-webkit-input-placeholder,
-  .wpcf7 input[type=range]::-webkit-input-placeholder,
-  .wpcf7 input[type=date]::-webkit-input-placeholder,
-  .wpcf7 input[type=month]::-webkit-input-placeholder,
-  .wpcf7 input[type=week]::-webkit-input-placeholder,
-  .wpcf7 input[type=time]::-webkit-input-placeholder,
-  .wpcf7 input[type=datetime]::-webkit-input-placeholder,
-  .wpcf7 input[type=datetime-local]::-webkit-input-placeholder,
-  .wpcf7 input[type=color]::-webkit-input-placeholder,
-  .wpcf7 input[type=email]::-webkit-input-placeholder,
-  .wpcf7 input[type=file]::-webkit-input-placeholder,
-  .wpcf7 input[type=submit]::-webkit-input-placeholder,
-  .wpcf7 select::-webkit-input-placeholder,
-  .wpcf7 textarea::-webkit-input-placeholder, .wpcf7 .wpcf7-validation-errors::-webkit-input-placeholder {
+  .form-control::-webkit-input-placeholder, .wpcf7 input[type=text]::-webkit-input-placeholder, .wpcf7 input[type=search]::-webkit-input-placeholder, .wpcf7 input[type=url]::-webkit-input-placeholder, .wpcf7 input[type=tel]::-webkit-input-placeholder, .wpcf7 input[type=number]::-webkit-input-placeholder, .wpcf7 input[type=range]::-webkit-input-placeholder, .wpcf7 input[type=date]::-webkit-input-placeholder, .wpcf7 input[type=month]::-webkit-input-placeholder, .wpcf7 input[type=week]::-webkit-input-placeholder, .wpcf7 input[type=time]::-webkit-input-placeholder, .wpcf7 input[type=datetime]::-webkit-input-placeholder, .wpcf7 input[type=datetime-local]::-webkit-input-placeholder, .wpcf7 input[type=color]::-webkit-input-placeholder, .wpcf7 input[type=email]::-webkit-input-placeholder, .wpcf7 input[type=file]::-webkit-input-placeholder, .wpcf7 input[type=submit]::-webkit-input-placeholder, .wpcf7 select::-webkit-input-placeholder, .wpcf7 textarea::-webkit-input-placeholder, .wpcf7 .wpcf7-validation-errors::-webkit-input-placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control::-moz-placeholder, .wpcf7 input[type=text]::-moz-placeholder,
-  .wpcf7 input[type=search]::-moz-placeholder,
-  .wpcf7 input[type=url]::-moz-placeholder,
-  .wpcf7 input[type=tel]::-moz-placeholder,
-  .wpcf7 input[type=number]::-moz-placeholder,
-  .wpcf7 input[type=range]::-moz-placeholder,
-  .wpcf7 input[type=date]::-moz-placeholder,
-  .wpcf7 input[type=month]::-moz-placeholder,
-  .wpcf7 input[type=week]::-moz-placeholder,
-  .wpcf7 input[type=time]::-moz-placeholder,
-  .wpcf7 input[type=datetime]::-moz-placeholder,
-  .wpcf7 input[type=datetime-local]::-moz-placeholder,
-  .wpcf7 input[type=color]::-moz-placeholder,
-  .wpcf7 input[type=email]::-moz-placeholder,
-  .wpcf7 input[type=file]::-moz-placeholder,
-  .wpcf7 input[type=submit]::-moz-placeholder,
-  .wpcf7 select::-moz-placeholder,
-  .wpcf7 textarea::-moz-placeholder, .wpcf7 .wpcf7-validation-errors::-moz-placeholder {
+  .form-control::-moz-placeholder, .wpcf7 input[type=text]::-moz-placeholder, .wpcf7 input[type=search]::-moz-placeholder, .wpcf7 input[type=url]::-moz-placeholder, .wpcf7 input[type=tel]::-moz-placeholder, .wpcf7 input[type=number]::-moz-placeholder, .wpcf7 input[type=range]::-moz-placeholder, .wpcf7 input[type=date]::-moz-placeholder, .wpcf7 input[type=month]::-moz-placeholder, .wpcf7 input[type=week]::-moz-placeholder, .wpcf7 input[type=time]::-moz-placeholder, .wpcf7 input[type=datetime]::-moz-placeholder, .wpcf7 input[type=datetime-local]::-moz-placeholder, .wpcf7 input[type=color]::-moz-placeholder, .wpcf7 input[type=email]::-moz-placeholder, .wpcf7 input[type=file]::-moz-placeholder, .wpcf7 input[type=submit]::-moz-placeholder, .wpcf7 select::-moz-placeholder, .wpcf7 textarea::-moz-placeholder, .wpcf7 .wpcf7-validation-errors::-moz-placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control::-ms-input-placeholder, .wpcf7 input[type=text]::-ms-input-placeholder,
-  .wpcf7 input[type=search]::-ms-input-placeholder,
-  .wpcf7 input[type=url]::-ms-input-placeholder,
-  .wpcf7 input[type=tel]::-ms-input-placeholder,
-  .wpcf7 input[type=number]::-ms-input-placeholder,
-  .wpcf7 input[type=range]::-ms-input-placeholder,
-  .wpcf7 input[type=date]::-ms-input-placeholder,
-  .wpcf7 input[type=month]::-ms-input-placeholder,
-  .wpcf7 input[type=week]::-ms-input-placeholder,
-  .wpcf7 input[type=time]::-ms-input-placeholder,
-  .wpcf7 input[type=datetime]::-ms-input-placeholder,
-  .wpcf7 input[type=datetime-local]::-ms-input-placeholder,
-  .wpcf7 input[type=color]::-ms-input-placeholder,
-  .wpcf7 input[type=email]::-ms-input-placeholder,
-  .wpcf7 input[type=file]::-ms-input-placeholder,
-  .wpcf7 input[type=submit]::-ms-input-placeholder,
-  .wpcf7 select::-ms-input-placeholder,
-  .wpcf7 textarea::-ms-input-placeholder, .wpcf7 .wpcf7-validation-errors::-ms-input-placeholder {
+  .form-control:-ms-input-placeholder, .wpcf7 input[type=text]:-ms-input-placeholder, .wpcf7 input[type=search]:-ms-input-placeholder, .wpcf7 input[type=url]:-ms-input-placeholder, .wpcf7 input[type=tel]:-ms-input-placeholder, .wpcf7 input[type=number]:-ms-input-placeholder, .wpcf7 input[type=range]:-ms-input-placeholder, .wpcf7 input[type=date]:-ms-input-placeholder, .wpcf7 input[type=month]:-ms-input-placeholder, .wpcf7 input[type=week]:-ms-input-placeholder, .wpcf7 input[type=time]:-ms-input-placeholder, .wpcf7 input[type=datetime]:-ms-input-placeholder, .wpcf7 input[type=datetime-local]:-ms-input-placeholder, .wpcf7 input[type=color]:-ms-input-placeholder, .wpcf7 input[type=email]:-ms-input-placeholder, .wpcf7 input[type=file]:-ms-input-placeholder, .wpcf7 input[type=submit]:-ms-input-placeholder, .wpcf7 select:-ms-input-placeholder, .wpcf7 textarea:-ms-input-placeholder, .wpcf7 .wpcf7-validation-errors:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1; }
+  .form-control::-ms-input-placeholder, .wpcf7 input[type=text]::-ms-input-placeholder, .wpcf7 input[type=search]::-ms-input-placeholder, .wpcf7 input[type=url]::-ms-input-placeholder, .wpcf7 input[type=tel]::-ms-input-placeholder, .wpcf7 input[type=number]::-ms-input-placeholder, .wpcf7 input[type=range]::-ms-input-placeholder, .wpcf7 input[type=date]::-ms-input-placeholder, .wpcf7 input[type=month]::-ms-input-placeholder, .wpcf7 input[type=week]::-ms-input-placeholder, .wpcf7 input[type=time]::-ms-input-placeholder, .wpcf7 input[type=datetime]::-ms-input-placeholder, .wpcf7 input[type=datetime-local]::-ms-input-placeholder, .wpcf7 input[type=color]::-ms-input-placeholder, .wpcf7 input[type=email]::-ms-input-placeholder, .wpcf7 input[type=file]::-ms-input-placeholder, .wpcf7 input[type=submit]::-ms-input-placeholder, .wpcf7 select::-ms-input-placeholder, .wpcf7 textarea::-ms-input-placeholder, .wpcf7 .wpcf7-validation-errors::-ms-input-placeholder {
     color: #6c757d;
     opacity: 1; }
   .form-control::placeholder, .wpcf7 input[type=text]::placeholder,
@@ -4171,15 +4123,13 @@ input[type="button"].btn-block {
     background-color: #126ab4;
     border: 0;
     border-radius: 1rem;
-    -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     -moz-appearance: none;
          appearance: none; }
     @media screen and (prefers-reduced-motion: reduce) {
       .custom-range::-moz-range-thumb {
-        -webkit-transition: none;
+        -moz-transition: none;
         transition: none; } }
     .custom-range::-moz-range-thumb:active {
       background-color: #86c1f3; }
@@ -4200,14 +4150,12 @@ input[type="button"].btn-block {
     background-color: #126ab4;
     border: 0;
     border-radius: 1rem;
-    -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    -ms-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     appearance: none; }
     @media screen and (prefers-reduced-motion: reduce) {
       .custom-range::-ms-thumb {
-        -webkit-transition: none;
+        -ms-transition: none;
         transition: none; } }
     .custom-range::-ms-thumb:active {
       background-color: #86c1f3; }
@@ -5342,7 +5290,7 @@ button.close {
 .carousel-item-prev.carousel-item-right {
   -webkit-transform: translateX(0);
           transform: translateX(0); }
-  @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  @supports (transform-style: preserve-3d) {
     .carousel-item-next.carousel-item-left,
     .carousel-item-prev.carousel-item-right {
       -webkit-transform: translate3d(0, 0, 0);
@@ -5352,7 +5300,7 @@ button.close {
 .active.carousel-item-right {
   -webkit-transform: translateX(100%);
           transform: translateX(100%); }
-  @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  @supports (transform-style: preserve-3d) {
     .carousel-item-next,
     .active.carousel-item-right {
       -webkit-transform: translate3d(100%, 0, 0);
@@ -5362,7 +5310,7 @@ button.close {
 .active.carousel-item-left {
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%); }
-  @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  @supports (transform-style: preserve-3d) {
     .carousel-item-prev,
     .active.carousel-item-left {
       -webkit-transform: translate3d(-100%, 0, 0);
@@ -5391,7 +5339,7 @@ button.close {
 .carousel-fade .active.carousel-item-prev {
   -webkit-transform: translateX(0);
           transform: translateX(0); }
-  @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  @supports (transform-style: preserve-3d) {
     .carousel-fade .carousel-item-next,
     .carousel-fade .carousel-item-prev,
     .carousel-fade .carousel-item.active,
@@ -6570,7 +6518,6 @@ button.bg-dark:focus {
   position: fixed !important; }
 
 .position-sticky {
-  position: -webkit-sticky !important;
   position: sticky !important; }
 
 .fixed-top {
@@ -6587,9 +6534,8 @@ button.bg-dark:focus {
   left: 0;
   z-index: 1030; }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
   .sticky-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020; } }
@@ -11018,20 +10964,6 @@ body {
 .gallery-caption {
   display: block; }
 
-.card-pricing .btn,
-.card-pricing .wpcf7 input[type=submit], .wpcf7 .card-pricing input[type=submit] {
-  padding: 1rem 2rem;
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase; }
-
-.btn.wpcf7-form-control, .wpcf7 input.wpcf7-form-control[type=submit] {
-  color: #fff;
-  background-color: #126ab4; }
-  .btn.wpcf7-form-control:hover, .wpcf7 input.wpcf7-form-control:hover[type=submit] {
-    color: #fff;
-    background-color: #1785e2; }
-
 @-webkit-keyframes pulse {
   to {
     -webkit-box-shadow: 0 0 0 1.5rem rgba(74, 155, 211, 0);
@@ -11366,7 +11298,7 @@ body {
   background-position: center center;
   background-size: cover; }
   .fixed-bg-newsletter {
-    background-image: url("../../../uploads/2019/09/bigplane-test-image.jpg"); }
+    background-image: url("../../../"); }
   .fixed-bg::after {
     position: absolute;
     top: 0;
@@ -11420,10 +11352,7 @@ label {
 .navbar {
   padding: 1rem;
   -webkit-transition: all .33s ease-in-out;
-  transition: all .33s ease-in-out;
-  background-color: #fff;
-  -webkit-box-shadow: 0 3px 6px 0 rgba(122, 120, 122, 0.99);
-          box-shadow: 0 3px 6px 0 rgba(122, 120, 122, 0.99); }
+  transition: all .33s ease-in-out; }
   .navbar.shrink {
     top: 0;
     padding: 0.5rem 1rem;
@@ -11532,91 +11461,6 @@ label {
     font-size: 1.25rem; }
   .fa-stack-lg .fa-stack-2x {
     font-size: 2.5rem; }
-
-@font-face {
-  font-family: 'Flaticon';
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/Flaticon.eot"), url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("webfont.woff2") format("woff2"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg"); }
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Flaticon';
-    src: url("./Flaticon.svg#Flaticon") format("svg"); } }
-
-[class^='flaticon-']:before, [class^='flaticon-']:after,
-[class*=' flaticon-']:before,
-[class*=' flaticon-']:after,
-[class^='flaticon-']:before,
-[class^='flaticon-']:after,
-[class*=' flaticon-']:before,
-[class*=' flaticon-']:after {
-  font-family: Flaticon;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  text-transform: none;
-  speak: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.flaticon-move:before {
-  content: '\f100'; }
-
-.flaticon-scroll:before {
-  content: '\f101'; }
-
-.flaticon-customer-support:before {
-  content: '\f102'; }
-
-.flaticon-feature:before {
-  content: '\f103'; }
-
-.flaticon-intersect:before {
-  content: '\f104'; }
-
-.flaticon-union:before {
-  content: '\f105'; }
-
-.flaticon-intersection:before {
-  content: '\f106'; }
-
-.flaticon-rgb:before {
-  content: '\f107'; }
-
-.flaticon-rgb-1:before {
-  content: '\f108'; }
-
-.flaticon-resolution:before {
-  content: '\f109'; }
-
-.flaticon-showcase:before {
-  content: '\f10a'; }
-
-.flaticon-tickets:before {
-  content: '\f10b'; }
-
-.flaticon-ticket:before {
-  content: '\f10c'; }
-
-.flaticon-conversation:before {
-  content: '\f10d'; }
-
-.flaticon-speech-bubble:before {
-  content: '\f10e'; }
-
-.flaticon-email:before {
-  content: '\f10f'; }
-
-.flaticon-contact:before {
-  content: '\f110'; }
-
-.flaticon-file:before {
-  content: '\f111'; }
-
-.flaticon-upload-information:before {
-  content: '\f112'; }
 
 .jumbotron {
   display: -webkit-box;
@@ -11982,6 +11826,9 @@ p {
   padding-bottom: 20px;
   font-weight: 700; }
 
+.is-style-fancy-quote {
+  color: #126ab4; }
+
 .site {
   margin-top: 6rem; }
   @media (min-width: 768px) {
@@ -12026,6 +11873,20 @@ p {
   .single-post .wp-post-image {
     border-bottom: 1px solid #e9ecef; }
 
+.card-pricing .btn,
+.card-pricing .wpcf7 input[type=submit], .wpcf7 .card-pricing input[type=submit] {
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.btn.wpcf7-form-control, .wpcf7 input.wpcf7-form-control[type=submit] {
+  color: #fff;
+  background-color: #126ab4; }
+  .btn.wpcf7-form-control:hover, .wpcf7 input.wpcf7-form-control:hover[type=submit] {
+    color: #fff;
+    background-color: #1785e2; }
+
 .card-article .wp-block-image img {
   width: 100%; }
 
@@ -12065,6 +11926,13 @@ p {
 .bg-grenston {
   background-color: #118518; }
 
+.fixed-bg-newsletter {
+  background-image: url("../../../"); }
+
+.navbar {
+  -webkit-box-shadow: 0 3px 6px 0 rgba(122, 120, 122, 0.99);
+          box-shadow: 0 3px 6px 0 rgba(122, 120, 122, 0.99); }
+
 .img-fluid,
 .custom-logo {
   max-width: 14rem;
@@ -12077,6 +11945,121 @@ p {
     max-height: 3rem;
     -webkit-transition: all .33s ease-in-out;
     transition: all .33s ease-in-out; }
+
+.icon {
+  width: 2.28571rem;
+  height: 2.28571rem;
+  overflow: visible;
+  vertical-align: baseline;
+  fill: #212529;
+  stroke: #4a9bd3;
+  stroke-width: 0.5; }
+  .icon-xs {
+    width: 0.57143rem;
+    height: 0.57143rem; }
+  .icon-sm {
+    width: 1.14286rem;
+    height: 1.14286rem; }
+  .icon-lg {
+    width: 4.57143rem;
+    height: 4.57143rem; }
+  .icon-xl {
+    width: 6.85714rem;
+    height: 6.85714rem; }
+  .button .icon,
+  .button--secondary.button--on-dark .icon {
+    fill: #fff;
+    stroke: #fff; }
+  .button--secondary .icon,
+  .button--on-dark .icon,
+  .button--secondary.button--on-light .icon {
+    fill: #126ab4;
+    stroke: #126ab4; }
+
+@font-face {
+  font-family: 'Flaticon';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Flaticon.eot"), url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("webfont.woff2") format("woff2"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg"); }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'Flaticon';
+    src: url("../fonts/Flaticon.svg#Flaticon") format("svg"); } }
+
+[class^='flaticon-']:before, [class^='flaticon-']:after,
+[class*=' flaticon-']:before,
+[class*=' flaticon-']:after,
+[class^='flaticon-']:before,
+[class^='flaticon-']:after,
+[class*=' flaticon-']:before,
+[class*=' flaticon-']:after {
+  font-family: Flaticon;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.flaticon-move:before {
+  content: '\f100'; }
+
+.flaticon-scroll:before {
+  content: '\f101'; }
+
+.flaticon-customer-support:before {
+  content: '\f102'; }
+
+.flaticon-feature:before {
+  content: '\f103'; }
+
+.flaticon-intersect:before {
+  content: '\f104'; }
+
+.flaticon-union:before {
+  content: '\f105'; }
+
+.flaticon-intersection:before {
+  content: '\f106'; }
+
+.flaticon-rgb:before {
+  content: '\f107'; }
+
+.flaticon-rgb-1:before {
+  content: '\f108'; }
+
+.flaticon-resolution:before {
+  content: '\f109'; }
+
+.flaticon-showcase:before {
+  content: '\f10a'; }
+
+.flaticon-tickets:before {
+  content: '\f10b'; }
+
+.flaticon-ticket:before {
+  content: '\f10c'; }
+
+.flaticon-conversation:before {
+  content: '\f10d'; }
+
+.flaticon-speech-bubble:before {
+  content: '\f10e'; }
+
+.flaticon-email:before {
+  content: '\f10f'; }
+
+.flaticon-contact:before {
+  content: '\f110'; }
+
+.flaticon-file:before {
+  content: '\f111'; }
+
+.flaticon-upload-information:before {
+  content: '\f112'; }
 
 .jumbotron {
   min-height: 42rem; }
@@ -12095,15 +12078,17 @@ p {
 
 .jumbotron-main {
   margin-bottom: 2rem; }
+  .jumbotron-main p {
+    color: #dee2e6;
+    margin-bottom: 1rem; }
   .jumbotron-main h1 {
     margin-top: 2rem;
     margin-bottom: 2rem;
     color: #4a9bd3;
-    font-size: 3.375rem;
-    text-transform: uppercase; }
+    font-size: 2.25rem; }
     @media (min-width: 768px) {
       .jumbotron-main h1 {
-        font-size: 4.5rem; } }
+        font-size: 3.375rem; } }
     @media (min-width: 992px) {
       .jumbotron-main h1 {
         margin-top: 0; } }
@@ -12111,14 +12096,13 @@ p {
     margin-bottom: 2rem;
     background-color: transparent;
     color: #126ab4;
-    font-size: 1.75rem;
-    text-transform: uppercase; }
+    font-size: 1.75rem; }
     @media (min-width: 768px) {
       .jumbotron-main h2 {
         font-size: 1.75rem; } }
     @media (min-width: 1200px) {
       .jumbotron-main h2 {
-        font-size: 2.625rem; } }
+        font-size: 1.75rem; } }
   .jumbotron-main .lead {
     margin-bottom: 2rem;
     color: #6c757d; }

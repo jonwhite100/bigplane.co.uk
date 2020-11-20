@@ -1,0 +1,105 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.bpm-editor-block {
+  border: 1px solid #bb2c29;
+  padding: 2rem;
+  background-color: #cfcfcf; }
+
+.block-editor-rich-text__editable {
+  padding: 0.5rem;
+  background-color: #dedede; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-cgb-block-bpm-blocks {
+  background: #bada55;
+  border: 0.2rem solid #292929;
+  color: #292929;
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 2rem; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.bpm-editor-block {
+  border: 1px solid #bb2c29;
+  padding: 2rem;
+  background-color: #cfcfcf; }
+
+.block-editor-rich-text__editable {
+  padding: 0.5rem;
+  background-color: #dedede; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-cgb-block-bpm-blocks2 {
+  background: #bada55;
+  border: 0.2rem solid #292929;
+  color: #292929;
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 2rem; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.bpm-editor-block {
+  border: 1px solid #bb2c29;
+  padding: 2rem;
+  background-color: #cfcfcf; }
+
+.block-editor-rich-text__editable {
+  padding: 0.5rem;
+  background-color: #dedede; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.bpm-editor-block {
+  border: 1px solid #bb2c29;
+  padding: 2rem;
+  background-color: #cfcfcf; }
+
+.block-editor-rich-text__editable {
+  padding: 0.5rem;
+  background-color: #dedede; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-cgb-block-bpm-blocks {
+  background: #bada55;
+  border: 0.2rem solid #292929;
+  color: #292929;
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 2rem; }

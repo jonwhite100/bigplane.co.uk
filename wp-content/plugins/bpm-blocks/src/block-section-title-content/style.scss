@@ -1,0 +1,33 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+// @import '../../../../themes/understrap-child/sass/theme/bpm-overrides/_bpm-overrides-variables.scss';
+
+
+.ul-bpm-block {
+	li {
+		position: relative;
+		padding-left: $s-md + $s-xs;
+		line-height: $s-md + $s-xs;
+		list-style-type: none;
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: $s-md;
+			height: $s-md;
+			border: 4px solid $secondary;
+			border-radius: 50%;
+			background-color: $primary;
+			color: $white;
+			font-family: 'FontAwesome';
+			font-size: $s-sm;
+			line-height: 1.6;
+			text-align: center;
+    		content: '\f00c';
+		}
+	}
+}

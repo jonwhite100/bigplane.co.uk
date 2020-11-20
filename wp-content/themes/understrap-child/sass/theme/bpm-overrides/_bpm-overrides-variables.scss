@@ -10,6 +10,14 @@ $primary:  #126ab4 !default; // dark blue from logo
 $secondary: #4a9bd3 !default; // light blue from logo
 $c-primary-grenston: #118518 !default;
 
+$black: #000 !default;
+$white: #fff !default;
+$gray-100: #fcfcfc !default; // lightest gray - use for body background
+$gray-200: #f2f2f2 !default; // lighter gray - from branding
+$gray-300: #cac9c9 !default; // light gray from logo
+$gray-600: #444647 !default; // dark gray
+$gray-900: #212223 !default; // logo dark gray
+
 // Buttons
 $c-btn-pulse: rgba($secondary, 0) !default;
 

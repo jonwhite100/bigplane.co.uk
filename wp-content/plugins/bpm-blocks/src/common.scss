@@ -1,0 +1,41 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+
+// Colors.
+$black: rgb(41, 41, 41);
+$white: #f4f4f4;
+$gray: #dedede;
+$green: #bada55;
+$red: orangered;
+
+$c-light-gray: #cfcfcf;
+
+// Spacers
+$spacer: 1rem; // 16px;
+
+$s-sm: $spacer;
+$s-xs: $s-sm / 2;
+$s-xxs: $s-xs / 2;
+$s-md: $s-sm * 2;
+$s-lg: $s-md * 2;
+$s-xl: $s-lg + $s-md;
+
+// Colours
+$primary:  #bb2c29 !default; // red
+$secondary: #f2c230 !default;
+$tertiary: #b8ccd9 !default;
+
+.bpm-editor-block {
+	border: 1px solid $primary;
+	padding: $s-md;
+	background-color: $c-light-gray;
+}
+
+.block-editor-rich-text__editable {
+	padding: $s-xs;
+	background-color: $gray;
+}
