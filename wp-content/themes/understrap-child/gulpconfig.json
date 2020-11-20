@@ -1,10 +1,6 @@
 {
   "browserSyncOptions" : {
-<<<<<<< HEAD
-    "proxy": "localhost/bigplane.co.uk",
-=======
     "proxy": "localhost/bigplane.co.uk/",
->>>>>>> renamed-local-dir
     "notify": false
   },
   "browserSyncWatchFiles" : [

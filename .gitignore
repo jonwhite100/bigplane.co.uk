@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Exclude these files from the git repo
 wp-content/backup/*
 wp-content/cache/*
@@ -12,8 +11,6 @@ wp-config.php
 *[Tt]humbs.db
 *.Trashes
 
-
-=======
 .sass-cache
 
 4rg90d.php
@@ -37,7 +34,7 @@ wp-content/themes/understrap-child/npm-debug.log
 
 # Added by jmw
 wp-config.php
->>>>>>> renamed-local-dir
+
 
 # Include these files in previously blocked directories
 !wp-content/uploads/.htaccess
