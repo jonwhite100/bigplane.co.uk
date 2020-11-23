@@ -1,3 +1,18 @@
+.section-md {
+	padding-top: $section-space-md;
+	padding-bottom: $section-space-md;
+}
+
+.section-lg {
+	padding-top: $section-space-lg;
+	padding-bottom: $section-space-lg;
+}
+
+.section-xl {
+	padding-top: $section-space-xl;
+	padding-bottom: $section-space-xl;
+}
+
 .section-jobs {
 	.col-md-6 {
 		margin-bottom: $s-md;

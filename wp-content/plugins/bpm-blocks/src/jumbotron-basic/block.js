@@ -53,12 +53,6 @@ registerBlockType( 'bpm-blocks/jumbotron-basic', {
 			source: 'text',
 			selector: 'p',
 		},
-		jumbotron_img: {
-			type: 'string',
-			source: 'attribute',
-			selector: 'img',
-			attribute: 'src',
-		},
         jumbotron_btn_text: {
             selector: 'a', // tag a
             source: 'children',  // children of a, to bind the link text
@@ -84,8 +78,7 @@ registerBlockType( 'bpm-blocks/jumbotron-basic', {
         let jumbotron_h1 = props.attributes.jumbotron_h1
         let jumbotron_h2 = props.attributes.jumbotron_h2
         let jumbotron_p = props.attributes.jumbotron_p
-        let jumbotron_img = props.attributes.jumbotron_img
-		let jumbotron_btn_text = props.attributes.jumbotron_btn_text // To bind attribute jumbotron_btn_text
+        let jumbotron_btn_text = props.attributes.jumbotron_btn_text // To bind attribute jumbotron_btn_text
 		let jumbotron_btn_url = props.attributes.jumbotron_btn_url // To bind attribute jumbotron_btn_url
 
 		function onChangeContentJumbotronH1 ( content ) {
@@ -100,18 +93,13 @@ registerBlockType( 'bpm-blocks/jumbotron-basic', {
 		function onChangeContentURL ( content ) {
             props.setAttributes({jumbotron_btn_url: content})
         }
-
         function onChangeContentName ( content ) {
             props.setAttributes({jumbotron_btn_text: content})
         }
 
-        function onChangeContentBgImgUrl ( content ) {
-            props.setAttributes({jumbotron_img: content})
-        }
-
 		return (
 			<div id="block-editable-box" class="bpm-editor-block"> {/* You have to have a wrapper tag when your markup has more than 1 tag */}
-				<p>What's the H1?</p>
+				<label>What's the H1?</label>
 				<RichText
 					format = 'string'
 					className={props.className} // Automatic class: gutenberg-blocks-sample-block-editable
@@ -119,7 +107,7 @@ registerBlockType( 'bpm-blocks/jumbotron-basic', {
 					value={jumbotron_h1} // Binding
 					placeholder="H1 text"
 				/>
-				<p>What's the H2?</p>
+				<label>What's the H2?</label>
 				<RichText
 					format = 'string'
 					className={props.className} // Automatic class: gutenberg-blocks-sample-block-editable
@@ -127,7 +115,7 @@ registerBlockType( 'bpm-blocks/jumbotron-basic', {
 					value={jumbotron_h2} // Binding
 					placeholder="H1 text"
 				/>
-				<p>What's the p tag?</p>
+				<label>What's the p tag?</label>
 				<RichText
 					format = 'string'
 					className={props.className} // Automatic class: gutenberg-blocks-sample-block-editable
@@ -135,23 +123,15 @@ registerBlockType( 'bpm-blocks/jumbotron-basic', {
 					value={jumbotron_p} // Binding
 					placeholder="H1 text"
 				/>
-				<p>What's the image url?</p>
-				<RichText
-					format = 'string'
-                    className={props.className} // Automatic class: gutenberg-blocks-sample-block-editable
-                    onChange={onChangeContentBgImgUrl} // onChange event callback
-                    value={jumbotron_img} // Binding
-                    placeholder="Image url"
-                />
-                <p>Sample Link Block</p>
-                <label>Name:</label>
+
+                <label>CTA button text:</label>
                 <RichText
                     className={props.className} // Automatic class: gutenberg-blocks-sample-block-editable
                     onChange={onChangeContentName} // onChange event callback
                     value={jumbotron_btn_text} // Binding
                     placeholder="Name of the link"
                 />
-                <label>URL:</label>
+                <label>CTA button URL:</label>
                 <RichText
                     format="string"             // Default is 'element'. Wouldn't work for a tag attribute
                     className={props.className} // Automatic class: gutenberg-blocks-sample-block-editable
@@ -159,7 +139,7 @@ registerBlockType( 'bpm-blocks/jumbotron-basic', {
                     value={jumbotron_btn_url} // Binding
                     placeholder="URL of the link"
                 />
-				<p>And here is a nested block</p>
+				<label>Select the image for the right side</label>
 				<InnerBlocks
 					allowedBlocks={['core/image']}
 				/>
@@ -194,7 +174,6 @@ registerBlockType( 'bpm-blocks/jumbotron-basic', {
 								</p>
 							</div>
 							<div class="col-md-6 jumbotron-img">
-								// <img src={props.attributes.jumbotron_img} />
 								<InnerBlocks.Content />
 							</div>
 						</div>
