@@ -1,0 +1,47 @@
+// Leave space at the top of the page for the fixed navbar.
+.site {
+    margin-top: $s-xl - $s-sm;
+
+	@include media-breakpoint-up(md) {
+		margin-top: $s-xl - ($s-xs + $s-xxs);
+	}
+}
+
+// animate.css
+.animated {
+	&.card {
+		&.delay-1s {
+			animation-delay: .33s;
+		}
+
+		&.delay-2s {
+			animation-delay: .66s;
+		}
+
+		&.delay-3s {
+			animation-delay: 1s;
+		}
+
+		&.delay-4s {
+			animation-delay: 1.33s;
+		}
+
+		&.delay-5s {
+			animation-delay: 1.66s;
+		}
+	}
+}
+
+// ensure the entry-header appear on posts
+.entry-header {
+	.single-post & {
+		display: block;
+	}
+}
+
+// Hide the featured image from post type of 'Video'
+.format-video {
+	.card-img-top {
+		display: none;
+	}
+}
