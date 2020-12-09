@@ -1,6 +1,0 @@
-/// 1. puts the dark overlay over the bg image
-.fixed-bg {
-    &-newsletter {
-        background-image: url('#{$path-to-uploads}#{$path-to-fixed-bg-newsletter}');
-    }
-}
